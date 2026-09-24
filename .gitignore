@@ -1,0 +1,4 @@
+__pycache__/
+*.key
+keys.txt
+clone/

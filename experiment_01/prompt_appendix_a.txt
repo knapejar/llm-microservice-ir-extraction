@@ -1,0 +1,30 @@
+Task: Extract inbound HTTP endpoints from the supplied source code.
+
+Rules:
+- Return only valid JSON.
+- Do not invent endpoints.
+- Use only evidence visible in the supplied code.
+- Separate inbound endpoints from outbound REST/client calls.
+- Resolve class-level and method-level route annotations when possible.
+- If uncertain, mark confidence as low instead of guessing.
+
+Output schema:
+{
+  "system": "...",
+  "files": [
+    {
+      "path": "...",
+      "endpoints": [
+        {
+          "className": "...",
+          "methodName": "...",
+          "httpMethod": "GET|POST|PUT|DELETE|PATCH|ANY",
+          "path": "...",
+          "framework": "Spring|JAX-RS|Vert.x|Pekko|Other",
+          "evidence": "...",
+          "confidence": "high|medium|low"
+        }
+      ]
+    }
+  ]
+}

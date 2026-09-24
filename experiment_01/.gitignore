@@ -1,0 +1,5 @@
+out/*
+!out/llm_ir.gemini-2.5-flash-lite.json
+!out/llm_ir.gemini-2.5-flash-lite.report.md
+!out/llm_ir.gemini-3.5-flash-lite.json
+!out/llm_ir.gemini-3.5-flash-lite.report.md

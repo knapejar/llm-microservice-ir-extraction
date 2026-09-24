@@ -1,0 +1,661 @@
+{
+  "system": "spring-cloud-movie-recommendation",
+  "files": [
+    {
+      "path": "/config-service/src/main/java/com/example/ConfigServiceApplication.java",
+      "endpoints": []
+    },
+    {
+      "path": "/eureka-service/src/main/java/com/example/EurekaServiceApplication.java",
+      "endpoints": []
+    },
+    {
+      "path": "/movie-service/src/main/java/com/example/MongoConfig.java",
+      "endpoints": []
+    },
+    {
+      "path": "/movie-service/src/main/java/com/example/Movie.java",
+      "endpoints": []
+    },
+    {
+      "path": "/movie-service/src/main/java/com/example/MovieController.java",
+      "endpoints": [
+        {
+          "className": "MovieController",
+          "methodName": "getAllMovies",
+          "httpMethod": "GET",
+          "path": "/movie",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/movie-service/src/main/java/com/example/MovieController.java"
+        },
+        {
+          "className": "MovieController",
+          "methodName": "getListMovies",
+          "httpMethod": "GET",
+          "path": "/movie/list",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/list\", method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/movie-service/src/main/java/com/example/MovieController.java"
+        },
+        {
+          "className": "MovieController",
+          "methodName": "getMovie",
+          "httpMethod": "GET",
+          "path": "/movie/{movieId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{movieId}\")",
+          "confidence": "high",
+          "_file": "/movie-service/src/main/java/com/example/MovieController.java"
+        },
+        {
+          "className": "MovieController",
+          "methodName": "insertDummyData",
+          "httpMethod": "GET",
+          "path": "/movie/dummyData",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/dummyData\")",
+          "confidence": "high",
+          "_file": "/movie-service/src/main/java/com/example/MovieController.java"
+        }
+      ]
+    },
+    {
+      "path": "/movie-service/src/main/java/com/example/MovieDTO.java",
+      "endpoints": []
+    },
+    {
+      "path": "/movie-service/src/main/java/com/example/MovieRepo.java",
+      "endpoints": []
+    },
+    {
+      "path": "/movie-service/src/main/java/com/example/MovieServiceApplication.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/Config.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/dto/MovieDTO.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/dto/RecommendationDTO.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/dto/RecommendedMovieDTO.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/dto/UserDTO.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/MainController.java",
+      "endpoints": [
+        {
+          "className": "MainController",
+          "methodName": "getRecommendation",
+          "httpMethod": "GET",
+          "path": "/api/recommendation/user/{userId}",
+          "framework": "Spring",
+          "evidence": "@GetMapping(value =\"/recommendation/user/{userId}\")",
+          "confidence": "high",
+          "_file": "/recommendation-client/src/main/java/com/example/MainController.java"
+        },
+        {
+          "className": "MainController",
+          "methodName": "getUserDetails",
+          "httpMethod": "GET",
+          "path": "/api/userDetails/{userId}",
+          "framework": "Spring",
+          "evidence": "@GetMapping(value = \"/userDetails/{userId}\")",
+          "confidence": "high",
+          "_file": "/recommendation-client/src/main/java/com/example/MainController.java"
+        }
+      ]
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/RecommendationClientApplication.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/service/MovieService.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/service/RecommendationService.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/service/UserService.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/Movie.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/MovieRepo.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/MyConfiguration.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/RecommendationController.java",
+      "endpoints": [
+        {
+          "className": "RecommendationController",
+          "methodName": "getAllUsers",
+          "httpMethod": "GET",
+          "path": "/recommendation/user",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/user\", method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/recommendation-service/src/main/java/com/example/RecommendationController.java"
+        },
+        {
+          "className": "RecommendationController",
+          "methodName": "getAllMovies",
+          "httpMethod": "GET",
+          "path": "/recommendation/movie",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/movie\", method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/recommendation-service/src/main/java/com/example/RecommendationController.java"
+        },
+        {
+          "className": "RecommendationController",
+          "methodName": "getUser",
+          "httpMethod": "GET",
+          "path": "/recommendation/user/{userId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/user/{userId}\", method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/recommendation-service/src/main/java/com/example/RecommendationController.java"
+        },
+        {
+          "className": "RecommendationController",
+          "methodName": "getRecommendationForUser",
+          "httpMethod": "GET",
+          "path": "/recommendation/recommend/user/{userId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/recommend/user/{userId}\", method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/recommendation-service/src/main/java/com/example/RecommendationController.java"
+        },
+        {
+          "className": "RecommendationController",
+          "methodName": "getMovie",
+          "httpMethod": "GET",
+          "path": "/recommendation/movie/{movieId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/movie/{movieId}\", method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/recommendation-service/src/main/java/com/example/RecommendationController.java"
+        },
+        {
+          "className": "RecommendationController",
+          "methodName": "addDummyData",
+          "httpMethod": "GET",
+          "path": "/recommendation/dummyData",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/dummyData\", method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/recommendation-service/src/main/java/com/example/RecommendationController.java"
+        }
+      ]
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/RecommendationData.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/RecommendationServiceApplication.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/User.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/UserRepo.java",
+      "endpoints": []
+    },
+    {
+      "path": "/user-service/src/main/java/com/example/User.java",
+      "endpoints": []
+    },
+    {
+      "path": "/user-service/src/main/java/com/example/UserController.java",
+      "endpoints": [
+        {
+          "className": "UserController",
+          "methodName": "getAllUsers",
+          "httpMethod": "GET",
+          "path": "/user",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/user-service/src/main/java/com/example/UserController.java"
+        },
+        {
+          "className": "UserController",
+          "methodName": "getUsers",
+          "httpMethod": "GET",
+          "path": "/user/{userId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value=\"/{userId}\", method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/user-service/src/main/java/com/example/UserController.java"
+        }
+      ]
+    },
+    {
+      "path": "/user-service/src/main/java/com/example/UserRepo.java",
+      "endpoints": []
+    },
+    {
+      "path": "/user-service/src/main/java/com/example/UserServiceApplication.java",
+      "endpoints": []
+    }
+  ],
+  "_run": {
+    "model": "gemini-3.5-flash-lite",
+    "provider": "google-ai-studio",
+    "prompt_file": "prompt_appendix_a.txt",
+    "temperature": 0,
+    "repo": "clone/spring-cloud-movie-recommendation",
+    "n_files": 31,
+    "n_endpoints": 14,
+    "schema_valid_files": 31,
+    "input_tokens": 17608,
+    "output_tokens": 3174,
+    "list_price_usd": 0.003,
+    "wall_seconds": 34.3,
+    "per_file": [
+      {
+        "path": "/config-service/src/main/java/com/example/ConfigServiceApplication.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 353,
+        "out_tok": 65,
+        "ms": 1297,
+        "finish": "STOP"
+      },
+      {
+        "path": "/eureka-service/src/main/java/com/example/EurekaServiceApplication.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 355,
+        "out_tok": 65,
+        "ms": 997,
+        "finish": "STOP"
+      },
+      {
+        "path": "/movie-service/src/main/java/com/example/MongoConfig.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 440,
+        "out_tok": 64,
+        "ms": 775,
+        "finish": "STOP"
+      },
+      {
+        "path": "/movie-service/src/main/java/com/example/Movie.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 659,
+        "out_tok": 63,
+        "ms": 1622,
+        "finish": "STOP"
+      },
+      {
+        "path": "/movie-service/src/main/java/com/example/MovieController.java",
+        "schema_ok": true,
+        "n_endpoints": 4,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1233,
+        "out_tok": 385,
+        "ms": 1553,
+        "finish": "STOP"
+      },
+      {
+        "path": "/movie-service/src/main/java/com/example/MovieDTO.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 466,
+        "out_tok": 64,
+        "ms": 1435,
+        "finish": "STOP"
+      },
+      {
+        "path": "/movie-service/src/main/java/com/example/MovieRepo.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 360,
+        "out_tok": 64,
+        "ms": 1706,
+        "finish": "STOP"
+      },
+      {
+        "path": "/movie-service/src/main/java/com/example/MovieServiceApplication.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 353,
+        "out_tok": 65,
+        "ms": 1072,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/Config.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 409,
+        "out_tok": 64,
+        "ms": 698,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/dto/MovieDTO.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 556,
+        "out_tok": 67,
+        "ms": 802,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/dto/RecommendationDTO.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 530,
+        "out_tok": 67,
+        "ms": 1422,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/dto/RecommendedMovieDTO.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 467,
+        "out_tok": 68,
+        "ms": 778,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/dto/UserDTO.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 463,
+        "out_tok": 67,
+        "ms": 721,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/MainController.java",
+        "schema_ok": true,
+        "n_endpoints": 2,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 942,
+        "out_tok": 234,
+        "ms": 1123,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/RecommendationClientApplication.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 463,
+        "out_tok": 66,
+        "ms": 983,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/service/MovieService.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 446,
+        "out_tok": 67,
+        "ms": 769,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 1,
+        "attempts": 2,
+        "in_tok": 1217,
+        "out_tok": 68,
+        "ms": 1939,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/service/RecommendationService.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 416,
+        "out_tok": 67,
+        "ms": 762,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/service/UserService.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 500,
+        "out_tok": 66,
+        "ms": 801,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/Movie.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 759,
+        "out_tok": 64,
+        "ms": 764,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/MovieRepo.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 546,
+        "out_tok": 65,
+        "ms": 747,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/MyConfiguration.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 718,
+        "out_tok": 65,
+        "ms": 740,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/RecommendationController.java",
+        "schema_ok": true,
+        "n_endpoints": 6,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1276,
+        "out_tok": 577,
+        "ms": 1976,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/RecommendationData.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 478,
+        "out_tok": 65,
+        "ms": 868,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/RecommendationServiceApplication.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 356,
+        "out_tok": 66,
+        "ms": 736,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/User.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 805,
+        "out_tok": 64,
+        "ms": 740,
+        "finish": "STOP"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/UserRepo.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 351,
+        "out_tok": 65,
+        "ms": 1283,
+        "finish": "STOP"
+      },
+      {
+        "path": "/user-service/src/main/java/com/example/User.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 477,
+        "out_tok": 63,
+        "ms": 2431,
+        "finish": "STOP"
+      },
+      {
+        "path": "/user-service/src/main/java/com/example/UserController.java",
+        "schema_ok": true,
+        "n_endpoints": 2,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 513,
+        "out_tok": 216,
+        "ms": 1097,
+        "finish": "STOP"
+      },
+      {
+        "path": "/user-service/src/main/java/com/example/UserRepo.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 351,
+        "out_tok": 64,
+        "ms": 749,
+        "finish": "STOP"
+      },
+      {
+        "path": "/user-service/src/main/java/com/example/UserServiceApplication.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 350,
+        "out_tok": 64,
+        "ms": 834,
+        "finish": "STOP"
+      }
+    ]
+  }
+}
