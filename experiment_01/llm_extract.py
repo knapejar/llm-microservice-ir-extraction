@@ -21,6 +21,7 @@ API = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateC
 PRICES = {
     "gemini-2.5-flash-lite":  (0.10, 0.40),
     "gemini-3.5-flash-lite":  (0.10, 0.40),
+    "openai/gpt-oss-120b":    (0.15, 0.60),   # Groq list price
 }
 
 
@@ -114,6 +115,64 @@ def call(model, instruction, payload, keys, state, timeout=180):
                   "error": "key pool exhausted", "ms": int((time.time() - t0) * 1000)}
 
 
+def call_openai(base_url, keys, state, model, instruction, payload, effort="default",
+                max_tokens=8192, timeout=600):
+    """OpenAI-compatible chat completions (LM Studio, Groq).  Retries 429/5xx,
+    moving to the next key of the pool on each retry."""
+    # max_tokens bounds a reasoning loop: Spark-X2.5 once spent 24k tokens
+    # thinking about a 10-line file and never answered.
+    body = {"model": model, "temperature": 0, "max_tokens": max_tokens,
+            "messages": [{"role": "system", "content": instruction},
+                         {"role": "user", "content": payload}]}
+    if effort != "default":
+        body["reasoning_effort"] = effort
+    throttles, t0 = 0, time.time()
+    while throttles < max(10, 2 * len(keys)):
+        # Groq sits behind Cloudflare, which rejects urllib's default User-Agent (error 1010).
+        headers = {"content-type": "application/json", "user-agent": "llm-ir-extraction/1.0"}
+        if keys:
+            headers["authorization"] = f"Bearer {keys[state['i'] % len(keys)]}"
+        req = urllib.request.Request(base_url.rstrip("/") + "/chat/completions",
+                                     data=json.dumps(body).encode(), headers=headers)
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                st, env = r.status, json.loads(r.read().decode())
+        except urllib.error.HTTPError as e:
+            st, env = e.code, {"_err": e.read().decode(errors="replace")[:400]}
+        except Exception as e:
+            st, env = 0, {"_err": f"{type(e).__name__}: {e}"}
+        if st == 200:
+            ch = env["choices"][0]
+            text = re.sub(r"<think>.*?</think>", "", ch["message"].get("content") or "", flags=re.S)
+            u = env.get("usage") or {}
+            meta = {"status": 200, "throttles": throttles, "attempts": throttles + 1,
+                    "in_tok": u.get("prompt_tokens", 0), "out_tok": u.get("completion_tokens", 0),
+                    "ms": int((time.time() - t0) * 1000), "finish": ch.get("finish_reason")}
+            try:
+                return json.loads(strip_fence(text)), meta
+            except Exception as e:
+                meta["parse_error"] = f"{type(e).__name__}: {e}"
+                return None, meta
+        if st == 401 and len(keys) > 1:      # dead key: drop it from the pool, retry
+            keys.pop(state["i"] % len(keys))
+            continue
+        if st == 413 or "Request too large" in json.dumps(env):
+            # Groq free tier: input + max_tokens above the per-minute budget.  A retry
+            # cannot succeed, so the file is recorded as failed instead.
+            return None, {"status": st, "throttles": throttles, "attempts": throttles + 1,
+                          "error": "request too large for the tier's TPM limit",
+                          "ms": int((time.time() - t0) * 1000)}
+        if st in (429, 500, 502, 503, 0):
+            throttles += 1
+            state["i"] += 1
+            time.sleep(min(2 ** throttles, 60))
+            continue
+        return None, {"status": st, "throttles": throttles, "attempts": throttles + 1,
+                      "error": json.dumps(env)[:400], "ms": int((time.time() - t0) * 1000)}
+    return None, {"status": -1, "throttles": throttles, "error": "retries exhausted",
+                  "ms": int((time.time() - t0) * 1000)}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="gemini-2.5-flash-lite")
@@ -122,17 +181,32 @@ def main():
     ap.add_argument("--prompt", default=str(HERE / "prompt_appendix_a.txt"))
     ap.add_argument("--system-name", default="spring-cloud-movie-recommendation")
     ap.add_argument("--out", default=None)
+    ap.add_argument("--base-url", default=None,
+                    help="OpenAI-compatible endpoint instead of Google AI Studio, "
+                         "e.g. http://localhost:1234/v1 (LM Studio) or "
+                         "https://api.groq.com/openai/v1 (key from $LLM_API_KEY)")
+    ap.add_argument("--effort", default="default",
+                    help="reasoning_effort for --base-url models: none|low|medium|high")
+    ap.add_argument("--max-tokens", type=int, default=8192,
+                    help="completion budget for --base-url models; Groq's free tier "
+                         "counts it against an 8k tokens-per-minute limit")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--include", default=None,
                     help="only files whose repo-relative path contains this "
                          "(restricts the run to an evaluation frame)")
     a = ap.parse_args()
+    sys.stdout.reconfigure(line_buffering=True)   # progress visible in a redirected log
 
     out_path = Path(a.out) if a.out else HERE / "out" / f"llm_ir.{a.model}.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     instruction = Path(a.prompt).read_text(encoding="utf-8")
-    keys = load_keys(a.keys)
+    if a.base_url:   # Groq etc.: $LLM_API_KEY, else the pool file if present; LM Studio needs none
+        keys = [os.environ["LLM_API_KEY"]] if os.environ.get("LLM_API_KEY") else (
+            load_keys(a.keys) if Path(a.keys).exists() else [])
+    else:
+        keys = load_keys(a.keys)
+    provider = a.base_url or "google-ai-studio"
     files = collect_files(a.repo, a.include)
     if a.limit:
         files = files[:a.limit]
@@ -140,7 +214,7 @@ def main():
 
     print(f"model      : {a.model}")
     print(f"repo       : {a.repo}")
-    print(f"key pool   : {len(keys)}")
+    print(f"provider   : {provider}")
     print(f"files      : {len(files)}\n")
 
     state, results, log = {"i": 0}, [], []
@@ -151,7 +225,11 @@ def main():
         rel = "/" + p.relative_to(repo_root).as_posix()
         src = p.read_text(encoding="utf-8", errors="replace")
         payload = f"File path: {rel}\nSystem: {a.system_name}\n\n<source>\n{src}\n</source>"
-        parsed, meta = call(a.model, instruction, payload, keys, state)
+        if a.base_url:
+            parsed, meta = call_openai(a.base_url, keys, state,
+                                       a.model, instruction, payload, a.effort, a.max_tokens)
+        else:
+            parsed, meta = call(a.model, instruction, payload, keys, state)
         in_tok += meta.get("in_tok", 0)
         out_tok += meta.get("out_tok", 0)
 
@@ -182,8 +260,10 @@ def main():
         "system": a.system_name,
         "files": results,
         "_run": {
-            "model": a.model, "provider": "google-ai-studio",
+            "model": a.model, "provider": provider,
             "prompt_file": Path(a.prompt).name, "temperature": 0,
+            "effort": a.effort if a.base_url else None,
+            "max_tokens": a.max_tokens if a.base_url else 8192,
             "repo": a.repo, "frame": a.include, "n_files": len(files),
             "n_endpoints": sum(len(r["endpoints"]) for r in results),
             "schema_valid_files": sum(1 for l in log if l["schema_ok"]),

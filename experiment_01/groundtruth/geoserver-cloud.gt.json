@@ -1,0 +1,305 @@
+{
+  "schema_version": "1.1",
+  "meta": {
+    "system": "geoserver-cloud",
+    "repository": "https://github.com/geoserver/geoserver-cloud",
+    "commit": "70cf08256322c8f5e2ad4d870335dbda3aa5d3dd",
+    "commit_date": "2026-09-07",
+    "language": "Java",
+    "frameworks": [
+      "Spring MVC",
+      "Spring Boot",
+      "Spring Cloud Gateway (WebMvc)"
+    ],
+    "labeled_by": "Jaroslav Knapek",
+    "labeled_on": "2026-09-09",
+    "method": "manual; exhaustive annotation sweep over the whole tree, then every candidate file read in full",
+    "scope": "src/main only; src/test, target/, build/ excluded",
+    "files_in_scope": 718,
+    "files_read": 7,
+    "frame": {
+      "kind": "whole_system",
+      "definition": "every .java file under */src/main/** in the repository",
+      "exhaustive": true,
+      "how_candidates_were_found": "Two sweeps over all 718 main-source files. (1) annotations: @RequestMapping/@GetMapping/@PostMapping/@PutMapping/@DeleteMapping/@PatchMapping/@RestController/@Controller/javax.ws.rs/jakarta.ws.rs -> 5 files. (2) programmatic route registration: SimpleUrlHandlerMapping / RouterFunctions.route / ServletRegistrationBean / addResourceHandlers / addViewControllers / *HandlerMapping -> 2 further files. All 7 were then read in full.",
+      "note": "718 files but only 5 carry any request-mapping construct, so an exhaustive ground truth is achievable here without sampling. Recall is therefore defined over the whole system, not over a subset.",
+      "correction": "The first version of this file had 6 endpoints and missed ep-07. The completeness sweep for programmatic route registration had been piped through `head -20` and the hit was below the cut. The omission was caught by the gemini-3.5-flash-lite run, which reported /accessDenied.html as an endpoint; checking that supposed false positive against the source showed the ground truth was wrong, not the model. Recorded because it is a real instance of the RQ4 hypothesis -- an LLM auditing a reference set -- and because the lesson is now a protocol rule: a completeness sweep is never truncated."
+    },
+    "protocol": "see README.md in this directory"
+  },
+  "counts": {
+    "inbound_endpoints": 7,
+    "outbound_calls": 0,
+    "excluded": 8
+  },
+  "services": [
+    {
+      "name": "gs-cloud-gwc",
+      "module_dir": "src/apps/geoserver/gwc",
+      "inbound_endpoints": 1,
+      "note": ""
+    },
+    {
+      "name": "gs-cloud-wms",
+      "module_dir": "src/apps/geoserver/wms",
+      "inbound_endpoints": 3,
+      "note": "two of the three come from one handler method declaring two paths"
+    },
+    {
+      "name": "gs-cloud-main",
+      "module_dir": "src/main",
+      "inbound_endpoints": 1,
+      "note": "shared library module (artifactId gs-cloud-main), not an app; CIMET does not recognise it as a microservice at all"
+    },
+    {
+      "name": "gs-cloud-events",
+      "module_dir": "src/catalog/events",
+      "inbound_endpoints": 2,
+      "note": ""
+    },
+    {
+      "name": "gs-cloud-gateway-webmvc",
+      "module_dir": "src/apps/infrastructure/gateway-webmvc",
+      "inbound_endpoints": 0,
+      "note": "gateway; routes come from YAML configuration, see X-03"
+    },
+    {
+      "name": "gs-cloud-webui",
+      "module_dir": "src/apps/geoserver/webui",
+      "inbound_endpoints": 0,
+      "note": "Wicket UI, no request-mapping annotations"
+    },
+    {
+      "name": "gs-cloud-restconfig-v1",
+      "module_dir": "src/apps/geoserver/restconfig",
+      "inbound_endpoints": 0,
+      "note": "wires the GeoServer REST API from the uninitialised submodule, see X-04"
+    },
+    {
+      "name": "gs-cloud-wfs",
+      "module_dir": "src/apps/geoserver/wfs",
+      "inbound_endpoints": 0,
+      "note": ""
+    },
+    {
+      "name": "gs-cloud-wcs",
+      "module_dir": "src/apps/geoserver/wcs",
+      "inbound_endpoints": 0,
+      "note": ""
+    },
+    {
+      "name": "gs-cloud-wps",
+      "module_dir": "src/apps/geoserver/wps",
+      "inbound_endpoints": 0,
+      "note": ""
+    },
+    {
+      "name": "gs-cloud-config-service",
+      "module_dir": "src/apps/infrastructure/config",
+      "inbound_endpoints": 0,
+      "note": "Spring Cloud Config Server, see X-05"
+    }
+  ],
+  "inbound_endpoints": [
+    {
+      "id": "ep-01",
+      "service": "gs-cloud-gwc",
+      "http_method": "GET",
+      "path_class_level": "",
+      "path_method_level": "/",
+      "path_declared": "/",
+      "path_normalized": "/",
+      "class": "RootRedirectController",
+      "method": "redirectRootToGetCapabilities",
+      "file": "src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java",
+      "line_class_annotation": 13,
+      "line_method_annotation": 16,
+      "declaration_kind": "annotation_on_concrete_class",
+      "evidence": "@Controller on the class (line 13, no class-level mapping); @GetMapping(\"/\") on the method (line 16)",
+      "notes": "Returns a RedirectView to /gwc. It is still a declared inbound endpoint: something is mapped to GET /. Uses @Controller rather than @RestController, which does not change the mapping."
+    },
+    {
+      "id": "ep-02",
+      "service": "gs-cloud-wms",
+      "http_method": "GET",
+      "path_class_level": "",
+      "path_method_level": "/kml/icon/**",
+      "path_declared": "/kml/icon/**",
+      "path_normalized": "/kml/icon/**",
+      "class": "KMLIconsController",
+      "method": "getKmlIcon",
+      "file": "src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLIconsController.java",
+      "line_class_annotation": 28,
+      "line_method_annotation": 44,
+      "declaration_kind": "annotation_on_concrete_class",
+      "evidence": "@Controller on the class (line 28, no class-level mapping); @GetMapping(path = \"/kml/icon/**\") on the method (line 44)",
+      "notes": "Ant-style wildcard suffix. The normalization rule does not touch ** (it is not a {placeholder}), so the wildcard survives into the normalized form and both sides must keep it to match."
+    },
+    {
+      "id": "ep-03",
+      "service": "gs-cloud-wms",
+      "http_method": "GET",
+      "path_class_level": "",
+      "path_method_level": "/wms/kml",
+      "path_declared": "/wms/kml",
+      "path_normalized": "/wms/kml",
+      "class": "KMLReflectorController",
+      "method": "kmlReflect",
+      "file": "src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLReflectorController.java",
+      "line_class_annotation": 25,
+      "line_method_annotation": 31,
+      "declaration_kind": "annotation_on_concrete_class",
+      "evidence": "@Controller on the class (line 25); @GetMapping(path = {\"/wms/kml\", \"/{workspace}/wms/kml\"}) on the method (line 31) — first of the two declared paths",
+      "multi_path_group": "kmlReflect",
+      "notes": "One handler method, two declared routes. Under the counting rule (protocol section 3a) an endpoint is a (route, verb) pair, so this method contributes ep-03 and ep-04. An extractor that reports one endpoint here is not wrong about the code, only about the counting convention; this is exactly the non-uniqueness the evaluation has to tolerate, which is why M4 (code-level) is reported alongside M2."
+    },
+    {
+      "id": "ep-04",
+      "service": "gs-cloud-wms",
+      "http_method": "GET",
+      "path_class_level": "",
+      "path_method_level": "/{workspace}/wms/kml",
+      "path_declared": "/{workspace}/wms/kml",
+      "path_normalized": "/{}/wms/kml",
+      "class": "KMLReflectorController",
+      "method": "kmlReflect",
+      "file": "src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLReflectorController.java",
+      "line_class_annotation": 25,
+      "line_method_annotation": 31,
+      "declaration_kind": "annotation_on_concrete_class",
+      "evidence": "same annotation as ep-03 — second of the two declared paths",
+      "multi_path_group": "kmlReflect",
+      "notes": "Shares its code-level identity with ep-03. Any M4 scoring must be multiset-aware or these two collapse into one."
+    },
+    {
+      "id": "ep-05",
+      "service": "gs-cloud-events",
+      "http_method": "GET",
+      "path_class_level": "${geoserver.base-path:}",
+      "path_method_level": "/admin/updatesequence",
+      "path_declared": "${geoserver.base-path:}/admin/updatesequence",
+      "path_normalized": "/admin/updatesequence",
+      "class": "UpdateSequenceController",
+      "method": "currVal",
+      "file": "src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java",
+      "line_class_annotation": 22,
+      "line_method_annotation": 32,
+      "declaration_kind": "annotation_on_concrete_class",
+      "evidence": "@RestController (line 21) + @RequestMapping({\"${geoserver.base-path:}\", \"${geoserver.base-path:}/\"}) on the class (line 22); @GetMapping(path = \"/admin/updatesequence\", produces = \"application/json\") on the method (line 32)",
+      "notes": "The class-level mapping is a Spring property placeholder with an empty default, and it is declared twice (with and without a trailing slash). Normalized under protocol rule 4.0: ${prop:default} resolves to its default, here the empty string, and the two variants fold to one path. Registered by UpdateSequenceControllerAutoConfiguration in the same package."
+    },
+    {
+      "id": "ep-06",
+      "service": "gs-cloud-events",
+      "http_method": "POST",
+      "path_class_level": "${geoserver.base-path:}",
+      "path_method_level": "/admin/updatesequence",
+      "path_declared": "${geoserver.base-path:}/admin/updatesequence",
+      "path_normalized": "/admin/updatesequence",
+      "class": "UpdateSequenceController",
+      "method": "nextVal",
+      "file": "src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java",
+      "line_class_annotation": 22,
+      "line_method_annotation": 40,
+      "declaration_kind": "annotation_on_concrete_class",
+      "evidence": "@RolesAllowed({\"ADMIN\", \"ROLE_ADMINISTRATOR\"}) (line 39) + @PostMapping(path = \"/admin/updatesequence\", produces = \"application/json\") on the method (line 40)",
+      "notes": "Same path as ep-05, different verb. This pair is the reason the HTTP method has to be part of the M2 key: on path alone (M3) the two are indistinguishable. Also the only non-GET endpoint in the system."
+    },
+    {
+      "id": "ep-07",
+      "service": "gs-cloud-main",
+      "http_method": "GET",
+      "http_method_inferred": true,
+      "path_class_level": "",
+      "path_method_level": "/accessDenied.html",
+      "path_declared": "/accessDenied.html",
+      "path_normalized": "/accessdenied.html",
+      "class": "AccessDeniedPageAutoConfiguration",
+      "method": "accessDeniedPageMapping",
+      "file": "src/main/src/main/java/org/geoserver/cloud/autoconfigure/main/AccessDeniedPageAutoConfiguration.java",
+      "line_class_annotation": 30,
+      "line_method_annotation": 35,
+      "line_handler": 41,
+      "declaration_kind": "programmatic_handler_mapping",
+      "evidence": "static final String ACCESS_DENIED_PAGE = \"/accessDenied.html\" (line 35); @Bean SimpleUrlHandlerMapping accessDeniedPageMapping(...) (line 41) returning new SimpleUrlHandlerMapping(Map.of(ACCESS_DENIED_PAGE, accessDeniedPageHandler), ORDER) (line 42)",
+      "notes": "Declared programmatically rather than by annotation: an explicit path -> handler binding, with both the path and the handler defined in this same file. It is a declared inbound route by the section 3 rules, which say 'an annotation, a route-builder call, or an equivalent explicit construct' -- not 'an annotation'. The verb is inferred, not declared: a ResourceHttpRequestHandler answers GET (and HEAD); no verb appears in the source, so http_method_inferred is set and the source check does not look for verb evidence. The path reaches the annotation via a constant, so the literal sits six lines above the bean method."
+    }
+  ],
+  "outbound_calls": [],
+  "excluded": [
+    {
+      "id": "X-01",
+      "kind": "not_an_endpoint",
+      "what": "ProxyExceptionFilter",
+      "where": "src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/filter/ProxyExceptionFilter.java:33",
+      "evidence": "public class ProxyExceptionFilter extends OncePerRequestFilter — no mapping annotation anywhere in the file",
+      "reason": "A servlet filter runs on requests but declares no route. It appears in the candidate sweep only because the file mentions request handling; reading it settles the question.",
+      "revisit_if": "never; this is a hard exclusion"
+    },
+    {
+      "id": "X-02",
+      "kind": "not_an_endpoint",
+      "what": "Gateway handler filter functions (GatewaySharedAuth, RouteProfile, SecureHeaders, GeoServerGatewayFilterFunctions)",
+      "where": "src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/filter/",
+      "evidence": "each implements HandlerFilterFunction<ServerResponse, ServerResponse>; no RouterFunctions.route(...) definition exists anywhere in the tree",
+      "reason": "These are filters applied to routes, not route declarations. A sweep for functional routing (RouterFunction, RouterFunctions.route) found only filter types, no route definitions.",
+      "revisit_if": "a RouterFunction bean is added to this module"
+    },
+    {
+      "id": "X-03",
+      "kind": "config_driven",
+      "what": "Spring Cloud Gateway routes",
+      "where": "gs-cloud-gateway-webmvc",
+      "evidence": "route predicates and uris live in YAML (src/apps/infrastructure/config/src/main/resources/application.yml and the external config directory), not in Java",
+      "reason": "Declared in configuration rather than source. Same rule as the Zuul routes excluded in the movie-recommendation ground truth (X-06 there), so the two systems are treated consistently.",
+      "revisit_if": "the scope is widened to configuration-declared routes"
+    },
+    {
+      "id": "X-04",
+      "kind": "absent_from_checkout",
+      "what": "The GeoServer REST API (restconfig) and all other endpoints of upstream GeoServer",
+      "where": "geoserver_submodule/geoserver",
+      "evidence": "the git submodule is not initialised in this checkout — geoserver_submodule contains 0 files; gs-cloud-restconfig-v1 only wires the upstream beans",
+      "reason": "The upstream GeoServer source, which holds the large REST surface this project exposes, is simply not present in the analysed tree. No source-only extractor can see it, and it must not be counted for or against either extractor.",
+      "revisit_if": "the submodule is initialised — in which case this ground truth does not apply to that checkout and must be rebuilt",
+      "importance": "This is the single most important caveat for this system. Any endpoint count for geoserver-cloud is a count for the cloud wrapper only, not for GeoServer."
+    },
+    {
+      "id": "X-05",
+      "kind": "framework_implicit",
+      "what": "Actuator endpoints and Config Server endpoints",
+      "where": "gs-cloud-config-service, gs-cloud-gateway-webmvc, and every module depending on the observability starter",
+      "evidence": "spring-boot-starter-actuator in src/apps/infrastructure/config/pom.xml, src/apps/infrastructure/gateway-webmvc/pom.xml, src/catalog/backends/common/pom.xml",
+      "reason": "Framework-provided routes, declared nowhere in source. Same rule as X-02/X-04 in the movie-recommendation ground truth.",
+      "revisit_if": "the scope is widened from declared routes to effective HTTP surface"
+    },
+    {
+      "id": "X-06",
+      "kind": "framework_implicit",
+      "what": "Wicket UI pages",
+      "where": "gs-cloud-webui",
+      "evidence": "36 classes in the module, none carrying a request-mapping annotation; WicketComponentFilter is a servlet filter",
+      "reason": "The web UI is served by the Wicket servlet, whose page mounting is not a Spring request mapping and appears in no annotation.",
+      "revisit_if": "the scope is widened to framework-specific route registries"
+    },
+    {
+      "id": "X-07",
+      "kind": "out_of_scope",
+      "what": "Test sources",
+      "where": "263 .java files under */src/test/**",
+      "evidence": "n/a",
+      "reason": "Out of scope by the same rule as the other system. Recorded because CIMET does scan src/test — its class list for this system contains WicketComponentFilterTest and ServiceIdFilterAutoConfigurationTest — so the two sides do not see the same file set. No test file here declares an endpoint, so it makes no difference to the numbers on this system.",
+      "revisit_if": "a test source ever declares a route"
+    },
+    {
+      "id": "X-08",
+      "kind": "borderline",
+      "what": "GeoWebCache UI mount points /gwc/demo and /gwc/rest/web",
+      "where": "src/gwc/autoconfigure/src/main/java/org/geoserver/cloud/autoconfigure/gwc/web/GeoWebCacheUIAutoConfiguration.java:37-52",
+      "evidence": "new CloudGwcUrlHandlerMapping(catalog, \"/gwc/demo\") and (catalog, \"/gwc/rest/web\"); GwcUrlHandlerMapping is an upstream GeoWebCache class, subclassed here",
+      "reason": "These bind a URL PREFIX to a handler mapping from an external library; no handler method in this tree serves them, and the source gives no verb. They are mount points for an upstream component, the same category as the uninitialised submodule (X-04) and the gateway's YAML routes (X-03). Excluded on that basis.",
+      "borderline": "A reasonable labeller could include these two as endpoints. Unlike ep-07, which binds a complete path to a handler defined in the same file, these bind a prefix to something outside the analysed tree. The decision is recorded rather than assumed, and is one to put to the supervisors: if an extractor reports /gwc/demo it is not obviously wrong.",
+      "revisit_if": "the supervisors rule that prefix mount points count, or the GWC sources enter the corpus"
+    }
+  ]
+}

@@ -1,0 +1,5234 @@
+{
+  "system": "xs2a",
+  "files": [
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/AccountApi.java",
+      "endpoints": [
+        {
+          "className": "AccountApi",
+          "methodName": "_getAccountList",
+          "httpMethod": "GET",
+          "path": "/v1/accounts",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/accounts\", produces = {\"application/json\", \"application/problem+json\"}, method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/AccountApi.java"
+        },
+        {
+          "className": "AccountApi",
+          "methodName": "_getBalances",
+          "httpMethod": "GET",
+          "path": "/v1/accounts/{account-id}/balances",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/accounts/{account-id}/balances\", produces = {\"application/json\", \"application/problem+json\"}, method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/AccountApi.java"
+        },
+        {
+          "className": "AccountApi",
+          "methodName": "_getTransactionDetails",
+          "httpMethod": "GET",
+          "path": "/v1/accounts/{account-id}/transactions/{transactionId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/accounts/{account-id}/transactions/{transactionId}\", produces = {\"application/json\", \"application/problem+json\"}, method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/AccountApi.java"
+        },
+        {
+          "className": "AccountApi",
+          "methodName": "_getTransactionList",
+          "httpMethod": "GET",
+          "path": "/v1/accounts/{account-id}/transactions",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/accounts/{account-id}/transactions\", produces = {\"application/json\", \"application/xml\", \"text/plain\", \"application/problem+json\"}, method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/AccountApi.java"
+        },
+        {
+          "className": "AccountApi",
+          "methodName": "_readAccountDetails",
+          "httpMethod": "GET",
+          "path": "/v1/accounts/{account-id}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/accounts/{account-id}\", produces = {\"application/json\", \"application/problem+json\"}, method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/AccountApi.java"
+        }
+      ]
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/CardAccountsApi.java",
+      "endpoints": [
+        {
+          "className": "CardAccountsApi",
+          "methodName": "_getCardAccountList",
+          "httpMethod": "GET",
+          "path": "/v1/card-accounts",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/card-accounts\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/CardAccountsApi.java"
+        },
+        {
+          "className": "CardAccountsApi",
+          "methodName": "_getCardAccountBalances",
+          "httpMethod": "GET",
+          "path": "/v1/card-accounts/{account-id}/balances",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/card-accounts/{account-id}/balances\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/CardAccountsApi.java"
+        },
+        {
+          "className": "CardAccountsApi",
+          "methodName": "_getCardAccountTransactionList",
+          "httpMethod": "GET",
+          "path": "/v1/card-accounts/{account-id}/transactions",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/card-accounts/{account-id}/transactions\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/CardAccountsApi.java"
+        },
+        {
+          "className": "CardAccountsApi",
+          "methodName": "_readCardAccountDetails",
+          "httpMethod": "GET",
+          "path": "/v1/card-accounts/{account-id}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/card-accounts/{account-id}\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/CardAccountsApi.java"
+        }
+      ]
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ConfirmationOfFundsServicePiisApi.java",
+      "endpoints": [
+        {
+          "className": "ConfirmationOfFundsServicePiisApi",
+          "methodName": "_checkAvailabilityOfFunds",
+          "httpMethod": "POST",
+          "path": "/v1/funds-confirmations",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/funds-confirmations\",\n        produces = { \"application/json\", \"application/problem+json\" },\n        consumes = { \"application/json\" },\n        method = RequestMethod.POST)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ConfirmationOfFundsServicePiisApi.java"
+        }
+      ]
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ConsentApi.java",
+      "endpoints": [
+        {
+          "className": "ConsentApi",
+          "methodName": "_createConsent",
+          "httpMethod": "POST",
+          "path": "/v1/consents",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/consents\",\n        produces = { \"application/json\", \"application/problem+json\" },\n        consumes = { \"application/json\" },\n        method = RequestMethod.POST)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ConsentApi.java"
+        },
+        {
+          "className": "ConsentApi",
+          "methodName": "_deleteConsent",
+          "httpMethod": "DELETE",
+          "path": "/v1/consents/{consentId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/consents/{consentId}\",\n        produces = { \"application/json\", \"application/problem+json\" },\n        method = RequestMethod.DELETE)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ConsentApi.java"
+        },
+        {
+          "className": "ConsentApi",
+          "methodName": "_getConsentAuthorisation",
+          "httpMethod": "GET",
+          "path": "/v1/consents/{consentId}/authorisations",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/consents/{consentId}/authorisations\",\n        produces = { \"application/json\", \"application/problem+json\" },\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ConsentApi.java"
+        },
+        {
+          "className": "ConsentApi",
+          "methodName": "_getConsentInformation",
+          "httpMethod": "GET",
+          "path": "/v1/consents/{consentId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/consents/{consentId}\",\n        produces = { \"application/json\", \"application/problem+json\" },\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ConsentApi.java"
+        },
+        {
+          "className": "ConsentApi",
+          "methodName": "_getConsentScaStatus",
+          "httpMethod": "GET",
+          "path": "/v1/consents/{consentId}/authorisations/{authorisationId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/consents/{consentId}/authorisations/{authorisationId}\",\n        produces = { \"application/json\", \"application/problem+json\" },\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ConsentApi.java"
+        },
+        {
+          "className": "ConsentApi",
+          "methodName": "_getConsentStatus",
+          "httpMethod": "GET",
+          "path": "/v1/consents/{consentId}/status",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/consents/{consentId}/status\",\n        produces = { \"application/json\", \"application/problem+json\" },\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ConsentApi.java"
+        },
+        {
+          "className": "ConsentApi",
+          "methodName": "_startConsentAuthorisation",
+          "httpMethod": "POST",
+          "path": "/v1/consents/{consentId}/authorisations",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/consents/{consentId}/authorisations\",\n        produces = { \"application/json\", \"application/problem+json\" },\n        consumes = { \"application/json\" },\n        method = RequestMethod.POST)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ConsentApi.java"
+        },
+        {
+          "className": "ConsentApi",
+          "methodName": "_updateConsentsPsuData",
+          "httpMethod": "PUT",
+          "path": "/v1/consents/{consentId}/authorisations/{authorisationId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/consents/{consentId}/authorisations/{authorisationId}\",\n        produces = { \"application/json\", \"application/problem+json\" },\n        consumes = { \"application/json\" },\n        method = RequestMethod.PUT)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ConsentApi.java"
+        }
+      ]
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ListOfTrustedBeneficiariesApi.java",
+      "endpoints": [
+        {
+          "className": "ListOfTrustedBeneficiariesApi",
+          "methodName": "_listOfTrustedBeneficiaries",
+          "httpMethod": "GET",
+          "path": "/v1/trusted-beneficiaries",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/trusted-beneficiaries\", produces = { \"application/json\", \"application/problem+json\" }, method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ListOfTrustedBeneficiariesApi.java"
+        }
+      ]
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java",
+      "endpoints": [
+        {
+          "className": "PaymentApi",
+          "methodName": "_cancelPayment",
+          "httpMethod": "DELETE",
+          "path": "/v1/{payment-service}/{payment-product}/{paymentId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/{payment-service}/{payment-product}/{paymentId}\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        method = RequestMethod.DELETE)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java"
+        },
+        {
+          "className": "PaymentApi",
+          "methodName": "_getPaymentCancellationScaStatus",
+          "httpMethod": "GET",
+          "path": "/v1/{payment-service}/{payment-product}/{paymentId}/cancellation-authorisations/{authorisationId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/{payment-service}/{payment-product}/{paymentId}/cancellation-authorisations/{authorisationId}\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java"
+        },
+        {
+          "className": "PaymentApi",
+          "methodName": "_getPaymentInformation",
+          "httpMethod": "GET",
+          "path": "/v1/{payment-service}/{payment-product}/{paymentId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/{payment-service}/{payment-product}/{paymentId}\",\n        produces = {\"application/json\", \"application/xml\", \"multipart/form-data\", \"application/problem+json\"},\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java"
+        },
+        {
+          "className": "PaymentApi",
+          "methodName": "_getPaymentInitiationAuthorisation",
+          "httpMethod": "GET",
+          "path": "/v1/{payment-service}/{payment-product}/{paymentId}/authorisations",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/{payment-service}/{payment-product}/{paymentId}/authorisations\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java"
+        },
+        {
+          "className": "PaymentApi",
+          "methodName": "_getPaymentInitiationCancellationAuthorisationInformation",
+          "httpMethod": "GET",
+          "path": "/v1/{payment-service}/{payment-product}/{paymentId}/cancellation-authorisations",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/{payment-service}/{payment-product}/{paymentId}/cancellation-authorisations\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java"
+        },
+        {
+          "className": "PaymentApi",
+          "methodName": "_getPaymentInitiationScaStatus",
+          "httpMethod": "GET",
+          "path": "/v1/{payment-service}/{payment-product}/{paymentId}/authorisations/{authorisationId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/{payment-service}/{payment-product}/{paymentId}/authorisations/{authorisationId}\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java"
+        },
+        {
+          "className": "PaymentApi",
+          "methodName": "_getPaymentInitiationStatus",
+          "httpMethod": "GET",
+          "path": "/v1/{payment-service}/{payment-product}/{paymentId}/status",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/{payment-service}/{payment-product}/{paymentId}/status\",\n        produces = {\"application/json\", \"application/xml\", \"application/problem+json\"},\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java"
+        },
+        {
+          "className": "PaymentApi",
+          "methodName": "_initiatePayment",
+          "httpMethod": "POST",
+          "path": "/v1/{payment-service}/{payment-product}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/{payment-service}/{payment-product}\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        consumes = {\"application/json\"},\n        method = RequestMethod.POST)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java"
+        },
+        {
+          "className": "PaymentApi",
+          "methodName": "_initiatePayment",
+          "httpMethod": "POST",
+          "path": "/v1/{payment-service}/{payment-product}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/{payment-service}/{payment-product}\",\n        produces = { \"application/json\", \"application/problem+json\" },\n        consumes = { \"application/xml\", \"multipart/form-data\" },\n        method = RequestMethod.POST)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java"
+        },
+        {
+          "className": "PaymentApi",
+          "methodName": "_initiatePayment",
+          "httpMethod": "POST",
+          "path": "/v1/{payment-service}/{payment-product}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/{payment-service}/{payment-product}\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        consumes = {\"text/plain\"},\n        method = RequestMethod.POST)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java"
+        },
+        {
+          "className": "PaymentApi",
+          "methodName": "_startPaymentAuthorisation",
+          "httpMethod": "POST",
+          "path": "/v1/{payment-service}/{payment-product}/{paymentId}/authorisations",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/{payment-service}/{payment-product}/{paymentId}/authorisations\",\n        produces = { \"application/json\", \"application/problem+json\" },\n        consumes = { \"application/json\" },\n        method = RequestMethod.POST)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java"
+        },
+        {
+          "className": "PaymentApi",
+          "methodName": "_startPaymentInitiationCancellationAuthorisation",
+          "httpMethod": "POST",
+          "path": "/v1/{payment-service}/{payment-product}/{paymentId}/cancellation-authorisations",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/{payment-service}/{payment-product}/{paymentId}/cancellation-authorisations\",\n        produces = { \"application/json\", \"application/problem+json\" },\n        consumes = { \"application/json\" },\n        method = RequestMethod.POST)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java"
+        },
+        {
+          "className": "PaymentApi",
+          "methodName": "_updatePaymentCancellationPsuData",
+          "httpMethod": "PUT",
+          "path": "/v1/{payment-service}/{payment-product}/{paymentId}/cancellation-authorisations/{authorisationId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/{payment-service}/{payment-product}/{paymentId}/cancellation-authorisations/{authorisationId}\",\n        produces = { \"application/json\", \"application/problem+json\" },\n        consumes = { \"application/json\" },\n        method = RequestMethod.PUT)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java"
+        },
+        {
+          "className": "PaymentApi",
+          "methodName": "_updatePaymentPsuData",
+          "httpMethod": "PUT",
+          "path": "/v1/{payment-service}/{payment-product}/{paymentId}/authorisations/{authorisationId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/{payment-service}/{payment-product}/{paymentId}/authorisations/{authorisationId}\",\n        produces = { \"application/json\", \"application/problem+json\" },\n        consumes = { \"application/json\" },\n        method = RequestMethod.PUT)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java"
+        },
+        {
+          "className": "PaymentApi",
+          "methodName": "_getBulkPaymentExtendedStatus",
+          "httpMethod": "GET",
+          "path": "/v1/bulk-payments/{payment-product}/{paymentId}/extended-status",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/bulk-payments/{payment-product}/{paymentId}/extended-status\",\n        produces = { \"application/json\", \"application/problem+json\" },\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java"
+        }
+      ]
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/SigningBasketApi.java",
+      "endpoints": [
+        {
+          "className": "SigningBasketApi",
+          "methodName": "_createSigningBasket",
+          "httpMethod": "POST",
+          "path": "/v1/signing-baskets",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/signing-baskets\", ... method = RequestMethod.POST)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/SigningBasketApi.java"
+        },
+        {
+          "className": "SigningBasketApi",
+          "methodName": "_deleteSigningBasket",
+          "httpMethod": "DELETE",
+          "path": "/v1/signing-baskets/{basketId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/signing-baskets/{basketId}\", ... method = RequestMethod.DELETE)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/SigningBasketApi.java"
+        },
+        {
+          "className": "SigningBasketApi",
+          "methodName": "_getSigningBasket",
+          "httpMethod": "GET",
+          "path": "/v1/signing-baskets/{basketId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/signing-baskets/{basketId}\", ... method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/SigningBasketApi.java"
+        },
+        {
+          "className": "SigningBasketApi",
+          "methodName": "_getSigningBasketAuthorisation",
+          "httpMethod": "GET",
+          "path": "/v1/signing-baskets/{basketId}/authorisations",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/signing-baskets/{basketId}/authorisations\", ... method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/SigningBasketApi.java"
+        },
+        {
+          "className": "SigningBasketApi",
+          "methodName": "_getSigningBasketScaStatus",
+          "httpMethod": "GET",
+          "path": "/v1/signing-baskets/{basketId}/authorisations/{authorisationId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/signing-baskets/{basketId}/authorisations/{authorisationId}\", ... method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/SigningBasketApi.java"
+        },
+        {
+          "className": "SigningBasketApi",
+          "methodName": "_getSigningBasketStatus",
+          "httpMethod": "GET",
+          "path": "/v1/signing-baskets/{basketId}/status",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/signing-baskets/{basketId}/status\", ... method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/SigningBasketApi.java"
+        },
+        {
+          "className": "SigningBasketApi",
+          "methodName": "_startSigningBasketAuthorisation",
+          "httpMethod": "POST",
+          "path": "/v1/signing-baskets/{basketId}/authorisations",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/signing-baskets/{basketId}/authorisations\", ... method = RequestMethod.POST)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/SigningBasketApi.java"
+        },
+        {
+          "className": "SigningBasketApi",
+          "methodName": "_updateSigningBasketPsuData",
+          "httpMethod": "PUT",
+          "path": "/v1/signing-baskets/{basketId}/authorisations/{authorisationId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v1/signing-baskets/{basketId}/authorisations/{authorisationId}\", ... method = RequestMethod.PUT)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/SigningBasketApi.java"
+        }
+      ]
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/v2/ConfirmationOfFundsApi.java",
+      "endpoints": [
+        {
+          "className": "ConfirmationOfFundsApi",
+          "methodName": "_createConsentConfirmationOfFunds",
+          "httpMethod": "POST",
+          "path": "/v2/consents/confirmation-of-funds",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v2/consents/confirmation-of-funds\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        consumes = {\"application/json\"},\n        method = RequestMethod.POST)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/v2/ConfirmationOfFundsApi.java"
+        },
+        {
+          "className": "ConfirmationOfFundsApi",
+          "methodName": "_deleteConsentConfirmationOfFunds",
+          "httpMethod": "DELETE",
+          "path": "/v2/consents/confirmation-of-funds/{consentId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v2/consents/confirmation-of-funds/{consentId}\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        method = RequestMethod.DELETE)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/v2/ConfirmationOfFundsApi.java"
+        },
+        {
+          "className": "ConfirmationOfFundsApi",
+          "methodName": "_getConsentAuthorisation",
+          "httpMethod": "GET",
+          "path": "/v2/consents/confirmation-of-funds/{consentId}/authorisations",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v2/consents/confirmation-of-funds/{consentId}/authorisations\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/v2/ConfirmationOfFundsApi.java"
+        },
+        {
+          "className": "ConfirmationOfFundsApi",
+          "methodName": "_getConsentConfirmationOfFunds",
+          "httpMethod": "GET",
+          "path": "/v2/consents/confirmation-of-funds/{consentId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v2/consents/confirmation-of-funds/{consentId}\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/v2/ConfirmationOfFundsApi.java"
+        },
+        {
+          "className": "ConfirmationOfFundsApi",
+          "methodName": "_getConsentConfirmationOfFundsStatus",
+          "httpMethod": "GET",
+          "path": "/v2/consents/confirmation-of-funds/{consentId}/status",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v2/consents/confirmation-of-funds/{consentId}/status\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/v2/ConfirmationOfFundsApi.java"
+        },
+        {
+          "className": "ConfirmationOfFundsApi",
+          "methodName": "_getConsentScaStatus",
+          "httpMethod": "GET",
+          "path": "/v2/consents/confirmation-of-funds/{consentId}/authorisations/{authorisationId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v2/consents/confirmation-of-funds/{consentId}/authorisations/{authorisationId}\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/v2/ConfirmationOfFundsApi.java"
+        },
+        {
+          "className": "ConfirmationOfFundsApi",
+          "methodName": "_startConsentAuthorisation",
+          "httpMethod": "POST",
+          "path": "/v2/consents/confirmation-of-funds/{consentId}/authorisations",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v2/consents/confirmation-of-funds/{consentId}/authorisations\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        consumes = {\"application/json\"},\n        method = RequestMethod.POST)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/v2/ConfirmationOfFundsApi.java"
+        },
+        {
+          "className": "ConfirmationOfFundsApi",
+          "methodName": "_updateConsentsPsuData",
+          "httpMethod": "PUT",
+          "path": "/v2/consents/confirmation-of-funds/{consentId}/authorisations/{authorisationId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/v2/consents/confirmation-of-funds/{consentId}/authorisations/{authorisationId}\",\n        produces = {\"application/json\", \"application/problem+json\"},\n        consumes = {\"application/json\"},\n        method = RequestMethod.PUT)",
+          "confidence": "high",
+          "_file": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/v2/ConfirmationOfFundsApi.java"
+        }
+      ]
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AccountAccess.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AccountDetails.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AccountList.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AccountOwner.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AccountReference.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AccountReport.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AccountStatus.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AdditionalInformationAccess.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AdditionalInformationStructured.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Address.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Amount.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AuthenticationObject.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AuthenticationType.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AuthorisationConfirmation.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AuthorisationConfirmationResponse.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Authorisations.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AuthorisationsList.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Balance.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/BalanceList.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/BalanceType.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/BulkPaymentExtendedStatusResponse200Json.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/BulkPaymentInitiationJson.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/BulkPaymentInitiationWithStatusResponse.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/CardAccountDetails.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/CardAccountList.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/CardAccountReport.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/CardAccountsTransactionsResponse200.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/CardTransaction.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/CardTransactionList.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/CategoryPurposeCode.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ChallengeData.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ChargeBearer.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ChosenScaMethod.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConfirmationOfFunds.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentConfirmationOfFundsContentResponse.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentConfirmationOfFundsStatusResponse.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentIdList.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentInformationResponse200Json.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Consents.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentsConfirmationOfFunds.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentsConfirmationOfFundsMultilevelSCAResponse.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentsConfirmationOfFundsResponse.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentsResponse201.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentStatus.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentStatusResponse200.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/DayOfExecution.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/EntryDetails.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/EntryDetailsElement.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400AISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400LTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400LTBAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400NGAIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400NGLTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400NGPIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400NGPIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400NGSBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400PIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400PIISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400PIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400PISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400SBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400SBSAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401AISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401LTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401LTBAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401NGAIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401NGLTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401NGPIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401NGPIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401NGSBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401PIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401PIISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401PIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401PISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401SBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401SBSAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403AISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403LTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403LTBAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403NGAIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403NGLTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403NGPIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403NGPIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403NGSBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403PIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403PIISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403PIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403PISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403SBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403SBSAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404AISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404LTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404LTBAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404NGAIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404NGLTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404NGPIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404NGPIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404NGSBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404PIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404PIISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404PIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404PISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404SBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404SBSAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405AISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405LTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405LTBAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405NGAIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405NGLTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405NGPIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405NGPIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405NGPISCANC.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405NGSBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405PIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405PIISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405PIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405PISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405PISCANC.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405PISCANCAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405SBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405SBSAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error406AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error406AISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error406NGAIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error406NGPIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error406NGPIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error406PIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error406PISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409AISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409NGAIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409NGPIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409NGPIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409NGSBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409PIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409PIISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409PIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409PISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409SBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409SBSAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error429AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error429AISAdditionalErrors.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error429NGAIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ExchangeRateTypeCode.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ExecutionRule.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/FrequencyCode.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/GrandTotalAmount.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/GroupStatus.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/HrefType.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/InlineResponse200.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/InlineResponse2001.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/InlineResponse2002.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/InlineResponse2003.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksAccountDetails.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksAccountReport.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksAll.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksAuthorisationConfirmation.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksCardAccountReport.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksConsents.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksDownload.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksGetConsent.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksPaymentInitiation.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksPaymentInitiationCancel.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksPaymentInitiationStatus.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksSelectPsuAuthenticationMethod.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksSigningBasket.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksStartScaProcess.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksStartScaProcessMultilevelSca.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksStartScaProcessSingleSca.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksTransactionDetails.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksUpdatePsuAuthentication.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksUpdatePsuIdentification.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode200InitiationStatus.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode201PaymentInitiation.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode202InitiationStatus.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode2XX.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode400AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode400LTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode401AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode401LTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode403AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode403LTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode404AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode404LTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode405AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode405LTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode406AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode409AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode429AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MonthsOfExecution.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/OriginalTransactionInformationAndStatus.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/OtherType.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentExchangeRate.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentIdList.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentInitiationBulkElementJson.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentInitiationCancelResponse202.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentInitiationJson.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentInitiationRequestResponse201.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentInitiationStatusResponse200Json.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentInitiationWithStatusResponse.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PeriodicPaymentInitiationJson.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PeriodicPaymentInitiationMultipartBody.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PeriodicPaymentInitiationWithStatusResponse.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PeriodicPaymentInitiationXmlPart2StandingorderTypeJson.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PostalAddress.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PsuData.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PurposeCode.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ReadAccountBalanceResponse200.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ReadCardAccountBalanceResponse200.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/RemittanceInformationStructured.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/RemittanceInformationStructuredArray.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/RemittanceInformationStructuredMax140.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/RemittanceInformationUnstructuredArray.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ReportExchangeRate.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ReportExchangeRateList.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ScaMethods.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ScaStatus.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ScaStatusAuthorisationConfirmation.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ScaStatusResponse.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/SelectPsuAuthenticationMethod.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/SelectPsuAuthenticationMethodResponse.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ServiceLevelCode.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/SigningBasket.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/SigningBasketResponse200.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/SigningBasketResponse201.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/SigningBasketStatusResponse200.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/StandingOrderDetails.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/StartScaprocessResponse.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/StatusReasonCode.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage201PaymentInitiation.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage2XX.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage400AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage400LTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage400PIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage400PIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage400SBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage401AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage401LTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage401PIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage401PIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage401SBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage403AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage403LTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage403PIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage403PIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage403SBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage404AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage404LTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage404PIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage404PIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage404SBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage405AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage405LTB.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage405PIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage405PIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage405PISCANC.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage405SBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage406AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage406PIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage406PIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage409AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage409PIIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage409PIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage409SBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage429AIS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessageCategory.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessageGeneric.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessageInitiationStatusResponse200.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TransactionAuthorisation.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TransactionDetailsBody.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TransactionList.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Transactions.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TransactionsResponse200Json.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TransactionStatus.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TransactionStatusSBS.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TrustedBeneficiaries.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TrustedBeneficiariesList.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TrustedBeneficiary.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/UpdatePsuAuthentication.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/UpdatePsuAuthenticationResponse.java",
+      "endpoints": []
+    },
+    {
+      "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/UpdatePsuIdentificationResponse.java",
+      "endpoints": []
+    }
+  ],
+  "_run": {
+    "model": "gemini-3.5-flash-lite",
+    "provider": "google-ai-studio",
+    "prompt_file": "prompt_appendix_a.txt",
+    "temperature": 0,
+    "repo": "xs2a",
+    "frame": "xs2a-server-api/",
+    "n_files": 294,
+    "n_endpoints": 50,
+    "schema_valid_files": 294,
+    "input_tokens": 694659,
+    "output_tokens": 28063,
+    "list_price_usd": 0.0807,
+    "wall_seconds": 1521.7,
+    "per_file": [
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/AccountApi.java",
+        "schema_ok": true,
+        "n_endpoints": 5,
+        "status": 200,
+        "throttles": 1,
+        "attempts": 2,
+        "in_tok": 12646,
+        "out_tok": 637,
+        "ms": 3361,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/CardAccountsApi.java",
+        "schema_ok": true,
+        "n_endpoints": 4,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 9819,
+        "out_tok": 560,
+        "ms": 7775,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ConfirmationOfFundsServicePiisApi.java",
+        "schema_ok": true,
+        "n_endpoints": 1,
+        "status": 200,
+        "throttles": 10,
+        "attempts": 11,
+        "in_tok": 2321,
+        "out_tok": 211,
+        "ms": 89098,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ConsentApi.java",
+        "schema_ok": true,
+        "n_endpoints": 8,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 20916,
+        "out_tok": 1087,
+        "ms": 4099,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/ListOfTrustedBeneficiariesApi.java",
+        "schema_ok": true,
+        "n_endpoints": 1,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2971,
+        "out_tok": 192,
+        "ms": 1398,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/PaymentApi.java",
+        "schema_ok": true,
+        "n_endpoints": 15,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 50874,
+        "out_tok": 2202,
+        "ms": 5757,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/SigningBasketApi.java",
+        "schema_ok": true,
+        "n_endpoints": 8,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 20508,
+        "out_tok": 919,
+        "ms": 13367,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/api/v2/ConfirmationOfFundsApi.java",
+        "schema_ok": true,
+        "n_endpoints": 8,
+        "status": 200,
+        "throttles": 2,
+        "attempts": 3,
+        "in_tok": 19598,
+        "out_tok": 1204,
+        "ms": 16113,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AccountAccess.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 4210,
+        "out_tok": 70,
+        "ms": 1000,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AccountDetails.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 5534,
+        "out_tok": 70,
+        "ms": 12926,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AccountList.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1112,
+        "out_tok": 70,
+        "ms": 788,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AccountOwner.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1266,
+        "out_tok": 70,
+        "ms": 13307,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AccountReference.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2984,
+        "out_tok": 70,
+        "ms": 13145,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AccountReport.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1761,
+        "out_tok": 70,
+        "ms": 871,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AccountStatus.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 724,
+        "out_tok": 70,
+        "ms": 652,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AdditionalInformationAccess.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2172,
+        "out_tok": 71,
+        "ms": 931,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AdditionalInformationStructured.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1149,
+        "out_tok": 71,
+        "ms": 824,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Address.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 3494,
+        "out_tok": 69,
+        "ms": 12990,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Amount.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1421,
+        "out_tok": 69,
+        "ms": 15569,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AuthenticationObject.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2577,
+        "out_tok": 70,
+        "ms": 929,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AuthenticationType.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 2,
+        "attempts": 3,
+        "in_tok": 930,
+        "out_tok": 70,
+        "ms": 24586,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AuthorisationConfirmation.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 5,
+        "attempts": 6,
+        "in_tok": 1088,
+        "out_tok": 71,
+        "ms": 26576,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AuthorisationConfirmationResponse.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1529,
+        "out_tok": 72,
+        "ms": 738,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Authorisations.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1081,
+        "out_tok": 70,
+        "ms": 2211,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/AuthorisationsList.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 882,
+        "out_tok": 71,
+        "ms": 722,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Balance.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2221,
+        "out_tok": 69,
+        "ms": 925,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/BalanceList.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 928,
+        "out_tok": 70,
+        "ms": 27003,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/BalanceType.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1148,
+        "out_tok": 70,
+        "ms": 16056,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/BulkPaymentExtendedStatusResponse200Json.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 3968,
+        "out_tok": 77,
+        "ms": 12446,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/BulkPaymentInitiationJson.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 7,
+        "attempts": 8,
+        "in_tok": 2718,
+        "out_tok": 73,
+        "ms": 51533,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/BulkPaymentInitiationWithStatusResponse.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 5,
+        "attempts": 6,
+        "in_tok": 2968,
+        "out_tok": 75,
+        "ms": 26682,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/CardAccountDetails.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 4073,
+        "out_tok": 71,
+        "ms": 950,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/CardAccountList.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1152,
+        "out_tok": 71,
+        "ms": 862,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/CardAccountReport.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1430,
+        "out_tok": 71,
+        "ms": 894,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/CardAccountsTransactionsResponse200.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1942,
+        "out_tok": 75,
+        "ms": 906,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/CardTransaction.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 5472,
+        "out_tok": 70,
+        "ms": 888,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/CardTransactionList.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 879,
+        "out_tok": 71,
+        "ms": 901,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/CategoryPurposeCode.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 869,
+        "out_tok": 71,
+        "ms": 829,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ChallengeData.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2547,
+        "out_tok": 70,
+        "ms": 18584,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ChargeBearer.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 690,
+        "out_tok": 70,
+        "ms": 861,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ChosenScaMethod.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 840,
+        "out_tok": 72,
+        "ms": 3183,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConfirmationOfFunds.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2176,
+        "out_tok": 71,
+        "ms": 887,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentConfirmationOfFundsContentResponse.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2154,
+        "out_tok": 74,
+        "ms": 834,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentConfirmationOfFundsStatusResponse.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1088,
+        "out_tok": 74,
+        "ms": 759,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentIdList.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 880,
+        "out_tok": 71,
+        "ms": 755,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentInformationResponse200Json.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2811,
+        "out_tok": 75,
+        "ms": 7603,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Consents.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2301,
+        "out_tok": 70,
+        "ms": 822,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentsConfirmationOfFunds.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1942,
+        "out_tok": 73,
+        "ms": 909,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentsConfirmationOfFundsMultilevelSCAResponse.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2127,
+        "out_tok": 79,
+        "ms": 904,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentsConfirmationOfFundsResponse.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2846,
+        "out_tok": 74,
+        "ms": 918,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentsResponse201.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2897,
+        "out_tok": 74,
+        "ms": 879,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentStatus.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 927,
+        "out_tok": 70,
+        "ms": 10079,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ConsentStatusResponse200.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1346,
+        "out_tok": 74,
+        "ms": 804,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/DayOfExecution.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 940,
+        "out_tok": 71,
+        "ms": 777,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/EntryDetails.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 900,
+        "out_tok": 70,
+        "ms": 7110,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/EntryDetailsElement.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 1,
+        "attempts": 2,
+        "in_tok": 4989,
+        "out_tok": 71,
+        "ms": 2014,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2395,
+        "out_tok": 73,
+        "ms": 922,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400AISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1626,
+        "out_tok": 75,
+        "ms": 902,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400LTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2364,
+        "out_tok": 74,
+        "ms": 939,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400LTBAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1614,
+        "out_tok": 76,
+        "ms": 820,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400NGAIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1456,
+        "out_tok": 75,
+        "ms": 716,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400NGLTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1441,
+        "out_tok": 75,
+        "ms": 24466,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400NGPIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1461,
+        "out_tok": 75,
+        "ms": 9368,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400NGPIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1461,
+        "out_tok": 75,
+        "ms": 33991,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400NGSBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1445,
+        "out_tok": 74,
+        "ms": 1086,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400PIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2423,
+        "out_tok": 74,
+        "ms": 936,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400PIISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1640,
+        "out_tok": 76,
+        "ms": 9099,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400PIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2423,
+        "out_tok": 74,
+        "ms": 907,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400PISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1640,
+        "out_tok": 76,
+        "ms": 7001,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400SBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2399,
+        "out_tok": 73,
+        "ms": 892,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error400SBSAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1628,
+        "out_tok": 75,
+        "ms": 857,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2393,
+        "out_tok": 73,
+        "ms": 3453,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401AISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1624,
+        "out_tok": 75,
+        "ms": 907,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401LTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2364,
+        "out_tok": 74,
+        "ms": 1103,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401LTBAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1614,
+        "out_tok": 76,
+        "ms": 14881,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401NGAIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1456,
+        "out_tok": 75,
+        "ms": 23506,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401NGLTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1441,
+        "out_tok": 75,
+        "ms": 678,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401NGPIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1461,
+        "out_tok": 75,
+        "ms": 829,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401NGPIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1461,
+        "out_tok": 75,
+        "ms": 773,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401NGSBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1445,
+        "out_tok": 74,
+        "ms": 790,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401PIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2421,
+        "out_tok": 74,
+        "ms": 887,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401PIISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1638,
+        "out_tok": 76,
+        "ms": 937,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401PIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2421,
+        "out_tok": 74,
+        "ms": 949,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401PISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1638,
+        "out_tok": 76,
+        "ms": 865,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401SBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2397,
+        "out_tok": 73,
+        "ms": 1086,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error401SBSAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1626,
+        "out_tok": 75,
+        "ms": 727,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2395,
+        "out_tok": 73,
+        "ms": 1045,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403AISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1626,
+        "out_tok": 75,
+        "ms": 825,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403LTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2364,
+        "out_tok": 74,
+        "ms": 873,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403LTBAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1614,
+        "out_tok": 76,
+        "ms": 732,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403NGAIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1456,
+        "out_tok": 75,
+        "ms": 984,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403NGLTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1441,
+        "out_tok": 75,
+        "ms": 31923,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403NGPIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1461,
+        "out_tok": 75,
+        "ms": 37762,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403NGPIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1461,
+        "out_tok": 75,
+        "ms": 827,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403NGSBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1445,
+        "out_tok": 74,
+        "ms": 938,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403PIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2423,
+        "out_tok": 74,
+        "ms": 1024,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403PIISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1640,
+        "out_tok": 76,
+        "ms": 736,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403PIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2431,
+        "out_tok": 74,
+        "ms": 37103,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403PISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1648,
+        "out_tok": 76,
+        "ms": 728,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403SBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2399,
+        "out_tok": 73,
+        "ms": 1036,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error403SBSAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1628,
+        "out_tok": 75,
+        "ms": 933,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2393,
+        "out_tok": 73,
+        "ms": 927,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404AISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1624,
+        "out_tok": 75,
+        "ms": 694,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404LTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2364,
+        "out_tok": 74,
+        "ms": 37351,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404LTBAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1614,
+        "out_tok": 76,
+        "ms": 26598,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404NGAIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1456,
+        "out_tok": 75,
+        "ms": 858,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404NGLTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1441,
+        "out_tok": 75,
+        "ms": 708,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404NGPIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1461,
+        "out_tok": 75,
+        "ms": 666,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404NGPIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1461,
+        "out_tok": 75,
+        "ms": 1130,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404NGSBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1445,
+        "out_tok": 74,
+        "ms": 18367,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404PIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2421,
+        "out_tok": 74,
+        "ms": 13244,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404PIISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1638,
+        "out_tok": 76,
+        "ms": 22526,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404PIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2421,
+        "out_tok": 74,
+        "ms": 885,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404PISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1638,
+        "out_tok": 76,
+        "ms": 3689,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404SBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2397,
+        "out_tok": 73,
+        "ms": 6732,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error404SBSAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1626,
+        "out_tok": 75,
+        "ms": 2339,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2397,
+        "out_tok": 73,
+        "ms": 3374,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405AISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1628,
+        "out_tok": 75,
+        "ms": 646,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405LTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2364,
+        "out_tok": 74,
+        "ms": 888,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405LTBAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1614,
+        "out_tok": 76,
+        "ms": 3558,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405NGAIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1456,
+        "out_tok": 75,
+        "ms": 1581,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405NGLTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1441,
+        "out_tok": 75,
+        "ms": 935,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405NGPIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1461,
+        "out_tok": 75,
+        "ms": 920,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405NGPIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1461,
+        "out_tok": 75,
+        "ms": 1313,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405NGPISCANC.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1477,
+        "out_tok": 76,
+        "ms": 765,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405NGSBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1445,
+        "out_tok": 74,
+        "ms": 5074,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405PIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2425,
+        "out_tok": 74,
+        "ms": 12426,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405PIISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1642,
+        "out_tok": 76,
+        "ms": 849,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405PIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2431,
+        "out_tok": 74,
+        "ms": 10930,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405PISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1648,
+        "out_tok": 76,
+        "ms": 744,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405PISCANC.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2465,
+        "out_tok": 75,
+        "ms": 16587,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405PISCANCAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1660,
+        "out_tok": 77,
+        "ms": 36365,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405SBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2399,
+        "out_tok": 73,
+        "ms": 1729,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error405SBSAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1628,
+        "out_tok": 75,
+        "ms": 1168,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error406AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2395,
+        "out_tok": 73,
+        "ms": 893,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error406AISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1626,
+        "out_tok": 75,
+        "ms": 1077,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error406NGAIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1456,
+        "out_tok": 75,
+        "ms": 849,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error406NGPIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1461,
+        "out_tok": 75,
+        "ms": 1261,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error406NGPIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1461,
+        "out_tok": 75,
+        "ms": 4011,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error406PIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2413,
+        "out_tok": 74,
+        "ms": 888,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error406PISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1640,
+        "out_tok": 76,
+        "ms": 6178,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2391,
+        "out_tok": 73,
+        "ms": 32204,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409AISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1622,
+        "out_tok": 75,
+        "ms": 2377,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409NGAIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1456,
+        "out_tok": 75,
+        "ms": 2020,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409NGPIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1461,
+        "out_tok": 75,
+        "ms": 671,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409NGPIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1461,
+        "out_tok": 75,
+        "ms": 915,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409NGSBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1445,
+        "out_tok": 74,
+        "ms": 705,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409PIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2419,
+        "out_tok": 74,
+        "ms": 850,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409PIISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1636,
+        "out_tok": 76,
+        "ms": 1118,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409PIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2419,
+        "out_tok": 74,
+        "ms": 940,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409PISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1636,
+        "out_tok": 76,
+        "ms": 879,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409SBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2395,
+        "out_tok": 73,
+        "ms": 917,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error409SBSAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1624,
+        "out_tok": 75,
+        "ms": 806,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error429AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2391,
+        "out_tok": 73,
+        "ms": 993,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error429AISAdditionalErrors.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1651,
+        "out_tok": 75,
+        "ms": 978,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Error429NGAIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1456,
+        "out_tok": 75,
+        "ms": 677,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ExchangeRateTypeCode.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 675,
+        "out_tok": 71,
+        "ms": 719,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ExecutionRule.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 735,
+        "out_tok": 70,
+        "ms": 847,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/FrequencyCode.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 1,
+        "attempts": 2,
+        "in_tok": 788,
+        "out_tok": 70,
+        "ms": 1785,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/GrandTotalAmount.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1484,
+        "out_tok": 71,
+        "ms": 1573,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/GroupStatus.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 856,
+        "out_tok": 70,
+        "ms": 26823,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/HrefType.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1047,
+        "out_tok": 70,
+        "ms": 2490,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/InlineResponse200.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1054,
+        "out_tok": 73,
+        "ms": 707,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/InlineResponse2001.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1079,
+        "out_tok": 74,
+        "ms": 772,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/InlineResponse2002.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1087,
+        "out_tok": 74,
+        "ms": 3395,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/InlineResponse2003.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1277,
+        "out_tok": 74,
+        "ms": 721,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksAccountDetails.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1334,
+        "out_tok": 71,
+        "ms": 760,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksAccountReport.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1721,
+        "out_tok": 71,
+        "ms": 15060,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksAll.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 7420,
+        "out_tok": 70,
+        "ms": 911,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksAuthorisationConfirmation.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1307,
+        "out_tok": 72,
+        "ms": 8714,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksCardAccountReport.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1900,
+        "out_tok": 72,
+        "ms": 933,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksConsents.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 4838,
+        "out_tok": 71,
+        "ms": 1006,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksDownload.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1233,
+        "out_tok": 70,
+        "ms": 1517,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksGetConsent.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1328,
+        "out_tok": 71,
+        "ms": 947,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksPaymentInitiation.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 4910,
+        "out_tok": 72,
+        "ms": 882,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksPaymentInitiationCancel.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 3007,
+        "out_tok": 73,
+        "ms": 10837,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksPaymentInitiationStatus.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 929,
+        "out_tok": 73,
+        "ms": 7710,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksSelectPsuAuthenticationMethod.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 3933,
+        "out_tok": 74,
+        "ms": 7512,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksSigningBasket.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 4606,
+        "out_tok": 71,
+        "ms": 1080,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksStartScaProcess.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 3889,
+        "out_tok": 73,
+        "ms": 12102,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksStartScaProcessMultilevelSca.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2861,
+        "out_tok": 77,
+        "ms": 12291,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksStartScaProcessSingleSca.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 1,
+        "attempts": 2,
+        "in_tok": 4527,
+        "out_tok": 76,
+        "ms": 2198,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksTransactionDetails.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1105,
+        "out_tok": 71,
+        "ms": 14918,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksUpdatePsuAuthentication.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2740,
+        "out_tok": 73,
+        "ms": 840,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/LinksUpdatePsuIdentification.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1674,
+        "out_tok": 73,
+        "ms": 676,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode200InitiationStatus.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 711,
+        "out_tok": 76,
+        "ms": 5800,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode201PaymentInitiation.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 724,
+        "out_tok": 76,
+        "ms": 6731,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode202InitiationStatus.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 706,
+        "out_tok": 76,
+        "ms": 714,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode2XX.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 671,
+        "out_tok": 72,
+        "ms": 837,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode400AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 839,
+        "out_tok": 74,
+        "ms": 784,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode400LTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 1,
+        "attempts": 2,
+        "in_tok": 860,
+        "out_tok": 75,
+        "ms": 1638,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode401AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 872,
+        "out_tok": 74,
+        "ms": 11517,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode401LTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 891,
+        "out_tok": 75,
+        "ms": 732,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode403AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 731,
+        "out_tok": 74,
+        "ms": 2046,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode403LTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 740,
+        "out_tok": 75,
+        "ms": 732,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode404AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 694,
+        "out_tok": 74,
+        "ms": 844,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode404LTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 703,
+        "out_tok": 75,
+        "ms": 873,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode405AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 696,
+        "out_tok": 74,
+        "ms": 29619,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode405LTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 705,
+        "out_tok": 75,
+        "ms": 3422,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode406AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 703,
+        "out_tok": 74,
+        "ms": 713,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode409AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 693,
+        "out_tok": 74,
+        "ms": 820,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MessageCode429AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 697,
+        "out_tok": 74,
+        "ms": 772,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/MonthsOfExecution.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1067,
+        "out_tok": 71,
+        "ms": 2903,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/OriginalTransactionInformationAndStatus.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2424,
+        "out_tok": 73,
+        "ms": 870,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/OtherType.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1808,
+        "out_tok": 70,
+        "ms": 854,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentExchangeRate.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1644,
+        "out_tok": 71,
+        "ms": 28805,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentIdList.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 880,
+        "out_tok": 71,
+        "ms": 699,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentInitiationBulkElementJson.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 8745,
+        "out_tok": 74,
+        "ms": 24004,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentInitiationCancelResponse202.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2728,
+        "out_tok": 76,
+        "ms": 1003,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentInitiationJson.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 9789,
+        "out_tok": 72,
+        "ms": 1115,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentInitiationRequestResponse201.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 4270,
+        "out_tok": 76,
+        "ms": 17692,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentInitiationStatusResponse200Json.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 3001,
+        "out_tok": 77,
+        "ms": 847,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PaymentInitiationWithStatusResponse.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 5366,
+        "out_tok": 74,
+        "ms": 952,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PeriodicPaymentInitiationJson.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 11365,
+        "out_tok": 73,
+        "ms": 1004,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PeriodicPaymentInitiationMultipartBody.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1391,
+        "out_tok": 74,
+        "ms": 14608,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PeriodicPaymentInitiationWithStatusResponse.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 6163,
+        "out_tok": 75,
+        "ms": 959,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PeriodicPaymentInitiationXmlPart2StandingorderTypeJson.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2839,
+        "out_tok": 79,
+        "ms": 968,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PostalAddress.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 3984,
+        "out_tok": 70,
+        "ms": 922,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PsuData.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1605,
+        "out_tok": 71,
+        "ms": 754,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/PurposeCode.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2988,
+        "out_tok": 70,
+        "ms": 930,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ReadAccountBalanceResponse200.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1271,
+        "out_tok": 75,
+        "ms": 896,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ReadCardAccountBalanceResponse200.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1566,
+        "out_tok": 76,
+        "ms": 718,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/RemittanceInformationStructured.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1425,
+        "out_tok": 72,
+        "ms": 824,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/RemittanceInformationStructuredArray.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 890,
+        "out_tok": 73,
+        "ms": 993,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/RemittanceInformationStructuredMax140.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1476,
+        "out_tok": 76,
+        "ms": 868,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/RemittanceInformationUnstructuredArray.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 890,
+        "out_tok": 74,
+        "ms": 742,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ReportExchangeRate.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2132,
+        "out_tok": 71,
+        "ms": 909,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ReportExchangeRateList.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 1,
+        "attempts": 2,
+        "in_tok": 883,
+        "out_tok": 72,
+        "ms": 1924,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ScaMethods.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1092,
+        "out_tok": 71,
+        "ms": 896,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ScaStatus.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1020,
+        "out_tok": 71,
+        "ms": 889,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ScaStatusAuthorisationConfirmation.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 742,
+        "out_tok": 74,
+        "ms": 15774,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ScaStatusResponse.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2408,
+        "out_tok": 72,
+        "ms": 906,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/SelectPsuAuthenticationMethod.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1159,
+        "out_tok": 73,
+        "ms": 1202,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/SelectPsuAuthenticationMethodResponse.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2830,
+        "out_tok": 74,
+        "ms": 1060,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/ServiceLevelCode.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 823,
+        "out_tok": 71,
+        "ms": 757,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/SigningBasket.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1260,
+        "out_tok": 70,
+        "ms": 941,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/SigningBasketResponse200.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1841,
+        "out_tok": 74,
+        "ms": 824,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/SigningBasketResponse201.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2716,
+        "out_tok": 74,
+        "ms": 936,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/SigningBasketStatusResponse200.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1096,
+        "out_tok": 75,
+        "ms": 789,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/StandingOrderDetails.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 3458,
+        "out_tok": 71,
+        "ms": 845,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/StartScaprocessResponse.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2714,
+        "out_tok": 73,
+        "ms": 888,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/StatusReasonCode.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 667,
+        "out_tok": 71,
+        "ms": 715,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage201PaymentInitiation.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 2,
+        "attempts": 3,
+        "in_tok": 1670,
+        "out_tok": 77,
+        "ms": 3678,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage2XX.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1594,
+        "out_tok": 73,
+        "ms": 979,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage400AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1643,
+        "out_tok": 75,
+        "ms": 921,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage400LTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1624,
+        "out_tok": 76,
+        "ms": 745,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage400PIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1660,
+        "out_tok": 76,
+        "ms": 11562,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage400PIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1660,
+        "out_tok": 76,
+        "ms": 843,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage400SBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1645,
+        "out_tok": 75,
+        "ms": 931,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage401AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1641,
+        "out_tok": 75,
+        "ms": 2735,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage401LTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1624,
+        "out_tok": 76,
+        "ms": 1141,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage401PIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1658,
+        "out_tok": 76,
+        "ms": 826,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage401PIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1658,
+        "out_tok": 76,
+        "ms": 695,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage401SBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1643,
+        "out_tok": 75,
+        "ms": 806,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage403AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1643,
+        "out_tok": 75,
+        "ms": 1893,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage403LTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1624,
+        "out_tok": 76,
+        "ms": 1658,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage403PIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1660,
+        "out_tok": 76,
+        "ms": 1362,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage403PIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1668,
+        "out_tok": 76,
+        "ms": 2720,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage403SBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 1,
+        "attempts": 2,
+        "in_tok": 1645,
+        "out_tok": 75,
+        "ms": 2129,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage404AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1641,
+        "out_tok": 75,
+        "ms": 834,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage404LTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1624,
+        "out_tok": 76,
+        "ms": 877,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage404PIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1658,
+        "out_tok": 76,
+        "ms": 1050,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage404PIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1658,
+        "out_tok": 76,
+        "ms": 888,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage404SBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1643,
+        "out_tok": 75,
+        "ms": 704,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage405AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1645,
+        "out_tok": 75,
+        "ms": 914,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage405LTB.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1624,
+        "out_tok": 76,
+        "ms": 709,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage405PIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1662,
+        "out_tok": 76,
+        "ms": 918,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage405PIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1668,
+        "out_tok": 76,
+        "ms": 1023,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage405PISCANC.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1683,
+        "out_tok": 77,
+        "ms": 705,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage405SBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1645,
+        "out_tok": 75,
+        "ms": 772,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage406AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1643,
+        "out_tok": 75,
+        "ms": 1062,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage406PIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1658,
+        "out_tok": 76,
+        "ms": 942,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage406PIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1660,
+        "out_tok": 76,
+        "ms": 955,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage409AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1639,
+        "out_tok": 75,
+        "ms": 2145,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage409PIIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1656,
+        "out_tok": 76,
+        "ms": 1030,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage409PIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1656,
+        "out_tok": 76,
+        "ms": 33227,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage409SBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 1,
+        "attempts": 2,
+        "in_tok": 1641,
+        "out_tok": 75,
+        "ms": 1902,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessage429AIS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1639,
+        "out_tok": 75,
+        "ms": 1108,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessageCategory.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 675,
+        "out_tok": 72,
+        "ms": 726,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessageGeneric.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1577,
+        "out_tok": 72,
+        "ms": 662,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TppMessageInitiationStatusResponse200.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1685,
+        "out_tok": 78,
+        "ms": 746,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TransactionAuthorisation.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1143,
+        "out_tok": 71,
+        "ms": 940,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TransactionDetailsBody.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1062,
+        "out_tok": 71,
+        "ms": 726,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TransactionList.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 875,
+        "out_tok": 70,
+        "ms": 715,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/Transactions.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 8198,
+        "out_tok": 69,
+        "ms": 18843,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TransactionsResponse200Json.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1617,
+        "out_tok": 74,
+        "ms": 799,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TransactionStatus.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1288,
+        "out_tok": 70,
+        "ms": 920,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TransactionStatusSBS.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 872,
+        "out_tok": 71,
+        "ms": 28553,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TrustedBeneficiaries.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1124,
+        "out_tok": 72,
+        "ms": 700,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TrustedBeneficiariesList.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 891,
+        "out_tok": 73,
+        "ms": 829,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/TrustedBeneficiary.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2674,
+        "out_tok": 71,
+        "ms": 923,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/UpdatePsuAuthentication.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1127,
+        "out_tok": 72,
+        "ms": 710,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/UpdatePsuAuthenticationResponse.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 3218,
+        "out_tok": 73,
+        "ms": 903,
+        "finish": "STOP"
+      },
+      {
+        "path": "/xs2a-server-api/src/main/java/de/adorsys/psd2/model/UpdatePsuIdentificationResponse.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 2593,
+        "out_tok": 73,
+        "ms": 923,
+        "finish": "STOP"
+      }
+    ]
+  }
+}

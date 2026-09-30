@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Endpoint IR Viewer</title>
+<style>
+:root{--bg:#f6f6f4;--card:#fff;--ink:#1d1d1b;--mute:#6b6b66;--line:#e3e2dd;--acc:#2f6fdf;--ok:#2e8b57;--bad:#c8463d;--role:#8a4fd1;--miss:#b7791f;--out:#d9822b;--dim:#c9c8c2;--hl:#eef3fd}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161618;--card:#202024;--ink:#ececea;--mute:#9a9a95;--line:#34343a;--acc:#6ea0ff;--ok:#5cc28a;--bad:#ef7b72;--role:#b98cf2;--miss:#e5b04f;--out:#f0a458;--dim:#4a4a50;--hl:#26314a}}
+:root[data-theme=dark]{--bg:#161618;--card:#202024;--ink:#ececea;--mute:#9a9a95;--line:#34343a;--acc:#6ea0ff;--ok:#5cc28a;--bad:#ef7b72;--role:#b98cf2;--miss:#e5b04f;--out:#f0a458;--dim:#4a4a50;--hl:#26314a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,sans-serif}
+main{width:100%;padding:20px 24px 48px}
+@media (max-width:700px){main{padding:16px}}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between;margin-bottom:6px}
+h1{font-size:20px;margin:0}h2{font-size:15px;margin:0 0 10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.ctl{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}.ctl label{display:flex;flex-direction:column;font-size:11px;color:var(--mute);gap:3px;min-width:0}
+select,input[type=search],button.b{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);min-width:0;max-width:100%}
+#sys{width:17rem}#src,#cmp{width:19rem}#lvl{width:10rem}#svcf{width:16rem}
+button.b{cursor:pointer}
+.sub{color:var(--mute);margin:0 0 14px}
+.cols{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:14px}@media (max-width:1100px){.cols{grid-template-columns:1fr}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:14px}
+.kpi,.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}.card{margin-bottom:14px;min-width:0}
+.kpi b{display:block;font-size:22px;word-break:break-word}.kpi span{color:var(--mute);font-size:12px}
+svg{width:100%;height:auto;display:block}
+table{width:100%;border-collapse:collapse;font-size:12.5px}td,th{text-align:left;padding:5px 7px;border-top:1px solid var(--line);vertical-align:top}
+th{color:var(--mute);font-weight:500;white-space:nowrap;position:sticky;top:0;background:var(--card);z-index:1}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+code{font-family:ui-monospace,Consolas,monospace;word-break:break-all;font-size:12px}
+.wrap{overflow:auto}.tall{max-height:78vh}.mute{color:var(--mute)}.empty{color:var(--mute);font-style:italic}.small{font-size:11.5px;color:var(--mute)}
+.board tr.src{cursor:pointer}.board tr.src:hover td{background:var(--hl)}.board tr.on td{background:var(--hl);font-weight:600}
+.board tr.grp td{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--mute);padding-top:12px;border-top:none}
+.board th.g{text-align:center;border-bottom:1px solid var(--line)}
+.bar{display:inline-block;height:6px;border-radius:3px;background:var(--acc);vertical-align:middle;margin-left:6px}
+.tag{font-size:10px;border-radius:4px;padding:0 5px;margin-left:6px;background:var(--acc);color:var(--card);font-weight:600}
+.st{font-size:11px;border-radius:99px;padding:1px 8px;white-space:nowrap;border:1px solid currentColor;display:inline-block}
+.s-match,.s-ground,.s-yes{color:var(--ok)}.s-hallucination,.s-extra,.s-duplicate,.s-no{color:var(--bad)}.s-role-separation{color:var(--role)}.s-wrong,.s-near{color:var(--out)}.s-missed{color:var(--miss)}.s-outside{color:var(--mute)}
+.dir{font-size:11px;font-weight:600;white-space:nowrap}.dir.in{color:var(--acc)}.dir.out{color:var(--out)}
+tr.missed td{background:color-mix(in srgb,var(--miss) 7%,transparent)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.chips button{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:3px 10px;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.legend{display:flex;gap:14px;color:var(--mute);font-size:12px;margin-top:6px;flex-wrap:wrap}.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:-1px}
+.note{border-left:3px solid var(--miss);padding:6px 10px;background:var(--card);border-radius:6px;font-size:12.5px;margin-bottom:14px}
+td.ev{min-width:240px;max-width:420px;font-size:11.5px}td.ev .mute{display:block;margin-top:3px}
+dl.gl{display:grid;grid-template-columns:max-content 1fr;gap:4px 12px;margin:0;font-size:12.5px}dl.gl dt{font-weight:600}dl.gl dd{margin:0;color:var(--mute)}
+#load{font-size:12.5px;margin-bottom:14px}#load summary{cursor:pointer;color:var(--mute)}#load .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0}
+body.drag main{outline:3px dashed var(--acc);outline-offset:-8px}
+td.a{border-left:2px solid var(--line)}
+button.vs{font:inherit;font-size:11px;border:1px solid var(--line);background:var(--card);color:var(--acc);border-radius:6px;padding:0 6px;cursor:pointer;margin-left:4px}
+dialog#code{width:min(1200px,96vw);height:88vh;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);padding:0;display:none;flex-direction:column}
+dialog#code[open]{display:flex}dialog#code::backdrop{background:rgba(0,0,0,.45)}
+.chead{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 14px;border-bottom:1px solid var(--line)}
+.chead code{flex:1;min-width:200px}
+.cbody{flex:1;overflow:auto;font:12.5px/1.5 ui-monospace,Consolas,monospace}
+.cbody table{border-collapse:collapse;width:100%}.cbody td{border:0;padding:0 10px;white-space:pre;vertical-align:top}
+.cbody td.ln{color:var(--mute);text-align:right;user-select:none;width:1%;border-right:1px solid var(--line)}
+.cbody tr.hit td{background:color-mix(in srgb,var(--acc) 22%,transparent)}
+.srcrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+</style></head><body><main>
+<header><h1>Endpoint IR viewer</h1>
+<div class="ctl">
+<label>System<select id="sys"></select></label>
+<label>Source<select id="src"></select></label>
+<label>Compare with<select id="cmp"></select></label>
+<label>Matching level<select id="lvl"></select></label>
+</div></header>
+<details id="load"><summary id="loadsum"></summary>
+ <div class="row">
+  <button class="b" type="button" onclick="fpick.click()">Load files…</button>
+  <button class="b" type="button" onclick="dpick.click()">Load folder…</button>
+  <button class="b" type="button" id="clear">Remove all</button>
+  <span class="small">or drop files / folders anywhere on the page. Ground truth (*.gt.json), CIMET IR, llm_ir*.json and agent_ir*.json are recognised by content; *.messages.json is skipped. A loaded file replaces a loaded file of the same name.</span>
+  <input type="file" id="fpick" multiple accept=".json,application/json" hidden><input type="file" id="dpick" webkitdirectory multiple hidden>
+ </div>
+ <div class="wrap"><table id="files"></table></div>
+</details>
+<details id="srcpanel"><summary id="srcsum"></summary>
+ <div class="srcrow">
+  <label class="small" for="srcroot">Local path of this system's checkout (used by "Open in VS Code"):</label>
+  <input type="search" id="srcroot" placeholder="e.g. C:/work/clone/xs2a" style="width:28rem">
+  <button class="b" type="button" onclick="spick.click()">Pick source folder… (for the preview)</button>
+  <input type="file" id="spick" webkitdirectory multiple hidden>
+ </div>
+ <p class="small" style="margin:0">Both are remembered per system in this browser only. The browser cannot read a local path by itself, so the preview needs the folder picked once per session; "Open in VS Code" needs only the path.</p>
+</details>
+<dialog id="code"><div class="chead"><b id="ctitle"></b><code id="cpath" class="small"></code>
+ <a class="b" id="cvscode" href="#" style="text-decoration:none;padding:4px 10px;border:1px solid var(--line);border-radius:8px;color:var(--acc)">Open in VS Code</a>
+ <button class="b" type="button" id="ccopy">Copy path</button><button class="b" type="button" onclick="code.close()">Close</button></div>
+ <div class="cbody" id="cbody"></div></dialog>
+<p class="sub" id="meta"></p>
+<div id="frame"></div>
+
+<div class="cols">
+ <div class="card"><h2>Scoreboard <span class="small" id="lvlnote"></span></h2>
+  <div class="wrap"><table class="board" id="board"></table></div>
+  <p class="small" style="margin:8px 0 0">Click a row to inspect that source. Role-separation and hallucination counts use evaluate.py's surplus rule (neither M2 route nor M4 handler in the ground-truth inbound set) and do not depend on the level; duplicates are counted on the M2 key. Outbound is scored only for sources that emit outbound calls inside the frame.</p></div>
+ <div class="card"><h2>Service map · <span id="maplabel" class="mute" style="font-weight:400"></span></h2><div id="graph"></div><div class="legend" id="legend"></div></div>
+</div>
+
+<div class="grid" id="kpis"></div>
+<div id="compare"></div>
+
+<div class="card">
+ <h2>Endpoints and calls · <span id="tlabel" class="mute" style="font-weight:400"></span></h2>
+ <div class="filters">
+  <div class="chips" id="dirs"></div>
+  <div class="chips" id="chips"></div>
+  <select id="svcf" aria-label="Service"></select>
+  <input type="search" id="q" placeholder="Filter path, class, method, file, id…" style="flex:1;min-width:180px">
+ </div>
+ <div class="wrap tall"><table id="rows"></table></div>
+ <p class="small" style="margin:8px 0 0">Status is against the manual ground truth at the selected matching level. Empty columns are omitted.</p>
+</div>
+
+<div class="cols">
+ <div class="card"><h2>Status glossary</h2><dl class="gl">
+  <dt><span class="st s-match">match</span></dt><dd>Equal to a ground-truth entry at the selected level (M2: service + verb + normalized path). The <i>GT id</i> column names the entry.</dd>
+  <dt><span class="st s-missed">missed</span></dt><dd>Ground-truth entry the source did not report; the row shows the ground-truth values.</dd>
+  <dt><span class="st s-wrong">wrong route</span></dt><dd>Right handler (M4 class + method) but a route (M2) the ground truth does not have.</dd>
+  <dt><span class="st s-near">near miss</span></dt><dd>Same M2 route or M4 handler as a ground-truth entry, but not equal at the selected level (e.g. M1 notation <code>{?}</code> vs <code>{id}</code>). Never occurs at M2.</dd>
+  <dt><span class="st s-duplicate">duplicate</span></dt><dd>Key already matched: the source reports the same entry more than once. Counts as a false positive.</dd>
+  <dt><span class="st s-role-separation">role-separation</span></dt><dd>Reported as inbound, but it is a ground-truth outbound call (e.g. a Feign client method).</dd>
+  <dt><span class="st s-hallucination">hallucination</span></dt><dd>Reported as inbound; matches nothing in the ground truth, inbound or outbound.</dd>
+  <dt><span class="st s-extra">extra</span></dt><dd>Outbound call not in the ground truth.</dd>
+  <dt><span class="st s-outside">outside frame</span></dt><dd>Outside the part of the system the ground truth covers; not scored.</dd>
+ </dl></div>
+ <div class="card"><h2>Matching levels</h2><p class="small" style="margin:0 0 8px">When does a reported entry count as the same as a ground-truth entry? Pick the level in the header; statuses and scores follow it.</p><dl class="gl">
+  <dt>M1 exact</dt><dd>service + HTTP verb + path exactly as written. Strictest: <code>/movie/{?}</code> ≠ <code>/movie/{movieId}</code>. Measures notation compatibility more than detection.</dd>
+  <dt>M2 normalized ⭐</dt><dd>service + HTTP verb + normalized path: placeholders collapse to <code>{}</code>, <code>${prop:default}</code> resolves to its default, query string, host and trailing slash are dropped, case is folded. <b>The operative level</b> reported in the results.</dd>
+  <dt>M3 path only</dt><dd>service + normalized path; the HTTP verb is ignored. Shows whether a miss at M2 is only a wrong verb.</dd>
+  <dt>M4 code</dt><dd>service + class + method (a leading underscore is ignored). Compares where the handler is in the code, not the URL; shows whether a miss at M2 is only a wrongly composed path.</dd>
+ </dl></div>
+ <div id="excl"></div>
+</div>
+</main>
+<script id="data" type="application/json">__DATA__</script>
+<script id="srcdata" type="application/json">__SRC__</script>
+<script>
+// ------------------------------------------------ evaluate.py, ported 1:1 --
+const CIMET_BUCKETS = ["controllers","services","repositories","entities","unknowns","feignClients"];
+function normPath(p){
+  p = String(p ?? "").trim();
+  p = p.replace(/\$\{[^}:]*:([^}]*)\}/g, "$1");
+  p = p.replace(/\$\{[^}]*\}/g, "");
+  p = p.replace(/\{[^}]*\}/g, "{}");
+  p = p.split("?")[0];
+  p = p.replace(/^https?:\/\/[^/]+/, "");
+  p = p.replace(/:[^/]+/g, "");
+  p = p.replace(/\/+/g, "/");
+  if (!p.startsWith("/")) p = "/" + p;
+  if (p.length > 1) p = p.replace(/\/+$/, "");
+  return p.toLowerCase();
+}
+function normVerb(v){ v = String(v ?? "").trim().toUpperCase(); return v === "" || v === "ANY" ? "ALL" : v; }
+const rec = (service, verb, declared, cls, method, extra) => ({service, verb: normVerb(verb), declared: declared || "",
+  path: normPath(declared), cls: String(cls || "").split(".java").join("").split(".").pop(), method: method || "", ...extra});
+const LEVELS = {
+  "M1 exact":      r => [r.service, r.verb, r.declared],
+  "M2 normalized": r => [r.service, r.verb, r.path],
+  "M3 path only":  r => [r.service, r.path],
+  "M4 code":       r => [r.service, r.cls, r.method.replace(/^_+/, "")],
+};
+const key = (L, r) => LEVELS[L](r).join("\u0001");
+const counts = (rows, L) => rows.reduce((m, r) => m.set(key(L, r), (m.get(key(L, r)) || 0) + 1), new Map());
+function score(ref, pred, L){
+  const cr = counts(ref, L), cp = counts(pred, L); let tp = 0;
+  for (const [k, n] of cr) tp += Math.min(n, cp.get(k) || 0);
+  const p = pred.length ? tp / pred.length : null, r = ref.length ? tp / ref.length : null;
+  return {tp, fp: pred.length - tp, fn: ref.length - tp, precision: p, recall: r,
+          f1: p != null && r != null ? (p + r ? 2 * p * r / (p + r) : 0) : null};
+}
+const slash = p => String(p || "").replace(/\\/g, "/");
+function frameFilter(doc){
+  const fr = (doc.meta || {}).frame;
+  if (!fr || fr.kind == null || fr.kind === "whole_system") return null;
+  const prefix = String(fr.definition || "").split("**")[0].replace(/^\/+|\/+$/g, "");
+  return prefix ? p => slash(p).replace(/^\/+/, "").startsWith(prefix) : null;
+}
+function serviceResolver(doc){
+  const pairs = [];
+  for (const s of doc.services || []) for (const d of [s.module_dir, ...(s.serves_modules || [])]) if (d) pairs.push([slash(d).replace(/^\/+|\/+$/g, ""), s.name]);
+  pairs.sort((a, b) => b[0].length - a[0].length);
+  if (!pairs.length) return null;
+  return path => { const p = slash(path).replace(/^\/+/, "");
+    for (const [pre, name] of pairs) if (p === pre || p.startsWith(pre + "/")) return name;
+    return p.split("/").filter(Boolean)[0] || "?"; };
+}
+// ------------------------------------------------------------------ loaders --
+const GT_SHOWN = new Set(["id","service","caller_service","http_method","path_declared","class","method","file","line_method_annotation","line_handler",
+  "declaration_kind","mechanism","path_class_level","path_method_level","target_service","resolves_to_endpoint","declaring_module","implemented_by","evidence","notes"]);
+const RUN_FIELDS = ["model","workflow","effort","temperature","max_tokens","input_tokens","output_tokens","wall_seconds","list_price_usd","schema_valid_files","n_files","steps"];
+function gtExtra(e, dir){
+  return {dir, id: e.id, file: e.file, line: e.line_method_annotation || e.line_handler, kind: e.declaration_kind || e.mechanism,
+    class_path: e.path_class_level, method_path: e.path_method_level, target: e.target_service, resolves_to: e.resolves_to_endpoint,
+    declaring_module: e.declaring_module, implemented_by: e.implemented_by, evidence: e.evidence, notes: e.notes,
+    other: Object.entries(e).filter(([k]) => !GT_SHOWN.has(k)).map(([k, v]) => `${k}: ${typeof v === "object" ? JSON.stringify(v) : v}`).join("; ")};
+}
+function llmLabel(r){
+  const m = (r.model || "?").replace(/^openai\//, "");
+  return m + (r.effort && r.effort !== "default" ? ` (effort ${r.effort})` : "");
+}
+// One parsed file -> what the page keeps of it (the 63 MB CIMET IR is dropped right after this).
+function ingest(name, d){
+  if (d && d.inbound_endpoints && d.meta) return {kind: "gt", name, system: d.meta.system, doc: d};
+  if (d && d.microservices) {
+    const inb = [], out = [];
+    for (const ms of d.microservices) for (const b of CIMET_BUCKETS) for (const c of ms[b] || []) for (const m of c.methods || []) {
+      if (m.type === "Endpoint") inb.push(rec(ms.name, m.httpMethod, m.url, c.name, m.name, {dir: "inbound", file: c.path || "", kind: `CIMET ${b}`}));
+      for (const mc of m.methodCalls || []) if (mc.type === "RestCall")
+        out.push(rec(ms.name, mc.httpMethod, mc.url, c.name, m.name, {dir: "outbound", file: c.path || "", kind: `${mc.objectType || "?"} ${mc.objectName || ""}.${mc.name || ""} (CIMET ${b})`}));
+    }
+    return {kind: "cimet", name, system: d.name, label: "CIMET " + (d.version || "1.2.1"), approach: "Deterministic baseline", inb, out, run: {}};
+  }
+  if (d && Array.isArray(d.files)) {
+    const inb = [], run = d._run || {};
+    for (const f of d.files) for (const e of f.endpoints || []) {
+      const fp = e._file || f.path || "";
+      inb.push(rec(slash(fp).split("/").filter(Boolean)[0] || "?", e.httpMethod, e.path, e.className, e.methodName,
+        {dir: "inbound", file: fp, confidence: e.confidence, kind: e.framework, evidence: e.evidence}));
+    }
+    return {kind: "llm", name, system: d.system, label: llmLabel(run), approach: run.workflow === "agent" ? "LLM agent" : "LLM per-file",
+      inb, out: [], run: Object.fromEntries(RUN_FIELDS.filter(k => run[k] != null).map(k => [k, run[k]]))};
+  }
+  return null;
+}
+// ----------------------------------------------------- one system, scored --
+const APPROACHES = ["Reference","Deterministic baseline","LLM per-file","LLM agent"];
+const K2 = r => key("M2 normalized", r), K4 = r => key("M4 code", r);
+function buildSystem(name){
+  const gtf = FILES.filter(f => f.kind === "gt" && f.system === name).pop(), doc = gtf.doc, meta = doc.meta;
+  const gtIn = doc.inbound_endpoints.map(e => rec(e.service, e.http_method, e.path_declared, e.class, e.method, gtExtra(e, "inbound")));
+  const gtOut = doc.outbound_calls.map(e => rec(e.caller_service, e.http_method, e.path_declared, e.class, e.method, gtExtra(e, "outbound")));
+  const resolve = serviceResolver(doc), inFrame = frameFilter(doc);
+  const in2 = new Set(gtIn.map(K2)), in4 = new Set(gtIn.map(K4)), out2 = new Set(gtOut.map(K2)), out4 = new Set(gtOut.map(K4));
+  // ponytail: outbound target inferred by longest ground-truth inbound path the call URL ends with
+  const target = c => gtIn.filter(e => e.service !== c.service && e.path !== "/" && c.path.endsWith(e.path)).sort((a, b) => b.path.length - a.path.length)[0];
+  const sources = [{id: gtf.name, label: "Manual ground truth", approach: "Reference", ref: true, inb: gtIn, out: gtOut, outside: [], emitsOut: true,
+    run: {labeled_by: meta.labeled_by, labeled_on: meta.labeled_on}}];
+  for (const f of FILES.filter(f => f.kind !== "gt" && f.system === name)) {
+    let inb = f.inb.map(r => ({...r})), out = f.out.map(r => ({...r}));
+    if (f.kind === "llm" && resolve) inb.forEach(r => r.service = resolve(r.file));
+    let outside = [];
+    if (inFrame) { outside = [...inb, ...out].filter(r => !inFrame(r.file)); inb = inb.filter(r => inFrame(r.file)); out = out.filter(r => inFrame(r.file)); }
+    out.forEach(c => { const t = target(c); if (t) Object.assign(c, {target: t.service, resolves_to: t.id, inferred: true}); });
+    const surplus = inb.filter(r => !in4.has(K4(r)) && !in2.has(K2(r))), role = surplus.filter(r => out4.has(K4(r)) || out2.has(K2(r)));
+    const dup = [...counts(inb, "M2 normalized").values()].reduce((a, n) => a + n - 1, 0);
+    const s = {id: f.name, label: f.label, approach: f.approach, inb, out, outside, emitsOut: out.length > 0, run: f.run,
+      roleSep: role.length, halluc: surplus.length - role.length, dup, score: {}, scoreOut: {}};
+    for (const L in LEVELS) { s.score[L] = score(gtIn, inb, L); if (s.emitsOut) s.scoreOut[L] = score(gtOut, out, L); }
+    sources.push(s);
+  }
+  sources.sort((a, b) => APPROACHES.indexOf(a.approach) - APPROACHES.indexOf(b.approach) || a.label.localeCompare(b.label) || a.id.localeCompare(b.id));
+  sources.forEach(s => s.show = s.label + (sources.filter(x => x.label === s.label).length > 1 ? ` · ${s.id}` : ""));
+  const surplusKind = r => in4.has(K4(r)) && !in2.has(K2(r)) ? "wrong route" : in2.has(K2(r)) || in4.has(K4(r)) ? "near miss"
+    : out4.has(K4(r)) || out2.has(K2(r)) ? "role-separation" : "hallucination";
+  return {name, meta, gtIn, gtOut, sources, surplusKind,
+    services: doc.services.map(s => s.name), excluded: doc.excluded || []};
+}
+// Rows of one source with a status against the ground truth at level L (multiset, prediction order).
+function classify(sys, src, L){
+  if (src.ref) return [...src.inb, ...src.out].map(r => ({...r, status: "ground truth"}));
+  const rows = [];
+  const pass = (ref, pred, leftover) => {
+    const q = new Map(); ref.forEach(r => { const k = key(L, r); q.has(k) ? q.get(k).push(r) : q.set(k, [r]); });
+    for (const r of pred) { const k = key(L, r), hit = q.get(k);
+      if (hit && hit.length) rows.push({...r, status: "match", gtId: hit.shift().id});
+      else rows.push({...r, status: q.has(k) ? "duplicate" : leftover(r)}); }
+    for (const l of q.values()) for (const g of l) rows.push({...g, status: "missed", gtId: g.id});
+  };
+  pass(sys.gtIn, src.inb, sys.surplusKind);
+  if (src.emitsOut) pass(sys.gtOut, src.out, () => "extra");
+  return rows.concat(src.outside.map(r => ({...r, status: "outside frame"})));
+}
+if (typeof module !== "undefined") module.exports = {normPath, normVerb, ingest, score, LEVELS, buildSystem, classify, setFiles: f => FILES = f};
+
+// --------------------------------------------------------------------- page --
+let FILES = [];
+if (typeof document !== "undefined") {
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const f3 = x => x == null ? "n/a" : x.toFixed(3);
+const cls = s => "s-" + s.split(" ")[0];
+const dirTag = d => `<span class="dir ${d === "inbound" ? "in" : "out"}">${d === "inbound" ? "← inbound" : "→ outbound"}</span>`;
+const STATUS_ORDER = ["ground truth","match","missed","wrong route","near miss","duplicate","role-separation","hallucination","extra","outside frame"];
+let bundled = [], cache = {};
+try { bundled = JSON.parse($("data").textContent).map(f => ingest(f.name, f.doc)).filter(Boolean); } catch (e) {}
+FILES = bundled.slice();
+let state = {sys: null, src: null, cmp: "gt", lvl: "M2 normalized", filt: [], dirs: [], svc: "", q: ""};
+try { Object.assign(state, JSON.parse(localStorage.getItem("irv3") || "{}")); } catch (e) {}
+const save = () => { try { localStorage.setItem("irv3", JSON.stringify(state)); } catch (e) {} };
+Object.keys(LEVELS).forEach(l => $("lvl").add(new Option(l, l)));
+
+const systems = () => [...new Set(FILES.filter(f => f.kind === "gt").map(f => f.system))];
+const SYS = () => cache[state.sys] || (cache[state.sys] = buildSystem(state.sys));
+const byId = (sys, id) => sys.sources.find(s => s.id === id);
+
+function fillSelects(){
+  const names = systems();
+  $("sys").innerHTML = names.map(n => `<option>${esc(n)}</option>`).join("");
+  if (!names.length) return false;
+  if (!names.includes(state.sys)) state.sys = names[0];
+  $("sys").value = state.sys;
+  const S = SYS().sources;
+  if (!byId(SYS(), state.src)) state.src = (S[1] || S[0]).id;
+  if (state.cmp !== "gt" && state.cmp !== "" && !byId(SYS(), state.cmp)) state.cmp = "gt";
+  for (const id of ["src", "cmp"]) {
+    const el = $(id); el.innerHTML = "";
+    if (id === "cmp") { el.add(new Option("Manual ground truth (default)", "gt")); el.add(new Option("— none —", "")); }
+    let g = null;
+    S.forEach(s => { if (id === "cmp" && s.ref) return;
+      if (!g || g.label !== s.approach) { g = document.createElement("optgroup"); g.label = s.approach; el.appendChild(g); }
+      g.appendChild(new Option(s.show, s.id)); });
+  }
+  $("src").value = state.src; $("cmp").value = state.cmp;
+  return true;
+}
+
+function edges(sys, src){
+  return (src.ref ? sys.gtOut : src.out).filter(c => c.target).map(c => [c.service, c.target]);
+}
+
+function graph(sys, src, rows){
+  const inb = n => rows.filter(r => r.dir === "inbound" && r.service === n && r.status !== "outside frame");
+  const reported = n => inb(n).filter(r => r.status !== "missed").length;
+  const names = [...new Set([...sys.services, ...src.inb.map(r => r.service), ...src.out.map(r => r.service)])];
+  const W = 900, n = names.length, H = n > 8 ? 600 : 470, cx = W/2, cy = H/2, R = Math.min(W, H)/2 - 76;
+  const pos = Object.fromEntries(names.map((nm, i) => [nm, [cx + R*Math.cos(2*Math.PI*i/n - Math.PI/2), cy + R*Math.sin(2*Math.PI*i/n - Math.PI/2)]]));
+  const rad = nm => reported(nm) ? 14 + Math.min(reported(nm), 24) : 11;
+  const agg = {}; edges(sys, src).forEach(([a, b]) => { if (pos[a] && pos[b]) { const k = a + "\u0000" + b; agg[k] = (agg[k] || 0) + 1; } });
+  let g = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Service map"><defs><marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="var(--out)"/></marker></defs>`;
+  for (const k in agg) { const [a, b] = k.split("\u0000"), [x1, y1] = pos[a], [x2, y2] = pos[b], d = Math.hypot(x2-x1, y2-y1) || 1, ra = rad(a)+2, rb = rad(b)+5;
+    const sx = x1+(x2-x1)*ra/d, sy = y1+(y2-y1)*ra/d, tx = x2-(x2-x1)*rb/d, ty = y2-(y2-y1)*rb/d;
+    g += `<line x1="${sx}" y1="${sy}" x2="${tx}" y2="${ty}" stroke="var(--out)" stroke-width="${1.4+agg[k]*.5}" marker-end="url(#ar)"/><text x="${(sx+tx)/2}" y="${(sy+ty)/2-6}" font-size="12" fill="var(--out)" text-anchor="middle">${agg[k]}×</text>`; }
+  names.forEach(nm => { const [x, y] = pos[nm], rs = inb(nm), r = rad(nm), bad = rs.some(x => !["match","ground truth"].includes(x.status));
+    const fill = !rs.length ? "var(--dim)" : src.ref ? "var(--acc)" : bad ? "var(--bad)" : "var(--ok)";
+    g += `<g style="cursor:pointer" data-svc="${esc(nm)}"><title>${esc(nm)}: ${reported(nm)} inbound endpoints reported</title><circle cx="${x}" cy="${y}" r="${r}" fill="${fill}"/>
+    <text x="${x}" y="${y+4}" font-size="11" fill="#fff" text-anchor="middle" font-weight="600">${reported(nm) || ""}</text>
+    <text x="${x}" y="${y+r+15}" font-size="12" fill="var(--ink)" text-anchor="middle">${esc(nm)}</text></g>`; });
+  $("legend").innerHTML = (src.ref
+    ? `<span><i style="background:var(--acc)"></i>service with inbound endpoints (number = count)</span>`
+    : `<span><i style="background:var(--ok)"></i>all inbound match</span><span><i style="background:var(--bad)"></i>has errors or misses</span>`)
+    + `<span><i style="background:var(--dim)"></i>no inbound</span><span><i style="background:var(--out)"></i>outbound calls${src.ref ? "" : " (target inferred from the URL)"}</span><span>click a service to filter the table</span>`;
+  return g + "</svg>";
+}
+
+function board(sys){
+  const L = state.lvl, cmp = state.cmp === "gt" ? null : state.cmp;
+  $("lvlnote").textContent = `vs. manual ground truth · ${sys.gtIn.length} inbound, ${sys.gtOut.length} outbound · ${L}`;
+  let h = `<tr><th></th><th class="g" colspan="10">inbound endpoints</th><th class="g" colspan="3">outbound calls</th><th class="g" colspan="3">run</th></tr>
+    <tr><th>source</th><th class="n">found</th><th class="n">tp</th><th class="n">fp</th><th class="n">fn</th><th class="n">P</th><th class="n">R</th><th>F1</th><th class="n">role-sep.</th><th class="n">halluc.</th><th class="n">dup.</th><th class="n">found</th><th class="n">tp / fp / fn</th><th class="n">F1</th><th class="n">tokens in / out</th><th class="n">cost</th><th class="n">wall</th></tr>`;
+  let grp = null;
+  sys.sources.forEach(s => {
+    if (s.approach !== grp) { grp = s.approach; h += `<tr class="grp"><td colspan="17">${esc(grp)}</td></tr>`; }
+    const sc = s.score && s.score[L], so = s.scoreOut && s.scoreOut[L], r = s.run || {};
+    const tag = s.id === state.src ? '<span class="tag">A</span>' : s.id === cmp || (!cmp && s.ref && state.cmp === "gt") ? '<span class="tag" style="background:var(--mute)">B</span>' : "";
+    h += `<tr class="src ${s.id === state.src ? "on" : ""}" data-id="${esc(s.id)}"><td>${esc(s.label)}${tag}<div class="small">${esc(s.id)}</div></td><td class="n">${s.inb.length}</td>` + (sc
+      ? `<td class="n">${sc.tp}</td><td class="n">${sc.fp}</td><td class="n">${sc.fn}</td><td class="n">${f3(sc.precision)}</td><td class="n">${f3(sc.recall)}</td><td style="white-space:nowrap">${f3(sc.f1)}<span class="bar" style="width:${(sc.f1||0)*60}px"></span></td><td class="n">${s.roleSep}</td><td class="n">${s.halluc}</td><td class="n">${s.dup}</td>
+         <td class="n">${s.emitsOut ? s.out.length : '<span class="mute">not emitted</span>'}</td><td class="n">${so ? `${so.tp} / ${so.fp} / ${so.fn}` : "–"}</td><td class="n">${so ? f3(so.f1) : "–"}</td>`
+      : `<td colspan="9" class="mute">reference${r.labeled_by ? ` · labeled by ${esc(r.labeled_by)}, ${esc(r.labeled_on)}` : ""}</td><td class="n">${s.out.length}</td><td colspan="2" class="mute">reference</td>`) +
+      `<td class="n">${r.input_tokens != null ? `${(+r.input_tokens).toLocaleString("en")} / ${(+r.output_tokens).toLocaleString("en")}` : "–"}</td><td class="n">${r.list_price_usd != null ? "$" + r.list_price_usd : "–"}</td><td class="n">${r.wall_seconds != null ? r.wall_seconds + " s" : "–"}</td></tr>`; });
+  $("board").innerHTML = h;
+  $("board").querySelectorAll("tr.src").forEach(tr => tr.onclick = () => { state.src = tr.dataset.id; $("src").value = state.src; render(); });
+}
+
+// Multiset join of two sources on direction + level key; outbound only when both sides emit it.
+function compare(sys, A, L){
+  const B = state.cmp === "gt" ? sys.sources[0] : byId(sys, state.cmp);
+  if (!B || A === B) { $("compare").innerHTML = B ? `<p class="note">Showing the manual ground truth itself. Pick a source above (or in the scoreboard) to compare it with the ground truth, or pick another partner under <i>Compare with</i>.</p>` : ""; return; }
+  const bothOut = A.emitsOut && B.emitsOut;
+  const side = s => [...s.inb, ...(bothOut ? s.out : [])];
+  const groups = new Map(), gtKeys = new Set([...sys.gtIn, ...sys.gtOut].map(r => r.dir + "\u0002" + key(L, r)));
+  for (const [i, s] of [[0, A], [1, B]]) for (const r of side(s)) { const k = r.dir + "\u0002" + key(L, r); if (!groups.has(k)) groups.set(k, [[], []]); groups.get(k)[i].push(r); }
+  const onlyA = [], onlyB = [], both = [];
+  for (const [k, [a, b]] of groups) { const n = Math.min(a.length, b.length);
+    for (let i = 0; i < n; i++) both.push([k, a[i], b[i]]);
+    a.slice(n).forEach(r => onlyA.push([k, r, null])); b.slice(n).forEach(r => onlyB.push([k, null, r])); }
+  const showGt = !A.ref && !B.ref;
+  const cell = r => r ? `<td class="a"><b>${esc(r.verb)}</b> <code>${esc(r.declared)}</code><div class="small"><code>${esc(r.cls)}.${esc(r.method)}</code>${r.id ? ` · ${esc(r.id)}` : ""}</div></td>` : `<td class="a mute">–</td>`;
+  const tbl = rs => rs.length ? `<div class="wrap"><table><tr><th>direction</th><th>service</th><th>A: ${esc(A.show)}</th><th>B: ${esc(B.show)}</th>${showGt ? "<th>in ground truth</th>" : ""}</tr>${rs
+    .sort((x, y) => x[0].localeCompare(y[0])).map(([k, a, b]) => { const x = a || b;
+    return `<tr><td>${dirTag(x.dir)}</td><td>${esc(x.service)}</td>${cell(a)}${cell(b)}${showGt ? `<td><span class="st ${gtKeys.has(k) ? "s-yes\">yes" : "s-no\">no"}</span></td>` : ""}</tr>`; }).join("")}</table></div>` : '<p class="empty">None.</p>';
+  const G = [["Only in A · " + A.show, onlyA], ["Only in B · " + B.show, onlyB], ["In both", both]];
+  $("compare").innerHTML = `<div class="card"><h2>Compare · A: ${esc(A.show)} ↔ B: ${esc(B.show)}</h2>
+    <div class="grid">${G.map(([l, rs]) => `<div class="kpi"><b>${rs.length}</b><span>${esc(l)}${showGt ? ` · ${rs.filter(x => gtKeys.has(x[0])).length} in ground truth` : ""}</span></div>`).join("")}</div>
+    ${G.map(([l, rs]) => `<details ${rs.length && rs.length <= 60 ? "open" : ""}><summary style="font-size:13px;cursor:pointer">${esc(l)} (${rs.length})</summary>${tbl(rs)}</details>`).join("")}
+    <p class="small" style="margin:8px 0 0">Matched on direction + ${esc(L)} key, counting duplicates (multiset), in-frame entries only.${bothOut ? "" : " Outbound calls are left out: " + esc((A.emitsOut ? B : A).show) + " emits none."}${B.ref ? " Against the ground truth this is the scoreboard's tp / fp / fn." : ""}</p></div>`;
+}
+
+const COLS = [
+  ["direction", r => dirTag(r.dir)],
+  ["status", r => `<span class="st ${cls(r.status)}">${esc(r.status)}</span>`],
+  ["GT id", r => r.gtId || r.id ? `<code>${esc(r.gtId || r.id)}</code>` : ""],
+  ["service", r => esc(r.service)],
+  ["verb", r => `<b>${esc(r.verb)}</b>`],
+  ["path (normalized, M2)", r => `<code>${esc(r.path)}</code>`],
+  ["path (declared, M1)", r => `<code>${esc(r.declared)}</code>`],
+  ["class-level path", r => r.class_path != null ? `<code>${esc(r.class_path)}</code>` : ""],
+  ["method-level path", r => r.method_path != null ? `<code>${esc(r.method_path)}</code>` : ""],
+  ["class", r => `<code>${esc(r.cls)}</code>${r.implemented_by ? `<div class="small">implemented by ${esc(r.implemented_by)}</div>` : ""}`],
+  ["method", r => `<code>${esc(r.method)}</code>`],
+  ["file", r => r.file ? `<code class="small">${esc(slash(r.file).replace(/^\/+/, ""))}</code><button class="vs" data-i="${r._i}" title="Show in source">view</button>${r.declaring_module ? `<div class="small">declared in ${esc(r.declaring_module)}</div>` : ""}` : ""],
+  ["line", r => esc(r.line ?? ""), "n"],
+  ["declaration / mechanism", r => esc(r.kind ?? "")],
+  ["target → resolves to", r => r.target ? `→ ${esc(r.target)}${r.resolves_to ? ` <span class="mute">(${esc(r.resolves_to)})</span>` : ""}${r.inferred ? ' <span class="small">inferred</span>' : ""}` : ""],
+  ["confidence", r => esc(r.confidence ?? "")],
+  ["evidence / notes", r => r.evidence || r.notes ? `${esc(r.evidence)}${r.notes ? `<span class="mute">${esc(r.notes)}</span>` : ""}` : "", "ev"],
+  ["other ground-truth fields", r => r.other ? `<span class="small">${esc(r.other)}</span>` : ""],
+];
+
+function table(sys, src, rows){
+  const dirs = ["inbound", "outbound"].filter(d => rows.some(r => r.dir === d));
+  state.dirs = state.dirs.filter(d => dirs.includes(d));
+  $("dirs").innerHTML = `<span class="small">Direction:</span>` + dirs.map(d => `<button aria-pressed="${state.dirs.includes(d)}" data-d="${d}">${d} (${rows.filter(r => r.dir === d).length})</button>`).join("");
+  const sts = STATUS_ORDER.filter(s => rows.some(r => r.status === s));
+  $("chips").innerHTML = `<span class="small">Status:</span>` + sts.map(s => `<button aria-pressed="${state.filt.includes(s)}" data-s="${esc(s)}">${esc(s)} (${rows.filter(r => r.status === s).length})</button>`).join("");
+  const svcs = [...new Set(rows.map(r => r.service))].sort();
+  if (!svcs.includes(state.svc)) state.svc = "";
+  $("svcf").innerHTML = `<option value="">All services (${svcs.length})</option>` + svcs.map(s => `<option ${s === state.svc ? "selected" : ""}>${esc(s)}</option>`).join("");
+  const q = state.q.toLowerCase(), fl = state.filt.filter(s => sts.includes(s)), dl = state.dirs;
+  const keep = r => (!dl.length || dl.includes(r.dir)) && (!fl.length || fl.includes(r.status)) && (!state.svc || r.service === state.svc) &&
+    (!q || [r.declared, r.path, r.cls, r.method, r.service, r.file, r.id, r.gtId, r.kind, r.evidence, r.notes].join(" ").toLowerCase().includes(q));
+  const shown = rows.filter(keep).sort((x, y) => x.service.localeCompare(y.service) || x.dir.localeCompare(y.dir) || x.path.localeCompare(y.path) || x.verb.localeCompare(y.verb));
+  $("tlabel").textContent = `${src.show} · ${shown.length} of ${rows.length} rows` + (!src.ref && !src.emitsOut ? " · this source emits no outbound calls, so ground-truth outbound calls are not scored" : "");
+  SHOWN = shown; shown.forEach((r, i) => r._i = i);
+  const cols = COLS.filter(([, f]) => shown.some(r => f(r) !== ""));
+  $("rows").innerHTML = `<tr>${cols.map(([h, , c]) => `<th class="${c === "n" ? "n" : ""}">${h}</th>`).join("")}</tr>` + (shown.map(r =>
+    `<tr class="${r.status === "missed" ? "missed" : ""}">${cols.map(([, f, c]) => `<td class="${c || ""}">${f(r)}</td>`).join("")}</tr>`).join("")
+    || `<tr><td colspan="${cols.length || 1}" class="empty">Nothing matches the filter.</td></tr>`);
+}
+
+function kpis(sys, src, rows, L){
+  const sc = src.score && src.score[L], so = src.scoreOut && src.scoreOut[L], r = src.run || {}, S = L.split(" ")[0];
+  const n = st => rows.filter(x => x.status === st).length;
+  const k = [[src.inb.length, "inbound endpoints"], [src.ref || src.emitsOut ? src.out.length : "–", src.ref || src.emitsOut ? "outbound calls" : "outbound calls (not emitted)"]];
+  if (sc) k.push([f3(sc.f1), `F1 inbound (${S})`], [n("missed"), `missed (${S})`], [src.roleSep, "role-separation errors"], [src.halluc, "hallucinations"], [src.dup, "duplicates (M2)"]);
+  if (so) k.push([f3(so.f1), `F1 outbound (${S})`]);
+  if (src.outside.length) k.push([src.outside.length, "outside frame (not scored)"]);
+  if (r.model) k.push([esc(r.model), `model${r.effort ? ` · effort ${esc(r.effort)}` : ""}${r.max_tokens ? ` · max_tokens ${r.max_tokens}` : ""}${r.temperature != null ? ` · T=${r.temperature}` : ""}`]);
+  if (r.schema_valid_files != null) k.push([`${r.schema_valid_files}/${r.n_files}`, "files schema-valid"]);
+  if (r.steps != null) k.push([r.steps, "agent steps"]);
+  if (r.wall_seconds != null) k.push([r.wall_seconds + " s", "wall time"]);
+  $("kpis").innerHTML = k.map(([v, l]) => `<div class="kpi"><b>${v}</b><span>${l}</span></div>`).join("");
+}
+
+function filesPanel(){
+  const kinds = {gt: "ground truth", cimet: "CIMET IR", llm: "LLM run"};
+  $("loadsum").textContent = FILES.length ? `Data: ${FILES.length} files (${FILES.every(f => bundled.includes(f)) ? "bundled" : "bundled + loaded"}) · load your own…` : "No data yet · load files…";
+  const noGt = [...new Set(FILES.filter(f => f.kind !== "gt" && !systems().includes(f.system)).map(f => f.system))];
+  $("files").innerHTML = `<tr><th>file</th><th>kind</th><th>system</th><th>source</th></tr>` + FILES.map(f =>
+    `<tr><td><code>${esc(f.name)}</code>${bundled.includes(f) ? "" : ' <span class="small">loaded</span>'}</td><td>${kinds[f.kind]}</td><td>${esc(f.system)}${f.kind !== "gt" && !systems().includes(f.system) ? ' <span class="st s-no">no ground truth loaded</span>' : ""}</td><td>${esc(f.label || "")}</td></tr>`).join("")
+    + (noGt.length ? `<tr><td colspan="4" class="small">Files for ${noGt.map(esc).join(", ")} are not shown: load that system's *.gt.json.</td></tr>` : "");
+}
+
+// ------------------------------------------------------------ source preview --
+let SHOWN = [];
+const SRC = {};   // system -> Map(repo-relative path -> File), for this session only
+// A local build (build_viewer.py --src-root) bundles the referenced source files and the checkout paths.
+const BUNDLED_SRC = (() => { try { return JSON.parse($("srcdata").textContent); } catch (e) { return {}; } })();
+for (const [k, v] of Object.entries(BUNDLED_SRC)) SRC[k] = new Map(Object.entries(v.files).map(([rel, t]) => [rel, {text: async () => t}]));
+const roots = () => { let r = {}; try { r = JSON.parse(localStorage.getItem("irv3-src") || "{}"); } catch (e) {}
+  for (const [k, v] of Object.entries(BUNDLED_SRC)) if (!r[k]) r[k] = v.root;
+  return r; };
+function srcPanel(){
+  const root = roots()[state.sys] || "", n = SRC[state.sys] ? SRC[state.sys].size : 0;
+  $("srcroot").value = root;
+  $("srcsum").textContent = `Source code · ${n ? n + " files picked" : "no folder picked"}${root ? " · VS Code path set" : " · no VS Code path"}`;
+}
+$("srcroot").onchange = e => { const r = roots(); r[state.sys] = slash(e.target.value.trim()).replace(/\/+$/, "");
+  try { localStorage.setItem("irv3-src", JSON.stringify(r)); } catch (x) {} srcPanel(); };
+$("spick").onchange = e => { const m = new Map();
+  for (const f of e.target.files) { const rel = slash(f.webkitRelativePath).split("/").slice(1).join("/");
+    if (!/(^|\/)(\.git|target|build|node_modules)\//.test(rel)) m.set(rel, f); }
+  SRC[state.sys] = m; e.target.value = ""; srcPanel(); };
+function findFile(m, rel){
+  if (m.has(rel)) return m.get(rel);
+  for (const [k, f] of m) if (k.endsWith("/" + rel) || rel.endsWith("/" + k)) return f;   // folder picked one level off
+  return null;
+}
+async function showSource(r){
+  const rel = slash(r.file).replace(/^\/+/, ""), root = roots()[state.sys], m = SRC[state.sys];
+  let line = +r.line || 0, body, from = 0, to = 0;
+  if (!line && r.gtId) {   // a prediction matched to a ground-truth entry in the same file: use its labelled line
+    const gt = SYS().sources.find(s => s.ref), g = gt &&[...gt.inb, ...gt.out].find(x => x.id === r.gtId);
+    if (g && slash(g.file).replace(/^\/+/, "") === rel) line = +g.line || 0;
+  }
+  $("ctitle").textContent = `${r.cls}.${r.method}`;
+  $("cpath").textContent = rel;
+  const f = m && findFile(m, rel);
+  if (f) {
+    const lines = (await f.text()).split(/\r?\n/);
+    const w = s => String(s || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    // A declaration has a type (or modifier) before the name - unlike a call such as svc.getAll(...).
+    const decl = r.method && new RegExp(`(^|[\\s<>\\],])(?!return\\b|new\\b)[\\w$<>\\[\\],?]+\\s+${w(r.method)}\\s*\\(`);
+    const isDecl = l => decl && decl.test(l) && !/^\s*(\/\/|\*|return\b)/.test(l);
+    if (!line) {   // no line recorded (CIMET, LLM): declaration of the method, else of the class
+      const find = test => lines.findIndex(test) + 1;
+      line = find(isDecl) || (r.cls && find(l => new RegExp(`\\b(class|interface)\\s+${w(r.cls)}\\b`).test(l))) || 0;
+    }
+    if (line) {   // highlight the whole block: mapping annotation(s) down to the method header
+      from = to = line;
+      if (!isDecl(lines[line - 1] || "")) for (let i = line; i < Math.min(lines.length, line + 15); i++) if (isDecl(lines[i])) { to = i + 1; break; }
+      // climb over annotations and their continuation lines, stop at the previous statement or comment
+      while (from > 1) { const p = lines[from - 2].trim(); if (!p || /[;{}]$/.test(p) || p.endsWith("*/") || p.startsWith("//")) break; from--; }
+    }
+    body = `<table>${lines.map((l, i) => `<tr id="L${i + 1}" class="${i + 1 >= from && i + 1 <= to && from ? "hit" : ""}"><td class="ln">${i + 1}</td><td>${esc(l)}</td></tr>`).join("")}</table>`;
+  } else {
+    body = `<p class="empty" style="padding:14px">${m ? `File not found in the picked folder: <code>${esc(rel)}</code>` : "No source folder picked for this system. Open “Source code” at the top and pick the checkout folder to preview files here."}</p>`;
+  }
+  $("cbody").innerHTML = body;
+  const abs = root ? `${root}/${rel}` : "";
+  $("cvscode").href = abs ? `vscode://file/${abs}${line ? ":" + line : ""}` : "#";
+  $("cvscode").style.opacity = abs ? 1 : .4;
+  $("cvscode").title = abs ? abs : "Set the local path of the checkout under “Source code” first";
+  $("ccopy").onclick = () => navigator.clipboard && navigator.clipboard.writeText(abs || rel);
+  $("code").showModal();
+  if (line) $("L" + line).scrollIntoView({block: "center"});
+}
+$("cvscode").onclick = e => { if ($("cvscode").getAttribute("href") === "#") e.preventDefault(); };
+$("rows").addEventListener("click", e => { const b = e.target.closest("button.vs"); if (b) showSource(SHOWN[+b.dataset.i]); });
+
+function render(){
+  srcPanel();
+  filesPanel();
+  if (!fillSelects()) { $("load").open = true; $("meta").textContent = "No ground truth loaded. Load the *.gt.json files together with the CIMET IRs and llm_ir / agent_ir runs."; return; }
+  const sys = SYS(), src = byId(sys, state.src), L = state.lvl, m = sys.meta; save();
+  $("lvl").value = L;
+  const rows = classify(sys, src, L);
+  $("meta").innerHTML = `<b>${esc(m.system)}</b> @ <code>${esc(String(m.commit).slice(0, 8))}</code>${m.repository ? ` · <a href="${esc(m.repository)}" style="color:var(--acc)">repository</a>` : ""} · inspecting <b>${esc(src.show)}</b> <span class="mute">(${esc(src.approach)})</span>`;
+  const fr = (m.frame || {}).definition;
+  $("frame").innerHTML = frameFilter({meta: m}) ? `<div class="note">The ground truth covers only <code>${esc(fr)}</code>. Entries outside it are shown as <i>outside frame</i> and are not scored; numbers here are not system-wide.</div>` : "";
+  board(sys); kpis(sys, src, rows, L); compare(sys, src, L);
+  $("maplabel").textContent = src.show;
+  $("graph").innerHTML = graph(sys, src, rows);
+  $("graph").querySelectorAll("g[data-svc]").forEach(g => g.onclick = () => { state.svc = state.svc === g.dataset.svc ? "" : g.dataset.svc; render(); $("rows").scrollIntoView({behavior: "smooth", block: "start"}); });
+  table(sys, src, rows);
+  $("excl").innerHTML = sys.excluded.length ? `<div class="card"><h2>Excluded from the ground truth</h2><div class="wrap"><table>${sys.excluded.map(x => `<tr><td style="white-space:nowrap;width:1%"><code style="word-break:normal">${esc(x.id)}</code></td><td><b>${esc(x.what)}</b><br><span class="mute">${esc(x.reason)}</span></td></tr>`).join("")}</table></div></div>` : "";
+}
+
+// ------------------------------------------------------------- file loading --
+async function load(list){
+  list = [...list].filter(f => /\.json$/i.test(f.name) && !/\.messages\.json$/i.test(f.name));
+  if (!list.length) return;
+  const skipped = [];
+  $("loadsum").textContent = `Loading ${list.length} files…`;
+  for (const f of list) {
+    try {
+      const x = ingest(f.name, JSON.parse(await f.text()));
+      if (!x) { skipped.push(f.name + " (unknown format)"); continue; }
+      FILES = FILES.filter(y => y.name !== f.name).concat(x);
+    } catch (e) { skipped.push(`${f.name} (${e.message})`); }
+  }
+  cache = {}; render();
+  if (skipped.length) alert("Skipped:\n" + skipped.join("\n"));
+}
+async function entries(items){   // dropped folders
+  const out = [], walk = async e => {
+    if (e.isFile) out.push(await new Promise((ok, ko) => e.file(ok, ko)));
+    else if (e.isDirectory) { const rd = e.createReader(); let batch;
+      do { batch = await new Promise((ok, ko) => rd.readEntries(ok, ko)); for (const c of batch) await walk(c); } while (batch.length); }
+  };
+  for (const e of [...items].map(i => i.webkitGetAsEntry && i.webkitGetAsEntry()).filter(Boolean)) await walk(e);
+  return out;
+}
+$("fpick").onchange = e => { load(e.target.files); e.target.value = ""; };
+$("dpick").onchange = e => { load(e.target.files); e.target.value = ""; };
+$("clear").onclick = () => { FILES = []; cache = {}; render(); };
+addEventListener("dragover", e => { e.preventDefault(); document.body.classList.add("drag"); });
+addEventListener("dragleave", e => { if (!e.relatedTarget) document.body.classList.remove("drag"); });
+addEventListener("drop", async e => { e.preventDefault(); document.body.classList.remove("drag");
+  const items = e.dataTransfer.items; load(items && items.length && items[0].webkitGetAsEntry ? await entries(items) : e.dataTransfer.files); });
+
+document.addEventListener("click", e => {
+  const b = e.target.closest("#chips button, #dirs button"); if (!b) return;
+  const [arr, v] = b.dataset.s !== undefined ? [state.filt, b.dataset.s] : [state.dirs, b.dataset.d];
+  const i = arr.indexOf(v); i < 0 ? arr.push(v) : arr.splice(i, 1); render();
+});
+$("sys").onchange = e => { state.sys = e.target.value; state.src = null; state.svc = ""; render(); };
+$("src").onchange = e => { state.src = e.target.value; render(); };
+$("cmp").onchange = e => { state.cmp = e.target.value; render(); };
+$("lvl").onchange = e => { state.lvl = e.target.value; render(); };
+$("svcf").onchange = e => { state.svc = e.target.value; render(); };
+$("q").value = state.q; $("q").oninput = e => { state.q = e.target.value; const s = SYS(), x = byId(s, state.src); table(s, x, classify(s, x, state.lvl)); save(); };
+if (!(state.lvl in LEVELS)) state.lvl = "M2 normalized";
+render();
+}
+</script></body></html>

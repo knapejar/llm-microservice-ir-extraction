@@ -275,7 +275,7 @@
     "provider": "google-ai-studio",
     "prompt_file": "prompt_appendix_a.txt",
     "temperature": 0,
-    "repo": "clone/spring-cloud-movie-recommendation",
+    "repo": "spring-cloud-movie-recommendation",
     "n_files": 31,
     "n_endpoints": 14,
     "schema_valid_files": 31,
