@@ -210,14 +210,23 @@ function ingest(name, d){
     return {kind: "cimet", name, system: d.name, label: "CIMET " + (d.version || "1.2.1"), approach: "Deterministic baseline", inb, out, run: {}};
   }
   if (d && Array.isArray(d.files)) {
-    const inb = [], run = d._run || {};
-    for (const f of d.files) for (const e of f.endpoints || []) {
-      const fp = e._file || f.path || "";
-      inb.push(rec(slash(fp).split("/").filter(Boolean)[0] || "?", e.httpMethod, e.path, e.className, e.methodName,
-        {dir: "inbound", file: fp, confidence: e.confidence, kind: e.framework, evidence: e.evidence}));
+    const inb = [], out = [], run = d._run || {};
+    const svc = fp => slash(fp).split("/").filter(Boolean)[0] || "?";
+    for (const f of d.files) {
+      for (const e of f.endpoints || []) {
+        const fp = e._file || f.path || "";
+        inb.push(rec(svc(fp), e.httpMethod, e.path, e.className, e.methodName,
+          {dir: "inbound", file: fp, confidence: e.confidence, kind: e.framework, evidence: e.evidence}));
+      }
+      for (const c of f.outboundCalls || []) {   // only with prompt_outbound.txt
+        const fp = c._file || f.path || "";
+        out.push(rec(svc(fp), c.httpMethod, c.path, c.className, c.methodName,
+          {dir: "outbound", file: fp, confidence: c.confidence, kind: c.mechanism, target: c.targetService, inferred: false, evidence: c.evidence}));
+      }
     }
-    return {kind: "llm", name, system: d.system, label: llmLabel(run), approach: run.workflow === "agent" ? "LLM agent" : "LLM per-file",
-      inb, out: [], run: Object.fromEntries(RUN_FIELDS.filter(k => run[k] != null).map(k => [k, run[k]]))};
+    const label = llmLabel(run) + (String(run.prompt_file || "").includes("outbound") ? " +outbound" : "");
+    return {kind: "llm", name, system: d.system, label, approach: run.workflow === "agent" ? "LLM agent" : "LLM per-file",
+      inb, out, run: Object.fromEntries(RUN_FIELDS.filter(k => run[k] != null).map(k => [k, run[k]]))};
   }
   return null;
 }
@@ -236,7 +245,7 @@ function buildSystem(name){
     run: {labeled_by: meta.labeled_by, labeled_on: meta.labeled_on}}];
   for (const f of FILES.filter(f => f.kind !== "gt" && f.system === name)) {
     let inb = f.inb.map(r => ({...r})), out = f.out.map(r => ({...r}));
-    if (f.kind === "llm" && resolve) inb.forEach(r => r.service = resolve(r.file));
+    if (f.kind === "llm" && resolve) [...inb, ...out].forEach(r => r.service = resolve(r.file));
     let outside = [];
     if (inFrame) { outside = [...inb, ...out].filter(r => !inFrame(r.file)); inb = inb.filter(r => inFrame(r.file)); out = out.filter(r => inFrame(r.file)); }
     out.forEach(c => { const t = target(c); if (t) Object.assign(c, {target: t.service, resolves_to: t.id, inferred: true}); });

@@ -115,15 +115,29 @@ def main():
     w("")
 
     w("## Cost and runtime\n")
-    w("| extractor | schema valid | wall | list-price cost |")
-    w("|---|---|---:|---:|")
+    w("Per-file: one request per file. Agent: one request per step. "
+      "Correct = inbound true positives at M2. Local models have no list price.\n")
+    w("| extractor | files ok / requests | tokens in / out | wall | s per request "
+      "| list price | correct | tokens per correct | $ per correct |")
+    w("|---|---|---:|---:|---:|---:|---:|---:|---:|")
     for arm in arms:
         mt = arm["meta"]
-        if "schema_valid_files" in mt:
-            w(f"| {arm['name']} | {mt['schema_valid_files']}/{mt['n_files']} | "
-              f"{mt.get('wall_seconds')} s | ${mt.get('list_price_usd')} |")
-        else:
-            w(f"| {arm['name']} | n/a (deterministic) | not measured | $0 |")
+        if not mt.get("extractor", "").startswith("LLM"):
+            w(f"| {arm['name']} | deterministic | – | not measured | – | $0 | "
+              f"{score(gt_in, arm['in'], LEVELS['M2 normalized'])['tp']} | – | – |")
+            continue
+        agent = mt.get("workflow") == "agent"
+        req = mt.get("steps") if agent else mt.get("n_files")
+        reqs = f"{req} steps" if agent else f"{mt.get('schema_valid_files')}/{req} files"
+        tin, tout, wall = mt.get("input_tokens") or 0, mt.get("output_tokens") or 0, mt.get("wall_seconds")
+        price = mt.get("list_price_usd")
+        local = "localhost" in str(mt.get("provider", ""))
+        tp = score(gt_in, arm["in"], LEVELS["M2 normalized"])["tp"]
+        w(f"| {arm['name']} | {reqs} | {tin:,} / {tout:,} | {wall} s | "
+          f"{num(wall / req, 1) if wall and req else 'n/a'} | "
+          f"{'local' if local else ('$' + str(price) if price is not None else 'n/a')} | {tp} | "
+          f"{f'{(tin + tout) // tp:,}' if tp else 'n/a'} | "
+          f"{'–' if local or price is None or not tp else f'${price / tp:.4f}'} |")
     w("")
 
     txt = "\n".join(L)

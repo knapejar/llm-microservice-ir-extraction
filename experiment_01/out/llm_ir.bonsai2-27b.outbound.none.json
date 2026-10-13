@@ -1,0 +1,797 @@
+{
+  "system": "spring-cloud-movie-recommendation",
+  "files": [
+    {
+      "path": "/config-service/src/main/java/com/example/ConfigServiceApplication.java",
+      "endpoints": []
+    },
+    {
+      "path": "/eureka-service/src/main/java/com/example/EurekaServiceApplication.java",
+      "endpoints": []
+    },
+    {
+      "path": "/movie-service/src/main/java/com/example/MongoConfig.java",
+      "endpoints": []
+    },
+    {
+      "path": "/movie-service/src/main/java/com/example/Movie.java",
+      "endpoints": []
+    },
+    {
+      "path": "/movie-service/src/main/java/com/example/MovieController.java",
+      "endpoints": [
+        {
+          "className": "MovieController",
+          "methodName": "getAllMovies",
+          "httpMethod": "GET",
+          "path": "/movie",
+          "framework": "Spring",
+          "evidence": "@RestController @RequestMapping(\"/movie\") ... @RequestMapping(method = RequestMethod.GET) public Collection<MovieDTO> getAllMovies()",
+          "confidence": "high",
+          "_file": "/movie-service/src/main/java/com/example/MovieController.java"
+        },
+        {
+          "className": "MovieController",
+          "methodName": "getListMovies",
+          "httpMethod": "GET",
+          "path": "/movie/list",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value = \"/list\", method = RequestMethod.GET) public Collection<MovieDTO> getListMovies(@RequestParam String ids)",
+          "confidence": "high",
+          "_file": "/movie-service/src/main/java/com/example/MovieController.java"
+        },
+        {
+          "className": "MovieController",
+          "methodName": "getMovie",
+          "httpMethod": "GET",
+          "path": "/movie/{movieId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{movieId}\") public Movie getMovie(@PathVariable(value = \"movieId\") Long movieId)",
+          "confidence": "high",
+          "_file": "/movie-service/src/main/java/com/example/MovieController.java"
+        },
+        {
+          "className": "MovieController",
+          "methodName": "insertDummyData",
+          "httpMethod": "GET",
+          "path": "/movie/dummyData",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/dummyData\") public void insertDummyData()",
+          "confidence": "high",
+          "_file": "/movie-service/src/main/java/com/example/MovieController.java"
+        }
+      ]
+    },
+    {
+      "path": "/movie-service/src/main/java/com/example/MovieDTO.java",
+      "endpoints": []
+    },
+    {
+      "path": "/movie-service/src/main/java/com/example/MovieRepo.java",
+      "endpoints": []
+    },
+    {
+      "path": "/movie-service/src/main/java/com/example/MovieServiceApplication.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/Config.java",
+      "endpoints": [],
+      "outboundCalls": [
+        {
+          "className": "Config",
+          "methodName": "restTemplate",
+          "httpMethod": "ANY",
+          "path": "",
+          "targetService": "unknown",
+          "mechanism": "RestTemplate",
+          "evidence": "@LoadBalanced @Bean RestTemplate restTemplate() { return new RestTemplate(); }",
+          "confidence": "low",
+          "_file": "/recommendation-client/src/main/java/com/example/Config.java"
+        }
+      ]
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/dto/MovieDTO.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/dto/RecommendationDTO.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/dto/RecommendedMovieDTO.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/dto/UserDTO.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/MainController.java",
+      "endpoints": [
+        {
+          "className": "MainController",
+          "methodName": "getRecommendation",
+          "httpMethod": "GET",
+          "path": "/api/recommendation/user/{userId}",
+          "framework": "Spring",
+          "evidence": "@RestController @RequestMapping(\"/api\") ... @GetMapping(value = \"/recommendation/user/{userId}\")",
+          "confidence": "high",
+          "_file": "/recommendation-client/src/main/java/com/example/MainController.java"
+        },
+        {
+          "className": "MainController",
+          "methodName": "getUserDetails",
+          "httpMethod": "GET",
+          "path": "/api/userDetails/{userId}",
+          "framework": "Spring",
+          "evidence": "@RestController @RequestMapping(\"/api\") ... @GetMapping(value = \"/userDetails/{userId}\")",
+          "confidence": "high",
+          "_file": "/recommendation-client/src/main/java/com/example/MainController.java"
+        }
+      ]
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/RecommendationClientApplication.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/service/MovieService.java",
+      "endpoints": [],
+      "outboundCalls": [
+        {
+          "className": "MovieService",
+          "methodName": "getMovies",
+          "httpMethod": "GET",
+          "path": "/movie",
+          "targetService": "movie-service",
+          "mechanism": "Feign",
+          "evidence": "@FeignClient(\"movie-service\") interface MovieService with @RequestMapping(method = RequestMethod.GET, value = \"/movie\") on getMovies()",
+          "confidence": "high",
+          "_file": "/recommendation-client/src/main/java/com/example/service/MovieService.java"
+        },
+        {
+          "className": "MovieService",
+          "methodName": "insertDummyData",
+          "httpMethod": "GET",
+          "path": "/movie/dummyData",
+          "targetService": "movie-service",
+          "mechanism": "Feign",
+          "evidence": "@FeignClient(\"movie-service\") interface MovieService with @RequestMapping(method = RequestMethod.GET, value = \"/movie/dummyData\") on insertDummyData()",
+          "confidence": "high",
+          "_file": "/recommendation-client/src/main/java/com/example/service/MovieService.java"
+        }
+      ]
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java",
+      "endpoints": [],
+      "outboundCalls": [
+        {
+          "className": "RecommendationClientService",
+          "methodName": "getUserDetails",
+          "httpMethod": "GET",
+          "path": "http://user-service/user/{userId}",
+          "targetService": "user-service",
+          "mechanism": "RestTemplate",
+          "evidence": "restTemplate.exchange(\"http://user-service/user/\" + userId.toString(), HttpMethod.GET, null, ptr);",
+          "confidence": "high",
+          "_file": "/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java"
+        },
+        {
+          "className": "RecommendationClientService",
+          "methodName": "getRecommendationData",
+          "httpMethod": "GET",
+          "path": "http://recommendation-service/recommendation/recommend/user/{userId}",
+          "targetService": "recommendation-service",
+          "mechanism": "RestTemplate",
+          "evidence": "restTemplate.exchange(\"http://recommendation-service/recommendation/recommend/user/\" + userId.toString(), HttpMethod.GET, null, ptrRecommendedMovie);",
+          "confidence": "high",
+          "_file": "/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java"
+        },
+        {
+          "className": "RecommendationClientService",
+          "methodName": "getMovies",
+          "httpMethod": "GET",
+          "path": "http://movie-service/movie/list?ids={ids}",
+          "targetService": "movie-service",
+          "mechanism": "RestTemplate",
+          "evidence": "restTemplate.exchange(\"http://movie-service/movie/list?ids={ids}\" , HttpMethod.GET, null, ptrMovie, idsString);",
+          "confidence": "high",
+          "_file": "/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java"
+        }
+      ]
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/service/RecommendationService.java",
+      "endpoints": [],
+      "outboundCalls": [
+        {
+          "className": "RecommendationService",
+          "methodName": "insertDummyData",
+          "httpMethod": "GET",
+          "path": "/recommendation/dummyData",
+          "targetService": "recommendation-service",
+          "mechanism": "Feign",
+          "evidence": "@FeignClient(\"recommendation-service\") interface with @RequestMapping(method = RequestMethod.GET, value = \"/recommendation/dummyData\") on insertDummyData()",
+          "confidence": "high",
+          "_file": "/recommendation-client/src/main/java/com/example/service/RecommendationService.java"
+        }
+      ]
+    },
+    {
+      "path": "/recommendation-client/src/main/java/com/example/service/UserService.java",
+      "endpoints": [],
+      "outboundCalls": [
+        {
+          "className": "UserService",
+          "methodName": "getUsers",
+          "httpMethod": "GET",
+          "path": "/user",
+          "targetService": "user-service",
+          "mechanism": "Feign",
+          "evidence": "@FeignClient(\"user-service\") interface UserService with @RequestMapping(method = RequestMethod.GET, value = \"/user\") on getUsers()",
+          "confidence": "high",
+          "_file": "/recommendation-client/src/main/java/com/example/service/UserService.java"
+        },
+        {
+          "className": "UserService",
+          "methodName": "createUser",
+          "httpMethod": "GET",
+          "path": "/newuser",
+          "targetService": "user-service",
+          "mechanism": "Feign",
+          "evidence": "@FeignClient(\"user-service\") interface UserService with @RequestMapping(method = RequestMethod.GET, value = \"/newuser\") on createUser()",
+          "confidence": "high",
+          "_file": "/recommendation-client/src/main/java/com/example/service/UserService.java"
+        },
+        {
+          "className": "UserService",
+          "methodName": "getUser",
+          "httpMethod": "GET",
+          "path": "/user/{userId}",
+          "targetService": "user-service",
+          "mechanism": "Feign",
+          "evidence": "@FeignClient(\"user-service\") interface UserService with @RequestMapping(method = RequestMethod.GET, value = \"/user/{userId}\") on getUser()",
+          "confidence": "high",
+          "_file": "/recommendation-client/src/main/java/com/example/service/UserService.java"
+        }
+      ]
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/Movie.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/MovieRepo.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/MyConfiguration.java",
+      "endpoints": [],
+      "outboundCalls": [
+        {
+          "className": "MyConfiguration",
+          "methodName": "getConfiguration",
+          "httpMethod": "ANY",
+          "path": "http://neo4j:root@localhost:7474",
+          "targetService": "neo4j",
+          "mechanism": "Other",
+          "evidence": "config.driverConfiguration().setDriverClassName(\"org.neo4j.ogm.drivers.http.driver.HttpDriver\").setURI(\"http://neo4j:root@localhost:7474\");",
+          "confidence": "medium",
+          "_file": "/recommendation-service/src/main/java/com/example/MyConfiguration.java"
+        }
+      ]
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/RecommendationController.java",
+      "endpoints": [
+        {
+          "className": "RecommendationController",
+          "methodName": "getAllUsers",
+          "httpMethod": "GET",
+          "path": "/recommendation/user",
+          "framework": "Spring",
+          "evidence": "@RestController @RequestMapping(\"/recommendation\") ... @RequestMapping(value = \"/user\", method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/recommendation-service/src/main/java/com/example/RecommendationController.java"
+        },
+        {
+          "className": "RecommendationController",
+          "methodName": "getAllMovies",
+          "httpMethod": "GET",
+          "path": "/recommendation/movie",
+          "framework": "Spring",
+          "evidence": "@RestController @RequestMapping(\"/recommendation\") ... @RequestMapping(value = \"/movie\", method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/recommendation-service/src/main/java/com/example/RecommendationController.java"
+        },
+        {
+          "className": "RecommendationController",
+          "methodName": "getUser",
+          "httpMethod": "GET",
+          "path": "/recommendation/user/{userId}",
+          "framework": "Spring",
+          "evidence": "@RestController @RequestMapping(\"/recommendation\") ... @RequestMapping(value = \"/user/{userId}\", method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/recommendation-service/src/main/java/com/example/RecommendationController.java"
+        },
+        {
+          "className": "RecommendationController",
+          "methodName": "getRecommendationForUser",
+          "httpMethod": "GET",
+          "path": "/recommendation/recommend/user/{userId}",
+          "framework": "Spring",
+          "evidence": "@RestController @RequestMapping(\"/recommendation\") ... @RequestMapping(value = \"/recommend/user/{userId}\", method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/recommendation-service/src/main/java/com/example/RecommendationController.java"
+        },
+        {
+          "className": "RecommendationController",
+          "methodName": "getMovie",
+          "httpMethod": "GET",
+          "path": "/recommendation/movie/{movieId}",
+          "framework": "Spring",
+          "evidence": "@RestController @RequestMapping(\"/recommendation\") ... @RequestMapping(value = \"/movie/{movieId}\", method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/recommendation-service/src/main/java/com/example/RecommendationController.java"
+        },
+        {
+          "className": "RecommendationController",
+          "methodName": "addDummyData",
+          "httpMethod": "GET",
+          "path": "/recommendation/dummyData",
+          "framework": "Spring",
+          "evidence": "@RestController @RequestMapping(\"/recommendation\") ... @RequestMapping(value = \"/dummyData\", method = RequestMethod.GET)",
+          "confidence": "high",
+          "_file": "/recommendation-service/src/main/java/com/example/RecommendationController.java"
+        }
+      ]
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/RecommendationData.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/RecommendationServiceApplication.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/User.java",
+      "endpoints": []
+    },
+    {
+      "path": "/recommendation-service/src/main/java/com/example/UserRepo.java",
+      "endpoints": []
+    },
+    {
+      "path": "/user-service/src/main/java/com/example/User.java",
+      "endpoints": []
+    },
+    {
+      "path": "/user-service/src/main/java/com/example/UserController.java",
+      "endpoints": [
+        {
+          "className": "UserController",
+          "methodName": "getAllUsers",
+          "httpMethod": "GET",
+          "path": "/user",
+          "framework": "Spring",
+          "evidence": "@RestController @RequestMapping(\"/user\") ... @RequestMapping(method = RequestMethod.GET) public Collection getAllUsers()",
+          "confidence": "high",
+          "_file": "/user-service/src/main/java/com/example/UserController.java"
+        },
+        {
+          "className": "UserController",
+          "methodName": "getUsers",
+          "httpMethod": "GET",
+          "path": "/user/{userId}",
+          "framework": "Spring",
+          "evidence": "@RequestMapping(value=\"/user\") ... @RequestMapping(value=\"/{userId}\", method = RequestMethod.GET) public User getUsers(@PathVariable(name = \"userId\") Long userId)",
+          "confidence": "high",
+          "_file": "/user-service/src/main/java/com/example/UserController.java"
+        }
+      ]
+    },
+    {
+      "path": "/user-service/src/main/java/com/example/UserRepo.java",
+      "endpoints": []
+    },
+    {
+      "path": "/user-service/src/main/java/com/example/UserServiceApplication.java",
+      "endpoints": []
+    }
+  ],
+  "_run": {
+    "model": "bonsai2-27b",
+    "provider": "http://127.0.0.1:8080/v1",
+    "prompt_file": "prompt_outbound.txt",
+    "temperature": 0,
+    "effort": "none",
+    "max_tokens": 8192,
+    "repo": "spring-cloud-movie-recommendation",
+    "frame": null,
+    "n_files": 31,
+    "n_endpoints": 14,
+    "schema_valid_files": 31,
+    "input_tokens": 22030,
+    "output_tokens": 4599,
+    "list_price_usd": 0.0,
+    "wall_seconds": 276.8,
+    "per_file": [
+      {
+        "path": "/config-service/src/main/java/com/example/ConfigServiceApplication.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 510,
+        "out_tok": 67,
+        "ms": 3903,
+        "finish": "stop"
+      },
+      {
+        "path": "/eureka-service/src/main/java/com/example/EurekaServiceApplication.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 517,
+        "out_tok": 68,
+        "ms": 3840,
+        "finish": "stop"
+      },
+      {
+        "path": "/movie-service/src/main/java/com/example/MongoConfig.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 601,
+        "out_tok": 66,
+        "ms": 4770,
+        "finish": "stop"
+      },
+      {
+        "path": "/movie-service/src/main/java/com/example/Movie.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 802,
+        "out_tok": 65,
+        "ms": 6002,
+        "finish": "stop"
+      },
+      {
+        "path": "/movie-service/src/main/java/com/example/MovieController.java",
+        "schema_ok": true,
+        "n_endpoints": 4,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1272,
+        "out_tok": 430,
+        "ms": 26636,
+        "finish": "stop"
+      },
+      {
+        "path": "/movie-service/src/main/java/com/example/MovieDTO.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 639,
+        "out_tok": 66,
+        "ms": 4331,
+        "finish": "stop"
+      },
+      {
+        "path": "/movie-service/src/main/java/com/example/MovieRepo.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 532,
+        "out_tok": 66,
+        "ms": 3522,
+        "finish": "stop"
+      },
+      {
+        "path": "/movie-service/src/main/java/com/example/MovieServiceApplication.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 514,
+        "out_tok": 67,
+        "ms": 3599,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/Config.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 572,
+        "out_tok": 158,
+        "ms": 7111,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/dto/MovieDTO.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 728,
+        "out_tok": 69,
+        "ms": 4364,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/dto/RecommendationDTO.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 685,
+        "out_tok": 70,
+        "ms": 4244,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/dto/RecommendedMovieDTO.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 636,
+        "out_tok": 70,
+        "ms": 3676,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/dto/UserDTO.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 630,
+        "out_tok": 68,
+        "ms": 3636,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/MainController.java",
+        "schema_ok": true,
+        "n_endpoints": 2,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1019,
+        "out_tok": 251,
+        "ms": 11550,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/RecommendationClientApplication.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 607,
+        "out_tok": 69,
+        "ms": 4120,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/service/MovieService.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 601,
+        "out_tok": 287,
+        "ms": 12523,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1268,
+        "out_tok": 419,
+        "ms": 24716,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/service/RecommendationService.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 577,
+        "out_tok": 187,
+        "ms": 11659,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-client/src/main/java/com/example/service/UserService.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 642,
+        "out_tok": 379,
+        "ms": 20368,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/Movie.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 893,
+        "out_tok": 66,
+        "ms": 6284,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/MovieRepo.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 707,
+        "out_tok": 67,
+        "ms": 5236,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/MyConfiguration.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 836,
+        "out_tok": 202,
+        "ms": 11968,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/RecommendationController.java",
+        "schema_ok": true,
+        "n_endpoints": 6,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 1312,
+        "out_tok": 631,
+        "ms": 37089,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/RecommendationData.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 646,
+        "out_tok": 68,
+        "ms": 5898,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/RecommendationServiceApplication.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 516,
+        "out_tok": 69,
+        "ms": 4596,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/User.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 937,
+        "out_tok": 65,
+        "ms": 6649,
+        "finish": "stop"
+      },
+      {
+        "path": "/recommendation-service/src/main/java/com/example/UserRepo.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 522,
+        "out_tok": 66,
+        "ms": 5874,
+        "finish": "stop"
+      },
+      {
+        "path": "/user-service/src/main/java/com/example/User.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 636,
+        "out_tok": 64,
+        "ms": 5056,
+        "finish": "stop"
+      },
+      {
+        "path": "/user-service/src/main/java/com/example/UserController.java",
+        "schema_ok": true,
+        "n_endpoints": 2,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 645,
+        "out_tok": 248,
+        "ms": 13932,
+        "finish": "stop"
+      },
+      {
+        "path": "/user-service/src/main/java/com/example/UserRepo.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 519,
+        "out_tok": 65,
+        "ms": 5049,
+        "finish": "stop"
+      },
+      {
+        "path": "/user-service/src/main/java/com/example/UserServiceApplication.java",
+        "schema_ok": true,
+        "n_endpoints": 0,
+        "status": 200,
+        "throttles": 0,
+        "attempts": 1,
+        "in_tok": 509,
+        "out_tok": 66,
+        "ms": 4507,
+        "finish": "stop"
+      }
+    ]
+  }
+}

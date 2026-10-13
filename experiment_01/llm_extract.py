@@ -126,6 +126,8 @@ def call_openai(base_url, keys, state, model, instruction, payload, effort="defa
                          {"role": "user", "content": payload}]}
     if effort != "default":
         body["reasoning_effort"] = effort
+        if effort == "none":   # llama-server ignores reasoning_effort, reads the chat template switch
+            body["chat_template_kwargs"] = {"enable_thinking": False}
     throttles, t0 = 0, time.time()
     while throttles < max(10, 2 * len(keys)):
         # Groq sits behind Cloudflare, which rejects urllib's default User-Agent (error 1010).
@@ -233,7 +235,7 @@ def main():
         in_tok += meta.get("in_tok", 0)
         out_tok += meta.get("out_tok", 0)
 
-        eps = []
+        eps, outs = [], []
         valid = False
         if isinstance(parsed, dict) and isinstance(parsed.get("files"), list):
             valid = True
@@ -244,7 +246,10 @@ def main():
                             e = dict(e)
                             e["_file"] = f.get("path") or rel
                             eps.append(e)
-        results.append({"path": rel, "endpoints": eps})
+                    for c in (f.get("outboundCalls") or []):
+                        if isinstance(c, dict):
+                            outs.append({**c, "_file": f.get("path") or rel})
+        results.append({"path": rel, "endpoints": eps, **({"outboundCalls": outs} if outs else {})})
         log.append({"path": rel, "schema_ok": valid, "n_endpoints": len(eps), **{
             k: v for k, v in meta.items() if k != "raw_text"}})
 

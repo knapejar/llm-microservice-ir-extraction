@@ -10,6 +10,8 @@ Matching levels are defined in `groundtruth/README.md` section 5. M2 is the oper
 |---|---:|---:|---:|---:|---:|
 | CIMET | 3 | 0.400 | 0.400 | 0.400 | 0.600 |
 | LLM gemini-3.5-flash-lite per-file | 7 | 0.714 | 1.000 | 1.000 | 1.000 |
+| LLM gpt-oss-120b per-file | 12 | 0.632 | 0.632 | 0.737 | 0.737 |
+| LLM spark-x2.5-4b agent (effort none) | 5 | 0.500 | 0.833 | 0.833 | 0.833 |
 
 ## Inbound endpoints — precision / recall at M2
 
@@ -17,6 +19,8 @@ Matching levels are defined in `groundtruth/README.md` section 5. M2 is the oper
 |---|---:|---:|---:|---:|---:|---:|
 | CIMET | 2 | 1 | 5 | 0.667 | 0.286 | 0.400 |
 | LLM gemini-3.5-flash-lite per-file | 7 | 0 | 0 | 1.000 | 1.000 | 1.000 |
+| LLM gpt-oss-120b per-file | 6 | 6 | 1 | 0.500 | 0.857 | 0.632 |
+| LLM spark-x2.5-4b agent (effort none) | 5 | 0 | 2 | 1.000 | 0.714 | 0.833 |
 
 ## Error decomposition
 
@@ -24,6 +28,8 @@ Matching levels are defined in `groundtruth/README.md` section 5. M2 is the oper
 |---|---:|---:|---:|---:|
 | CIMET | 5 | 0 | 0 | 0 |
 | LLM gemini-3.5-flash-lite per-file | 0 | 0 | 0 | 0 |
+| LLM gpt-oss-120b per-file | 1 | 0 | 5 | 0 |
+| LLM spark-x2.5-4b agent (effort none) | 2 | 0 | 0 | 0 |
 
 ## Outbound calls
 
@@ -31,10 +37,16 @@ Matching levels are defined in `groundtruth/README.md` section 5. M2 is the oper
 |---|---|---:|
 | CIMET | no | — |
 | LLM gemini-3.5-flash-lite per-file | no | — |
+| LLM gpt-oss-120b per-file | no | — |
+| LLM spark-x2.5-4b agent (effort none) | no | — |
 
 ## Cost and runtime
 
-| extractor | schema valid | wall | list-price cost |
-|---|---|---:|---:|
-| CIMET | n/a (deterministic) | not measured | $0 |
-| LLM gemini-3.5-flash-lite per-file | 712/712 | 2746.0 s | $0.1137 |
+Per-file: one request per file. Agent: one request per step. Correct = inbound true positives at M2. Local models have no list price.
+
+| extractor | files ok / requests | tokens in / out | wall | s per request | list price | correct | tokens per correct | $ per correct |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| CIMET | deterministic | – | not measured | – | $0 | 2 | – | – |
+| LLM gemini-3.5-flash-lite per-file | 712/712 files | 912,862 / 56,117 | 2746.0 s | 3.9 | $0.1137 | 7 | 138,425 | $0.0162 |
+| LLM gpt-oss-120b per-file | 703/712 files | 760,499 / 104,289 | 3927.0 s | 5.5 | $0.1766 | 6 | 144,131 | $0.0294 |
+| LLM spark-x2.5-4b agent (effort none) | 14 steps | 53,327 / 1,745 | 554.7 s | 39.6 | local | 5 | 11,014 | – |

@@ -54,12 +54,14 @@ Matching levels are defined in `groundtruth/README.md` section 5. M2 is the oper
 
 ## Cost and runtime
 
-| extractor | schema valid | wall | list-price cost |
-|---|---|---:|---:|
-| CIMET | n/a (deterministic) | not measured | $0 |
-| LLM gemini-2.5-flash-lite per-file | 31/31 | 32.1 s | $0.0034 |
-| LLM gemini-3.5-flash-lite per-file | 31/31 | 34.3 s | $0.003 |
-| LLM gpt-oss-120b per-file | 31/31 | 33.1 s | $0.0061 |
-| LLM spark-x2.5-4b per-file (effort none) | 31/31 | 246.7 s | $0.0 |
-| LLM spark-x2.5-4b agent (effort none) | n/a (deterministic) | not measured | $0 |
-| LLM spark-x2.5-4b agent (effort low) | n/a (deterministic) | not measured | $0 |
+Per-file: one request per file. Agent: one request per step. Correct = inbound true positives at M2. Local models have no list price.
+
+| extractor | files ok / requests | tokens in / out | wall | s per request | list price | correct | tokens per correct | $ per correct |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| CIMET | deterministic | – | not measured | – | $0 | 14 | – | – |
+| LLM gemini-2.5-flash-lite per-file | 31/31 files | 17,608 / 3,978 | 32.1 s | 1.0 | $0.0034 | 14 | 1,541 | $0.0002 |
+| LLM gemini-3.5-flash-lite per-file | 31/31 files | 17,608 / 3,174 | 34.3 s | 1.1 | $0.003 | 14 | 1,484 | $0.0002 |
+| LLM gpt-oss-120b per-file | 31/31 files | 16,798 / 6,028 | 33.1 s | 1.1 | $0.0061 | 14 | 1,630 | $0.0004 |
+| LLM spark-x2.5-4b per-file (effort none) | 31/31 files | 17,813 / 4,521 | 246.7 s | 8.0 | local | 14 | 1,595 | – |
+| LLM spark-x2.5-4b agent (effort none) | 7 steps | 16,406 / 1,647 | 121.8 s | 17.4 | local | 14 | 1,289 | – |
+| LLM spark-x2.5-4b agent (effort low) | 13 steps | 48,827 / 11,397 | 348.4 s | 26.8 | local | 14 | 4,301 | – |

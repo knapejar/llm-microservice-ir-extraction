@@ -1,0 +1,43 @@
+Task: Extract inbound HTTP endpoints and outbound HTTP calls from the supplied source code.
+
+Rules:
+- Return only valid JSON.
+- Do not invent endpoints or calls.
+- Use only evidence visible in the supplied code.
+- An inbound endpoint is a route this code serves (e.g. a @RestController / @Controller mapping, a JAX-RS @Path resource).
+- An outbound call is a request this code sends to another service (e.g. a @FeignClient interface method, a RestTemplate or WebClient call). Put it in "outboundCalls", never in "endpoints".
+- Resolve class-level and method-level route annotations when possible.
+- If uncertain, mark confidence as low instead of guessing.
+
+Output schema:
+{
+  "system": "...",
+  "files": [
+    {
+      "path": "...",
+      "endpoints": [
+        {
+          "className": "...",
+          "methodName": "...",
+          "httpMethod": "GET|POST|PUT|DELETE|PATCH|ANY",
+          "path": "...",
+          "framework": "Spring|JAX-RS|Vert.x|Pekko|Other",
+          "evidence": "...",
+          "confidence": "high|medium|low"
+        }
+      ],
+      "outboundCalls": [
+        {
+          "className": "...",
+          "methodName": "...",
+          "httpMethod": "GET|POST|PUT|DELETE|PATCH|ANY",
+          "path": "...",
+          "targetService": "...",
+          "mechanism": "Feign|RestTemplate|WebClient|Other",
+          "evidence": "...",
+          "confidence": "high|medium|low"
+        }
+      ]
+    }
+  ]
+}

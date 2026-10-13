@@ -144,12 +144,23 @@ def load_llm(path):
             inb.append(rec(segs[0] if segs else "?", e.get("httpMethod"), e.get("path"),
                            e.get("className"), e.get("methodName"), "llm",
                            {"confidence": e.get("confidence"), "file": fp}))
+    out = []   # only with a prompt that asks for them (prompt_outbound.txt)
+    for f in d.get("files", []):
+        for c in f.get("outboundCalls", []):
+            fp = c.get("_file") or f.get("path") or ""
+            segs = [s for s in fp.replace("\\", "/").split("/") if s]
+            out.append(rec(segs[0] if segs else "?", c.get("httpMethod"), c.get("path"),
+                           c.get("className"), c.get("methodName"), "llm",
+                           {"confidence": c.get("confidence"), "file": fp,
+                            "mechanism": c.get("mechanism"), "target": c.get("targetService")}))
     run = d.get("_run", {})
     name = run.get("model", "?").split("/")[-1]
     name += " agent" if run.get("workflow") == "agent" else " per-file"
     if run.get("effort") not in (None, "default"):
         name += f" (effort {run['effort']})"
-    return inb, [], {"extractor": f"LLM {name}", **run}
+    if out or "outbound" in str(run.get("prompt_file")):
+        name += " +outbound"
+    return inb, out, {"extractor": f"LLM {name}", **run}
 
 
 def load_any(path):
