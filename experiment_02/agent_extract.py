@@ -12,7 +12,7 @@ Tool calls use Spark-X2.5's text format (LM Studio has no parser for it):
 
     python agent_extract.py --model spark-x2.5-4b --effort none
 """
-import argparse, json, os, re, sys, time, urllib.error, urllib.request
+import argparse, fnmatch, json, os, re, sys, time, urllib.error, urllib.request
 from collections import Counter
 from pathlib import Path
 
@@ -40,6 +40,12 @@ TOOLS = [
          "path": {"type": "string"},
          "start": {"type": "integer", "description": "first line, default 1"}},
          "required": ["path"]}},
+    {"name": "find", "description": "Find files by name with a glob, e.g. *Controller.java or "
+     "*Api.java. Returns repo-relative paths, at most 100.",
+     "parameters": {"type": "object", "properties": {
+         "pattern": {"type": "string"},
+         "path": {"type": "string", "description": "directory to search, default /"}},
+         "required": ["pattern"]}},
     {"name": "submit", "description": "Submit the final result. It is validated; "
      "if rejected you get the reasons and must submit again.",
      "parameters": {"type": "object", "properties": {
@@ -58,7 +64,7 @@ Rules:
   RestTemplate/WebClient call is OUTBOUND - do not list it.
 - Resolve class-level and method-level route annotations into one full path.
 - Routes may be declared on an interface or parent class that the controller implements.
-- Prefer grep over reading whole directories. Skip src/test.
+- Prefer grep and find over reading whole directories. Skip src/test.
 
 ## Tools
 You have access to the following functions:
@@ -128,6 +134,15 @@ class Repo:
                         if len(hits) >= 60:
                             return "\n".join(hits) + "\n[... more hits, narrow the pattern or path]"
         return "\n".join(hits) or "(no matches)"
+
+    def find(self, pattern, path="/"):
+        hits = []
+        for dirpath, dirs, files in os.walk(self.resolve(path)):
+            dirs[:] = sorted(x for x in dirs if x not in SKIP_DIRS)
+            hits += [self.rel(Path(dirpath) / f) for f in sorted(files) if fnmatch.fnmatch(f, pattern)]
+            if len(hits) >= 100:
+                return chr(10).join(hits[:100]) + chr(10) + "[... more files, narrow the pattern or path]"
+        return chr(10).join(hits) or "(no files)"
 
     def read_file(self, path, start=1):
         p = self.resolve(path)
@@ -396,12 +411,14 @@ def run(a, repo, out):
                     result = "[REJECTED] Fix these and submit again:\n- " + "\n- ".join(errs)
                 elif name == "list_dir":
                     result = repo.list_dir(args.get("path", "/"))
+                elif name == "find":
+                    result = repo.find(args.get("pattern", "*"), args.get("path", "/"))
                 elif name == "grep":
                     result = repo.grep(args.get("pattern", ""), args.get("path", "/"))
                 elif name == "read_file":
                     result = repo.read_file(args.get("path", ""), args.get("start") or 1)
                 else:
-                    result = f"[ERROR] unknown tool {name!r}. Tools: list_dir, grep, read_file, submit."
+                    result = f"[ERROR] unknown tool {name!r}. Tools: list_dir, grep, find, read_file, submit."
             except Exception as e:
                 result = f"[ERROR] {type(e).__name__}: {e}"
         if len(result) > MAX_OUT:
