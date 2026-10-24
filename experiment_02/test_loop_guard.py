@@ -9,7 +9,7 @@ from pathlib import Path
 import agent_extract as ag
 
 repo = sys.argv[1]
-ag.chat = lambda *a, **k: ("<tool_call>grep<arg_key>pattern</arg_key><arg_value>@Nothing</arg_value>", {})
+ag.chat = lambda *a, **k: ("<tool_call>grep<arg_key>pattern</arg_key><arg_value>@Nothing</arg_value>", [], {})
 out = Path(tempfile.mkdtemp()) / "loop.json"
 sys.argv = ["x", "--repo", repo, "--system-name", "movie", "--max-steps", "15", "--out", str(out)]
 ag.main()

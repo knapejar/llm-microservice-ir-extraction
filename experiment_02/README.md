@@ -1,23 +1,40 @@
 # Experiment 02: agentic extraction
 
-Same task and output schema as experiment_01, but the model explores the
-repository itself with read-only tools (`list_dir`, `grep`, `read_file`) and
-submits one validated document at the end.
+Same task as experiment_01, but the model explores the repository itself with
+read-only tools (`list_dir`, `find`, `grep`, `read_file`). It records services
+and inbound endpoints as it finds them (`record`) and ends with `submit`.
+Diagrams of the loop and its tools, and a traced example run:
+[how-it-works.md](how-it-works.md).
 
-Guards: older tool results are dropped when the context fills up, API errors
-are retried, repeating the same call three times triggers a warning and then a
-forced submit, and a run always writes an output (`_run` records whether it
-was accepted).
+Every recorded entry is checked against the source. A service needs existing
+directories. An endpoint needs a file under one of its service's directories,
+the line of the route declaration and that declaration copied verbatim as
+`evidence`. The verb and the end of the path must agree with the evidence.
+Accepted entries are kept and rejected ones go back to the model with the
+reason, so a large system does not have to fit into one reply.
+
+The model sees only the files git tracks, minus vendored dependencies
+(`node_modules`, `vendor`). Several checkouts of one system can be mounted
+side by side. `_run` records the commit of each checkout and whether it had
+local changes.
+
+Guards: older tool results are dropped when the context fills up (in one batch,
+so a prompt cache keeps working), API errors are retried, and repeating the
+same call three times triggers a warning and then a forced submit. A run always
+writes an output, and `_run` records whether it was accepted.
 
 ## Run
 
 ```bash
-python agent_extract.py --repo <checkout> --system-name <system> --effort none
+python agent_extract.py --repo <checkout> [<checkout> ...] --system-name <system> --effort none
+python test_record.py && python test_parse_call.py
 python test_loop_guard.py <checkout of spring-cloud-movie-recommendation>
 ```
 
-Default model: `spark-x2.5-4b` in LM Studio, temperature 0, 60 steps. Score
-with `../experiment_01/evaluate.py` or open `../experiment_01/out/viewer.html`.
+Default model: `spark-x2.5-4b` in LM Studio, temperature 0, 60 steps. Use
+`--native-tools` for models that call tools through the OpenAI tools API, and
+`--ctx-chars` for a server with a small context. Score with
+`../experiment_01/evaluate.py` or open `../experiment_01/out/viewer.html`.
 
 ## Results (movie, inbound, M2)
 
