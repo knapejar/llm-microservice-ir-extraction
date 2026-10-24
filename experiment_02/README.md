@@ -46,3 +46,20 @@ Default model: `spark-x2.5-4b` in LM Studio, temperature 0, 60 steps. Use
 
 Same model: exploring the repository removes the Feign client methods that the
 per-file workflow reports as inbound endpoints.
+
+## Results: DeepSeek-V4.1-Flash-1017 on all three systems (inbound, M2)
+
+Wafer, `--native-tools --effort none --max-tokens 24000`, 60 steps.
+
+| system | found / ground truth | false positives | F1 | CIMET F1 | steps | list price | wall |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| movie-recommendation | 14 / 14 | 0 | 1.000 | 1.000 | 9 | $0.003 | 19 s |
+| xs2a | 42 / 50 | 0 | 0.913 | 0 found | 59 | $0.057 | 1051 s |
+| geoserver-cloud | 6 / 7 | 0 | 0.923 | 0.400 | 56 | $0.017 | 1082 s |
+
+On xs2a and geoserver-cloud about 900 s of the wall time is one API request
+that timed out and was retried. On xs2a the agent found the routes declared on
+the interfaces in `xs2a-server-api`, which CIMET misses. The 8 endpoints it
+missed are payment and authorisation variants. It used 59 of its 60 steps, so
+more steps may close that gap. On geoserver-cloud it missed
+`GET /accessDenied.html`.
