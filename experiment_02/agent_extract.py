@@ -632,7 +632,9 @@ class Tee:
 
 
 LOOP_REPEATS = 3        # the same call this many times = a loop
-LOOP_STRIKES = 3        # warnings before the model is made to submit; one more and the run stops
+LOOP_STRIKES = 3        # warnings before exploration is closed: only record and submit run after that
+MAX_BLOCKED = 5         # exploring calls refused after that before the run stops
+NUDGE_STEPS = 15        # steps without a new endpoint before the model is told to record what it has
 
 
 def suggestion(repo, visited):
@@ -703,7 +705,9 @@ def run(a, repo, out):
     rec = Recorded(repo, a.system_name)
     trace, error, finished, stopped = [], None, False, None
     in_tok = out_tok = cached_tok = rejected = no_call = 0
-    seen, visited, strikes = Counter(), set(), 0
+    seen, visited, strikes, blocked = Counter(), set(), 0, 0
+    last = {}       # call signature -> the message holding its latest result
+    n_seen = quiet = nudges = 0
 
     def reply(cid, result):
         if cid is None:
@@ -743,6 +747,12 @@ def run(a, repo, out):
         if step == a.max_steps - 4:
             messages.append({"role": "user", "content": "Only 4 steps left. Record everything you "
                              "still have evidence for and call submit; do not explore further."})
+        elif quiet >= NUDGE_STEPS:
+            # Models that explore first lose their findings once fit() elides old results.
+            messages.append({"role": "user", "content": f"{quiet} steps without a new endpoint recorded. "
+                             "Record the endpoints you have found so far now, before older tool results "
+                             "drop out of your context; then continue."})
+            quiet, nudges = 0, nudges + 1
         try:
             text, tool_calls, usage = chat(a.base_url, a.model, messages, a.effort, os.environ.get("LLM_API_KEY"),
                                            tools=TOOLS if a.native_tools else None, max_tokens=a.max_tokens,
@@ -778,8 +788,21 @@ def run(a, repo, out):
 
         for cid, name, args in calls:
             sig = name + json.dumps(args, sort_keys=True)
+            if sig in last and "[elided" in last[sig]["content"]:
+                seen[sig] = 0       # fit() dropped its result and told the model to call again
             seen[sig] += name != "submit"
-            if seen[sig] >= LOOP_REPEATS:
+            if strikes >= LOOP_STRIKES and name not in ("record", "submit"):
+                # Exploration is closed, but the run goes on until the model records what
+                # it has seen: stopping here would throw away everything not yet recorded.
+                blocked += 1
+                if blocked > MAX_BLOCKED:
+                    stopped = f"stopped at step {step}: ignored the order to submit"
+                    print(f"[{step:2d}] {stopped}")
+                    break
+                result = ("[BLOCKED] Exploration is over, only record and submit work now. Record "
+                          "every endpoint you have evidence for in the results above, then call submit.")
+                print(f"[{step:2d}] BLOCKED {blocked}/{MAX_BLOCKED}: {name}")
+            elif seen[sig] >= LOOP_REPEATS:
                 # Loop guard: the call is not executed again - its result cannot change.
                 strikes += 1
                 if strikes > LOOP_STRIKES:
@@ -788,18 +811,14 @@ def run(a, repo, out):
                     break
                 if strikes == LOOP_STRIKES:
                     result = (f"[LOOP] {name} with these exact arguments, {seen[sig]} times. Exploration "
-                              "is over: record what you still have evidence for and call submit NOW. "
-                              "Any other call ends the run with what is recorded so far.")
+                              "is over: from now on only record and submit work. Record what you have "
+                              "evidence for and call submit.")
                 else:
                     result = (f"[LOOP] You already called {name} with exactly these arguments "
                               f"{seen[sig] - 1} times; the result will not change and was not re-run. "
                               f"Do something different - {suggestion(repo, visited)}. "
                               f"Warning {strikes}/{LOOP_STRIKES}.")
                 print(f"[{step:2d}] LOOP warning {strikes}/{LOOP_STRIKES}: {name} x{seen[sig]}")
-            elif strikes >= LOOP_STRIKES and name not in ("record", "submit"):
-                stopped = f"stopped at step {step}: ignored the order to submit"
-                print(f"[{step:2d}] {stopped}")
-                break
             else:
                 seg = [x for x in str(args.get("path", "/")).replace("\\", "/").split("/") if x]
                 if seg:
@@ -811,12 +830,17 @@ def run(a, repo, out):
             if len(result) > MAX_OUT:
                 result = result[:MAX_OUT] + "\n[... truncated]"
             reply(cid, result)
+            last[sig] = messages[-1]
             shown = ", ".join(f"{k}={str(v)[:60]!r}" for k, v in args.items() if k != "json")
             print(f"[{step:2d}] {name or '-':9s} {shown}  -> {result.splitlines()[0][:100] if result else ''}")
             trace.append({"step": step, "tool": name, "args": {k: str(v)[:200] for k, v in args.items()},
                           "result_head": result[:1000]})
             if finished:
                 break
+        if rec.n_endpoints() > n_seen:
+            n_seen, quiet = rec.n_endpoints(), 0
+        else:
+            quiet += 1
         if finished or stopped:
             break
 
@@ -830,7 +854,8 @@ def run(a, repo, out):
                       else {"repos": states}),
                    "accepted": finished, "fallback": None if finished else
                    ("recorded so far" if rec.n_endpoints() or rec.services else "nothing recorded"),
-                   "error": error, "stopped": stopped, "loop_warnings": strikes,
+                   "error": error, "stopped": stopped, "loop_warnings": strikes, "blocked_calls": blocked,
+                   "record_nudges": nudges,
                    "elided_results": sum(1 for m in messages if "[elided" in (m.get("content") or "")),
                    "steps": step, "tool_calls": len(trace), "rejected_entries": rejected,
                    "no_call_replies": no_call,
