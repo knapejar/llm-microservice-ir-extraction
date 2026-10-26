@@ -1,0 +1,467 @@
+{
+  "system": "spinnaker-echo",
+  "services": [
+    {
+      "name": "echo",
+      "dirs": [
+        "/echo-web",
+        "/echo-api",
+        "/echo-api-tck",
+        "/echo-artifacts",
+        "/echo-bom",
+        "/echo-core",
+        "/echo-integration",
+        "/echo-model",
+        "/echo-notifications",
+        "/echo-pipelinetriggers",
+        "/echo-scheduler",
+        "/echo-rest",
+        "/echo-webhooks",
+        "/echo-plugins-test",
+        "/echo-pubsub-core",
+        "/echo-pubsub-aws",
+        "/echo-pubsub-google",
+        "/echo-telemetry",
+        "/echo-test"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/echo-web/src/main/java/com/netflix/spinnaker/echo/history/HistoryController.java",
+      "service": "echo",
+      "endpoints": [
+        {
+          "className": "HistoryController",
+          "methodName": "saveHistory",
+          "httpMethod": "POST",
+          "path": "/",
+          "line": 35,
+          "evidence": "@RequestMapping(value = \"/\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ScheduledActionsController.java",
+      "service": "echo",
+      "endpoints": [
+        {
+          "className": "ScheduledActionsController",
+          "methodName": "getAllScheduledActions",
+          "httpMethod": "GET",
+          "path": "/scheduledActions",
+          "line": 53,
+          "evidence": "@RequestMapping(value = \"/scheduledActions\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ScheduledActionsController",
+          "methodName": "createScheduledAction",
+          "httpMethod": "POST",
+          "path": "/scheduledActions",
+          "line": 77,
+          "evidence": "@RequestMapping(value = \"/scheduledActions\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ScheduledActionsController",
+          "methodName": "deleteScheduledAction",
+          "httpMethod": "DELETE",
+          "path": "/scheduledActions/{id}",
+          "line": 132,
+          "evidence": "@RequestMapping(value = \"/scheduledActions/{id}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ValidationController.java",
+      "service": "echo",
+      "endpoints": [
+        {
+          "className": "ValidationController",
+          "methodName": "validateCronExpression",
+          "httpMethod": "GET",
+          "path": "/validateCronExpression",
+          "line": 35,
+          "evidence": "@RequestMapping(value = \"/validateCronExpression\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/echo-webhooks/src/main/groovy/com/netflix/spinnaker/echo/controllers/WebhooksController.groovy",
+      "service": "echo",
+      "endpoints": [
+        {
+          "className": "WebhooksController",
+          "methodName": "forwardEvent",
+          "httpMethod": "POST",
+          "path": "/webhooks/{type}/{source}",
+          "line": 50,
+          "evidence": "@RequestMapping(value = '/webhooks/{type}/{source}', method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "WebhooksController",
+          "methodName": "forwardEvent",
+          "httpMethod": "POST",
+          "path": "/webhooks/{type}",
+          "line": 133,
+          "evidence": "@RequestMapping(value = '/webhooks/{type}', method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "WebhooksController",
+          "methodName": "forwardEvent",
+          "httpMethod": "POST",
+          "path": "/webhooks/cdevents/{source}",
+          "line": 154,
+          "evidence": "@RequestMapping(value = '/webhooks/cdevents/{source}', method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/echo-notifications/src/main/java/com/netflix/spinnaker/echo/controller/NotificationController.java",
+      "service": "echo",
+      "endpoints": [
+        {
+          "className": "NotificationController",
+          "methodName": "getNotificationTypeMetadata",
+          "httpMethod": "GET",
+          "path": "/notifications/metadata",
+          "line": 107,
+          "evidence": "@GetMapping(\"/metadata\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "NotificationController",
+          "methodName": "create",
+          "httpMethod": "POST",
+          "path": "/notifications",
+          "line": 62,
+          "evidence": "@RequestMapping(method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "NotificationController",
+          "methodName": "processCallback",
+          "httpMethod": "POST",
+          "path": "/notifications/callbacks/{source}",
+          "line": 97,
+          "evidence": "@RequestMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/echo-pubsub-core/src/main/java/com/netflix/spinnaker/echo/pubsub/PubsubController.java",
+      "service": "echo",
+      "endpoints": [
+        {
+          "className": "PubsubController",
+          "methodName": "getPublishers",
+          "httpMethod": "GET",
+          "path": "/pubsub/publishers",
+          "line": 56,
+          "evidence": "@RequestMapping(value = \"/publishers\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PubsubController",
+          "methodName": "getSubscriptions",
+          "httpMethod": "GET",
+          "path": "/pubsub/subscriptions",
+          "line": 37,
+          "evidence": "@RequestMapping(value = \"/subscriptions\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/echo-pipelinetriggers/src/main/java/com/netflix/spinnaker/echo/pipelinetriggers/QuietPeriodController.java",
+      "service": "echo",
+      "endpoints": [
+        {
+          "className": "QuietPeriodController",
+          "methodName": "getQuietPeriodStatus",
+          "httpMethod": "GET",
+          "path": "/quietPeriod",
+          "line": 33,
+          "evidence": "@GetMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "GLM-5.3-Flash",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "default",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "echo",
+    "commit": "d2eaa598c95d0a8e17736f2df61fa1fa9f738b53",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "record_nudges": 0,
+    "elided_results": 0,
+    "steps": 14,
+    "tool_calls": 26,
+    "rejected_entries": 4,
+    "no_call_replies": 0,
+    "input_tokens": 75546,
+    "cached_input_tokens": 47872,
+    "output_tokens": 3859,
+    "list_price_usd": 0.0075,
+    "wall_seconds": 31.2,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".clog.toml\n.gcloudignore\n.gitignore\nAUTHORS\nDockerfile.compile\nDockerfile.slim\nDockerfile.ubuntu\nLICENSE\nOWNERS.md\nREADME.md\nbuild.gradle\ndocs/\necho-api-tck/\necho-api/\necho-artifacts/\necho-bom/\necho-core/\necho-integration/\necho-model/\necho-notifications/\necho-pipelinetriggers/\necho-plugins-test/\necho-pubsub-aws/\necho-pubsub-core/\necho-pubsub-google/\necho-rest/\necho-scheduler/\necho-telemetry/\necho-test/\necho-web/\necho-webhooks/\ngradle.properties\nhalconfig/\nlombok.config\nsettings.gradle"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2015 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: apply from: \"../versions.gradle\"\n18: \n19: rootProject.name = 'echo'\n20: \n21: include 'echo-api',\n22:         'echo-api-tck',\n23:         'echo-artifacts',\n24:         'echo-bom',\n25:         'echo-core',\n26:         'echo-integration',\n27:         'echo-model',\n28:         'echo-web',\n29:         'echo-notifications',\n30:         'echo-pipeli"
+      },
+      {
+        "step": 2,
+        "tool": "grep",
+        "args": {
+          "path": "/echo-web",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)"
+        },
+        "result_head": "/echo-web/src/main/java/com/netflix/spinnaker/echo/history/HistoryController.java:35: @RequestMapping(value = \"/\", method = RequestMethod.POST)\n/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ScheduledActionsController.java:53: @RequestMapping(value = \"/scheduledActions\", method = RequestMethod.GET)\n/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ScheduledActionsController.java:77: @RequestMapping(value = \"/scheduledActions\", method = RequestMethod.POST)\n/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ScheduledActionsController.java:132: @RequestMapping(value = \"/scheduledActions/{id}\", method = RequestMethod.DELETE)\n/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ValidationController.java:35: @RequestMapping(value = \"/validateCronExpression\", method = RequestMethod.GET)"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "path": "/echo-webhooks",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)"
+        },
+        "result_head": "/echo-webhooks/src/main/groovy/com/netflix/spinnaker/echo/controllers/WebhooksController.groovy:50: @RequestMapping(value = '/webhooks/{type}/{source}', method = RequestMethod.POST)\n/echo-webhooks/src/main/groovy/com/netflix/spinnaker/echo/controllers/WebhooksController.groovy:133: @RequestMapping(value = '/webhooks/{type}', method = RequestMethod.POST)\n/echo-webhooks/src/main/groovy/com/netflix/spinnaker/echo/controllers/WebhooksController.groovy:154: @RequestMapping(value = '/webhooks/cdevents/{source}', method = RequestMethod.POST)"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "path": "/echo-rest",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 4,
+        "tool": "grep",
+        "args": {
+          "path": "/echo-web",
+          "pattern": "class \\w+Controller"
+        },
+        "result_head": "/echo-web/src/main/java/com/netflix/spinnaker/echo/history/HistoryController.java:28: public class HistoryController {\n/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ScheduledActionsController.java:43: public class ScheduledActionsController {\n/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ValidationController.java:33: public class ValidationController {\n/echo-web/src/test/java/com/netflix/spinnaker/echo/scheduler/ScheduledActionsControllerSpec.groovy:14: class ScheduledActionsControllerSpec extends Specification {\n/echo-web/src/test/java/com/netflix/spinnaker/echo/scheduler/ValidationControllerSpec.groovy:11: class ValidationControllerSpec extends Specification {"
+      },
+      {
+        "step": 4,
+        "tool": "grep",
+        "args": {
+          "path": "/echo-webhooks",
+          "pattern": "class \\w+Controller"
+        },
+        "result_head": "/echo-webhooks/src/main/groovy/com/netflix/spinnaker/echo/controllers/WebhooksController.groovy:36: class WebhooksController {\n/echo-webhooks/src/test/groovy/com/netflix/spinnaker/echo/controllers/WebhooksControllerSpec.groovy:39: class WebhooksControllerSpec extends Specification {\n/echo-webhooks/src/test/java/com/netflix/spinnaker/echo/controllers/WebhooksControllerArtifactsTest.java:50: class WebhooksControllerArtifactsTest {\n/echo-webhooks/src/test/java/com/netflix/spinnaker/echo/controllers/WebhooksControllerGitHeadersTest.java:43: class WebhooksControllerGitHeadersTest {"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/echo-web/src/main",
+          "pattern": "@RequestMapping\\(\"(?!value|method)"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/echo-webhooks/src/main",
+          "pattern": "@RequestMapping\\(\"(?!value|method)"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/",
+          "pattern": "class \\w+Controller"
+        },
+        "result_head": "/echo-notifications/src/main/java/com/netflix/spinnaker/echo/controller/NotificationController.java:46: public class NotificationController {\n/echo-notifications/src/test/groovy/com/netflix/spinnaker/echo/notification/NotificationControllerSpec.groovy:38: class NotificationControllerSpec extends Specification {\n/echo-pipelinetriggers/src/main/java/com/netflix/spinnaker/echo/pipelinetriggers/QuietPeriodController.java:25: public class QuietPeriodController {\n/echo-pubsub-core/src/main/java/com/netflix/spinnaker/echo/pubsub/PubsubController.java:31: public class PubsubController {\n/echo-web/src/main/java/com/netflix/spinnaker/echo/history/HistoryController.java:28: public class HistoryController {\n/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ScheduledActionsController.java:43: public class ScheduledActionsController {\n/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ValidationController.java:33: public class ValidationController {\n/echo-web/src/test/java/com/n"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "path": "/echo-notifications/src/main",
+          "pattern": "Mapping"
+        },
+        "result_head": "/echo-notifications/src/main/java/com/netflix/spinnaker/echo/controller/NotificationController.java:35: import org.springframework.web.bind.annotation.GetMapping;\n/echo-notifications/src/main/java/com/netflix/spinnaker/echo/controller/NotificationController.java:38: import org.springframework.web.bind.annotation.RequestMapping;\n/echo-notifications/src/main/java/com/netflix/spinnaker/echo/controller/NotificationController.java:42: @RequestMapping(\"/notifications\")\n/echo-notifications/src/main/java/com/netflix/spinnaker/echo/controller/NotificationController.java:62: @RequestMapping(method = RequestMethod.POST)\n/echo-notifications/src/main/java/com/netflix/spinnaker/echo/controller/NotificationController.java:97: @RequestMapping(\n/echo-notifications/src/main/java/com/netflix/spinnaker/echo/controller/NotificationController.java:107: @GetMapping(\"/metadata\")"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "path": "/echo-pipelinetriggers/src/main",
+          "pattern": "Mapping"
+        },
+        "result_head": "/echo-pipelinetriggers/src/main/java/com/netflix/spinnaker/echo/pipelinetriggers/QuietPeriodController.java:23: @RequestMapping(\"/quietPeriod\")\n/echo-pipelinetriggers/src/main/java/com/netflix/spinnaker/echo/pipelinetriggers/QuietPeriodController.java:33: @GetMapping"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "path": "/echo-pubsub-core/src/main",
+          "pattern": "Mapping"
+        },
+        "result_head": "/echo-pubsub-core/src/main/java/com/netflix/spinnaker/echo/pubsub/PubsubController.java:24: import org.springframework.web.bind.annotation.RequestMapping;\n/echo-pubsub-core/src/main/java/com/netflix/spinnaker/echo/pubsub/PubsubController.java:30: @RequestMapping(value = \"/pubsub\")\n/echo-pubsub-core/src/main/java/com/netflix/spinnaker/echo/pubsub/PubsubController.java:37: @RequestMapping(value = \"/subscriptions\", method = RequestMethod.GET)\n/echo-pubsub-core/src/main/java/com/netflix/spinnaker/echo/pubsub/PubsubController.java:56: @RequestMapping(value = \"/publishers\", method = RequestMethod.GET)"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/echo-notifications/src/main/java/com/netflix/spinnaker/echo/controller/NotificationController.java",
+          "start": "40"
+        },
+        "result_head": "40: import org.springframework.web.bind.annotation.RestController;\n41: \n42: @RequestMapping(\"/notifications\")\n43: @RestController\n44: @Slf4j\n45: @AllArgsConstructor\n46: public class NotificationController {\n47:   @Autowired(required = false)\n48:   Collection<NotificationService> notificationServices;\n49: \n50:   @Autowired private InteractiveNotificationCallbackHandler interactiveNotificationCallbackHandler;\n51: \n52:   @Autowired Optional<List<NotificationAgent>> notificationAgents;\n53: \n54:   /**\n55:    * Provides an endpoint for other Spinnaker services to send out notifications to users.\n56:    * Processing of the request is delegated to an implementation of {@link NotificationService}\n57:    * appropriate for the {@link Notification#notificationType}.\n58:    *\n59:    * @param notification The notification to be sent, in an echo-generic format.\n60:    * @return\n61:    */\n62:   @RequestMapping(method = RequestMethod.POST)\n63:   public EchoResponse create(@RequestBody Notification noti"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/echo-pipelinetriggers/src/main/java/com/netflix/spinnaker/echo/pipelinetriggers/QuietPeriodController.java",
+          "start": "20"
+        },
+        "result_head": "20: import org.springframework.beans.factory.annotation.Autowired;\n21: import org.springframework.web.bind.annotation.*;\n22: \n23: @RequestMapping(\"/quietPeriod\")\n24: @RestController\n25: public class QuietPeriodController {\n26:   private QuietPeriodIndicator quietPeriodIndicator;\n27: \n28:   @Autowired\n29:   public QuietPeriodController(QuietPeriodIndicator quietPeriodIndicator) {\n30:     this.quietPeriodIndicator = quietPeriodIndicator;\n31:   }\n32: \n33:   @GetMapping\n34:   QuietPeriodStatus getQuietPeriodStatus() {\n35:     QuietPeriodStatus qps = new QuietPeriodStatus();\n36: \n37:     qps.isEnabled = quietPeriodIndicator.isEnabled();\n38:     qps.isInQuietPeriod = quietPeriodIndicator.inQuietPeriod(System.currentTimeMillis());\n39:     qps.startTime = quietPeriodIndicator.getStartTime();\n40:     qps.endTime = quietPeriodIndicator.getEndTime();\n41: \n42:     return qps;\n43:   }\n44: \n45:   @Data\n46:   private static class QuietPeriodStatus {\n47:     private boolean isEnabled;\n48:     private "
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/echo-web/echo-web.gradle"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2015 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: apply plugin: 'io.spinnaker.package'\n18: \n19: application.mainClass = 'com.netflix.spinnaker.echo.Application'\n20: \n21: dependencies {\n22:     implementation project(':echo-artifacts')\n23:     implementation project(':echo-core')\n24:     implementation project(':echo-model')\n25:     implementation project(':echo-notifications')\n26:     implem"
+      },
+      {
+        "step": 8,
+        "tool": "grep",
+        "args": {
+          "path": "/echo-web/src/main",
+          "pattern": "class Echo|SpringApplication|main\\("
+        },
+        "result_head": "/echo-web/src/main/java/com/netflix/spinnaker/echo/Application.java:23: import org.springframework.boot.builder.SpringApplicationBuilder;\n/echo-web/src/main/java/com/netflix/spinnaker/echo/Application.java:39: public static void main(String... args) {\n/echo-web/src/main/java/com/netflix/spinnaker/echo/Application.java:42: new SpringApplicationBuilder().properties(DEFAULT_PROPS).sources(Application.class).run(args);\n/echo-web/src/main/java/com/netflix/spinnaker/echo/Application.java:46: public SpringApplicationBuilder configure(SpringApplicationBuilder builder) {\n/echo-web/src/main/java/com/netflix/spinnaker/echo/config/EchoCoreConfig.java:43: public class EchoCoreConfig {\n/echo-web/src/main/java/com/netflix/spinnaker/echo/filters/EchoCorsFilter.java:31: public class EchoCorsFilter implements Filter {"
+      },
+      {
+        "step": 9,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\": [{\"name\": \"echo\", \"dirs\": [\"/echo-web\", \"/echo-api\", \"/echo-api-tck\", \"/echo-artifacts\", \"/echo-bom\", \"/echo-core\", \"/echo-integration\", \"/echo-model\", \"/echo-notifications\", \"/echo-pipel"
+        },
+        "result_head": "Recorded 1 new: service echo\nTotal: 1 services, 0 endpoints in 0 files.\nServices with no endpoints recorded yet: echo."
+      },
+      {
+        "step": 10,
+        "tool": "read_file",
+        "args": {
+          "path": "/echo-web/src/main/java/com/netflix/spinnaker/echo/history/HistoryController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2018 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.echo.history;\n18: \n19: import com.netflix.spinnaker.echo.api.events.Event;\n20: import com.netflix.spinnaker.echo.events.EventPropagator;\n21: import org.springframework.web.bind.annotation.RequestBody;\n22: import org.springframework.web.bind.annotation.RequestMapping;\n23: import org.springframework.web.bind.annotatio"
+      },
+      {
+        "step": 10,
+        "tool": "read_file",
+        "args": {
+          "path": "/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ScheduledActionsController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2015 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.echo.scheduler;\n18: \n19: import static org.quartz.CronScheduleBuilder.cronSchedule;\n20: import static org.quartz.TriggerKey.triggerKey;\n21: \n22: import com.netflix.spinnaker.echo.cron.CronExpressionFuzzer;\n23: import com.netflix.spinnaker.echo.scheduler.actions.pipeline.PipelineConfigsPollingJob;\n24: import com.n"
+      },
+      {
+        "step": 10,
+        "tool": "read_file",
+        "args": {
+          "path": "/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ValidationController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2015 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.echo.scheduler;\n18: \n19: import com.google.common.collect.ImmutableMap;\n20: import com.netflix.spinnaker.echo.cron.CronExpressionFuzzer;\n21: import com.netflix.spinnaker.echo.scheduler.actions.pipeline.InvalidCronExpressionException;\n22: import jakarta.servlet.http.HttpServletResponse;\n23: import java.io.IOExcept"
+      },
+      {
+        "step": 11,
+        "tool": "read_file",
+        "args": {
+          "path": "/echo-webhooks/src/main/groovy/com/netflix/spinnaker/echo/controllers/WebhooksController.groovy",
+          "start": "30"
+        },
+        "result_head": "30: import org.springframework.http.HttpHeaders\n31: import org.springframework.http.ResponseEntity\n32: import org.springframework.web.bind.annotation.*\n33: \n34: @RestController\n35: @Slf4j\n36: class WebhooksController {\n37: \n38:   @Autowired\n39:   EventPropagator propagator\n40: \n41:   @Autowired\n42:   ObjectMapper mapper\n43: \n44:   @Autowired\n45:   ArtifactExtractor artifactExtractor\n46: \n47:   @Autowired\n48:   ScmWebhookHandler scmWebhookHandler\n49: \n50:   @RequestMapping(value = '/webhooks/{type}/{source}', method = RequestMethod.POST)\n51:   WebhooksController.WebhookResponse forwardEvent(@PathVariable String type,\n52:                                                   @PathVariable String source,\n53:                                                   @RequestBody String rawPayload,\n54:                                                   @RequestHeader HttpHeaders headers) {\n55:     Event event = new Event()\n56:     boolean sendEvent = true\n57:     event.details = new Metadata()\n58:     e"
+      },
+      {
+        "step": 11,
+        "tool": "read_file",
+        "args": {
+          "path": "/echo-pubsub-core/src/main/java/com/netflix/spinnaker/echo/pubsub/PubsubController.java",
+          "start": "28"
+        },
+        "result_head": "28: /** Controller for configured pub/sub publishers and subscriptions. */\n29: @RestController\n30: @RequestMapping(value = \"/pubsub\")\n31: public class PubsubController {\n32: \n33:   @Autowired private PubsubSubscribers pubsubSubscribers;\n34: \n35:   @Autowired private PubsubPublishers pubsubPublishers;\n36: \n37:   @RequestMapping(value = \"/subscriptions\", method = RequestMethod.GET)\n38:   List<PubsubSubscriptionBySystem> getSubscriptions() {\n39:     return pubsubSubscribers.getAll().stream()\n40:         .map(\n41:             s ->\n42:                 PubsubSubscriptionBySystem.builder()\n43:                     .pubsubSystem(s.getPubsubSystem().toString())\n44:                     .subscriptionName(s.getName())\n45:                     .build())\n46:         .collect(Collectors.toList());\n47:   }\n48: \n49:   @Data\n50:   @Builder\n51:   public static class PubsubSubscriptionBySystem {\n52:     private String pubsubSystem;\n53:     private String subscriptionName;\n54:   }\n55: \n56:   @RequestMapping("
+      },
+      {
+        "step": 12,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\": [\n{\"path\": \"/echo-web/src/main/java/com/netflix/spinnaker/echo/history/HistoryController.java\", \"service\": \"echo\", \"endpoints\": [\n{\"className\": \"HistoryController\", \"methodName\": \"saveHistor"
+        },
+        "result_head": "Recorded 10 new: POST /, GET /scheduledActions, POST /scheduledActions, DELETE /scheduledActions/{id}, GET /validateCronExpression, POST /webhooks/{type}/{source}, POST /webhooks/{type}, POST /webhooks/cdevents/{source}, GET /notifications/metadata, GET /pubsub/publishers\nTotal: 1 services, 10 endpoints in 6 files.\n[REJECTED 4] Fix these and record them again (accepted entries are kept, do not resend them):\n- files[4].endpoints[0] POST /notifications (NotificationController.create): evidence is not at line 62; copy the route declaration verbatim. Lines 59-65 read: * @param notification The notification to be sent, in an echo-generic format. * @return */ @RequestMapping(method = RequestMethod.POST) public EchoResponse create(@RequestBody Notification notification) { val notificationService = notificationServices.stream()\n- files[4].endpoints[1] POST /notifications/callbacks/{source} (NotificationController.processCallback): evidence is not at line 97; copy the route declaration verbatim"
+      },
+      {
+        "step": 13,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\": [\n{\"path\": \"/echo-notifications/src/main/java/com/netflix/spinnaker/echo/controller/NotificationController.java\", \"service\": \"echo\", \"endpoints\": [\n{\"className\": \"NotificationController\", \"m"
+        },
+        "result_head": "Recorded 4 new: POST /notifications, POST /notifications/callbacks/{source}, GET /quietPeriod, GET /pubsub/subscriptions\nTotal: 1 services, 14 endpoints in 7 files."
+      },
+      {
+        "step": 14,
+        "tool": "submit",
+        "args": {
+          "json": "{\"services\": [{\"name\": \"echo\", \"dirs\": [\"/echo-web\", \"/echo-api\", \"/echo-api-tck\", \"/echo-artifacts\", \"/echo-bom\", \"/echo-core\", \"/echo-integration\", \"/echo-model\", \"/echo-notifications\", \"/echo-pipel"
+        },
+        "result_head": "Recorded 1 new: service echo\nTotal: 1 services, 14 endpoints in 7 files.\n[ACCEPTED] 1 services, 14 endpoints."
+      }
+    ]
+  }
+}

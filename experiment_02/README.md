@@ -38,6 +38,8 @@ python test_record.py && python test_parse_call.py
 python test_loop_guard.py <checkout of spring-cloud-movie-recommendation>
 CLONE=<dir with the checkouts> LLM_API_KEY=<key> sh run_pool.sh <model> [effort]
 python merge_runs.py
+python agent_cli.py <state.json> init --repo <checkout> --system-name <system> --model <name>
+python spinnaker_compare.py --cimet <CIMET IR of spinnaker>
 ```
 
 Default model: `spark-x2.5-4b` in LM Studio, temperature 0, 60 steps. Use
@@ -125,6 +127,13 @@ services gave 720 endpoints (gate 248 instead of 283). clouddriver used all 300
 steps re-checking files it had recorded and cost $0.29 of the $0.58.
 These numbers come from the grep comparison and a hand check of the
 differences only; a full manual review of the Spinnaker endpoints is in progress.
+
+**Spinnaker side by side.** `spinnaker_compare.py` puts the endpoints of each
+model and of CIMET into one table per service, with the verdicts of a hand check
+of the disagreements (`spinnaker_review.json`):
+https://knapejar.github.io/llm-microservice-ir-extraction/spinnaker/.
+`agent_cli.py` exposes the agent's tools as a command line, so a model working
+in an interactive session runs the same task with the same validation.
 
 The six small repositories are golang-crud-rest-api-gin, crud-tutorial-csharp,
 node-js-restful-api-example, E-commerce-Microservice, rasa-sdk and

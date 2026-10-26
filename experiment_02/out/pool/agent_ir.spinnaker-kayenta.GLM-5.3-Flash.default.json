@@ -1,0 +1,950 @@
+{
+  "system": "spinnaker-kayenta",
+  "services": [
+    {
+      "name": "kayenta",
+      "dirs": [
+        "/kayenta-web",
+        "/kayenta-atlas",
+        "/kayenta-aws",
+        "/kayenta-azure",
+        "/kayenta-blobs",
+        "/kayenta-clickhouse",
+        "/kayenta-core",
+        "/kayenta-datadog",
+        "/kayenta-gcs",
+        "/kayenta-google",
+        "/kayenta-graphite",
+        "/kayenta-influxdb",
+        "/kayenta-judge",
+        "/kayenta-mannwhitney",
+        "/kayenta-newrelic-insights",
+        "/kayenta-objectstore-configbin",
+        "/kayenta-objectstore-memory",
+        "/kayenta-orca",
+        "/kayenta-prometheus",
+        "/kayenta-s3",
+        "/kayenta-signalfx",
+        "/kayenta-sql",
+        "/kayenta-stackdriver",
+        "/kayenta-standalone-canary-analysis",
+        "/kayenta-wavefront"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "CanaryConfigController",
+          "methodName": "loadCanaryConfig",
+          "httpMethod": "GET",
+          "path": "/canaryConfig/{canaryConfigId}",
+          "line": 77,
+          "evidence": "@RequestMapping(value = \"/{canaryConfigId:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryConfigController",
+          "methodName": "storeCanaryConfig",
+          "httpMethod": "POST",
+          "path": "/canaryConfig",
+          "line": 96,
+          "evidence": "@RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryConfigController",
+          "methodName": "updateCanaryConfig",
+          "httpMethod": "PUT",
+          "path": "/canaryConfig/{canaryConfigId}",
+          "line": 151,
+          "evidence": "@RequestMapping(value = \"/{canaryConfigId:.+}\", consumes = \"application/json\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryConfigController",
+          "methodName": "deleteCanaryConfig",
+          "httpMethod": "DELETE",
+          "path": "/canaryConfig/{canaryConfigId}",
+          "line": 298,
+          "evidence": "@RequestMapping(value = \"/{canaryConfigId:.+}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryConfigController",
+          "methodName": "listAllCanaryConfigs",
+          "httpMethod": "GET",
+          "path": "/canaryConfig",
+          "line": 317,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "CanaryController",
+          "methodName": "initiateCanary",
+          "httpMethod": "POST",
+          "path": "/canary/{canaryConfigId}",
+          "line": 70,
+          "evidence": "@RequestMapping(value = \"/{canaryConfigId:.+}\", consumes = \"application/json\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryController",
+          "methodName": "initiateCanaryWithConfig",
+          "httpMethod": "POST",
+          "path": "/canary",
+          "line": 118,
+          "evidence": "@RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryController",
+          "methodName": "getCanaryResults",
+          "httpMethod": "GET",
+          "path": "/canary/{canaryExecutionId}",
+          "line": 158,
+          "evidence": "@RequestMapping(value = \"/{canaryExecutionId:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryController",
+          "methodName": "getCanaryResultsByApplication",
+          "httpMethod": "GET",
+          "path": "/canary/executions",
+          "line": 182,
+          "evidence": "@RequestMapping(value = \"/executions\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "CanaryJudgesController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/judges",
+          "line": 78,
+          "evidence": "@GetMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryJudgesController",
+          "methodName": "judge",
+          "httpMethod": "POST",
+          "path": "/judges/judge",
+          "line": 86,
+          "evidence": "@PostMapping(value = \"/judge\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryJudgesController",
+          "methodName": "initiateJudgeComparison",
+          "httpMethod": "POST",
+          "path": "/judges/comparison",
+          "line": 145,
+          "evidence": "@PostMapping(value = \"/comparison\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryJudgesController",
+          "methodName": "getJudgeComparisonResults",
+          "httpMethod": "GET",
+          "path": "/judges/comparison/{executionId}",
+          "line": 194,
+          "evidence": "@GetMapping(value = \"/comparison/{executionId:.+}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryResultArchiveController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "CanaryResultArchiveController",
+          "methodName": "loadArchivedCanaryResult",
+          "httpMethod": "GET",
+          "path": "/canaryResultArchive/{pipelineId}",
+          "line": 60,
+          "evidence": "@RequestMapping(value = \"/{pipelineId:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryResultArchiveController",
+          "methodName": "storeArchivedCanaryResult",
+          "httpMethod": "POST",
+          "path": "/canaryResultArchive",
+          "line": 72,
+          "evidence": "@RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryResultArchiveController",
+          "methodName": "updateArchivedCanaryResult",
+          "httpMethod": "PUT",
+          "path": "/canaryResultArchive/{pipelineId}",
+          "line": 105,
+          "evidence": "@RequestMapping(value = \"/{pipelineId:.+}\", consumes = \"application/json\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryResultArchiveController",
+          "methodName": "deleteArchivedCanaryResult",
+          "httpMethod": "DELETE",
+          "path": "/canaryResultArchive/{pipelineId}",
+          "line": 137,
+          "evidence": "@RequestMapping(value = \"/{pipelineId:.+}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryResultArchiveController",
+          "methodName": "listAllCanaryArchivedResults",
+          "httpMethod": "GET",
+          "path": "/canaryResultArchive",
+          "line": 152,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CredentialsController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "CredentialsController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/credentials",
+          "line": 38,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CredentialsController",
+          "methodName": "deleteAccount",
+          "httpMethod": "DELETE",
+          "path": "/credentials/{accountName}",
+          "line": 43,
+          "evidence": "@DeleteMapping(\"/{accountName}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetListController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "MetricSetListController",
+          "methodName": "loadMetricSetList",
+          "httpMethod": "GET",
+          "path": "/metricSetList/{metricSetListId}",
+          "line": 54,
+          "evidence": "@RequestMapping(value = \"/{metricSetListId:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "MetricSetListController",
+          "methodName": "storeMetricSetList",
+          "httpMethod": "POST",
+          "path": "/metricSetList",
+          "line": 69,
+          "evidence": "@RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "MetricSetListController",
+          "methodName": "deleteMetricSetList",
+          "httpMethod": "DELETE",
+          "path": "/metricSetList/{metricSetListId}",
+          "line": 88,
+          "evidence": "@RequestMapping(value = \"/{metricSetListId:.+}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "MetricSetListController",
+          "methodName": "listAllMetricSetLists",
+          "httpMethod": "GET",
+          "path": "/metricSetList",
+          "line": 105,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetPairListController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "MetricSetPairListController",
+          "methodName": "loadMetricSetPairList",
+          "httpMethod": "GET",
+          "path": "/metricSetPairList/{metricSetPairListId}",
+          "line": 51,
+          "evidence": "@RequestMapping(value = \"/{metricSetPairListId:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "MetricSetPairListController",
+          "methodName": "loadMetricSetPair",
+          "httpMethod": "GET",
+          "path": "/metricSetPairList/{metricSetPairListId}/{metricSetPairId}",
+          "line": 60,
+          "evidence": "@RequestMapping(value = \"/{metricSetPairListId:.+}/{metricSetPairId:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "MetricSetPairListController",
+          "methodName": "storeMetricSetPairList",
+          "httpMethod": "POST",
+          "path": "/metricSetPairList",
+          "line": 74,
+          "evidence": "@RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "MetricSetPairListController",
+          "methodName": "deleteMetricSetPairList",
+          "httpMethod": "DELETE",
+          "path": "/metricSetPairList/{metricSetPairListId}",
+          "line": 87,
+          "evidence": "@RequestMapping(value = \"/{metricSetPairListId:.+}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "MetricSetPairListController",
+          "methodName": "listAllMetricSetPairLists",
+          "httpMethod": "GET",
+          "path": "/metricSetPairList",
+          "line": 95,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServiceMetadataController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "MetricsServiceMetadataController",
+          "methodName": "listMetadata",
+          "httpMethod": "GET",
+          "path": "/metadata/metricsService",
+          "line": 52,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServicesController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "MetricsServicesController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/metricsServices",
+          "line": 44,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "PipelineController",
+          "methodName": "start",
+          "httpMethod": "POST",
+          "path": "/pipelines/start",
+          "line": 104,
+          "evidence": "@RequestMapping(value = \"/start\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "getPipeline",
+          "httpMethod": "GET",
+          "path": "/pipelines/{executionId}",
+          "line": 110,
+          "evidence": "@RequestMapping(value = \"/{executionId}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "cancel",
+          "httpMethod": "PUT",
+          "path": "/pipelines/{executionId}/cancel",
+          "line": 116,
+          "evidence": "@RequestMapping(value = \"/{executionId}/cancel\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "delete",
+          "httpMethod": "DELETE",
+          "path": "/pipelines/{executionId}",
+          "line": 133,
+          "evidence": "@RequestMapping(value = \"/{executionId}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/pipelines",
+          "line": 146,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "AdminController",
+          "methodName": "setInstanceEnabled",
+          "httpMethod": "POST",
+          "path": "/admin/orca/instance/enabled",
+          "line": 46,
+          "evidence": "@RequestMapping(value = \"/instance/enabled\", consumes = \"application/json\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "StandaloneCanaryAnalysisController",
+          "methodName": "initiateCanaryAnalysis",
+          "httpMethod": "POST",
+          "path": "/standalone_canary_analysis/{canaryConfigId}",
+          "line": 93,
+          "evidence": "@RequestMapping(value = \"/{canaryConfigId:.+}\", consumes = \"application/json\", method = POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StandaloneCanaryAnalysisController",
+          "methodName": "initiateCanaryAnalysisExecutionWithConfig",
+          "httpMethod": "POST",
+          "path": "/standalone_canary_analysis",
+          "line": 181,
+          "evidence": "@RequestMapping(consumes = \"application/json\", method = POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StandaloneCanaryAnalysisController",
+          "methodName": "getCanaryAnalysisExecution",
+          "httpMethod": "GET",
+          "path": "/standalone_canary_analysis/{canaryAnalysisExecutionId}",
+          "line": 248,
+          "evidence": "@RequestMapping(value = \"/{canaryAnalysisExecutionId:.+}\", method = GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "AtlasFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/atlas/query",
+          "line": 54,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "ClickhouseFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/clickhouse/query",
+          "line": 49,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-datadog/src/main/java/com/netflix/kayenta/datadog/controller/DatadogFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "DatadogFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/datadog/query",
+          "line": 61,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-graphite/src/main/java/com/netflix/kayenta/graphite/controller/GraphiteFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "GraphiteFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/graphite/query",
+          "line": 62,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-influxdb/src/main/java/com/netflix/kayenta/influxdb/controller/InfluxDbFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "InfluxDbFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/influxdb/query",
+          "line": 63,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-newrelic-insights/src/main/java/com/netflix/kayenta/newrelic/controller/NewRelicFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "NewRelicFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/newrelic/query",
+          "line": 62,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-prometheus/src/main/java/com/netflix/kayenta/prometheus/controllers/PrometheusFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "PrometheusFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/prometheus/query",
+          "line": 64,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-stackdriver/src/main/java/com/netflix/kayenta/stackdriver/controllers/StackdriverFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "StackdriverFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/stackdriver/query",
+          "line": 71,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-wavefront/src/main/java/com/netflix/kayenta/wavefront/controller/WavefrontFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "WavefrontFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/wavefront/query",
+          "line": 51,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "GLM-5.3-Flash",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "default",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "kayenta",
+    "commit": "d2eaa598c95d0a8e17736f2df61fa1fa9f738b53",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "record_nudges": 1,
+    "elided_results": 0,
+    "steps": 18,
+    "tool_calls": 31,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 225209,
+    "cached_input_tokens": 195264,
+    "output_tokens": 10504,
+    "list_price_usd": 0.0156,
+    "wall_seconds": 83.4,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".dockerignore\n.gcloudignore\n.gitignore\nAUTHORS\nDockerfile\nDockerfile.compile\nDockerfile.slim\nDockerfile.ubuntu\nLICENSE.txt\nOSSMETADATA\nOWNERS.md\nREADME.md\nbuild.gradle\ncodeql-config.yml\ndocker-compose.yaml\ndocs/\ngradle.properties\nhalconfig/\njson-formats.md\nkayenta-atlas/\nkayenta-aws/\nkayenta-azure/\nkayenta-blobs/\nkayenta-bom/\nkayenta-clickhouse/\nkayenta-core/\nkayenta-datadog/\nkayenta-gcs/\nkayenta-google/\nkayenta-graphite/\nkayenta-influxdb/\nkayenta-integration-tests/\nkayenta-integration/\nkayenta-judge/\nkayenta-mannwhitney/\nkayenta-newrelic-insights/\nkayenta-objectstore-configbin/\nkayenta-objectstore-memory/\nkayenta-orca/\nkayenta-prometheus/\nkayenta-s3/\nkayenta-signalfx/\nkayenta-sql/\nkayenta-stackdriver/\nkayenta-standalone-canary-analysis/\nkayenta-wavefront/\nkayenta-web/\nlombok.config\nscratch/\nsettings.gradle"
+      },
+      {
+        "step": 2,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RestController|Controller|RequestMapping)"
+        },
+        "result_head": "/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java:38: @RestController\n/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java:39: @RequestMapping(\"/fetch/atlas\")\n/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java:54: @RequestMapping(value = \"/query\", method = RequestMethod.POST)\n/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java:27: @RestController\n/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java:28: @RequestMapping(\"/fetch/clickhouse\")\n/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java:49: @RequestMapping(value = \"/query\", method = RequestMethod.POST)\n/kayenta-datadog/src/main/java/com/netflix/kayenta/datadog/controller/DatadogFetchController.java:40: @RestController\n/kayenta-datadog/src/main/java/"
+      },
+      {
+        "step": 2,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch)Mapping"
+        },
+        "result_head": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java:78: @GetMapping\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java:86: @PostMapping(value = \"/judge\")\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java:145: @PostMapping(value = \"/comparison\")\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java:194: @GetMapping(value = \"/comparison/{executionId:.+}\")\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CredentialsController.java:43: @DeleteMapping(\"/{accountName}\")"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RestController|Controller|RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)",
+          "path": "/kayenta-web"
+        },
+        "result_head": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java:54: @RestController\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java:55: @RequestMapping(\"/canaryConfig\")\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java:77: @RequestMapping(value = \"/{canaryConfigId:.+}\", method = RequestMethod.GET)\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java:96: @RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java:151: @RequestMapping(\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java:298: @RequestMapping(value = \"/{canaryConfigId:.+}\", method = RequestMethod.DELETE)\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java:317: @RequestMapping(method = RequestMethod.GET)\n/kayenta-web/src/ma"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RestController|Controller|RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)",
+          "path": "/kayenta-standalone-canary-analysis"
+        },
+        "result_head": "/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java:51: @RestController(\n/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java:54: @RequestMapping(\"/standalone_canary_analysis\")\n/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java:93: @RequestMapping(value = \"/{canaryConfigId:.+}\", consumes = \"application/json\", method = POST)\n/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java:181: @RequestMapping(consumes = \"application/json\", method = POST)\n/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java:248: @RequestMapping(value = \"/{c"
+      },
+      {
+        "step": 4,
+        "tool": "grep",
+        "args": {
+          "path": "/kayenta-web",
+          "pattern": "SpringApplication|main\\("
+        },
+        "result_head": "/kayenta-web/src/main/java/com/netflix/kayenta/Main.java:22: import org.springframework.boot.builder.SpringApplicationBuilder;\n/kayenta-web/src/main/java/com/netflix/kayenta/Main.java:38: public static void main(String... args) {\n/kayenta-web/src/main/java/com/netflix/kayenta/Main.java:39: new SpringApplicationBuilder().properties(DEFAULT_PROPS).sources(Main.class).run(args);"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2017 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: rootProject.name=\"kayenta\"\n18: \n19: include 'kayenta-atlas'\n20: include 'kayenta-aws'\n21: include 'kayenta-azure'\n22: include 'kayenta-blobs'\n23: include 'kayenta-bom'\n24: include 'kayenta-clickhouse'\n25: include 'kayenta-core'\n26: include 'kayenta-datadog'\n27: include 'kayenta-gcs'\n28: include 'kayenta-google'\n29: include 'kayenta-graphite'\n3"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/kayenta-core",
+          "pattern": "@(RestController|Controller|RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping)"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/kayenta-wavefront",
+          "pattern": "@(RestController|RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping)"
+        },
+        "result_head": "/kayenta-wavefront/src/main/java/com/netflix/kayenta/wavefront/controller/WavefrontFetchController.java:35: @RestController\n/kayenta-wavefront/src/main/java/com/netflix/kayenta/wavefront/controller/WavefrontFetchController.java:36: @RequestMapping(\"/fetch/wavefront\")\n/kayenta-wavefront/src/main/java/com/netflix/kayenta/wavefront/controller/WavefrontFetchController.java:51: @RequestMapping(value = \"/query\", method = RequestMethod.POST)"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/kayenta-signalfx",
+          "pattern": "@(RestController|RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping)"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java",
+          "start": "60"
+        },
+        "result_head": "60:     this.accountCredentialsRepository = accountCredentialsRepository;\n61:     this.storageServiceRepository = storageServiceRepository;\n62:     this.executionMapper = executionMapper;\n63:   }\n64: \n65:   //\n66:   // Initiate a new canary run.\n67:   //\n68:   // TODO(duftler): Allow for user to be passed in.\n69:   @Operation(summary = \"Initiate a canary pipeline\")\n70:   @RequestMapping(\n71:       value = \"/{canaryConfigId:.+}\",\n72:       consumes = \"application/json\",\n73:       method = RequestMethod.POST)\n74:   public CanaryExecutionResponse initiateCanary(\n75:       @RequestParam(required = false) final String application,\n76:       @RequestParam(required = false) final String parentPipelineExecutionId,\n77:       @RequestParam(required = false) final String metricsAccountName,\n78:       @RequestParam(required = false) final String configurationAccountName,\n79:       @RequestParam(required = false) final String storageAccountName,\n80:       @Parameter @RequestBody final CanaryExecuti"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java",
+          "start": "70"
+        },
+        "result_head": "70:           boolean disableMetricNameValidation) {\n71:     this.accountCredentialsRepository = accountCredentialsRepository;\n72:     this.storageServiceRepository = storageServiceRepository;\n73:     this.disableMetricNameValidation = disableMetricNameValidation;\n74:   }\n75: \n76:   @Operation(summary = \"Retrieve a canary config from object storage\")\n77:   @RequestMapping(value = \"/{canaryConfigId:.+}\", method = RequestMethod.GET)\n78:   public CanaryConfig loadCanaryConfig(\n79:       @RequestParam(required = false) final String configurationAccountName,\n80:       @PathVariable String canaryConfigId) {\n81:     String resolvedConfigurationAccountName =\n82:         accountCredentialsRepository\n83:             .getRequiredOneBy(configurationAccountName, AccountCredentials.Type.CONFIGURATION_STORE)\n84:             .getName();\n85:     StorageService configurationService =\n86:         storageServiceRepository.getRequiredOne(resolvedConfigurationAccountName);\n87: \n88:     CanaryConfig canaryCo"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryResultArchiveController.java",
+          "start": "55"
+        },
+        "result_head": "55:     this.accountCredentialsRepository = accountCredentialsRepository;\n56:     this.storageServiceRepository = storageServiceRepository;\n57:   }\n58: \n59:   @Operation(summary = \"Retrieve an archived canary result from object storage\")\n60:   @RequestMapping(value = \"/{pipelineId:.+}\", method = RequestMethod.GET)\n61:   public CanaryExecutionStatusResponse loadArchivedCanaryResult(\n62:       @RequestParam(required = false) final String storageAccountName,\n63:       @PathVariable String pipelineId) {\n64:     String resolvedConfigurationAccountName = resolveStorageAccountName(storageAccountName);\n65:     StorageService storageService = getStorageService(resolvedConfigurationAccountName);\n66: \n67:     return storageService.loadObject(\n68:         resolvedConfigurationAccountName, ObjectType.CANARY_RESULT_ARCHIVE, pipelineId);\n69:   }\n70: \n71:   @Operation(summary = \"Create an archived canary result to object storage\")\n72:   @RequestMapping(consumes = \"application/json\", method = RequestMe"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetPairListController.java",
+          "start": "45"
+        },
+        "result_head": "45:   @Autowired\n46:   public MetricSetPairListController(MetricSetPairListService metricSetPairListService) {\n47:     this.metricSetPairListService = metricSetPairListService;\n48:   }\n49: \n50:   @Operation(summary = \"Retrieve a metric set pair list from object storage\")\n51:   @RequestMapping(value = \"/{metricSetPairListId:.+}\", method = RequestMethod.GET)\n52:   public List<MetricSetPair> loadMetricSetPairList(\n53:       @RequestParam(required = false) final String accountName,\n54:       @PathVariable final String metricSetPairListId) {\n55:     return metricSetPairListService.loadMetricSetPairList(accountName, metricSetPairListId);\n56:   }\n57: \n58:   @Operation(\n59:       summary = \"Retrieve a single metric set pair from a metricSetPairList from object storage\")\n60:   @RequestMapping(\n61:       value = \"/{metricSetPairListId:.+}/{metricSetPairId:.+}\",\n62:       method = RequestMethod.GET)\n63:   public ResponseEntity<MetricSetPair> loadMetricSetPair(\n64:       @RequestParam(required = f"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetListController.java",
+          "start": "50"
+        },
+        "result_head": "50:     this.storageServiceRepository = storageServiceRepository;\n51:   }\n52: \n53:   @Operation(summary = \"Retrieve a metric set list from object storage\")\n54:   @RequestMapping(value = \"/{metricSetListId:.+}\", method = RequestMethod.GET)\n55:   public List<MetricSet> loadMetricSetList(\n56:       @RequestParam(required = false) final String accountName,\n57:       @PathVariable String metricSetListId) {\n58:     String resolvedAccountName =\n59:         accountCredentialsRepository\n60:             .getRequiredOneBy(accountName, AccountCredentials.Type.OBJECT_STORE)\n61:             .getName();\n62:     StorageService storageService = storageServiceRepository.getRequiredOne(resolvedAccountName);\n63: \n64:     return storageService.loadObject(\n65:         resolvedAccountName, ObjectType.METRIC_SET_LIST, metricSetListId);\n66:   }\n67: \n68:   @Operation(summary = \"Write a metric set list to object storage\")\n69:   @RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)\n70:   pub"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java",
+          "start": "70"
+        },
+        "result_head": "70:     this.accountCredentialsRepository = accountCredentialsRepository;\n71:     this.storageServiceRepository = storageServiceRepository;\n72:     this.executionRepository = executionRepository;\n73:     this.executionMapper = executionMapper;\n74:     this.canaryJudges = canaryJudges;\n75:   }\n76: \n77:   @Operation(summary = \"Retrieve a list of all configured canary judges\")\n78:   @GetMapping\n79:   List<CanaryJudge> list() {\n80:     return canaryJudges;\n81:   }\n82: \n83:   @Operation(\n84:       summary =\n85:           \"Exercise a judge directly, without any orchestration or querying of metrics services\")\n86:   @PostMapping(value = \"/judge\")\n87:   public CanaryJudgeResult judge(\n88:       @RequestParam(required = false) final String configurationAccountName,\n89:       @RequestParam(required = false) final String storageAccountName,\n90:       @RequestParam final String canaryConfigId,\n91:       @RequestParam final String metricSetPairListId,\n92:       @RequestParam final Double passThresho"
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java",
+          "start": "40"
+        },
+        "result_head": "40: \n41:   @Autowired\n42:   public AdminController(ApplicationEventPublisher publisher) {\n43:     this.publisher = publisher;\n44:   }\n45: \n46:   @RequestMapping(\n47:       value = \"/instance/enabled\",\n48:       consumes = \"application/json\",\n49:       method = RequestMethod.POST)\n50:   void setInstanceEnabled(@RequestBody Map<String, Boolean> enabledWrapper) {\n51:     Boolean enabled = enabledWrapper.get(\"enabled\");\n52: \n53:     if (enabled == null) {\n54:       throw new ValidationException(\"The field 'enabled' must be set.\", null);\n55:     }\n56: \n57:     setInstanceEnabled(enabled);\n58:   }\n59: \n60:   private void setInstanceEnabled(boolean enabled) {\n61:     InstanceStatus currentStatus = enabled ? UP : OUT_OF_SERVICE;\n62:     InstanceStatus previousStatus = currentStatus == OUT_OF_SERVICE ? UP : UNKNOWN;\n63: \n64:     publisher.publishEvent(\n65:         new RemoteStatusChangedEvent(\n66:             new DiscoveryStatusChangeEvent(previousStatus, currentStatus)));\n67:   }\n68: }"
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java",
+          "start": "85"
+        },
+        "result_head": "85:    * @param canaryAnalysisExecutionRequest The canary analysis execution request that configures how\n86:    *     the analysis will be performed\n87:    * @param canaryConfigId The id for the canary configuration to use for the analysis execution\n88:    * @return Object with the execution id\n89:    */\n90:   @Operation(\n91:       summary =\n92:           \"Initiate a canary analysis execution with multiple canary judgements using a stored canary config\")\n93:   @RequestMapping(value = \"/{canaryConfigId:.+}\", consumes = \"application/json\", method = POST)\n94:   public CanaryAnalysisExecutionResponse initiateCanaryAnalysis(\n95:       @Parameter(\n96:               description = \"The initiating user\",\n97:               schema = @Schema(defaultValue = \"anonymous\"),\n98:               example = \"justin.field@example.com\")\n99:           @RequestParam(required = false)\n100:           final String user,\n101:       @Parameter(description = \"The application under test\", example = \"examplecanarymicro"
+      },
+      {
+        "step": 10,
+        "tool": "read_file",
+        "args": {
+          "path": "/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java",
+          "start": "95"
+        },
+        "result_head": "95:       } else {\n96:         log.warn(\n97:             \"Health indicators are still reporting DOWN; not starting orca queue processing yet: {}\",\n98:             status);\n99:       }\n100:     }\n101:   }\n102: \n103:   @Operation(summary = \"Initiate a pipeline execution\")\n104:   @RequestMapping(value = \"/start\", method = RequestMethod.POST)\n105:   String start(@RequestBody Map map) throws Exception {\n106:     return startPipeline(map);\n107:   }\n108: \n109:   @Operation(summary = \"Retrieve a pipeline execution\")\n110:   @RequestMapping(value = \"/{executionId}\", method = RequestMethod.GET)\n111:   PipelineExecution getPipeline(@PathVariable String executionId) {\n112:     return executionRepository.retrieve(PIPELINE, executionId);\n113:   }\n114: \n115:   @Operation(summary = \"Cancel a pipeline execution\")\n116:   @RequestMapping(value = \"/{executionId}/cancel\", method = RequestMethod.PUT)\n117:   @ResponseStatus(HttpStatus.ACCEPTED)\n118:   void cancel(@PathVariable String executionId) {\n119:     l"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "pattern": "class .*FetchController|@RequestMapping\\(value = \"/query\""
+        },
+        "result_head": "/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java:41: public class AtlasFetchController {\n/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java:54: @RequestMapping(value = \"/query\", method = RequestMethod.POST)\n/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java:30: public class ClickhouseFetchController {\n/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java:49: @RequestMapping(value = \"/query\", method = RequestMethod.POST)\n/kayenta-core/src/main/java/com/netflix/kayenta/canary/util/FetchControllerUtils.java:27: public class FetchControllerUtils {\n/kayenta-datadog/src/main/java/com/netflix/kayenta/datadog/config/DatadogConfigurationTestControllerDefaultProperties.java:23: * This configuration class allows you to specify default values for the PrometheusFetchController.\n/kayenta-datadog/src/main/jav"
+      },
+      {
+        "step": 11,
+        "tool": "read_file",
+        "args": {
+          "path": "/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java",
+          "start": "38"
+        },
+        "result_head": "38: @RestController\n39: @RequestMapping(\"/fetch/atlas\")\n40: @Slf4j\n41: public class AtlasFetchController {\n42: \n43:   private final AccountCredentialsRepository accountCredentialsRepository;\n44:   private final SynchronousQueryProcessor synchronousQueryProcessor;\n45: \n46:   @Autowired\n47:   public AtlasFetchController(\n48:       AccountCredentialsRepository accountCredentialsRepository,\n49:       SynchronousQueryProcessor synchronousQueryProcessor) {\n50:     this.accountCredentialsRepository = accountCredentialsRepository;\n51:     this.synchronousQueryProcessor = synchronousQueryProcessor;\n52:   }\n53: \n54:   @RequestMapping(value = \"/query\", method = RequestMethod.POST)\n55:   @SuppressWarnings(\"deprecation\")\n56:   public Map queryMetrics(\n57:       @RequestParam(required = false) final String metricsAccountName,\n58:       @RequestParam(required = false) final String storageAccountName,\n59:       @Parameter(example = \"name,CpuRawUser,:eq,:sum\") @RequestParam String q,\n60:       @Paramet"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/kayenta-web",
+          "pattern": "class \\w+Controller"
+        },
+        "result_head": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java:57: public class CanaryConfigController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java:44: public class CanaryController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java:55: public class CanaryJudgesController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryResultArchiveController.java:46: public class CanaryResultArchiveController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CredentialsController.java:28: public class CredentialsController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetListController.java:40: public class MetricSetListController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetPairListController.java:41: public class MetricSetPairListController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServiceMetadataCont"
+      },
+      {
+        "step": 12,
+        "tool": "read_file",
+        "args": {
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServiceMetadataController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2018 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.kayenta.controllers;\n18: \n19: import com.netflix.kayenta.metrics.MetricsService;\n20: import com.netflix.kayenta.metrics.MetricsServiceRepository;\n21: import com.netflix.kayenta.security.AccountCredentials;\n22: import com.netflix.kayenta.security.AccountCredentialsRepository;\n23: import io.swagger.v3.oas.annotations.Operation;"
+      },
+      {
+        "step": 12,
+        "tool": "read_file",
+        "args": {
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServicesController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2018 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.kayenta.controllers;\n18: \n19: import static com.netflix.kayenta.security.AccountCredentials.Type.METRICS_STORE;\n20: \n21: import com.netflix.kayenta.security.AccountCredentials;\n22: import com.netflix.kayenta.security.AccountCredentialsRepository;\n23: import io.swagger.v3.oas.annotations.Operation;\n24: import java.util.List;\n"
+      },
+      {
+        "step": 13,
+        "tool": "read_file",
+        "args": {
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CredentialsController.java",
+          "start": "26"
+        },
+        "result_head": "26: @RestController\n27: @RequestMapping(\"/credentials\")\n28: public class CredentialsController {\n29: \n30:   private final AccountCredentialsRepository accountCredentialsRepository;\n31: \n32:   @Autowired\n33:   public CredentialsController(AccountCredentialsRepository accountCredentialsRepository) {\n34:     this.accountCredentialsRepository = accountCredentialsRepository;\n35:   }\n36: \n37:   @Operation(summary = \"Retrieve a list of all configured credentials\")\n38:   @RequestMapping(method = RequestMethod.GET)\n39:   Set<? extends AccountCredentials> list() {\n40:     return accountCredentialsRepository.getAll();\n41:   }\n42: \n43:   @DeleteMapping(\"/{accountName}\")\n44:   public void deleteAccount(@PathVariable String accountName) {\n45:     this.accountCredentialsRepository.deleteById(accountName);\n46:   }\n47: }"
+      },
+      {
+        "step": 13,
+        "tool": "read_file",
+        "args": {
+          "path": "/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java",
+          "start": "240"
+        },
+        "result_head": "240: \n241:   /**\n242:    * Fetches a Canary Analysis Execution from a supplied id.\n243:    *\n244:    * @param canaryAnalysisExecutionId The id for the Canary Analysis Execution\n245:    * @return The canary analysis execution object that will have the results and status.\n246:    */\n247:   @Operation(summary = \"Retrieve status and results for a canary analysis execution\")\n248:   @RequestMapping(value = \"/{canaryAnalysisExecutionId:.+}\", method = GET)\n249:   public CanaryAnalysisExecutionStatusResponse getCanaryAnalysisExecution(\n250:       @Parameter(description = \"The id for the Canary Analysis Execution\") @PathVariable\n251:           final String canaryAnalysisExecutionId,\n252:       @Parameter(\n253:               description =\n254:                   \"The account to use to try and find the execution if not found in the execution repo\",\n255:               example = \"some-storage-account\")\n256:           @RequestParam(required = false)\n257:           final String storageAccountName) {\n25"
+      },
+      {
+        "step": 14,
+        "tool": "read_file",
+        "args": {
+          "path": "/kayenta-web/kayenta-web.gradle"
+        },
+        "result_head": "1: apply plugin: 'io.spinnaker.package'\n2: \n3: application.mainClass = 'com.netflix.kayenta.Main'\n4: \n5: configurations.all {\n6:   exclude group: 'javax.servlet', module: 'servlet-api'\n7:   exclude group: \"org.slf4j\", module: \"slf4j-log4j12\"\n8: }\n9: \n10: dependencies {\n11:   api project(':kayenta-atlas')\n12:   api project(':kayenta-aws')\n13:   api project(':kayenta-clickhouse')\n14:   api project(':kayenta-core')\n15:   api project(':kayenta-datadog')\n16:   api project(':kayenta-gcs')\n17:   api project(':kayenta-google')\n18:   api project(':kayenta-blobs')\n19:   api project(':kayenta-azure')\n20:   api project(':kayenta-graphite')\n21:   api project(':kayenta-influxdb')\n22:   api project(':kayenta-judge')\n23:   api project(':kayenta-newrelic-insights')\n24:   api project(':kayenta-objectstore-configbin')\n25:   api project(':kayenta-objectstore-memory')\n26:   api project(':kayenta-orca')\n27:   api project(':kayenta-prometheus')\n28:   api project(':kayenta-s3')\n29:   api project(':kayenta-sig"
+      },
+      {
+        "step": 15,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\": [{\"name\": \"kayenta\", \"dirs\": [\"/kayenta-web\", \"/kayenta-atlas\", \"/kayenta-aws\", \"/kayenta-azure\", \"/kayenta-blobs\", \"/kayenta-clickhouse\", \"/kayenta-core\", \"/kayenta-datadog\", \"/kayenta-g"
+        },
+        "result_head": "Recorded 1 new: service kayenta\nTotal: 1 services, 0 endpoints in 0 files.\nServices with no endpoints recorded yet: kayenta."
+      },
+      {
+        "step": 16,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\": [\n{\"path\": \"/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java\", \"service\": \"kayenta\", \"endpoints\": [\n{\"className\": \"CanaryConfigController\", \"methodName\""
+        },
+        "result_head": "Recorded 49 new: GET /canaryConfig/{canaryConfigId}, POST /canaryConfig, PUT /canaryConfig/{canaryConfigId}, DELETE /canaryConfig/{canaryConfigId}, GET /canaryConfig, POST /canary/{canaryConfigId}, POST /canary, GET /canary/{canaryExecutionId}, GET /canary/executions, GET /judges, POST /judges/judge, POST /judges/comparison, GET /judges/comparison/{executionId}, GET /canaryResultArchive/{pipelineId}, POST /canaryResultArchive, PUT /canaryResultArchive/{pipelineId}, DELETE /canaryResultArchive/{pipelineId}, GET /canaryResultArchive, GET /credentials, DELETE /credentials/{accountName}, GET /metricSetList/{metricSetListId}, POST /metricSetList, DELETE /metricSetList/{metricSetListId}, GET /metricSetList, GET /metricSetPairList/{metricSetPairListId}, GET /metricSetPairList/{metricSetPairListId}/{metricSetPairId}, POST /metricSetPairList, DELETE /metricSetPairList/{metricSetPairListId}, GET /metricSetPairList, GET /metadata/metricsService, GET /metricsServices, POST /pipelines/start, GET /p"
+      },
+      {
+        "step": 17,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController"
+        },
+        "result_head": "/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java:38: @RestController\n/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java:27: @RestController\n/kayenta-datadog/src/main/java/com/netflix/kayenta/datadog/controller/DatadogFetchController.java:40: @RestController\n/kayenta-graphite/src/main/java/com/netflix/kayenta/graphite/controller/GraphiteFetchController.java:41: @RestController\n/kayenta-influxdb/src/main/java/com/netflix/kayenta/influxdb/controller/InfluxDbFetchController.java:43: @RestController\n/kayenta-newrelic-insights/src/main/java/com/netflix/kayenta/newrelic/controller/NewRelicFetchController.java:40: @RestController\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java:35: @RestController\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java:51: @RestController\n/kayenta-prometheus/src/main/java/com/netflix/kayenta/p"
+      },
+      {
+        "step": 18,
+        "tool": "submit",
+        "args": {
+          "json": "{\"services\": [{\"name\": \"kayenta\", \"dirs\": [\"/kayenta-web\", \"/kayenta-atlas\", \"/kayenta-aws\", \"/kayenta-azure\", \"/kayenta-blobs\", \"/kayenta-clickhouse\", \"/kayenta-core\", \"/kayenta-datadog\", \"/kayenta-g"
+        },
+        "result_head": "Recorded 1 new: service kayenta\nTotal: 1 services, 49 endpoints in 21 files.\n[ACCEPTED] 1 services, 49 endpoints."
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spinnaker endpoint comparison</title>
+<style>
+:root { --bg: #fff; --fg: #1d1d1f; --muted: #6b6b70; --line: #e3e3e8; --head: #f5f5f7;
+        --yes: #1a7f37; --no: #b42318; --maybe: #9a6700; --hl: #fff8e1; --link: #0b5cad; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+        --bg: #161618; --fg: #ececf0; --muted: #9a9aa2; --line: #2e2e33; --head: #202024;
+        --yes: #4ac26b; --no: #f47067; --maybe: #d4a72c; --hl: #2b2614; --link: #6cb6ff; } }
+body { margin: 0 auto; max-width: 1200px; padding: 16px; background: var(--bg); color: var(--fg);
+       font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+h1 { font-size: 22px; margin: 8px 0 4px; } h2 { font-size: 17px; margin: 28px 0 8px; }
+p, li { color: var(--fg); max-width: 75ch; } .muted { color: var(--muted); }
+a { color: var(--link); }
+code { font: 12px ui-monospace, Consolas, monospace; }
+.wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+table { border-collapse: collapse; width: 100%; }
+th, td { padding: 4px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { background: var(--head); position: sticky; top: 0; font-weight: 600; white-space: nowrap; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+td.c, th.c { text-align: center; }
+tr.diff td { background: var(--hl); }
+.yes { color: var(--yes); } .no { color: var(--no); } .maybe { color: var(--maybe); }
+.route { font: 12px ui-monospace, Consolas, monospace; overflow-wrap: anywhere; min-width: 28ch; }
+td.note { min-width: 18ch; max-width: 40ch; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; align-items: center; }
+select, input { font: inherit; padding: 4px 6px; background: var(--bg); color: var(--fg);
+                border: 1px solid var(--line); border-radius: 4px; }
+input { flex: 1; min-width: 160px; }
+</style>
+</head>
+<body>
+<h1>Spinnaker: inbound endpoints by extractor</h1>
+<p class="muted">Ten services of <a href="https://github.com/spinnaker/spinnaker">spinnaker/spinnaker</a>
+at commit <a id="commit" href="#"></a>. Part of a master's thesis comparing LLM-based extraction of
+microservice endpoints with CIMET. Code: <a href="https://github.com/knapejar/llm-microservice-ir-extraction">knapejar/llm-microservice-ir-extraction</a>.</p>
+
+<ul>
+<li><b>DeepSeek-V4.1-Flash</b> and <b>GLM-5.3-Flash</b>: the agent of experiment 02 (<code>agent_extract.py</code>, tag
+<code>agent-2026-10-26</code>). The model explores one service with read-only tools and records endpoints;
+each entry must cite the line of its route declaration verbatim, or it is rejected.</li>
+<li><b>Opus 5.5</b>: the same task prompt, tools and validation (<code>agent_cli.py</code>), with the model
+driving the loop itself instead of being called over an API.</li>
+<li><b>CIMET</b>: the main branch of the extraction library, run on the whole repository. It detects three
+microservices (kayenta, echo-web, spin), so the other services have no CIMET output. An extended CIMET build,
+not public yet, reports 894 endpoints for Spinnaker; its per-endpoint output is not included.</li>
+</ul>
+<p>An endpoint is a service, a verb and a route with placeholders reduced to <code>{}</code>. <code>ANY</code>
+is a mapping without a method. Rows where the extractors that ran on the service disagree are highlighted;
+the disagreements were checked by hand against the source, and the review column gives the verdict.</p>
+
+<h2>Endpoints per service</h2>
+<div class="wrap"><table id="summary"></table></div>
+<p class="muted">* run not accepted (stopped by the step limit or the loop guard); the count is what it had recorded,
+and what it lacks is not counted as a disagreement. Hover a count for steps and list price.</p>
+
+<h2>All endpoints</h2>
+<div class="controls">
+  <select id="svc"><option value="">all services</option></select>
+  <select id="show">
+    <option value="all">all rows</option>
+    <option value="diff">disagreements only</option>
+    <option value="reviewed">reviewed only</option>
+  </select>
+  <input id="q" type="search" placeholder="filter by route, file or note">
+  <span id="count" class="muted"></span>
+</div>
+<div class="wrap"><table id="rows"></table></div>
+
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const short = s => s.split(/[-\s]/)[0];
+fetch("data.json").then(r => r.json()).then(d => {
+  const src = d.sources, gh = `https://github.com/spinnaker/spinnaker/blob/${d.commit}/`;
+  document.getElementById("commit").textContent = d.commit.slice(0, 10);
+  document.getElementById("commit").href = `https://github.com/spinnaker/spinnaker/tree/${d.commit}`;
+  const services = [...new Set(d.endpoints.map(e => e.service))].sort();
+  const run = (s, svc) => d.runs.find(r => r.source === s && r.service === svc);
+  // a run that was not accepted stopped early: what it lacks is not a disagreement
+  const done = (s, svc) => run(s, svc) && run(s, svc).accepted !== false;
+  const isDiff = e => { const c = src.filter(s => done(s, e.service));
+    return c.some(s => !e.by[s]) || !c.some(s => e.by[s]) || (e.review && e.review.ok !== true); };
+
+  // summary
+  const cnt = (s, svc) => d.endpoints.filter(e => e.service === svc && e.by[s]).length;
+  let h = `<tr><th>service</th>${src.map(s => `<th class="n">${esc(s)}</th>`).join("")}
+           <th class="n">union</th><th class="n">disagreements</th><th class="n">reviewed</th></tr>`;
+  const tot = Object.fromEntries(src.map(s => [s, 0]));
+  for (const svc of services) {
+    const rows = d.endpoints.filter(e => e.service === svc);
+    h += `<tr><td>${svc}</td>` + src.map(s => {
+      const r = run(s, svc);
+      if (!r) return `<td class="n muted">–</td>`;
+      const n = cnt(s, svc); tot[s] += n;
+      const tip = r.steps ? `${r.accepted ? "accepted" : "not accepted"}, ${r.steps} steps` +
+                            (r.price_usd != null ? `, $${r.price_usd.toFixed(3)}` : "") : "";
+      return `<td class="n" title="${tip}">${n}${r.accepted === false ? "*" : ""}</td>`;
+    }).join("") + `<td class="n">${rows.filter(e => Object.keys(e.by).length).length}</td>
+      <td class="n">${rows.filter(isDiff).length}</td><td class="n">${rows.filter(e => e.review).length}</td></tr>`;
+  }
+  const price = s => d.runs.filter(r => r.source === s).reduce((a, r) => a + (r.price_usd || 0), 0);
+  h += `<tr><th>total</th>${src.map(s => `<th class="n">${tot[s]}</th>`).join("")}
+        <th class="n">${d.endpoints.filter(e => Object.keys(e.by).length).length}</th>
+        <th class="n">${d.endpoints.filter(isDiff).length}</th><th class="n">${d.endpoints.filter(e => e.review).length}</th></tr>
+        <tr><td class="muted">list price</td>${src.map(s => `<td class="n muted">${price(s) ? "$" + price(s).toFixed(2) : ""}</td>`).join("")}
+        <td colspan="3"></td></tr>`;
+  document.getElementById("summary").innerHTML = h;
+
+  // endpoint table
+  const sel = document.getElementById("svc");
+  sel.innerHTML += services.map(s => `<option>${s}</option>`).join("");
+  const verdict = r => !r ? "" : r.ok === true ? `<span class="yes">endpoint</span>` :
+                  r.ok === false ? `<span class="no">wrong</span>` : `<span class="maybe">debatable</span>`;
+  function draw() {
+    const svc = sel.value, show = document.getElementById("show").value, q = document.getElementById("q").value.toLowerCase();
+    const rows = d.endpoints.filter(e => (!svc || e.service === svc) &&
+      (show !== "diff" || isDiff(e)) && (show !== "reviewed" || e.review) &&
+      (!q || JSON.stringify(e).toLowerCase().includes(q)));
+    document.getElementById("count").textContent = `${rows.length} rows`;
+    document.getElementById("rows").innerHTML =
+      `<tr><th>service</th><th>verb</th><th>route</th>${src.map(s => `<th class="c">${esc(short(s))}</th>`).join("")}
+       <th>declared at</th><th>review</th></tr>` + rows.slice(0, 2000).map(e => {
+        const at = Object.values(e.by).find(v => v.line) || Object.values(e.by)[0];
+        const where = at ? `<a href="${gh}${esc(at.file)}${at.line ? "#L" + at.line : ""}" title="${esc(at.evidence)}">
+                           ${esc(at.file.split("/").pop())}${at.line ? ":" + at.line : ""}</a>` : "";
+        const cells = src.map(s => !run(s, e.service) ? `<td class="c muted">–</td>` :
+          e.by[s] ? `<td class="c yes" title="${esc(e.by[s].path)}">✓</td>` :
+          done(s, e.service) ? `<td class="c no">✗</td>` : `<td class="c muted" title="run not accepted">✗</td>`).join("");
+        return `<tr class="${isDiff(e) ? "diff" : ""}"><td>${e.service}</td><td>${e.method}</td>
+          <td class="route">${esc(e.route || "/")}</td>${cells}<td>${where}</td>
+          <td class="note">${verdict(e.review)}${e.review ? `<div class="muted">${esc(e.review.note)}</div>` : ""}</td></tr>`;
+      }).join("");
+  }
+  for (const id of ["svc", "show", "q"]) document.getElementById(id).addEventListener("input", draw);
+  draw();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,2971 @@
+{
+  "system": "spinnaker-clouddriver",
+  "services": [
+    {
+      "name": "clouddriver",
+      "dirs": [
+        "/"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "ApplicationsController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/applications",
+          "line": 55,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationsController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/applications/{name:.+}",
+          "line": 66,
+          "evidence": "@RequestMapping(value = \"/{name:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "CacheController",
+          "methodName": "handleOnDemand",
+          "httpMethod": "POST",
+          "path": "/cache/{cloudProvider}/{type}",
+          "line": 37,
+          "evidence": "@RequestMapping(method = RequestMethod.POST, value = \"/{cloudProvider}/{type}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CacheController",
+          "methodName": "getAgentIntrospections",
+          "httpMethod": "GET",
+          "path": "/cache/introspection",
+          "line": 59,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/introspection\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CacheController",
+          "methodName": "pendingOnDemands",
+          "httpMethod": "GET",
+          "path": "/cache/{cloudProvider}/{type}",
+          "line": 66,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}/{type}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "CertificateController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/certificates",
+          "line": 35,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CertificateController",
+          "methodName": "listByCloudProvider",
+          "httpMethod": "GET",
+          "path": "/certificates/{cloudProvider}",
+          "line": 42,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "CloudMetricController",
+          "methodName": "findAll",
+          "httpMethod": "GET",
+          "path": "/cloudMetrics/{cloudProvider}/{account}/{region}",
+          "line": 43,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}/{account}/{region}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CloudMetricController",
+          "methodName": "getStatistics",
+          "httpMethod": "GET",
+          "path": "/cloudMetrics/{cloudProvider}/{account}/{region}/{metricName}/statistics",
+          "line": 74,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}/{account}/{region}/{metricName}/statistics\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ClusterController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "ClusterController",
+          "methodName": "listByAccount",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/clusters",
+          "line": 74,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ClusterController",
+          "methodName": "getForAccount",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/clusters/{account:.+}",
+          "line": 97,
+          "evidence": "@RequestMapping(value = \"/{account:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ClusterController",
+          "methodName": "getForAccountAndName",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/clusters/{account:.+}/{name:.+}",
+          "line": 115,
+          "evidence": "@RequestMapping(value = \"/{account:.+}/{name:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ClusterController",
+          "methodName": "getForAccountAndNameAndType",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/clusters/{account:.+}/{name:.+}/{type}",
+          "line": 136,
+          "evidence": "@RequestMapping(value = \"/{account:.+}/{name:.+}/{type}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ClusterController",
+          "methodName": "getServerGroups",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/clusters/{account:.+}/{clusterName:.+}/{type}/serverGroups",
+          "line": 160,
+          "evidence": "@RequestMapping(value = \"/{account:.+}/{clusterName:.+}/{type}/serverGroups\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ClusterController",
+          "methodName": "getServerGroup",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/clusters/{account:.+}/{clusterName:.+}/{type}/serverGroups/{serverGroupName:.+}",
+          "line": 183,
+          "evidence": "@RequestMapping(value = \"/{account:.+}/{clusterName:.+}/{type}/serverGroups/{serverGroupName:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ClusterController",
+          "methodName": "getTargetServerGroup",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/clusters/{account:.+}/{clusterName:.+}/{cloudProvider}/{scope}/serverGroups/target/{target:.+}",
+          "line": 238,
+          "evidence": "@RequestMapping(value = \"/{account:.+}/{clusterName:.+}/{cloudProvider}/{scope}/serverGroups/target/{target:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ClusterController",
+          "methodName": "getServerGroupSummary",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/clusters/{account:.+}/{clusterName:.+}/{cloudProvider}/{scope}/serverGroups/target/{target:.+}/{summaryType:.+}",
+          "line": 355,
+          "evidence": "@RequestMapping(value = \"/{account:.+}/{clusterName:.+}/{cloudProvider}/{scope}/serverGroups/target/{target:.+}/{summaryType:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/DataController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "DataController",
+          "methodName": "getStaticData",
+          "httpMethod": "GET",
+          "path": "/v1/data/static/{id}",
+          "line": 50,
+          "evidence": "@RequestMapping(value = \"/static/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DataController",
+          "methodName": "getAdhocData",
+          "httpMethod": "ANY",
+          "path": "/v1/data/adhoc/{groupId}/{bucketId}/**",
+          "line": 63,
+          "evidence": "@RequestMapping(value = \"/adhoc/{groupId}/{bucketId}/**\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ElasticIpController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "ElasticIpController",
+          "methodName": "listByAccount",
+          "httpMethod": "GET",
+          "path": "/elasticIps/{account}",
+          "line": 40,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{account}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/FeaturesController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "FeaturesController",
+          "methodName": "stages",
+          "httpMethod": "GET",
+          "path": "/features/stages",
+          "line": 40,
+          "evidence": "@RequestMapping(value = \"/stages\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "InstanceController",
+          "methodName": "getInstance",
+          "httpMethod": "GET",
+          "path": "/instances/{account}/{region}/{id:.+}",
+          "line": 42,
+          "evidence": "@RequestMapping(value = \"/{account}/{region}/{id:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "InstanceController",
+          "methodName": "getConsoleOutput",
+          "httpMethod": "GET",
+          "path": "/instances/{account}/{region}/{id}/console",
+          "line": 56,
+          "evidence": "@RequestMapping(value = \"{account}/{region}/{id}/console\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceTypeController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "InstanceTypeController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/instanceTypes",
+          "line": 33,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/JobController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "JobController",
+          "methodName": "collectJob",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/jobs/{account}/{location}/{id:.+}",
+          "line": 46,
+          "evidence": "@RequestMapping(value = \"/{account}/{location}/{id:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "JobController",
+          "methodName": "cancelJob",
+          "httpMethod": "DELETE",
+          "path": "/applications/{application}/jobs/{account}/{location}/{id:.+}",
+          "line": 63,
+          "evidence": "@RequestMapping(value = \"/{account}/{location}/{id:.+}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "JobController",
+          "methodName": "getFileContents",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/jobs/{account}/{location}/{id}/{fileName:.+}",
+          "line": 75,
+          "evidence": "@RequestMapping(value = \"/{account}/{location}/{id}/{fileName:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/KeyPairController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "KeyPairController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/keyPairs",
+          "line": 33,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/LoadBalancerController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "LoadBalancerController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/loadBalancers",
+          "line": 42,
+          "evidence": "@RequestMapping(value = \"/applications/{application}/loadBalancers\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "LoadBalancerController",
+          "methodName": "listForCloudProvider",
+          "httpMethod": "GET",
+          "path": "/{cloudProvider:.+}/loadBalancers",
+          "line": 53,
+          "evidence": "@RequestMapping(value = \"/{cloudProvider:.+}/loadBalancers\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "LoadBalancerController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/{cloudProvider:.+}/loadBalancers/{name:.+}",
+          "line": 61,
+          "evidence": "@RequestMapping(value = \"/{cloudProvider:.+}/loadBalancers/{name:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "LoadBalancerController",
+          "methodName": "getByAccountRegionName",
+          "httpMethod": "GET",
+          "path": "/{cloudProvider:.+}/loadBalancers/{account:.+}/{region:.+}/{name:.+}",
+          "line": 73,
+          "evidence": "@RequestMapping(value = \"/{cloudProvider:.+}/loadBalancers/{account:.+}/{region:.+}/{name:.+}\",",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/NetworkController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "NetworkController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/networks",
+          "line": 35,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "NetworkController",
+          "methodName": "listByCloudProvider",
+          "httpMethod": "GET",
+          "path": "/networks/{cloudProvider}",
+          "line": 50,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/OperationsController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "OperationsController",
+          "methodName": "operations",
+          "httpMethod": "POST",
+          "path": "/ops",
+          "line": 69,
+          "evidence": "@PostMapping(\"/ops\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "operation",
+          "httpMethod": "POST",
+          "path": "/ops/{name}",
+          "line": 81,
+          "evidence": "@PostMapping(\"/ops/{name}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "cloudProviderOperations",
+          "httpMethod": "POST",
+          "path": "/{cloudProvider}/ops",
+          "line": 90,
+          "evidence": "@PostMapping(\"/{cloudProvider}/ops\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "cloudProviderOperation",
+          "httpMethod": "POST",
+          "path": "/{cloudProvider}/ops/{name}",
+          "line": 99,
+          "evidence": "@PostMapping(\"/{cloudProvider}/ops/{name}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "updateTask",
+          "httpMethod": "PATCH",
+          "path": "/{cloudProvider}/task/{id}",
+          "line": 109,
+          "evidence": "@PatchMapping(\"/{cloudProvider}/task/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "getOwnerName",
+          "httpMethod": "GET",
+          "path": "/{cloudProvider}/task/{id}/owner",
+          "line": 136,
+          "evidence": "@GetMapping(\"/{cloudProvider}/task/{id}/owner\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "restartCloudProviderTask",
+          "httpMethod": "POST",
+          "path": "/{cloudProvider}/task/{id}/restart",
+          "line": 148,
+          "evidence": "@PostMapping(\"/{cloudProvider}/task/{id}/restart\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/task/{id}",
+          "line": 170,
+          "evidence": "@GetMapping(\"/task/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/task",
+          "line": 179,
+          "evidence": "@GetMapping(\"/task\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "resumeTask",
+          "httpMethod": "POST",
+          "path": "/task/{id}:resume",
+          "line": 189,
+          "evidence": "@PostMapping(\"/task/{id}:resume\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ProjectController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "ProjectController",
+          "methodName": "getClusters",
+          "httpMethod": "GET",
+          "path": "/projects/{project}/clusters",
+          "line": 52,
+          "evidence": "@RequestMapping(method= RequestMethod.GET, value = \"/clusters\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ReservationReportController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "ReservationReportController",
+          "methodName": "getReservationReports",
+          "httpMethod": "GET",
+          "path": "/reports/reservation",
+          "line": 34,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ReservationReportController",
+          "methodName": "getReservationReportsByName",
+          "httpMethod": "GET",
+          "path": "/reports/reservation/{name}",
+          "line": 39,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{name}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SearchController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "SearchController",
+          "methodName": "search",
+          "httpMethod": "GET",
+          "path": "/search",
+          "line": 56,
+          "evidence": "@RequestMapping(value = '/search', method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SecurityGroupController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "SecurityGroupController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/securityGroups",
+          "line": 48,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "SecurityGroupController",
+          "methodName": "listByAccount",
+          "httpMethod": "GET",
+          "path": "/securityGroups/{account}",
+          "line": 72,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{account}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "SecurityGroupController",
+          "methodName": "listByAccountAndCloudProvider",
+          "httpMethod": "GET",
+          "path": "/securityGroups/{account}/{cloudProvider}",
+          "line": 108,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{account}/{cloudProvider}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "SecurityGroupController",
+          "methodName": "listByAccountAndCloudProviderAndName",
+          "httpMethod": "GET",
+          "path": "/securityGroups/{account}/{cloudProvider}/{securityGroupName:.+}",
+          "line": 140,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{account}/{cloudProvider}/{securityGroupName:.+}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "SecurityGroupController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/securityGroups/{account}/{cloudProvider}/{region}/{securityGroupNameOrId:.+}",
+          "line": 158,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{account}/{cloudProvider}/{region}/{securityGroupNameOrId:.+}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ServerGroupController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "ServerGroupController",
+          "methodName": "getServerGroupByApplication",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/serverGroups/{account}/{region}/{name:.+}",
+          "line": 67,
+          "evidence": "@RequestMapping(value = \"/applications/{application}/serverGroups/{account}/{region}/{name:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ServerGroupController",
+          "methodName": "getServerGroupByMoniker",
+          "httpMethod": "GET",
+          "path": "/serverGroups/{account}/{region}/{name:.+}",
+          "line": 79,
+          "evidence": "@RequestMapping(value = \"/serverGroups/{account}/{region}/{name:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ServerGroupController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/serverGroups",
+          "line": 190,
+          "evidence": "@RequestMapping(value = \"/applications/{application}/serverGroups\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ServerGroupController",
+          "methodName": "getServerGroups",
+          "httpMethod": "GET",
+          "path": "/serverGroups",
+          "line": 212,
+          "evidence": "@RequestMapping(value = \"/serverGroups\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SubnetController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "SubnetController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/subnets",
+          "line": 34,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "SubnetController",
+          "methodName": "listByCloudProvider",
+          "httpMethod": "GET",
+          "path": "/subnets/{cloudProvider}",
+          "line": 41,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/VpcController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "VpcController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/vpcs",
+          "line": 34,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ArtifactController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "ArtifactController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/artifacts/credentials",
+          "line": 68,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/credentials\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ArtifactController",
+          "methodName": "listAll",
+          "httpMethod": "GET",
+          "path": "/artifacts/credentials/all",
+          "line": 83,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/credentials/all\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ArtifactController",
+          "methodName": "fetch",
+          "httpMethod": "PUT",
+          "path": "/artifacts/fetch",
+          "line": 92,
+          "evidence": "@RequestMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ArtifactController",
+          "methodName": "getStoredArtifact",
+          "httpMethod": "GET",
+          "path": "/artifacts/content-address/{application}/{hash}",
+          "line": 108,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/content-address/{application}/{hash}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ArtifactController",
+          "methodName": "getNames",
+          "httpMethod": "GET",
+          "path": "/artifacts/account/{accountName}/names",
+          "line": 117,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/account/{accountName}/names\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ArtifactController",
+          "methodName": "getVersions",
+          "httpMethod": "GET",
+          "path": "/artifacts/account/{accountName}/versions",
+          "line": 126,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/account/{accountName}/versions\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/CredentialsController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "CredentialsController",
+          "methodName": "listAccountCredentials",
+          "httpMethod": "GET",
+          "path": "/credentials",
+          "line": 66,
+          "evidence": "@GetMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CredentialsController",
+          "methodName": "getAccountCredentialsDetails",
+          "httpMethod": "GET",
+          "path": "/credentials/{accountName}",
+          "line": 75,
+          "evidence": "@GetMapping(\"/{accountName}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CredentialsController",
+          "methodName": "getAccountCredentialsWithAuth",
+          "httpMethod": "GET",
+          "path": "/credentials/{accountName}/authorized",
+          "line": 91,
+          "evidence": "@GetMapping(\"/{accountName}/authorized\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CredentialsController",
+          "methodName": "listAccountsByType",
+          "httpMethod": "GET",
+          "path": "/credentials/type/{accountType}",
+          "line": 128,
+          "evidence": "@GetMapping(\"/type/{accountType}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CredentialsController",
+          "methodName": "createAccount",
+          "httpMethod": "POST",
+          "path": "/credentials",
+          "line": 138,
+          "evidence": "@PostMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CredentialsController",
+          "methodName": "saveAccount",
+          "httpMethod": "PUT",
+          "path": "/credentials",
+          "line": 144,
+          "evidence": "@PutMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CredentialsController",
+          "methodName": "updateAccount",
+          "httpMethod": "PUT",
+          "path": "/credentials/{accountName}",
+          "line": 150,
+          "evidence": "@PutMapping(\"/{accountName}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CredentialsController",
+          "methodName": "deleteAccount",
+          "httpMethod": "DELETE",
+          "path": "/credentials/{accountName}",
+          "line": 164,
+          "evidence": "@DeleteMapping(\"/{accountName}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CredentialsController",
+          "methodName": "getAccountHistory",
+          "httpMethod": "GET",
+          "path": "/credentials/{accountName}/history",
+          "line": 170,
+          "evidence": "@GetMapping(\"/{accountName}/history\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/EntityTagsController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "EntityTagsController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/tags",
+          "line": 50,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "EntityTagsController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/tags/**",
+          "line": 85,
+          "evidence": "@RequestMapping(value = \"/**\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/FunctionController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "FunctionController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/functions",
+          "line": 46,
+          "evidence": "@RequestMapping(value = \"/functions\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "FunctionController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/functions",
+          "line": 84,
+          "evidence": "@RequestMapping(value = \"/applications/{application}/functions\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ImageController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "ImageController",
+          "methodName": "getImage",
+          "httpMethod": "GET",
+          "path": "/images/{provider}/{imageId}",
+          "line": 36,
+          "evidence": "@RequestMapping(value = \"/{provider}/{imageId}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServerGroupManagerController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "ServerGroupManagerController",
+          "methodName": "getForApplication",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/serverGroupManagers",
+          "line": 55,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServiceBrokerController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "ServiceBrokerController",
+          "methodName": "listServices",
+          "httpMethod": "GET",
+          "path": "/servicebroker/{account}/services",
+          "line": 46,
+          "evidence": "@GetMapping(\"/{account}/services\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ServiceBrokerController",
+          "methodName": "getServiceInstance",
+          "httpMethod": "GET",
+          "path": "/servicebroker/{account}/serviceInstance",
+          "line": 59,
+          "evidence": "@GetMapping(\"/{account}/serviceInstance\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/admin/EntityTagsAdminController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "EntityTagsAdminController",
+          "methodName": "reindex",
+          "httpMethod": "POST",
+          "path": "/admin/tags/reindex",
+          "line": 43,
+          "evidence": "@RequestMapping(value = \"/reindex\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "EntityTagsAdminController",
+          "methodName": "delta",
+          "httpMethod": "GET",
+          "path": "/admin/tags/delta",
+          "line": 48,
+          "evidence": "@RequestMapping(value = \"/delta\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "EntityTagsAdminController",
+          "methodName": "reconcile",
+          "httpMethod": "POST",
+          "path": "/admin/tags/reconcile",
+          "line": 53,
+          "evidence": "@RequestMapping(value = \"/reconcile\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "EntityTagsAdminController",
+          "methodName": "deleteByNamespace",
+          "httpMethod": "POST",
+          "path": "/admin/tags/deleteByNamespace/{namespace}",
+          "line": 63,
+          "evidence": "@RequestMapping(value = \"/deleteByNamespace/{namespace}\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "EntityTagsAdminController",
+          "methodName": "deleteByTag",
+          "httpMethod": "POST",
+          "path": "/admin/tags/deleteByTag/{tag}",
+          "line": 74,
+          "evidence": "@RequestMapping(value = \"/deleteByTag/{tag}\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers/PubSubAdminController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "PubSubAdminController",
+          "methodName": "getAgents",
+          "httpMethod": "GET",
+          "path": "/admin/scheduler/agents",
+          "line": 40,
+          "evidence": "@GetMapping(\"/agents\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PubSubAdminController",
+          "methodName": "deleteAgent",
+          "httpMethod": "DELETE",
+          "path": "/admin/scheduler/agents/{agentType}",
+          "line": 45,
+          "evidence": "@DeleteMapping(\"/agents/{agentType}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/cats/cats-sql/src/main/kotlin/com/netflix/spinnaker/cats/sql/controllers/CatsSqlAdminController.kt",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "CatsSqlAdminController",
+          "methodName": "truncateTables",
+          "httpMethod": "PUT",
+          "path": "/admin/db/truncate/{namespace}",
+          "line": 35,
+          "evidence": "@PutMapping(path = [\"/truncate/{namespace}\"])",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CatsSqlAdminController",
+          "methodName": "dropTables",
+          "httpMethod": "PUT",
+          "path": "/admin/db/drop/{namespace}",
+          "line": 69,
+          "evidence": "@PutMapping(path = [\"/drop/{namespace}\"])",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudImageController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "AliCloudImageController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/alicloud/images/find",
+          "line": 48,
+          "evidence": "@RequestMapping(value = \"/find\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudScalingActivitiesController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "AliCloudScalingActivitiesController",
+          "methodName": "getScalingActivities",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/clusters/{account}/{clusterName}/alicloud/serverGroups/{serverGroupName}/scalingActivities",
+          "line": 57,
+          "evidence": "@RequestMapping(value = \"/scalingActivities\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-appengine/src/main/java/com/netflix/spinnaker/clouddriver/appengine/artifacts/controllers/AppengineStorageController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "AppengineStorageController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/storage",
+          "line": 39,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonClusterController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "AmazonClusterController",
+          "methodName": "getScalingActivities",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/clusters/{account}/{clusterName}/aws/serverGroups/{serverGroupName}/scalingActivities",
+          "line": 41,
+          "evidence": "@RequestMapping(value = \"/scalingActivities\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonNamedImageLookupController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "AmazonNamedImageLookupController",
+          "methodName": "getByAmiId",
+          "httpMethod": "GET",
+          "path": "/aws/images/{account}/{region}/{imageId:.+}",
+          "line": 71,
+          "evidence": "@RequestMapping(value = '/{account}/{region}/{imageId:.+}', method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AmazonNamedImageLookupController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/aws/images/find",
+          "line": 85,
+          "evidence": "@RequestMapping(value = '/find', method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers/CloudFormationController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "CloudFormationController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/aws/cloudFormation/stacks",
+          "line": 42,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CloudFormationController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/aws/cloudFormation/stacks/stack",
+          "line": 50,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/stack\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers/RoleController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "RoleController",
+          "methodName": "getRoles",
+          "httpMethod": "GET",
+          "path": "/roles/{cloudProvider}",
+          "line": 39,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/loadbalancer/view/AzureLoadBalancerProvider.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "AzureLoadBalancerProvider",
+          "methodName": "getApplicationLoadBalancers",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/loadBalancersL4",
+          "line": 172,
+          "evidence": "@RequestMapping(value = \"/applications/{application}/loadBalancersL4\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/vmimage/view/AzureVMImageLookupController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "AzureVMImageLookupController",
+          "methodName": "getVMImage",
+          "httpMethod": "GET",
+          "path": "/azure/images/{account}/{region}/{imageId:.+}",
+          "line": 63,
+          "evidence": "@RequestMapping(value = '/{account}/{region}/{imageId:.+}', method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AzureVMImageLookupController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/azure/images/find",
+          "line": 139,
+          "evidence": "@RequestMapping(value = '/find', method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-cloudfoundry/src/main/java/com/netflix/spinnaker/clouddriver/cloudfoundry/controller/CloudFoundryImageController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "CloudFoundryImageController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/cloudfoundry/images/find",
+          "line": 43,
+          "evidence": "@RequestMapping(value = \"/find\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-docker/src/main/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers/AbstractDockerRegistryLookupController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "AbstractDockerRegistryLookupController",
+          "methodName": "getTags",
+          "httpMethod": "GET",
+          "path": "/dockerRegistry/images/tags",
+          "line": 50,
+          "evidence": "@RequestMapping(value = \"/tags\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high",
+          "implementedBy": "DockerRegistryImageLookupController"
+        },
+        {
+          "className": "AbstractDockerRegistryLookupController",
+          "methodName": "find",
+          "httpMethod": "GET",
+          "path": "/dockerRegistry/images/find",
+          "line": 99,
+          "evidence": "@RequestMapping(value = \"/find\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high",
+          "implementedBy": "DockerRegistryImageLookupController"
+        },
+        {
+          "className": "AbstractDockerRegistryLookupController",
+          "methodName": "getTags",
+          "httpMethod": "GET",
+          "path": "/dockerRegistry/charts/tags",
+          "line": 50,
+          "evidence": "@RequestMapping(value = \"/tags\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high",
+          "implementedBy": "DockerRegistryHelmOciLookupController"
+        },
+        {
+          "className": "AbstractDockerRegistryLookupController",
+          "methodName": "find",
+          "httpMethod": "GET",
+          "path": "/dockerRegistry/charts/find",
+          "line": 99,
+          "evidence": "@RequestMapping(value = \"/find\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high",
+          "implementedBy": "DockerRegistryHelmOciLookupController"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsCloudMetricController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "EcsCloudMetricController",
+          "methodName": "findAllMetricAlarms",
+          "httpMethod": "ANY",
+          "path": "/ecs/cloudMetrics/alarms",
+          "line": 36,
+          "evidence": "@RequestMapping(value = {\"/alarms\"})",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsClusterController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "EcsClusterController",
+          "methodName": "getAllEcsClusters",
+          "httpMethod": "ANY",
+          "path": "/ecs/ecsClusters",
+          "line": 38,
+          "evidence": "@RequestMapping(value = {\"/ecs/ecsClusters\"})",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "EcsClusterController",
+          "methodName": "getEcsClusterDescriptions",
+          "httpMethod": "ANY",
+          "path": "/ecs/ecsClusterDescriptions/{account}/{region}",
+          "line": 43,
+          "evidence": "@RequestMapping(value = {\"/ecs/ecsClusterDescriptions/{account}/{region}\"})",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsImagesController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "EcsImagesController",
+          "methodName": "findImage",
+          "httpMethod": "GET",
+          "path": "/ecs/images/find",
+          "line": 40,
+          "evidence": "@RequestMapping(value = \"/find\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsNativeServiceDeploymentController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "EcsNativeServiceDeploymentController",
+          "methodName": "getDeploymentStatus",
+          "httpMethod": "GET",
+          "path": "/ecs-native/serverGroups/{account}/{region}/{serverGroupName}/deploymentStatus",
+          "line": 81,
+          "evidence": "@RequestMapping(value = \"/deploymentStatus\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsSecretController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "EcsSecretController",
+          "methodName": "getAllSecrets",
+          "httpMethod": "ANY",
+          "path": "/ecs/secrets",
+          "line": 35,
+          "evidence": "@RequestMapping(value = {\"/ecs/secrets\"})",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsServiceDiscoveryController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "EcsServiceDiscoveryController",
+          "methodName": "getAllServiceDiscoveryRegistries",
+          "httpMethod": "ANY",
+          "path": "/ecs/serviceDiscoveryRegistries",
+          "line": 35,
+          "evidence": "@RequestMapping(value = {\"/ecs/serviceDiscoveryRegistries\"})",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/servergroup/EcsServerGroupController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "EcsServerGroupController",
+          "methodName": "getServerGroupEvents",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/serverGroups/{account}/{serverGroupName}/events",
+          "line": 61,
+          "evidence": "@RequestMapping(value = \"/events\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-google/src/main/java/com/netflix/spinnaker/clouddriver/google/controllers/GoogleNamedImageLookupController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "GoogleNamedImageLookupController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/gce/images/find",
+          "line": 67,
+          "evidence": "@RequestMapping(value = \"/find\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-huaweicloud/src/main/java/com/netflix/spinnaker/clouddriver/huaweicloud/controller/HuaweiCloudImageController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "HuaweiCloudImageController",
+          "methodName": "find",
+          "httpMethod": "GET",
+          "path": "/huaweicloud/images/find",
+          "line": 45,
+          "evidence": "@RequestMapping(value = \"/find\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "ManifestController",
+          "methodName": "getForAccountAndName",
+          "httpMethod": "GET",
+          "path": "/manifests/{account:.+}/_/{name:.+}",
+          "line": 57,
+          "evidence": "@RequestMapping(value = \"/{account:.+}/_/{name:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ManifestController",
+          "methodName": "getForAccountLocationAndName",
+          "httpMethod": "GET",
+          "path": "/manifests/{account:.+}/{location:.+}/{name:.+}",
+          "line": 68,
+          "evidence": "@RequestMapping(value = \"/{account:.+}/{location:.+}/{name:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ManifestController",
+          "methodName": "getForAccountLocationAndName",
+          "httpMethod": "GET",
+          "path": "/manifests/{account:.+}/{name:.+}",
+          "line": 101,
+          "evidence": "@RequestMapping(value = \"/{account:.+}/{name:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ManifestController",
+          "methodName": "getDynamicManifestFromCluster",
+          "httpMethod": "GET",
+          "path": "/manifests/{account:.+}/{location:.+}/{kind:.+}/cluster/{app:.+}/{cluster:.+}/dynamic/{criteria:.+}",
+          "line": 110,
+          "evidence": "@RequestMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ManifestController",
+          "methodName": "getClusterManifestCoordinates",
+          "httpMethod": "GET",
+          "path": "/manifests/{account:.+}/{location:.+}/{kind:.+}/cluster/{app:.+}/{cluster:.+}",
+          "line": 157,
+          "evidence": "@RequestMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/PodController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "PodController",
+          "methodName": "getFileContents",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/kubernetes/pods/{account}/{namespace}/{podName}/{fileName:.+}",
+          "line": 44,
+          "evidence": "@RequestMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/RawResourceController.java",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "RawResourceController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/rawResources",
+          "line": 45,
+          "evidence": "@RequestMapping(value = \"/applications/{application}/rawResources\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-oracle/src/main/groovy/com/netflix/spinnaker/clouddriver/oracle/controller/OracleImageLookupController.groovy",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "OracleImageLookupController",
+          "methodName": "getById",
+          "httpMethod": "GET",
+          "path": "/oracle/images/{account}/{region}/{imageId:.+}",
+          "line": 35,
+          "evidence": "@RequestMapping(value = '/{account}/{region}/{imageId:.+}', method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OracleImageLookupController",
+          "methodName": "find",
+          "httpMethod": "GET",
+          "path": "/oracle/images/find",
+          "line": 45,
+          "evidence": "@RequestMapping(value = '/find', method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/clouddriver-saga/src/main/kotlin/com/netflix/spinnaker/clouddriver/saga/controllers/SagaController.kt",
+      "service": "clouddriver",
+      "endpoints": [
+        {
+          "className": "SagaController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/saga/{name}/{id}",
+          "line": 31,
+          "evidence": "@GetMapping(\"/{name}/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "opus-5.5",
+    "provider": "cli",
+    "workflow": "agent-cli",
+    "effort": "cli",
+    "temperature": null,
+    "native_tools": null,
+    "repo": "clouddriver",
+    "commit": "d2eaa598c95d0a8e17736f2df61fa1fa9f738b53",
+    "dirty": false,
+    "accepted": true,
+    "steps": 146,
+    "tool_calls": 146,
+    "rejected_entries": 0,
+    "wall_seconds": 305.4,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".clog.toml\n.gcloudignore\n.gitignore\nAUTHORS\nCODEOWNERS\nDockerfile.compile\nDockerfile.slim\nDockerfile.ubuntu\nLICENSE.txt\nOWNERS.md\nREADME.md\nbuild.gradle\ncats/\nclouddriver-alicloud/\nclouddriver-api-tck/\nclouddriver-api/\nclouddriver-appengine/\nclouddriver-artifacts/\nclouddriver-aws/\nclouddriver-azure/\nclouddriver-bom/\nclouddriver-cloudfoundry/\nclouddriver-cloudrun/\nclouddriver-configserver/\nclouddriver-consul/\nclouddriver-core-tck/\nclouddriver-core/\nclouddriver-dcos/\nclouddriver-docker/\nclouddriver-ecs/\nclouddriver-elasticsearch/\nclouddriver-eureka/\nclouddriver-event/\nclouddriver-google-common/\nclouddriver-google/\nclouddriver-huaweicloud/\nclouddriver-integration/\nclouddriver-kubernetes/\nclouddriver-lambda/\nclouddriver-oracle/\nclouddriver-saga-test/\nclouddriver-saga/\nclouddriver-security/\nclouddriver-sql-mysql/\nclouddriver-sql-postgres/\nclouddriver-sql/\nclouddriver-tencentcloud/\nclouddriver-web/\ncodeql-config.yml\ngradle.properties\nhalconfig/\nkubectl-versions.json\nlombok.config\nsettings.gr"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller.*"
+        },
+        "result_head": "/cats/cats-core/src/main/java/com/netflix/spinnaker/cats/agent/AgentController.java\n/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers/PubSubAdminController.java\n/cats/cats-sql/src/main/kotlin/com/netflix/spinnaker/cats/sql/controllers/CatsSqlAdminController.kt\n/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudImageController.java\n/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudScalingActivitiesController.java\n/clouddriver-appengine/src/main/java/com/netflix/spinnaker/clouddriver/appengine/artifacts/controllers/AppengineStorageController.java\n/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonClusterController.groovy\n/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonNamedImageLookupController.groovy\n/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers/CloudF"
+      },
+      {
+        "step": 3,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers"
+        },
+        "result_head": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ArtifactController.java\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/CredentialsController.java\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/EntityTagsController.java\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/FunctionController.java\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ImageController.java\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/OperationsSaturatedExceptionHandler.java\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServerGroupManagerController.java\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServiceBrokerController.java\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/admin/EntityTagsAdminController.java"
+      },
+      {
+        "step": 4,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/cats"
+        },
+        "result_head": "/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers/PubSubAdminController.java:25: @RestController\n/cats/cats-sql/src/main/kotlin/com/netflix/spinnaker/cats/sql/controllers/CatsSqlAdminController.kt:24: @RestController"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-alicloud"
+        },
+        "result_head": "/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudImageController.java:37: @RestController\n/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudScalingActivitiesController.java:41: @RestController"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-appengine"
+        },
+        "result_head": "/clouddriver-appengine/src/main/java/com/netflix/spinnaker/clouddriver/appengine/artifacts/controllers/AppengineStorageController.java:32: @RestController"
+      },
+      {
+        "step": 7,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-artifacts"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 8,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-aws"
+        },
+        "result_head": "/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonClusterController.groovy:29: @RestController\n/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonNamedImageLookupController.groovy:45: @RestController\n/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers/CloudFormationController.java:32: @RestController\n/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers/RoleController.java:32: @RestController"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-azure"
+        },
+        "result_head": "/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/loadbalancer/view/AzureLoadBalancerProvider.groovy:40: @RestController\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/network/view/AzureNetworkProvider.groovy:36: @RestController\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/vmimage/view/AzureVMImageLookupController.groovy:43: @RestController"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-cloudfoundry"
+        },
+        "result_head": "/clouddriver-cloudfoundry/src/main/java/com/netflix/spinnaker/clouddriver/cloudfoundry/controller/CloudFoundryImageController.java:34: @RestController"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-cloudrun"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 12,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-configserver"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 13,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-consul"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 14,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-core"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 15,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-dcos"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 16,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-docker"
+        },
+        "result_head": "/clouddriver-docker/src/main/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers/DockerRegistryHelmOciLookupController.java:25: @RestController\n/clouddriver-docker/src/main/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers/DockerRegistryImageLookupController.java:25: @RestController\n/clouddriver-docker/src/test/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers/AbstractDockerRegistryLookupControllerTest.java:88: @RestController"
+      },
+      {
+        "step": 17,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-ecs"
+        },
+        "result_head": "/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsCloudMetricController.java:26: @RestController\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsClusterController.java:28: @RestController\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsImagesController.java:30: @RestController\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsNativeServiceDeploymentController.java:47: @RestController\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsSecretController.java:25: @RestController\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsServiceDiscoveryController.java:25: @RestController\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/servergroup/EcsServerGroupController.java:37: @RestController"
+      },
+      {
+        "step": 18,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-elasticsearch"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 19,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-eureka"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 20,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-event"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 21,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-google"
+        },
+        "result_head": "/clouddriver-google/src/main/java/com/netflix/spinnaker/clouddriver/google/controllers/GoogleNamedImageLookupController.java:53: @RestController"
+      },
+      {
+        "step": 22,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-google-common"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 23,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-huaweicloud"
+        },
+        "result_head": "/clouddriver-huaweicloud/src/main/java/com/netflix/spinnaker/clouddriver/huaweicloud/controller/HuaweiCloudImageController.java:34: @RestController"
+      },
+      {
+        "step": 24,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-kubernetes"
+        },
+        "result_head": "/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java:41: @RestController\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/PodController.java:30: @RestController\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/RawResourceController.java:33: @RestController"
+      },
+      {
+        "step": 25,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-lambda"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 26,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-oracle"
+        },
+        "result_head": "/clouddriver-oracle/src/main/groovy/com/netflix/spinnaker/clouddriver/oracle/controller/OracleImageLookupController.groovy:24: @RestController"
+      },
+      {
+        "step": 27,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-saga"
+        },
+        "result_head": "/clouddriver-saga/src/main/kotlin/com/netflix/spinnaker/clouddriver/saga/controllers/SagaController.kt:27: @RestController"
+      },
+      {
+        "step": 28,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-security"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 29,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-sql"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 30,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-tencentcloud"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 31,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-api"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 32,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller",
+          "path": "/clouddriver-web"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:37: @RestController\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:30: @RestController\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy:28: @RestController\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy:35: @RestController\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ClusterController.groovy:40: @RestController\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/DataController.groovy:35: @RestController\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ElasticIpController.groovy:31: @RestController\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/FeaturesController.groovy:32: @RestControll"
+      },
+      {
+        "step": 33,
+        "tool": "grep",
+        "args": {
+          "pattern": "@SpringBootApplication|static void main|fun main"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/Main.groovy:77: static void main(String... args) {"
+      },
+      {
+        "step": 34,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public )?class",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:38: @RequestMapping(\"/applications\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:39: class ApplicationsController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:55: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:56: List<Application> list(@RequestParam(required = false, value = 'expand', defaultValue = 'true') boolean expand,\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:66: @RequestMapping(value = \"/{name:.+}\", method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:67: ApplicationViewModel get(@PathVariab"
+      },
+      {
+        "step": 35,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public )?class",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:31: @RequestMapping(\"/cache\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:32: class CacheController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:37: @RequestMapping(method = RequestMethod.POST, value = \"/{cloudProvider}/{type}\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:38: ResponseEntity handleOnDemand(@PathVariable String cloudProvider,\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:59: @RequestMapping(method = RequestMethod.GET, value = \"/introspection\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:60: Collection <AgentIntrospection> getAgentIntrospections() {\n/clouddriver-web/src/main/groovy/com/ne"
+      },
+      {
+        "step": 36,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public )?class",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy:29: @RequestMapping(\"/certificates\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy:30: class CertificateController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy:35: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy:36: List<Certificate> list() {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy:42: @RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy:43: Set<Network> listByCloudProvider(@PathVariable String cloudProvider) {"
+      },
+      {
+        "step": 37,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public )?class",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy:34: @RequestMapping(\"/cloudMetrics\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy:36: class CloudMetricController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy:43: @RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}/{account}/{region}\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy:44: List<CloudMetricDescriptor> findAll(@PathVariable String cloudProvider,\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy:52: CloudMetricController(List<CloudMetricProvider> metricProviders, Clock clock) {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy:58: CloudMetricController("
+      },
+      {
+        "step": 38,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:38: @RequestMapping(\"/applications\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:39: class ApplicationsController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:55: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:56: List<Application> list(@RequestParam(required = false, value = 'expand', defaultValue = 'true') boolean expand,\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:66: @RequestMapping(value = \"/{name:.+}\", method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:67: ApplicationViewModel get(@PathVariab"
+      },
+      {
+        "step": 39,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:31: @RequestMapping(\"/cache\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:32: class CacheController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:37: @RequestMapping(method = RequestMethod.POST, value = \"/{cloudProvider}/{type}\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:38: ResponseEntity handleOnDemand(@PathVariable String cloudProvider,\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:59: @RequestMapping(method = RequestMethod.GET, value = \"/introspection\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:60: Collection <AgentIntrospection> getAgentIntrospections() {\n/clouddriver-web/src/main/groovy/com/ne"
+      },
+      {
+        "step": 40,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy:29: @RequestMapping(\"/certificates\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy:30: class CertificateController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy:35: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy:36: List<Certificate> list() {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy:42: @RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy:43: Set<Network> listByCloudProvider(@PathVariable String cloudProvider) {"
+      },
+      {
+        "step": 41,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy:34: @RequestMapping(\"/cloudMetrics\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy:36: class CloudMetricController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy:43: @RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}/{account}/{region}\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy:44: List<CloudMetricDescriptor> findAll(@PathVariable String cloudProvider,\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy:52: CloudMetricController(List<CloudMetricProvider> metricProviders, Clock clock) {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy:58: CloudMetricController("
+      },
+      {
+        "step": 42,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ClusterController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ClusterController.groovy:41: @RequestMapping(\"/applications/{application}/clusters\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ClusterController.groovy:42: class ClusterController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ClusterController.groovy:74: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ClusterController.groovy:75: Map<String, Set<String>> listByAccount(@PathVariable String application) {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ClusterController.groovy:86: private Map<String, Set<String>> mergeClusters(List<Application> a) {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ClusterController.groovy:97: @RequestMapping(value = \"/{account:.+}\", method = RequestMethod.GET)\n/clouddriver"
+      },
+      {
+        "step": 43,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/DataController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/DataController.groovy:36: @RequestMapping(\"/v1/data\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/DataController.groovy:37: class DataController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/DataController.groovy:42: DataController(Optional<List<DataProvider>> dataProviders) {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/DataController.groovy:50: @RequestMapping(value = \"/static/{id}\", method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/DataController.groovy:51: Object getStaticData(@PathVariable(\"id\") String id, @RequestParam Map<String, String> filters) {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/DataController.groovy:63: @RequestMapping(value = \"/adhoc/{groupId}/{bucketId}/**\")\n/clouddriver-web/src/main/groovy/co"
+      },
+      {
+        "step": 44,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ElasticIpController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ElasticIpController.groovy:30: @RequestMapping(\"/elasticIps\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ElasticIpController.groovy:32: class ElasticIpController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ElasticIpController.groovy:40: @RequestMapping(method = RequestMethod.GET, value = \"/{account}\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ElasticIpController.groovy:41: Set<ElasticIp> listByAccount(@PathVariable String account) {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ElasticIpController.groovy:50: @RequestMapping(method = RequestMethod.GET, value = \"/{account}\", params = ['region'])\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ElasticIpController.groovy:51: Set<ElasticIp> listByAccountAndRegion(@PathVariable String account,"
+      },
+      {
+        "step": 45,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/FeaturesController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/FeaturesController.groovy:33: @RequestMapping(\"/features\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/FeaturesController.groovy:34: class FeaturesController implements ApplicationContextAware {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/FeaturesController.groovy:40: @RequestMapping(value = \"/stages\", method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/FeaturesController.groovy:41: Collection<Map> stages() {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/FeaturesController.groovy:58: value = value ?: atomicOperationConverter.class.getAnnotation(Component)?.value()\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/FeaturesController.groovy:62: value = beanNames[0]\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddr"
+      },
+      {
+        "step": 46,
+        "tool": "record",
+        "args": {
+          "services": "[{'name': 'clouddriver', 'dirs': ['/']}]",
+          "files": "[{'path': '/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy', 'service': 'clouddriver', 'endpoints': [{'className': 'ApplicationsController'"
+        },
+        "result_head": "Recorded 22 new: service clouddriver, GET /applications, GET /applications/{name:.+}, POST /cache/{cloudProvider}/{type}, GET /cache/introspection, GET /cache/{cloudProvider}/{type}, GET /certificates, GET /certificates/{cloudProvider}, GET /cloudMetrics/{cloudProvider}/{account}/{region}, GET /cloudMetrics/{cloudProvider}/{account}/{region}/{metricName}/statistics, GET /applications/{application}/clusters, GET /applications/{application}/clusters/{account:.+}, GET /applications/{application}/clusters/{account:.+}/{name:.+}, GET /applications/{application}/clusters/{account:.+}/{name:.+}/{type}, GET /applications/{application}/clusters/{account:.+}/{clusterName:.+}/{type}/serverGroups, GET /applications/{application}/clusters/{account:.+}/{clusterName:.+}/{type}/serverGroups/{serverGroupName:.+}, GET /applications/{application}/clusters/{account:.+}/{clusterName:.+}/{cloudProvider}/{scope}/serverGroups/target/{target:.+}, GET /applications/{application}/clusters/{account:.+}/{clusterNa"
+      },
+      {
+        "step": 47,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceController.groovy:32: @RequestMapping(\"/instances\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceController.groovy:33: class InstanceController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceController.groovy:42: @RequestMapping(value = \"/{account}/{region}/{id:.+}\", method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceController.groovy:43: Instance getInstance(@PathVariable String account,\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceController.groovy:56: @RequestMapping(value = \"{account}/{region}/{id}/console\", method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceController.groovy:57: Map getConsoleOutput(@RequestParam(value = \"provider\", required = fa"
+      },
+      {
+        "step": 48,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceTypeController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceTypeController.groovy:26: @RequestMapping(\"/instanceTypes\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceTypeController.groovy:28: class InstanceTypeController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceTypeController.groovy:33: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceTypeController.groovy:34: Set<InstanceType> list() {"
+      },
+      {
+        "step": 49,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/JobController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/JobController.groovy:35: @RequestMapping(\"/applications/{application}/jobs\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/JobController.groovy:36: class JobController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/JobController.groovy:46: @RequestMapping(value = \"/{account}/{location}/{id:.+}\", method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/JobController.groovy:47: JobStatus collectJob(@Parameter(description = \"Application name\", required = true) @PathVariable String application,\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/JobController.groovy:63: @RequestMapping(value = \"/{account}/{location}/{id:.+}\", method = RequestMethod.DELETE)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/JobController.groovy:64: void cancelJ"
+      },
+      {
+        "step": 50,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/KeyPairController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/KeyPairController.groovy:26: @RequestMapping(\"/keyPairs\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/KeyPairController.groovy:28: class KeyPairController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/KeyPairController.groovy:33: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/KeyPairController.groovy:34: Set<KeyPair> list() {"
+      },
+      {
+        "step": 51,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/LoadBalancerController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/LoadBalancerController.groovy:34: @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/LoadBalancerController.groovy:35: class LoadBalancerController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/LoadBalancerController.groovy:42: @RequestMapping(value = \"/applications/{application}/loadBalancers\", method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/LoadBalancerController.groovy:43: List<LoadBalancer> list(@PathVariable String application) {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/LoadBalancerController.groovy:53: @RequestMapping(value = \"/{cloudProvider:.+}/loadBalancers\", method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/LoadBalancerContro"
+      },
+      {
+        "step": 52,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/NetworkController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/NetworkController.groovy:28: @RequestMapping(\"/networks\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/NetworkController.groovy:30: class NetworkController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/NetworkController.groovy:35: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/NetworkController.groovy:36: Map<String, Set<Network>> list() {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/NetworkController.groovy:50: @RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/NetworkController.groovy:51: Set<Network> listByCloudProvider(@PathVariable String cloudProvider) {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controll"
+      },
+      {
+        "step": 53,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceController.groovy', 'service': 'clouddriver', 'endpoints': [{'className': 'InstanceController', 'metho"
+        },
+        "result_head": "Recorded 13 new: GET /instances/{account}/{region}/{id:.+}, GET /instances/{account}/{region}/{id}/console, GET /instanceTypes, GET /applications/{application}/jobs/{account}/{location}/{id:.+}, DELETE /applications/{application}/jobs/{account}/{location}/{id:.+}, GET /applications/{application}/jobs/{account}/{location}/{id}/{fileName:.+}, GET /keyPairs, GET /applications/{application}/loadBalancers, GET /{cloudProvider:.+}/loadBalancers, GET /{cloudProvider:.+}/loadBalancers/{name:.+}, GET /{cloudProvider:.+}/loadBalancers/{account:.+}/{region:.+}/{name:.+}, GET /networks, GET /networks/{cloudProvider}\nTotal: 1 services, 34 endpoints in 14 files."
+      },
+      {
+        "step": 54,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/OperationsController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/OperationsController.groovy:48: class OperationsController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/OperationsController.groovy:55: OperationsController(\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/OperationsController.groovy:69: @PostMapping(\"/ops\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/OperationsController.groovy:70: StartOperationResult operations(\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/OperationsController.groovy:81: @PostMapping(\"/ops/{name}\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/OperationsController.groovy:82: StartOperationResult operation(\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/OperationsController.groovy:90: @PostMapping(\"/{cloudProvider}/ops\")\n/clouddriver-web/src/"
+      },
+      {
+        "step": 55,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ProjectController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ProjectController.groovy:36: @RequestMapping(\"/projects/{project}\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ProjectController.groovy:37: class ProjectController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ProjectController.groovy:44: ProjectController(Cache cacheView,\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ProjectController.groovy:52: @RequestMapping(method= RequestMethod.GET, value = \"/clusters\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ProjectController.groovy:53: List<ClusterModel> getClusters(@PathVariable String project) {"
+      },
+      {
+        "step": 56,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ReservationReportController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ReservationReportController.groovy:29: @RequestMapping(\"/reports/reservation\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ReservationReportController.groovy:30: class ReservationReportController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ReservationReportController.groovy:34: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ReservationReportController.groovy:35: Collection<ReservationReport> getReservationReports(@RequestParam Map<String, String> filters) {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ReservationReportController.groovy:39: @RequestMapping(method = RequestMethod.GET, value = \"/{name}\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ReservationReportController.groovy:40: Collection<R"
+      },
+      {
+        "step": 57,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SearchController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SearchController.groovy:35: class SearchController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SearchController.groovy:56: @RequestMapping(value = '/search', method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SearchController.groovy:57: List<SearchResultSet> search(@RequestParam(value = \"q\", defaultValue = \"\", required = false) String query,\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SearchController.groovy:113: List<SearchResultSet> searchAllProviders(List<SearchProvider> providers,"
+      },
+      {
+        "step": 58,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/OperationsController.groovy', 'service': 'clouddriver', 'endpoints': [{'className': 'OperationsController', 'm"
+        },
+        "result_head": "Recorded 14 new: POST /ops, POST /ops/{name}, POST /{cloudProvider}/ops, POST /{cloudProvider}/ops/{name}, PATCH /{cloudProvider}/task/{id}, GET /{cloudProvider}/task/{id}/owner, POST /{cloudProvider}/task/{id}/restart, GET /task/{id}, GET /task, POST /task/{id}:resume, GET /projects/{project}/clusters, GET /reports/reservation, GET /reports/reservation/{name}, GET /search\nTotal: 1 services, 48 endpoints in 18 files."
+      },
+      {
+        "step": 59,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SecurityGroupController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SecurityGroupController.groovy:35: @RequestMapping(\"/securityGroups\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SecurityGroupController.groovy:38: class SecurityGroupController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SecurityGroupController.groovy:48: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SecurityGroupController.groovy:49: Map<String, Map<String, Map<String, Set<SecurityGroupSummary>>>> list() {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SecurityGroupController.groovy:72: @RequestMapping(method = RequestMethod.GET, value = \"/{account}\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SecurityGroupController.groovy:73: Map<String, Map<String, Set<SecurityGroupSummary>>> listByAccount"
+      },
+      {
+        "step": 60,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ServerGroupController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ServerGroupController.groovy:45: class ServerGroupController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ServerGroupController.groovy:67: @RequestMapping(value = \"/applications/{application}/serverGroups/{account}/{region}/{name:.+}\", method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ServerGroupController.groovy:68: ServerGroup getServerGroupByApplication(@PathVariable String application, // needed to not break api\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ServerGroupController.groovy:79: @RequestMapping(value = \"/serverGroups/{account}/{region}/{name:.+}\", method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ServerGroupController.groovy:81: ServerGroup getServerGroupByMoniker(@PathVariable String account,\n/clouddriver-web/src"
+      },
+      {
+        "step": 61,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SubnetController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SubnetController.groovy:27: @RequestMapping(\"/subnets\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SubnetController.groovy:29: class SubnetController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SubnetController.groovy:34: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SubnetController.groovy:35: Set<Subnet> list() {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SubnetController.groovy:41: @RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SubnetController.groovy:42: Set<Subnet> listByCloudProvider(@PathVariable String cloudProvider) {"
+      },
+      {
+        "step": 62,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/VpcController.groovy"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/VpcController.groovy:27: @RequestMapping(\"/vpcs\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/VpcController.groovy:29: class VpcController {\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/VpcController.groovy:34: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/VpcController.groovy:35: Set<Network> list() {"
+      },
+      {
+        "step": 63,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SecurityGroupController.groovy', 'service': 'clouddriver', 'endpoints': [{'className': 'SecurityGroupControlle"
+        },
+        "result_head": "Recorded 12 new: GET /securityGroups, GET /securityGroups/{account}, GET /securityGroups/{account}/{cloudProvider}, GET /securityGroups/{account}/{cloudProvider}/{securityGroupName:.+}, GET /securityGroups/{account}/{cloudProvider}/{region}/{securityGroupNameOrId:.+}, GET /applications/{application}/serverGroups/{account}/{region}/{name:.+}, GET /serverGroups/{account}/{region}/{name:.+}, GET /applications/{application}/serverGroups, GET /serverGroups, GET /subnets, GET /subnets/{cloudProvider}, GET /vpcs\nTotal: 1 services, 60 endpoints in 22 files."
+      },
+      {
+        "step": 64,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ArtifactController.java"
+        },
+        "result_head": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ArtifactController.java:49: @RequestMapping(\"/artifacts\")\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ArtifactController.java:50: public class ArtifactController {\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ArtifactController.java:57: public ArtifactController(\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ArtifactController.java:68: @RequestMapping(method = RequestMethod.GET, value = \"/credentials\")\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ArtifactController.java:70: List<ArtifactCredentials> list() {\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ArtifactController.java:83: @RequestMapping(method = RequestMethod.GET, value = \"/credentials/all\")\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ArtifactController.java:84:"
+      },
+      {
+        "step": 65,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/CredentialsController.java"
+        },
+        "result_head": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/CredentialsController.java:48: @RequestMapping(\"/credentials\")\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/CredentialsController.java:49: public class CredentialsController {\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/CredentialsController.java:55: public CredentialsController(\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/CredentialsController.java:66: @GetMapping\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/CredentialsController.java:67: public List<Map<String, Object>> listAccountCredentials(@RequestParam Optional<Boolean> expand) {\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/CredentialsController.java:75: @GetMapping(\"/{accountName}\")\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/CredentialsController.java:76: publi"
+      },
+      {
+        "step": 66,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/EntityTagsController.java"
+        },
+        "result_head": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/EntityTagsController.java:38: @RequestMapping(\"/tags\")\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/EntityTagsController.java:39: public class EntityTagsController {\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/EntityTagsController.java:44: public EntityTagsController(\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/EntityTagsController.java:50: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/EntityTagsController.java:53: public Collection<EntityTags> list(\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/EntityTagsController.java:85: @RequestMapping(value = \"/**\", method = RequestMethod.GET)\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/EntityTagsController.java:88: public EntityTags get("
+      },
+      {
+        "step": 67,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ArtifactController.java', 'service': 'clouddriver', 'endpoints': [{'className': 'ArtifactController', 'methodNam"
+        },
+        "result_head": "Recorded 17 new: GET /artifacts/credentials, GET /artifacts/credentials/all, PUT /artifacts/fetch, GET /artifacts/content-address/{application}/{hash}, GET /artifacts/account/{accountName}/names, GET /artifacts/account/{accountName}/versions, GET /credentials, GET /credentials/{accountName}, GET /credentials/{accountName}/authorized, GET /credentials/type/{accountType}, POST /credentials, PUT /credentials, PUT /credentials/{accountName}, DELETE /credentials/{accountName}, GET /credentials/{accountName}/history, GET /tags, GET /tags/**\nTotal: 1 services, 77 endpoints in 25 files."
+      },
+      {
+        "step": 68,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/FunctionController.java"
+        },
+        "result_head": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/FunctionController.java:37: public class FunctionController {\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/FunctionController.java:41: public FunctionController(Optional<List<FunctionProvider>> functionProviders) {\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/FunctionController.java:46: @RequestMapping(value = \"/functions\", method = RequestMethod.GET)\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/FunctionController.java:48: public List<Function> list(\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/FunctionController.java:84: @RequestMapping(value = \"/applications/{application}/functions\", method = RequestMethod.GET)\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/FunctionController.java:85: List<Function> list(@PathVariable String application) {"
+      },
+      {
+        "step": 69,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ImageController.java"
+        },
+        "result_head": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ImageController.java:31: @RequestMapping(\"/images\")\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ImageController.java:32: public class ImageController {\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ImageController.java:36: @RequestMapping(value = \"/{provider}/{imageId}\", method = RequestMethod.GET)\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ImageController.java:37: Image getImage(@PathVariable String provider, @PathVariable String imageId) {"
+      },
+      {
+        "step": 70,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServerGroupManagerController.java"
+        },
+        "result_head": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServerGroupManagerController.java:39: @RequestMapping(\"/applications/{application}/serverGroupManagers\")\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServerGroupManagerController.java:40: public class ServerGroupManagerController {\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServerGroupManagerController.java:46: public ServerGroupManagerController(\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServerGroupManagerController.java:55: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServerGroupManagerController.java:56: Set<ServerGroupManager> getForApplication(@PathVariable String application) {"
+      },
+      {
+        "step": 71,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServiceBrokerController.java"
+        },
+        "result_head": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServiceBrokerController.java:32: @RequestMapping(\"/servicebroker\")\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServiceBrokerController.java:33: public class ServiceBrokerController {\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServiceBrokerController.java:36: public ServiceBrokerController(\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServiceBrokerController.java:46: @GetMapping(\"/{account}/services\")\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServiceBrokerController.java:47: public Collection<Service> listServices(\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServiceBrokerController.java:59: @GetMapping(\"/{account}/serviceInstance\")\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/ServiceBrokerController.java:60: public "
+      },
+      {
+        "step": 72,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/admin/EntityTagsAdminController.java"
+        },
+        "result_head": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/admin/EntityTagsAdminController.java:32: @RequestMapping(\"/admin/tags\")\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/admin/EntityTagsAdminController.java:33: public class EntityTagsAdminController {\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/admin/EntityTagsAdminController.java:39: public EntityTagsAdminController(Optional<EntityTagsProvider> entityTagsProvider) {\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/admin/EntityTagsAdminController.java:43: @RequestMapping(value = \"/reindex\", method = RequestMethod.POST)\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/admin/EntityTagsAdminController.java:44: void reindex() {\n/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/admin/EntityTagsAdminController.java:48: @RequestMapping(value = \"/delta\", method = RequestMeth"
+      },
+      {
+        "step": 73,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/controllers/FunctionController.java', 'service': 'clouddriver', 'endpoints': [{'className': 'FunctionController', 'methodNam"
+        },
+        "result_head": "Recorded 11 new: GET /functions, GET /applications/{application}/functions, GET /images/{provider}/{imageId}, GET /applications/{application}/serverGroupManagers, GET /servicebroker/{account}/services, GET /servicebroker/{account}/serviceInstance, POST /admin/tags/reindex, GET /admin/tags/delta, POST /admin/tags/reconcile, POST /admin/tags/deleteByNamespace/{namespace}, POST /admin/tags/deleteByTag/{tag}\nTotal: 1 services, 88 endpoints in 30 files."
+      },
+      {
+        "step": 74,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/cats/cats-pubsub/src/main"
+        },
+        "result_head": "/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/PubSubAgentRunner.java:66: public class PubSubAgentRunner\n/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/PubSubAgentRunner.java:106: public synchronized void onApplicationEvent(ApplicationReadyEvent event) {\n/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/PubSubAgentRunner.java:140: private void subscribeAndStart() {\n/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/PubSubAgentRunner.java:160: public synchronized void destroy() {\n/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/PubSubAgentRunner.java:176: synchronized void maintain() {\n/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/PubSubAgentRunner.java:196: private void ensureConsumerGroup() {\n/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/PubSubAgentRunner.java:214: private void dispatch(MapRecord<String, ?, ?> record) {\n/cats/cats-pubsub/src/main/java/com/netfl"
+      },
+      {
+        "step": 75,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/cats/cats-sql/src/main/kotlin/com/netflix/spinnaker/cats/sql/controllers"
+        },
+        "result_head": "/cats/cats-sql/src/main/kotlin/com/netflix/spinnaker/cats/sql/controllers/CatsSqlAdminController.kt:25: @RequestMapping(\"/admin/db\")\n/cats/cats-sql/src/main/kotlin/com/netflix/spinnaker/cats/sql/controllers/CatsSqlAdminController.kt:26: class CatsSqlAdminController(\n/cats/cats-sql/src/main/kotlin/com/netflix/spinnaker/cats/sql/controllers/CatsSqlAdminController.kt:35: @PutMapping(path = [\"/truncate/{namespace}\"])\n/cats/cats-sql/src/main/kotlin/com/netflix/spinnaker/cats/sql/controllers/CatsSqlAdminController.kt:36: fun truncateTables(\n/cats/cats-sql/src/main/kotlin/com/netflix/spinnaker/cats/sql/controllers/CatsSqlAdminController.kt:69: @PutMapping(path = [\"/drop/{namespace}\"])\n/cats/cats-sql/src/main/kotlin/com/netflix/spinnaker/cats/sql/controllers/CatsSqlAdminController.kt:70: fun dropTables(\n/cats/cats-sql/src/main/kotlin/com/netflix/spinnaker/cats/sql/controllers/CatsSqlAdminController.kt:103: private fun validateParams(currentNamespace: String?, targetNamespace: String) {\n/cats/c"
+      },
+      {
+        "step": 76,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/cats/cats-core/src/main/java/com/netflix/spinnaker/cats/agent/AgentController.java"
+        },
+        "result_head": "/cats/cats-core/src/main/java/com/netflix/spinnaker/cats/agent/AgentController.java:29: public class AgentController {\n/cats/cats-core/src/main/java/com/netflix/spinnaker/cats/agent/AgentController.java:30: public AgentController("
+      },
+      {
+        "step": 77,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers"
+        },
+        "result_head": "/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudImageController.java:38: @RequestMapping(\"/alicloud/images\")\n/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudImageController.java:39: public class AliCloudImageController {\n/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudImageController.java:44: public AliCloudImageController(Cache cacheView) {\n/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudImageController.java:48: @RequestMapping(value = \"/find\", method = RequestMethod.GET)\n/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudImageController.java:49: List<Image> list(LookupOptions lookupOptions, HttpServletRequest request) {\n/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudImageController.jav"
+      },
+      {
+        "step": 78,
+        "tool": "read_file",
+        "args": {
+          "path": "/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudScalingActivitiesController.java",
+          "start": "41"
+        },
+        "result_head": "41: @RestController\n42: @RequestMapping(\n43:     \"/applications/{application}/clusters/{account}/{clusterName}/alicloud/serverGroups/{serverGroupName}\")\n44: public class AliCloudScalingActivitiesController {\n45: \n46:   private final AccountCredentialsProvider accountCredentialsProvider;\n47: \n48:   private final ClientFactory clientFactory;\n49: \n50:   @Autowired\n51:   public AliCloudScalingActivitiesController(\n52:       AccountCredentialsProvider accountCredentialsProvider, ClientFactory clientFactory) {\n53:     this.accountCredentialsProvider = accountCredentialsProvider;\n54:     this.clientFactory = clientFactory;\n55:   }\n56: \n57:   @RequestMapping(value = \"/scalingActivities\", method = RequestMethod.GET)\n58:   ResponseEntity getScalingActivities(\n59:       @PathVariable String account,\n60:       @PathVariable String serverGroupName,\n61:       @RequestParam(value = \"region\", required = true) String region) {\n62:     List<ScalingActivity> resultList = new ArrayList<>();\n63:     Accoun"
+      },
+      {
+        "step": 79,
+        "tool": "find",
+        "args": {
+          "pattern": "PubSubAdminController.java"
+        },
+        "result_head": "/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers/PubSubAdminController.java"
+      },
+      {
+        "step": 80,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers"
+        },
+        "result_head": "/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers/PubSubAdminController.java:26: @RequestMapping(\"/admin/scheduler\")\n/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers/PubSubAdminController.java:28: public class PubSubAdminController extends JsonSerializer<Long> {\n/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers/PubSubAdminController.java:33: public void setObjectMapper(ObjectMapper mapper) {\n/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers/PubSubAdminController.java:40: @GetMapping(\"/agents\")\n/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers/PubSubAdminController.java:41: public String getAgents() throws Exception {\n/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers/PubSubAdminController.java:45: @DeleteMapping(\"/agents/{agentType}\")\n/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers/PubSubAdm"
+      },
+      {
+        "step": 81,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers/PubSubAdminController.java', 'service': 'clouddriver', 'endpoints': [{'className': 'PubSubAdminController', 'me"
+        },
+        "result_head": "Recorded 6 new: GET /admin/scheduler/agents, DELETE /admin/scheduler/agents/{agentType}, PUT /admin/db/truncate/{namespace}, PUT /admin/db/drop/{namespace}, GET /alicloud/images/find, GET /applications/{application}/clusters/{account}/{clusterName}/alicloud/serverGroups/{serverGroupName}/scalingActivities\nTotal: 1 services, 94 endpoints in 34 files."
+      },
+      {
+        "step": 82,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-appengine/src/main/java/com/netflix/spinnaker/clouddriver/appengine/artifacts/controllers"
+        },
+        "result_head": "/clouddriver-appengine/src/main/java/com/netflix/spinnaker/clouddriver/appengine/artifacts/controllers/AppengineStorageController.java:33: @RequestMapping(\"/storage\")\n/clouddriver-appengine/src/main/java/com/netflix/spinnaker/clouddriver/appengine/artifacts/controllers/AppengineStorageController.java:34: class AppengineStorageController {\n/clouddriver-appengine/src/main/java/com/netflix/spinnaker/clouddriver/appengine/artifacts/controllers/AppengineStorageController.java:39: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-appengine/src/main/java/com/netflix/spinnaker/clouddriver/appengine/artifacts/controllers/AppengineStorageController.java:40: List<String> list() {"
+      },
+      {
+        "step": 83,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers"
+        },
+        "result_head": "/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonClusterController.groovy:30: @RequestMapping(\"/applications/{application}/clusters/{account}/{clusterName}/aws/serverGroups/{serverGroupName}\")\n/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonClusterController.groovy:31: class AmazonClusterController {\n/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonClusterController.groovy:41: @RequestMapping(value = \"/scalingActivities\", method = RequestMethod.GET)\n/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonClusterController.groovy:42: ResponseEntity getScalingActivities(@PathVariable String account, @PathVariable String serverGroupName, @RequestParam(value = \"region\", required = true) String region) {\n/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonNamedImageLookupController.groovy:46: @RequestMa"
+      },
+      {
+        "step": 84,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller.java",
+          "path": "/clouddriver-aws"
+        },
+        "result_head": "/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers/CloudFormationController.java\n/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers/RoleController.java"
+      },
+      {
+        "step": 85,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers"
+        },
+        "result_head": "/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers/CloudFormationController.java:31: @RequestMapping(\"/aws/cloudFormation/stacks\")\n/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers/CloudFormationController.java:33: class CloudFormationController {\n/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers/CloudFormationController.java:38: public CloudFormationController(AmazonCloudFormationProvider cloudFormationProvider) {\n/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers/CloudFormationController.java:42: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers/CloudFormationController.java:43: List<AmazonCloudFormationStack> list(\n/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers/CloudFormationController.java:50: @RequestMapping(method = RequestMethod.GET, value = \"/stack\")\n"
+      },
+      {
+        "step": 86,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/clouddriver-appengine/src/main/java/com/netflix/spinnaker/clouddriver/appengine/artifacts/controllers/AppengineStorageController.java', 'service': 'clouddriver', 'endpoints': [{'className'"
+        },
+        "result_head": "Recorded 7 new: GET /storage, GET /applications/{application}/clusters/{account}/{clusterName}/aws/serverGroups/{serverGroupName}/scalingActivities, GET /aws/images/{account}/{region}/{imageId:.+}, GET /aws/images/find, GET /aws/cloudFormation/stacks, GET /aws/cloudFormation/stacks/stack, GET /roles/{cloudProvider}\nTotal: 1 services, 101 endpoints in 39 files."
+      },
+      {
+        "step": 87,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/loadbalancer/view/AzureLoadBalancerProvider.groovy"
+        },
+        "result_head": "/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/loadbalancer/view/AzureLoadBalancerProvider.groovy:42: class AzureLoadBalancerProvider implements LoadBalancerProvider<AzureLoadBalancer> {\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/loadbalancer/view/AzureLoadBalancerProvider.groovy:53: List<AzureLoadBalancerSummary> list() {\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/loadbalancer/view/AzureLoadBalancerProvider.groovy:57: private Map<String, AzureLoadBalancerSummary> getSummaryForLoadBalancers() {\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/loadbalancer/view/AzureLoadBalancerProvider.groovy:76: LoadBalancerProvider.Item get(String name) {\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/loadbalancer/view/AzureLoadBalancerProvider.groovy:80: List<Map> byAccountAndRegionAndName(String account, S"
+      },
+      {
+        "step": 88,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/network/view/AzureNetworkProvider.groovy"
+        },
+        "result_head": "/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/network/view/AzureNetworkProvider.groovy:38: class AzureNetworkProvider implements NetworkProvider<AzureNetwork> {\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/network/view/AzureNetworkProvider.groovy:45: AzureNetworkProvider(AzureCloudProvider azureCloudProvider, Cache cacheView, ObjectMapper objectMapper) {\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/network/view/AzureNetworkProvider.groovy:52: String getCloudProvider() {\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/network/view/AzureNetworkProvider.groovy:57: Set<AzureNetwork> getAll() {\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/network/view/AzureNetworkProvider.groovy:61: AzureVirtualNetworkDescription get(String account, String region, String resourceGroup, String name) {\n/clouddriver-a"
+      },
+      {
+        "step": 89,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/vmimage/view/AzureVMImageLookupController.groovy"
+        },
+        "result_head": "/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/vmimage/view/AzureVMImageLookupController.groovy:44: @RequestMapping(\"/azure/images\")\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/vmimage/view/AzureVMImageLookupController.groovy:45: class AzureVMImageLookupController {\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/vmimage/view/AzureVMImageLookupController.groovy:56: AzureVMImageLookupController(AccountCredentialsProvider accountCredentialsProvider, AzureCloudProvider azureCloudProvider, Cache cacheView, ObjectMapper objectMapper) {\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/vmimage/view/AzureVMImageLookupController.groovy:63: @RequestMapping(value = '/{account}/{region}/{imageId:.+}', method = RequestMethod.GET)\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/vmimage/view/AzureVMImageLookupContr"
+      },
+      {
+        "step": 90,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/loadbalancer/view/AzureLoadBalancerProvider.groovy', 'service': 'clouddriver', 'endpoints': [{'className"
+        },
+        "result_head": "Recorded 3 new: GET /applications/{application}/loadBalancersL4, GET /azure/images/{account}/{region}/{imageId:.+}, GET /azure/images/find\nTotal: 1 services, 104 endpoints in 41 files."
+      },
+      {
+        "step": 91,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-cloudfoundry/src/main/java/com/netflix/spinnaker/clouddriver/cloudfoundry/controller"
+        },
+        "result_head": "/clouddriver-cloudfoundry/src/main/java/com/netflix/spinnaker/clouddriver/cloudfoundry/controller/CloudFoundryImageController.java:35: @RequestMapping(\"/cloudfoundry/images\")\n/clouddriver-cloudfoundry/src/main/java/com/netflix/spinnaker/clouddriver/cloudfoundry/controller/CloudFoundryImageController.java:36: public class CloudFoundryImageController {\n/clouddriver-cloudfoundry/src/main/java/com/netflix/spinnaker/clouddriver/cloudfoundry/controller/CloudFoundryImageController.java:43: @RequestMapping(value = \"/find\", method = RequestMethod.GET)\n/clouddriver-cloudfoundry/src/main/java/com/netflix/spinnaker/clouddriver/cloudfoundry/controller/CloudFoundryImageController.java:44: public Collection<CloudFoundryCluster> list(@RequestParam(required = false) String account) {"
+      },
+      {
+        "step": 92,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-docker/src/main/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers"
+        },
+        "result_head": "/clouddriver-docker/src/main/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers/AbstractDockerRegistryLookupController.java:38: public abstract class AbstractDockerRegistryLookupController {\n/clouddriver-docker/src/main/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers/AbstractDockerRegistryLookupController.java:50: @RequestMapping(value = \"/tags\", method = RequestMethod.GET)\n/clouddriver-docker/src/main/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers/AbstractDockerRegistryLookupController.java:52: public List<String> getTags(\n/clouddriver-docker/src/main/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers/AbstractDockerRegistryLookupController.java:99: @RequestMapping(value = \"/find\", method = RequestMethod.GET)\n/clouddriver-docker/src/main/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers/AbstractDockerRegistryLookupController.java:105: public List<Map<String, Object>> find(LookupOptions lookupOptions"
+      },
+      {
+        "step": 93,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/clouddriver-cloudfoundry/src/main/java/com/netflix/spinnaker/clouddriver/cloudfoundry/controller/CloudFoundryImageController.java', 'service': 'clouddriver', 'endpoints': [{'className': 'C"
+        },
+        "result_head": "Recorded 5 new: GET /cloudfoundry/images/find, GET /dockerRegistry/images/tags, GET /dockerRegistry/images/find, GET /dockerRegistry/charts/tags, GET /dockerRegistry/charts/find\nTotal: 1 services, 109 endpoints in 43 files."
+      },
+      {
+        "step": 94,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers"
+        },
+        "result_head": "/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsCloudMetricController.java:27: @RequestMapping(\"/ecs/cloudMetrics\")\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsCloudMetricController.java:28: public class EcsCloudMetricController {\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsCloudMetricController.java:32: public EcsCloudMetricController(EcsCloudMetricProvider provider) {\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsCloudMetricController.java:36: @RequestMapping(value = {\"/alarms\"})\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsCloudMetricController.java:37: public Collection<EcsMetricAlarm> findAllMetricAlarms() {\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsClusterController.java:29: public class EcsClusterController {\n/clouddriver-ecs/src/main/java/com/netf"
+      },
+      {
+        "step": 95,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsCloudMetricController.java', 'service': 'clouddriver', 'endpoints': [{'className': 'EcsCloudMetricControl"
+        },
+        "result_head": "Recorded 7 new: ANY /ecs/cloudMetrics/alarms, ANY /ecs/ecsClusters, ANY /ecs/ecsClusterDescriptions/{account}/{region}, GET /ecs/images/find, GET /ecs-native/serverGroups/{account}/{region}/{serverGroupName}/deploymentStatus, ANY /ecs/secrets, ANY /ecs/serviceDiscoveryRegistries\nTotal: 1 services, 116 endpoints in 49 files."
+      },
+      {
+        "step": 96,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/servergroup"
+        },
+        "result_head": "/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/servergroup/EcsServerGroupController.java:38: @RequestMapping(\"/applications/{application}/serverGroups/{account}/{serverGroupName}\")\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/servergroup/EcsServerGroupController.java:39: public class EcsServerGroupController {\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/servergroup/EcsServerGroupController.java:50: public EcsServerGroupController(\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/servergroup/EcsServerGroupController.java:61: @RequestMapping(value = \"/events\", method = RequestMethod.GET)\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/servergroup/EcsServerGroupController.java:62: ResponseEntity getServerGroupEvents(\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/servergroup/ServerGroup"
+      },
+      {
+        "step": 97,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-google/src/main/java/com/netflix/spinnaker/clouddriver/google/controllers"
+        },
+        "result_head": "/clouddriver-google/src/main/java/com/netflix/spinnaker/clouddriver/google/controllers/GoogleNamedImageLookupController.java:54: @RequestMapping(\"/gce/images\")\n/clouddriver-google/src/main/java/com/netflix/spinnaker/clouddriver/google/controllers/GoogleNamedImageLookupController.java:55: public class GoogleNamedImageLookupController {\n/clouddriver-google/src/main/java/com/netflix/spinnaker/clouddriver/google/controllers/GoogleNamedImageLookupController.java:63: private GoogleNamedImageLookupController(Cache cacheView) {\n/clouddriver-google/src/main/java/com/netflix/spinnaker/clouddriver/google/controllers/GoogleNamedImageLookupController.java:67: @RequestMapping(value = \"/find\", method = RequestMethod.GET)\n/clouddriver-google/src/main/java/com/netflix/spinnaker/clouddriver/google/controllers/GoogleNamedImageLookupController.java:68: public List<NamedImage> list(\n/clouddriver-google/src/main/java/com/netflix/spinnaker/clouddriver/google/controllers/GoogleNamedImageLookupController.java:"
+      },
+      {
+        "step": 98,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-huaweicloud/src/main/java/com/netflix/spinnaker/clouddriver/huaweicloud/controller"
+        },
+        "result_head": "/clouddriver-huaweicloud/src/main/java/com/netflix/spinnaker/clouddriver/huaweicloud/controller/HuaweiCloudImageController.java:35: @RequestMapping(\"/huaweicloud/images\")\n/clouddriver-huaweicloud/src/main/java/com/netflix/spinnaker/clouddriver/huaweicloud/controller/HuaweiCloudImageController.java:36: public class HuaweiCloudImageController {\n/clouddriver-huaweicloud/src/main/java/com/netflix/spinnaker/clouddriver/huaweicloud/controller/HuaweiCloudImageController.java:41: public HuaweiCloudImageController(ImageProvider imageProvider) {\n/clouddriver-huaweicloud/src/main/java/com/netflix/spinnaker/clouddriver/huaweicloud/controller/HuaweiCloudImageController.java:45: @RequestMapping(value = \"/find\", method = RequestMethod.GET)\n/clouddriver-huaweicloud/src/main/java/com/netflix/spinnaker/clouddriver/huaweicloud/controller/HuaweiCloudImageController.java:46: public Set<HuaweiCloudImage> find(\n/clouddriver-huaweicloud/src/main/java/com/netflix/spinnaker/clouddriver/huaweicloud/controller/Hu"
+      },
+      {
+        "step": 99,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/servergroup/EcsServerGroupController.java', 'service': 'clouddriver', 'endpoints': [{'className': 'EcsServer"
+        },
+        "result_head": "Recorded 3 new: GET /applications/{application}/serverGroups/{account}/{serverGroupName}/events, GET /gce/images/find, GET /huaweicloud/images/find\nTotal: 1 services, 119 endpoints in 52 files."
+      },
+      {
+        "step": 100,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java"
+        },
+        "result_head": "/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java:42: @RequestMapping(\"/manifests\")\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java:43: public class ManifestController {\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java:49: public ManifestController(\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java:57: @RequestMapping(value = \"/{account:.+}/_/{name:.+}\", method = RequestMethod.GET)\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java:58: Manifest getForAccountAndName(\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java:68: @RequestMapping(value = \"/{account:.+}/{location:.+}/{name:"
+      },
+      {
+        "step": 101,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/PodController.java"
+        },
+        "result_head": "/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/PodController.java:31: @RequestMapping(\"/applications/{application}/kubernetes/pods\")\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/PodController.java:32: public class PodController {\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/PodController.java:35: public PodController(KubernetesJobProvider jobProvider) {\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/PodController.java:44: @RequestMapping(\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/PodController.java:45: value = \"/{account}/{namespace}/{podName}/{fileName:.+}\",\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/PodController.java:46: method = RequestMethod.GET)\n/clouddriver-kubernetes/src/main/java/c"
+      },
+      {
+        "step": 102,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/RawResourceController.java"
+        },
+        "result_head": "/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/RawResourceController.java:34: @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/RawResourceController.java:35: class RawResourceController {\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/RawResourceController.java:39: public RawResourceController(KubernetesRawResourceProvider rawResourceProvider) {\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/RawResourceController.java:45: @RequestMapping(value = \"/applications/{application}/rawResources\", method = RequestMethod.GET)\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/RawResourceController.java:46: List<KubernetesRawResource> list(@PathVariable String application) {"
+      },
+      {
+        "step": 103,
+        "tool": "read_file",
+        "args": {
+          "path": "/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java",
+          "start": "110"
+        },
+        "result_head": "110:   @RequestMapping(\n111:       value =\n112:           \"/{account:.+}/{location:.+}/{kind:.+}/cluster/{app:.+}/{cluster:.+}/dynamic/{criteria:.+}\",\n113:       method = RequestMethod.GET)\n114:   KubernetesCoordinates getDynamicManifestFromCluster(\n115:       @PathVariable String account,\n116:       @PathVariable String location,\n117:       @PathVariable String kind,\n118:       @PathVariable String app,\n119:       @PathVariable String cluster,\n120:       @PathVariable Criteria criteria) {\n121:     final String request =\n122:         String.format(\n123:             \"(account: %s, location: %s, kind: %s, app %s, cluster: %s, criteria: %s)\",\n124:             account, location, kind, app, cluster, criteria);\n125: \n126:     List<KubernetesManifest> manifests;\n127:     try {\n128:       manifests =\n129:           requestQueue.execute(\n130:               account,\n131:               () ->\n132:                   manifestProvider.getClusterAndSortAscending(\n133:                       account, lo"
+      },
+      {
+        "step": 104,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java', 'service': 'clouddriver', 'endpoints': [{'className': 'ManifestContr"
+        },
+        "result_head": "Recorded 7 new: GET /manifests/{account:.+}/_/{name:.+}, GET /manifests/{account:.+}/{location:.+}/{name:.+}, GET /manifests/{account:.+}/{name:.+}, GET /manifests/{account:.+}/{location:.+}/{kind:.+}/cluster/{app:.+}/{cluster:.+}/dynamic/{criteria:.+}, GET /manifests/{account:.+}/{location:.+}/{kind:.+}/cluster/{app:.+}/{cluster:.+}, GET /applications/{application}/kubernetes/pods/{account}/{namespace}/{podName}/{fileName:.+}, GET /applications/{application}/rawResources\nTotal: 1 services, 126 endpoints in 55 files."
+      },
+      {
+        "step": 105,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-oracle/src/main/groovy/com/netflix/spinnaker/clouddriver/oracle/controller"
+        },
+        "result_head": "/clouddriver-oracle/src/main/groovy/com/netflix/spinnaker/clouddriver/oracle/controller/OracleImageLookupController.groovy:25: @RequestMapping(\"/oracle/images\")\n/clouddriver-oracle/src/main/groovy/com/netflix/spinnaker/clouddriver/oracle/controller/OracleImageLookupController.groovy:26: class OracleImageLookupController {\n/clouddriver-oracle/src/main/groovy/com/netflix/spinnaker/clouddriver/oracle/controller/OracleImageLookupController.groovy:31: OracleImageLookupController(final OracleImageProvider imageProvider) {\n/clouddriver-oracle/src/main/groovy/com/netflix/spinnaker/clouddriver/oracle/controller/OracleImageLookupController.groovy:35: @RequestMapping(value = '/{account}/{region}/{imageId:.+}', method = RequestMethod.GET)\n/clouddriver-oracle/src/main/groovy/com/netflix/spinnaker/clouddriver/oracle/controller/OracleImageLookupController.groovy:36: List<OracleImage> getById(\n/clouddriver-oracle/src/main/groovy/com/netflix/spinnaker/clouddriver/oracle/controller/OracleImageLookupCont"
+      },
+      {
+        "step": 106,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/clouddriver-saga/src/main/kotlin/com/netflix/spinnaker/clouddriver/saga/controllers"
+        },
+        "result_head": "/clouddriver-saga/src/main/kotlin/com/netflix/spinnaker/clouddriver/saga/controllers/SagaController.kt:26: @RequestMapping(\"/saga\")\n/clouddriver-saga/src/main/kotlin/com/netflix/spinnaker/clouddriver/saga/controllers/SagaController.kt:28: class SagaController(\n/clouddriver-saga/src/main/kotlin/com/netflix/spinnaker/clouddriver/saga/controllers/SagaController.kt:31: @GetMapping(\"/{name}/{id}\")\n/clouddriver-saga/src/main/kotlin/com/netflix/spinnaker/clouddriver/saga/controllers/SagaController.kt:32: fun get(@PathVariable(\"name\") name: String, @PathVariable(\"id\") id: String): Saga {"
+      },
+      {
+        "step": 107,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/clouddriver-oracle/src/main/groovy/com/netflix/spinnaker/clouddriver/oracle/controller/OracleImageLookupController.groovy', 'service': 'clouddriver', 'endpoints': [{'className': 'OracleIma"
+        },
+        "result_head": "Recorded 3 new: GET /oracle/images/{account}/{region}/{imageId:.+}, GET /oracle/images/find, GET /saga/{name}/{id}\nTotal: 1 services, 129 endpoints in 57 files."
+      },
+      {
+        "step": 108,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/cats"
+        },
+        "result_head": "/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers/PubSubAdminController.java:26: @RequestMapping(\"/admin/scheduler\")\n/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers/PubSubAdminController.java:40: @GetMapping(\"/agents\")\n/cats/cats-pubsub/src/main/java/com/netflix/spinnaker/cats/pubsub/controllers/PubSubAdminController.java:45: @DeleteMapping(\"/agents/{agentType}\")\n/cats/cats-sql/src/main/kotlin/com/netflix/spinnaker/cats/sql/controllers/CatsSqlAdminController.kt:25: @RequestMapping(\"/admin/db\")\n/cats/cats-sql/src/main/kotlin/com/netflix/spinnaker/cats/sql/controllers/CatsSqlAdminController.kt:35: @PutMapping(path = [\"/truncate/{namespace}\"])\n/cats/cats-sql/src/main/kotlin/com/netflix/spinnaker/cats/sql/controllers/CatsSqlAdminController.kt:69: @PutMapping(path = [\"/drop/{namespace}\"])"
+      },
+      {
+        "step": 109,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-alicloud"
+        },
+        "result_head": "/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudImageController.java:38: @RequestMapping(\"/alicloud/images\")\n/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudImageController.java:48: @RequestMapping(value = \"/find\", method = RequestMethod.GET)\n/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudScalingActivitiesController.java:42: @RequestMapping(\n/clouddriver-alicloud/src/main/java/com/netflix/spinnaker/clouddriver/alicloud/controllers/AliCloudScalingActivitiesController.java:57: @RequestMapping(value = \"/scalingActivities\", method = RequestMethod.GET)"
+      },
+      {
+        "step": 110,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-appengine"
+        },
+        "result_head": "/clouddriver-appengine/src/main/java/com/netflix/spinnaker/clouddriver/appengine/artifacts/controllers/AppengineStorageController.java:33: @RequestMapping(\"/storage\")\n/clouddriver-appengine/src/main/java/com/netflix/spinnaker/clouddriver/appengine/artifacts/controllers/AppengineStorageController.java:39: @RequestMapping(method = RequestMethod.GET)"
+      },
+      {
+        "step": 111,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-artifacts"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 112,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-aws"
+        },
+        "result_head": "/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonClusterController.groovy:30: @RequestMapping(\"/applications/{application}/clusters/{account}/{clusterName}/aws/serverGroups/{serverGroupName}\")\n/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonClusterController.groovy:41: @RequestMapping(value = \"/scalingActivities\", method = RequestMethod.GET)\n/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonNamedImageLookupController.groovy:46: @RequestMapping(\"/aws/images\")\n/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonNamedImageLookupController.groovy:71: @RequestMapping(value = '/{account}/{region}/{imageId:.+}', method = RequestMethod.GET)\n/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonNamedImageLookupController.groovy:85: @RequestMapping(value = '/find', method = RequestMethod.GET)\n/clouddriver-a"
+      },
+      {
+        "step": 113,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-azure"
+        },
+        "result_head": "/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/loadbalancer/view/AzureLoadBalancerProvider.groovy:172: @RequestMapping(value = \"/applications/{application}/loadBalancersL4\", method = RequestMethod.GET)\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/vmimage/view/AzureVMImageLookupController.groovy:44: @RequestMapping(\"/azure/images\")\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/vmimage/view/AzureVMImageLookupController.groovy:63: @RequestMapping(value = '/{account}/{region}/{imageId:.+}', method = RequestMethod.GET)\n/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/resources/vmimage/view/AzureVMImageLookupController.groovy:139: @RequestMapping(value = '/find', method = RequestMethod.GET)"
+      },
+      {
+        "step": 114,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-cloudfoundry"
+        },
+        "result_head": "/clouddriver-cloudfoundry/src/main/java/com/netflix/spinnaker/clouddriver/cloudfoundry/controller/CloudFoundryImageController.java:35: @RequestMapping(\"/cloudfoundry/images\")\n/clouddriver-cloudfoundry/src/main/java/com/netflix/spinnaker/clouddriver/cloudfoundry/controller/CloudFoundryImageController.java:43: @RequestMapping(value = \"/find\", method = RequestMethod.GET)"
+      },
+      {
+        "step": 115,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-cloudrun"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 116,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-configserver"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 117,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-consul"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 118,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-core"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 119,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-dcos"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 120,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-docker"
+        },
+        "result_head": "/clouddriver-docker/src/main/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers/AbstractDockerRegistryLookupController.java:50: @RequestMapping(value = \"/tags\", method = RequestMethod.GET)\n/clouddriver-docker/src/main/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers/AbstractDockerRegistryLookupController.java:99: @RequestMapping(value = \"/find\", method = RequestMethod.GET)\n/clouddriver-docker/src/main/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers/DockerRegistryHelmOciLookupController.java:26: @RequestMapping({\"/dockerRegistry/charts\"})\n/clouddriver-docker/src/main/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers/DockerRegistryImageLookupController.java:26: @RequestMapping(\"/dockerRegistry/images\")\n/clouddriver-docker/src/test/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers/AbstractDockerRegistryLookupControllerTest.java:89: @RequestMapping(\"/test/registry\")"
+      },
+      {
+        "step": 121,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-ecs"
+        },
+        "result_head": "/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsCloudMetricController.java:27: @RequestMapping(\"/ecs/cloudMetrics\")\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsCloudMetricController.java:36: @RequestMapping(value = {\"/alarms\"})\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsClusterController.java:38: @RequestMapping(value = {\"/ecs/ecsClusters\"})\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsClusterController.java:43: @RequestMapping(value = {\"/ecs/ecsClusterDescriptions/{account}/{region}\"})\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsImagesController.java:31: @RequestMapping(\"/ecs/images\")\n/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsImagesController.java:40: @RequestMapping(value = \"/find\", method = RequestMethod.GET)\n/clouddriver-ecs/src/main/java/com/netfl"
+      },
+      {
+        "step": 122,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-elasticsearch"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 123,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-eureka"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 124,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-event"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 125,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-google"
+        },
+        "result_head": "/clouddriver-google/src/main/java/com/netflix/spinnaker/clouddriver/google/controllers/GoogleNamedImageLookupController.java:54: @RequestMapping(\"/gce/images\")\n/clouddriver-google/src/main/java/com/netflix/spinnaker/clouddriver/google/controllers/GoogleNamedImageLookupController.java:67: @RequestMapping(value = \"/find\", method = RequestMethod.GET)"
+      },
+      {
+        "step": 126,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-google-common"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 127,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-huaweicloud"
+        },
+        "result_head": "/clouddriver-huaweicloud/src/main/java/com/netflix/spinnaker/clouddriver/huaweicloud/controller/HuaweiCloudImageController.java:35: @RequestMapping(\"/huaweicloud/images\")\n/clouddriver-huaweicloud/src/main/java/com/netflix/spinnaker/clouddriver/huaweicloud/controller/HuaweiCloudImageController.java:45: @RequestMapping(value = \"/find\", method = RequestMethod.GET)"
+      },
+      {
+        "step": 128,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-kubernetes"
+        },
+        "result_head": "/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java:42: @RequestMapping(\"/manifests\")\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java:57: @RequestMapping(value = \"/{account:.+}/_/{name:.+}\", method = RequestMethod.GET)\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java:68: @RequestMapping(value = \"/{account:.+}/{location:.+}/{name:.+}\", method = RequestMethod.GET)\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java:101: @RequestMapping(value = \"/{account:.+}/{name:.+}\", method = RequestMethod.GET)\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java:110: @RequestMapping(\n/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/"
+      },
+      {
+        "step": 129,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-lambda"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 130,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-oracle"
+        },
+        "result_head": "/clouddriver-oracle/src/main/groovy/com/netflix/spinnaker/clouddriver/oracle/controller/OracleImageLookupController.groovy:25: @RequestMapping(\"/oracle/images\")\n/clouddriver-oracle/src/main/groovy/com/netflix/spinnaker/clouddriver/oracle/controller/OracleImageLookupController.groovy:35: @RequestMapping(value = '/{account}/{region}/{imageId:.+}', method = RequestMethod.GET)\n/clouddriver-oracle/src/main/groovy/com/netflix/spinnaker/clouddriver/oracle/controller/OracleImageLookupController.groovy:45: @RequestMapping(value = '/find', method = RequestMethod.GET)"
+      },
+      {
+        "step": 131,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-saga"
+        },
+        "result_head": "/clouddriver-saga/src/main/kotlin/com/netflix/spinnaker/clouddriver/saga/controllers/SagaController.kt:26: @RequestMapping(\"/saga\")\n/clouddriver-saga/src/main/kotlin/com/netflix/spinnaker/clouddriver/saga/controllers/SagaController.kt:31: @GetMapping(\"/{name}/{id}\")"
+      },
+      {
+        "step": 132,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-security"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 133,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-sql"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 134,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-tencentcloud"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 135,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-api"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 136,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|@WebServlet|ServletRegistrationBean|RouterFunction|@Endpoint[(]|@RestControllerEndpoint",
+          "path": "/clouddriver-web"
+        },
+        "result_head": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:38: @RequestMapping(\"/applications\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:55: @RequestMapping(method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy:66: @RequestMapping(value = \"/{name:.+}\", method = RequestMethod.GET)\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:31: @RequestMapping(\"/cache\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:37: @RequestMapping(method = RequestMethod.POST, value = \"/{cloudProvider}/{type}\")\n/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy:59: @RequestMapping(method = RequestMethod.GET, value = \"/introspection\")\n/clouddriver-web/src/mai"
+      },
+      {
+        "step": 137,
+        "tool": "list_dir",
+        "args": {
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver"
+        },
+        "result_head": "Main.groovy\nWebConfig.java\nconfiguration/\ncontrollers/\nlisteners/\nmodel/"
+      },
+      {
+        "step": 138,
+        "tool": "list_dir",
+        "args": {
+          "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver"
+        },
+        "result_head": "controllers/\nlisteners/"
+      },
+      {
+        "step": 139,
+        "tool": "list_dir",
+        "args": {
+          "path": "/clouddriver-web/src/main"
+        },
+        "result_head": "groovy/\njava/\nresources/"
+      },
+      {
+        "step": 140,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping[(]|@RestController|RouterFunction|ServletRegistrationBean",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/config"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 141,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping[(]|@RestController|RouterFunction|ServletRegistrationBean",
+          "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/config"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 142,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping[(]|@RestController|RouterFunction|ServletRegistrationBean|addViewController",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/configuration"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 143,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping[(]|@RestController|RouterFunction|ServletRegistrationBean|addViewController",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/WebConfig.java"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 144,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping[(]|@RestController|RouterFunction|ServletRegistrationBean|addViewController",
+          "path": "/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/listeners"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 145,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping[(]|@RestController|RouterFunction|ServletRegistrationBean|addViewController",
+          "path": "/clouddriver-web/src/main/java/com/netflix/spinnaker/clouddriver/listeners"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 146,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 1 services, 129 endpoints."
+      }
+    ]
+  }
+}
