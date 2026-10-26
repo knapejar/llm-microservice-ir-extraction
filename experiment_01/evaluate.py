@@ -103,6 +103,24 @@ def service_resolver(gt_doc):
     return resolve
 
 
+def match_services(pred, gt_doc):
+    """Pair each predicted service with at most one ground-truth service: first
+    by name (case and punctuation ignored), then by a shared module directory."""
+    key = lambda s: re.sub(r"[^a-z0-9]", "", (s or "").lower())
+    norm_dir = lambda d: (d or "").replace("\\", "/").strip("/")
+    free, pairs = list(gt_doc.get("services", [])), {}
+    for by_dir in (False, True):
+        for s in pred:
+            dirs = {norm_dir(x) for x in s.get("dirs") or []} - {""}
+            for g in free if s["name"] not in pairs else []:
+                gdirs = {norm_dir(g.get("module_dir"))} | {norm_dir(x) for x in g.get("serves_modules") or []}
+                if (dirs & gdirs) if by_dir else key(s["name"]) == key(g["name"]):
+                    pairs[s["name"]] = g["name"]
+                    free.remove(g)
+                    break
+    return pairs, [g["name"] for g in free]
+
+
 # ------------------------------------------------------------------ loaders --
 def load_gt(path):
     d = json.loads(Path(path).read_text(encoding="utf-8"))
@@ -130,7 +148,8 @@ def load_cimet(path):
                             out.append(rec(ms["name"], mc.get("httpMethod"), mc.get("url"),
                                            cls["name"], m.get("name"), f"cimet:{b}",
                                            {"file": cls.get("path") or ""}))
-    meta = {"extractor": "CIMET", "version": d.get("version") or "1.2.1"}
+    meta = {"extractor": "CIMET", "version": d.get("version") or "1.2.1",
+            "services": [{"name": ms["name"], "dirs": []} for ms in d["microservices"]]}
     return inb, out, meta
 
 
@@ -143,7 +162,8 @@ def load_llm(path):
             segs = [s for s in fp.replace("\\", "/").split("/") if s]
             inb.append(rec(segs[0] if segs else "?", e.get("httpMethod"), e.get("path"),
                            e.get("className"), e.get("methodName"), "llm",
-                           {"confidence": e.get("confidence"), "file": fp}))
+                           {"confidence": e.get("confidence"), "file": fp,
+                            "service_pred": f.get("service")}))
     out = []   # only with a prompt that asks for them (prompt_outbound.txt)
     for f in d.get("files", []):
         for c in f.get("outboundCalls", []):
@@ -160,7 +180,7 @@ def load_llm(path):
         name += f" (effort {run['effort']})"
     if out or "outbound" in str(run.get("prompt_file")):
         name += " +outbound"
-    return inb, out, {"extractor": f"LLM {name}", **run}
+    return inb, out, {"extractor": f"LLM {name}", **run, "services": d.get("services")}
 
 
 def load_any(path):
@@ -246,6 +266,11 @@ def main():
       f"{gt_doc['meta']['system']} @ `{gt_doc['meta']['commit'][:8]}`, "
       f"labeled {gt_doc['meta']['labeled_on']}")
     w(f"- prediction: `{Path(a.pred).name}`")
+    if meta.get("commit"):
+        gt_c, c = gt_doc["meta"].get("commit") or "", meta["commit"]
+        w(f"- checkout `{c[:8]}`"
+          + ("" if c.startswith(gt_c) or gt_c.startswith(c) else f", **not the ground-truth commit `{gt_c[:8]}`**")
+          + (", with local changes" if meta.get("dirty") else ""))
     if "model" in meta:
         w(f"- model `{meta['model']}`, temperature {meta.get('temperature')}, "
           f"prompt `{meta.get('prompt_file')}`")
@@ -370,6 +395,33 @@ def main():
         p = Counter(k2(r) for r in p_in if r["service"] == s)
         w(f"| {s} | {sum(g.values())} | {sum(p.values())} | {sum((g & p).values())} |")
     w("")
+
+    # ---- services ----------------------------------------------------------
+    if meta.get("services") is not None:
+        pairs, missed = match_services(meta["services"], gt_doc)
+        n_gt = len(gt_doc.get("services", []))
+        w("## Services\n")
+        if in_frame:
+            w("The ground truth labels only part of the system, so extra services are not judged.\n")
+        else:
+            p = len(pairs) / len(meta["services"]) if meta["services"] else None
+            r = len(pairs) / n_gt if n_gt else None
+            f = 2 * p * r / (p + r) if p and r else (0.0 if p is not None and r is not None else None)
+            w("| tp | fp | fn | precision | recall | F1 |")
+            w("|---:|---:|---:|---:|---:|---:|")
+            w(f"| {len(pairs)} | {len(meta['services']) - len(pairs)} | {len(missed)} | "
+              f"{num(p)} | {num(r)} | {num(f)} |\n")
+        w("| predicted | ground truth |")
+        w("|---|---|")
+        for s in meta["services"]:
+            w(f"| {s['name']} | {pairs.get(s['name'], '-')} |")
+        for g in missed:
+            w(f"| - | {g} |")
+        w("")
+        att = [r for r in p_in if r.get("service_pred")]
+        if att:
+            ok = sum(pairs.get(r["service_pred"]) == r["service"] for r in att)
+            w(f"Inbound endpoints attributed to the right service: **{ok}/{len(att)}**\n")
 
     txt = "\n".join(L)
     out = Path(a.out) if a.out else HERE / "out" / f"eval.{Path(a.pred).stem}.md"
