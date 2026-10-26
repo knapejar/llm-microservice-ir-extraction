@@ -1,0 +1,1054 @@
+{
+  "system": "spinnaker-kayenta",
+  "services": [
+    {
+      "name": "kayenta",
+      "dirs": [
+        "/"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "AtlasFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/atlas/query",
+          "line": 54,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "ClickhouseFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/clickhouse/query",
+          "line": 49,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-datadog/src/main/java/com/netflix/kayenta/datadog/controller/DatadogFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "DatadogFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/datadog/query",
+          "line": 61,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-graphite/src/main/java/com/netflix/kayenta/graphite/controller/GraphiteFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "GraphiteFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/graphite/query",
+          "line": 62,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-influxdb/src/main/java/com/netflix/kayenta/influxdb/controller/InfluxDbFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "InfluxDbFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/influxdb/query",
+          "line": 63,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-newrelic-insights/src/main/java/com/netflix/kayenta/newrelic/controller/NewRelicFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "NewRelicFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/newrelic/query",
+          "line": 62,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "AdminController",
+          "methodName": "setInstanceEnabled",
+          "httpMethod": "POST",
+          "path": "/admin/orca/instance/enabled",
+          "line": 46,
+          "evidence": "@RequestMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "PipelineController",
+          "methodName": "start",
+          "httpMethod": "POST",
+          "path": "/pipelines/start",
+          "line": 104,
+          "evidence": "@RequestMapping(value = \"/start\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "getPipeline",
+          "httpMethod": "GET",
+          "path": "/pipelines/{executionId}",
+          "line": 110,
+          "evidence": "@RequestMapping(value = \"/{executionId}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "cancel",
+          "httpMethod": "PUT",
+          "path": "/pipelines/{executionId}/cancel",
+          "line": 116,
+          "evidence": "@RequestMapping(value = \"/{executionId}/cancel\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "delete",
+          "httpMethod": "DELETE",
+          "path": "/pipelines/{executionId}",
+          "line": 133,
+          "evidence": "@RequestMapping(value = \"/{executionId}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/pipelines",
+          "line": 146,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-prometheus/src/main/java/com/netflix/kayenta/prometheus/controllers/PrometheusFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "PrometheusFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/prometheus/query",
+          "line": 64,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-stackdriver/src/main/java/com/netflix/kayenta/stackdriver/controllers/StackdriverFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "StackdriverFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/stackdriver/query",
+          "line": 71,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "StandaloneCanaryAnalysisController",
+          "methodName": "initiateCanaryAnalysis",
+          "httpMethod": "POST",
+          "path": "/standalone_canary_analysis/{canaryConfigId:.+}",
+          "line": 93,
+          "evidence": "@RequestMapping(value = \"/{canaryConfigId:.+}\", consumes = \"application/json\", method = POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StandaloneCanaryAnalysisController",
+          "methodName": "initiateCanaryAnalysisExecutionWithConfig",
+          "httpMethod": "POST",
+          "path": "/standalone_canary_analysis",
+          "line": 181,
+          "evidence": "@RequestMapping(consumes = \"application/json\", method = POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StandaloneCanaryAnalysisController",
+          "methodName": "getCanaryAnalysisExecution",
+          "httpMethod": "GET",
+          "path": "/standalone_canary_analysis/{canaryAnalysisExecutionId:.+}",
+          "line": 248,
+          "evidence": "@RequestMapping(value = \"/{canaryAnalysisExecutionId:.+}\", method = GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-wavefront/src/main/java/com/netflix/kayenta/wavefront/controller/WavefrontFetchController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "WavefrontFetchController",
+          "methodName": "queryMetrics",
+          "httpMethod": "POST",
+          "path": "/fetch/wavefront/query",
+          "line": 51,
+          "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "CanaryConfigController",
+          "methodName": "loadCanaryConfig",
+          "httpMethod": "GET",
+          "path": "/canaryConfig/{canaryConfigId:.+}",
+          "line": 77,
+          "evidence": "@RequestMapping(value = \"/{canaryConfigId:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryConfigController",
+          "methodName": "storeCanaryConfig",
+          "httpMethod": "POST",
+          "path": "/canaryConfig",
+          "line": 96,
+          "evidence": "@RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryConfigController",
+          "methodName": "updateCanaryConfig",
+          "httpMethod": "PUT",
+          "path": "/canaryConfig/{canaryConfigId:.+}",
+          "line": 151,
+          "evidence": "@RequestMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryConfigController",
+          "methodName": "deleteCanaryConfig",
+          "httpMethod": "DELETE",
+          "path": "/canaryConfig/{canaryConfigId:.+}",
+          "line": 298,
+          "evidence": "@RequestMapping(value = \"/{canaryConfigId:.+}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryConfigController",
+          "methodName": "listAllCanaryConfigs",
+          "httpMethod": "GET",
+          "path": "/canaryConfig",
+          "line": 317,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "CanaryController",
+          "methodName": "initiateCanary",
+          "httpMethod": "POST",
+          "path": "/canary/{canaryConfigId:.+}",
+          "line": 70,
+          "evidence": "@RequestMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryController",
+          "methodName": "initiateCanaryWithConfig",
+          "httpMethod": "POST",
+          "path": "/canary",
+          "line": 118,
+          "evidence": "@RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryController",
+          "methodName": "getCanaryResults",
+          "httpMethod": "GET",
+          "path": "/canary/{canaryExecutionId:.+}",
+          "line": 158,
+          "evidence": "@RequestMapping(value = \"/{canaryExecutionId:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryController",
+          "methodName": "getCanaryResultsByApplication",
+          "httpMethod": "GET",
+          "path": "/canary/executions",
+          "line": 182,
+          "evidence": "@RequestMapping(value = \"/executions\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "CanaryJudgesController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/judges",
+          "line": 78,
+          "evidence": "@GetMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryJudgesController",
+          "methodName": "judge",
+          "httpMethod": "POST",
+          "path": "/judges/judge",
+          "line": 86,
+          "evidence": "@PostMapping(value = \"/judge\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryJudgesController",
+          "methodName": "initiateJudgeComparison",
+          "httpMethod": "POST",
+          "path": "/judges/comparison",
+          "line": 145,
+          "evidence": "@PostMapping(value = \"/comparison\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryJudgesController",
+          "methodName": "getJudgeComparisonResults",
+          "httpMethod": "GET",
+          "path": "/judges/comparison/{executionId:.+}",
+          "line": 194,
+          "evidence": "@GetMapping(value = \"/comparison/{executionId:.+}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryResultArchiveController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "CanaryResultArchiveController",
+          "methodName": "loadArchivedCanaryResult",
+          "httpMethod": "GET",
+          "path": "/canaryResultArchive/{pipelineId:.+}",
+          "line": 60,
+          "evidence": "@RequestMapping(value = \"/{pipelineId:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryResultArchiveController",
+          "methodName": "storeArchivedCanaryResult",
+          "httpMethod": "POST",
+          "path": "/canaryResultArchive",
+          "line": 72,
+          "evidence": "@RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryResultArchiveController",
+          "methodName": "updateArchivedCanaryResult",
+          "httpMethod": "PUT",
+          "path": "/canaryResultArchive/{pipelineId:.+}",
+          "line": 105,
+          "evidence": "@RequestMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryResultArchiveController",
+          "methodName": "deleteArchivedCanaryResult",
+          "httpMethod": "DELETE",
+          "path": "/canaryResultArchive/{pipelineId:.+}",
+          "line": 137,
+          "evidence": "@RequestMapping(value = \"/{pipelineId:.+}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CanaryResultArchiveController",
+          "methodName": "listAllCanaryArchivedResults",
+          "httpMethod": "GET",
+          "path": "/canaryResultArchive",
+          "line": 152,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CredentialsController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "CredentialsController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/credentials",
+          "line": 38,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CredentialsController",
+          "methodName": "deleteAccount",
+          "httpMethod": "DELETE",
+          "path": "/credentials/{accountName}",
+          "line": 43,
+          "evidence": "@DeleteMapping(\"/{accountName}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetListController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "MetricSetListController",
+          "methodName": "loadMetricSetList",
+          "httpMethod": "GET",
+          "path": "/metricSetList/{metricSetListId:.+}",
+          "line": 54,
+          "evidence": "@RequestMapping(value = \"/{metricSetListId:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "MetricSetListController",
+          "methodName": "storeMetricSetList",
+          "httpMethod": "POST",
+          "path": "/metricSetList",
+          "line": 69,
+          "evidence": "@RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "MetricSetListController",
+          "methodName": "deleteMetricSetList",
+          "httpMethod": "DELETE",
+          "path": "/metricSetList/{metricSetListId:.+}",
+          "line": 88,
+          "evidence": "@RequestMapping(value = \"/{metricSetListId:.+}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "MetricSetListController",
+          "methodName": "listAllMetricSetLists",
+          "httpMethod": "GET",
+          "path": "/metricSetList",
+          "line": 105,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetPairListController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "MetricSetPairListController",
+          "methodName": "loadMetricSetPairList",
+          "httpMethod": "GET",
+          "path": "/metricSetPairList/{metricSetPairListId:.+}",
+          "line": 51,
+          "evidence": "@RequestMapping(value = \"/{metricSetPairListId:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "MetricSetPairListController",
+          "methodName": "loadMetricSetPair",
+          "httpMethod": "GET",
+          "path": "/metricSetPairList/{metricSetPairListId:.+}/{metricSetPairId:.+}",
+          "line": 60,
+          "evidence": "@RequestMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "MetricSetPairListController",
+          "methodName": "storeMetricSetPairList",
+          "httpMethod": "POST",
+          "path": "/metricSetPairList",
+          "line": 74,
+          "evidence": "@RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "MetricSetPairListController",
+          "methodName": "deleteMetricSetPairList",
+          "httpMethod": "DELETE",
+          "path": "/metricSetPairList/{metricSetPairListId:.+}",
+          "line": 87,
+          "evidence": "@RequestMapping(value = \"/{metricSetPairListId:.+}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "MetricSetPairListController",
+          "methodName": "listAllMetricSetPairLists",
+          "httpMethod": "GET",
+          "path": "/metricSetPairList",
+          "line": 95,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServiceMetadataController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "MetricsServiceMetadataController",
+          "methodName": "listMetadata",
+          "httpMethod": "GET",
+          "path": "/metadata/metricsService",
+          "line": 52,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServicesController.java",
+      "service": "kayenta",
+      "endpoints": [
+        {
+          "className": "MetricsServicesController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/metricsServices",
+          "line": 44,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "opus-5.5",
+    "provider": "cli",
+    "workflow": "agent-cli",
+    "effort": "cli",
+    "temperature": null,
+    "native_tools": null,
+    "repo": "kayenta",
+    "commit": "d2eaa598c95d0a8e17736f2df61fa1fa9f738b53",
+    "dirty": false,
+    "accepted": true,
+    "steps": 46,
+    "tool_calls": 46,
+    "rejected_entries": 0,
+    "wall_seconds": 63.4,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".dockerignore\n.gcloudignore\n.gitignore\nAUTHORS\nDockerfile\nDockerfile.compile\nDockerfile.slim\nDockerfile.ubuntu\nLICENSE.txt\nOSSMETADATA\nOWNERS.md\nREADME.md\nbuild.gradle\ncodeql-config.yml\ndocker-compose.yaml\ndocs/\ngradle.properties\nhalconfig/\njson-formats.md\nkayenta-atlas/\nkayenta-aws/\nkayenta-azure/\nkayenta-blobs/\nkayenta-bom/\nkayenta-clickhouse/\nkayenta-core/\nkayenta-datadog/\nkayenta-gcs/\nkayenta-google/\nkayenta-graphite/\nkayenta-influxdb/\nkayenta-integration-tests/\nkayenta-integration/\nkayenta-judge/\nkayenta-mannwhitney/\nkayenta-newrelic-insights/\nkayenta-objectstore-configbin/\nkayenta-objectstore-memory/\nkayenta-orca/\nkayenta-prometheus/\nkayenta-s3/\nkayenta-signalfx/\nkayenta-sql/\nkayenta-stackdriver/\nkayenta-standalone-canary-analysis/\nkayenta-wavefront/\nkayenta-web/\nlombok.config\nscratch/\nsettings.gradle"
+      },
+      {
+        "step": 2,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller|static void main|fun main"
+        },
+        "result_head": "/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java:38: @RestController\n/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java:27: @RestController\n/kayenta-datadog/src/main/java/com/netflix/kayenta/datadog/controller/DatadogFetchController.java:40: @RestController\n/kayenta-graphite/src/main/java/com/netflix/kayenta/graphite/controller/GraphiteFetchController.java:41: @RestController\n/kayenta-influxdb/src/main/java/com/netflix/kayenta/influxdb/controller/InfluxDbFetchController.java:43: @RestController\n/kayenta-newrelic-insights/src/main/java/com/netflix/kayenta/newrelic/controller/NewRelicFetchController.java:40: @RestController\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java:35: @RestController\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java:51: @RestController\n/kayenta-prometheus/src/main/java/com/netflix/kayenta/p"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController"
+        },
+        "result_head": "/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java:38: @RestController\n/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java:27: @RestController\n/kayenta-datadog/src/main/java/com/netflix/kayenta/datadog/controller/DatadogFetchController.java:40: @RestController\n/kayenta-graphite/src/main/java/com/netflix/kayenta/graphite/controller/GraphiteFetchController.java:41: @RestController\n/kayenta-influxdb/src/main/java/com/netflix/kayenta/influxdb/controller/InfluxDbFetchController.java:43: @RestController\n/kayenta-newrelic-insights/src/main/java/com/netflix/kayenta/newrelic/controller/NewRelicFetchController.java:40: @RestController\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java:35: @RestController\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java:51: @RestController\n/kayenta-prometheus/src/main/java/com/netflix/kayenta/p"
+      },
+      {
+        "step": 4,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java"
+        },
+        "result_head": "/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java:39: @RequestMapping(\"/fetch/atlas\")\n/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java:41: public class AtlasFetchController {\n/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java:47: public AtlasFetchController(\n/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java:54: @RequestMapping(value = \"/query\", method = RequestMethod.POST)\n/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java:56: public Map queryMetrics("
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java"
+        },
+        "result_head": "/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java:28: @RequestMapping(\"/fetch/clickhouse\")\n/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java:30: public class ClickhouseFetchController {\n/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java:38: public ClickhouseFetchController(\n/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java:49: @RequestMapping(value = \"/query\", method = RequestMethod.POST)\n/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java:50: public Map queryMetrics("
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-datadog/src/main/java/com/netflix/kayenta/datadog/controller/DatadogFetchController.java"
+        },
+        "result_head": "/kayenta-datadog/src/main/java/com/netflix/kayenta/datadog/controller/DatadogFetchController.java:41: @RequestMapping(\"/fetch/datadog\")\n/kayenta-datadog/src/main/java/com/netflix/kayenta/datadog/controller/DatadogFetchController.java:43: public class DatadogFetchController {\n/kayenta-datadog/src/main/java/com/netflix/kayenta/datadog/controller/DatadogFetchController.java:50: public DatadogFetchController(\n/kayenta-datadog/src/main/java/com/netflix/kayenta/datadog/controller/DatadogFetchController.java:61: @RequestMapping(value = \"/query\", method = RequestMethod.POST)\n/kayenta-datadog/src/main/java/com/netflix/kayenta/datadog/controller/DatadogFetchController.java:62: public Map queryMetrics("
+      },
+      {
+        "step": 7,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-graphite/src/main/java/com/netflix/kayenta/graphite/controller/GraphiteFetchController.java"
+        },
+        "result_head": "/kayenta-graphite/src/main/java/com/netflix/kayenta/graphite/controller/GraphiteFetchController.java:42: @RequestMapping(\"/fetch/graphite\")\n/kayenta-graphite/src/main/java/com/netflix/kayenta/graphite/controller/GraphiteFetchController.java:44: public class GraphiteFetchController {\n/kayenta-graphite/src/main/java/com/netflix/kayenta/graphite/controller/GraphiteFetchController.java:51: public GraphiteFetchController(\n/kayenta-graphite/src/main/java/com/netflix/kayenta/graphite/controller/GraphiteFetchController.java:62: @RequestMapping(value = \"/query\", method = RequestMethod.POST)\n/kayenta-graphite/src/main/java/com/netflix/kayenta/graphite/controller/GraphiteFetchController.java:64: public Map queryMetrics("
+      },
+      {
+        "step": 8,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-influxdb/src/main/java/com/netflix/kayenta/influxdb/controller/InfluxDbFetchController.java"
+        },
+        "result_head": "/kayenta-influxdb/src/main/java/com/netflix/kayenta/influxdb/controller/InfluxDbFetchController.java:44: @RequestMapping(\"/fetch/influxdb\")\n/kayenta-influxdb/src/main/java/com/netflix/kayenta/influxdb/controller/InfluxDbFetchController.java:45: public class InfluxDbFetchController {\n/kayenta-influxdb/src/main/java/com/netflix/kayenta/influxdb/controller/InfluxDbFetchController.java:52: public InfluxDbFetchController(\n/kayenta-influxdb/src/main/java/com/netflix/kayenta/influxdb/controller/InfluxDbFetchController.java:63: @RequestMapping(value = \"/query\", method = RequestMethod.POST)\n/kayenta-influxdb/src/main/java/com/netflix/kayenta/influxdb/controller/InfluxDbFetchController.java:65: public Map<String, String> queryMetrics("
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-newrelic-insights/src/main/java/com/netflix/kayenta/newrelic/controller/NewRelicFetchController.java"
+        },
+        "result_head": "/kayenta-newrelic-insights/src/main/java/com/netflix/kayenta/newrelic/controller/NewRelicFetchController.java:41: @RequestMapping(\"/fetch/newrelic\")\n/kayenta-newrelic-insights/src/main/java/com/netflix/kayenta/newrelic/controller/NewRelicFetchController.java:43: public class NewRelicFetchController {\n/kayenta-newrelic-insights/src/main/java/com/netflix/kayenta/newrelic/controller/NewRelicFetchController.java:51: public NewRelicFetchController(\n/kayenta-newrelic-insights/src/main/java/com/netflix/kayenta/newrelic/controller/NewRelicFetchController.java:62: @RequestMapping(value = \"/query\", method = RequestMethod.POST)\n/kayenta-newrelic-insights/src/main/java/com/netflix/kayenta/newrelic/controller/NewRelicFetchController.java:63: public Map queryMetrics("
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java"
+        },
+        "result_head": "/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java:36: @RequestMapping(\"/admin/orca\")\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java:37: public class AdminController {\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java:42: public AdminController(ApplicationEventPublisher publisher) {\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java:46: @RequestMapping(\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java:47: value = \"/instance/enabled\",\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java:49: method = RequestMethod.POST)\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java:50: void setInstanceEnabled(@RequestBody Map<String, Boolean> enabledWrapper) {\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java:60: priva"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java"
+        },
+        "result_head": "/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java:52: @RequestMapping(\"/pipelines\")\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java:54: public class PipelineController {\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java:64: public PipelineController(\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java:85: void startOrcaQueueProcessing() {\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java:104: @RequestMapping(value = \"/start\", method = RequestMethod.POST)\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java:105: String start(@RequestBody Map map) throws Exception {\n/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java:110: @RequestMapping(value = \"/{executionId}\", method = RequestMethod.GET)\n/kayenta-orca/src/main/java/com/ne"
+      },
+      {
+        "step": 12,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-prometheus/src/main/java/com/netflix/kayenta/prometheus/controllers/PrometheusFetchController.java"
+        },
+        "result_head": "/kayenta-prometheus/src/main/java/com/netflix/kayenta/prometheus/controllers/PrometheusFetchController.java:43: @RequestMapping(\"/fetch/prometheus\")\n/kayenta-prometheus/src/main/java/com/netflix/kayenta/prometheus/controllers/PrometheusFetchController.java:45: public class PrometheusFetchController {\n/kayenta-prometheus/src/main/java/com/netflix/kayenta/prometheus/controllers/PrometheusFetchController.java:53: public PrometheusFetchController(\n/kayenta-prometheus/src/main/java/com/netflix/kayenta/prometheus/controllers/PrometheusFetchController.java:64: @RequestMapping(value = \"/query\", method = RequestMethod.POST)\n/kayenta-prometheus/src/main/java/com/netflix/kayenta/prometheus/controllers/PrometheusFetchController.java:66: public Map queryMetrics("
+      },
+      {
+        "step": 13,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-stackdriver/src/main/java/com/netflix/kayenta/stackdriver/controllers/StackdriverFetchController.java"
+        },
+        "result_head": "/kayenta-stackdriver/src/main/java/com/netflix/kayenta/stackdriver/controllers/StackdriverFetchController.java:47: @RequestMapping(\"/fetch/stackdriver\")\n/kayenta-stackdriver/src/main/java/com/netflix/kayenta/stackdriver/controllers/StackdriverFetchController.java:49: public class StackdriverFetchController {\n/kayenta-stackdriver/src/main/java/com/netflix/kayenta/stackdriver/controllers/StackdriverFetchController.java:57: public StackdriverFetchController(\n/kayenta-stackdriver/src/main/java/com/netflix/kayenta/stackdriver/controllers/StackdriverFetchController.java:71: @RequestMapping(value = \"/query\", method = RequestMethod.POST)\n/kayenta-stackdriver/src/main/java/com/netflix/kayenta/stackdriver/controllers/StackdriverFetchController.java:73: public Map queryMetrics("
+      },
+      {
+        "step": 14,
+        "tool": "record",
+        "args": {
+          "services": "[{'name': 'kayenta', 'dirs': ['/']}]",
+          "files": "[{'path': '/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java', 'service': 'kayenta', 'endpoints': [{'className': 'AtlasFetchController', 'methodName': 'query"
+        },
+        "result_head": "Recorded 15 new: service kayenta, POST /fetch/atlas/query, POST /fetch/clickhouse/query, POST /fetch/datadog/query, POST /fetch/graphite/query, POST /fetch/influxdb/query, POST /fetch/newrelic/query, POST /admin/orca/instance/enabled, POST /pipelines/start, GET /pipelines/{executionId}, PUT /pipelines/{executionId}/cancel, DELETE /pipelines/{executionId}, GET /pipelines, POST /fetch/prometheus/query, POST /fetch/stackdriver/query\nTotal: 1 services, 14 endpoints in 10 files."
+      },
+      {
+        "step": 15,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java"
+        },
+        "result_head": "/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java:52: value =\n/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java:54: @RequestMapping(\"/standalone_canary_analysis\")\n/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java:56: public class StandaloneCanaryAnalysisController {\n/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java:65: public StandaloneCanaryAnalysisController(\n/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java:93: @RequestMapping(value = \"/{canaryConfigId:.+}\", consumes = \"application/json\", method = POST)\n/kayenta"
+      },
+      {
+        "step": 16,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-wavefront/src/main/java/com/netflix/kayenta/wavefront/controller/WavefrontFetchController.java"
+        },
+        "result_head": "/kayenta-wavefront/src/main/java/com/netflix/kayenta/wavefront/controller/WavefrontFetchController.java:36: @RequestMapping(\"/fetch/wavefront\")\n/kayenta-wavefront/src/main/java/com/netflix/kayenta/wavefront/controller/WavefrontFetchController.java:38: public class WavefrontFetchController {\n/kayenta-wavefront/src/main/java/com/netflix/kayenta/wavefront/controller/WavefrontFetchController.java:44: public WavefrontFetchController(\n/kayenta-wavefront/src/main/java/com/netflix/kayenta/wavefront/controller/WavefrontFetchController.java:51: @RequestMapping(value = \"/query\", method = RequestMethod.POST)\n/kayenta-wavefront/src/main/java/com/netflix/kayenta/wavefront/controller/WavefrontFetchController.java:53: public Map queryMetrics(\n/kayenta-wavefront/src/main/java/com/netflix/kayenta/wavefront/controller/WavefrontFetchController.java:64: value = \"[MEAN, MEDIAN, MIN, MAX, SUM, COUNT, FIRST, LAST]\")"
+      },
+      {
+        "step": 17,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java"
+        },
+        "result_head": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java:55: @RequestMapping(\"/canaryConfig\")\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java:57: public class CanaryConfigController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java:66: public CanaryConfigController(\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java:77: @RequestMapping(value = \"/{canaryConfigId:.+}\", method = RequestMethod.GET)\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java:78: public CanaryConfig loadCanaryConfig(\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java:96: @RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java:97: public CanaryConfigUpdateResponse storeCanaryConfig(\n/kayenta-web/src/m"
+      },
+      {
+        "step": 18,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java', 'service': 'kayenta', 'endpoints': [{'cla"
+        },
+        "result_head": "Recorded 9 new: POST /standalone_canary_analysis/{canaryConfigId:.+}, POST /standalone_canary_analysis, GET /standalone_canary_analysis/{canaryAnalysisExecutionId:.+}, POST /fetch/wavefront/query, GET /canaryConfig/{canaryConfigId:.+}, POST /canaryConfig, PUT /canaryConfig/{canaryConfigId:.+}, DELETE /canaryConfig/{canaryConfigId:.+}, GET /canaryConfig\nTotal: 1 services, 23 endpoints in 13 files."
+      },
+      {
+        "step": 19,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java"
+        },
+        "result_head": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java:42: @RequestMapping(\"/canary\")\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java:44: public class CanaryController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java:54: public CanaryController(\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java:70: @RequestMapping(\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java:71: value = \"/{canaryConfigId:.+}\",\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java:73: method = RequestMethod.POST)\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java:74: public CanaryExecutionResponse initiateCanary(\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java:118: @RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)\n/kayenta-web/src/main/java/com/net"
+      },
+      {
+        "step": 20,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java"
+        },
+        "result_head": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java:54: @RequestMapping(\"/judges\")\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java:55: public class CanaryJudgesController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java:64: public CanaryJudgesController(\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java:78: @GetMapping\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java:79: List<CanaryJudge> list() {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java:86: @PostMapping(value = \"/judge\")\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java:87: public CanaryJudgeResult judge(\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java:145: @PostMapping(value = \"/comparison\")\n/kayenta-web/src/main/java/com/netfli"
+      },
+      {
+        "step": 21,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryResultArchiveController.java"
+        },
+        "result_head": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryResultArchiveController.java:40: @RequestMapping(\"/canaryResultArchive\")\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryResultArchiveController.java:46: public class CanaryResultArchiveController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryResultArchiveController.java:52: public CanaryResultArchiveController(\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryResultArchiveController.java:60: @RequestMapping(value = \"/{pipelineId:.+}\", method = RequestMethod.GET)\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryResultArchiveController.java:61: public CanaryExecutionStatusResponse loadArchivedCanaryResult(\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryResultArchiveController.java:72: @RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryResultArchive"
+      },
+      {
+        "step": 22,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CredentialsController.java"
+        },
+        "result_head": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CredentialsController.java:27: @RequestMapping(\"/credentials\")\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CredentialsController.java:28: public class CredentialsController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CredentialsController.java:33: public CredentialsController(AccountCredentialsRepository accountCredentialsRepository) {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CredentialsController.java:38: @RequestMapping(method = RequestMethod.GET)\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CredentialsController.java:39: Set<? extends AccountCredentials> list() {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CredentialsController.java:43: @DeleteMapping(\"/{accountName}\")\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CredentialsController.java:44: public void deleteAccount(@PathVariable String accountName) {"
+      },
+      {
+        "step": 23,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java', 'service': 'kayenta', 'endpoints': [{'className': 'CanaryController', 'methodName': 'initiateCanary', 'htt"
+        },
+        "result_head": "Recorded 15 new: POST /canary/{canaryConfigId:.+}, POST /canary, GET /canary/{canaryExecutionId:.+}, GET /canary/executions, GET /judges, POST /judges/judge, POST /judges/comparison, GET /judges/comparison/{executionId:.+}, GET /canaryResultArchive/{pipelineId:.+}, POST /canaryResultArchive, PUT /canaryResultArchive/{pipelineId:.+}, DELETE /canaryResultArchive/{pipelineId:.+}, GET /canaryResultArchive, GET /credentials, DELETE /credentials/{accountName}\nTotal: 1 services, 38 endpoints in 17 files."
+      },
+      {
+        "step": 24,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetListController.java"
+        },
+        "result_head": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetListController.java:38: @RequestMapping(\"/metricSetList\")\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetListController.java:40: public class MetricSetListController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetListController.java:46: public MetricSetListController(\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetListController.java:54: @RequestMapping(value = \"/{metricSetListId:.+}\", method = RequestMethod.GET)\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetListController.java:55: public List<MetricSet> loadMetricSetList(\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetListController.java:69: @RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetListController.java:70: public Map storeMetricSetList(\n/kayenta-web/src/main/jav"
+      },
+      {
+        "step": 25,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetPairListController.java"
+        },
+        "result_head": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetPairListController.java:39: @RequestMapping(\"/metricSetPairList\")\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetPairListController.java:41: public class MetricSetPairListController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetPairListController.java:46: public MetricSetPairListController(MetricSetPairListService metricSetPairListService) {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetPairListController.java:51: @RequestMapping(value = \"/{metricSetPairListId:.+}\", method = RequestMethod.GET)\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetPairListController.java:52: public List<MetricSetPair> loadMetricSetPairList(\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetPairListController.java:60: @RequestMapping(\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetPairListController.java:61: value = \"/{"
+      },
+      {
+        "step": 26,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServiceMetadataController.java"
+        },
+        "result_head": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServiceMetadataController.java:36: @RequestMapping(\"/metadata/metricsService\")\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServiceMetadataController.java:38: public class MetricsServiceMetadataController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServiceMetadataController.java:44: public MetricsServiceMetadataController(\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServiceMetadataController.java:52: @RequestMapping(method = RequestMethod.GET)\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServiceMetadataController.java:53: public List<Map> listMetadata("
+      },
+      {
+        "step": 27,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServicesController.java"
+        },
+        "result_head": "/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServicesController.java:33: @RequestMapping(\"/metricsServices\")\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServicesController.java:34: public class MetricsServicesController {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServicesController.java:39: public MetricsServicesController(AccountCredentialsRepository accountCredentialsRepository) {\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServicesController.java:44: @RequestMapping(method = RequestMethod.GET)\n/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServicesController.java:45: List<MetricsServiceDetail> list() {"
+      },
+      {
+        "step": 28,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetListController.java', 'service': 'kayenta', 'endpoints': [{'className': 'MetricSetListController', 'methodName': 'loadMet"
+        },
+        "result_head": "Recorded 11 new: GET /metricSetList/{metricSetListId:.+}, POST /metricSetList, DELETE /metricSetList/{metricSetListId:.+}, GET /metricSetList, GET /metricSetPairList/{metricSetPairListId:.+}, GET /metricSetPairList/{metricSetPairListId:.+}/{metricSetPairId:.+}, POST /metricSetPairList, DELETE /metricSetPairList/{metricSetPairListId:.+}, GET /metricSetPairList, GET /metadata/metricsService, GET /metricsServices\nTotal: 1 services, 49 endpoints in 21 files."
+      },
+      {
+        "step": 29,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/kayenta-signalfx"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 30,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/kayenta-sql"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 31,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/kayenta-core"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 32,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/kayenta-aws"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 33,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/kayenta-azure"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 34,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/kayenta-blobs"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 35,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/kayenta-gcs"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 36,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/kayenta-google"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 37,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/kayenta-judge"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 38,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/kayenta-mannwhitney"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 39,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/kayenta-objectstore-configbin"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 40,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/kayenta-objectstore-memory"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 41,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/kayenta-s3"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 42,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/scratch"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 43,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/kayenta-integration"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 44,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/kayenta-web/src/main/java/com/netflix/kayenta/config"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 45,
+        "tool": "list_dir",
+        "args": {
+          "path": "/scratch"
+        },
+        "result_head": "atlas_canary_config.json\natlas_pipeline.json\nnewrelic_adhoc_canary.json\nnewrelic_canary_config.json\nprometheus_canary_config.json\nstackdriver_canary_config.json\nstackdriver_pipeline.json"
+      },
+      {
+        "step": 46,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 1 services, 49 endpoints."
+      }
+    ]
+  }
+}

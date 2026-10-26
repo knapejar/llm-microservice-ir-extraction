@@ -42,8 +42,8 @@ microservice endpoints with CIMET. Code: <a href="https://github.com/knapejar/ll
 <li><b>DeepSeek-V4.1-Flash</b> and <b>GLM-5.3-Flash</b>: the agent of experiment 02 (<code>agent_extract.py</code>, tag
 <code>agent-2026-10-26</code>). The model explores one service with read-only tools and records endpoints;
 each entry must cite the line of its route declaration verbatim, or it is rejected.</li>
-<li><b>Opus 5.5</b>: the same task prompt, tools and validation (<code>agent_cli.py</code>), with the model
-driving the loop itself instead of being called over an API.</li>
+<li><b>Opus 5.5</b> (medium effort): the same task prompt, tools and validation (<code>agent_cli.py</code>),
+with the model driving the loop itself instead of being called over an API.</li>
 <li><b>CIMET</b>: the main branch of the extraction library, run on the whole repository. It detects three
 microservices (kayenta, echo-web, spin), so the other services have no CIMET output. An extended CIMET build,
 not public yet, reports 894 endpoints for Spinnaker; its per-endpoint output is not included.</li>
@@ -51,6 +51,10 @@ not public yet, reports 894 endpoints for Spinnaker; its per-endpoint output is 
 <p>An endpoint is a service, a verb and a route with placeholders reduced to <code>{}</code>. <code>ANY</code>
 is a mapping without a method. Rows where the extractors that ran on the service disagree are highlighted;
 the disagreements were checked by hand against the source, and the review column gives the verdict.</p>
+<p>The endpoints every finished run found, plus the confirmed disagreements, form a <b>draft ground truth</b>
+(<code>spinnaker.gt.json</code>). The <a href="../viewer/#spinnaker">endpoint IR viewer</a> scores every source
+against it at four matching levels (M1 exact to M4 handler) and compares any two sources entry by entry. The
+agreed part was not read line by line, so the draft favours the models that agree with each other.</p>
 
 <h2>Endpoints per service</h2>
 <div class="wrap"><table id="summary"></table></div>

@@ -1,0 +1,1414 @@
+{
+  "system": "spinnaker-front50",
+  "services": [
+    {
+      "name": "front50",
+      "dirs": [
+        "/"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "AdminController",
+          "methodName": "recover",
+          "httpMethod": "POST",
+          "path": "/admin/recover",
+          "line": 43,
+          "evidence": "@RequestMapping(value = \"/recover\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "DeliveryController",
+          "methodName": "getAllConfigs",
+          "httpMethod": "GET",
+          "path": "/deliveries",
+          "line": 29,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/deliveries\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DeliveryController",
+          "methodName": "getConfigByAppName",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/deliveries",
+          "line": 36,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/applications/{application}/deliveries\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DeliveryController",
+          "methodName": "getConfigById",
+          "httpMethod": "GET",
+          "path": "/deliveries/{id}",
+          "line": 43,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"deliveries/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DeliveryController",
+          "methodName": "createConfig",
+          "httpMethod": "POST",
+          "path": "/deliveries",
+          "line": 50,
+          "evidence": "@RequestMapping(method = RequestMethod.POST, value = \"/deliveries\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DeliveryController",
+          "methodName": "upsertConfig",
+          "httpMethod": "PUT",
+          "path": "/deliveries/{id}",
+          "line": 57,
+          "evidence": "@RequestMapping(method = RequestMethod.PUT, value = \"/deliveries/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DeliveryController",
+          "methodName": "deleteConfig",
+          "httpMethod": "DELETE",
+          "path": "/applications/{application}/deliveries/{id}",
+          "line": 75,
+          "evidence": "@RequestMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "NotificationController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/notifications",
+          "line": 33,
+          "evidence": "@RequestMapping(value = \"\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "NotificationController",
+          "methodName": "getGlobal",
+          "httpMethod": "GET",
+          "path": "/notifications/global",
+          "line": 38,
+          "evidence": "@RequestMapping(value = \"global\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "NotificationController",
+          "methodName": "saveGlobal",
+          "httpMethod": "POST",
+          "path": "/notifications/global",
+          "line": 43,
+          "evidence": "@RequestMapping(value = \"global\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "NotificationController",
+          "methodName": "listByApplication",
+          "httpMethod": "GET",
+          "path": "/notifications/{type}/{name}",
+          "line": 49,
+          "evidence": "@RequestMapping(value = \"{type}/{name}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "NotificationController",
+          "methodName": "batchUpdate",
+          "httpMethod": "POST",
+          "path": "/notifications/batchUpdate",
+          "line": 74,
+          "evidence": "@RequestMapping(value = \"batchUpdate\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "NotificationController",
+          "methodName": "save",
+          "httpMethod": "POST",
+          "path": "/notifications/{type}/{name}",
+          "line": 89,
+          "evidence": "@RequestMapping(value = \"{type}/{name}\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "NotificationController",
+          "methodName": "delete",
+          "httpMethod": "DELETE",
+          "path": "/notifications/{type}/{name}",
+          "line": 101,
+          "evidence": "@RequestMapping(value = \"{type}/{name}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "PermissionsController",
+          "methodName": "getAllApplicationPermissions",
+          "httpMethod": "GET",
+          "path": "/permissions/applications",
+          "line": 20,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/applications\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PermissionsController",
+          "methodName": "getApplicationPermission",
+          "httpMethod": "GET",
+          "path": "/permissions/applications/{appName:.+}",
+          "line": 25,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/applications/{appName:.+}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PermissionsController",
+          "methodName": "createApplicationPermission",
+          "httpMethod": "POST",
+          "path": "/permissions/applications",
+          "line": 31,
+          "evidence": "@RequestMapping(method = RequestMethod.POST, value = \"/applications\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PermissionsController",
+          "methodName": "updateApplicationPermission",
+          "httpMethod": "PUT",
+          "path": "/permissions/applications/{appName:.+}",
+          "line": 37,
+          "evidence": "@RequestMapping(method = RequestMethod.PUT, value = \"/applications/{appName:.+}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PermissionsController",
+          "methodName": "deleteApplicationPermission",
+          "httpMethod": "DELETE",
+          "path": "/permissions/applications/{appName:.+}",
+          "line": 43,
+          "evidence": "@RequestMapping(method = RequestMethod.DELETE, value = \"/applications/{appName:.+}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "PipelineController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/pipelines",
+          "line": 109,
+          "evidence": "@RequestMapping(value = \"\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "getTriggeredPipelines",
+          "httpMethod": "GET",
+          "path": "/pipelines/triggeredBy/{id:.+}/{status}",
+          "line": 164,
+          "evidence": "@RequestMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "listByApplication",
+          "httpMethod": "GET",
+          "path": "/pipelines/{application:.+}",
+          "line": 203,
+          "evidence": "@RequestMapping(value = \"{application:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "getHistory",
+          "httpMethod": "GET",
+          "path": "/pipelines/{id:.+}/history",
+          "line": 275,
+          "evidence": "@RequestMapping(value = \"{id:.+}/history\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/pipelines/{id:.+}/get",
+          "line": 283,
+          "evidence": "@RequestMapping(value = \"{id:.+}/get\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "getByApplicationAndName",
+          "httpMethod": "GET",
+          "path": "/pipelines/{application:.+}/name/{name:.+}",
+          "line": 290,
+          "evidence": "@RequestMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "save",
+          "httpMethod": "POST",
+          "path": "/pipelines",
+          "line": 304,
+          "evidence": "@RequestMapping(value = \"\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "batchUpdate",
+          "httpMethod": "POST",
+          "path": "/pipelines/batchUpdate",
+          "line": 336,
+          "evidence": "@RequestMapping(value = \"batchUpdate\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "delete",
+          "httpMethod": "DELETE",
+          "path": "/pipelines/{application}/{pipeline:.+}",
+          "line": 403,
+          "evidence": "@RequestMapping(value = \"{application}/{pipeline:.+}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineController",
+          "methodName": "update",
+          "httpMethod": "PUT",
+          "path": "/pipelines/{id}",
+          "line": 423,
+          "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "PipelineTemplateController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/pipelineTemplates",
+          "line": 60,
+          "evidence": "@RequestMapping(value = \"\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineTemplateController",
+          "methodName": "save",
+          "httpMethod": "POST",
+          "path": "/pipelineTemplates",
+          "line": 66,
+          "evidence": "@RequestMapping(value = \"\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineTemplateController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/pipelineTemplates/{id}",
+          "line": 72,
+          "evidence": "@RequestMapping(value = \"{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineTemplateController",
+          "methodName": "update",
+          "httpMethod": "PUT",
+          "path": "/pipelineTemplates/{id}",
+          "line": 77,
+          "evidence": "@RequestMapping(value = \"{id}\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineTemplateController",
+          "methodName": "delete",
+          "httpMethod": "DELETE",
+          "path": "/pipelineTemplates/{id}",
+          "line": 94,
+          "evidence": "@RequestMapping(value = \"{id}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineTemplateController",
+          "methodName": "listDependentPipelines",
+          "httpMethod": "GET",
+          "path": "/pipelineTemplates/{id}/dependentPipelines",
+          "line": 101,
+          "evidence": "@RequestMapping(value = \"{id}/dependentPipelines\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "PluginBinaryController",
+          "methodName": "upload",
+          "httpMethod": "POST",
+          "path": "/pluginBinaries/{id}/{version}",
+          "line": 39,
+          "evidence": "@PostMapping(\"/{id}/{version}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PluginBinaryController",
+          "methodName": "getBinary",
+          "httpMethod": "GET",
+          "path": "/pluginBinaries/{id}/{version}",
+          "line": 51,
+          "evidence": "@GetMapping(\"/{id}/{version}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "PluginInfoController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/pluginInfo",
+          "line": 48,
+          "evidence": "@RequestMapping(value = \"\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PluginInfoController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/pluginInfo/{id}",
+          "line": 55,
+          "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PluginInfoController",
+          "methodName": "upsert",
+          "httpMethod": "POST",
+          "path": "/pluginInfo",
+          "line": 60,
+          "evidence": "@RequestMapping(value = \"\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PluginInfoController",
+          "methodName": "delete",
+          "httpMethod": "DELETE",
+          "path": "/pluginInfo/{id}",
+          "line": 66,
+          "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PluginInfoController",
+          "methodName": "createRelease",
+          "httpMethod": "POST",
+          "path": "/pluginInfo/{id}/releases",
+          "line": 72,
+          "evidence": "@RequestMapping(value = \"/{id}/releases\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PluginInfoController",
+          "methodName": "upsertRelease",
+          "httpMethod": "PUT",
+          "path": "/pluginInfo/{id}/releases",
+          "line": 79,
+          "evidence": "@RequestMapping(value = \"/{id}/releases\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PluginInfoController",
+          "methodName": "preferReleaseVersion",
+          "httpMethod": "PUT",
+          "path": "/pluginInfo/{id}/releases/{releaseVersion}",
+          "line": 86,
+          "evidence": "@RequestMapping(value = \"/{id}/releases/{releaseVersion}\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PluginInfoController",
+          "methodName": "deleteRelease",
+          "httpMethod": "DELETE",
+          "path": "/pluginInfo/{id}/releases/{releaseVersion}",
+          "line": 95,
+          "evidence": "@RequestMapping(value = \"/{id}/releases/{releaseVersion}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "PluginVersionController",
+          "methodName": "pinVersions",
+          "httpMethod": "PUT",
+          "path": "/pluginVersions/{serverGroupName}",
+          "line": 40,
+          "evidence": "@PutMapping(\"/{serverGroupName}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "ReorderPipelinesController",
+          "methodName": "reorderPipelines",
+          "httpMethod": "POST",
+          "path": "/actions/pipelines/reorder",
+          "line": 39,
+          "evidence": "@RequestMapping(value = \"/pipelines/reorder\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ReorderPipelinesController",
+          "methodName": "reorderPipelineStrategies",
+          "httpMethod": "POST",
+          "path": "/actions/strategies/reorder",
+          "line": 44,
+          "evidence": "@RequestMapping(value = \"/strategies/reorder\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "ServiceAccountsController",
+          "methodName": "getAllServiceAccounts",
+          "httpMethod": "GET",
+          "path": "/serviceAccounts",
+          "line": 46,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ServiceAccountsController",
+          "methodName": "getTokenEligibleServiceAccounts",
+          "httpMethod": "GET",
+          "path": "/serviceAccounts/tokenEligible",
+          "line": 57,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/tokenEligible\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ServiceAccountsController",
+          "methodName": "createServiceAccount",
+          "httpMethod": "POST",
+          "path": "/serviceAccounts",
+          "line": 71,
+          "evidence": "@RequestMapping(method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ServiceAccountsController",
+          "methodName": "deleteServiceAccount",
+          "httpMethod": "DELETE",
+          "path": "/serviceAccounts/{serviceAccountId:.+}",
+          "line": 76,
+          "evidence": "@RequestMapping(method = RequestMethod.DELETE, value = \"/{serviceAccountId:.+}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/SnapshotsController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "SnapshotsController",
+          "methodName": "getHistory",
+          "httpMethod": "GET",
+          "path": "/snapshots/{id:.+}/history",
+          "line": 49,
+          "evidence": "@RequestMapping(value = \"/{id:.+}/history\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "SnapshotsController",
+          "methodName": "getCurrent",
+          "httpMethod": "GET",
+          "path": "/snapshots/{id:.+}",
+          "line": 56,
+          "evidence": "@RequestMapping(value = \"/{id:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "SnapshotsController",
+          "methodName": "getVersionByTimestamp",
+          "httpMethod": "GET",
+          "path": "/snapshots/{id:.+}/{timestamp:.+}",
+          "line": 62,
+          "evidence": "@RequestMapping(value = \"/{id:.+}/{timestamp:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "SnapshotsController",
+          "methodName": "save",
+          "httpMethod": "POST",
+          "path": "/snapshots",
+          "line": 75,
+          "evidence": "@RequestMapping(value = \"\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/StrategyController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "StrategyController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/strategies",
+          "line": 43,
+          "evidence": "@RequestMapping(value = \"\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StrategyController",
+          "methodName": "listByApplication",
+          "httpMethod": "GET",
+          "path": "/strategies/{application:.+}",
+          "line": 49,
+          "evidence": "@RequestMapping(value = \"{application:.+}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StrategyController",
+          "methodName": "getHistory",
+          "httpMethod": "GET",
+          "path": "/strategies/{id:.+}/history",
+          "line": 56,
+          "evidence": "@RequestMapping(value = \"{id:.+}/history\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StrategyController",
+          "methodName": "save",
+          "httpMethod": "POST",
+          "path": "/strategies",
+          "line": 63,
+          "evidence": "@RequestMapping(value = \"\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StrategyController",
+          "methodName": "batchUpdate",
+          "httpMethod": "POST",
+          "path": "/strategies/batchUpdate",
+          "line": 80,
+          "evidence": "@RequestMapping(value = \"batchUpdate\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StrategyController",
+          "methodName": "delete",
+          "httpMethod": "DELETE",
+          "path": "/strategies/{application}/{strategy:.+}",
+          "line": 86,
+          "evidence": "@RequestMapping(value = \"{application}/{strategy:.+}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StrategyController",
+          "methodName": "update",
+          "httpMethod": "PUT",
+          "path": "/strategies/{id}",
+          "line": 96,
+          "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "V2PipelineTemplateController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/v2/pipelineTemplates",
+          "line": 73,
+          "evidence": "@RequestMapping(value = \"\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "V2PipelineTemplateController",
+          "methodName": "listVersions",
+          "httpMethod": "GET",
+          "path": "/v2/pipelineTemplates/versions",
+          "line": 80,
+          "evidence": "@RequestMapping(value = \"versions\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "V2PipelineTemplateController",
+          "methodName": "save",
+          "httpMethod": "POST",
+          "path": "/v2/pipelineTemplates",
+          "line": 88,
+          "evidence": "@RequestMapping(value = \"\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "V2PipelineTemplateController",
+          "methodName": "update",
+          "httpMethod": "PUT",
+          "path": "/v2/pipelineTemplates/{id}",
+          "line": 121,
+          "evidence": "@RequestMapping(value = \"{id}\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "V2PipelineTemplateController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/v2/pipelineTemplates/{id}",
+          "line": 148,
+          "evidence": "@RequestMapping(value = \"{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "V2PipelineTemplateController",
+          "methodName": "delete",
+          "httpMethod": "DELETE",
+          "path": "/v2/pipelineTemplates/{id}",
+          "line": 163,
+          "evidence": "@RequestMapping(value = \"{id}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "V2PipelineTemplateController",
+          "methodName": "listDependentPipelines",
+          "httpMethod": "GET",
+          "path": "/v2/pipelineTemplates/{id}/dependentPipelines",
+          "line": 175,
+          "evidence": "@RequestMapping(value = \"{id}/dependentPipelines\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "ApplicationsController",
+          "methodName": "applications",
+          "httpMethod": "GET",
+          "path": "/v2/applications",
+          "line": 70,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationsController",
+          "methodName": "create",
+          "httpMethod": "POST",
+          "path": "/v2/applications",
+          "line": 118,
+          "evidence": "@RequestMapping(method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationsController",
+          "methodName": "delete",
+          "httpMethod": "DELETE",
+          "path": "/v2/applications/{applicationName:.+}",
+          "line": 140,
+          "evidence": "@RequestMapping(method = RequestMethod.DELETE, value = \"/{applicationName:.+}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationsController",
+          "methodName": "update",
+          "httpMethod": "PATCH",
+          "path": "/v2/applications/{applicationName:.+}",
+          "line": 148,
+          "evidence": "@RequestMapping(method = RequestMethod.PATCH, value = \"/{applicationName:.+}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationsController",
+          "methodName": "replace",
+          "httpMethod": "PUT",
+          "path": "/v2/applications/{applicationName:.+}",
+          "line": 165,
+          "evidence": "@RequestMapping(method = RequestMethod.PUT, value = \"/{applicationName:.+}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationsController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/v2/applications/{applicationName:.+}",
+          "line": 180,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{applicationName:.+}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationsController",
+          "methodName": "getHistory",
+          "httpMethod": "GET",
+          "path": "/v2/applications/{applicationName:.+}/history",
+          "line": 200,
+          "evidence": "@RequestMapping(value = \"{applicationName:.+}/history\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationsController",
+          "methodName": "batchUpdate",
+          "httpMethod": "POST",
+          "path": "/v2/applications/batch/applications",
+          "line": 208,
+          "evidence": "@RequestMapping(method = RequestMethod.POST, value = \"/batch/applications\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/EntityTagsController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "EntityTagsController",
+          "methodName": "tags",
+          "httpMethod": "GET",
+          "path": "/v2/tags",
+          "line": 34,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "EntityTagsController",
+          "methodName": "tag",
+          "httpMethod": "GET",
+          "path": "/v2/tags/**",
+          "line": 67,
+          "evidence": "@RequestMapping(value = \"/**\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "EntityTagsController",
+          "methodName": "create",
+          "httpMethod": "POST",
+          "path": "/v2/tags",
+          "line": 78,
+          "evidence": "@RequestMapping(method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "EntityTagsController",
+          "methodName": "batchUpdate",
+          "httpMethod": "POST",
+          "path": "/v2/tags/batchUpdate",
+          "line": 85,
+          "evidence": "@RequestMapping(value = \"/batchUpdate\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "EntityTagsController",
+          "methodName": "batchDelete",
+          "httpMethod": "POST",
+          "path": "/v2/tags/batchDelete",
+          "line": 96,
+          "evidence": "@RequestMapping(value = \"/batchDelete\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "EntityTagsController",
+          "methodName": "delete",
+          "httpMethod": "DELETE",
+          "path": "/v2/tags/**",
+          "line": 104,
+          "evidence": "@RequestMapping(method = RequestMethod.DELETE, value = \"/**\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java",
+      "service": "front50",
+      "endpoints": [
+        {
+          "className": "ProjectsController",
+          "methodName": "search",
+          "httpMethod": "GET",
+          "path": "/v2/projects/search",
+          "line": 52,
+          "evidence": "@RequestMapping(value = \"/search\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ProjectsController",
+          "methodName": "projects",
+          "httpMethod": "GET",
+          "path": "/v2/projects",
+          "line": 71,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ProjectsController",
+          "methodName": "project",
+          "httpMethod": "GET",
+          "path": "/v2/projects/{projectId}",
+          "line": 82,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{projectId}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ProjectsController",
+          "methodName": "put",
+          "httpMethod": "PUT",
+          "path": "/v2/projects/{projectId}",
+          "line": 92,
+          "evidence": "@RequestMapping(method = RequestMethod.PUT, value = \"/{projectId}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ProjectsController",
+          "methodName": "create",
+          "httpMethod": "POST",
+          "path": "/v2/projects",
+          "line": 114,
+          "evidence": "@RequestMapping(method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ProjectsController",
+          "methodName": "delete",
+          "httpMethod": "DELETE",
+          "path": "/v2/projects/{projectId}",
+          "line": 206,
+          "evidence": "@RequestMapping(method = RequestMethod.DELETE, value = \"/{projectId}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ProjectsController",
+          "methodName": "batchUpdate",
+          "httpMethod": "POST",
+          "path": "/v2/projects/batchUpdate",
+          "line": 212,
+          "evidence": "@RequestMapping(method = RequestMethod.POST, value = \"/batchUpdate\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "opus-5.5",
+    "provider": "cli",
+    "workflow": "agent-cli",
+    "effort": "cli",
+    "temperature": null,
+    "native_tools": null,
+    "repo": "front50",
+    "commit": "d2eaa598c95d0a8e17736f2df61fa1fa9f738b53",
+    "dirty": false,
+    "accepted": true,
+    "steps": 42,
+    "tool_calls": 42,
+    "rejected_entries": 0,
+    "wall_seconds": 79.7,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".clog.toml\n.gcloudignore\n.gitignore\nAUTHORS\nDockerfile.compile\nDockerfile.slim\nDockerfile.ubuntu\nLICENSE.txt\nOWNERS.md\nREADME.md\nbuild.gradle\nfront50-api-tck/\nfront50-api/\nfront50-azure/\nfront50-bom/\nfront50-core/\nfront50-gcs/\nfront50-integration/\nfront50-migrations/\nfront50-oracle/\nfront50-redis/\nfront50-s3/\nfront50-sql-mysql/\nfront50-sql-postgres/\nfront50-sql/\nfront50-swift/\nfront50-test/\nfront50-web/\ngradle.properties\nhalconfig/\nsettings.gradle"
+      },
+      {
+        "step": 2,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller|static void main|fun main"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/Main.java:47: public static void main(String... args) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:30: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:16: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java:21: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java:9: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:74: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:47: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java:28: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoCo"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:31: @RequestMapping(\"/admin\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:33: public class AdminController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:38: public AdminController(Collection<AdminOperations> adminOperations) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:43: @RequestMapping(value = \"/recover\", method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:44: void recover(@RequestBody AdminOperations.Recover operation) {"
+      },
+      {
+        "step": 4,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:18: public class DeliveryController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:23: public DeliveryController(DeliveryRepository deliveryRepository) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:29: @RequestMapping(method = RequestMethod.GET, value = \"/deliveries\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:30: Collection<Delivery> getAllConfigs() {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:36: @RequestMapping(method = RequestMethod.GET, value = \"/applications/{application}/deliveries\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:37: Collection<Delivery> getConfigByAppName(@PathVariable String application) {\n/front50-web/src/main/java/com/netflix/sp"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java:22: @RequestMapping(\"notifications\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java:23: public class NotificationController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java:29: public NotificationController(NotificationDAO notificationDAO) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java:33: @RequestMapping(value = \"\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java:34: public Collection<Notification> list() {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java:38: @RequestMapping(value = \"global\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java:39"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java:10: @RequestMapping(\"/permissions\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java:11: public class PermissionsController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java:15: public PermissionsController(ApplicationPermissionsService permissionsService) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java:20: @RequestMapping(method = RequestMethod.GET, value = \"/applications\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java:21: public Set<Application.Permission> getAllApplicationPermissions() {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java:25: @RequestMapping(method = RequestMethod.GET, value = \"/applications/{appName:.+}\")\n/front50-web/src/main/java/com/"
+      },
+      {
+        "step": 7,
+        "tool": "record",
+        "args": {
+          "services": "[{'name': 'front50', 'dirs': ['/']}]",
+          "files": "[{'path': '/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java', 'service': 'front50', 'endpoints': [{'className': 'AdminController', 'methodName': 'recover', 'ht"
+        },
+        "result_head": "Recorded 20 new: service front50, POST /admin/recover, GET /deliveries, GET /applications/{application}/deliveries, GET /deliveries/{id}, POST /deliveries, PUT /deliveries/{id}, DELETE /applications/{application}/deliveries/{id}, GET /notifications, GET /notifications/global, POST /notifications/global, GET /notifications/{type}/{name}, POST /notifications/batchUpdate, POST /notifications/{type}/{name}, DELETE /notifications/{type}/{name}, GET /permissions/applications, GET /permissions/applications/{appName:.+}, POST /permissions/applications, PUT /permissions/applications/{appName:.+}, DELETE /permissions/applications/{appName:.+}\nTotal: 1 services, 19 endpoints in 4 files."
+      },
+      {
+        "step": 8,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^ +(method|value|path) *=",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:75: @RequestMapping(\"pipelines\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:109: @RequestMapping(value = \"\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:164: @RequestMapping(\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:165: value = {\"triggeredBy/{id:.+}/{status}\", \"triggeredBy/{id:.+}/{status}/\"},\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:166: method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:203: @RequestMapping(value = \"{application:.+}\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:275: @RequestMapping(value = \"{id:.+}/histo"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "pattern": "^  [^ @*/][^=;]*[(]",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:88: public PipelineController(\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:110: public Collection<Pipeline> list(\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:167: public Collection<Pipeline> getTriggeredPipelines(\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:204: public List<Pipeline> listByApplication(\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:238: private List<Pipeline> sortPipelines(List<Pipeline> pipelines, Integer pipelineLimit) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:276: public Collection<Pipeline> getHistory(\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:284: public Pipeline get(@PathVariable "
+      },
+      {
+        "step": 10,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java",
+          "start": "406"
+        },
+        "result_head": "406:     log.info(\n407:         \"Deleting pipeline \\\"{}\\\" with id {} in application {}\", pipeline, pipelineId, application);\n408:     pipelineDAO.delete(pipelineId);\n409: \n410:     serviceAccountsService.ifPresent(\n411:         accountsService ->\n412:             accountsService.deleteManagedServiceAccounts(Collections.singletonList(pipelineId)));\n413:   }\n414: \n415:   public void delete(@PathVariable String id) {\n416:     pipelineDAO.delete(id);\n417:     serviceAccountsService.ifPresent(\n418:         accountsService ->\n419:             accountsService.deleteManagedServiceAccounts(Collections.singletonList(id)));\n420:   }\n421: \n422:   @PreAuthorize(\"hasPermission(#pipeline.application, 'APPLICATION', 'WRITE')\")\n423:   @RequestMapping(value = \"/{id}\", method = RequestMethod.PUT)\n424:   public Pipeline update(\n425:       @PathVariable final String id,\n426:       @RequestParam(value = \"staleCheck\", required = false, defaultValue = \"false\")\n427:           Boolean staleCheck,\n428:       @Re"
+      },
+      {
+        "step": 11,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java', 'service': 'front50', 'endpoints': [{'className': 'PipelineController', 'methodName': 'list', "
+        },
+        "result_head": "Recorded 10 new: GET /pipelines, GET /pipelines/triggeredBy/{id:.+}/{status}, GET /pipelines/{application:.+}, GET /pipelines/{id:.+}/history, GET /pipelines/{id:.+}/get, GET /pipelines/{application:.+}/name/{name:.+}, POST /pipelines, POST /pipelines/batchUpdate, DELETE /pipelines/{application}/{pipeline:.+}, PUT /pipelines/{id}\nTotal: 1 services, 29 endpoints in 5 files."
+      },
+      {
+        "step": 12,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:48: @RequestMapping(\"pipelineTemplates\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:49: public class PipelineTemplateController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:60: @RequestMapping(value = \"\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:61: List<PipelineTemplate> list(\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:66: @RequestMapping(value = \"\", method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:67: void save(@RequestBody PipelineTemplate pipelineTemplate) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateCont"
+      },
+      {
+        "step": 13,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java:29: @RequestMapping(\"/pluginBinaries\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java:30: public class PluginBinaryController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java:34: public PluginBinaryController(Optional<PluginBinaryStorageService> pluginBinaryStorageService) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java:39: @PostMapping(\"/{id}/{version}\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java:41: void upload(\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java:51: @GetMapping(\"/{id}/{version}\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java:52: ResponseEntity<byte[]> getBinary(@PathVariable "
+      },
+      {
+        "step": 14,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java:37: @RequestMapping(\"/pluginInfo\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java:40: public class PluginInfoController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java:44: public PluginInfoController(PluginInfoService pluginInfoService) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java:48: @RequestMapping(value = \"\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java:49: Collection<PluginInfo> list(@RequestParam(value = \"service\", required = false) String service) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java:55: @RequestMapping(value = \"/{id}\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/c"
+      },
+      {
+        "step": 15,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java', 'service': 'front50', 'endpoints': [{'className': 'PipelineTemplateController', 'metho"
+        },
+        "result_head": "Recorded 16 new: GET /pipelineTemplates, POST /pipelineTemplates, GET /pipelineTemplates/{id}, PUT /pipelineTemplates/{id}, DELETE /pipelineTemplates/{id}, GET /pipelineTemplates/{id}/dependentPipelines, POST /pluginBinaries/{id}/{version}, GET /pluginBinaries/{id}/{version}, GET /pluginInfo, GET /pluginInfo/{id}, POST /pluginInfo, DELETE /pluginInfo/{id}, POST /pluginInfo/{id}/releases, PUT /pluginInfo/{id}/releases, PUT /pluginInfo/{id}/releases/{releaseVersion}, DELETE /pluginInfo/{id}/releases/{releaseVersion}\nTotal: 1 services, 45 endpoints in 8 files."
+      },
+      {
+        "step": 16,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java:30: @RequestMapping(\"/pluginVersions\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java:32: public class PluginVersionController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java:36: public PluginVersionController(PluginVersionPinningService pluginVersionPinningService) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java:40: @PutMapping(\"/{serverGroupName}\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java:41: Map<String, PluginInfo.Release> pinVersions("
+      },
+      {
+        "step": 17,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java:31: @RequestMapping(\"actions\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java:32: class ReorderPipelinesController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java:39: @RequestMapping(value = \"/pipelines/reorder\", method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java:40: void reorderPipelines(@RequestBody Map<String, Object> requestBody) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java:44: @RequestMapping(value = \"/strategies/reorder\", method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java:45: void reorderPipelineStrategies(@RequestBody Map<String, Object> requestBody) {\n/front50"
+      },
+      {
+        "step": 18,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.java:32: @RequestMapping(\"/serviceAccounts\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.java:34: public class ServiceAccountsController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.java:39: public ServiceAccountsController(\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.java:46: @RequestMapping(method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.java:47: public Set<ServiceAccount> getAllServiceAccounts() {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.java:57: @RequestMapping(method = RequestMethod.GET, value = \"/tokenEligible\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.jav"
+      },
+      {
+        "step": 19,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/SnapshotsController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/SnapshotsController.java:37: @RequestMapping(\"/snapshots\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/SnapshotsController.java:39: public class SnapshotsController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/SnapshotsController.java:43: public SnapshotsController(SnapshotDAO snapshotDAO) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/SnapshotsController.java:49: @RequestMapping(value = \"/{id:.+}/history\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/SnapshotsController.java:50: public Collection<Snapshot> getHistory(\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/SnapshotsController.java:56: @RequestMapping(value = \"/{id:.+}\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/SnapshotsController.java:57: public Snapshot get"
+      },
+      {
+        "step": 20,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/StrategyController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/StrategyController.java:32: @RequestMapping(\"strategies\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/StrategyController.java:33: public class StrategyController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/StrategyController.java:37: public StrategyController(PipelineStrategyDAO pipelineStrategyDAO) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/StrategyController.java:43: @RequestMapping(value = \"\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/StrategyController.java:44: public Collection<Pipeline> list() {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/StrategyController.java:49: @RequestMapping(value = \"{application:.+}\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/StrategyController.java:50: public Collection<Pipel"
+      },
+      {
+        "step": 21,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java', 'service': 'front50', 'endpoints': [{'className': 'PluginVersionController', 'methodName'"
+        },
+        "result_head": "Recorded 18 new: PUT /pluginVersions/{serverGroupName}, POST /actions/pipelines/reorder, POST /actions/strategies/reorder, GET /serviceAccounts, GET /serviceAccounts/tokenEligible, POST /serviceAccounts, DELETE /serviceAccounts/{serviceAccountId:.+}, GET /snapshots/{id:.+}/history, GET /snapshots/{id:.+}, GET /snapshots/{id:.+}/{timestamp:.+}, POST /snapshots, GET /strategies, GET /strategies/{application:.+}, GET /strategies/{id:.+}/history, POST /strategies, POST /strategies/batchUpdate, DELETE /strategies/{application}/{strategy:.+}, PUT /strategies/{id}\nTotal: 1 services, 63 endpoints in 13 files."
+      },
+      {
+        "step": 22,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:57: @RequestMapping(\"/v2/pipelineTemplates\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:59: public class V2PipelineTemplateController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:73: @RequestMapping(value = \"\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:74: List<PipelineTemplate> list(\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:80: @RequestMapping(value = \"versions\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:81: Map<String, List<PipelineTemplate>> listVersions(\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2Pip"
+      },
+      {
+        "step": 23,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:33: @RequestMapping(\"/v2/applications\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:35: public class ApplicationsController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:47: public ApplicationsController(\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:70: @RequestMapping(method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:71: public List<Application> applications(\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:118: @RequestMapping(method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:119: public Application create(@RequestBod"
+      },
+      {
+        "step": 24,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java', 'service': 'front50', 'endpoints': [{'className': 'V2PipelineTemplateController', 'm"
+        },
+        "result_head": "Recorded 21 new: GET /v2/pipelineTemplates, GET /v2/pipelineTemplates/versions, POST /v2/pipelineTemplates, PUT /v2/pipelineTemplates/{id}, GET /v2/pipelineTemplates/{id}, DELETE /v2/pipelineTemplates/{id}, GET /v2/pipelineTemplates/{id}/dependentPipelines, GET /v2/applications, POST /v2/applications, DELETE /v2/applications/{applicationName:.+}, PATCH /v2/applications/{applicationName:.+}, PUT /v2/applications/{applicationName:.+}, GET /v2/applications/{applicationName:.+}, GET /v2/applications/{applicationName:.+}/history, POST /v2/applications/batch/applications, GET /v2/tags, GET /v2/tags/**, POST /v2/tags, POST /v2/tags/batchUpdate, POST /v2/tags/batchDelete, DELETE /v2/tags/**\nTotal: 1 services, 84 endpoints in 16 files."
+      },
+      {
+        "step": 25,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  [^ @*/][^=;]*[(]|^ +(method|value|path) *=|^(public |open |abstract )*(class|interface)",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java:40: @RequestMapping(value = \"/v2/projects\", produces = MediaType.APPLICATION_JSON_VALUE)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java:42: public class ProjectsController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java:48: public ProjectsController(ProjectDAO projectDAO) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java:52: @RequestMapping(value = \"/search\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java:57: public Set<Project> search(@RequestParam(\"q\") final String query) {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java:71: @RequestMapping(method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front5"
+      },
+      {
+        "step": 26,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java', 'service': 'front50', 'endpoints': [{'className': 'ProjectsController', 'methodName': 'sear"
+        },
+        "result_head": "Recorded 7 new: GET /v2/projects/search, GET /v2/projects, GET /v2/projects/{projectId}, PUT /v2/projects/{projectId}, POST /v2/projects, DELETE /v2/projects/{projectId}, POST /v2/projects/batchUpdate\nTotal: 1 services, 91 endpoints in 17 files."
+      },
+      {
+        "step": 27,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestControllerEndpoint"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:31: @RequestMapping(\"/admin\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:43: @RequestMapping(value = \"/recover\", method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:29: @RequestMapping(method = RequestMethod.GET, value = \"/deliveries\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:36: @RequestMapping(method = RequestMethod.GET, value = \"/applications/{application}/deliveries\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:43: @RequestMapping(method = RequestMethod.GET, value = \"deliveries/{id}\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:50: @RequestMapping(method = RequestMethod.POST, value = \"/deliveries\")\n/front50-web/src/main/java/com/ne"
+      },
+      {
+        "step": 28,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestControllerEndpoint|@RestController",
+          "path": "/front50-api"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 29,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestControllerEndpoint|@RestController",
+          "path": "/front50-azure"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 30,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestControllerEndpoint|@RestController",
+          "path": "/front50-core"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 31,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestControllerEndpoint|@RestController",
+          "path": "/front50-gcs"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 32,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestControllerEndpoint|@RestController",
+          "path": "/front50-migrations"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 33,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestControllerEndpoint|@RestController",
+          "path": "/front50-oracle"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 34,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestControllerEndpoint|@RestController",
+          "path": "/front50-redis"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 35,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestControllerEndpoint|@RestController",
+          "path": "/front50-s3"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 36,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestControllerEndpoint|@RestController",
+          "path": "/front50-sql"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 37,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestControllerEndpoint|@RestController",
+          "path": "/front50-swift"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 38,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestControllerEndpoint|@RestController",
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/config"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 39,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestControllerEndpoint|@RestController",
+          "path": "/front50-web/src/main/groovy"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 40,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestControllerEndpoint|@RestController",
+          "path": "/front50-web/src/main/kotlin"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 41,
+        "tool": "list_dir",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50"
+        },
+        "result_head": "ItemDAOHealthIndicator.java\nMain.java\nconfig/\ncontrollers/\nexceptions/\nfilters/"
+      },
+      {
+        "step": 42,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 1 services, 91 endpoints."
+      }
+    ]
+  }
+}

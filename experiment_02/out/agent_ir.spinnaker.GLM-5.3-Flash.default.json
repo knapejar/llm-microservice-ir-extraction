@@ -1,0 +1,5247 @@
+{
+ "system": "spinnaker",
+ "files": [
+  {
+   "path": "gate/gate-web/src/main/groovy/com/netflix/spinnaker/gate/controllers/ApplicationController.groovy",
+   "service": "gate-web",
+   "endpoints": [
+    {
+     "className": "ApplicationController",
+     "methodName": "getAllApplications",
+     "httpMethod": "GET",
+     "path": "/applications",
+     "line": 65,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "getApplication",
+     "httpMethod": "GET",
+     "path": "/applications/{application}",
+     "line": 88,
+     "evidence": "@RequestMapping(value = \"/{application:.+}\", method = RequestMethod.GET)",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "getApplicationHistory",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/history",
+     "line": 102,
+     "evidence": "@RequestMapping(value = \"/{application}/history\", method = RequestMethod.GET)",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "getTasks",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/tasks",
+     "line": 109,
+     "evidence": "@RequestMapping(value = \"/{application}/tasks\", method = RequestMethod.GET)",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "getPipelines",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/pipelines",
+     "line": 118,
+     "evidence": "@RequestMapping(value = \"/{application}/pipelines\", method = RequestMethod.GET)",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "cancelPipeline",
+     "httpMethod": "PUT",
+     "path": "/applications/{application}/pipelines/{id}/cancel",
+     "line": 135,
+     "evidence": "@RequestMapping(value = \"/{application}/pipelines/{id}/cancel\", method = RequestMethod.PUT)",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "getPipelineConfigsForApplication",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/pipelineConfigs",
+     "line": 142,
+     "evidence": "@RequestMapping(value = \"/{application}/pipelineConfigs\", method = RequestMethod.GET)",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "getPipelineConfig",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/pipelineConfigs/{pipelineName}",
+     "line": 150,
+     "evidence": "@RequestMapping(value = \"/{application}/pipelineConfigs/{pipelineName:.+}\", method = RequestMethod.GET)",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "getStrategyConfigsForApplication",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/strategyConfigs",
+     "line": 157,
+     "evidence": "@RequestMapping(value = \"/{application}/strategyConfigs\", method = RequestMethod.GET)",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "getStrategyConfig",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/strategyConfigs/{strategyName}",
+     "line": 163,
+     "evidence": "@RequestMapping(value = \"/{application}/strategyConfigs/{strategyName}\", method = RequestMethod.GET)",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "getTask",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/tasks/{id}",
+     "line": 194,
+     "evidence": "@RequestMapping(value = \"/{application}/tasks/{id}\", method = RequestMethod.GET)",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "cancelTask",
+     "httpMethod": "PUT",
+     "path": "/applications/{application}/tasks/{id}/cancel",
+     "line": 204,
+     "evidence": "@RequestMapping(value = \"/{application}/tasks/{id}/cancel\", method = RequestMethod.PUT)",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "getTaskDetails",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/tasks/{id}/details/{taskDetailsId}",
+     "line": 214,
+     "evidence": "@RequestMapping(value = \"/{application}/tasks/{id}/details/{taskDetailsId}\", method = RequestMethod.GET)",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "orca/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy",
+   "service": "orca",
+   "endpoints": [
+    {
+     "className": "AdminController",
+     "methodName": "forceCancelExecution",
+     "httpMethod": "PUT",
+     "path": "/admin/forceCancelExecution",
+     "line": 79,
+     "evidence": "@RequestMapping(value = \"/forceCancelExecution\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AdminController",
+     "methodName": "setInstanceStatus",
+     "httpMethod": "POST",
+     "path": "/admin/instance/enabled",
+     "line": 58,
+     "evidence": "@RequestMapping(value = \"/instance/enabled\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "orca/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy",
+   "service": "orca",
+   "endpoints": [
+    {
+     "className": "OperationsController",
+     "methodName": "orchestrate",
+     "httpMethod": "POST",
+     "path": "/orchestrate",
+     "line": 103,
+     "evidence": "@RequestMapping(value = \"/orchestrate\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "orchestrate",
+     "httpMethod": "POST",
+     "path": "/orchestrate/{pipelineConfigId}",
+     "line": 108,
+     "evidence": "@RequestMapping(value = \"/orchestrate/{pipelineConfigId}\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "plan",
+     "httpMethod": "POST",
+     "path": "/plan",
+     "line": 114,
+     "evidence": "@RequestMapping(value = \"/plan\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "plan",
+     "httpMethod": "POST",
+     "path": "/plan/{pipelineConfigId}",
+     "line": 119,
+     "evidence": "@RequestMapping(value = \"/plan/{pipelineConfigId}\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "fail",
+     "httpMethod": "POST",
+     "path": "/fail",
+     "line": 131,
+     "evidence": "@RequestMapping(value = '/fail', method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "ops",
+     "httpMethod": "POST",
+     "path": "/ops",
+     "line": 367,
+     "evidence": "@RequestMapping(value = \"/ops\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "preconfiguredWebhooks",
+     "httpMethod": "GET",
+     "path": "/webhooks/preconfigured",
+     "line": 381,
+     "evidence": "@RequestMapping(value = \"/webhooks/preconfigured\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "preconfiguredJob",
+     "httpMethod": "GET",
+     "path": "/jobs/preconfigured",
+     "line": 416,
+     "evidence": "@RequestMapping(value = \"/jobs/preconfigured\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "orca/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/PipelineTemplateController.groovy",
+   "service": "orca",
+   "endpoints": [
+    {
+     "className": "PipelineTemplateController",
+     "methodName": "getPipelineTemplate",
+     "httpMethod": "GET",
+     "path": "/pipelineTemplate",
+     "line": 44,
+     "evidence": "@RequestMapping(value = \"/pipelineTemplate\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineTemplateController",
+     "methodName": "convertPipelineToTemplate",
+     "httpMethod": "POST",
+     "path": "/convertPipelineToTemplate",
+     "line": 54,
+     "evidence": "@RequestMapping(value = \"/convertPipelineToTemplate\", method = RequestMethod.POST, produces = 'text/x-yaml')",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "orca/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CapabilitiesController.java",
+   "service": "orca",
+   "endpoints": [
+    {
+     "className": "CapabilitiesController",
+     "methodName": "getDeploymentMonitors",
+     "httpMethod": "GET",
+     "path": "/capabilities/deploymentMonitors",
+     "line": 40,
+     "evidence": "@GetMapping(\"/capabilities/deploymentMonitors\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CapabilitiesController",
+     "methodName": "getExpressionCapabilities",
+     "httpMethod": "GET",
+     "path": "/capabilities/expressions",
+     "line": 49,
+     "evidence": "@GetMapping(\"/capabilities/expressions\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "orca/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CorrelatedTasksController.java",
+   "service": "orca",
+   "endpoints": [
+    {
+     "className": "CorrelatedTasksController",
+     "methodName": "getCorrelatedExecutions",
+     "httpMethod": "GET",
+     "path": "/executions/correlated/{correlationId}",
+     "line": 30,
+     "evidence": "@GetMapping(path = \"/executions/correlated/{correlationId}\", produces = APPLICATION_JSON_VALUE)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "orca/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/V2PipelineTemplateController.java",
+   "service": "orca",
+   "endpoints": [
+    {
+     "className": "V2PipelineTemplateController",
+     "methodName": "plan",
+     "httpMethod": "POST",
+     "path": "/v2/pipelineTemplates/plan",
+     "line": 41,
+     "evidence": "@RequestMapping(value = \"/plan\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "orca/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/ProjectController.groovy",
+   "service": "orca",
+   "endpoints": [
+    {
+     "className": "ProjectController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/projects/{projectId}/pipelines",
+     "line": 39,
+     "evidence": "@RequestMapping(value = \"/projects/{projectId}/pipelines\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "orca/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/ConcourseController.java",
+   "service": "orca",
+   "endpoints": [
+    {
+     "className": "ConcourseController",
+     "methodName": "notifyConcourseExecution",
+     "httpMethod": "POST",
+     "path": "/concourse/stage/start",
+     "line": 24,
+     "evidence": "@PostMapping(\"/concourse/stage/start\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "orca/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/ExecutionsImportController.java",
+   "service": "orca",
+   "endpoints": [
+    {
+     "className": "ExecutionsImportController",
+     "methodName": "createExecution",
+     "httpMethod": "POST",
+     "path": "/admin/executions",
+     "line": 66,
+     "evidence": "@PostMapping(value = \"\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "orca/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy",
+   "service": "orca",
+   "endpoints": [
+    {
+     "className": "TaskController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/tasks",
+     "line": 126,
+     "evidence": "@RequestMapping(value = \"/applications/{application}/tasks\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/tasks",
+     "line": 155,
+     "evidence": "@RequestMapping(value = \"/tasks\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "getTask",
+     "httpMethod": "GET",
+     "path": "/tasks/{id}",
+     "line": 168,
+     "evidence": "@RequestMapping(value = \"/tasks/{id}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "deleteTask",
+     "httpMethod": "DELETE",
+     "path": "/tasks/{id}",
+     "line": 178,
+     "evidence": "@RequestMapping(value = \"/tasks/{id}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "cancelTask",
+     "httpMethod": "PUT",
+     "path": "/tasks/{id}/cancel",
+     "line": 191,
+     "evidence": "@RequestMapping(value = \"/tasks/{id}/cancel\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "cancelTasks",
+     "httpMethod": "PUT",
+     "path": "/tasks/cancel",
+     "line": 198,
+     "evidence": "@RequestMapping(value = \"/tasks/cancel\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "listSubsetOfPipelines",
+     "httpMethod": "GET",
+     "path": "/pipelines",
+     "line": 222,
+     "evidence": "@RequestMapping(value = \"/pipelines\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "getFailedStagesForPipelineExecution",
+     "httpMethod": "GET",
+     "path": "/pipelines/failedStages",
+     "line": 286,
+     "evidence": "@RequestMapping(value = \"/pipelines/failedStages\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "searchForPipelinesByTrigger",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/pipelines/search",
+     "line": 439,
+     "evidence": "@RequestMapping(value = \"/applications/{application}/pipelines/search\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "getPipeline",
+     "httpMethod": "GET",
+     "path": "/pipelines/{id}",
+     "line": 577,
+     "evidence": "@RequestMapping(value = \"/pipelines/{id}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "deletePipeline",
+     "httpMethod": "DELETE",
+     "path": "/pipelines/{id}",
+     "line": 583,
+     "evidence": "@RequestMapping(value = \"/pipelines/{id}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "cancel",
+     "httpMethod": "PUT",
+     "path": "/pipelines/{id}/cancel",
+     "line": 596,
+     "evidence": "@RequestMapping(value = \"/pipelines/{id}/cancel\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "pause",
+     "httpMethod": "PUT",
+     "path": "/pipelines/{id}/pause",
+     "line": 605,
+     "evidence": "@RequestMapping(value = \"/pipelines/{id}/pause\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "resume",
+     "httpMethod": "PUT",
+     "path": "/pipelines/{id}/resume",
+     "line": 612,
+     "evidence": "@RequestMapping(value = \"/pipelines/{id}/resume\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "runningPipelines",
+     "httpMethod": "GET",
+     "path": "/pipelines/running",
+     "line": 620,
+     "evidence": "@RequestMapping(value = \"/pipelines/running\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "waitingPipelines",
+     "httpMethod": "GET",
+     "path": "/pipelines/waiting",
+     "line": 628,
+     "evidence": "@RequestMapping(value = \"/pipelines/waiting\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "updatePipelineStage",
+     "httpMethod": "PATCH",
+     "path": "/pipelines/{id}/stages/{stageId}",
+     "line": 635,
+     "evidence": "@RequestMapping(value = \"/pipelines/{id}/stages/{stageId}\", method = RequestMethod.PATCH)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "retryPipelineStage",
+     "httpMethod": "PUT",
+     "path": "/pipelines/{id}/stages/{stageId}/restart",
+     "line": 663,
+     "evidence": "@RequestMapping(value = \"/pipelines/{id}/stages/{stageId}/restart\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "evaluateExpressionForExecution",
+     "httpMethod": "GET",
+     "path": "/pipelines/{id}/evaluateExpression",
+     "line": 670,
+     "evidence": "@RequestMapping(value = \"/pipelines/{id}/evaluateExpression\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "evaluateExpressionForExecutionAtStage",
+     "httpMethod": "GET",
+     "path": "/pipelines/{id}/{stageId}/evaluateExpression",
+     "line": 689,
+     "evidence": "@RequestMapping(value = \"/pipelines/{id}/{stageId}/evaluateExpression\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "evaluateVariables",
+     "httpMethod": "POST",
+     "path": "/pipelines/{id}/evaluateVariables",
+     "line": 709,
+     "evidence": "@PostMapping(\"/pipelines/{id}/evaluateVariables\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "getApplicationPipelines",
+     "httpMethod": "GET",
+     "path": "/v2/applications/{application}/pipelines",
+     "line": 747,
+     "evidence": "@RequestMapping(value = \"/v2/applications/{application}/pipelines\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "TaskController",
+     "methodName": "getPipelinesForApplication",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/pipelines",
+     "line": 787,
+     "evidence": "@RequestMapping(value = \"/applications/{application}/pipelines\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "orca/orca-queue/src/main/kotlin/com/netflix/spinnaker/orca/q/admin/web/QueueAdminController.kt",
+   "service": "orca",
+   "endpoints": [
+    {
+     "className": "QueueAdminController",
+     "methodName": "hydrateQueue",
+     "httpMethod": "POST",
+     "path": "/admin/queue/hydrate",
+     "line": 51,
+     "evidence": "@PostMapping(value = [\"/hydrate\"])",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "QueueAdminController",
+     "methodName": "killZombies",
+     "httpMethod": "POST",
+     "path": "/admin/queue/zombies:kill",
+     "line": 67,
+     "evidence": "@PostMapping(value = [\"/zombies:kill\"])",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "QueueAdminController",
+     "methodName": "killZombie",
+     "httpMethod": "POST",
+     "path": "/admin/queue/zombies/{executionId}:kill",
+     "line": 72,
+     "evidence": "@PostMapping(value = [\"/zombies/{executionId}:kill\"])",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "QueueAdminController",
+     "methodName": "killApplicationZombies",
+     "httpMethod": "POST",
+     "path": "/admin/queue/zombies/application/{application}:kill",
+     "line": 78,
+     "evidence": "@PostMapping(value = [\"/zombies/application/{application}:kill\"])",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "QueueAdminController",
+     "methodName": "kickPendingExecutions",
+     "httpMethod": "POST",
+     "path": "/admin/queue/kickPending",
+     "line": 93,
+     "evidence": "@PostMapping(value = [\"kickPending\"])",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "QueueAdminController",
+     "methodName": "pushMessageIntoQueue",
+     "httpMethod": "POST",
+     "path": "/admin/queue/pushMessage",
+     "line": 113,
+     "evidence": "@PostMapping(value = [\"pushMessage\"])",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ApplicationsController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "ApplicationsController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/applications",
+     "line": 55,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationsController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/applications/{name:.+}",
+     "line": 66,
+     "evidence": "@RequestMapping(value = \"/{name:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CacheController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "CacheController",
+     "methodName": "handleOnDemand",
+     "httpMethod": "POST",
+     "path": "/cache/{cloudProvider}/{type}",
+     "line": 37,
+     "evidence": "@RequestMapping(method = RequestMethod.POST, value = \"/{cloudProvider}/{type}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CacheController",
+     "methodName": "getAgentIntrospections",
+     "httpMethod": "GET",
+     "path": "/cache/introspection",
+     "line": 59,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/introspection\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CacheController",
+     "methodName": "pendingOnDemands",
+     "httpMethod": "GET",
+     "path": "/cache/{cloudProvider}/{type}",
+     "line": 66,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}/{type}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CertificateController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "CertificateController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/certificates",
+     "line": 35,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CertificateController",
+     "methodName": "listByCloudProvider",
+     "httpMethod": "GET",
+     "path": "/certificates/{cloudProvider}",
+     "line": 42,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/CloudMetricController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "CloudMetricController",
+     "methodName": "findAll",
+     "httpMethod": "GET",
+     "path": "/cloudMetrics/{cloudProvider}/{account}/{region}",
+     "line": 43,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}/{account}/{region}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CloudMetricController",
+     "methodName": "getStatistics",
+     "httpMethod": "GET",
+     "path": "/cloudMetrics/{cloudProvider}/{account}/{region}/{metricName}/statistics",
+     "line": 74,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}/{account}/{region}/{metricName}/statistics\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ClusterController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "ClusterController",
+     "methodName": "listByAccount",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/clusters",
+     "line": 74,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ClusterController",
+     "methodName": "getForAccount",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/clusters/{account:.+}",
+     "line": 97,
+     "evidence": "@RequestMapping(value = \"/{account:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ClusterController",
+     "methodName": "getForAccountAndName",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/clusters/{account:.+}/{name:.+}",
+     "line": 115,
+     "evidence": "@RequestMapping(value = \"/{account:.+}/{name:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ClusterController",
+     "methodName": "getForAccountAndNameAndType",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/clusters/{account:.+}/{name:.+}/{type}",
+     "line": 136,
+     "evidence": "@RequestMapping(value = \"/{account:.+}/{name:.+}/{type}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ClusterController",
+     "methodName": "getServerGroups",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/clusters/{account:.+}/{clusterName:.+}/{type}/serverGroups",
+     "line": 160,
+     "evidence": "@RequestMapping(value = \"/{account:.+}/{clusterName:.+}/{type}/serverGroups\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ClusterController",
+     "methodName": "getServerGroup",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/clusters/{account:.+}/{clusterName:.+}/{type}/serverGroups/{serverGroupName:.+}",
+     "line": 183,
+     "evidence": "@RequestMapping(value = \"/{account:.+}/{clusterName:.+}/{type}/serverGroups/{serverGroupName:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ClusterController",
+     "methodName": "getTargetServerGroup",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/clusters/{account:.+}/{clusterName:.+}/{cloudProvider}/{scope}/serverGroups/target/{target:.+}",
+     "line": 238,
+     "evidence": "@RequestMapping(value = \"/{account:.+}/{clusterName:.+}/{cloudProvider}/{scope}/serverGroups/target/{target:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ClusterController",
+     "methodName": "getServerGroupSummary",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/clusters/{account:.+}/{clusterName:.+}/{cloudProvider}/{scope}/serverGroups/target/{target:.+}/{summaryType:.+}",
+     "line": 355,
+     "evidence": "@RequestMapping(value = \"/{account:.+}/{clusterName:.+}/{cloudProvider}/{scope}/serverGroups/target/{target:.+}/{summaryType:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/DataController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "DataController",
+     "methodName": "getStaticData",
+     "httpMethod": "GET",
+     "path": "/v1/data/static/{id}",
+     "line": 50,
+     "evidence": "@RequestMapping(value = \"/static/{id}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "DataController",
+     "methodName": "getAdhocData",
+     "httpMethod": "GET",
+     "path": "/v1/data/adhoc/{groupId}/{bucketId}/**",
+     "line": 63,
+     "evidence": "@RequestMapping(value = \"/adhoc/{groupId}/{bucketId}/**\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ElasticIpController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "ElasticIpController",
+     "methodName": "listByAccount",
+     "httpMethod": "GET",
+     "path": "/elasticIps/{account}",
+     "line": 40,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{account}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/FeaturesController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "FeaturesController",
+     "methodName": "stages",
+     "httpMethod": "GET",
+     "path": "/features/stages",
+     "line": 40,
+     "evidence": "@RequestMapping(value = \"/stages\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "InstanceController",
+     "methodName": "getInstance",
+     "httpMethod": "GET",
+     "path": "/instances/{account}/{region}/{id:.+}",
+     "line": 42,
+     "evidence": "@RequestMapping(value = \"/{account}/{region}/{id:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "InstanceController",
+     "methodName": "getConsoleOutput",
+     "httpMethod": "GET",
+     "path": "/instances/{account}/{region}/{id}/console",
+     "line": 56,
+     "evidence": "@RequestMapping(value = \"{account}/{region}/{id}/console\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/InstanceTypeController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "InstanceTypeController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/instanceTypes",
+     "line": 33,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/JobController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "JobController",
+     "methodName": "collectJob",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/jobs/{account}/{location}/{id:.+}",
+     "line": 46,
+     "evidence": "@RequestMapping(value = \"/{account}/{location}/{id:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "JobController",
+     "methodName": "getFileContents",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/jobs/{account}/{location}/{id}/{fileName:.+}",
+     "line": 75,
+     "evidence": "@RequestMapping(value = \"/{account}/{location}/{id}/{fileName:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "JobController",
+     "methodName": "cancelJob",
+     "httpMethod": "DELETE",
+     "path": "/applications/{application}/jobs/{account}/{location}/{id:.+}",
+     "line": 63,
+     "evidence": "@RequestMapping(value = \"/{account}/{location}/{id:.+}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/KeyPairController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "KeyPairController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/keyPairs",
+     "line": 33,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/LoadBalancerController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "LoadBalancerController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/loadBalancers",
+     "line": 42,
+     "evidence": "@RequestMapping(value = \"/applications/{application}/loadBalancers\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "LoadBalancerController",
+     "methodName": "listForCloudProvider",
+     "httpMethod": "GET",
+     "path": "/{cloudProvider:.+}/loadBalancers",
+     "line": 53,
+     "evidence": "@RequestMapping(value = \"/{cloudProvider:.+}/loadBalancers\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "LoadBalancerController",
+     "methodName": "getByAccountRegionName",
+     "httpMethod": "GET",
+     "path": "/{cloudProvider:.+}/loadBalancers/{account:.+}/{region:.+}/{name:.+}",
+     "line": 73,
+     "evidence": "@RequestMapping(value = \"/{cloudProvider:.+}/loadBalancers/{account:.+}/{region:.+}/{name:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "LoadBalancerController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/{cloudProvider:.+}/loadBalancers/{name:.+}",
+     "line": 61,
+     "evidence": "@RequestMapping(value = \"/{cloudProvider:.+}/loadBalancers/{name:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/NetworkController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "NetworkController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/networks",
+     "line": 35,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "NetworkController",
+     "methodName": "listByCloudProvider",
+     "httpMethod": "GET",
+     "path": "/networks/{cloudProvider}",
+     "line": 50,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/OperationsController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "OperationsController",
+     "methodName": "resumeTask",
+     "httpMethod": "POST",
+     "path": "/task/{id}:resume",
+     "line": 189,
+     "evidence": "@PostMapping(\"/task/{id}:resume\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "operations",
+     "httpMethod": "POST",
+     "path": "/ops",
+     "line": 69,
+     "evidence": "@PostMapping(\"/ops\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "operation",
+     "httpMethod": "POST",
+     "path": "/ops/{name}",
+     "line": 81,
+     "evidence": "@PostMapping(\"/ops/{name}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "cloudProviderOperations",
+     "httpMethod": "POST",
+     "path": "/{cloudProvider}/ops",
+     "line": 90,
+     "evidence": "@PostMapping(\"/{cloudProvider}/ops\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "cloudProviderOperation",
+     "httpMethod": "POST",
+     "path": "/{cloudProvider}/ops/{name}",
+     "line": 99,
+     "evidence": "@PostMapping(\"/{cloudProvider}/ops/{name}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "getOwnerName",
+     "httpMethod": "GET",
+     "path": "/{cloudProvider}/task/{id}/owner",
+     "line": 136,
+     "evidence": "@GetMapping(\"/{cloudProvider}/task/{id}/owner\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "restartCloudProviderTask",
+     "httpMethod": "POST",
+     "path": "/{cloudProvider}/task/{id}/restart",
+     "line": 148,
+     "evidence": "@PostMapping(\"/{cloudProvider}/task/{id}/restart\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/task/{id}",
+     "line": 170,
+     "evidence": "@GetMapping(\"/task/{id}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/task",
+     "line": 179,
+     "evidence": "@GetMapping(\"/task\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OperationsController",
+     "methodName": "updateTask",
+     "httpMethod": "PATCH",
+     "path": "/{cloudProvider}/task/{id}",
+     "line": 109,
+     "evidence": "@PatchMapping(\"/{cloudProvider}/task/{id}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ProjectController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "ProjectController",
+     "methodName": "getClusters",
+     "httpMethod": "GET",
+     "path": "/projects/{project}/clusters",
+     "line": 52,
+     "evidence": "@RequestMapping(method= RequestMethod.GET, value = \"/clusters\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ReservationReportController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "ReservationReportController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/reports/reservation/{name}",
+     "line": 39,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{name}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ReservationReportController",
+     "methodName": "getReservationReports",
+     "httpMethod": "GET",
+     "path": "/reports/reservation",
+     "line": 34,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SearchController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "SearchController",
+     "methodName": "search",
+     "httpMethod": "GET",
+     "path": "/search",
+     "line": 56,
+     "evidence": "@RequestMapping(value = '/search', method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SecurityGroupController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "SecurityGroupController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/securityGroups",
+     "line": 48,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "SecurityGroupController",
+     "methodName": "listByAccount",
+     "httpMethod": "GET",
+     "path": "/securityGroups/{account}",
+     "line": 72,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{account}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "SecurityGroupController",
+     "methodName": "listByAccountAndCloudProvider",
+     "httpMethod": "GET",
+     "path": "/securityGroups/{account}/{cloudProvider}",
+     "line": 108,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{account}/{cloudProvider}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "SecurityGroupController",
+     "methodName": "listByAccountAndCloudProviderAndName",
+     "httpMethod": "GET",
+     "path": "/securityGroups/{account}/{cloudProvider}/{securityGroupName:.+}",
+     "line": 140,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{account}/{cloudProvider}/{securityGroupName:.+}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "SecurityGroupController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/securityGroups/{account}/{cloudProvider}/{region}/{securityGroupNameOrId:.+}",
+     "line": 158,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{account}/{cloudProvider}/{region}/{securityGroupNameOrId:.+}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/ServerGroupController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "ServerGroupController",
+     "methodName": "getServerGroup",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/serverGroups/{account}/{region}/{name:.+}",
+     "line": 67,
+     "evidence": "@RequestMapping(value = \"/applications/{application}/serverGroups/{account}/{region}/{name:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ServerGroupController",
+     "methodName": "getServerGroup",
+     "httpMethod": "GET",
+     "path": "/serverGroups/{account}/{region}/{name:.+}",
+     "line": 79,
+     "evidence": "@RequestMapping(value = \"/serverGroups/{account}/{region}/{name:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ServerGroupController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/serverGroups",
+     "line": 190,
+     "evidence": "@RequestMapping(value = \"/applications/{application}/serverGroups\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ServerGroupController",
+     "methodName": "getServerGroups",
+     "httpMethod": "GET",
+     "path": "/serverGroups",
+     "line": 212,
+     "evidence": "@RequestMapping(value = \"/serverGroups\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/SubnetController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "SubnetController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/subnets",
+     "line": 34,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "SubnetController",
+     "methodName": "listByCloudProvider",
+     "httpMethod": "GET",
+     "path": "/subnets/{cloudProvider}",
+     "line": 41,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-web/src/main/groovy/com/netflix/spinnaker/clouddriver/controllers/VpcController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "VpcController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/vpcs",
+     "line": 34,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/ManifestController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "ManifestController",
+     "methodName": "getForAccountAndName",
+     "httpMethod": "GET",
+     "path": "/manifests/{account:.+}/_/{name:.+}",
+     "line": 57,
+     "evidence": "@RequestMapping(value = \"/{account:.+}/_/{name:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ManifestController",
+     "methodName": "getForAccountLocationAndName",
+     "httpMethod": "GET",
+     "path": "/manifests/{account:.+}/{location:.+}/{name:.+}",
+     "line": 68,
+     "evidence": "@RequestMapping(value = \"/{account:.+}/{location:.+}/{name:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ManifestController",
+     "methodName": "getForAccountLocationAndName",
+     "httpMethod": "GET",
+     "path": "/manifests/{account:.+}/{name:.+}",
+     "line": 101,
+     "evidence": "@RequestMapping(value = \"/{account:.+}/{name:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ManifestController",
+     "methodName": "getDynamicManifestFromCluster",
+     "httpMethod": "GET",
+     "path": "/manifests/{account:.+}/{location:.+}/{kind:.+}/cluster/{app:.+}/{cluster:.+}/dynamic/{criteria:.+}",
+     "line": 110,
+     "evidence": "@RequestMapping(value = \"/{account:.+}/{location:.+}/{kind:.+}/cluster/{app:.+}/{cluster:.+}/dynamic/{criteria:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ManifestController",
+     "methodName": "getClusterManifestCoordinates",
+     "httpMethod": "GET",
+     "path": "/manifests/{account:.+}/{location:.+}/{kind:.+}/cluster/{app:.+}/{cluster:.+}",
+     "line": 157,
+     "evidence": "@RequestMapping(value = \"/{account:.+}/{location:.+}/{kind:.+}/cluster/{app:.+}/{cluster:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/PodController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "PodController",
+     "methodName": "getFileContents",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/kubernetes/pods/{account}/{namespace}/{podName}/{fileName:.+}",
+     "line": 44,
+     "evidence": "@RequestMapping(value = \"/{account}/{namespace}/{podName}/{fileName:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/controllers/RawResourceController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "RawResourceController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/rawResources",
+     "line": 45,
+     "evidence": "@RequestMapping(value = \"/applications/{application}/rawResources\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonClusterController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "AmazonClusterController",
+     "methodName": "getScalingActivities",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/clusters/{account}/{clusterName}/aws/serverGroups/{serverGroupName}/scalingActivities",
+     "line": 41,
+     "evidence": "@RequestMapping(value = \"/scalingActivities\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-aws/src/main/groovy/com/netflix/spinnaker/clouddriver/aws/controllers/AmazonNamedImageLookupController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "AmazonNamedImageLookupController",
+     "methodName": "getNamedImage",
+     "httpMethod": "GET",
+     "path": "/aws/images/{account}/{region}/{imageId:.+}",
+     "line": 71,
+     "evidence": "@RequestMapping(value = '/{account}/{region}/{imageId:.+}', method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers/CloudFormationController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "CloudFormationController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/aws/cloudFormation/stacks",
+     "line": 42,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsNativeServiceDeploymentController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "EcsNativeServiceDeploymentController",
+     "methodName": "getDeploymentStatus",
+     "httpMethod": "GET",
+     "path": "/ecs-native/serverGroups/{account}/{region}/{serverGroupName}/deploymentStatus",
+     "line": 81,
+     "evidence": "@RequestMapping(value = \"/deploymentStatus\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/servergroup/EcsServerGroupController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "EcsServerGroupController",
+     "methodName": "getServerGroupEvents",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/serverGroups/{account}/{serverGroupName}/events",
+     "line": 61,
+     "evidence": "@RequestMapping(value = \"/events\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-docker/src/main/java/com/netflix/spinnaker/clouddriver/docker/registry/controllers/AbstractDockerRegistryLookupController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "AbstractDockerRegistryLookupController",
+     "methodName": "getTags",
+     "httpMethod": "GET",
+     "path": "/tags",
+     "line": 50,
+     "evidence": "@RequestMapping(value = \"/tags\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AbstractDockerRegistryLookupController",
+     "methodName": "find",
+     "httpMethod": "GET",
+     "path": "/find",
+     "line": 99,
+     "evidence": "@RequestMapping(value = \"/find\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-appengine/src/main/java/com/netflix/spinnaker/clouddriver/appengine/artifacts/controllers/AppengineStorageController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "AppengineStorageController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/storage",
+     "line": 39,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-aws/src/main/java/com/netflix/spinnaker/clouddriver/aws/controllers/RoleController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "RoleController",
+     "methodName": "getRoles",
+     "httpMethod": "GET",
+     "path": "/roles/{cloudProvider}",
+     "line": 40,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{cloudProvider}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-google/src/main/java/com/netflix/spinnaker/clouddriver/google/controllers/GoogleNamedImageLookupController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "GoogleNamedImageLookupController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/gce/images/find",
+     "line": 68,
+     "evidence": "@RequestMapping(value = \"/find\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsCloudMetricController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "EcsCloudMetricController",
+     "methodName": "findAllMetricAlarms",
+     "httpMethod": "GET",
+     "path": "/ecs/cloudMetrics/alarms",
+     "line": 37,
+     "evidence": "@RequestMapping(value = {\"/alarms\"})",
+     "framework": "Spring",
+     "confidence": "medium"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsClusterController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "EcsClusterController",
+     "methodName": "getAllEcsClusters",
+     "httpMethod": "GET",
+     "path": "/ecs/ecsClusters",
+     "line": 39,
+     "evidence": "@RequestMapping(value = {\"/ecs/ecsClusters\"})",
+     "framework": "Spring",
+     "confidence": "medium"
+    },
+    {
+     "className": "EcsClusterController",
+     "methodName": "getEcsClusterDescriptions",
+     "httpMethod": "GET",
+     "path": "/ecs/ecsClusterDescriptions/{account}/{region}",
+     "line": 44,
+     "evidence": "@RequestMapping(value = {\"/ecs/ecsClusterDescriptions/{account}/{region}\"})",
+     "framework": "Spring",
+     "confidence": "medium"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsImagesController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "EcsImagesController",
+     "methodName": "findImage",
+     "httpMethod": "GET",
+     "path": "/ecs/images/find",
+     "line": 41,
+     "evidence": "@RequestMapping(value = \"/find\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsSecretController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "EcsSecretController",
+     "methodName": "getAllSecrets",
+     "httpMethod": "GET",
+     "path": "/ecs/secrets",
+     "line": 36,
+     "evidence": "@RequestMapping(value = {\"/ecs/secrets\"})",
+     "framework": "Spring",
+     "confidence": "medium"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-ecs/src/main/java/com/netflix/spinnaker/clouddriver/ecs/controllers/EcsServiceDiscoveryController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "EcsServiceDiscoveryController",
+     "methodName": "getAllServiceDiscoveryRegistries",
+     "httpMethod": "GET",
+     "path": "/ecs/serviceDiscoveryRegistries",
+     "line": 36,
+     "evidence": "@RequestMapping(value = {\"/ecs/serviceDiscoveryRegistries\"})",
+     "framework": "Spring",
+     "confidence": "medium"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-cloudfoundry/src/main/java/com/netflix/spinnaker/clouddriver/cloudfoundry/controller/CloudFoundryImageController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "CloudFoundryImageController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/cloudfoundry/images/find",
+     "line": 44,
+     "evidence": "@RequestMapping(value = \"/find\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-oracle/src/main/groovy/com/netflix/spinnaker/clouddriver/oracle/controller/OracleImageLookupController.groovy",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "OracleImageLookupController",
+     "methodName": "getById",
+     "httpMethod": "GET",
+     "path": "/oracle/images/{account}/{region}/{imageId:.+}",
+     "line": 36,
+     "evidence": "@RequestMapping(value = '/{account}/{region}/{imageId:.+}', method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "OracleImageLookupController",
+     "methodName": "find",
+     "httpMethod": "GET",
+     "path": "/oracle/images/find",
+     "line": 46,
+     "evidence": "@RequestMapping(value = '/find', method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "clouddriver/clouddriver-huaweicloud/src/main/java/com/netflix/spinnaker/clouddriver/huaweicloud/controller/HuaweiCloudImageController.java",
+   "service": "clouddriver",
+   "endpoints": [
+    {
+     "className": "HuaweiCloudImageController",
+     "methodName": "find",
+     "httpMethod": "GET",
+     "path": "/huaweicloud/images/find",
+     "line": 46,
+     "evidence": "@RequestMapping(value = \"/find\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "AdminController",
+     "methodName": "recover",
+     "httpMethod": "POST",
+     "path": "/admin/recover",
+     "line": 43,
+     "evidence": "@RequestMapping(value = \"/recover\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "DeliveryController",
+     "methodName": "getAllConfigs",
+     "httpMethod": "GET",
+     "path": "/deliveries",
+     "line": 29,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/deliveries\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "DeliveryController",
+     "methodName": "getConfigByAppName",
+     "httpMethod": "GET",
+     "path": "/applications/{application}/deliveries",
+     "line": 36,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/applications/{application}/deliveries\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "DeliveryController",
+     "methodName": "getConfigById",
+     "httpMethod": "GET",
+     "path": "/deliveries/{id}",
+     "line": 43,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"deliveries/{id}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "DeliveryController",
+     "methodName": "createConfig",
+     "httpMethod": "POST",
+     "path": "/deliveries",
+     "line": 50,
+     "evidence": "@RequestMapping(method = RequestMethod.POST, value = \"/deliveries\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "DeliveryController",
+     "methodName": "upsertConfig",
+     "httpMethod": "PUT",
+     "path": "/deliveries/{id}",
+     "line": 57,
+     "evidence": "@RequestMapping(method = RequestMethod.PUT, value = \"/deliveries/{id}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "DeliveryController",
+     "methodName": "deleteConfig",
+     "httpMethod": "DELETE",
+     "path": "/applications/{application}/deliveries/{id}",
+     "line": 75,
+     "evidence": "@RequestMapping(\n      method = RequestMethod.DELETE,\n      value = \"/applications/{application}/deliveries/{id}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "NotificationController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/notifications",
+     "line": 33,
+     "evidence": "@RequestMapping(value = \"\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "NotificationController",
+     "methodName": "getGlobal",
+     "httpMethod": "GET",
+     "path": "/notifications/global",
+     "line": 38,
+     "evidence": "@RequestMapping(value = \"global\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "NotificationController",
+     "methodName": "saveGlobal",
+     "httpMethod": "POST",
+     "path": "/notifications/global",
+     "line": 43,
+     "evidence": "@RequestMapping(value = \"global\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "NotificationController",
+     "methodName": "listByApplication",
+     "httpMethod": "GET",
+     "path": "/notifications/{type}/{name}",
+     "line": 49,
+     "evidence": "@RequestMapping(value = \"{type}/{name}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "NotificationController",
+     "methodName": "batchUpdate",
+     "httpMethod": "POST",
+     "path": "/notifications/batchUpdate",
+     "line": 74,
+     "evidence": "@RequestMapping(value = \"batchUpdate\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "NotificationController",
+     "methodName": "save",
+     "httpMethod": "POST",
+     "path": "/notifications/{type}/{name}",
+     "line": 89,
+     "evidence": "@RequestMapping(value = \"{type}/{name}\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "NotificationController",
+     "methodName": "delete",
+     "httpMethod": "DELETE",
+     "path": "/notifications/{type}/{name}",
+     "line": 101,
+     "evidence": "@RequestMapping(value = \"{type}/{name}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "PermissionsController",
+     "methodName": "getAllApplicationPermissions",
+     "httpMethod": "GET",
+     "path": "/permissions/applications",
+     "line": 20,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/applications\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PermissionsController",
+     "methodName": "getApplicationPermission",
+     "httpMethod": "GET",
+     "path": "/permissions/applications/{appName:.+}",
+     "line": 25,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/applications/{appName:.+}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PermissionsController",
+     "methodName": "createApplicationPermission",
+     "httpMethod": "POST",
+     "path": "/permissions/applications",
+     "line": 31,
+     "evidence": "@RequestMapping(method = RequestMethod.POST, value = \"/applications\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PermissionsController",
+     "methodName": "updateApplicationPermission",
+     "httpMethod": "PUT",
+     "path": "/permissions/applications/{appName:.+}",
+     "line": 37,
+     "evidence": "@RequestMapping(method = RequestMethod.PUT, value = \"/applications/{appName:.+}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PermissionsController",
+     "methodName": "deleteApplicationPermission",
+     "httpMethod": "DELETE",
+     "path": "/permissions/applications/{appName:.+}",
+     "line": 43,
+     "evidence": "@RequestMapping(method = RequestMethod.DELETE, value = \"/applications/{appName:.+}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "ReorderPipelinesController",
+     "methodName": "reorderPipelines",
+     "httpMethod": "POST",
+     "path": "/actions/pipelines/reorder",
+     "line": 39,
+     "evidence": "@RequestMapping(value = \"/pipelines/reorder\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ReorderPipelinesController",
+     "methodName": "reorderPipelineStrategies",
+     "httpMethod": "POST",
+     "path": "/actions/strategies/reorder",
+     "line": 44,
+     "evidence": "@RequestMapping(value = \"/strategies/reorder\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "PipelineController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/pipelines",
+     "line": 109,
+     "evidence": "@RequestMapping(value = \"\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineController",
+     "methodName": "getTriggeredPipelines",
+     "httpMethod": "GET",
+     "path": "/pipelines/triggeredBy/{id:.+}/{status}",
+     "line": 164,
+     "evidence": "@RequestMapping(\n      value = {\"triggeredBy/{id:.+}/{status}\", \"triggeredBy/{id:.+}/{status}/\"},\n      method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineController",
+     "methodName": "listByApplication",
+     "httpMethod": "GET",
+     "path": "/pipelines/{application:.+}",
+     "line": 203,
+     "evidence": "@RequestMapping(value = \"{application:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineController",
+     "methodName": "getHistory",
+     "httpMethod": "GET",
+     "path": "/pipelines/{id:.+}/history",
+     "line": 275,
+     "evidence": "@RequestMapping(value = \"{id:.+}/history\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/pipelines/{id:.+}/get",
+     "line": 283,
+     "evidence": "@RequestMapping(value = \"{id:.+}/get\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineController",
+     "methodName": "getByApplicationAndName",
+     "httpMethod": "GET",
+     "path": "/pipelines/{application:.+}/name/{name:.+}",
+     "line": 290,
+     "evidence": "@RequestMapping(\n      value = {\"{application:.+}/name/{name:.+}\", \"{application:.+}/name/{name:.+}/\"},\n      method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineController",
+     "methodName": "save",
+     "httpMethod": "POST",
+     "path": "/pipelines",
+     "line": 304,
+     "evidence": "@RequestMapping(value = \"\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineController",
+     "methodName": "batchUpdate",
+     "httpMethod": "POST",
+     "path": "/pipelines/batchUpdate",
+     "line": 336,
+     "evidence": "@RequestMapping(value = \"batchUpdate\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineController",
+     "methodName": "delete",
+     "httpMethod": "DELETE",
+     "path": "/pipelines/{application}/{pipeline:.+}",
+     "line": 403,
+     "evidence": "@RequestMapping(value = \"{application}/{pipeline:.+}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineController",
+     "methodName": "update",
+     "httpMethod": "PUT",
+     "path": "/pipelines/{id}",
+     "line": 423,
+     "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "PipelineTemplateController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/pipelineTemplates",
+     "line": 60,
+     "evidence": "@RequestMapping(value = \"\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineTemplateController",
+     "methodName": "save",
+     "httpMethod": "POST",
+     "path": "/pipelineTemplates",
+     "line": 66,
+     "evidence": "@RequestMapping(value = \"\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineTemplateController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/pipelineTemplates/{id}",
+     "line": 72,
+     "evidence": "@RequestMapping(value = \"{id}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineTemplateController",
+     "methodName": "update",
+     "httpMethod": "PUT",
+     "path": "/pipelineTemplates/{id}",
+     "line": 77,
+     "evidence": "@RequestMapping(value = \"{id}\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineTemplateController",
+     "methodName": "delete",
+     "httpMethod": "DELETE",
+     "path": "/pipelineTemplates/{id}",
+     "line": 94,
+     "evidence": "@RequestMapping(value = \"{id}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineTemplateController",
+     "methodName": "listDependentPipelines",
+     "httpMethod": "GET",
+     "path": "/pipelineTemplates/{id}/dependentPipelines",
+     "line": 101,
+     "evidence": "@RequestMapping(value = \"{id}/dependentPipelines\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "PluginInfoController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/pluginInfo",
+     "line": 48,
+     "evidence": "@RequestMapping(value = \"\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PluginInfoController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/pluginInfo/{id}",
+     "line": 55,
+     "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PluginInfoController",
+     "methodName": "upsert",
+     "httpMethod": "POST",
+     "path": "/pluginInfo",
+     "line": 60,
+     "evidence": "@RequestMapping(value = \"\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PluginInfoController",
+     "methodName": "delete",
+     "httpMethod": "DELETE",
+     "path": "/pluginInfo/{id}",
+     "line": 66,
+     "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PluginInfoController",
+     "methodName": "createRelease",
+     "httpMethod": "POST",
+     "path": "/pluginInfo/{id}/releases",
+     "line": 72,
+     "evidence": "@RequestMapping(value = \"/{id}/releases\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PluginInfoController",
+     "methodName": "upsertRelease",
+     "httpMethod": "PUT",
+     "path": "/pluginInfo/{id}/releases",
+     "line": 79,
+     "evidence": "@RequestMapping(value = \"/{id}/releases\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PluginInfoController",
+     "methodName": "preferReleaseVersion",
+     "httpMethod": "PUT",
+     "path": "/pluginInfo/{id}/releases/{releaseVersion}",
+     "line": 86,
+     "evidence": "@RequestMapping(value = \"/{id}/releases/{releaseVersion}\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PluginInfoController",
+     "methodName": "deleteRelease",
+     "httpMethod": "DELETE",
+     "path": "/pluginInfo/{id}/releases/{releaseVersion}",
+     "line": 95,
+     "evidence": "@RequestMapping(value = \"/{id}/releases/{releaseVersion}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/SnapshotsController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "SnapshotsController",
+     "methodName": "getHistory",
+     "httpMethod": "GET",
+     "path": "/snapshots/{id:.+}/history",
+     "line": 49,
+     "evidence": "@RequestMapping(value = \"/{id:.+}/history\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "SnapshotsController",
+     "methodName": "getCurrent",
+     "httpMethod": "GET",
+     "path": "/snapshots/{id:.+}",
+     "line": 56,
+     "evidence": "@RequestMapping(value = \"/{id:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "SnapshotsController",
+     "methodName": "getVersionByTimestamp",
+     "httpMethod": "GET",
+     "path": "/snapshots/{id:.+}/{timestamp:.+}",
+     "line": 62,
+     "evidence": "@RequestMapping(value = \"/{id:.+}/{timestamp:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "SnapshotsController",
+     "methodName": "save",
+     "httpMethod": "POST",
+     "path": "/snapshots",
+     "line": 75,
+     "evidence": "@RequestMapping(value = \"\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "ServiceAccountsController",
+     "methodName": "getAllServiceAccounts",
+     "httpMethod": "GET",
+     "path": "/serviceAccounts",
+     "line": 46,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ServiceAccountsController",
+     "methodName": "getTokenEligibleServiceAccounts",
+     "httpMethod": "GET",
+     "path": "/serviceAccounts/tokenEligible",
+     "line": 57,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/tokenEligible\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ServiceAccountsController",
+     "methodName": "createServiceAccount",
+     "httpMethod": "POST",
+     "path": "/serviceAccounts",
+     "line": 71,
+     "evidence": "@RequestMapping(method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ServiceAccountsController",
+     "methodName": "deleteServiceAccount",
+     "httpMethod": "DELETE",
+     "path": "/serviceAccounts/{serviceAccountId:.+}",
+     "line": 76,
+     "evidence": "@RequestMapping(method = RequestMethod.DELETE, value = \"/{serviceAccountId:.+}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/StrategyController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "StrategyController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/strategies",
+     "line": 43,
+     "evidence": "@RequestMapping(value = \"\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "StrategyController",
+     "methodName": "listByApplication",
+     "httpMethod": "GET",
+     "path": "/strategies/{application:.+}",
+     "line": 49,
+     "evidence": "@RequestMapping(value = \"{application:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "StrategyController",
+     "methodName": "getHistory",
+     "httpMethod": "GET",
+     "path": "/strategies/{id:.+}/history",
+     "line": 56,
+     "evidence": "@RequestMapping(value = \"{id:.+}/history\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "StrategyController",
+     "methodName": "save",
+     "httpMethod": "POST",
+     "path": "/strategies",
+     "line": 63,
+     "evidence": "@RequestMapping(value = \"\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "StrategyController",
+     "methodName": "batchUpdate",
+     "httpMethod": "POST",
+     "path": "/strategies/batchUpdate",
+     "line": 80,
+     "evidence": "@RequestMapping(value = \"batchUpdate\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "StrategyController",
+     "methodName": "delete",
+     "httpMethod": "DELETE",
+     "path": "/strategies/{application}/{strategy:.+}",
+     "line": 86,
+     "evidence": "@RequestMapping(value = \"{application}/{strategy:.+}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "StrategyController",
+     "methodName": "update",
+     "httpMethod": "PUT",
+     "path": "/strategies/{id}",
+     "line": 96,
+     "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "ApplicationsController",
+     "methodName": "applications",
+     "httpMethod": "GET",
+     "path": "/v2/applications",
+     "line": 70,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationsController",
+     "methodName": "create",
+     "httpMethod": "POST",
+     "path": "/v2/applications",
+     "line": 118,
+     "evidence": "@RequestMapping(method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationsController",
+     "methodName": "delete",
+     "httpMethod": "DELETE",
+     "path": "/v2/applications/{applicationName:.+}",
+     "line": 140,
+     "evidence": "@RequestMapping(method = RequestMethod.DELETE, value = \"/{applicationName:.+}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationsController",
+     "methodName": "update",
+     "httpMethod": "PATCH",
+     "path": "/v2/applications/{applicationName:.+}",
+     "line": 148,
+     "evidence": "@RequestMapping(method = RequestMethod.PATCH, value = \"/{applicationName:.+}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationsController",
+     "methodName": "replace",
+     "httpMethod": "PUT",
+     "path": "/v2/applications/{applicationName:.+}",
+     "line": 165,
+     "evidence": "@RequestMapping(method = RequestMethod.PUT, value = \"/{applicationName:.+}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationsController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/v2/applications/{applicationName:.+}",
+     "line": 180,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{applicationName:.+}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationsController",
+     "methodName": "getHistory",
+     "httpMethod": "GET",
+     "path": "/v2/applications/{applicationName:.+}/history",
+     "line": 200,
+     "evidence": "@RequestMapping(value = \"{applicationName:.+}/history\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationsController",
+     "methodName": "batchUpdate",
+     "httpMethod": "POST",
+     "path": "/v2/applications/batch/applications",
+     "line": 208,
+     "evidence": "@RequestMapping(method = RequestMethod.POST, value = \"/batch/applications\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/EntityTagsController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "EntityTagsController",
+     "methodName": "tags",
+     "httpMethod": "GET",
+     "path": "/v2/tags",
+     "line": 34,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "EntityTagsController",
+     "methodName": "tag",
+     "httpMethod": "GET",
+     "path": "/v2/tags/**",
+     "line": 67,
+     "evidence": "@RequestMapping(value = \"/**\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "EntityTagsController",
+     "methodName": "create",
+     "httpMethod": "POST",
+     "path": "/v2/tags",
+     "line": 78,
+     "evidence": "@RequestMapping(method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "EntityTagsController",
+     "methodName": "batchUpdate",
+     "httpMethod": "POST",
+     "path": "/v2/tags/batchUpdate",
+     "line": 85,
+     "evidence": "@RequestMapping(value = \"/batchUpdate\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "EntityTagsController",
+     "methodName": "batchDelete",
+     "httpMethod": "POST",
+     "path": "/v2/tags/batchDelete",
+     "line": 96,
+     "evidence": "@RequestMapping(value = \"/batchDelete\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "EntityTagsController",
+     "methodName": "delete",
+     "httpMethod": "DELETE",
+     "path": "/v2/tags/**",
+     "line": 104,
+     "evidence": "@RequestMapping(method = RequestMethod.DELETE, value = \"/**\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "ProjectsController",
+     "methodName": "search",
+     "httpMethod": "GET",
+     "path": "/v2/projects/search",
+     "line": 52,
+     "evidence": "@RequestMapping(value = \"/search\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ProjectsController",
+     "methodName": "projects",
+     "httpMethod": "GET",
+     "path": "/v2/projects",
+     "line": 71,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ProjectsController",
+     "methodName": "project",
+     "httpMethod": "GET",
+     "path": "/v2/projects/{projectId}",
+     "line": 82,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = \"/{projectId}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ProjectsController",
+     "methodName": "put",
+     "httpMethod": "PUT",
+     "path": "/v2/projects/{projectId}",
+     "line": 92,
+     "evidence": "@RequestMapping(method = RequestMethod.PUT, value = \"/{projectId}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ProjectsController",
+     "methodName": "create",
+     "httpMethod": "POST",
+     "path": "/v2/projects",
+     "line": 114,
+     "evidence": "@RequestMapping(method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ProjectsController",
+     "methodName": "delete",
+     "httpMethod": "DELETE",
+     "path": "/v2/projects/{projectId}",
+     "line": 206,
+     "evidence": "@RequestMapping(method = RequestMethod.DELETE, value = \"/{projectId}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ProjectsController",
+     "methodName": "batchUpdate",
+     "httpMethod": "POST",
+     "path": "/v2/projects/batchUpdate",
+     "line": 212,
+     "evidence": "@RequestMapping(method = RequestMethod.POST, value = \"/batchUpdate\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "PluginBinaryController",
+     "methodName": "upload",
+     "httpMethod": "POST",
+     "path": "/pluginBinaries/{id}/{version}",
+     "line": 39,
+     "evidence": "@PostMapping(\"/{id}/{version}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PluginBinaryController",
+     "methodName": "getBinary",
+     "httpMethod": "GET",
+     "path": "/pluginBinaries/{id}/{version}",
+     "line": 51,
+     "evidence": "@GetMapping(\"/{id}/{version}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "PluginVersionController",
+     "methodName": "pinVersions",
+     "httpMethod": "PUT",
+     "path": "/pluginVersions/{serverGroupName}",
+     "line": 40,
+     "evidence": "@PutMapping(\"/{serverGroupName}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "front50/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java",
+   "service": "front50",
+   "endpoints": [
+    {
+     "className": "V2PipelineTemplateController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/v2/pipelineTemplates",
+     "line": 73,
+     "evidence": "@RequestMapping(value = \"\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "V2PipelineTemplateController",
+     "methodName": "listVersions",
+     "httpMethod": "GET",
+     "path": "/v2/pipelineTemplates/versions",
+     "line": 80,
+     "evidence": "@RequestMapping(value = \"versions\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "V2PipelineTemplateController",
+     "methodName": "save",
+     "httpMethod": "POST",
+     "path": "/v2/pipelineTemplates",
+     "line": 88,
+     "evidence": "@RequestMapping(value = \"\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "V2PipelineTemplateController",
+     "methodName": "update",
+     "httpMethod": "PUT",
+     "path": "/v2/pipelineTemplates/{id}",
+     "line": 121,
+     "evidence": "@RequestMapping(value = \"{id}\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "V2PipelineTemplateController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/v2/pipelineTemplates/{id}",
+     "line": 148,
+     "evidence": "@RequestMapping(value = \"{id}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "V2PipelineTemplateController",
+     "methodName": "delete",
+     "httpMethod": "DELETE",
+     "path": "/v2/pipelineTemplates/{id}",
+     "line": 163,
+     "evidence": "@RequestMapping(value = \"{id}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "V2PipelineTemplateController",
+     "methodName": "listDependentPipelines",
+     "httpMethod": "GET",
+     "path": "/v2/pipelineTemplates/{id}/dependentPipelines",
+     "line": 175,
+     "evidence": "@RequestMapping(value = \"{id}/dependentPipelines\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "echo/echo-web/src/main/java/com/netflix/spinnaker/echo/history/HistoryController.java",
+   "service": "echo",
+   "endpoints": [
+    {
+     "className": "HistoryController",
+     "methodName": "saveHistory",
+     "httpMethod": "POST",
+     "path": "/",
+     "line": 35,
+     "evidence": "@RequestMapping(value = \"/\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "echo/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ScheduledActionsController.java",
+   "service": "echo",
+   "endpoints": [
+    {
+     "className": "ScheduledActionsController",
+     "methodName": "getAllScheduledActions",
+     "httpMethod": "GET",
+     "path": "/scheduledActions",
+     "line": 53,
+     "evidence": "@RequestMapping(value = \"/scheduledActions\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ScheduledActionsController",
+     "methodName": "createScheduledAction",
+     "httpMethod": "POST",
+     "path": "/scheduledActions",
+     "line": 77,
+     "evidence": "@RequestMapping(value = \"/scheduledActions\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ScheduledActionsController",
+     "methodName": "deleteScheduledAction",
+     "httpMethod": "DELETE",
+     "path": "/scheduledActions/{id}",
+     "line": 132,
+     "evidence": "@RequestMapping(value = \"/scheduledActions/{id}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "echo/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ValidationController.java",
+   "service": "echo",
+   "endpoints": [
+    {
+     "className": "ValidationController",
+     "methodName": "validateCronExpression",
+     "httpMethod": "GET",
+     "path": "/validateCronExpression",
+     "line": 35,
+     "evidence": "@RequestMapping(value = \"/validateCronExpression\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "echo/echo-webhooks/src/main/groovy/com/netflix/spinnaker/echo/controllers/WebhooksController.groovy",
+   "service": "echo",
+   "endpoints": [
+    {
+     "className": "WebhooksController",
+     "methodName": "forwardEvent",
+     "httpMethod": "POST",
+     "path": "/webhooks/{type}/{source}",
+     "line": 50,
+     "evidence": "@RequestMapping(value = '/webhooks/{type}/{source}', method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "WebhooksController",
+     "methodName": "forwardEvent",
+     "httpMethod": "POST",
+     "path": "/webhooks/{type}",
+     "line": 133,
+     "evidence": "@RequestMapping(value = '/webhooks/{type}', method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "WebhooksController",
+     "methodName": "forwardEvent",
+     "httpMethod": "POST",
+     "path": "/webhooks/cdevents/{source}",
+     "line": 154,
+     "evidence": "@RequestMapping(value = '/webhooks/cdevents/{source}', method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "echo/echo-notifications/src/main/java/com/netflix/spinnaker/echo/controller/NotificationController.java",
+   "service": "echo",
+   "endpoints": [
+    {
+     "className": "NotificationController",
+     "methodName": "getNotificationTypeMetadata",
+     "httpMethod": "GET",
+     "path": "/notifications/metadata",
+     "line": 107,
+     "evidence": "@GetMapping(\"/metadata\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "NotificationController",
+     "methodName": "create",
+     "httpMethod": "POST",
+     "path": "/notifications",
+     "line": 62,
+     "evidence": "@RequestMapping(method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "NotificationController",
+     "methodName": "processCallback",
+     "httpMethod": "POST",
+     "path": "/notifications/callbacks/{source}",
+     "line": 97,
+     "evidence": "@RequestMapping(",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "echo/echo-pubsub-core/src/main/java/com/netflix/spinnaker/echo/pubsub/PubsubController.java",
+   "service": "echo",
+   "endpoints": [
+    {
+     "className": "PubsubController",
+     "methodName": "getPublishers",
+     "httpMethod": "GET",
+     "path": "/pubsub/publishers",
+     "line": 56,
+     "evidence": "@RequestMapping(value = \"/publishers\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PubsubController",
+     "methodName": "getSubscriptions",
+     "httpMethod": "GET",
+     "path": "/pubsub/subscriptions",
+     "line": 37,
+     "evidence": "@RequestMapping(value = \"/subscriptions\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "echo/echo-pipelinetriggers/src/main/java/com/netflix/spinnaker/echo/pipelinetriggers/QuietPeriodController.java",
+   "service": "echo",
+   "endpoints": [
+    {
+     "className": "QuietPeriodController",
+     "methodName": "getQuietPeriodStatus",
+     "httpMethod": "GET",
+     "path": "/quietPeriod",
+     "line": 33,
+     "evidence": "@GetMapping",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "fiat/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java",
+   "service": "fiat-web",
+   "endpoints": [
+    {
+     "className": "AuthorizeController",
+     "methodName": "getAll",
+     "httpMethod": "GET",
+     "path": "/authorize",
+     "line": 86,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AuthorizeController",
+     "methodName": "getUserPermission",
+     "httpMethod": "GET",
+     "path": "/authorize/{userId:.+}",
+     "line": 106,
+     "evidence": "@RequestMapping(value = \"/{userId:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AuthorizeController",
+     "methodName": "getUserAccounts",
+     "httpMethod": "GET",
+     "path": "/authorize/{userId:.+}/accounts",
+     "line": 111,
+     "evidence": "@RequestMapping(value = \"/{userId:.+}/accounts\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AuthorizeController",
+     "methodName": "getUserRoles",
+     "httpMethod": "GET",
+     "path": "/authorize/{userId:.+}/roles",
+     "line": 116,
+     "evidence": "@RequestMapping(value = \"/{userId:.+}/roles\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AuthorizeController",
+     "methodName": "getUserAccount",
+     "httpMethod": "GET",
+     "path": "/authorize/{userId:.+}/accounts/{accountName:.+}",
+     "line": 121,
+     "evidence": "@RequestMapping(value = \"/{userId:.+}/accounts/{accountName:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AuthorizeController",
+     "methodName": "getUserApplications",
+     "httpMethod": "GET",
+     "path": "/authorize/{userId:.+}/applications",
+     "line": 130,
+     "evidence": "@RequestMapping(value = \"/{userId:.+}/applications\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AuthorizeController",
+     "methodName": "getUserApplication",
+     "httpMethod": "GET",
+     "path": "/authorize/{userId:.+}/applications/{applicationName:.+}",
+     "line": 135,
+     "evidence": "@RequestMapping(value = \"/{userId:.+}/applications/{applicationName:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AuthorizeController",
+     "methodName": "getServiceAccounts",
+     "httpMethod": "GET",
+     "path": "/authorize/{userId:.+}/serviceAccounts",
+     "line": 146,
+     "evidence": "@RequestMapping(value = \"/{userId:.+}/serviceAccounts\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AuthorizeController",
+     "methodName": "getServiceAccount",
+     "httpMethod": "GET",
+     "path": "/authorize/{userId:.+}/serviceAccounts/{serviceAccountName:.+}",
+     "line": 168,
+     "evidence": "@RequestMapping(value = \"/{userId:.+}/serviceAccounts/{serviceAccountName:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AuthorizeController",
+     "methodName": "getUserAuthorization",
+     "httpMethod": "GET",
+     "path": "/authorize/{userId:.+}/{resourceType:.+}/{resourceName:.+}/{authorization:.+}",
+     "line": 187,
+     "evidence": "@RequestMapping(value = \"/{userId:.+}/{resourceType:.+}/{resourceName:.+}/{authorization:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AuthorizeController",
+     "methodName": "canCreate",
+     "httpMethod": "POST",
+     "path": "/authorize/{userId:.+}/{resourceType:.+}/create",
+     "line": 224,
+     "evidence": "@RequestMapping(value = \"/{userId:.+}/{resourceType:.+}/create\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "fiat/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/RolesController.java",
+   "service": "fiat-web",
+   "endpoints": [
+    {
+     "className": "RolesController",
+     "methodName": "putUserPermission",
+     "httpMethod": "POST",
+     "path": "/roles/{userId:.+}",
+     "line": 53,
+     "evidence": "@RequestMapping(value = \"/{userId:.+}\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "RolesController",
+     "methodName": "putUserPermission",
+     "httpMethod": "PUT",
+     "path": "/roles/{userId:.+}",
+     "line": 69,
+     "evidence": "@RequestMapping(value = \"/{userId:.+}\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "RolesController",
+     "methodName": "deleteUserPermission",
+     "httpMethod": "DELETE",
+     "path": "/roles/{userId:.+}",
+     "line": 96,
+     "evidence": "@RequestMapping(value = \"/{userId:.+}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "RolesController",
+     "methodName": "sync",
+     "httpMethod": "POST",
+     "path": "/roles/sync",
+     "line": 101,
+     "evidence": "@RequestMapping(value = \"/sync\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "RolesController",
+     "methodName": "syncServiceAccount",
+     "httpMethod": "POST",
+     "path": "/roles/sync/serviceAccount/{serviceAccountId:.+}",
+     "line": 116,
+     "evidence": "@RequestMapping(value = \"/sync/serviceAccount/{serviceAccountId:.+}\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "AdminController",
+     "methodName": "fastForward",
+     "httpMethod": "POST",
+     "path": "/admin/pollers/fastforward/{monitorName}",
+     "line": 56,
+     "evidence": "@RequestMapping(value = \"/pollers/fastforward/{monitorName}\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "BuildController",
+     "methodName": "getJobStatus",
+     "httpMethod": "ANY",
+     "path": "/builds/status/{buildNumber}/{master:.+}/**",
+     "line": 102,
+     "evidence": "@RequestMapping(value = '/builds/status/{buildNumber}/{master:.+}/**')",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BuildController",
+     "methodName": "getJobStatus",
+     "httpMethod": "ANY",
+     "path": "/builds/status/{buildNumber}/{master}",
+     "line": 112,
+     "evidence": "@RequestMapping(value = '/builds/status/{buildNumber}/{master}')",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BuildController",
+     "methodName": "getBuildResults",
+     "httpMethod": "ANY",
+     "path": "/builds/artifacts/{buildNumber}/{master:.+}/**",
+     "line": 122,
+     "evidence": "@RequestMapping(value = '/builds/artifacts/{buildNumber}/{master:.+}/**')",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BuildController",
+     "methodName": "getBuildResults",
+     "httpMethod": "ANY",
+     "path": "/builds/artifacts/{buildNumber}/{master}",
+     "line": 138,
+     "evidence": "@RequestMapping(value = '/builds/artifacts/{buildNumber}/{master}')",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BuildController",
+     "methodName": "getQueueLocation",
+     "httpMethod": "ANY",
+     "path": "/builds/queue/{master}/{item}",
+     "line": 151,
+     "evidence": "@RequestMapping(value = '/builds/queue/{master}/{item}')",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BuildController",
+     "methodName": "getBuilds",
+     "httpMethod": "ANY",
+     "path": "/builds/all/{master:.+}/**",
+     "line": 158,
+     "evidence": "@RequestMapping(value = ['/builds/all/{master:.+}/**', '/builds/all/{master:.+}'])",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BuildController",
+     "methodName": "stop",
+     "httpMethod": "PUT",
+     "path": "/masters/{name}/jobs/{jobName}/stop/{queuedBuild}/{buildNumber}",
+     "line": 167,
+     "evidence": "@RequestMapping(value = \"/masters/{name}/jobs/{jobName}/stop/{queuedBuild}/{buildNumber}\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BuildController",
+     "methodName": "stopWithQueryParam",
+     "httpMethod": "PUT",
+     "path": "/masters/{master:.+}/jobs/stop/{queuedBuild}/{buildNumber}",
+     "line": 178,
+     "evidence": "@RequestMapping(value = \"/masters/{master:.+}/jobs/stop/{queuedBuild}/{buildNumber}\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BuildController",
+     "methodName": "update",
+     "httpMethod": "PATCH",
+     "path": "/masters/{name}/jobs/**/update/{buildNumber}",
+     "line": 217,
+     "evidence": "@RequestMapping(value = \"/masters/{name}/jobs/**/update/{buildNumber}\", method = RequestMethod.PATCH)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BuildController",
+     "methodName": "build",
+     "httpMethod": "PUT",
+     "path": "/masters/{name}/jobs/**",
+     "line": 235,
+     "evidence": "@RequestMapping(value = '/masters/{name}/jobs/**', method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BuildController",
+     "methodName": "getBuildProperties",
+     "httpMethod": "ANY",
+     "path": "/builds/properties/{buildNumber}/{fileName}/{master:.+}/**",
+     "line": 326,
+     "evidence": "@RequestMapping(value = '/builds/properties/{buildNumber}/{fileName}/{master:.+}/**')",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BuildController",
+     "methodName": "getBuildProperties",
+     "httpMethod": "ANY",
+     "path": "/builds/properties/{buildNumber}/{fileName}/{master}",
+     "line": 344,
+     "evidence": "@RequestMapping(value = '/builds/properties/{buildNumber}/{fileName}/{master}')",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/InfoController.groovy",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "InfoController",
+     "methodName": "listMasters",
+     "httpMethod": "GET",
+     "path": "/masters",
+     "line": 55,
+     "evidence": "@RequestMapping(value = ['/masters', '/masters/'], method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "InfoController",
+     "methodName": "getAllBuildServices",
+     "httpMethod": "GET",
+     "path": "/buildServices",
+     "line": 68,
+     "evidence": "@RequestMapping(value = ['/buildServices', 'buildServices/'], method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "InfoController",
+     "methodName": "getJobs",
+     "httpMethod": "GET",
+     "path": "/jobs/{master:.+}",
+     "line": 79,
+     "evidence": "@RequestMapping(value = ['/jobs/{master:.+}', '/jobs/{master:.+}/'], method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "InfoController",
+     "methodName": "getJobConfig",
+     "httpMethod": "ANY",
+     "path": "/jobs/{master}/**",
+     "line": 112,
+     "evidence": "@RequestMapping(value = ['/jobs/{master}/**'])",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/ScmInfoController.groovy",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "ScmInfoController",
+     "methodName": "listMasters",
+     "httpMethod": "GET",
+     "path": "/scm/masters",
+     "line": 48,
+     "evidence": "@RequestMapping(value = '/masters', method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/AbstractCommitController.java",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "AbstractCommitController",
+     "methodName": "compareCommits",
+     "httpMethod": "GET",
+     "path": "/{projectKey}/{repositorySlug}/compareCommits",
+     "line": 43,
+     "evidence": "@RequestMapping(\n      method = RequestMethod.GET,\n      value = \"/{projectKey}/{repositorySlug}/compareCommits\")",
+     "framework": "Spring",
+     "confidence": "high",
+     "implementedBy": [
+      "BitBucketCommitController",
+      "GitHubCommitController",
+      "GitLabCommitController",
+      "StashCommitController"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/bitbucket/CommitController.groovy",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "CommitController",
+     "methodName": "compareCommits",
+     "httpMethod": "GET",
+     "path": "/bitbucket/{projectKey}/{repositorySlug}/compareCommits",
+     "line": 47,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = '/{projectKey}/{repositorySlug}/compareCommits')",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/github/CommitController.groovy",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "CommitController",
+     "methodName": "compareCommits",
+     "httpMethod": "GET",
+     "path": "/github/{projectKey}/{repositorySlug}/compareCommits",
+     "line": 48,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = '/{projectKey}/{repositorySlug}/compareCommits')",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/gitlab/CommitController.java",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "CommitController",
+     "methodName": "compareCommits",
+     "httpMethod": "GET",
+     "path": "/gitlab/{projectKey}/{repositorySlug}/compareCommits",
+     "line": 52,
+     "evidence": "@RequestMapping(\n      method = RequestMethod.GET,\n      value = \"/{projectKey}/{repositorySlug}/compareCommits\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/stash/CommitController.groovy",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "CommitController",
+     "methodName": "compareCommits",
+     "httpMethod": "GET",
+     "path": "/stash/{projectKey}/{repositorySlug}/compareCommits",
+     "line": 44,
+     "evidence": "@RequestMapping(method = RequestMethod.GET, value = '/{projectKey}/{repositorySlug}/compareCommits')",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/java/com/netflix/spinnaker/igor/artifacts/ArtifactController.java",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "ArtifactController",
+     "methodName": "getVersions",
+     "httpMethod": "GET",
+     "path": "/artifacts/{provider}/{name}",
+     "line": 45,
+     "evidence": "@GetMapping(\"/{provider}/{name}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ArtifactController",
+     "methodName": "getArtifact",
+     "httpMethod": "GET",
+     "path": "/artifacts/{provider}/{name}/{version:.+}",
+     "line": 55,
+     "evidence": "@GetMapping(\"/{provider}/{name}/{version:.+}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/java/com/netflix/spinnaker/igor/ci/CiController.java",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "CiController",
+     "methodName": "getBuilds",
+     "httpMethod": "GET",
+     "path": "/ci/builds",
+     "line": 43,
+     "evidence": "@GetMapping(\"/builds\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CiController",
+     "methodName": "getBuildOutput",
+     "httpMethod": "GET",
+     "path": "/ci/builds/{buildId}/output",
+     "line": 53,
+     "evidence": "@GetMapping(\"/builds/{buildId}/output\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/java/com/netflix/spinnaker/igor/codebuild/AwsCodeBuildController.java",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "AwsCodeBuildController",
+     "methodName": "getAccounts",
+     "httpMethod": "GET",
+     "path": "/codebuild/accounts",
+     "line": 38,
+     "evidence": "@RequestMapping(value = \"/accounts\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AwsCodeBuildController",
+     "methodName": "getProjects",
+     "httpMethod": "GET",
+     "path": "/codebuild/projects/{account}",
+     "line": 43,
+     "evidence": "@RequestMapping(value = \"/projects/{account}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AwsCodeBuildController",
+     "methodName": "startBuild",
+     "httpMethod": "POST",
+     "path": "/codebuild/builds/start/{account}",
+     "line": 48,
+     "evidence": "@RequestMapping(\n      value = \"/builds/start/{account}\",\n      method = RequestMethod.POST,\n      consumes = MediaType.APPLICATION_JSON_VALUE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AwsCodeBuildController",
+     "methodName": "getBuild",
+     "httpMethod": "GET",
+     "path": "/codebuild/builds/{account}/{buildId}",
+     "line": 58,
+     "evidence": "@RequestMapping(value = \"/builds/{account}/{buildId}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AwsCodeBuildController",
+     "methodName": "getArtifacts",
+     "httpMethod": "GET",
+     "path": "/codebuild/builds/artifacts/{account}/{buildId}",
+     "line": 63,
+     "evidence": "@RequestMapping(value = \"/builds/artifacts/{account}/{buildId}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AwsCodeBuildController",
+     "methodName": "stopBuild",
+     "httpMethod": "POST",
+     "path": "/codebuild/builds/stop/{account}/{buildId}",
+     "line": 68,
+     "evidence": "@RequestMapping(value = \"/builds/stop/{account}/{buildId}\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/java/com/netflix/spinnaker/igor/concourse/ConcourseController.java",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "ConcourseController",
+     "methodName": "getTeams",
+     "httpMethod": "GET",
+     "path": "/concourse/{buildMaster}/teams",
+     "line": 45,
+     "evidence": "@GetMapping(\"/{buildMaster}/teams\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ConcourseController",
+     "methodName": "getPipelines",
+     "httpMethod": "GET",
+     "path": "/concourse/{buildMaster}/teams/{team}/pipelines",
+     "line": 54,
+     "evidence": "@GetMapping(\"/{buildMaster}/teams/{team}/pipelines\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ConcourseController",
+     "methodName": "getJobs",
+     "httpMethod": "GET",
+     "path": "/concourse/{buildMaster}/teams/{team}/pipelines/{pipeline}/jobs",
+     "line": 68,
+     "evidence": "@GetMapping(\"/{buildMaster}/teams/{team}/pipelines/{pipeline}/jobs\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ConcourseController",
+     "methodName": "getResourceNames",
+     "httpMethod": "GET",
+     "path": "/concourse/{buildMaster}/teams/{team}/pipelines/{pipeline}/resources",
+     "line": 85,
+     "evidence": "@GetMapping(\"/{buildMaster}/teams/{team}/pipelines/{pipeline}/resources\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/java/com/netflix/spinnaker/igor/gcb/GoogleCloudBuildController.java",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "GoogleCloudBuildController",
+     "methodName": "getAccounts",
+     "httpMethod": "GET",
+     "path": "/gcb/accounts",
+     "line": 41,
+     "evidence": "@RequestMapping(value = \"/accounts\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "GoogleCloudBuildController",
+     "methodName": "createBuild",
+     "httpMethod": "POST",
+     "path": "/gcb/builds/create/{account}",
+     "line": 47,
+     "evidence": "@RequestMapping(\n      value = \"/builds/create/{account}\",\n      method = RequestMethod.POST,\n      consumes = MediaType.APPLICATION_JSON_VALUE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "GoogleCloudBuildController",
+     "methodName": "updateBuild",
+     "httpMethod": "PUT",
+     "path": "/gcb/builds/{account}/{buildId}",
+     "line": 57,
+     "evidence": "@RequestMapping(\n      value = \"/builds/{account}/{buildId}\",\n      method = RequestMethod.PUT,\n      consumes = MediaType.APPLICATION_JSON_VALUE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "GoogleCloudBuildController",
+     "methodName": "getBuild",
+     "httpMethod": "GET",
+     "path": "/gcb/builds/{account}/{buildId}",
+     "line": 71,
+     "evidence": "@RequestMapping(value = \"/builds/{account}/{buildId}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "GoogleCloudBuildController",
+     "methodName": "getArtifacts",
+     "httpMethod": "GET",
+     "path": "/gcb/builds/{account}/{buildId}/artifacts",
+     "line": 77,
+     "evidence": "@RequestMapping(value = \"/builds/{account}/{buildId}/artifacts\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "GoogleCloudBuildController",
+     "methodName": "extractArtifacts",
+     "httpMethod": "PUT",
+     "path": "/gcb/artifacts/extract/{account}",
+     "line": 84,
+     "evidence": "@RequestMapping(\n      value = \"/artifacts/extract/{account}\",\n      method = RequestMethod.PUT,\n      consumes = MediaType.APPLICATION_JSON_VALUE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "GoogleCloudBuildController",
+     "methodName": "listTriggers",
+     "httpMethod": "GET",
+     "path": "/gcb/triggers/{account}",
+     "line": 95,
+     "evidence": "@RequestMapping(value = \"/triggers/{account}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "GoogleCloudBuildController",
+     "methodName": "runTrigger",
+     "httpMethod": "POST",
+     "path": "/gcb/triggers/{account}/{triggerId}/run",
+     "line": 102,
+     "evidence": "@RequestMapping(\n      value = \"/triggers/{account}/{triggerId}/run\",\n      method = RequestMethod.POST,\n      consumes = MediaType.APPLICATION_JSON_VALUE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "GoogleCloudBuildController",
+     "methodName": "stopBuild",
+     "httpMethod": "POST",
+     "path": "/gcb/builds/stop/{account}/{buildId}",
+     "line": 117,
+     "evidence": "@RequestMapping(value = \"/builds/stop/{account}/{buildId}\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/java/com/netflix/spinnaker/igor/nexus/NexusController.java",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "NexusController",
+     "methodName": "getNexusNames",
+     "httpMethod": "GET",
+     "path": "/nexus/names",
+     "line": 56,
+     "evidence": "@GetMapping(\"/names\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "NexusController",
+     "methodName": "webhook",
+     "httpMethod": "POST",
+     "path": "/nexus/webhook",
+     "line": 63,
+     "evidence": "@PostMapping(path = \"/webhook\", consumes = \"application/json\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-web/src/main/java/com/netflix/spinnaker/igor/scm/ManagedDeliveryScmController.java",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "ManagedDeliveryScmController",
+     "methodName": "listDeliveryConfigManifests",
+     "httpMethod": "GET",
+     "path": "/delivery-config/manifests",
+     "line": 50,
+     "evidence": "@GetMapping(\"/delivery-config/manifests\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ManagedDeliveryScmController",
+     "methodName": "getDeliveryConfigManifest",
+     "httpMethod": "GET",
+     "path": "/delivery-config/manifest",
+     "line": 71,
+     "evidence": "@GetMapping(path = \"/delivery-config/manifest\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "igor/igor-monitor-artifactory/src/main/java/com/netflix/spinnaker/igor/artifactory/ArtifactoryController.java",
+   "service": "igor",
+   "endpoints": [
+    {
+     "className": "ArtifactoryController",
+     "methodName": "getArtifactoryNames",
+     "httpMethod": "GET",
+     "path": "/artifactory/names",
+     "line": 39,
+     "evidence": "@GetMapping(\"/names\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "CanaryConfigController",
+     "methodName": "loadCanaryConfig",
+     "httpMethod": "GET",
+     "path": "/canaryConfig/{canaryConfigId}",
+     "line": 77,
+     "evidence": "@RequestMapping(value = \"/{canaryConfigId:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CanaryConfigController",
+     "methodName": "storeCanaryConfig",
+     "httpMethod": "POST",
+     "path": "/canaryConfig",
+     "line": 96,
+     "evidence": "@RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CanaryConfigController",
+     "methodName": "updateCanaryConfig",
+     "httpMethod": "PUT",
+     "path": "/canaryConfig/{canaryConfigId}",
+     "line": 151,
+     "evidence": "@RequestMapping(value = \"/{canaryConfigId:.+}\", consumes = \"application/json\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CanaryConfigController",
+     "methodName": "deleteCanaryConfig",
+     "httpMethod": "DELETE",
+     "path": "/canaryConfig/{canaryConfigId}",
+     "line": 298,
+     "evidence": "@RequestMapping(value = \"/{canaryConfigId:.+}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CanaryConfigController",
+     "methodName": "listAllCanaryConfigs",
+     "httpMethod": "GET",
+     "path": "/canaryConfig",
+     "line": 317,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "CanaryController",
+     "methodName": "initiateCanary",
+     "httpMethod": "POST",
+     "path": "/canary/{canaryConfigId}",
+     "line": 70,
+     "evidence": "@RequestMapping(value = \"/{canaryConfigId:.+}\", consumes = \"application/json\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CanaryController",
+     "methodName": "initiateCanaryWithConfig",
+     "httpMethod": "POST",
+     "path": "/canary",
+     "line": 118,
+     "evidence": "@RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CanaryController",
+     "methodName": "getCanaryResults",
+     "httpMethod": "GET",
+     "path": "/canary/{canaryExecutionId}",
+     "line": 158,
+     "evidence": "@RequestMapping(value = \"/{canaryExecutionId:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CanaryController",
+     "methodName": "getCanaryResultsByApplication",
+     "httpMethod": "GET",
+     "path": "/canary/executions",
+     "line": 182,
+     "evidence": "@RequestMapping(value = \"/executions\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "CanaryJudgesController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/judges",
+     "line": 78,
+     "evidence": "@GetMapping",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CanaryJudgesController",
+     "methodName": "judge",
+     "httpMethod": "POST",
+     "path": "/judges/judge",
+     "line": 86,
+     "evidence": "@PostMapping(value = \"/judge\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CanaryJudgesController",
+     "methodName": "initiateJudgeComparison",
+     "httpMethod": "POST",
+     "path": "/judges/comparison",
+     "line": 145,
+     "evidence": "@PostMapping(value = \"/comparison\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CanaryJudgesController",
+     "methodName": "getJudgeComparisonResults",
+     "httpMethod": "GET",
+     "path": "/judges/comparison/{executionId}",
+     "line": 194,
+     "evidence": "@GetMapping(value = \"/comparison/{executionId:.+}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryResultArchiveController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "CanaryResultArchiveController",
+     "methodName": "loadArchivedCanaryResult",
+     "httpMethod": "GET",
+     "path": "/canaryResultArchive/{pipelineId}",
+     "line": 60,
+     "evidence": "@RequestMapping(value = \"/{pipelineId:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CanaryResultArchiveController",
+     "methodName": "storeArchivedCanaryResult",
+     "httpMethod": "POST",
+     "path": "/canaryResultArchive",
+     "line": 72,
+     "evidence": "@RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CanaryResultArchiveController",
+     "methodName": "updateArchivedCanaryResult",
+     "httpMethod": "PUT",
+     "path": "/canaryResultArchive/{pipelineId}",
+     "line": 105,
+     "evidence": "@RequestMapping(value = \"/{pipelineId:.+}\", consumes = \"application/json\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CanaryResultArchiveController",
+     "methodName": "deleteArchivedCanaryResult",
+     "httpMethod": "DELETE",
+     "path": "/canaryResultArchive/{pipelineId}",
+     "line": 137,
+     "evidence": "@RequestMapping(value = \"/{pipelineId:.+}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CanaryResultArchiveController",
+     "methodName": "listAllCanaryArchivedResults",
+     "httpMethod": "GET",
+     "path": "/canaryResultArchive",
+     "line": 152,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CredentialsController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "CredentialsController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/credentials",
+     "line": 38,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "CredentialsController",
+     "methodName": "deleteAccount",
+     "httpMethod": "DELETE",
+     "path": "/credentials/{accountName}",
+     "line": 43,
+     "evidence": "@DeleteMapping(\"/{accountName}\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetListController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "MetricSetListController",
+     "methodName": "loadMetricSetList",
+     "httpMethod": "GET",
+     "path": "/metricSetList/{metricSetListId}",
+     "line": 54,
+     "evidence": "@RequestMapping(value = \"/{metricSetListId:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "MetricSetListController",
+     "methodName": "storeMetricSetList",
+     "httpMethod": "POST",
+     "path": "/metricSetList",
+     "line": 69,
+     "evidence": "@RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "MetricSetListController",
+     "methodName": "deleteMetricSetList",
+     "httpMethod": "DELETE",
+     "path": "/metricSetList/{metricSetListId}",
+     "line": 88,
+     "evidence": "@RequestMapping(value = \"/{metricSetListId:.+}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "MetricSetListController",
+     "methodName": "listAllMetricSetLists",
+     "httpMethod": "GET",
+     "path": "/metricSetList",
+     "line": 105,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetPairListController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "MetricSetPairListController",
+     "methodName": "loadMetricSetPairList",
+     "httpMethod": "GET",
+     "path": "/metricSetPairList/{metricSetPairListId}",
+     "line": 51,
+     "evidence": "@RequestMapping(value = \"/{metricSetPairListId:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "MetricSetPairListController",
+     "methodName": "loadMetricSetPair",
+     "httpMethod": "GET",
+     "path": "/metricSetPairList/{metricSetPairListId}/{metricSetPairId}",
+     "line": 60,
+     "evidence": "@RequestMapping(value = \"/{metricSetPairListId:.+}/{metricSetPairId:.+}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "MetricSetPairListController",
+     "methodName": "storeMetricSetPairList",
+     "httpMethod": "POST",
+     "path": "/metricSetPairList",
+     "line": 74,
+     "evidence": "@RequestMapping(consumes = \"application/json\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "MetricSetPairListController",
+     "methodName": "deleteMetricSetPairList",
+     "httpMethod": "DELETE",
+     "path": "/metricSetPairList/{metricSetPairListId}",
+     "line": 87,
+     "evidence": "@RequestMapping(value = \"/{metricSetPairListId:.+}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "MetricSetPairListController",
+     "methodName": "listAllMetricSetPairLists",
+     "httpMethod": "GET",
+     "path": "/metricSetPairList",
+     "line": 95,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServiceMetadataController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "MetricsServiceMetadataController",
+     "methodName": "listMetadata",
+     "httpMethod": "GET",
+     "path": "/metadata/metricsService",
+     "line": 52,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServicesController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "MetricsServicesController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/metricsServices",
+     "line": 44,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "PipelineController",
+     "methodName": "start",
+     "httpMethod": "POST",
+     "path": "/pipelines/start",
+     "line": 104,
+     "evidence": "@RequestMapping(value = \"/start\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineController",
+     "methodName": "getPipeline",
+     "httpMethod": "GET",
+     "path": "/pipelines/{executionId}",
+     "line": 110,
+     "evidence": "@RequestMapping(value = \"/{executionId}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineController",
+     "methodName": "cancel",
+     "httpMethod": "PUT",
+     "path": "/pipelines/{executionId}/cancel",
+     "line": 116,
+     "evidence": "@RequestMapping(value = \"/{executionId}/cancel\", method = RequestMethod.PUT)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineController",
+     "methodName": "delete",
+     "httpMethod": "DELETE",
+     "path": "/pipelines/{executionId}",
+     "line": 133,
+     "evidence": "@RequestMapping(value = \"/{executionId}\", method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "PipelineController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/pipelines",
+     "line": 146,
+     "evidence": "@RequestMapping(method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "AdminController",
+     "methodName": "setInstanceEnabled",
+     "httpMethod": "POST",
+     "path": "/admin/orca/instance/enabled",
+     "line": 46,
+     "evidence": "@RequestMapping(value = \"/instance/enabled\", consumes = \"application/json\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "StandaloneCanaryAnalysisController",
+     "methodName": "initiateCanaryAnalysis",
+     "httpMethod": "POST",
+     "path": "/standalone_canary_analysis/{canaryConfigId}",
+     "line": 93,
+     "evidence": "@RequestMapping(value = \"/{canaryConfigId:.+}\", consumes = \"application/json\", method = POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "StandaloneCanaryAnalysisController",
+     "methodName": "initiateCanaryAnalysisExecutionWithConfig",
+     "httpMethod": "POST",
+     "path": "/standalone_canary_analysis",
+     "line": 181,
+     "evidence": "@RequestMapping(consumes = \"application/json\", method = POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "StandaloneCanaryAnalysisController",
+     "methodName": "getCanaryAnalysisExecution",
+     "httpMethod": "GET",
+     "path": "/standalone_canary_analysis/{canaryAnalysisExecutionId}",
+     "line": 248,
+     "evidence": "@RequestMapping(value = \"/{canaryAnalysisExecutionId:.+}\", method = GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "AtlasFetchController",
+     "methodName": "queryMetrics",
+     "httpMethod": "POST",
+     "path": "/fetch/atlas/query",
+     "line": 54,
+     "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "ClickhouseFetchController",
+     "methodName": "queryMetrics",
+     "httpMethod": "POST",
+     "path": "/fetch/clickhouse/query",
+     "line": 49,
+     "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-datadog/src/main/java/com/netflix/kayenta/datadog/controller/DatadogFetchController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "DatadogFetchController",
+     "methodName": "queryMetrics",
+     "httpMethod": "POST",
+     "path": "/fetch/datadog/query",
+     "line": 61,
+     "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-graphite/src/main/java/com/netflix/kayenta/graphite/controller/GraphiteFetchController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "GraphiteFetchController",
+     "methodName": "queryMetrics",
+     "httpMethod": "POST",
+     "path": "/fetch/graphite/query",
+     "line": 62,
+     "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-influxdb/src/main/java/com/netflix/kayenta/influxdb/controller/InfluxDbFetchController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "InfluxDbFetchController",
+     "methodName": "queryMetrics",
+     "httpMethod": "POST",
+     "path": "/fetch/influxdb/query",
+     "line": 63,
+     "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-newrelic-insights/src/main/java/com/netflix/kayenta/newrelic/controller/NewRelicFetchController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "NewRelicFetchController",
+     "methodName": "queryMetrics",
+     "httpMethod": "POST",
+     "path": "/fetch/newrelic/query",
+     "line": 62,
+     "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-prometheus/src/main/java/com/netflix/kayenta/prometheus/controllers/PrometheusFetchController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "PrometheusFetchController",
+     "methodName": "queryMetrics",
+     "httpMethod": "POST",
+     "path": "/fetch/prometheus/query",
+     "line": 64,
+     "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-stackdriver/src/main/java/com/netflix/kayenta/stackdriver/controllers/StackdriverFetchController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "StackdriverFetchController",
+     "methodName": "queryMetrics",
+     "httpMethod": "POST",
+     "path": "/fetch/stackdriver/query",
+     "line": 71,
+     "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "kayenta/kayenta-wavefront/src/main/java/com/netflix/kayenta/wavefront/controller/WavefrontFetchController.java",
+   "service": "kayenta",
+   "endpoints": [
+    {
+     "className": "WavefrontFetchController",
+     "methodName": "queryMetrics",
+     "httpMethod": "POST",
+     "path": "/fetch/wavefront/query",
+     "line": 51,
+     "evidence": "@RequestMapping(value = \"/query\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "keel/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt",
+   "service": "keel-web",
+   "endpoints": [
+    {
+     "className": "AdminController",
+     "methodName": "deleteApplicationData",
+     "httpMethod": "DELETE",
+     "path": "/poweruser/applications/{application}",
+     "line": 29,
+     "evidence": "@DeleteMapping(\n    path = [\"/applications/{application}\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AdminController",
+     "methodName": "getPausedApplications",
+     "httpMethod": "GET",
+     "path": "/poweruser/applications/paused",
+     "line": 39,
+     "evidence": "@GetMapping(\n    path = [\"/applications/paused\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AdminController",
+     "methodName": "getManagedApplications",
+     "httpMethod": "GET",
+     "path": "/poweruser/applications",
+     "line": 45,
+     "evidence": "@GetMapping(\n    path = [\"/applications\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AdminController",
+     "methodName": "triggerRecheck",
+     "httpMethod": "POST",
+     "path": "/poweruser/recheck/{resourceId}",
+     "line": 52,
+     "evidence": "@PostMapping(\n    path = [\"/recheck/{resourceId}\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AdminController",
+     "methodName": "forceConstraintReevaluation",
+     "httpMethod": "POST",
+     "path": "/poweruser/application/{application}/environment/{environment}/reevaluate",
+     "line": 59,
+     "evidence": "@PostMapping(\n    path = [\"/application/{application}/environment/{environment}/reevaluate\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AdminController",
+     "methodName": "forceSkipArtifactVersion",
+     "httpMethod": "POST",
+     "path": "/poweruser/application/{application}/environment/{environment}/version/{version}/skip",
+     "line": 82,
+     "evidence": "@PostMapping(\n    path = [\"/application/{application}/environment/{environment}/version/{version}/skip\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AdminController",
+     "methodName": "forceFailVerifications",
+     "httpMethod": "POST",
+     "path": "/poweruser/application/{application}/environment/{environment}/version/{version}/fail",
+     "line": 110,
+     "evidence": "@PostMapping(\n    path = [\"/application/{application}/environment/{environment}/version/{version}/fail\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AdminController",
+     "methodName": "backFillAllArtifactMetadata",
+     "httpMethod": "POST",
+     "path": "/poweruser/artifacts/metadata/backfill",
+     "line": 124,
+     "evidence": "@PostMapping(\n    path = [\"/artifacts/metadata/backfill\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AdminController",
+     "methodName": "refreshApplicationCache",
+     "httpMethod": "POST",
+     "path": "/poweruser/cache/applications/refresh",
+     "line": 143,
+     "evidence": "@PostMapping(\n    path = [\"/cache/applications/refresh\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AdminController",
+     "methodName": "runGitIntegrationMigration",
+     "httpMethod": "POST",
+     "path": "/poweruser/git/migrate-pipelines",
+     "line": 150,
+     "evidence": "@PostMapping(\n    path = [\"/git/migrate-pipelines\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "AdminController",
+     "methodName": "getManagedApplications",
+     "httpMethod": "GET",
+     "path": "/poweruser/taskSummary/{id}",
+     "line": 157,
+     "evidence": "@GetMapping(\n    path = [\"/taskSummary/{id}\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "keel/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ApplicationController.kt",
+   "service": "keel-web",
+   "endpoints": [
+    {
+     "className": "ApplicationController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/application/{application}",
+     "line": 61,
+     "evidence": "@GetMapping(\n    path = [\"/{application}\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "getConfigByApplication",
+     "httpMethod": "GET",
+     "path": "/application/{application}/config",
+     "line": 100,
+     "evidence": "@GetMapping(\n    path = [\"/{application}/config\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "getRawConfigByApplication",
+     "httpMethod": "GET",
+     "path": "/application/{application}/config/raw",
+     "line": 110,
+     "evidence": "@GetMapping(\n    path = [\"/{application}/config/raw\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "deleteConfigByApp",
+     "httpMethod": "DELETE",
+     "path": "/application/{application}/config",
+     "line": 119,
+     "evidence": "@DeleteMapping(\n    path = [\"/{application}/config\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "updateConstraintStatus",
+     "httpMethod": "POST",
+     "path": "/application/{application}/environment/{environment}/constraint",
+     "line": 130,
+     "evidence": "@PostMapping(\n    path = [\"/{application}/environment/{environment}/constraint\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "getConstraintState",
+     "httpMethod": "GET",
+     "path": "/application/{application}/environment/{environment}/constraints",
+     "line": 148,
+     "evidence": "@GetMapping(\n    path = [\"/{application}/environment/{environment}/constraints\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "pause",
+     "httpMethod": "POST",
+     "path": "/application/{application}/pause",
+     "line": 160,
+     "evidence": "@PostMapping(\n    path = [\"/{application}/pause\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "resume",
+     "httpMethod": "DELETE",
+     "path": "/application/{application}/pause",
+     "line": 171,
+     "evidence": "@DeleteMapping(\n    path = [\"/{application}/pause\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "pin",
+     "httpMethod": "POST",
+     "path": "/application/{application}/pin",
+     "line": 185,
+     "evidence": "@PostMapping(\n    path = [\"/{application}/pin\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "deletePin",
+     "httpMethod": "DELETE",
+     "path": "/application/{application}/pin/{targetEnvironment}",
+     "line": 201,
+     "evidence": "@DeleteMapping(\n    path = [\"/{application}/pin/{targetEnvironment}\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "veto",
+     "httpMethod": "POST",
+     "path": "/application/{application}/veto",
+     "line": 218,
+     "evidence": "@PostMapping(\n    path = [\"/{application}/veto\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "markAsBad",
+     "httpMethod": "POST",
+     "path": "/application/{application}/mark/bad",
+     "line": 234,
+     "evidence": "@PostMapping(\n    path = [\"/{application}/mark/bad\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "markAsGood",
+     "httpMethod": "POST",
+     "path": "/application/{application}/mark/good",
+     "line": 250,
+     "evidence": "@PostMapping(\n    path = [\"/{application}/mark/good\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "deleteVeto",
+     "httpMethod": "DELETE",
+     "path": "/application/{application}/veto/{targetEnvironment}/{reference}/{version}",
+     "line": 266,
+     "evidence": "@DeleteMapping(\n    path = [\"/{application}/veto/{targetEnvironment}/{reference}/{version}\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ApplicationController",
+     "methodName": "getEvents",
+     "httpMethod": "GET",
+     "path": "/application/{application}/events",
+     "line": 283,
+     "evidence": "@GetMapping(\n    path = [\"/{application}/events\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "keel/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ArtifactController.kt",
+   "service": "keel-web",
+   "endpoints": [
+    {
+     "className": "ArtifactController",
+     "methodName": "submitArtifact",
+     "httpMethod": "POST",
+     "path": "/artifacts/events",
+     "line": 44,
+     "evidence": "@PostMapping(\n    path = [\"/events\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ArtifactController",
+     "methodName": "sync",
+     "httpMethod": "POST",
+     "path": "/artifacts/sync",
+     "line": 68,
+     "evidence": "@PostMapping(\n    path = [\"/sync\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ArtifactController",
+     "methodName": "getArtifactMetadata",
+     "httpMethod": "GET",
+     "path": "/artifacts/build/{buildNumber}/commit/{commitId}",
+     "line": 77,
+     "evidence": "@GetMapping(\n    path = [\"/build/{buildNumber}/commit/{commitId}\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "keel/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/BaseAmiController.kt",
+   "service": "keel-web",
+   "endpoints": [
+    {
+     "className": "BaseAmiController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/base-amis",
+     "line": 17,
+     "evidence": "@GetMapping(produces = [APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE])",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "keel/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/DeliveryConfigController.kt",
+   "service": "keel-web",
+   "endpoints": [
+    {
+     "className": "DeliveryConfigController",
+     "methodName": "upsert",
+     "httpMethod": "POST",
+     "path": "/delivery-configs",
+     "line": 69,
+     "evidence": "@PostMapping(\n    consumes = [APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "DeliveryConfigController",
+     "methodName": "upsertFromGate",
+     "httpMethod": "POST",
+     "path": "/delivery-configs/upsertGate",
+     "line": 84,
+     "evidence": "@PostMapping(\n    path = [\"/upsertGate\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "DeliveryConfigController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/delivery-configs/{name}",
+     "line": 111,
+     "evidence": "@GetMapping(\n    path = [\"/{name}\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "DeliveryConfigController",
+     "methodName": "delete",
+     "httpMethod": "DELETE",
+     "path": "/delivery-configs/{name}",
+     "line": 122,
+     "evidence": "@DeleteMapping(\n    path = [\"/{name}\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "DeliveryConfigController",
+     "methodName": "diff",
+     "httpMethod": "POST",
+     "path": "/delivery-configs/diff",
+     "line": 136,
+     "evidence": "@PostMapping(\n    path = [\"/diff\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "DeliveryConfigController",
+     "methodName": "validate",
+     "httpMethod": "POST",
+     "path": "/delivery-configs/validate",
+     "line": 162,
+     "evidence": "@PostMapping(\n    path = [\"/validate\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "DeliveryConfigController",
+     "methodName": "validateFromGate",
+     "httpMethod": "POST",
+     "path": "/delivery-configs/validate/gate",
+     "line": 176,
+     "evidence": "@PostMapping(\n    path = [\"validate/gate\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "DeliveryConfigController",
+     "methodName": "import",
+     "httpMethod": "POST",
+     "path": "/delivery-configs/import",
+     "line": 195,
+     "evidence": "@PostMapping(\n    path = [\"/import\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "DeliveryConfigController",
+     "methodName": "schema",
+     "httpMethod": "GET",
+     "path": "/delivery-configs/schema",
+     "line": 231,
+     "evidence": "@GetMapping(\n    path = [\"/schema\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "keel/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EnvironmentController.kt",
+   "service": "keel-web",
+   "endpoints": [
+    {
+     "className": "EnvironmentController",
+     "methodName": "list",
+     "httpMethod": "GET",
+     "path": "/environments/{application}",
+     "line": 17,
+     "evidence": "@GetMapping(\n    path = [\"/{application}\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "keel/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ErrorSimulationController.kt",
+   "service": "keel-web",
+   "endpoints": [
+    {
+     "className": "ErrorSimulationController",
+     "methodName": "throwAnException",
+     "httpMethod": "GET",
+     "path": "/test/error",
+     "line": 23,
+     "evidence": "@GetMapping(\n    path = [\"/error\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "keel/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EventController.kt",
+   "service": "keel-web",
+   "endpoints": [
+    {
+     "className": "EventController",
+     "methodName": "eventHistory",
+     "httpMethod": "GET",
+     "path": "/resources/events/{id}",
+     "line": 24,
+     "evidence": "@GetMapping(\n    path = [\"/{id}\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "keel/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExportController.kt",
+   "service": "keel-web",
+   "endpoints": [
+    {
+     "className": "ExportController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/export/{cloudProvider}/{account}/{type}/{name}",
+     "line": 88,
+     "evidence": "@GetMapping(\n    path = [\"/{cloudProvider}/{account}/{type}/{name}\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ExportController",
+     "methodName": "getArtifactFromCluster",
+     "httpMethod": "GET",
+     "path": "/export/artifact/{cloudProvider}/{account}/{clusterName}",
+     "line": 114,
+     "evidence": "@GetMapping(\n    path = [\"/artifact/{cloudProvider}/{account}/{clusterName}\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ExportController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/export/{application}",
+     "line": 136,
+     "evidence": "@GetMapping(\n    path = [\"/{application}\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "keel/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExtensionsController.kt",
+   "service": "keel-web",
+   "endpoints": [
+    {
+     "className": "ExtensionsController",
+     "methodName": "extensions",
+     "httpMethod": "GET",
+     "path": "/extensions",
+     "line": 13,
+     "evidence": "@GetMapping(produces = [APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE])",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "keel/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/KindController.kt",
+   "service": "keel-web",
+   "endpoints": [
+    {
+     "className": "KindController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/kinds",
+     "line": 17,
+     "evidence": "@GetMapping(produces = [APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE])",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "keel/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/PassThruController.kt",
+   "service": "keel-web",
+   "endpoints": [
+    {
+     "className": "PassThruController",
+     "methodName": "getActiveServerGroups",
+     "httpMethod": "GET",
+     "path": "/test/applications/{app}/clusters/{account}/{cluster}/{cloudProvider}/serverGroups",
+     "line": 27,
+     "evidence": "@GetMapping(\n    path = [\"/applications/{app}/clusters/{account}/{cluster}/{cloudProvider}/serverGroups\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "keel/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ResourceController.kt",
+   "service": "keel-web",
+   "endpoints": [
+    {
+     "className": "ResourceController",
+     "methodName": "get",
+     "httpMethod": "GET",
+     "path": "/resources/{id}",
+     "line": 51,
+     "evidence": "@GetMapping(\n    path = [\"/{id}\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ResourceController",
+     "methodName": "getStatus",
+     "httpMethod": "GET",
+     "path": "/resources/{id}/status",
+     "line": 64,
+     "evidence": "@GetMapping(\n    path = [\"/{id}/status\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ResourceController",
+     "methodName": "pauseResource",
+     "httpMethod": "POST",
+     "path": "/resources/{id}/pause",
+     "line": 75,
+     "evidence": "@PostMapping(\n    path = [\"/{id}/pause\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ResourceController",
+     "methodName": "resumeResource",
+     "httpMethod": "DELETE",
+     "path": "/resources/{id}/pause",
+     "line": 87,
+     "evidence": "@DeleteMapping(\n    path = [\"/{id}/pause\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "ResourceController",
+     "methodName": "diff",
+     "httpMethod": "POST",
+     "path": "/resources/diff",
+     "line": 102,
+     "evidence": "@PostMapping(\n    path = [\"/diff\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "keel/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VerificationController.kt",
+   "service": "keel-web",
+   "endpoints": [
+    {
+     "className": "VerificationController",
+     "methodName": "updateVerificationStatus",
+     "httpMethod": "POST",
+     "path": "/application/{application}/environment/{environment}/verifications",
+     "line": 30,
+     "evidence": "@PostMapping(\n    path = [\"/application/{application}/environment/{environment}/verifications\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "VerificationController",
+     "methodName": "retryVerification",
+     "httpMethod": "POST",
+     "path": "/application/{application}/environment/{environment}/verifications/retry",
+     "line": 76,
+     "evidence": "@PostMapping(\n    path = [\"/application/{application}/environment/{environment}/verifications/retry\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "keel/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VetoController.kt",
+   "service": "keel-web",
+   "endpoints": [
+    {
+     "className": "VetoController",
+     "methodName": "getActiveVetos",
+     "httpMethod": "GET",
+     "path": "/vetos",
+     "line": 41,
+     "evidence": "@GetMapping(\n    produces = [APPLICATION_JSON_VALUE]\n  )",
+     "framework": "Spring",
+     "confidence": "medium"
+    },
+    {
+     "className": "VetoController",
+     "methodName": "getVetoRejections",
+     "httpMethod": "GET",
+     "path": "/vetos/{name}/rejections",
+     "line": 47,
+     "evidence": "@GetMapping(\n    path = [\"/vetos/{name}/rejections\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "VetoController",
+     "methodName": "getVetoRejectionsByApp",
+     "httpMethod": "GET",
+     "path": "/vetos/application/{application}/rejections",
+     "line": 57,
+     "evidence": "@GetMapping(\n    path = [\"/vetos/application/{application}/rejections\"]",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "VetoController",
+     "methodName": "recheckResource",
+     "httpMethod": "POST",
+     "path": "/vetos/recheck/{resourceId}",
+     "line": 67,
+     "evidence": "@PostMapping(\n    path = [\"/recheck/{resourceId}\"]\n  )",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "rosco/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/BakeryController.groovy",
+   "service": "rosco",
+   "endpoints": [
+    {
+     "className": "BakeryController",
+     "methodName": "bakeOptions",
+     "httpMethod": "GET",
+     "path": "/bakeOptions",
+     "line": 69,
+     "evidence": "@RequestMapping(value = '/bakeOptions', method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BakeryController",
+     "methodName": "bakeOptionsByCloudProvider",
+     "httpMethod": "GET",
+     "path": "/bakeOptions/{cloudProvider}",
+     "line": 74,
+     "evidence": "@RequestMapping(value = '/bakeOptions/{cloudProvider}', method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BakeryController",
+     "methodName": "baseImage",
+     "httpMethod": "GET",
+     "path": "/bakeOptions/{cloudProvider}/baseImages/{imageId}",
+     "line": 83,
+     "evidence": "@RequestMapping(value = '/bakeOptions/{cloudProvider}/baseImages/{imageId}', method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BakeryController",
+     "methodName": "createBake",
+     "httpMethod": "POST",
+     "path": "/api/v1/{region}/bake",
+     "line": 150,
+     "evidence": "@RequestMapping(value = '/api/v1/{region}/bake', method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BakeryController",
+     "methodName": "lookupStatus",
+     "httpMethod": "GET",
+     "path": "/api/v1/{region}/status/{statusId}",
+     "line": 226,
+     "evidence": "@RequestMapping(value = \"/api/v1/{region}/status/{statusId}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BakeryController",
+     "methodName": "lookupBake",
+     "httpMethod": "GET",
+     "path": "/api/v1/{region}/bake/{bakeId}",
+     "line": 239,
+     "evidence": "@RequestMapping(value = \"/api/v1/{region}/bake/{bakeId}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BakeryController",
+     "methodName": "lookupLogs",
+     "httpMethod": "GET",
+     "path": "/api/v1/{region}/logs/{statusId}",
+     "line": 258,
+     "evidence": "@RequestMapping(value = \"/api/v1/{region}/logs/{statusId}\", produces = [\"application/json\"], method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BakeryController",
+     "methodName": "lookupLogsByImageId",
+     "httpMethod": "GET",
+     "path": "/api/v1/{region}/logs/image/{imageId}",
+     "line": 269,
+     "evidence": "@RequestMapping(value = \"/api/v1/{region}/logs/image/{imageId}\", produces = [\"application/json\"], method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BakeryController",
+     "methodName": "deleteBake",
+     "httpMethod": "DELETE",
+     "path": "/api/v1/{region}/bake",
+     "line": 289,
+     "evidence": "@RequestMapping(value = '/api/v1/{region}/bake', method = RequestMethod.DELETE)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BakeryController",
+     "methodName": "createDeleteBakesRequest",
+     "httpMethod": "POST",
+     "path": "/api/v1/bakes/delete-requests",
+     "line": 312,
+     "evidence": "@RequestMapping(value = '/api/v1/bakes/delete-requests', method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "BakeryController",
+     "methodName": "cancelBake",
+     "httpMethod": "GET",
+     "path": "/api/v1/{region}/cancel/{statusId}",
+     "line": 321,
+     "evidence": "@RequestMapping(value = \"/api/v1/{region}/cancel/{statusId}\", method = RequestMethod.GET)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "rosco/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/StatusController.groovy",
+   "service": "rosco",
+   "endpoints": [
+    {
+     "className": "StatusController",
+     "methodName": "instanceIncompleteBakes",
+     "httpMethod": "GET",
+     "path": "/status/instance",
+     "line": 44,
+     "evidence": "@RequestMapping(\"/instance\")",
+     "framework": "Spring",
+     "confidence": "high"
+    },
+    {
+     "className": "StatusController",
+     "methodName": "allIncompleteBakes",
+     "httpMethod": "GET",
+     "path": "/status/all",
+     "line": 50,
+     "evidence": "@RequestMapping(\"/all\")",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "path": "rosco/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/V2BakeryController.java",
+   "service": "rosco",
+   "endpoints": [
+    {
+     "className": "V2BakeryController",
+     "methodName": "doBake",
+     "httpMethod": "POST",
+     "path": "/api/v2/manifest/bake/{type}",
+     "line": 29,
+     "evidence": "@RequestMapping(value = \"/api/v2/manifest/bake/{type}\", method = RequestMethod.POST)",
+     "framework": "Spring",
+     "confidence": "high"
+    }
+   ]
+  }
+ ],
+ "_run": {
+  "model": "GLM-5.3-Flash",
+  "workflow": "agent",
+  "effort": "default",
+  "temperature": 0,
+  "steps": 568,
+  "input_tokens": 11500382,
+  "output_tokens": 164140,
+  "wall_seconds": 1553.4,
+  "list_price_usd": 0.5746,
+  "units": 10,
+  "accepted_units": 8
+ }
+}

@@ -1,0 +1,491 @@
+{
+ "name": "spinnaker",
+ "version": "main d8fbbe4",
+ "microservices": [
+  {
+   "name": "kayenta",
+   "path": "/kayenta",
+   "controllers": [
+    {
+     "name": "StandaloneCanaryAnalysisController",
+     "path": "/kayenta/kayenta-standalone-canary-analysis/src/main/java/com/netflix/kayenta/standalonecanaryanalysis/controller/StandaloneCanaryAnalysisController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "getCanaryAnalysisExecution",
+       "url": "/standalone_canary_analysis/{?}",
+       "httpMethod": "ALL"
+      },
+      {
+       "type": "Endpoint",
+       "name": "initiateCanaryAnalysis",
+       "url": "/standalone_canary_analysis/{?}",
+       "httpMethod": "ALL"
+      },
+      {
+       "type": "Endpoint",
+       "name": "initiateCanaryAnalysisExecutionWithConfig",
+       "url": "/standalone_canary_analysis",
+       "httpMethod": "ALL"
+      }
+     ]
+    },
+    {
+     "name": "MetricSetPairListController",
+     "path": "/kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetPairListController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "deleteMetricSetPairList",
+       "url": "/metricSetPairList/{?}",
+       "httpMethod": "DELETE"
+      },
+      {
+       "type": "Endpoint",
+       "name": "loadMetricSetPairList",
+       "url": "/metricSetPairList/{?}",
+       "httpMethod": "GET"
+      },
+      {
+       "type": "Endpoint",
+       "name": "loadMetricSetPair",
+       "url": "/metricSetPairList/{?}/{?}",
+       "httpMethod": "GET"
+      },
+      {
+       "type": "Endpoint",
+       "name": "storeMetricSetPairList",
+       "url": "/metricSetPairList",
+       "httpMethod": "POST"
+      },
+      {
+       "type": "Endpoint",
+       "name": "listAllMetricSetPairLists",
+       "url": "/metricSetPairList",
+       "httpMethod": "GET"
+      }
+     ]
+    },
+    {
+     "name": "ClickhouseFetchController",
+     "path": "/kayenta/kayenta-clickhouse/src/main/java/com/netflix/kayenta/clickhouse/controller/ClickhouseFetchController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "queryMetrics",
+       "url": "/fetch/clickhouse/query",
+       "httpMethod": "POST"
+      }
+     ]
+    },
+    {
+     "name": "WavefrontFetchController",
+     "path": "/kayenta/kayenta-wavefront/src/main/java/com/netflix/kayenta/wavefront/controller/WavefrontFetchController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "queryMetrics",
+       "url": "/fetch/wavefront/query",
+       "httpMethod": "POST"
+      }
+     ]
+    },
+    {
+     "name": "CanaryController",
+     "path": "/kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "initiateCanary",
+       "url": "/canary/{?}",
+       "httpMethod": "POST"
+      },
+      {
+       "type": "Endpoint",
+       "name": "initiateCanaryWithConfig",
+       "url": "/canary",
+       "httpMethod": "POST"
+      },
+      {
+       "type": "Endpoint",
+       "name": "getCanaryResultsByApplication",
+       "url": "/canary/executions",
+       "httpMethod": "GET"
+      },
+      {
+       "type": "Endpoint",
+       "name": "getCanaryResults",
+       "url": "/canary/{?}",
+       "httpMethod": "GET"
+      }
+     ]
+    },
+    {
+     "name": "MetricsServiceMetadataController",
+     "path": "/kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServiceMetadataController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "listMetadata",
+       "url": "/metadata/metricsService",
+       "httpMethod": "GET"
+      }
+     ]
+    },
+    {
+     "name": "CanaryJudgesController",
+     "path": "/kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryJudgesController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "list",
+       "url": "/judges",
+       "httpMethod": "GET"
+      },
+      {
+       "type": "Endpoint",
+       "name": "initiateJudgeComparison",
+       "url": "/judges/comparison",
+       "httpMethod": "POST"
+      },
+      {
+       "type": "Endpoint",
+       "name": "getJudgeComparisonResults",
+       "url": "/judges/comparison/{?}",
+       "httpMethod": "GET"
+      },
+      {
+       "type": "Endpoint",
+       "name": "judge",
+       "url": "/judges/judge",
+       "httpMethod": "POST"
+      }
+     ]
+    },
+    {
+     "name": "InfluxDbFetchController",
+     "path": "/kayenta/kayenta-influxdb/src/main/java/com/netflix/kayenta/influxdb/controller/InfluxDbFetchController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "queryMetrics",
+       "url": "/fetch/influxdb/query",
+       "httpMethod": "POST"
+      }
+     ]
+    },
+    {
+     "name": "GraphiteFetchController",
+     "path": "/kayenta/kayenta-graphite/src/main/java/com/netflix/kayenta/graphite/controller/GraphiteFetchController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "queryMetrics",
+       "url": "/fetch/graphite/query",
+       "httpMethod": "POST"
+      }
+     ]
+    },
+    {
+     "name": "PrometheusFetchController",
+     "path": "/kayenta/kayenta-prometheus/src/main/java/com/netflix/kayenta/prometheus/controllers/PrometheusFetchController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "queryMetrics",
+       "url": "/fetch/prometheus/query",
+       "httpMethod": "POST"
+      }
+     ]
+    },
+    {
+     "name": "StackdriverFetchController",
+     "path": "/kayenta/kayenta-stackdriver/src/main/java/com/netflix/kayenta/stackdriver/controllers/StackdriverFetchController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "queryMetrics",
+       "url": "/fetch/stackdriver/query",
+       "httpMethod": "POST"
+      }
+     ]
+    },
+    {
+     "name": "DatadogFetchController",
+     "path": "/kayenta/kayenta-datadog/src/main/java/com/netflix/kayenta/datadog/controller/DatadogFetchController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "queryMetrics",
+       "url": "/fetch/datadog/query",
+       "httpMethod": "POST"
+      }
+     ]
+    },
+    {
+     "name": "AdminController",
+     "path": "/kayenta/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/AdminController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "setInstanceEnabled",
+       "url": "/admin/orca/instance/enabled",
+       "httpMethod": "POST"
+      }
+     ]
+    },
+    {
+     "name": "CanaryResultArchiveController",
+     "path": "/kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryResultArchiveController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "deleteArchivedCanaryResult",
+       "url": "/canaryResultArchive/{?}",
+       "httpMethod": "DELETE"
+      },
+      {
+       "type": "Endpoint",
+       "name": "listAllCanaryArchivedResults",
+       "url": "/canaryResultArchive",
+       "httpMethod": "GET"
+      },
+      {
+       "type": "Endpoint",
+       "name": "storeArchivedCanaryResult",
+       "url": "/canaryResultArchive",
+       "httpMethod": "POST"
+      },
+      {
+       "type": "Endpoint",
+       "name": "loadArchivedCanaryResult",
+       "url": "/canaryResultArchive/{?}",
+       "httpMethod": "GET"
+      },
+      {
+       "type": "Endpoint",
+       "name": "updateArchivedCanaryResult",
+       "url": "/canaryResultArchive/{?}",
+       "httpMethod": "PUT"
+      }
+     ]
+    },
+    {
+     "name": "PipelineController",
+     "path": "/kayenta/kayenta-orca/src/main/java/com/netflix/kayenta/orca/controllers/PipelineController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "cancel",
+       "url": "/pipelines/{?}/cancel",
+       "httpMethod": "PUT"
+      },
+      {
+       "type": "Endpoint",
+       "name": "list",
+       "url": "/pipelines",
+       "httpMethod": "GET"
+      },
+      {
+       "type": "Endpoint",
+       "name": "getPipeline",
+       "url": "/pipelines/{?}",
+       "httpMethod": "GET"
+      },
+      {
+       "type": "Endpoint",
+       "name": "start",
+       "url": "/pipelines/start",
+       "httpMethod": "POST"
+      },
+      {
+       "type": "Endpoint",
+       "name": "delete",
+       "url": "/pipelines/{?}",
+       "httpMethod": "DELETE"
+      }
+     ]
+    },
+    {
+     "name": "MetricSetListController",
+     "path": "/kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricSetListController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "deleteMetricSetList",
+       "url": "/metricSetList/{?}",
+       "httpMethod": "DELETE"
+      },
+      {
+       "type": "Endpoint",
+       "name": "storeMetricSetList",
+       "url": "/metricSetList",
+       "httpMethod": "POST"
+      },
+      {
+       "type": "Endpoint",
+       "name": "loadMetricSetList",
+       "url": "/metricSetList/{?}",
+       "httpMethod": "GET"
+      },
+      {
+       "type": "Endpoint",
+       "name": "listAllMetricSetLists",
+       "url": "/metricSetList",
+       "httpMethod": "GET"
+      }
+     ]
+    },
+    {
+     "name": "NewRelicFetchController",
+     "path": "/kayenta/kayenta-newrelic-insights/src/main/java/com/netflix/kayenta/newrelic/controller/NewRelicFetchController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "queryMetrics",
+       "url": "/fetch/newrelic/query",
+       "httpMethod": "POST"
+      }
+     ]
+    },
+    {
+     "name": "CanaryConfigController",
+     "path": "/kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CanaryConfigController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "loadCanaryConfig",
+       "url": "/canaryConfig/{?}",
+       "httpMethod": "GET"
+      },
+      {
+       "type": "Endpoint",
+       "name": "storeCanaryConfig",
+       "url": "/canaryConfig",
+       "httpMethod": "POST"
+      },
+      {
+       "type": "Endpoint",
+       "name": "updateCanaryConfig",
+       "url": "/canaryConfig/{?}",
+       "httpMethod": "PUT"
+      },
+      {
+       "type": "Endpoint",
+       "name": "deleteCanaryConfig",
+       "url": "/canaryConfig/{?}",
+       "httpMethod": "DELETE"
+      },
+      {
+       "type": "Endpoint",
+       "name": "listAllCanaryConfigs",
+       "url": "/canaryConfig",
+       "httpMethod": "GET"
+      }
+     ]
+    },
+    {
+     "name": "MetricsServicesController",
+     "path": "/kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/MetricsServicesController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "list",
+       "url": "/metricsServices",
+       "httpMethod": "GET"
+      }
+     ]
+    },
+    {
+     "name": "AtlasFetchController",
+     "path": "/kayenta/kayenta-atlas/src/main/java/com/netflix/kayenta/atlas/controllers/AtlasFetchController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "queryMetrics",
+       "url": "/fetch/atlas/query",
+       "httpMethod": "POST"
+      }
+     ]
+    },
+    {
+     "name": "CredentialsController",
+     "path": "/kayenta/kayenta-web/src/main/java/com/netflix/kayenta/controllers/CredentialsController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "list",
+       "url": "/credentials",
+       "httpMethod": "GET"
+      },
+      {
+       "type": "Endpoint",
+       "name": "deleteAccount",
+       "url": "/credentials/{?}",
+       "httpMethod": "DELETE"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "echo-web",
+   "path": "/echo/echo-web",
+   "controllers": [
+    {
+     "name": "ValidationController",
+     "path": "/echo/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ValidationController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "validateCronExpression",
+       "url": "/validateCronExpression",
+       "httpMethod": "GET"
+      }
+     ]
+    },
+    {
+     "name": "HistoryController",
+     "path": "/echo/echo-web/src/main/java/com/netflix/spinnaker/echo/history/HistoryController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "saveHistory",
+       "url": "/",
+       "httpMethod": "POST"
+      }
+     ]
+    },
+    {
+     "name": "ScheduledActionsController",
+     "path": "/echo/echo-web/src/main/java/com/netflix/spinnaker/echo/scheduler/ScheduledActionsController.java",
+     "methods": [
+      {
+       "type": "Endpoint",
+       "name": "deleteScheduledAction",
+       "url": "/scheduledActions/{?}",
+       "httpMethod": "DELETE"
+      },
+      {
+       "type": "Endpoint",
+       "name": "getAllScheduledActions",
+       "url": "/scheduledActions",
+       "httpMethod": "GET"
+      },
+      {
+       "type": "Endpoint",
+       "name": "createScheduledAction",
+       "url": "/scheduledActions",
+       "httpMethod": "POST"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "spin",
+   "path": "/spin",
+   "controllers": []
+  }
+ ]
+}

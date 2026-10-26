@@ -181,7 +181,7 @@ function serviceResolver(doc){
   if (!pairs.length) return null;
   return path => { const p = slash(path).replace(/^\/+/, "");
     for (const [pre, name] of pairs) if (p === pre || p.startsWith(pre + "/")) return name;
-    return p.split("/").filter(Boolean)[0] || "?"; };
+    return null; };
 }
 // ------------------------------------------------------------------ loaders --
 const GT_SHOWN = new Set(["id","service","caller_service","http_method","path_declared","class","method","file","line_method_annotation","line_handler",
@@ -225,7 +225,7 @@ function ingest(name, d){
       }
     }
     const label = llmLabel(run) + (String(run.prompt_file || "").includes("outbound") ? " +outbound" : "");
-    return {kind: "llm", name, system: d.system, label, approach: run.workflow === "agent" ? "LLM agent" : "LLM per-file",
+    return {kind: "llm", name, system: d.system, label, approach: String(run.workflow).startsWith("agent") ? "LLM agent" : "LLM per-file",
       inb, out, run: Object.fromEntries(RUN_FIELDS.filter(k => run[k] != null).map(k => [k, run[k]]))};
   }
   return null;
@@ -241,11 +241,11 @@ function buildSystem(name){
   const in2 = new Set(gtIn.map(K2)), in4 = new Set(gtIn.map(K4)), out2 = new Set(gtOut.map(K2)), out4 = new Set(gtOut.map(K4));
   // ponytail: outbound target inferred by longest ground-truth inbound path the call URL ends with
   const target = c => gtIn.filter(e => e.service !== c.service && e.path !== "/" && c.path.endsWith(e.path)).sort((a, b) => b.path.length - a.path.length)[0];
-  const sources = [{id: gtf.name, label: "Manual ground truth", approach: "Reference", ref: true, inb: gtIn, out: gtOut, outside: [], emitsOut: true,
+  const sources = [{id: gtf.name, label: meta.draft ? "Draft ground truth" : "Manual ground truth", approach: "Reference", ref: true, inb: gtIn, out: gtOut, outside: [], emitsOut: true,
     run: {labeled_by: meta.labeled_by, labeled_on: meta.labeled_on}}];
   for (const f of FILES.filter(f => f.kind !== "gt" && f.system === name)) {
     let inb = f.inb.map(r => ({...r})), out = f.out.map(r => ({...r}));
-    if (f.kind === "llm" && resolve) [...inb, ...out].forEach(r => r.service = resolve(r.file));
+    if (resolve) [...inb, ...out].forEach(r => r.service = resolve(r.file) || r.service);
     let outside = [];
     if (inFrame) { outside = [...inb, ...out].filter(r => !inFrame(r.file)); inb = inb.filter(r => inFrame(r.file)); out = out.filter(r => inFrame(r.file)); }
     out.forEach(c => { const t = target(c); if (t) Object.assign(c, {target: t.service, resolves_to: t.id, inferred: true}); });
@@ -294,6 +294,7 @@ try { bundled = JSON.parse($("data").textContent).map(f => ingest(f.name, f.doc)
 FILES = bundled.slice();
 let state = {sys: null, src: null, cmp: "gt", lvl: "M2 normalized", filt: [], dirs: [], svc: "", q: ""};
 try { Object.assign(state, JSON.parse(localStorage.getItem("irv3") || "{}")); } catch (e) {}
+if (location.hash) state.sys = decodeURIComponent(location.hash.slice(1));   // viewer.html#spinnaker opens that system
 const save = () => { try { localStorage.setItem("irv3", JSON.stringify(state)); } catch (e) {} };
 Object.keys(LEVELS).forEach(l => $("lvl").add(new Option(l, l)));
 
@@ -312,7 +313,7 @@ function fillSelects(){
   if (state.cmp !== "gt" && state.cmp !== "" && !byId(SYS(), state.cmp)) state.cmp = "gt";
   for (const id of ["src", "cmp"]) {
     const el = $(id); el.innerHTML = "";
-    if (id === "cmp") { el.add(new Option("Manual ground truth (default)", "gt")); el.add(new Option("— none —", "")); }
+    if (id === "cmp") { el.add(new Option(`${S[0].label} (default)`, "gt")); el.add(new Option("— none —", "")); }
     let g = null;
     S.forEach(s => { if (id === "cmp" && s.ref) return;
       if (!g || g.label !== s.approach) { g = document.createElement("optgroup"); g.label = s.approach; el.appendChild(g); }

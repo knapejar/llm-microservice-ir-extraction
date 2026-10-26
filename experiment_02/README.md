@@ -134,6 +134,25 @@ of the disagreements (`spinnaker_review.json`):
 https://knapejar.github.io/llm-microservice-ir-extraction/spinnaker/.
 `agent_cli.py` exposes the agent's tools as a command line, so a model working
 in an interactive session runs the same task with the same validation.
+The endpoints every finished run found, plus the confirmed disagreements, form a
+draft ground truth of 752 endpoints (`../experiment_01/groundtruth/spinnaker.gt.json`),
+which the viewer scores like the other systems:
+https://knapejar.github.io/llm-microservice-ir-extraction/viewer/#spinnaker.
+
+| source | found | tp | fp | fn | F1 (M2) |
+|---|---:|---:|---:|---:|---:|
+| Opus 5.5, medium effort, via `agent_cli.py` | 753 | 751 | 2 | 1 | 0.998 |
+| DeepSeek-V4.1-Flash, effort low | 756 | 750 | 6 | 2 | 0.995 |
+| GLM-5.3-Flash, effort default | 442 | 428 | 14 | 324 | 0.717 |
+| CIMET main | 54 | 51 | 3 | 701 | 0.127 |
+
+The draft is built from the runs it scores, so the agreeing models score high by
+construction; only the hand-checked disagreements discriminate. There, most
+differences are the verb of a mapping without a method (ANY), a class prefix
+invented (GLM, keel `VetoController`) or doubled (DeepSeek, two ECS controllers),
+and two routes of `clouddriver-alicloud`, which is left out of the build. GLM
+stopped early on gate (loop guard) and clouddriver. CIMET main finds only kayenta
+and echo-web and reads a statically imported `method = POST` as ALL.
 
 The six small repositories are golang-crud-rest-api-gin, crud-tutorial-csharp,
 node-js-restful-api-example, E-commerce-Microservice, rasa-sdk and

@@ -22,7 +22,7 @@ import evaluate as ev
 HERE = Path(__file__).resolve().parent
 EXP2 = HERE.parent / "experiment_02" / "out"
 CIMET_NAMES = ["IR-movie.cimet.json", "IR-movie.json", "IR-xs2a.cimet.json", "IR-xs2a.json",
-               "IR-geoserver-cloud.cimet.json", "IR-geoserver-cloud.json"]
+               "IR-geoserver-cloud.cimet.json", "IR-geoserver-cloud.json", "IR-spinnaker.cimet.json"]
 
 
 def slim_cimet(d):
@@ -47,7 +47,8 @@ def slim_cimet(d):
 
 
 def collect(cimet_dirs):
-    files = [(HERE / "groundtruth" / n, "gt") for n in ("movie-recommendation.gt.json", "xs2a.gt.json", "geoserver-cloud.gt.json")]
+    files = [(HERE / "groundtruth" / n, "gt") for n in ("movie-recommendation.gt.json", "xs2a.gt.json", "geoserver-cloud.gt.json",
+                                                         "spinnaker.gt.json")]
     seen = set()
     for n in CIMET_NAMES:   # one CIMET IR per system: IR-x.cimet.json wins over IR-x.json
         p = next((d / n for d in cimet_dirs if (d / n).exists()), None)

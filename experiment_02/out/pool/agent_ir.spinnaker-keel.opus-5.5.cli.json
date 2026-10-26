@@ -1,0 +1,1198 @@
+{
+  "system": "spinnaker-keel",
+  "services": [
+    {
+      "name": "keel",
+      "dirs": [
+        "/"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt",
+      "service": "keel",
+      "endpoints": [
+        {
+          "className": "AdminController",
+          "methodName": "deleteApplicationData",
+          "httpMethod": "DELETE",
+          "path": "/poweruser/applications/{application}",
+          "line": 29,
+          "evidence": "@DeleteMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AdminController",
+          "methodName": "getPausedApplications",
+          "httpMethod": "GET",
+          "path": "/poweruser/applications/paused",
+          "line": 39,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AdminController",
+          "methodName": "getManagedApplications",
+          "httpMethod": "GET",
+          "path": "/poweruser/applications",
+          "line": 45,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AdminController",
+          "methodName": "triggerRecheck",
+          "httpMethod": "POST",
+          "path": "/poweruser/recheck/{resourceId}",
+          "line": 52,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AdminController",
+          "methodName": "forceConstraintReevaluation",
+          "httpMethod": "POST",
+          "path": "/poweruser/application/{application}/environment/{environment}/reevaluate",
+          "line": 59,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AdminController",
+          "methodName": "forceSkipArtifactVersion",
+          "httpMethod": "POST",
+          "path": "/poweruser/application/{application}/environment/{environment}/version/{version}/skip",
+          "line": 82,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AdminController",
+          "methodName": "forceFailVerifications",
+          "httpMethod": "POST",
+          "path": "/poweruser/application/{application}/environment/{environment}/version/{version}/fail",
+          "line": 110,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AdminController",
+          "methodName": "backFillAllArtifactMetadata",
+          "httpMethod": "POST",
+          "path": "/poweruser/artifacts/metadata/backfill",
+          "line": 124,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AdminController",
+          "methodName": "refreshApplicationCache",
+          "httpMethod": "POST",
+          "path": "/poweruser/cache/applications/refresh",
+          "line": 143,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AdminController",
+          "methodName": "runGitIntegrationMigration",
+          "httpMethod": "POST",
+          "path": "/poweruser/git/migrate-pipelines",
+          "line": 150,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AdminController",
+          "methodName": "getManagedApplications",
+          "httpMethod": "GET",
+          "path": "/poweruser/taskSummary/{id}",
+          "line": 157,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ApplicationController.kt",
+      "service": "keel",
+      "endpoints": [
+        {
+          "className": "ApplicationController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/application/{application}",
+          "line": 61,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationController",
+          "methodName": "getConfigByApplication",
+          "httpMethod": "GET",
+          "path": "/application/{application}/config",
+          "line": 100,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationController",
+          "methodName": "getRawConfigByApplication",
+          "httpMethod": "GET",
+          "path": "/application/{application}/config/raw",
+          "line": 110,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationController",
+          "methodName": "deleteConfigByApp",
+          "httpMethod": "DELETE",
+          "path": "/application/{application}/config",
+          "line": 119,
+          "evidence": "@DeleteMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationController",
+          "methodName": "updateConstraintStatus",
+          "httpMethod": "POST",
+          "path": "/application/{application}/environment/{environment}/constraint",
+          "line": 130,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationController",
+          "methodName": "getConstraintState",
+          "httpMethod": "GET",
+          "path": "/application/{application}/environment/{environment}/constraints",
+          "line": 148,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationController",
+          "methodName": "pause",
+          "httpMethod": "POST",
+          "path": "/application/{application}/pause",
+          "line": 160,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationController",
+          "methodName": "resume",
+          "httpMethod": "DELETE",
+          "path": "/application/{application}/pause",
+          "line": 171,
+          "evidence": "@DeleteMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationController",
+          "methodName": "pin",
+          "httpMethod": "POST",
+          "path": "/application/{application}/pin",
+          "line": 185,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationController",
+          "methodName": "deletePin",
+          "httpMethod": "DELETE",
+          "path": "/application/{application}/pin/{targetEnvironment}",
+          "line": 201,
+          "evidence": "@DeleteMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationController",
+          "methodName": "veto",
+          "httpMethod": "POST",
+          "path": "/application/{application}/veto",
+          "line": 218,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationController",
+          "methodName": "markAsBad",
+          "httpMethod": "POST",
+          "path": "/application/{application}/mark/bad",
+          "line": 234,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationController",
+          "methodName": "markAsGood",
+          "httpMethod": "POST",
+          "path": "/application/{application}/mark/good",
+          "line": 250,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationController",
+          "methodName": "deleteVeto",
+          "httpMethod": "DELETE",
+          "path": "/application/{application}/veto/{targetEnvironment}/{reference}/{version}",
+          "line": 266,
+          "evidence": "@DeleteMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApplicationController",
+          "methodName": "getEvents",
+          "httpMethod": "GET",
+          "path": "/application/{application}/events",
+          "line": 283,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ArtifactController.kt",
+      "service": "keel",
+      "endpoints": [
+        {
+          "className": "ArtifactController",
+          "methodName": "submitArtifact",
+          "httpMethod": "POST",
+          "path": "/artifacts/events",
+          "line": 44,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ArtifactController",
+          "methodName": "sync",
+          "httpMethod": "POST",
+          "path": "/artifacts/sync",
+          "line": 68,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ArtifactController",
+          "methodName": "getArtifactMetadata",
+          "httpMethod": "GET",
+          "path": "/artifacts/build/{buildNumber}/commit/{commitId}",
+          "line": 77,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/BaseAmiController.kt",
+      "service": "keel",
+      "endpoints": [
+        {
+          "className": "BaseAmiController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/base-amis",
+          "line": 17,
+          "evidence": "@GetMapping(produces = [APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE])",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/DeliveryConfigController.kt",
+      "service": "keel",
+      "endpoints": [
+        {
+          "className": "DeliveryConfigController",
+          "methodName": "upsert",
+          "httpMethod": "POST",
+          "path": "/delivery-configs",
+          "line": 69,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DeliveryConfigController",
+          "methodName": "upsertFromGate",
+          "httpMethod": "POST",
+          "path": "/delivery-configs/upsertGate",
+          "line": 84,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DeliveryConfigController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/delivery-configs/{name}",
+          "line": 111,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DeliveryConfigController",
+          "methodName": "delete",
+          "httpMethod": "DELETE",
+          "path": "/delivery-configs/{name}",
+          "line": 122,
+          "evidence": "@DeleteMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DeliveryConfigController",
+          "methodName": "diff",
+          "httpMethod": "POST",
+          "path": "/delivery-configs/diff",
+          "line": 136,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DeliveryConfigController",
+          "methodName": "validate",
+          "httpMethod": "POST",
+          "path": "/delivery-configs/validate",
+          "line": 162,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DeliveryConfigController",
+          "methodName": "validateFromGate",
+          "httpMethod": "POST",
+          "path": "/delivery-configs/validate/gate",
+          "line": 176,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DeliveryConfigController",
+          "methodName": "import",
+          "httpMethod": "POST",
+          "path": "/delivery-configs/import",
+          "line": 195,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DeliveryConfigController",
+          "methodName": "schema",
+          "httpMethod": "GET",
+          "path": "/delivery-configs/schema",
+          "line": 231,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EnvironmentController.kt",
+      "service": "keel",
+      "endpoints": [
+        {
+          "className": "EnvironmentController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/environments/{application}",
+          "line": 17,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ErrorSimulationController.kt",
+      "service": "keel",
+      "endpoints": [
+        {
+          "className": "ErrorSimulationController",
+          "methodName": "throwAnException",
+          "httpMethod": "GET",
+          "path": "/test/error",
+          "line": 23,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EventController.kt",
+      "service": "keel",
+      "endpoints": [
+        {
+          "className": "EventController",
+          "methodName": "eventHistory",
+          "httpMethod": "GET",
+          "path": "/resources/events/{id}",
+          "line": 24,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExportController.kt",
+      "service": "keel",
+      "endpoints": [
+        {
+          "className": "ExportController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/export/{cloudProvider}/{account}/{type}/{name}",
+          "line": 88,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ExportController",
+          "methodName": "getArtifactFromCluster",
+          "httpMethod": "GET",
+          "path": "/export/artifact/{cloudProvider}/{account}/{clusterName}",
+          "line": 114,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ExportController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/export/{application}",
+          "line": 136,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExtensionsController.kt",
+      "service": "keel",
+      "endpoints": [
+        {
+          "className": "ExtensionsController",
+          "methodName": "extensions",
+          "httpMethod": "GET",
+          "path": "/extensions",
+          "line": 13,
+          "evidence": "@GetMapping(produces = [APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE])",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/KindController.kt",
+      "service": "keel",
+      "endpoints": [
+        {
+          "className": "KindController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/kinds",
+          "line": 17,
+          "evidence": "@GetMapping(produces = [APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE])",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/PassThruController.kt",
+      "service": "keel",
+      "endpoints": [
+        {
+          "className": "PassThruController",
+          "methodName": "getActiveServerGroups",
+          "httpMethod": "GET",
+          "path": "/test/applications/{app}/clusters/{account}/{cluster}/{cloudProvider}/serverGroups",
+          "line": 27,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ResourceController.kt",
+      "service": "keel",
+      "endpoints": [
+        {
+          "className": "ResourceController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/resources/{id}",
+          "line": 51,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ResourceController",
+          "methodName": "getStatus",
+          "httpMethod": "GET",
+          "path": "/resources/{id}/status",
+          "line": 64,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ResourceController",
+          "methodName": "pauseResource",
+          "httpMethod": "POST",
+          "path": "/resources/{id}/pause",
+          "line": 75,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ResourceController",
+          "methodName": "resumeResource",
+          "httpMethod": "DELETE",
+          "path": "/resources/{id}/pause",
+          "line": 87,
+          "evidence": "@DeleteMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ResourceController",
+          "methodName": "diff",
+          "httpMethod": "POST",
+          "path": "/resources/diff",
+          "line": 102,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VerificationController.kt",
+      "service": "keel",
+      "endpoints": [
+        {
+          "className": "VerificationController",
+          "methodName": "updateVerificationStatus",
+          "httpMethod": "POST",
+          "path": "/application/{application}/environment/{environment}/verifications",
+          "line": 30,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "VerificationController",
+          "methodName": "retryVerification",
+          "httpMethod": "POST",
+          "path": "/application/{application}/environment/{environment}/verifications/retry",
+          "line": 76,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VetoController.kt",
+      "service": "keel",
+      "endpoints": [
+        {
+          "className": "VetoController",
+          "methodName": "getActiveVetos",
+          "httpMethod": "GET",
+          "path": "/",
+          "line": 41,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "VetoController",
+          "methodName": "getVetoRejections",
+          "httpMethod": "GET",
+          "path": "/vetos/{name}/rejections",
+          "line": 47,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "VetoController",
+          "methodName": "getVetoRejectionsByApp",
+          "httpMethod": "GET",
+          "path": "/vetos/application/{application}/rejections",
+          "line": 57,
+          "evidence": "@GetMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "VetoController",
+          "methodName": "recheckResource",
+          "httpMethod": "POST",
+          "path": "/recheck/{resourceId}",
+          "line": 67,
+          "evidence": "@PostMapping(",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "opus-5.5",
+    "provider": "cli",
+    "workflow": "agent-cli",
+    "effort": "cli",
+    "temperature": null,
+    "native_tools": null,
+    "repo": "keel",
+    "commit": "d2eaa598c95d0a8e17736f2df61fa1fa9f738b53",
+    "dirty": false,
+    "accepted": true,
+    "steps": 55,
+    "tool_calls": 55,
+    "rejected_entries": 0,
+    "wall_seconds": 78.0,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".gitignore\nDockerfile.compile\nDockerfile.slim\nDockerfile.ubuntu\nFAQ.md\nLICENSE\nOWNERS.md\nREADME.md\nbuild-scripts/\nbuild.gradle\ndocs/\ngradle.properties\ngradle/\nkeel-api/\nkeel-artifact/\nkeel-bakery-plugin/\nkeel-bom/\nkeel-cli/\nkeel-clouddriver/\nkeel-core-test/\nkeel-core/\nkeel-docker/\nkeel-ec2-api/\nkeel-ec2-plugin/\nkeel-echo/\nkeel-front50/\nkeel-igor/\nkeel-lemur/\nkeel-network/\nkeel-notifications/\nkeel-optics/\nkeel-orca/\nkeel-retrofit-test-support/\nkeel-retrofit/\nkeel-schema-generator/\nkeel-scm/\nkeel-spring-test-support/\nkeel-sql/\nkeel-test/\nkeel-web/\nsettings.gradle"
+      },
+      {
+        "step": 2,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|^@Controller|fun main[(]|static void main|@DgsComponent"
+        },
+        "result_head": "/keel-cli/src/main/kotlin/com/netflix/spinnaker/keel/cli/KeelCli.kt:72: fun main(args: Array<String>) {\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/Main.kt:56: fun main(vararg args: String) {\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/dgs/ApplicationContext.kt:11: @DgsComponent\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/dgs/ApplicationFetcher.kt:54: @DgsComponent\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/dgs/ConfigFetcher.kt:14: @DgsComponent\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/dgs/GitIntegration.kt:28: @DgsComponent\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/dgs/JsonScalarRegistration.kt:11: @DgsComponent\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/dgs/Mutations.kt:40: @DgsComponent\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/dgs/ResourceDetailsFetcher.kt:13: @DgsComponent\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/dgs/ResourceFetcher.kt:27: @DgsComponent\n/keel-web/src/main/kotlin/com/netfli"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:23: @RequestMapping(path = [\"/poweruser\"])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:24: class AdminController(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:29: @DeleteMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:30: path = [\"/applications/{application}\"]\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:33: fun deleteApplicationData(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:39: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:40: path = [\"/applications/paused\"]\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:42: fun getPausedApplications() =\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:45: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/s"
+      },
+      {
+        "step": 4,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ApplicationController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ApplicationController.kt:51: @RequestMapping(path = [\"/application\"])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ApplicationController.kt:53: class ApplicationController(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ApplicationController.kt:61: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ApplicationController.kt:62: path = [\"/{application}\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ApplicationController.kt:69: fun get(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ApplicationController.kt:100: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ApplicationController.kt:101: path = [\"/{application}/config\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ApplicationController.kt:105: fun getConfigByApplication(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ApplicationController.kt:110: @GetMapping(\n/keel-"
+      },
+      {
+        "step": 5,
+        "tool": "record",
+        "args": {
+          "services": "[{'name': 'keel', 'dirs': ['/']}]",
+          "files": "[{'path': '/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt', 'service': 'keel', 'endpoints': [{'className': 'AdminController', 'methodName': 'deleteApplicationData', 'http"
+        },
+        "result_head": "Recorded 27 new: service keel, DELETE /poweruser/applications/{application}, GET /poweruser/applications/paused, GET /poweruser/applications, POST /poweruser/recheck/{resourceId}, POST /poweruser/application/{application}/environment/{environment}/reevaluate, POST /poweruser/application/{application}/environment/{environment}/version/{version}/skip, POST /poweruser/application/{application}/environment/{environment}/version/{version}/fail, POST /poweruser/artifacts/metadata/backfill, POST /poweruser/cache/applications/refresh, POST /poweruser/git/migrate-pipelines, GET /poweruser/taskSummary/{id}, GET /application/{application}, GET /application/{application}/config, GET /application/{application}/config/raw, DELETE /application/{application}/config, POST /application/{application}/environment/{environment}/constraint, GET /application/{application}/environment/{environment}/constraints, POST /application/{application}/pause, DELETE /application/{application}/pause, POST /application/{"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ArtifactController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ArtifactController.kt:26: @RequestMapping(path = [\"/artifacts\"])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ArtifactController.kt:27: class ArtifactController(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ArtifactController.kt:44: @PostMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ArtifactController.kt:45: path = [\"/events\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ArtifactController.kt:49: fun submitArtifact(@RequestBody echoArtifactEvent: EchoArtifactEvent) {\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ArtifactController.kt:68: @PostMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ArtifactController.kt:69: path = [\"/sync\"]\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ArtifactController.kt:72: fun sync() {\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ArtifactController.kt:77: @GetMapping(\n/keel-web/src/ma"
+      },
+      {
+        "step": 7,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/BaseAmiController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/BaseAmiController.kt:12: @RequestMapping(path = [\"/base-amis\"])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/BaseAmiController.kt:14: class BaseAmiController(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/BaseAmiController.kt:17: @GetMapping(produces = [APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/BaseAmiController.kt:18: fun get(): Map<String, Map<String, String>> ="
+      },
+      {
+        "step": 8,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/DeliveryConfigController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/DeliveryConfigController.kt:48: @RequestMapping(path = [\"/delivery-configs\"])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/DeliveryConfigController.kt:49: class DeliveryConfigController(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/DeliveryConfigController.kt:69: @PostMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/DeliveryConfigController.kt:73: fun upsert(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/DeliveryConfigController.kt:84: @PostMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/DeliveryConfigController.kt:85: path = [\"/upsertGate\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/DeliveryConfigController.kt:90: fun upsertFromGate(@RequestBody rawConfig: GateRawConfig,  @RequestHeader(\"X-SPINNAKER-USER\") user: String): DeliveryConfig {\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/DeliveryConfigController.kt:111: @GetMapping"
+      },
+      {
+        "step": 9,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ArtifactController.kt', 'service': 'keel', 'endpoints': [{'className': 'ArtifactController', 'methodName': 'submitArtifact', 'httpM"
+        },
+        "result_head": "Recorded 13 new: POST /artifacts/events, POST /artifacts/sync, GET /artifacts/build/{buildNumber}/commit/{commitId}, GET /base-amis, POST /delivery-configs, POST /delivery-configs/upsertGate, GET /delivery-configs/{name}, DELETE /delivery-configs/{name}, POST /delivery-configs/diff, POST /delivery-configs/validate, POST /delivery-configs/validate/gate, POST /delivery-configs/import, GET /delivery-configs/schema\nTotal: 1 services, 39 endpoints in 5 files."
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EnvironmentController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EnvironmentController.kt:12: @RequestMapping(path = [\"/environments\"])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EnvironmentController.kt:13: class EnvironmentController(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EnvironmentController.kt:17: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EnvironmentController.kt:18: path = [\"/{application}\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EnvironmentController.kt:25: fun list(@PathVariable(\"application\") application: String) ="
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ErrorSimulationController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ErrorSimulationController.kt:17: @RequestMapping(path = [\"/test\"])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ErrorSimulationController.kt:18: class ErrorSimulationController {\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ErrorSimulationController.kt:23: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ErrorSimulationController.kt:24: path = [\"/error\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ErrorSimulationController.kt:27: fun throwAnException(): Map<String, Any> {"
+      },
+      {
+        "step": 12,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EventController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EventController.kt:17: @RequestMapping(path = [\"/resources/events\"])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EventController.kt:18: class EventController(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EventController.kt:24: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EventController.kt:25: path = [\"/{id}\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EventController.kt:32: fun eventHistory("
+      },
+      {
+        "step": 13,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExportController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExportController.kt:36: @RequestMapping(path = [\"/export\"])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExportController.kt:37: class ExportController(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExportController.kt:88: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExportController.kt:89: path = [\"/{cloudProvider}/{account}/{type}/{name}\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExportController.kt:92: fun get(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExportController.kt:114: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExportController.kt:115: path = [\"/artifact/{cloudProvider}/{account}/{clusterName}\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExportController.kt:118: fun getArtifactFromCluster(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExportController.kt:136: @GetMapping(\n/keel-w"
+      },
+      {
+        "step": 14,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExtensionsController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExtensionsController.kt:11: @RequestMapping(path = [\"/extensions\"])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExtensionsController.kt:12: class ExtensionsController(private val extensionRegistry: ExtensionRegistry) {\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExtensionsController.kt:13: @GetMapping(produces = [APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ExtensionsController.kt:14: fun extensions(): Map<String, Map<String, String>> ="
+      },
+      {
+        "step": 15,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/EnvironmentController.kt', 'service': 'keel', 'endpoints': [{'className': 'EnvironmentController', 'methodName': 'list', 'httpMetho"
+        },
+        "result_head": "Recorded 7 new: GET /environments/{application}, GET /test/error, GET /resources/events/{id}, GET /export/{cloudProvider}/{account}/{type}/{name}, GET /export/artifact/{cloudProvider}/{account}/{clusterName}, GET /export/{application}, GET /extensions\nTotal: 1 services, 46 endpoints in 10 files."
+      },
+      {
+        "step": 16,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class|@Conditional",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/KindController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/KindController.kt:13: @RequestMapping(path = [\"/kinds\"])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/KindController.kt:14: class KindController(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/KindController.kt:17: @GetMapping(produces = [APPLICATION_JSON_VALUE, APPLICATION_YAML_VALUE])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/KindController.kt:18: fun get(): Set<String> ="
+      },
+      {
+        "step": 17,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class|@Conditional",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/PassThruController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/PassThruController.kt:21: @ConditionalOnProperty(\"tests.passthru\", matchIfMissing = false)\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/PassThruController.kt:22: @RequestMapping(path = [\"/test\"])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/PassThruController.kt:23: class PassThruController(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/PassThruController.kt:27: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/PassThruController.kt:28: path = [\"/applications/{app}/clusters/{account}/{cluster}/{cloudProvider}/serverGroups\"]\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/PassThruController.kt:30: fun getActiveServerGroups("
+      },
+      {
+        "step": 18,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class|@Conditional",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ResourceController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ResourceController.kt:42: @RequestMapping(path = [\"/resources\"])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ResourceController.kt:43: class ResourceController(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ResourceController.kt:51: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ResourceController.kt:52: path = [\"/{id}\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ResourceController.kt:59: fun get(@PathVariable(\"id\") id: String): Resource<*> {\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ResourceController.kt:64: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ResourceController.kt:65: path = [\"/{id}/status\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ResourceController.kt:72: fun getStatus(@PathVariable(\"id\") id: String): ResourceStatus =\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ResourceControlle"
+      },
+      {
+        "step": 19,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class|@Conditional",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VerificationController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VerificationController.kt:25: class VerificationController(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VerificationController.kt:30: @PostMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VerificationController.kt:31: path = [\"/application/{application}/environment/{environment}/verifications\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VerificationController.kt:39: fun updateVerificationStatus(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VerificationController.kt:76: @PostMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VerificationController.kt:77: path = [\"/application/{application}/environment/{environment}/verifications/retry\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VerificationController.kt:85: fun retryVerification("
+      },
+      {
+        "step": 20,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class|@Conditional",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VetoController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VetoController.kt:34: class VetoController(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VetoController.kt:41: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VetoController.kt:45: fun getActiveVetos(): List<String> = vetos.map { it.name() }\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VetoController.kt:47: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VetoController.kt:48: path = [\"/vetos/{name}/rejections\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VetoController.kt:52: fun getVetoRejections(@PathVariable name: String): List<String> {\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VetoController.kt:57: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VetoController.kt:58: path = [\"/vetos/application/{application}/rejections\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VetoController.kt:62:"
+      },
+      {
+        "step": 21,
+        "tool": "grep",
+        "args": {
+          "pattern": "@[A-Za-z]*Mapping([(]|$)|^  fun |^ +(method|value|path) *=|^class|@Conditional",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ErrorSimulationController.kt"
+        },
+        "result_head": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ErrorSimulationController.kt:16: @ConditionalOnProperty(\"tests.error-simulation\", matchIfMissing = false)\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ErrorSimulationController.kt:17: @RequestMapping(path = [\"/test\"])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ErrorSimulationController.kt:18: class ErrorSimulationController {\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ErrorSimulationController.kt:23: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ErrorSimulationController.kt:24: path = [\"/error\"],\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/ErrorSimulationController.kt:27: fun throwAnException(): Map<String, Any> {"
+      },
+      {
+        "step": 22,
+        "tool": "read_file",
+        "args": {
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/VetoController.kt",
+          "start": "30"
+        },
+        "result_head": "30: import org.springframework.web.bind.annotation.ResponseStatus\n31: import org.springframework.web.bind.annotation.RestController\n32: \n33: @RestController\n34: class VetoController(\n35:   val vetos: List<Veto>,\n36:   val unhappyVeto: UnhappyVeto\n37: ) {\n38: \n39:   private val log by lazy { LoggerFactory.getLogger(javaClass) }\n40: \n41:   @GetMapping(\n42:     produces = [APPLICATION_JSON_VALUE]\n43:   )\n44:   // TODO: authorization -- what can we index on here?\n45:   fun getActiveVetos(): List<String> = vetos.map { it.name() }\n46: \n47:   @GetMapping(\n48:     path = [\"/vetos/{name}/rejections\"],\n49:     produces = [APPLICATION_JSON_VALUE]\n50:   )\n51:   // TODO: authorization -- what can we index on here?\n52:   fun getVetoRejections(@PathVariable name: String): List<String> {\n53:     val veto = vetos.find { it.name().equals(name, true) } ?: throw VetoNotFoundException(name)\n54:     return veto.currentRejections()\n55:   }\n56: \n57:   @GetMapping(\n58:     path = [\"/vetos/application/{applicat"
+      },
+      {
+        "step": 23,
+        "tool": "record",
+        "args": {
+          "services": "[]",
+          "files": "[{'path': '/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/KindController.kt', 'service': 'keel', 'endpoints': [{'className': 'KindController', 'methodName': 'get', 'httpMethod': 'GET', 'pat"
+        },
+        "result_head": "Recorded 13 new: GET /kinds, GET /test/applications/{app}/clusters/{account}/{cluster}/{cloudProvider}/serverGroups, GET /resources/{id}, GET /resources/{id}/status, POST /resources/{id}/pause, DELETE /resources/{id}/pause, POST /resources/diff, POST /application/{application}/environment/{environment}/verifications, POST /application/{application}/environment/{environment}/verifications/retry, GET /, GET /vetos/{name}/rejections, GET /vetos/application/{application}/rejections, POST /recheck/{resourceId}\nTotal: 1 services, 59 endpoints in 15 files."
+      },
+      {
+        "step": 24,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController"
+        },
+        "result_head": "/docs/authorization.md:53: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:22: @RestController\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:23: @RequestMapping(path = [\"/poweruser\"])\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:29: @DeleteMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:39: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:45: @GetMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:52: @PostMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:59: @PostMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:82: @PostMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:110: @PostMapping(\n/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/rest/AdminController.kt:"
+      },
+      {
+        "step": 25,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-api"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 26,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-artifact"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 27,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-bakery-plugin"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 28,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-clouddriver"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 29,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-core"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 30,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-docker"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 31,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-ec2-api"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 32,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-ec2-plugin"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 33,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-echo"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 34,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-front50"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 35,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-igor"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 36,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-lemur"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 37,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-network"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 38,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-notifications"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 39,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-optics"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 40,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-orca"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 41,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-retrofit"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 42,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-schema-generator"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 43,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-scm"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 44,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-sql"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 45,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-cli"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 46,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/dgs"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 47,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/config"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 48,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping|RouterFunction|ServletRegistrationBean|@RestController",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/services"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 49,
+        "tool": "list_dir",
+        "args": {
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel"
+        },
+        "result_head": "Main.kt\nadmin/\ndgs/\nexport/\nrest/\nyaml/"
+      },
+      {
+        "step": 50,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping[(]|@RestController|@Controller",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/admin"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 51,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping[(]|@RestController|@Controller",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/export"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 52,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping[(]|@RestController|@Controller",
+          "path": "/keel-web/src/main/kotlin/com/netflix/spinnaker/keel/yaml"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 53,
+        "tool": "list_dir",
+        "args": {
+          "path": "/keel-web/src/main"
+        },
+        "result_head": "kotlin/\nresources/"
+      },
+      {
+        "step": 54,
+        "tool": "grep",
+        "args": {
+          "pattern": "graphql",
+          "path": "/keel-web/src/main/resources"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 55,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 1 services, 59 endpoints."
+      }
+    ]
+  }
+}
