@@ -406,7 +406,7 @@ const COLS = [
   ["method-level path", r => r.method_path != null ? `<code>${esc(r.method_path)}</code>` : ""],
   ["class", r => `<code>${esc(r.cls)}</code>${r.implemented_by ? `<div class="small">implemented by ${esc(r.implemented_by)}</div>` : ""}`],
   ["method", r => `<code>${esc(r.method)}</code>`],
-  ["file", r => r.file ? `<code class="small">${esc(slash(r.file).replace(/^\/+/, ""))}</code><button class="vs" data-i="${r._i}" title="Show in source">view</button>${r.declaring_module ? `<div class="small">declared in ${esc(r.declaring_module)}</div>` : ""}` : ""],
+  ["file", r => r.file ? `<button class="vs" data-i="${r._i}" title="${esc(slash(r.file).replace(/^\/+/, ""))}${r.declaring_module ? ` · declared in ${esc(r.declaring_module)}` : ""}">view</button>` : ""],
   ["line", r => esc(r.line ?? ""), "n"],
   ["declaration / mechanism", r => esc(r.kind ?? "")],
   ["target → resolves to", r => r.target ? `→ ${esc(r.target)}${r.resolves_to ? ` <span class="mute">(${esc(r.resolves_to)})</span>` : ""}${r.inferred ? ' <span class="small">inferred</span>' : ""}` : ""],
