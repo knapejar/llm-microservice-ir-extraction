@@ -353,7 +353,7 @@ function graph(sys, src, rows){
 
 function board(sys){
   const L = state.lvl, cmp = state.cmp === "gt" ? null : state.cmp;
-  $("lvlnote").textContent = `vs. manual ground truth · ${sys.gtIn.length} inbound, ${sys.gtOut.length} outbound · ${L}`;
+  $("lvlnote").textContent = `vs. ${sys.meta.draft ? "draft" : "manual"} ground truth · ${sys.gtIn.length} inbound, ${sys.gtOut.length} outbound · ${L}`;
   let h = `<tr><th></th><th class="g" colspan="10">inbound endpoints</th><th class="g" colspan="3">outbound calls</th><th class="g" colspan="3">run</th></tr>
     <tr><th>source</th><th class="n">found</th><th class="n">tp</th><th class="n">fp</th><th class="n">fn</th><th class="n">P</th><th class="n">R</th><th>F1</th><th class="n">role-sep.</th><th class="n">halluc.</th><th class="n">dup.</th><th class="n">found</th><th class="n">tp / fp / fn</th><th class="n">F1</th><th class="n">tokens in / out</th><th class="n">cost</th><th class="n">wall</th></tr>`;
   let grp = null;
