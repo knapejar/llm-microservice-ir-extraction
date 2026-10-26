@@ -123,12 +123,13 @@ route declarations in Retrofit and Feign clients. The only debatable entry is
 `POST /graphql` in keel, served by the DGS framework. Before the fix the same
 services gave 720 endpoints (gate 248 instead of 283). clouddriver used all 300
 steps re-checking files it had recorded and cost $0.29 of the $0.58.
+These numbers come from the grep comparison and a hand check of the
+differences only; a full manual review of the Spinnaker endpoints is in progress.
 
 The six small repositories are golang-crud-rest-api-gin, crud-tutorial-csharp,
 node-js-restful-api-example, E-commerce-Microservice, rasa-sdk and
 microservices-demo. No recorded endpoint was invented: the evidence check
-rejects any route not declared at the cited line. In Spinnaker the agent left
-out the ~710 route declarations of Retrofit clients, which are outbound calls.
+rejects any route not declared at the cited line.
 
 GLM-5.3-Flash with reasoning (`--effort default`) on the 14 smaller systems
 costs $0.38, about twice as much. It scores the same on movie-recommendation
