@@ -120,6 +120,19 @@ msgs = [{"role": "system", "content": "s"}] + [m for i in range(20) for m in (
 ag.fit(msgs, 30000)
 assert "[elided" not in msgs[-1]["content"] and sum(ag.msg_size(m) for m in msgs) <= 30000 * ag.FIT_TARGET
 assert msgs[1]["tool_calls"][0]["function"]["arguments"] == '{"json": "[elided]"}'
+# Hundreds of short calls: the oldest steps go whole, the recent results stay.
+msgs = [{"role": "system", "content": "s"}, {"role": "user", "content": "task"}] + [m for i in range(400) for m in (
+    {"role": "assistant", "content": "", "tool_calls": [{"id": str(i), "type": "function",
+                                                          "function": {"name": "grep", "arguments": '{"pattern": "x"}'}}]},
+    {"role": "tool", "tool_call_id": str(i), "content": "r" * 300})]
+ag.fit(msgs, 30000, "Files with endpoints recorded: /a.java")
+assert [m["content"] for m in msgs[:2]] == ["s", "task"] and msgs[2]["content"].startswith(ag.DROPPED), msgs[2]
+assert "/a.java" in msgs[2]["content"] and msgs[3]["role"] == "assistant" and msgs[-1]["content"] == "r" * 300
+assert sum(ag.msg_size(m) for m in msgs) <= 30000 * ag.FIT_TARGET and sum(m["role"] == "assistant" for m in msgs) >= ag.KEEP_RECENT
+msgs += msgs[3:]                                                       # the next drop replaces the note
+ag.fit(msgs, 30000, "Files with endpoints recorded: /b.java")
+notes = [m["content"] for m in msgs if m["content"].startswith(ag.DROPPED)]
+assert len(notes) == 1 and "/b.java" in notes[0], notes
 
 # Cached input is billed at the cache rate where known.
 assert ag.list_price("GLM-5.3-Flash", 1_000_000, 0, 1_000_000) == 0.03

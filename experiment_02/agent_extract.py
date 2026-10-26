@@ -509,47 +509,70 @@ def is_tool_result(m):
     return m["role"] == "tool" or (m["role"] == "user" and m["content"].startswith("<tool_response>"))
 
 
-def fit(messages, budget):
-    """Keep the prompt inside the context window: replace the oldest tool results
-    (never the system prompt, the task or the last KEEP_RECENT results) with a
-    stub.  Once over budget it elides down to FIT_TARGET of it in one go, so the
-    prompt prefix stays the same for many steps and a prompt cache can reuse it.
-    Returns how many were elided."""
+DROPPED = "[Earlier steps were removed to save context."
+
+
+def fit(messages, budget, note=""):
+    """Keep the prompt inside the context window.  First the oldest tool results
+    become a stub and long calls (record payloads) are shortened; if hundreds of
+    short calls still fill the budget, the oldest steps are dropped whole with a
+    note in their place; the last KEEP_RECENT results go only as a last resort.
+    Never touches the system prompt or the task.  Once over budget it trims down to
+    FIT_TARGET of it in one go, so the prompt prefix stays the same for many steps
+    and a prompt cache can reuse it.  Returns how many messages it changed."""
     size = lambda: sum(msg_size(m) for m in messages)
     if size() <= budget:
         return 0
+    target = budget * FIT_TARGET
     stub = "[elided to save context - call the tool again if you still need it]"
-    tool_idx = [i for i, m in enumerate(messages) if is_tool_result(m)]
-    # Record payloads weigh as much as the results; Recorded keeps what they added. Left in
-    # place they fill the budget, and every new result is elided as soon as it arrives.
-    long_calls = [i for i, m in enumerate(messages) if m["role"] == "assistant" and msg_size(m) > LONG_CALL]
-    n = 0
-    for i in tool_idx[:-KEEP_RECENT] + long_calls + tool_idx[-KEEP_RECENT:]:
-        if size() <= budget * FIT_TARGET:
-            break
-        m = messages[i]
-        if m["role"] == "assistant":
+
+    def elide(m):
+        if m["role"] == "assistant":    # Recorded keeps what a record call added
             for c in m.get("tool_calls") or []:
                 args = json.loads(c["function"]["arguments"])
                 c["function"]["arguments"] = json.dumps({k: v if len(str(v)) <= 200 else "[elided]"
                                                          for k, v in args.items()}, ensure_ascii=False)
             if len(m.get("content") or "") > LONG_CALL:
                 m["content"] = m["content"][:200] + " [elided]"
-            n += 1
-        elif "[elided" not in m["content"]:
-            m["content"] = stub if m["role"] == "tool" else f"<tool_response>{stub}</tool_response>"
-            n += 1
+            return 1
+        if "[elided" in m["content"]:
+            return 0
+        m["content"] = stub if m["role"] == "tool" else f"<tool_response>{stub}</tool_response>"
+        return 1
+
+    tool_idx = [i for i, m in enumerate(messages) if is_tool_result(m)]
+    long_calls = [i for i, m in enumerate(messages) if m["role"] == "assistant" and msg_size(m) > LONG_CALL]
+    n = 0
+    for i in tool_idx[:-KEEP_RECENT] + long_calls:
+        if size() <= target:
+            return n
+        n += elide(messages[i])
+    # Without this the stubs and calls alone exceed the target, and every new result
+    # would be elided as soon as it arrives.
+    starts = [i for i, m in enumerate(messages) if m["role"] == "assistant"]
+    if len(starts) > KEEP_RECENT:
+        head = [m for m in messages[:starts[0]] if not (m.get("content") or "").startswith(DROPPED)]
+        steps = [messages[a:b] for a, b in zip(starts, starts[1:] + [len(messages)])]
+        while len(steps) > KEEP_RECENT and sum(msg_size(m) for m in head + sum(steps, [])) > target:
+            for m in steps.pop(0):
+                n += is_tool_result(m) and elide(m)     # the loop guard sees the result as gone
+        messages[:] = head + [{"role": "user", "content": f"{DROPPED} Everything you recorded is kept. "
+                                                          f"{note}]"}] + sum(steps, [])
+    for i in [i for i, m in enumerate(messages) if is_tool_result(m)][-KEEP_RECENT:]:
+        if size() <= target:
+            break
+        n += elide(messages[i])
     return n
 
 
 def chat(base_url, model, messages, effort, api_key=None, timeout=900, tries=5, tools=None,
-         max_tokens=8192, effort_in_template=False, budget=CTX_CHARS):
+         max_tokens=8192, effort_in_template=False, budget=CTX_CHARS, note=""):
     """One completion -> (text, tool_calls, usage).  Retries transient errors; on
     a 400 (typically context overflow) it halves the prompt budget and retries.
     Raises LLMError only when every attempt failed, so the caller can still
     write its output."""
     for attempt in range(1, tries + 1):
-        fit(messages, budget)
+        fit(messages, budget, note)
         try:
             return _chat(base_url, model, messages, effort, api_key, timeout, tools, max_tokens,
                          effort_in_template)
@@ -787,7 +810,8 @@ def run(a, repo, out):
         try:
             text, tool_calls, usage = chat(a.base_url, a.model, messages, a.effort, os.environ.get("LLM_API_KEY"),
                                            tools=TOOLS if a.native_tools else None, max_tokens=a.max_tokens,
-                                           effort_in_template=a.effort_in_template, budget=a.ctx_chars)
+                                           effort_in_template=a.effort_in_template, budget=a.ctx_chars,
+                                           note="Files with endpoints recorded: " + (", ".join(rec.files) or "none"))
         except LLMError as e:
             error = str(e)
             print(f"[{step:2d}] aborted: {error}")

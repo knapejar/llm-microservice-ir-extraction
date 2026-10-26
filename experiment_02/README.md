@@ -20,9 +20,10 @@ The model sees only the files git tracks, minus vendored dependencies
 side by side. `_run` records the commit of each checkout and whether it had
 local changes.
 
-Guards: older tool results and the arguments of long earlier calls are dropped
-when the context fills up (in one batch, so a prompt cache keeps working), and
-API errors are retried. Repeating the same
+Guards: when the context fills up, older tool results and the arguments of
+long earlier calls are dropped, and if that is not enough the oldest steps go
+whole, replaced by a note listing the files with recorded endpoints. This
+happens in one batch, so a prompt cache keeps working. API errors are retried. Repeating the same
 call three times triggers a warning; a call whose earlier result was dropped does
 not count. After three warnings only `record` and `submit` run, and the run
 stops after five more refused calls. After 15 steps without a new endpoint the
