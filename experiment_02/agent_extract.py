@@ -29,6 +29,7 @@ MAX_GREP_BYTES = 1_000_000
 CTX_CHARS = 150_000     # default prompt budget in chars (~40k tokens), below LM Studio's 64k context
 FIT_TARGET = 0.6        # once over budget, elide down to this share of it, so the prefix stays cacheable
 KEEP_RECENT = 8         # tool results always kept verbatim; older ones are elided first
+LONG_CALL = 2000        # chars of an earlier call (a record payload) above which fit() shortens it
 SLACK = 3               # evidence may sit this many lines around the cited line
 VERBS = {"GET", "POST", "PUT", "DELETE", "PATCH", "ANY"}
 INLINE = {"(inline)", "(anonymous)"}
@@ -385,6 +386,16 @@ def load_payload(payload):
     return doc, None
 
 
+def prefix_variant(a, b):
+    """b is endpoint a again with a prefix added or dropped: same verb and declaration,
+    and one path ends with the other.  A declaration that lists several routes may
+    give several endpoints."""
+    if a["httpMethod"] != b["httpMethod"] or abs(a["line"] - b["line"]) > SLACK             or len(route_literals(b["evidence"])) > 1:
+        return False
+    pa, pb = norm_route(a["path"]), norm_route(b["path"])
+    return pa != pb and (pa.endswith(pb) and pb[:1] in ("/", "") or pb.endswith(pa) and pa[:1] in ("/", ""))
+
+
 class Recorded:
     """The result so far.  record() keeps every entry the source backs."""
     def __init__(self, repo, system):
@@ -440,11 +451,19 @@ class Recorded:
             if why:
                 errs.append(f"{label}: {why}")
                 continue
-            key = (path, e["httpMethod"].upper(), e["path"], e["methodName"])
-            if key not in self.keys:
-                self.keys.add(key)
-                entry["endpoints"].append({**e, "httpMethod": e["httpMethod"].upper(), "line": int(e["line"])})
-                added.append(f"{e['httpMethod'].upper()} {e['path']}")
+            key = (path, e["httpMethod"].upper(), norm_route(e["path"]))   # not the handler: a model
+            # recording from memory renames it, and one verb + route in one file is one endpoint
+            if key in self.keys:
+                continue
+            self.keys.add(key)
+            new = {**e, "httpMethod": e["httpMethod"].upper(), "line": int(e["line"])}
+            old = next((x for x in entry["endpoints"] if prefix_variant(x, new)), None)
+            if old:     # the same declaration with another prefix: one declaration is one endpoint
+                entry["endpoints"][entry["endpoints"].index(old)] = new
+                added.append(f"{new['httpMethod']} {new['path']} (replaces {old['path']})")
+            else:
+                entry["endpoints"].append(new)
+                added.append(f"{new['httpMethod']} {new['path']}")
         if not entry["endpoints"]:
             del self.files[path]
 
@@ -501,12 +520,24 @@ def fit(messages, budget):
         return 0
     stub = "[elided to save context - call the tool again if you still need it]"
     tool_idx = [i for i, m in enumerate(messages) if is_tool_result(m)]
+    # Record payloads weigh as much as the results; Recorded keeps what they added. Left in
+    # place they fill the budget, and every new result is elided as soon as it arrives.
+    long_calls = [i for i, m in enumerate(messages) if m["role"] == "assistant" and msg_size(m) > LONG_CALL]
     n = 0
-    for i in tool_idx[:-KEEP_RECENT] + tool_idx[-KEEP_RECENT:]:
+    for i in tool_idx[:-KEEP_RECENT] + long_calls + tool_idx[-KEEP_RECENT:]:
         if size() <= budget * FIT_TARGET:
             break
-        if "[elided" not in messages[i]["content"]:
-            messages[i]["content"] = stub if messages[i]["role"] == "tool" else f"<tool_response>{stub}</tool_response>"
+        m = messages[i]
+        if m["role"] == "assistant":
+            for c in m.get("tool_calls") or []:
+                args = json.loads(c["function"]["arguments"])
+                c["function"]["arguments"] = json.dumps({k: v if len(str(v)) <= 200 else "[elided]"
+                                                         for k, v in args.items()}, ensure_ascii=False)
+            if len(m.get("content") or "") > LONG_CALL:
+                m["content"] = m["content"][:200] + " [elided]"
+            n += 1
+        elif "[elided" not in m["content"]:
+            m["content"] = stub if m["role"] == "tool" else f"<tool_response>{stub}</tool_response>"
             n += 1
     return n
 

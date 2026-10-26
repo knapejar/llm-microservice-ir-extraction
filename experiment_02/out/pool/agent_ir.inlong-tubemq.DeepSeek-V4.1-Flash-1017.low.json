@@ -4,25 +4,18 @@
     {
       "name": "tubemq-manager",
       "dirs": [
-        "/tubemq-manager"
+        "/tubemq-manager",
+        "/tubemq-docker/tubemq-manager"
       ]
     },
     {
       "name": "tubemq-server",
       "dirs": [
-        "/tubemq-server"
-      ]
-    },
-    {
-      "name": "tubemq-master",
-      "dirs": [
-        "/tubemq-server"
-      ]
-    },
-    {
-      "name": "tubemq-broker",
-      "dirs": [
-        "/tubemq-server"
+        "/tubemq-server",
+        "/resources",
+        "/bin",
+        "/conf",
+        "/tubemq-docker/tubemq-all"
       ]
     }
   ],
@@ -241,47 +234,11 @@
           "className": "Webapi",
           "methodName": "execute",
           "httpMethod": "ANY",
-          "path": "/webapi.do",
-          "line": 72,
-          "evidence": "public void execute(RequestContext requestContext) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
-          "confidence": "medium"
-        },
-        {
-          "className": "Webapi",
-          "methodName": "execute",
-          "httpMethod": "ANY",
-          "path": "/screen/webapi.htm",
-          "line": 72,
-          "evidence": "public void execute(RequestContext requestContext) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
-          "confidence": "medium"
-        },
-        {
-          "className": "Webapi",
-          "methodName": "execute",
-          "httpMethod": "ANY",
           "path": "/webapi.htm",
           "line": 72,
           "evidence": "public void execute(RequestContext requestContext) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
+          "framework": "Jetty/Servlet (simplemvc)",
           "confidence": "high"
-        }
-      ]
-    },
-    {
-      "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/AbstractWebHandler.java",
-      "service": "tubemq-server",
-      "endpoints": [
-        {
-          "className": "AbstractWebHandler",
-          "methodName": "doPost",
-          "httpMethod": "ANY",
-          "path": "/*",
-          "line": 53,
-          "evidence": "protected void doPost(HttpServletRequest req,",
-          "framework": "Jetty/Servlet",
-          "confidence": "medium"
         }
       ]
     },
@@ -296,17 +253,7 @@
           "path": "/master.htm",
           "line": 57,
           "evidence": "public void execute(RequestContext requestContext) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
-          "confidence": "medium"
-        },
-        {
-          "className": "Master",
-          "methodName": "execute",
-          "httpMethod": "ANY",
-          "path": "/screen/master.htm",
-          "line": 57,
-          "evidence": "public void execute(RequestContext requestContext) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
+          "framework": "Jetty/Servlet (simplemvc)",
           "confidence": "medium"
         }
       ]
@@ -322,17 +269,7 @@
           "path": "/tubeweb.htm",
           "line": 34,
           "evidence": "public void execute(RequestContext context) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
-          "confidence": "medium"
-        },
-        {
-          "className": "Tubeweb",
-          "methodName": "execute",
-          "httpMethod": "ANY",
-          "path": "/screen/tubeweb.htm",
-          "line": 34,
-          "evidence": "public void execute(RequestContext context) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
+          "framework": "Jetty/Servlet (simplemvc)",
           "confidence": "medium"
         }
       ]
@@ -348,44 +285,18 @@
           "path": "/cluster/clusterManage.htm",
           "line": 43,
           "evidence": "public void execute(RequestContext context) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
+          "framework": "Jetty/Servlet (simplemvc)",
           "confidence": "medium"
         },
         {
           "className": "ClusterManager",
           "methodName": "execute",
           "httpMethod": "ANY",
-          "path": "/screen/cluster/clusterManage.htm",
+          "path": "/cluster/cluster_manage.htm",
           "line": 43,
           "evidence": "public void execute(RequestContext context) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
-          "confidence": "medium"
-        }
-      ]
-    },
-    {
-      "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/config/BrokerDetail.java",
-      "service": "tubemq-server",
-      "endpoints": [
-        {
-          "className": "BrokerDetail",
-          "methodName": "execute",
-          "httpMethod": "ANY",
-          "path": "/config/brokerDetail.htm",
-          "line": 33,
-          "evidence": "public void execute(RequestContext context) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
-          "confidence": "medium"
-        },
-        {
-          "className": "BrokerDetail",
-          "methodName": "execute",
-          "httpMethod": "ANY",
-          "path": "/screen/config/brokerDetail.htm",
-          "line": 33,
-          "evidence": "public void execute(RequestContext context) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
-          "confidence": "medium"
+          "framework": "Jetty/Servlet (simplemvc)",
+          "confidence": "high"
         }
       ]
     },
@@ -400,44 +311,44 @@
           "path": "/config/brokerList.htm",
           "line": 49,
           "evidence": "public void execute(RequestContext context) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
+          "framework": "Jetty/Servlet (simplemvc)",
           "confidence": "medium"
         },
         {
           "className": "BrokerList",
           "methodName": "execute",
           "httpMethod": "ANY",
-          "path": "/screen/config/brokerList.htm",
+          "path": "/config/broker_list.htm",
           "line": 49,
           "evidence": "public void execute(RequestContext context) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
-          "confidence": "medium"
+          "framework": "Jetty/Servlet (simplemvc)",
+          "confidence": "high"
         }
       ]
     },
     {
-      "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/config/TopicDetail.java",
+      "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/config/BrokerDetail.java",
       "service": "tubemq-server",
       "endpoints": [
         {
-          "className": "TopicDetail",
+          "className": "BrokerDetail",
           "methodName": "execute",
           "httpMethod": "ANY",
-          "path": "/config/topicDetail.htm",
+          "path": "/config/brokerDetail.htm",
           "line": 33,
           "evidence": "public void execute(RequestContext context) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
+          "framework": "Jetty/Servlet (simplemvc)",
           "confidence": "medium"
         },
         {
-          "className": "TopicDetail",
+          "className": "BrokerDetail",
           "methodName": "execute",
           "httpMethod": "ANY",
-          "path": "/screen/config/topicDetail.htm",
+          "path": "/config/broker_detail.htm",
           "line": 33,
           "evidence": "public void execute(RequestContext context) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
-          "confidence": "medium"
+          "framework": "Jetty/Servlet (simplemvc)",
+          "confidence": "high"
         }
       ]
     },
@@ -452,18 +363,44 @@
           "path": "/config/topicList.htm",
           "line": 33,
           "evidence": "public void execute(RequestContext context) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
+          "framework": "Jetty/Servlet (simplemvc)",
           "confidence": "medium"
         },
         {
           "className": "TopicList",
           "methodName": "execute",
           "httpMethod": "ANY",
-          "path": "/screen/config/topicList.htm",
+          "path": "/config/topic_list.htm",
           "line": 33,
           "evidence": "public void execute(RequestContext context) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
+          "framework": "Jetty/Servlet (simplemvc)",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/config/TopicDetail.java",
+      "service": "tubemq-server",
+      "endpoints": [
+        {
+          "className": "TopicDetail",
+          "methodName": "execute",
+          "httpMethod": "ANY",
+          "path": "/config/topicDetail.htm",
+          "line": 33,
+          "evidence": "public void execute(RequestContext context) {",
+          "framework": "Jetty/Servlet (simplemvc)",
           "confidence": "medium"
+        },
+        {
+          "className": "TopicDetail",
+          "methodName": "execute",
+          "httpMethod": "ANY",
+          "path": "/config/topic_detail.htm",
+          "line": 33,
+          "evidence": "public void execute(RequestContext context) {",
+          "framework": "Jetty/Servlet (simplemvc)",
+          "confidence": "high"
         }
       ]
     },
@@ -478,66 +415,62 @@
           "path": "/consume/detail.htm",
           "line": 33,
           "evidence": "public void execute(RequestContext context) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
-          "confidence": "medium"
-        },
-        {
-          "className": "Detail",
-          "methodName": "execute",
-          "httpMethod": "ANY",
-          "path": "/screen/consume/detail.htm",
-          "line": 33,
-          "evidence": "public void execute(RequestContext context) {",
-          "framework": "Jetty/Servlet (simplemvc Action)",
+          "framework": "Jetty/Servlet (simplemvc)",
           "confidence": "medium"
         }
       ]
     },
     {
-      "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java",
+      "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/AbstractWebHandler.java",
       "service": "tubemq-server",
       "endpoints": [
         {
-          "className": "BrokerAdminServlet",
-          "methodName": "(inline)",
+          "className": "AbstractWebHandler",
+          "methodName": "doPost",
           "httpMethod": "ANY",
           "path": "/*",
-          "line": 50,
-          "evidence": "servletContext.addServlet(new ServletHolder(new BrokerAdminServlet(broker)), \"/*\");",
+          "line": 53,
+          "evidence": "protected void doPost(HttpServletRequest req,",
           "framework": "Jetty/Servlet",
-          "confidence": "high"
+          "confidence": "high",
+          "implementedBy": "BrokerAdminServlet"
+        },
+        {
+          "className": "AbstractWebHandler",
+          "methodName": "doGet",
+          "httpMethod": "GET",
+          "path": "/*",
+          "line": 43,
+          "evidence": "protected void doGet(HttpServletRequest req,",
+          "framework": "Jetty/Servlet",
+          "confidence": "high",
+          "implementedBy": "BrokerAdminServlet"
         }
       ]
     },
     {
-      "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java",
+      "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebApiServlet.java",
       "service": "tubemq-server",
       "endpoints": [
         {
           "className": "WebApiServlet",
-          "methodName": "(inline)",
-          "httpMethod": "ANY",
+          "methodName": "doGet",
+          "httpMethod": "GET",
           "path": "/",
-          "line": 81,
-          "evidence": "servletContext.addServlet(servletHolder, \"/\");",
-          "framework": "Jetty/Servlet",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/BrokerAdminServlet.java",
-      "service": "tubemq-server",
-      "endpoints": [
+          "line": 86,
+          "evidence": "protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {",
+          "framework": "Jetty/Servlet (simplemvc)",
+          "confidence": "medium"
+        },
         {
-          "className": "BrokerAdminServlet",
-          "methodName": "registerWebApiMethod",
-          "httpMethod": "ANY",
-          "path": "/*",
-          "line": 76,
-          "evidence": "public void registerWebApiMethod() {",
-          "framework": "Jetty/Servlet",
-          "confidence": "high"
+          "className": "WebApiServlet",
+          "methodName": "doPost",
+          "httpMethod": "POST",
+          "path": "/",
+          "line": 91,
+          "evidence": "protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {",
+          "framework": "Jetty/Servlet (simplemvc)",
+          "confidence": "medium"
         }
       ]
     }
@@ -558,17 +491,17 @@
     "stopped": null,
     "loop_warnings": 0,
     "blocked_calls": 0,
-    "record_nudges": 2,
-    "elided_results": 44,
-    "steps": 69,
-    "tool_calls": 103,
-    "rejected_entries": 3,
+    "record_nudges": 3,
+    "elided_results": 45,
+    "steps": 65,
+    "tool_calls": 105,
+    "rejected_entries": 1,
     "no_call_replies": 0,
-    "input_tokens": 1898915,
-    "cached_input_tokens": 1783552,
-    "output_tokens": 24783,
-    "list_price_usd": 0.0375,
-    "wall_seconds": 157.7,
+    "input_tokens": 1761454,
+    "cached_input_tokens": 1597824,
+    "output_tokens": 23033,
+    "list_price_usd": 0.0432,
+    "wall_seconds": 184.7,
     "trace": [
       {
         "step": 1,
@@ -588,11 +521,11 @@
       },
       {
         "step": 2,
-        "tool": "list_dir",
+        "tool": "read_file",
         "args": {
-          "path": "/tubemq-server"
+          "path": "/pom.xml"
         },
-        "result_head": "pom.xml\nsrc/"
+        "result_head": "1: <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n2: <!--\n3: // Licensed to the Apache Software Foundation (ASF) under one or more\n4: // contributor license agreements.  See the NOTICE file distributed with\n5: // this work for additional information regarding copyright ownership.\n6: // The ASF licenses this file to You under the Apache License, Version 2.0\n7: // (the \"License\"); you may not use this file except in compliance with\n8: // the License.  You may obtain a copy of the License at\n9: //\n10: //    http://www.apache.org/licenses/LICENSE-2.0\n11: //\n12: // Unless required by applicable law or agreed to in writing, software\n13: // distributed under the License is distributed on an \"AS IS\" BASIS,\n14: // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n15: // See the License for the specific language governing permissions and\n16: // limitations under the License.\n17: -->\n18: <project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-"
       },
       {
         "step": 2,
@@ -606,15 +539,7 @@
         "step": 2,
         "tool": "list_dir",
         "args": {
-          "path": "/tubemq-connectors"
-        },
-        "result_head": "pom.xml\ntubemq-connector-flume/\ntubemq-connector-spark/"
-      },
-      {
-        "step": 2,
-        "tool": "list_dir",
-        "args": {
-          "path": "/tubemq-example"
+          "path": "/tubemq-server"
         },
         "result_head": "pom.xml\nsrc/"
       },
@@ -629,12 +554,11 @@
       },
       {
         "step": 3,
-        "tool": "grep",
+        "tool": "find",
         "args": {
-          "pattern": "@(RestController|Controller|RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping)",
-          "path": "/"
+          "pattern": "*Controller.java"
         },
-        "result_head": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/ManagerControllerAdvice.java:27: @RestControllerAdvice\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:65: @RestController\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:66: @RequestMapping(path = \"/v1/cluster\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:87: @PostMapping(\"\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:193: @RequestMapping(value = \"\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:260: @RequestMapping(value = \"/query\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n/tubemq-manager/src/main/java/org/apache/inlo"
+        "result_head": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/group/GroupController.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/node/NodeController.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/region/RegionController.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/task/TaskController.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/topic/TopicWebController.java\n/tubemq-manager/src/test/java/org/apache/inlong/tubemq/manager/controller/TestClusterController.java"
       },
       {
         "step": 4,
@@ -654,6 +578,24 @@
       },
       {
         "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-manager/src/main/java",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)"
+        },
+        "result_head": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:66: @RequestMapping(path = \"/v1/cluster\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:87: @PostMapping(\"\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:193: @RequestMapping(value = \"\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:260: @RequestMapping(value = \"/query\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/group/GroupController.java:53: @RequestMapping(path = \"/v1/group\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/group/GroupController.java:73: @PostMapping(\"\")\n/tubemq-manager/src/main/java/org/ap"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-manager/src/main/resources",
+          "pattern": "context-path|servlet|port"
+        },
+        "result_head": "/tubemq-manager/src/main/resources/application.properties:24: # spring.datasource.url=jdbc:mysql://mysql_ip:mysql_port/apache_inlong_tubemq?useSSL=false&allowPublicKeyRetrieval=true\n/tubemq-manager/src/main/resources/application.properties:27: # server port\n/tubemq-manager/src/main/resources/application.properties:28: server.port=8089"
+      },
+      {
+        "step": 6,
         "tool": "read_file",
         "args": {
           "path": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java",
@@ -662,25 +604,25 @@
         "result_head": "185:     }\n186: \n187:     /**\n188:      * query cluster info, if no clusterId is passed, return all clusters\n189:      *\n190:      * @param clusterId\n191:      * @return\n192:      */\n193:     @RequestMapping(value = \"\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n194:     public TubeMQResult queryCluster(@RequestParam(required = false) Integer clusterId,\n195:             @RequestParam(required = false) String clusterName, @RequestParam(required = false) String masterIp) {\n196:         TubeMQResult result = new TubeMQResult();\n197:         if (clusterId == null && clusterName == null && masterIp == null) {\n198:             return queryAllClusterVo();\n199:         }\n200:         if (clusterId != null) {\n201:             ClusterEntry clusterEntry = clusterService.getOneCluster(clusterId);\n202:             if (clusterEntry == null) {\n203:                 return TubeMQResult.errorResult(\"no such cluster with id \" + clusterId);\n204:             }\n205:            "
       },
       {
-        "step": 5,
+        "step": 7,
         "tool": "read_file",
         "args": {
           "path": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/group/GroupController.java",
-          "start": "125"
+          "start": "120"
         },
-        "result_head": "125:      * @param req\n126:      * @return\n127:      *\n128:      * @throws Exception the exception\n129:      */\n130:     @GetMapping(\"/\")\n131:     public @ResponseBody String queryConsumer(\n132:             @RequestParam Map<String, String> req) throws Exception {\n133:         String url = masterService.getQueryUrl(req);\n134:         return masterService.queryMaster(url);\n135:     }\n136: \n137:     @PostMapping(\"/offset\")\n138:     public @ResponseBody TubeMQResult offsetProxy(\n139:             @RequestParam String method, @RequestBody String req) {\n140:         switch (method) {\n141:             case TubeConst.CLONE:\n142:                 return topicService.cloneOffsetToOtherGroups(gson.fromJson(req, CloneOffsetReq.class));\n143:             case TubeConst.DELETE:\n144:                 return topicService.deleteOffset(gson.fromJson(req, DeleteOffsetReq.class));\n145:             case TubeConst.QUERY:\n146:                 return topicService.queryOffset(gson.fromJson(req, QueryOffsetReq.cla"
+        "result_head": "120:     }\n121: \n122:     /**\n123:      * query the consumer group for certain topic\n124:      *\n125:      * @param req\n126:      * @return\n127:      *\n128:      * @throws Exception the exception\n129:      */\n130:     @GetMapping(\"/\")\n131:     public @ResponseBody String queryConsumer(\n132:             @RequestParam Map<String, String> req) throws Exception {\n133:         String url = masterService.getQueryUrl(req);\n134:         return masterService.queryMaster(url);\n135:     }\n136: \n137:     @PostMapping(\"/offset\")\n138:     public @ResponseBody TubeMQResult offsetProxy(\n139:             @RequestParam String method, @RequestBody String req) {\n140:         switch (method) {\n141:             case TubeConst.CLONE:\n142:                 return topicService.cloneOffsetToOtherGroups(gson.fromJson(req, CloneOffsetReq.class));\n143:             case TubeConst.DELETE:\n144:                 return topicService.deleteOffset(gson.fromJson(req, DeleteOffsetReq.class));\n145:             case TubeConst."
       },
       {
-        "step": 6,
+        "step": 7,
         "tool": "read_file",
         "args": {
           "path": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/node/NodeController.java",
-          "start": "45"
+          "start": "40"
         },
-        "result_head": "45: \n46: import java.util.Map;\n47: \n48: @RestController\n49: @RequestMapping(path = \"/v1/node\")\n50: @Slf4j\n51: public class NodeController {\n52: \n53:     private final Gson gson = new Gson();\n54: \n55:     @Autowired\n56:     NodeService nodeService;\n57: \n58:     @Autowired\n59:     MasterRepository masterRepository;\n60: \n61:     @Autowired\n62:     MasterService masterService;\n63: \n64:     /**\n65:      * query brokers' run status\n66:      * this method supports batch operation\n67:      */\n68:     @RequestMapping(value = \"/broker/status\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n69:     public @ResponseBody String queryBrokerDetail(\n70:             @RequestParam Map<String, String> queryBody) throws Exception {\n71:         String url = masterService.getQueryUrl(queryBody);\n72:         return masterService.queryMaster(url);\n73:     }\n74: \n75:     /**\n76:      * query brokers' configuration\n77:      * this method supports batch operation\n78:      */\n79:     @Re"
+        "result_head": "40: import org.springframework.web.bind.annotation.RequestMapping;\n41: import org.springframework.web.bind.annotation.RequestMethod;\n42: import org.springframework.web.bind.annotation.RequestParam;\n43: import org.springframework.web.bind.annotation.ResponseBody;\n44: import org.springframework.web.bind.annotation.RestController;\n45: \n46: import java.util.Map;\n47: \n48: @RestController\n49: @RequestMapping(path = \"/v1/node\")\n50: @Slf4j\n51: public class NodeController {\n52: \n53:     private final Gson gson = new Gson();\n54: \n55:     @Autowired\n56:     NodeService nodeService;\n57: \n58:     @Autowired\n59:     MasterRepository masterRepository;\n60: \n61:     @Autowired\n62:     MasterService masterService;\n63: \n64:     /**\n65:      * query brokers' run status\n66:      * this method supports batch operation\n67:      */\n68:     @RequestMapping(value = \"/broker/status\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n69:     public @ResponseBody String queryBrokerDetail(\n70"
       },
       {
-        "step": 6,
+        "step": 8,
         "tool": "read_file",
         "args": {
           "path": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/region/RegionController.java",
@@ -689,25 +631,25 @@
         "result_head": "40: import org.springframework.web.bind.annotation.ResponseBody;\n41: import org.springframework.web.bind.annotation.RestController;\n42: \n43: import java.util.ArrayList;\n44: import java.util.List;\n45: \n46: @RestController\n47: @RequestMapping(path = \"/v1/region\")\n48: @Slf4j\n49: public class RegionController {\n50: \n51:     private final Gson gson = new GsonBuilder().serializeNulls().create();\n52: \n53:     @Autowired\n54:     RegionService regionService;\n55: \n56:     @Autowired\n57:     ClusterService clusterService;\n58: \n59:     /**\n60:      * broker method proxy\n61:      * divides the operation on broker to different method\n62:      */\n63:     @RequestMapping(value = \"\")\n64:     public @ResponseBody TubeMQResult brokerMethodProxy(@RequestParam String method, @RequestBody String req) {\n65:         switch (method) {\n66:             case TubeConst.ADD:\n67:                 return createNewRegion(gson.fromJson(req, CreateRegionReq.class));\n68:             case TubeConst.DELETE:\n69:             "
       },
       {
-        "step": 6,
+        "step": 8,
         "tool": "read_file",
         "args": {
           "path": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/task/TaskController.java",
-          "start": "38"
+          "start": "35"
         },
-        "result_head": "38: import java.util.Set;\n39: import java.util.stream.Collectors;\n40: \n41: @RestController\n42: @RequestMapping(path = \"/v1/task\")\n43: @Slf4j\n44: public class TaskController {\n45: \n46:     @Autowired\n47:     private ClusterService clusterService;\n48: \n49:     @Autowired\n50:     private TaskService taskService;\n51: \n52:     private Gson gson = new Gson();\n53: \n54:     @RequestMapping(value = \"\")\n55:     public @ResponseBody TubeMQResult taskMethodProxy(@RequestParam String method,\n56:             @RequestBody String req) {\n57:         switch (method) {\n58:             case TubeConst.ADD_TOPIC_TASK:\n59:                 return addTask(gson.fromJson(req, BatchAddTopicTaskReq.class));\n60:             default:\n61:                 return TubeMQResult.errorResult(TubeMQErrorConst.NO_SUCH_METHOD);\n62:         }\n63:     }\n64: \n65:     public TubeMQResult addTask(BatchAddTopicTaskReq req) {\n66:         if (!req.legal()) {\n67:             return TubeMQResult.errorResult(TubeMQErrorConst.PARAM_ILLEG"
-      },
-      {
-        "step": 7,
-        "tool": "read_file",
-        "args": {
-          "path": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/topic/TopicWebController.java",
-          "start": "50"
-        },
-        "result_head": "50: import java.util.Map;\n51: \n52: @RestController\n53: @RequestMapping(path = \"/v1/topic\")\n54: @Slf4j\n55: public class TopicWebController {\n56: \n57:     private static final Logger LOGGER = LogManager.getLogger(TopicWebController.class);\n58: \n59:     @Autowired\n60:     private NodeService nodeService;\n61: \n62:     private static final Gson gson = new Gson();\n63: \n64:     @Autowired\n65:     private MasterService masterService;\n66: \n67:     @Autowired\n68:     private TopicService topicService;\n69: \n70:     /**\n71:      * Broker method proxy.\n72:      * Divides the operation on the broker into different methods.\n73:      */\n74:     @RequestMapping(value = \"\")\n75:     public @ResponseBody TubeMQResult topicMethodProxy(@RequestParam String method, @RequestBody String req)\n76:             throws Exception {\n77:         // Log audit: Record the received method and req parameters\n78:         LOGGER.info(\"Received method for topicMethodProxy: {}\", method);\n79:         LOGGER.info(\"Received req "
+        "result_head": "35: import org.springframework.web.bind.annotation.ResponseBody;\n36: import org.springframework.web.bind.annotation.RestController;\n37: \n38: import java.util.Set;\n39: import java.util.stream.Collectors;\n40: \n41: @RestController\n42: @RequestMapping(path = \"/v1/task\")\n43: @Slf4j\n44: public class TaskController {\n45: \n46:     @Autowired\n47:     private ClusterService clusterService;\n48: \n49:     @Autowired\n50:     private TaskService taskService;\n51: \n52:     private Gson gson = new Gson();\n53: \n54:     @RequestMapping(value = \"\")\n55:     public @ResponseBody TubeMQResult taskMethodProxy(@RequestParam String method,\n56:             @RequestBody String req) {\n57:         switch (method) {\n58:             case TubeConst.ADD_TOPIC_TASK:\n59:                 return addTask(gson.fromJson(req, BatchAddTopicTaskReq.class));\n60:             default:\n61:                 return TubeMQResult.errorResult(TubeMQErrorConst.NO_SUCH_METHOD);\n62:         }\n63:     }\n64: \n65:     public TubeMQResult addTask"
       },
       {
         "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/topic/TopicWebController.java",
+          "start": "45"
+        },
+        "result_head": "45: import org.springframework.web.bind.annotation.ResponseBody;\n46: import org.springframework.web.bind.annotation.RestController;\n47: \n48: import java.util.Arrays;\n49: import java.util.List;\n50: import java.util.Map;\n51: \n52: @RestController\n53: @RequestMapping(path = \"/v1/topic\")\n54: @Slf4j\n55: public class TopicWebController {\n56: \n57:     private static final Logger LOGGER = LogManager.getLogger(TopicWebController.class);\n58: \n59:     @Autowired\n60:     private NodeService nodeService;\n61: \n62:     private static final Gson gson = new Gson();\n63: \n64:     @Autowired\n65:     private MasterService masterService;\n66: \n67:     @Autowired\n68:     private TopicService topicService;\n69: \n70:     /**\n71:      * Broker method proxy.\n72:      * Divides the operation on the broker into different methods.\n73:      */\n74:     @RequestMapping(value = \"\")\n75:     public @ResponseBody TubeMQResult topicMethodProxy(@RequestParam String method, @RequestBody String req)\n76:             throws Except"
+      },
+      {
+        "step": 9,
         "tool": "read_file",
         "args": {
           "path": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/topic/TopicWebController.java",
@@ -716,16 +658,16 @@
         "result_head": "255: \n256:     /**\n257:      * query consumer auth control, shows all consumer groups\n258:      *\n259:      * @param req\n260:      * @return\n261:      *\n262:      * @throws Exception the exception\n263:      */\n264:     @GetMapping(\"/consumerAuth\")\n265:     public @ResponseBody String queryConsumerAuth(\n266:             @RequestParam Map<String, String> req) throws Exception {\n267:         String url = masterService.getQueryUrl(req);\n268:         return masterService.queryMaster(url);\n269:     }\n270: \n271:     /**\n272:      * query topic config info\n273:      *\n274:      * @param req\n275:      * @return\n276:      *\n277:      * @throws Exception the exception\n278:      */\n279:     @GetMapping(\"/topicConfig\")\n280:     public @ResponseBody String queryTopicConfig(\n281:             @RequestParam Map<String, String> req) throws Exception {\n282:         String url = masterService.getQueryUrl(req);\n283:         return masterService.queryMaster(url);\n284:     }\n285: \n286: }"
       },
       {
-        "step": 8,
-        "tool": "grep",
+        "step": 9,
+        "tool": "read_file",
         "args": {
-          "path": "/tubemq-manager/src/main/java",
-          "pattern": "@(RestController|Controller|RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)"
+          "path": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/TubeMQManager.java",
+          "start": "30"
         },
-        "result_head": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/ManagerControllerAdvice.java:27: @RestControllerAdvice\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:65: @RestController\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:66: @RequestMapping(path = \"/v1/cluster\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:87: @PostMapping(\"\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:193: @RequestMapping(value = \"\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:260: @RequestMapping(value = \"/query\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n/tubemq-manager/src/main/java/org/apache/inlo"
+        "result_head": "30: import java.util.concurrent.Executor;\n31: \n32: @SpringBootApplication\n33: @EnableJpaAuditing\n34: @EnableAsync\n35: @EnableScheduling\n36: @EnableConfigurationProperties\n37: public class TubeMQManager {\n38: \n39:     @Value(\"${manager.async.core.pool.size:15}\")\n40:     private int asyncCorePoolSize;\n41: \n42:     @Value(\"${manager.async.max.pool.size:20}\")\n43:     private int asyncMaxPoolSize;\n44: \n45:     @Value(\"${manager.async.queue.capacity:100}\")\n46:     private int asyncQueueCapacity;\n47: \n48:     @Value(\"${manager.async.thread.prefix:AsyncThread-}\")\n49:     private String threadPrefix;\n50: \n51:     public static void main(String[] args) {\n52:         SpringApplication.run(TubeMQManager.class);\n53:     }\n54: \n55:     @Bean(name = \"asyncExecutor\")\n56:     public Executor asyncExecutor() {\n57:         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();\n58:         executor.setCorePoolSize(asyncCorePoolSize);\n59:         executor.setMaxPoolSize(asyncMaxPoolSize);\n60:     "
       },
       {
-        "step": 9,
+        "step": 10,
         "tool": "find",
         "args": {
           "pattern": "*.java",
@@ -734,7 +676,7 @@
         "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/MasterStatusCheckFilter.java\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/UserAuthFilter.java\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/layout/Default.java\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Tubeweb.java\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Webapi.java\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/cluster/ClusterManager.java\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/config/BrokerDetail.java\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/config/BrokerLi"
       },
       {
-        "step": 10,
+        "step": 11,
         "tool": "read_file",
         "args": {
           "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java"
@@ -742,24 +684,16 @@
         "result_head": "1: /*\n2:  * Licensed to the Apache Software Foundation (ASF) under one or more\n3:  * contributor license agreements. See the NOTICE file distributed with\n4:  * this work for additional information regarding copyright ownership.\n5:  * The ASF licenses this file to You under the Apache License, Version 2.0\n6:  * (the \"License\"); you may not use this file except in compliance with\n7:  * the License. You may obtain a copy of the License at\n8:  *\n9:  * http://www.apache.org/licenses/LICENSE-2.0\n10:  *\n11:  * Unless required by applicable law or agreed to in writing, software\n12:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n13:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n14:  * See the License for the specific language governing permissions and\n15:  * limitations under the License.\n16:  */\n17: \n18: package org.apache.inlong.tubemq.server.master.web;\n19: \n20: import org.apache.inlong.tubemq.server.Server;\n21: import org.apache.inlong.tub"
       },
       {
-        "step": 10,
+        "step": 11,
         "tool": "find",
         "args": {
-          "pattern": "*.xml",
-          "path": "/tubemq-server/src/main/resources"
+          "path": "/tubemq-server/src/main/resources",
+          "pattern": "*"
         },
         "result_head": "(no files)"
       },
       {
-        "step": 11,
-        "tool": "read_file",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Webapi.java"
-        },
-        "result_head": "1: /*\n2:  * Licensed to the Apache Software Foundation (ASF) under one or more\n3:  * contributor license agreements. See the NOTICE file distributed with\n4:  * this work for additional information regarding copyright ownership.\n5:  * The ASF licenses this file to You under the Apache License, Version 2.0\n6:  * (the \"License\"); you may not use this file except in compliance with\n7:  * the License. You may obtain a copy of the License at\n8:  *\n9:  * http://www.apache.org/licenses/LICENSE-2.0\n10:  *\n11:  * Unless required by applicable law or agreed to in writing, software\n12:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n13:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n14:  * See the License for the specific language governing permissions and\n15:  * limitations under the License.\n16:  */\n17: \n18: package org.apache.inlong.tubemq.server.master.web.action.screen;\n19: \n20: import org.apache.inlong.tubemq.corebase.TBaseConstants;\n21: impo"
-      },
-      {
-        "step": 11,
+        "step": 12,
         "tool": "read_file",
         "args": {
           "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/Action.java"
@@ -775,7 +709,7 @@
         "result_head": "1: /*\n2:  * Licensed to the Apache Software Foundation (ASF) under one or more\n3:  * contributor license agreements. See the NOTICE file distributed with\n4:  * this work for additional information regarding copyright ownership.\n5:  * The ASF licenses this file to You under the Apache License, Version 2.0\n6:  * (the \"License\"); you may not use this file except in compliance with\n7:  * the License. You may obtain a copy of the License at\n8:  *\n9:  * http://www.apache.org/licenses/LICENSE-2.0\n10:  *\n11:  * Unless required by applicable law or agreed to in writing, software\n12:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n13:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n14:  * See the License for the specific language governing permissions and\n15:  * limitations under the License.\n16:  */\n17: \n18: package org.apache.inlong.tubemq.server.master.web.simplemvc;\n19: \n20: import org.apache.inlong.tubemq.corebase.TBaseConstants;\n21: import o"
       },
       {
-        "step": 12,
+        "step": 13,
         "tool": "read_file",
         "args": {
           "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestDispatcher.java"
@@ -791,67 +725,7 @@
         "result_head": "1: /*\n2:  * Licensed to the Apache Software Foundation (ASF) under one or more\n3:  * contributor license agreements. See the NOTICE file distributed with\n4:  * this work for additional information regarding copyright ownership.\n5:  * The ASF licenses this file to You under the Apache License, Version 2.0\n6:  * (the \"License\"); you may not use this file except in compliance with\n7:  * the License. You may obtain a copy of the License at\n8:  *\n9:  * http://www.apache.org/licenses/LICENSE-2.0\n10:  *\n11:  * Unless required by applicable law or agreed to in writing, software\n12:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n13:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n14:  * See the License for the specific language governing permissions and\n15:  * limitations under the License.\n16:  */\n17: \n18: package org.apache.inlong.tubemq.server.master.web.simplemvc;\n19: \n20: import org.apache.inlong.tubemq.corebase.utils.TStringUtils;\n21: impo"
       },
       {
-        "step": 13,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase",
-          "pattern": "registerWebMethod|addWebMethod|WebApiRegInfo|register"
-        },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java:32: private static final Map<String, WebApiRegInfo> WEB_METHOD_MAP =\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java:35: public static WebApiRegInfo getWebApiRegInfo(String webMethodName) {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java:39: public static void registerWebMethod(String webMethodName,\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java:48: new WebApiRegInfo(item, webHandler, onlyMasterOp, needAuthToken));\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java:53: .append(\"registerWebMethod failure, not found Method by clsMethodName \")\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java:63: for (Map.Entry<String, WebMethodMapper.WebApiRegInfo> entry :"
-      },
-      {
         "step": 14,
-        "tool": "read_file",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java"
-        },
-        "result_head": "1: /*\n2:  * Licensed to the Apache Software Foundation (ASF) under one or more\n3:  * contributor license agreements. See the NOTICE file distributed with\n4:  * this work for additional information regarding copyright ownership.\n5:  * The ASF licenses this file to You under the Apache License, Version 2.0\n6:  * (the \"License\"); you may not use this file except in compliance with\n7:  * the License. You may obtain a copy of the License at\n8:  *\n9:  * http://www.apache.org/licenses/LICENSE-2.0\n10:  *\n11:  * Unless required by applicable law or agreed to in writing, software\n12:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n13:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n14:  * See the License for the specific language governing permissions and\n15:  * limitations under the License.\n16:  */\n17: \n18: package org.apache.inlong.tubemq.server.common.webbase;\n19: \n20: import org.slf4j.Logger;\n21: import org.slf4j.LoggerFactory;\n22: \n23: impor"
-      },
-      {
-        "step": 14,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler",
-          "pattern": "registerWebMethod"
-        },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java:24: import static org.apache.inlong.tubemq.server.common.webbase.WebMethodMapper.registerWebMethod;\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java:56: registerWebMethod(webMethodName, clsMethodName,"
-      },
-      {
-        "step": 15,
-        "tool": "read_file",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java"
-        },
-        "result_head": "1: /*\n2:  * Licensed to the Apache Software Foundation (ASF) under one or more\n3:  * contributor license agreements. See the NOTICE file distributed with\n4:  * this work for additional information regarding copyright ownership.\n5:  * The ASF licenses this file to You under the Apache License, Version 2.0\n6:  * (the \"License\"); you may not use this file except in compliance with\n7:  * the License. You may obtain a copy of the License at\n8:  *\n9:  * http://www.apache.org/licenses/LICENSE-2.0\n10:  *\n11:  * Unless required by applicable law or agreed to in writing, software\n12:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n13:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n14:  * See the License for the specific language governing permissions and\n15:  * limitations under the License.\n16:  */\n17: \n18: package org.apache.inlong.tubemq.server.master.web.handler;\n19: \n20: import org.apache.inlong.tubemq.server.master.TMaster;\n21: import org.a"
-      },
-      {
-        "step": 15,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler",
-          "pattern": "registerWebMethod\\(|addWebMethod|registerMethod"
-        },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java:56: registerWebMethod(webMethodName, clsMethodName,"
-      },
-      {
-        "step": 16,
-        "tool": "record",
-        "args": {
-          "json": "{\"services\":[{\"name\":\"tubemq-manager\",\"dirs\":[\"/tubemq-manager\"]},{\"name\":\"tubemq-server\",\"dirs\":[\"/tubemq-server\"]}],\"files\":[\n{\"path\":\"/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/"
-        },
-        "result_head": "Recorded 19 new: service tubemq-manager, service tubemq-server, POST /v1/cluster, GET /v1/cluster, GET /v1/cluster/query, POST /v1/group, GET /v1/group/, POST /v1/group/offset, POST /v1/group/blackGroup, GET /v1/group/blackGroup, GET /v1/node/broker/status, GET /v1/node/broker/config, ANY /v1/node/broker, ANY /v1/node/master, ANY /v1/region, ANY /v1/task, ANY /v1/topic, GET /v1/topic/consumerAuth, GET /v1/topic/topicConfig\nTotal: 2 services, 17 endpoints in 6 files.\nServices with no endpoints recorded yet: tubemq-server."
-      },
-      {
-        "step": 17,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler",
-          "pattern": "register(Query|Modify)WebMethod\\("
-        },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java:38: protected void registerQueryWebMethod(String webMethodName,\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java:43: protected void registerModifyWebMethod(String webMethodName,\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebAdminFlowRuleHandler.java:55: registerQueryWebMethod(\"admin_query_group_flow_control_rule\",\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebAdminFlowRuleHandler.java:58: registerModifyWebMethod(\"admin_set_group_flow_control_rule\",\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebAdminFlowRuleHandler.java:60: registerModifyWebMethod(\"admin_rmv_group_flow_control_rule\",\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebAdminFlowRuleHandler.java:62: registerModifyWebMethod(\"ad"
-      },
-      {
-        "step": 18,
         "tool": "read_file",
         "args": {
           "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/conf/WebConfig.java"
@@ -859,16 +733,84 @@
         "result_head": "1: /*\n2:  * Licensed to the Apache Software Foundation (ASF) under one or more\n3:  * contributor license agreements. See the NOTICE file distributed with\n4:  * this work for additional information regarding copyright ownership.\n5:  * The ASF licenses this file to You under the Apache License, Version 2.0\n6:  * (the \"License\"); you may not use this file except in compliance with\n7:  * the License. You may obtain a copy of the License at\n8:  *\n9:  * http://www.apache.org/licenses/LICENSE-2.0\n10:  *\n11:  * Unless required by applicable law or agreed to in writing, software\n12:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n13:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n14:  * See the License for the specific language governing permissions and\n15:  * limitations under the License.\n16:  */\n17: \n18: package org.apache.inlong.tubemq.server.master.web.simplemvc.conf;\n19: \n20: import org.apache.inlong.tubemq.corebase.utils.TStringUtils;\n21:"
       },
       {
+        "step": 14,
+        "tool": "read_file",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Webapi.java"
+        },
+        "result_head": "1: /*\n2:  * Licensed to the Apache Software Foundation (ASF) under one or more\n3:  * contributor license agreements. See the NOTICE file distributed with\n4:  * this work for additional information regarding copyright ownership.\n5:  * The ASF licenses this file to You under the Apache License, Version 2.0\n6:  * (the \"License\"); you may not use this file except in compliance with\n7:  * the License. You may obtain a copy of the License at\n8:  *\n9:  * http://www.apache.org/licenses/LICENSE-2.0\n10:  *\n11:  * Unless required by applicable law or agreed to in writing, software\n12:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n13:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n14:  * See the License for the specific language governing permissions and\n15:  * limitations under the License.\n16:  */\n17: \n18: package org.apache.inlong.tubemq.server.master.web.action.screen;\n19: \n20: import org.apache.inlong.tubemq.corebase.TBaseConstants;\n21: impo"
+      },
+      {
+        "step": 15,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java",
+          "pattern": "addWebApiMethod|register|public static"
+        },
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java:35: public static WebApiRegInfo getWebApiRegInfo(String webMethodName) {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java:39: public static void registerWebMethod(String webMethodName,\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java:53: .append(\"registerWebMethod failure, not found Method by clsMethodName \")\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java:58: public static int getRegisteredWebMethod(StringBuilder sBuffer) {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java:77: public static class WebApiRegInfo {"
+      },
+      {
+        "step": 16,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"tubemq-manager\",\"dirs\":[\"/tubemq-manager\"]}],\"files\":[\n{\"path\":\"/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java\",\"service"
+        },
+        "result_head": "Recorded 18 new: service tubemq-manager, POST /v1/cluster, GET /v1/cluster, GET /v1/cluster/query, POST /v1/group, GET /v1/group/, POST /v1/group/offset, POST /v1/group/blackGroup, GET /v1/group/blackGroup, GET /v1/node/broker/status, GET /v1/node/broker/config, ANY /v1/node/broker, ANY /v1/node/master, ANY /v1/region, ANY /v1/task, ANY /v1/topic, GET /v1/topic/consumerAuth, GET /v1/topic/topicConfig\nTotal: 1 services, 17 endpoints in 6 files."
+      },
+      {
+        "step": 17,
+        "tool": "read_file",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java"
+        },
+        "result_head": "1: /*\n2:  * Licensed to the Apache Software Foundation (ASF) under one or more\n3:  * contributor license agreements. See the NOTICE file distributed with\n4:  * this work for additional information regarding copyright ownership.\n5:  * The ASF licenses this file to You under the Apache License, Version 2.0\n6:  * (the \"License\"); you may not use this file except in compliance with\n7:  * the License. You may obtain a copy of the License at\n8:  *\n9:  * http://www.apache.org/licenses/LICENSE-2.0\n10:  *\n11:  * Unless required by applicable law or agreed to in writing, software\n12:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n13:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n14:  * See the License for the specific language governing permissions and\n15:  * limitations under the License.\n16:  */\n17: \n18: package org.apache.inlong.tubemq.server.common.webbase;\n19: \n20: import org.slf4j.Logger;\n21: import org.slf4j.LoggerFactory;\n22: \n23: impor"
+      },
+      {
+        "step": 17,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-server/src/main/java",
+          "pattern": "registerWebMethod"
+        },
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/AbstractWebHandler.java:32: import static org.apache.inlong.tubemq.server.common.webbase.WebMethodMapper.registerWebMethod;\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/AbstractWebHandler.java:91: registerWebMethod(webMethodName, clsMethodName,\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java:39: public static void registerWebMethod(String webMethodName,\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/webbase/WebMethodMapper.java:53: .append(\"registerWebMethod failure, not found Method by clsMethodName \")\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java:24: import static org.apache.inlong.tubemq.server.common.webbase.WebMethodMapper.registerWebMethod;\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java:56: registerWe"
+      },
+      {
+        "step": 18,
+        "tool": "find",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web",
+          "pattern": "*.java"
+        },
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/AbstractWebHandler.java\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/BrokerAdminServlet.java\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java"
+      },
+      {
         "step": 18,
         "tool": "grep",
         "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action",
-          "pattern": "class |getActionKey|execute"
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker",
+          "pattern": "addServlet|ServletHolder|new Server\\("
         },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/layout/Default.java:23: public class Default extends Tubeweb {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java:48: public class Master implements Action {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java:57: public void execute(RequestContext requestContext) {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Tubeweb.java:25: public class Tubeweb implements Action {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Tubeweb.java:34: public void execute(RequestContext context) {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Webapi.java:53: public class Webapi implements Action {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Webapi.java:72: public void execute(Requ"
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java:24: import org.eclipse.jetty.servlet.ServletHolder;\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java:50: servletContext.addServlet(new ServletHolder(new BrokerAdminServlet(broker)), \"/*\");"
       },
       {
         "step": 19,
+        "tool": "read_file",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/BrokerAdminServlet.java"
+        },
+        "result_head": "1: /*\n2:  * Licensed to the Apache Software Foundation (ASF) under one or more\n3:  * contributor license agreements. See the NOTICE file distributed with\n4:  * this work for additional information regarding copyright ownership.\n5:  * The ASF licenses this file to You under the Apache License, Version 2.0\n6:  * (the \"License\"); you may not use this file except in compliance with\n7:  * the License. You may obtain a copy of the License at\n8:  *\n9:  * http://www.apache.org/licenses/LICENSE-2.0\n10:  *\n11:  * Unless required by applicable law or agreed to in writing, software\n12:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n13:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n14:  * See the License for the specific language governing permissions and\n15:  * limitations under the License.\n16:  */\n17: \n18: package org.apache.inlong.tubemq.server.broker.web;\n19: \n20: import org.apache.inlong.tubemq.corebase.Message;\n21: import org.apache.inlong."
+      },
+      {
+        "step": 19,
+        "tool": "read_file",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/AbstractWebHandler.java",
+          "start": "40"
+        },
+        "result_head": "40:     }\n41: \n42:     @Override\n43:     protected void doGet(HttpServletRequest req,\n44:             HttpServletResponse resp) throws IOException {\n45:         doPost(req, resp);\n46:     }\n47: \n48:     public int getSupportedMethod(StringBuilder sBuffer) {\n49:         return getRegisteredWebMethod(sBuffer);\n50:     }\n51: \n52:     @Override\n53:     protected void doPost(HttpServletRequest req,\n54:             HttpServletResponse resp) throws IOException {\n55:         String method = null;\n56:         StringBuilder sBuffer = new StringBuilder(1024);\n57:         long startTime = System.currentTimeMillis();\n58:         try {\n59:             method = req.getParameter(\"method\");\n60:             if (method == null) {\n61:                 sBuffer.append(\"{\\\"result\\\":false,\\\"errCode\\\":400,\\\"errMsg\\\":\\\"\")\n62:                         .append(\"Please take with method parameter! \\\"}\");\n63:             } else {\n64:                 WebApiRegInfo webApiRegInfo = getWebApiRegInfo(method);\n65:          "
+      },
+      {
+        "step": 20,
         "tool": "read_file",
         "args": {
           "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestDispatcher.java",
@@ -878,6 +820,15 @@
       },
       {
         "step": 20,
+        "tool": "read_file",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java",
+          "start": "30"
+        },
+        "result_head": "30:  */\n31: public class WebServer implements Server {\n32: \n33:     private String hostname = \"0.0.0.0\";\n34:     private int port = 8080;\n35:     private org.eclipse.jetty.server.Server srv;\n36:     private TubeBroker broker;\n37: \n38:     public WebServer(String hostname, int port, TubeBroker broker) {\n39:         this.hostname = hostname;\n40:         this.port = port;\n41:         this.broker = broker;\n42:     }\n43: \n44:     @Override\n45:     public void start() throws Exception {\n46:         srv = new org.eclipse.jetty.server.Server(this.port);\n47:         ServletContextHandler servletContext =\n48:                 new ServletContextHandler(srv, \"/\", ServletContextHandler.SESSIONS);\n49: \n50:         servletContext.addServlet(new ServletHolder(new BrokerAdminServlet(broker)), \"/*\");\n51:         srv.start();\n52:         checkArgument(srv.getHandler().equals(servletContext));\n53:     }\n54: \n55:     @Override\n56:     public void stop() throws Exception {\n57:         srv.stop();\n58:     }\n5"
+      },
+      {
+        "step": 21,
         "tool": "grep",
         "args": {
           "path": "/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java",
@@ -886,86 +837,174 @@
         "result_head": "/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java:75: * TStringUtils.toCamelCase(null)  = null\n/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java:76: * TStringUtils.toCamelCase(\"\")    = \"\"\n/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java:77: * TStringUtils.toCamelCase(\"aBc\") = \"aBc\"\n/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java:78: * TStringUtils.toCamelCase(\"aBc def\") = \"aBcDef\"\n/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java:79: * TStringUtils.toCamelCase(\"aBc def_ghi\") = \"aBcDefGhi\"\n/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java:80: * TStringUtils.toCamelCase(\"aBc def_ghi 123\") = \"aBcDefGhi123\"\n/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java:89: public static String toCamelCase(String origStr) {"
       },
       {
-        "step": 21,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-server/src/main/java",
-          "pattern": "addServlet|HttpServer|ServletContextHandler|new Server\\("
-        },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java:23: import org.eclipse.jetty.servlet.ServletContextHandler;\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java:47: ServletContextHandler servletContext =\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java:48: new ServletContextHandler(srv, \"/\", ServletContextHandler.SESSIONS);\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java:50: servletContext.addServlet(new ServletHolder(new BrokerAdminServlet(broker)), \"/*\");\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java:41: import org.eclipse.jetty.servlet.ServletContextHandler;\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java:70: ServletContextHandler servletContext = new ServletContextHandler(srv,\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServe"
-      },
-      {
-        "step": 21,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java",
-          "pattern": "."
-        },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java:1: /*\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java:2: * Licensed to the Apache Software Foundation (ASF) under one or more\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java:3: * contributor license agreements. See the NOTICE file distributed with\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java:4: * this work for additional information regarding copyright ownership.\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java:5: * The ASF licenses this file to You under the Apache License, Version 2.0\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java:6: * (the \"License\"); you may not use this file except in compliance with\n/tubemq-server/src/main/java/org/apa"
-      },
-      {
         "step": 22,
         "tool": "read_file",
         "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java",
-          "start": "30"
+          "path": "/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java",
+          "start": "70"
         },
-        "result_head": "30:  */\n31: public class WebServer implements Server {\n32: \n33:     private String hostname = \"0.0.0.0\";\n34:     private int port = 8080;\n35:     private org.eclipse.jetty.server.Server srv;\n36:     private TubeBroker broker;\n37: \n38:     public WebServer(String hostname, int port, TubeBroker broker) {\n39:         this.hostname = hostname;\n40:         this.port = port;\n41:         this.broker = broker;\n42:     }\n43: \n44:     @Override\n45:     public void start() throws Exception {\n46:         srv = new org.eclipse.jetty.server.Server(this.port);\n47:         ServletContextHandler servletContext =\n48:                 new ServletContextHandler(srv, \"/\", ServletContextHandler.SESSIONS);\n49: \n50:         servletContext.addServlet(new ServletHolder(new BrokerAdminServlet(broker)), \"/*\");\n51:         srv.start();\n52:         checkArgument(srv.getHandler().equals(servletContext));\n53:     }\n54: \n55:     @Override\n56:     public void stop() throws Exception {\n57:         srv.stop();\n58:     }\n5"
-      },
-      {
-        "step": 22,
-        "tool": "find",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web",
-          "pattern": "*.java"
-        },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/AbstractWebHandler.java\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/BrokerAdminServlet.java\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java"
+        "result_head": "70:     }\n71: \n72:     /**\n73:      * <p/>\n74:      * <pre>\n75:      * TStringUtils.toCamelCase(null)  = null\n76:      * TStringUtils.toCamelCase(\"\")    = \"\"\n77:      * TStringUtils.toCamelCase(\"aBc\") = \"aBc\"\n78:      * TStringUtils.toCamelCase(\"aBc def\") = \"aBcDef\"\n79:      * TStringUtils.toCamelCase(\"aBc def_ghi\") = \"aBcDefGhi\"\n80:      * TStringUtils.toCamelCase(\"aBc def_ghi 123\") = \"aBcDefGhi123\"\n81:      * </pre>\n82:      * <p/>\n83:      * </p> <p> This method preserves all separators except underscores and whitespace. </p>\n84:      *\n85:      * @param origStr The string to be converted\n86:      * @return Convert the string to Camel Case\n87:      *     if it is <code>null</code>, return<code>null</code>\n88:      */\n89:     public static String toCamelCase(String origStr) {\n90:         if (isEmpty(origStr)) {\n91:             return origStr;\n92:         }\n93:         origStr = origStr.trim();\n94:         int length = origStr.length();\n95: \n96:         char curChar;\n97:         char "
       },
       {
         "step": 23,
-        "tool": "read_file",
+        "tool": "grep",
         "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/BrokerAdminServlet.java"
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action",
+          "pattern": "class |public void execute"
         },
-        "result_head": "1: /*\n2:  * Licensed to the Apache Software Foundation (ASF) under one or more\n3:  * contributor license agreements. See the NOTICE file distributed with\n4:  * this work for additional information regarding copyright ownership.\n5:  * The ASF licenses this file to You under the Apache License, Version 2.0\n6:  * (the \"License\"); you may not use this file except in compliance with\n7:  * the License. You may obtain a copy of the License at\n8:  *\n9:  * http://www.apache.org/licenses/LICENSE-2.0\n10:  *\n11:  * Unless required by applicable law or agreed to in writing, software\n12:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n13:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n14:  * See the License for the specific language governing permissions and\n15:  * limitations under the License.\n16:  */\n17: \n18: package org.apache.inlong.tubemq.server.broker.web;\n19: \n20: import org.apache.inlong.tubemq.corebase.Message;\n21: import org.apache.inlong."
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/layout/Default.java:23: public class Default extends Tubeweb {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java:48: public class Master implements Action {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java:57: public void execute(RequestContext requestContext) {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Tubeweb.java:25: public class Tubeweb implements Action {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Tubeweb.java:34: public void execute(RequestContext context) {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Webapi.java:53: public class Webapi implements Action {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Webapi.java:72: public void execute(Requ"
       },
       {
         "step": 23,
-        "tool": "read_file",
+        "tool": "grep",
         "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/AbstractWebHandler.java"
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java",
+          "pattern": "innRegisterWebMethod|registerWebMethod"
         },
-        "result_head": "1: /*\n2:  * Licensed to the Apache Software Foundation (ASF) under one or more\n3:  * contributor license agreements. See the NOTICE file distributed with\n4:  * this work for additional information regarding copyright ownership.\n5:  * The ASF licenses this file to You under the Apache License, Version 2.0\n6:  * (the \"License\"); you may not use this file except in compliance with\n7:  * the License. You may obtain a copy of the License at\n8:  *\n9:  * http://www.apache.org/licenses/LICENSE-2.0\n10:  *\n11:  * Unless required by applicable law or agreed to in writing, software\n12:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n13:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n14:  * See the License for the specific language governing permissions and\n15:  * limitations under the License.\n16:  */\n17: \n18: package org.apache.inlong.tubemq.server.broker.web;\n19: \n20: import org.apache.inlong.tubemq.server.broker.TubeBroker;\n21: import org.apache"
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java:24: import static org.apache.inlong.tubemq.server.common.webbase.WebMethodMapper.registerWebMethod;\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java:40: innRegisterWebMethod(webMethodName, clsMethodName, false, false);\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java:45: innRegisterWebMethod(webMethodName, clsMethodName, true, true);\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java:52: private void innRegisterWebMethod(String webMethodName,\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java:56: registerWebMethod(webMethodName, clsMethodName,"
       },
       {
         "step": 24,
-        "tool": "read_file",
+        "tool": "grep",
         "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Webapi.java",
-          "start": "50"
+          "pattern": "webapi\\.htm|/webapi",
+          "path": "/"
         },
-        "result_head": "50:  * Encapsulate query and modify logic mainly.\n51:  * Generate output JSON by concatenating strings, to improve the performance.\n52:  */\n53: public class Webapi implements Action {\n54: \n55:     private final TMaster master;\n56: \n57:     public Webapi(TMaster master) {\n58:         this.master = master;\n59:         registerHandler(new WebBrokerConfHandler(this.master));\n60:         registerHandler(new WebTopicCtrlHandler(this.master));\n61:         registerHandler(new WebTopicDeployHandler(this.master));\n62:         registerHandler(new WebGroupConsumeCtrlHandler(this.master));\n63:         registerHandler(new WebGroupResCtrlHandler(this.master));\n64:         registerHandler(new WebMasterInfoHandler(this.master));\n65:         registerHandler(new WebOtherInfoHandler(this.master));\n66:         registerHandler(new WebAdminGroupCtrlHandler(this.master));\n67:         registerHandler(new WebAdminTopicAuthHandler(this.master));\n68:         registerHandler(new WebAdminFlowRuleHandler(this.master"
-      },
-      {
-        "step": 24,
-        "tool": "read_file",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java",
-          "start": "55"
-        },
-        "result_head": "55:     public WebServer(final MasterConfig masterConfig, TMaster master) {\n56:         this.masterConfig = masterConfig;\n57:         this.master = master;\n58:     }\n59: \n60:     @Override\n61:     public void start() throws Exception {\n62:         WebConfig webConfig = new WebConfig();\n63:         webConfig.setActionPackage(\"org.apache.inlong.tubemq.server.master.web.action\");\n64:         webConfig.setResourcePath(\"/\");\n65:         webConfig.setVelocityConfigFilePath(\"/velocity.properties\");\n66:         webConfig.setStandalone(true);\n67:         registerActions(webConfig);\n68:         registerTools(webConfig);\n69:         srv = new org.eclipse.jetty.server.Server(masterConfig.getWebPort());\n70:         ServletContextHandler servletContext = new ServletContextHandler(srv,\n71:                 \"/\", ServletContextHandler.SESSIONS);\n72:         servletContext.addFilter(new FilterHolder(\n73:                 new MasterStatusCheckFilter(master)), \"/*\", EnumSet.of(REQUEST, ASYNC));\n74:         "
+        "result_head": "/resources/templates/layout/default.vm:39: HOST: '$!tubemqRemoteAddr/webapi.htm'\n/resources/templates/layout/tubeweb.vm:39: HOST: '$!tubemqRemoteAddr/webapi.htm'\n/tubemq-docker/tubemq-all/tubemq-docker.sh:49: &createUser=docker&confModAuthToken=abc\" http://127.0.0.1:8080/webapi.htm\n/tubemq-docker/tubemq-all/tubemq-docker.sh:52: &modifyUser=docker&confModAuthToken=abc\" http://127.0.0.1:8080/webapi.htm\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/service/TubeConst.java:26: \"/webapi.htm?type=op_query&method=admin_query_broker_run_status\";\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/service/TubeConst.java:28: \"/webapi.htm?type=op_query&method=admin_query_topic_info\";\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/service/TubeConst.java:30: \"/webapi.htm?type=op_query&method=admin_query_consume_group_detail\";\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/service/TubeConst.java:32: \"/webapi.htm?type=op_query&method=admin_qu"
       },
       {
         "step": 25,
-        "tool": "grep",
+        "tool": "find",
         "args": {
-          "path": "/",
-          "pattern": "public static void main\\(String"
+          "path": "/resources",
+          "pattern": "*.vm"
         },
-        "result_head": "/tubemq-core/src/main/java/org/apache/inlong/tubemq/corerpc/benchemark/RcpService4BenchmarkClient.java:67: public static void main(String[] args) throws Exception {\n/tubemq-core/src/main/java/org/apache/inlong/tubemq/corerpc/benchemark/RpcService4BenchmarkServer.java:31: public static void main(String[] args) throws Exception {\n/tubemq-example/src/main/java/org/apache/inlong/tubemq/example/ClientBalanceConsumerExample.java:83: public static void main(String[] args) throws Throwable {\n/tubemq-example/src/main/java/org/apache/inlong/tubemq/example/MAMessageProducerExample.java:73: public static void main(String[] args) throws Throwable {\n/tubemq-example/src/main/java/org/apache/inlong/tubemq/example/MessageProducerExample.java:65: public static void main(String[] args) throws Throwable {\n/tubemq-example/src/main/java/org/apache/inlong/tubemq/example/MessagePullConsumerExample.java:68: public static void main(String[] args) throws Throwable {\n/tubemq-example/src/main/java/org/apache/inlon"
+        "result_head": "/resources/templates/control/slidebar.vm\n/resources/templates/layout/default.vm\n/resources/templates/layout/master.vm\n/resources/templates/layout/tubeweb.vm\n/resources/templates/layout/webapi.vm\n/resources/templates/macro.vm\n/resources/templates/screen/cluster/clusterManage.vm\n/resources/templates/screen/config/brokerDetail.vm\n/resources/templates/screen/config/brokerList.vm\n/resources/templates/screen/config/topicDetail.vm\n/resources/templates/screen/config/topicList.vm\n/resources/templates/screen/consume/consumeGroupList.vm\n/resources/templates/screen/consume/detail.vm\n/resources/templates/screen/index.vm\n/resources/templates/screen/master.vm\n/resources/templates/screen/tubeweb.vm\n/resources/templates/screen/webapi.vm"
       },
       {
         "step": 26,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-manager/pom.xml",
+          "pattern": "artifactId"
+        },
+        "result_head": "/tubemq-manager/pom.xml:23: <artifactId>inlong-tubemq</artifactId>\n/tubemq-manager/pom.xml:27: <artifactId>tubemq-manager</artifactId>\n/tubemq-manager/pom.xml:38: <artifactId>spring-boot-starter-web</artifactId>\n/tubemq-manager/pom.xml:42: <artifactId>spring-boot-starter-logging</artifactId>\n/tubemq-manager/pom.xml:48: <artifactId>httpclient</artifactId>\n/tubemq-manager/pom.xml:53: <artifactId>commons-lang3</artifactId>\n/tubemq-manager/pom.xml:59: <artifactId>spring-boot-starter-data-rest</artifactId>\n/tubemq-manager/pom.xml:64: <artifactId>springfox-boot-starter</artifactId>\n/tubemq-manager/pom.xml:68: <artifactId>spring-boot-starter-logging</artifactId>\n/tubemq-manager/pom.xml:74: <artifactId>spring-boot-starter-log4j2</artifactId>\n/tubemq-manager/pom.xml:78: <artifactId>springfox-swagger-ui</artifactId>\n/tubemq-manager/pom.xml:82: <artifactId>springfox-spring-web</artifactId>\n/tubemq-manager/pom.xml:88: <artifactId>commons-collections4</artifactId>\n/tubemq-manager/pom.xml:93: <artif"
+      },
+      {
+        "step": 26,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-server/pom.xml",
+          "pattern": "artifactId"
+        },
+        "result_head": "/tubemq-server/pom.xml:23: <artifactId>inlong-tubemq</artifactId>\n/tubemq-server/pom.xml:27: <artifactId>tubemq-server</artifactId>\n/tubemq-server/pom.xml:38: <artifactId>tubemq-core</artifactId>\n/tubemq-server/pom.xml:43: <artifactId>tubemq-client</artifactId>\n/tubemq-server/pom.xml:48: <artifactId>tubemq-example</artifactId>\n/tubemq-server/pom.xml:53: <artifactId>audit-sdk</artifactId>\n/tubemq-server/pom.xml:58: <artifactId>slf4j-simple</artifactId>\n/tubemq-server/pom.xml:62: <artifactId>tomcat-embed-core</artifactId>\n/tubemq-server/pom.xml:68: <artifactId>simpleclient_httpserver</artifactId>\n/tubemq-server/pom.xml:72: <artifactId>zookeeper</artifactId>\n/tubemq-server/pom.xml:76: <artifactId>jsr305</artifactId>\n/tubemq-server/pom.xml:80: <artifactId>spotbugs-annotations</artifactId>\n/tubemq-server/pom.xml:84: <artifactId>jline</artifactId>\n/tubemq-server/pom.xml:88: <artifactId>jmxri</artifactId>\n/tubemq-server/pom.xml:92: <artifactId>jmxtools</artifactId>\n/tubemq-server/pom.xml:96: "
+      },
+      {
+        "step": 27,
+        "tool": "grep",
+        "args": {
+          "pattern": "doGet|doPost|addServlet|ServletHolder",
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web"
+        },
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java:42: import org.eclipse.jetty.servlet.ServletHolder;\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java:79: ServletHolder servletHolder = new ServletHolder(new WebApiServlet(webConfig));\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java:81: servletContext.addServlet(servletHolder, \"/\");\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java:83: ServletHolder staticHolder = new ServletHolder(new DefaultServlet());\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java:85: servletContext.addServlet(staticHolder, \"/assets/*\");\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebApiServlet.java:86: protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {\n/tubemq-server/src/main/java/org"
+      },
+      {
+        "step": 28,
+        "tool": "read_file",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java",
+          "start": "45"
+        },
+        "result_head": "45: \n46: import static javax.servlet.DispatcherType.ASYNC;\n47: import static javax.servlet.DispatcherType.REQUEST;\n48: \n49: public class WebServer implements Server {\n50: \n51:     private final MasterConfig masterConfig;\n52:     private org.eclipse.jetty.server.Server srv;\n53:     private TMaster master;\n54: \n55:     public WebServer(final MasterConfig masterConfig, TMaster master) {\n56:         this.masterConfig = masterConfig;\n57:         this.master = master;\n58:     }\n59: \n60:     @Override\n61:     public void start() throws Exception {\n62:         WebConfig webConfig = new WebConfig();\n63:         webConfig.setActionPackage(\"org.apache.inlong.tubemq.server.master.web.action\");\n64:         webConfig.setResourcePath(\"/\");\n65:         webConfig.setVelocityConfigFilePath(\"/velocity.properties\");\n66:         webConfig.setStandalone(true);\n67:         registerActions(webConfig);\n68:         registerTools(webConfig);\n69:         srv = new org.eclipse.jetty.server.Server(masterConfig.getW"
+      },
+      {
+        "step": 28,
+        "tool": "grep",
+        "args": {
+          "pattern": "ConsumeGroupList|consumeGroupList",
+          "path": "/tubemq-server/src/main/java"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 29,
+        "tool": "list_dir",
+        "args": {
+          "path": "/resources"
+        },
+        "result_head": "assets/\ntemplates/\nvelocity.properties"
+      },
+      {
+        "step": 29,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java",
+          "pattern": "execute|setTarget|redirect"
+        },
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java:57: public void execute(RequestContext requestContext) {"
+      },
+      {
+        "step": 30,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": "bin/\nconf/\npom.xml\nresources/\ntubemq-client-twins/\ntubemq-client/\ntubemq-connectors/\ntubemq-core/\ntubemq-docker/\ntubemq-example/\ntubemq-manager/\ntubemq-server/"
+      },
+      {
+        "step": 31,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-connectors",
+          "pattern": "public static void main|@SpringBootApplication|@RestController"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 31,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-server/src/main/java",
+          "pattern": "public static void main"
+        },
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/common/utils/HttpUtils.java:143: public static void main(String[] args) {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/conf/ConfigFileParser.java:55: public static void main(String[] args) throws Exception {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/tools/BdbGroupAdmin.java:58: public static void main(final String[] args) throws Exception {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/tools/BrokerStartup.java:32: public static void main(final String[] args) throws Exception {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/tools/MasterStartup.java:32: public static void main(final String[] args) throws Exception {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/tools/StoreRepairAdmin.java:66: public static void main(final String[] args) throws Exception {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/tools/cli/CliB"
+      },
+      {
+        "step": 32,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"tubemq-server\",\"dirs\":[\"/tubemq-server\",\"/resources\",\"/bin\",\"/conf\"]}],\"files\":[\n{\"path\":\"/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/We"
+        },
+        "result_head": "Recorded 10 new: service tubemq-server, ANY /webapi.htm, ANY /master.htm, ANY /tubeweb.htm, ANY /cluster/clusterManage.htm, ANY /config/brokerList.htm, ANY /config/brokerDetail.htm, ANY /config/topicList.htm, ANY /config/topicDetail.htm, ANY /consume/detail.htm\nTotal: 2 services, 26 endpoints in 15 files.\n[REJECTED 1] Fix these and record them again (accepted entries are kept, do not resend them):\n- files[9].endpoints[0] ANY /* (BrokerAdminServlet.doPost): method doPost does not appear in this file"
+      },
+      {
+        "step": 33,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/AbstractWebHandler.java\",\"service\":\"tubemq-server\",\"endpoints\":[\n{\"className\":\"AbstractWebHandler\",\"methodNa"
+        },
+        "result_head": "Recorded 1 new: ANY /*\nTotal: 2 services, 27 endpoints in 16 files."
+      },
+      {
+        "step": 33,
+        "tool": "find",
+        "args": {
+          "path": "/tubemq-manager/src/main/java",
+          "pattern": "*Controller.java"
+        },
+        "result_head": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/group/GroupController.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/node/NodeController.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/region/RegionController.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/task/TaskController.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/topic/TopicWebController.java"
+      },
+      {
+        "step": 34,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller",
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@RestController"
+        },
+        "result_head": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/ManagerControllerAdvice.java:27: @RestControllerAdvice\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:65: @RestController\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:66: @RequestMapping(path = \"/v1/cluster\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:87: @PostMapping(\"\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:193: @RequestMapping(value = \"\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:260: @RequestMapping(value = \"/query\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n/tubemq-manager/src/main/java/org/apache/inlo"
+      },
+      {
+        "step": 35,
         "tool": "find",
         "args": {
           "pattern": "Dockerfile*"
@@ -973,145 +1012,33 @@
         "result_head": "/tubemq-docker/tubemq-all/Dockerfile\n/tubemq-docker/tubemq-build/Dockerfile\n/tubemq-docker/tubemq-cpp/Dockerfile\n/tubemq-docker/tubemq-manager/Dockerfile"
       },
       {
-        "step": 26,
-        "tool": "find",
-        "args": {
-          "pattern": "*.sh",
-          "path": "/tubemq-server"
-        },
-        "result_head": "/tubemq-server/src/saveServerVersion.sh"
-      },
-      {
-        "step": 27,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server",
-          "pattern": "class (TubeMQMaster|TubeBroker|Master|Broker)\\b"
-        },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/TubeBroker.java:74: public class TubeBroker implements Stoppable {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java:48: public class Master implements Action {"
-      },
-      {
-        "step": 27,
-        "tool": "list_dir",
-        "args": {
-          "path": "/tubemq-connectors"
-        },
-        "result_head": "pom.xml\ntubemq-connector-flume/\ntubemq-connector-spark/"
-      },
-      {
-        "step": 28,
-        "tool": "read_file",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebFilter.java",
-          "start": "30"
-        },
-        "result_head": "30: import java.io.IOException;\n31: \n32: public class WebFilter implements Filter {\n33: \n34:     private static boolean isMultipartFormData(HttpServletRequest req) {\n35:         String contentType = req.getContentType();\n36:         if (contentType != null && MimeTypes.Type.MULTIPART_FORM_DATA.is(\n37:                 HttpFields.valueParameters(contentType, null))) {\n38:             return true;\n39:         } else {\n40:             return false;\n41:         }\n42:     }\n43: \n44:     @Override\n45:     public void doFilter(ServletRequest request,\n46:             ServletResponse response,\n47:             FilterChain chain) throws IOException, ServletException {\n48:         if (request instanceof HttpServletRequest) {\n49:             HttpServletRequest req = (HttpServletRequest) request;\n50:             if (isMultipartFormData(req)) {\n51:                 chain.doFilter(new MultipartHttpServletRequest(req), response);\n52:                 return;\n53:             }\n54:         }\n55:         cha"
-      },
-      {
-        "step": 29,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-manager/src/main/java",
-          "pattern": "@RequestMapping|@RestController|@Controller"
-        },
-        "result_head": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/ManagerControllerAdvice.java:27: @RestControllerAdvice\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:65: @RestController\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:66: @RequestMapping(path = \"/v1/cluster\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:193: @RequestMapping(value = \"\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:260: @RequestMapping(value = \"/query\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/group/GroupController.java:52: @RestController\n/tubemq-manager/src/main/java/org/apache/inlong/tu"
-      },
-      {
-        "step": 30,
-        "tool": "read_file",
-        "args": {
-          "path": "/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java",
-          "start": "85"
-        },
-        "result_head": "85:      * @param origStr The string to be converted\n86:      * @return Convert the string to Camel Case\n87:      *     if it is <code>null</code>, return<code>null</code>\n88:      */\n89:     public static String toCamelCase(String origStr) {\n90:         if (isEmpty(origStr)) {\n91:             return origStr;\n92:         }\n93:         origStr = origStr.trim();\n94:         int length = origStr.length();\n95: \n96:         char curChar;\n97:         char preChar;\n98:         int curWritePos = 0;\n99:         boolean upperCaseNext = false;\n100:         char[] tgtStr = new char[length];\n101:         for (int index = 0; index < length;) {\n102:             curChar = origStr.charAt(index);\n103:             index += Character.charCount(curChar);\n104:             // ignore white space chars\n105:             if (Character.isWhitespace(curChar)) {\n106:                 continue;\n107:             }\n108:             // process char and '_' delimiter\n109:             if (isLetter(curChar)) {\n110:        "
-      },
-      {
-        "step": 31,
-        "tool": "find",
-        "args": {
-          "path": "/tubemq-server/src/main/webapp",
-          "pattern": "*.vm"
-        },
-        "result_head": "(no files)"
-      },
-      {
-        "step": 32,
-        "tool": "record",
-        "args": {
-          "json": "{\"files\":[\n{\"path\":\"/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Webapi.java\",\"service\":\"tubemq-server\",\"endpoints\":[\n{\"className\":\"Webapi\",\"methodName\":\"execu"
-        },
-        "result_head": "Recorded 2 new: ANY /webapi.do, ANY /*\nTotal: 2 services, 19 endpoints in 8 files.\n[REJECTED 1] Fix these and record them again (accepted entries are kept, do not resend them):\n- files[1].endpoints[0] ANY /* (BrokerAdminServlet.doPost): method doPost does not appear in this file"
-      },
-      {
-        "step": 33,
-        "tool": "find",
-        "args": {
-          "pattern": "*.vm"
-        },
-        "result_head": "/resources/templates/control/slidebar.vm\n/resources/templates/layout/default.vm\n/resources/templates/layout/master.vm\n/resources/templates/layout/tubeweb.vm\n/resources/templates/layout/webapi.vm\n/resources/templates/macro.vm\n/resources/templates/screen/cluster/clusterManage.vm\n/resources/templates/screen/config/brokerDetail.vm\n/resources/templates/screen/config/brokerList.vm\n/resources/templates/screen/config/topicDetail.vm\n/resources/templates/screen/config/topicList.vm\n/resources/templates/screen/consume/consumeGroupList.vm\n/resources/templates/screen/consume/detail.vm\n/resources/templates/screen/index.vm\n/resources/templates/screen/master.vm\n/resources/templates/screen/tubeweb.vm\n/resources/templates/screen/webapi.vm"
-      },
-      {
-        "step": 34,
-        "tool": "list_dir",
-        "args": {
-          "path": "/tubemq-docker"
-        },
-        "result_head": "README.md\npom.xml\ntubemq-all/\ntubemq-build/\ntubemq-cpp/\ntubemq-manager/"
-      },
-      {
-        "step": 34,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-docker/tubemq-all/Dockerfile",
-          "pattern": "."
-        },
-        "result_head": "/tubemq-docker/tubemq-all/Dockerfile:1: # Licensed to the Apache Software Foundation (ASF) under one or more\n/tubemq-docker/tubemq-all/Dockerfile:2: # contributor license agreements.  See the NOTICE file distributed with\n/tubemq-docker/tubemq-all/Dockerfile:3: # this work for additional information regarding copyright ownership.\n/tubemq-docker/tubemq-all/Dockerfile:4: # The ASF licenses this file to You under the Apache License, Version 2.0\n/tubemq-docker/tubemq-all/Dockerfile:5: # (the \"License\"); you may not use this file except in compliance with\n/tubemq-docker/tubemq-all/Dockerfile:6: # the License.  You may obtain a copy of the License at\n/tubemq-docker/tubemq-all/Dockerfile:7: #\n/tubemq-docker/tubemq-all/Dockerfile:8: #     http://www.apache.org/licenses/LICENSE-2.0\n/tubemq-docker/tubemq-all/Dockerfile:9: #\n/tubemq-docker/tubemq-all/Dockerfile:10: # Unless required by applicable law or agreed to in writing, software\n/tubemq-docker/tubemq-all/Dockerfile:11: # distributed under the"
-      },
-      {
-        "step": 35,
-        "tool": "find",
-        "args": {
-          "path": "/tubemq-server",
-          "pattern": "*.sh"
-        },
-        "result_head": "/tubemq-server/src/saveServerVersion.sh"
-      },
-      {
         "step": 35,
         "tool": "grep",
         "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/TMaster.java",
-          "pattern": "class TMaster|public TMaster"
-        },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/TMaster.java:134: public class TMaster extends HasThread implements MasterService, Stoppable {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/TMaster.java:178: public TMaster(MasterConfig masterConfig) throws Exception {"
-      },
-      {
-        "step": 36,
-        "tool": "record",
-        "args": {
-          "json": "{\"files\":[\n{\"path\":\"/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java\",\"service\":\"tubemq-server\",\"endpoints\":[\n{\"className\":\"BrokerAdminServlet\",\"methodName\":\"doPo"
-        },
-        "result_head": "Recorded 8 new: ANY /master.htm, ANY /tubeweb.htm, ANY /cluster/clusterManage.htm, ANY /config/brokerDetail.htm, ANY /config/brokerList.htm, ANY /config/topicDetail.htm, ANY /config/topicList.htm, ANY /consume/detail.htm\nTotal: 2 services, 27 endpoints in 16 files.\n[REJECTED 2] Fix these and record them again (accepted entries are kept, do not resend them):\n- files[0].endpoints[0] ANY /* (BrokerAdminServlet.doPost): method doPost does not appear in this file\n- files[1].endpoints[0] ANY / (WebApiServlet.doRequest): method doRequest does not appear in this file"
-      },
-      {
-        "step": 37,
-        "tool": "record",
-        "args": {
-          "json": "{\"files\":[\n{\"path\":\"/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java\",\"service\":\"tubemq-server\",\"endpoints\":[\n{\"className\":\"BrokerAdminServlet\",\"methodName\":\"(inl"
-        },
-        "result_head": "Recorded 2 new: ANY /*, ANY /\nTotal: 2 services, 29 endpoints in 18 files."
-      },
-      {
-        "step": 38,
-        "tool": "grep",
-        "args": {
-          "pattern": "webapi\\.do|\\.do\\?",
-          "path": "/resources"
+          "path": "/tubemq-client-twins",
+          "pattern": "public static void main|@RestController|@SpringBootApplication"
         },
         "result_head": "(no matches)"
       },
       {
-        "step": 39,
+        "step": 36,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-connectors",
+          "pattern": "@Path|@GET|@POST|HttpHandler|createContext"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 36,
+        "tool": "read_file",
+        "args": {
+          "path": "/tubemq-docker/tubemq-all/Dockerfile"
+        },
+        "result_head": "1: # Licensed to the Apache Software Foundation (ASF) under one or more\n2: # contributor license agreements.  See the NOTICE file distributed with\n3: # this work for additional information regarding copyright ownership.\n4: # The ASF licenses this file to You under the Apache License, Version 2.0\n5: # (the \"License\"); you may not use this file except in compliance with\n6: # the License.  You may obtain a copy of the License at\n7: #\n8: #     http://www.apache.org/licenses/LICENSE-2.0\n9: #\n10: # Unless required by applicable law or agreed to in writing, software\n11: # distributed under the License is distributed on an \"AS IS\" BASIS,\n12: # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13: # See the License for the specific language governing permissions and\n14: # limitations under the License.\n15: #\n16: # tubemq depend on zookeeper\n17: FROM zookeeper:3.5\n18: # install tools for debug\n19: RUN apt-get update \\\n20:     && apt-get install -y net-tools vim curl procps"
+      },
+      {
+        "step": 37,
         "tool": "grep",
         "args": {
           "path": "/tubemq-manager/src/main/resources",
@@ -1120,45 +1047,101 @@
         "result_head": "/tubemq-manager/src/main/resources/application.properties:27: # server port\n/tubemq-manager/src/main/resources/application.properties:28: server.port=8089"
       },
       {
+        "step": 37,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-manager/src/main/java",
+          "pattern": "@SpringBootApplication|SpringApplication.run"
+        },
+        "result_head": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/TubeMQManager.java:32: @SpringBootApplication\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/TubeMQManager.java:52: SpringApplication.run(TubeMQManager.class);"
+      },
+      {
+        "step": 38,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-server/src/main/java",
+          "pattern": "HttpServer|createContext|new Server\\("
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 38,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebApiServlet.java",
+          "pattern": "doGet|doPost|processRequest"
+        },
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebApiServlet.java:75: dispatcher.processRequest(context);\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebApiServlet.java:86: protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebApiServlet.java:91: protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {"
+      },
+      {
         "step": 39,
         "tool": "grep",
         "args": {
-          "path": "/tubemq-connectors",
-          "pattern": "@(RestController|Controller|RequestMapping|GetMapping|PostMapping)|HttpServlet|@Path"
+          "path": "/tubemq-manager/src/main/java",
+          "pattern": "@RestController|@Controller|@RequestMapping"
         },
-        "result_head": "(no matches)"
+        "result_head": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/ManagerControllerAdvice.java:27: @RestControllerAdvice\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:65: @RestController\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:66: @RequestMapping(path = \"/v1/cluster\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:193: @RequestMapping(value = \"\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:260: @RequestMapping(value = \"/query\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/group/GroupController.java:52: @RestController\n/tubemq-manager/src/main/java/org/apache/inlong/tu"
+      },
+      {
+        "step": 39,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/layout/Default.java",
+          "pattern": "class|execute"
+        },
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/layout/Default.java:23: public class Default extends Tubeweb {"
       },
       {
         "step": 40,
-        "tool": "list_dir",
+        "tool": "grep",
         "args": {
-          "path": "/"
+          "path": "/tubemq-example",
+          "pattern": "public static void main"
         },
-        "result_head": "bin/\nconf/\npom.xml\nresources/\ntubemq-client-twins/\ntubemq-client/\ntubemq-connectors/\ntubemq-core/\ntubemq-docker/\ntubemq-example/\ntubemq-manager/\ntubemq-server/"
+        "result_head": "/tubemq-example/src/main/java/org/apache/inlong/tubemq/example/ClientBalanceConsumerExample.java:83: public static void main(String[] args) throws Throwable {\n/tubemq-example/src/main/java/org/apache/inlong/tubemq/example/MAMessageProducerExample.java:73: public static void main(String[] args) throws Throwable {\n/tubemq-example/src/main/java/org/apache/inlong/tubemq/example/MessageProducerExample.java:65: public static void main(String[] args) throws Throwable {\n/tubemq-example/src/main/java/org/apache/inlong/tubemq/example/MessagePullConsumerExample.java:68: public static void main(String[] args) throws Throwable {\n/tubemq-example/src/main/java/org/apache/inlong/tubemq/example/MessagePullSetConsumerExample.java:77: public static void main(String[] args) throws Throwable {\n/tubemq-example/src/main/java/org/apache/inlong/tubemq/example/MessagePushConsumerExample.java:70: public static void main(String[] args) throws Throwable {"
       },
       {
-        "step": 41,
-        "tool": "list_dir",
+        "step": 40,
+        "tool": "grep",
         "args": {
-          "path": "/tubemq-client-twins"
+          "path": "/tubemq-client-twins",
+          "pattern": "public static void main"
         },
-        "result_head": "tubemq-client-cpp/\ntubemq-client-go/\ntubemq-client-python/"
+        "result_head": "(no matches)"
       },
       {
         "step": 41,
         "tool": "grep",
         "args": {
-          "path": "/tubemq-client-twins",
-          "pattern": "http.HandleFunc|gin\\.|echo\\.|@app\\.route|FastAPI|HttpServer|addServlet"
+          "pattern": "HttpServer|createContext|ServletContextHandler",
+          "path": "/tubemq-server/src/main/java"
         },
-        "result_head": "(no matches)"
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java:23: import org.eclipse.jetty.servlet.ServletContextHandler;\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java:47: ServletContextHandler servletContext =\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java:48: new ServletContextHandler(srv, \"/\", ServletContextHandler.SESSIONS);\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java:41: import org.eclipse.jetty.servlet.ServletContextHandler;\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java:70: ServletContextHandler servletContext = new ServletContextHandler(srv,\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java:71: \"/\", ServletContextHandler.SESSIONS);"
+      },
+      {
+        "step": 41,
+        "tool": "grep",
+        "args": {
+          "pattern": "webPort|getWebPort|webPort=",
+          "path": "/conf"
+        },
+        "result_head": "/conf/broker.ini:28: webPort=8081\n/conf/master.ini:24: webPort=8080"
       },
       {
         "step": 42,
         "tool": "grep",
         "args": {
-          "path": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller",
-          "pattern": "Mapping\\("
+          "path": "/tubemq-server/src/main/java",
+          "pattern": "extends HttpServlet|extends AbstractWebHandler"
+        },
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/AbstractWebHandler.java:34: public abstract class AbstractWebHandler extends HttpServlet {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/BrokerAdminServlet.java:68: public class BrokerAdminServlet extends AbstractWebHandler {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebAdminFlowRuleHandler.java:41: public class WebAdminFlowRuleHandler extends AbstractWebHandler {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebAdminGroupCtrlHandler.java:49: public class WebAdminGroupCtrlHandler extends AbstractWebHandler {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebAdminTopicAuthHandler.java:40: public class WebAdminTopicAuthHandler extends AbstractWebHandler {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebBrokerConfHandler.java:63: public class WebBrokerCon"
+      },
+      {
+        "step": 42,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-manager/src/main/java",
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping"
         },
         "result_head": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:66: @RequestMapping(path = \"/v1/cluster\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:87: @PostMapping(\"\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:193: @RequestMapping(value = \"\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java:260: @RequestMapping(value = \"/query\", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/group/GroupController.java:53: @RequestMapping(path = \"/v1/group\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/group/GroupController.java:73: @PostMapping(\"\")\n/tubemq-manager/src/main/java/org/ap"
       },
@@ -1166,48 +1149,99 @@
         "step": 43,
         "tool": "list_dir",
         "args": {
-          "path": "/bin"
+          "path": "/tubemq-connectors"
         },
-        "result_head": "broker.cmd\nenv.cmd\nenv.sh\ngroupAdmin.sh\nindexReBuilder.sh\nmaster.cmd\ntubectl\ntubectl.cmd\ntubemq-broker-admin.sh\ntubemq-consumer-test.sh\ntubemq-metadata-bru.sh\ntubemq-producer-test.sh\ntubemq.sh"
+        "result_head": "pom.xml\ntubemq-connector-flume/\ntubemq-connector-spark/"
       },
       {
         "step": 43,
         "tool": "grep",
         "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebMasterInfoHandler.java",
-          "pattern": "registerQueryWebMethod|registerModifyWebMethod"
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebApiServlet.java",
+          "pattern": "class|doGet|doPost|service"
         },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebMasterInfoHandler.java:62: registerQueryWebMethod(\"admin_query_master_group_info\",\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebMasterInfoHandler.java:64: registerQueryWebMethod(\"admin_query_cluster_topic_view\",\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebMasterInfoHandler.java:66: registerQueryWebMethod(\"admin_query_group_info_by_topic\",\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebMasterInfoHandler.java:68: registerQueryWebMethod(\"admin_query_cluster_default_setting\",\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebMasterInfoHandler.java:72: registerModifyWebMethod(\"admin_transfer_current_master\",\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebMasterInfoHandler.java:75: registerModifyWebMethod(\"admin_set_cluster_default"
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebApiServlet.java:42: public class WebApiServlet extends HttpServlet {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebApiServlet.java:45: private static final Logger logger = LoggerFactory.getLogger(WebFilter.class);\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebApiServlet.java:86: protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebApiServlet.java:91: protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {"
+      },
+      {
+        "step": 44,
+        "tool": "list_dir",
+        "args": {
+          "path": "/tubemq-client-twins"
+        },
+        "result_head": "tubemq-client-cpp/\ntubemq-client-go/\ntubemq-client-python/"
       },
       {
         "step": 44,
         "tool": "grep",
         "args": {
-          "path": "/",
-          "pattern": "extends HttpServlet|extends AbstractWebHandler|implements Action"
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebMasterInfoHandler.java",
+          "pattern": "innRegisterWebMethod|addWebMethod"
         },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/AbstractWebHandler.java:34: public abstract class AbstractWebHandler extends HttpServlet {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/BrokerAdminServlet.java:68: public class BrokerAdminServlet extends AbstractWebHandler {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Master.java:48: public class Master implements Action {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Tubeweb.java:25: public class Tubeweb implements Action {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Webapi.java:53: public class Webapi implements Action {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/cluster/ClusterManager.java:34: public class ClusterManager implements Action {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/scr"
+        "result_head": "(no matches)"
       },
       {
         "step": 45,
         "tool": "grep",
         "args": {
-          "path": "/tubemq-docker/tubemq-manager/Dockerfile",
-          "pattern": "ADD|CMD|EXPOSE|FROM"
+          "path": "/tubemq-client-twins",
+          "pattern": "ListenAndServe|http.HandleFunc|Flask|FastAPI|app.route"
         },
-        "result_head": "/tubemq-docker/tubemq-manager/Dockerfile:19: FROM adoptopenjdk/openjdk8\n/tubemq-docker/tubemq-manager/Dockerfile:25: ADD ${TUBEMQ_MANAGER_TARBALL} /opt/tubemq-manager\n/tubemq-docker/tubemq-manager/Dockerfile:26: EXPOSE 8089\n/tubemq-docker/tubemq-manager/Dockerfile:39: ADD manager-docker.sh bin/\n/tubemq-docker/tubemq-manager/Dockerfile:41: CMD [\"bin/manager-docker.sh\"]"
+        "result_head": "(no matches)"
       },
       {
         "step": 45,
         "tool": "grep",
         "args": {
-          "path": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/TubeMQManager.java",
-          "pattern": "SpringBootApplication|class TubeMQManager"
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler",
+          "pattern": "innRegisterWebMethod\\("
         },
-        "result_head": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/TubeMQManager.java:22: import org.springframework.boot.autoconfigure.SpringBootApplication;\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/TubeMQManager.java:32: @SpringBootApplication\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/TubeMQManager.java:37: public class TubeMQManager {"
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java:40: innRegisterWebMethod(webMethodName, clsMethodName, false, false);\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java:45: innRegisterWebMethod(webMethodName, clsMethodName, true, true);\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/AbstractWebHandler.java:52: private void innRegisterWebMethod(String webMethodName,"
       },
       {
         "step": 46,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebMasterInfoHandler.java",
+          "pattern": "register|WebMethod"
+        },
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebMasterInfoHandler.java:60: public void registerWebApiMethod() {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebMasterInfoHandler.java:61: // register query method\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebMasterInfoHandler.java:62: registerQueryWebMethod(\"admin_query_master_group_info\",\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebMasterInfoHandler.java:64: registerQueryWebMethod(\"admin_query_cluster_topic_view\",\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebMasterInfoHandler.java:66: registerQueryWebMethod(\"admin_query_group_info_by_topic\",\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/handler/WebMasterInfoHandler.java:68: registerQueryWebMethod(\"admin_query_cluster_default_setting\",\n/tubemq-server/src/main/java/org/apache/inlon"
+      },
+      {
+        "step": 47,
+        "tool": "read_file",
+        "args": {
+          "path": "/tubemq-docker/tubemq-manager/Dockerfile"
+        },
+        "result_head": "1: #\n2: # Licensed to the Apache Software Foundation (ASF) under one\n3: # or more contributor license agreements.  See the NOTICE file\n4: # distributed with this work for additional information\n5: # regarding copyright ownership.  The ASF licenses this file\n6: # to you under the Apache License, Version 2.0 (the\n7: # \"License\"); you may not use this file except in compliance\n8: # with the License.  You may obtain a copy of the License at\n9: #\n10: #   http://www.apache.org/licenses/LICENSE-2.0\n11: #\n12: # Unless required by applicable law or agreed to in writing,\n13: # software distributed under the License is distributed on an\n14: # \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n15: # KIND, either express or implied.  See the License for the\n16: # specific language governing permissions and limitations\n17: # under the License.\n18: #\n19: FROM adoptopenjdk/openjdk8\n20: RUN apt-get update \\\n21:     && apt-get install -y net-tools vim wget \\\n22:     && rm -rf /var/lib/apt/lists/*\n23"
+      },
+      {
+        "step": 48,
+        "tool": "grep",
+        "args": {
+          "path": "/resources/templates",
+          "pattern": "\\.htm"
+        },
+        "result_head": "/resources/templates/control/slidebar.vm:24: <a href=\"../consume/consume_group_list.htm\"><span class=\"i-wp\"><i class=\"s-search\"></i></span>分发查询</a>\n/resources/templates/control/slidebar.vm:27: <a href=\"../config/broker_list.htm\"><span class=\"i-wp\"><i class=\"s-setting\"></i></span>配置管理</a>\n/resources/templates/control/slidebar.vm:30: <a href=\"../config/broker_list.htm\">Broker列表</a>\n/resources/templates/control/slidebar.vm:33: <a href=\"../config/topic_list.htm\">Topic列表</a>\n/resources/templates/control/slidebar.vm:38: <a href=\"../cluster/cluster_manage.htm\"><span class=\"i-wp\"><i\n/resources/templates/layout/default.vm:39: HOST: '$!tubemqRemoteAddr/webapi.htm'\n/resources/templates/layout/tubeweb.vm:39: HOST: '$!tubemqRemoteAddr/webapi.htm'\n/resources/templates/screen/config/brokerDetail.vm:21: <a class=\"back\" href=\"../config/broker_list.htm\">Broker列表</a>\n/resources/templates/screen/config/topicDetail.vm:21: <a class=\"back\" href=\"../config/topic_list.htm\">Topic列表</a>\n/resources/templates/scre"
+      },
+      {
+        "step": 49,
+        "tool": "list_dir",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/consume"
+        },
+        "result_head": "Detail.java"
+      },
+      {
+        "step": 49,
+        "tool": "grep",
+        "args": {
+          "path": "/resources/templates/screen",
+          "pattern": "consume_group_list|consumeGroupList"
+        },
+        "result_head": "/resources/templates/screen/consume/detail.vm:21: <a class=\"back\" href=\"../consume/consume_group_list.htm\">分发查询</a>"
+      },
+      {
+        "step": 50,
         "tool": "grep",
         "args": {
           "path": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller",
@@ -1216,60 +1250,139 @@
         "result_head": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/ManagerControllerAdvice.java:37: public TubeMQResult handlingParameterException(Exception ex) {\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/TubeMQResult.java:46: public static TubeMQResult errorResult(String errorMsg) {\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/TubeMQResult.java:51: public static TubeMQResult errorResult(ErrorCode errorCode) {\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/TubeMQResult.java:56: public static TubeMQResult errorResult(String errorMsg, Integer errorCode) {\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/TubeMQResult.java:61: public static TubeMQResult successResult() {\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/TubeMQResult.java:66: public static TubeMQResult successResult(Object data) {\n/tubemq-manager/src/main/java/org/apache/inlong/tube"
       },
       {
-        "step": 47,
-        "tool": "record",
-        "args": {
-          "json": "{\"files\":[\n{\"path\":\"/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Webapi.java\",\"service\":\"tubemq-server\",\"endpoints\":[\n{\"className\":\"Webapi\",\"methodName\":\"execu"
-        },
-        "result_head": "Recorded 9 new: ANY /screen/webapi.htm, ANY /screen/master.htm, ANY /screen/tubeweb.htm, ANY /screen/cluster/clusterManage.htm, ANY /screen/config/brokerDetail.htm, ANY /screen/config/brokerList.htm, ANY /screen/config/topicDetail.htm, ANY /screen/config/topicList.htm, ANY /screen/consume/detail.htm\nTotal: 2 services, 38 endpoints in 18 files."
-      },
-      {
-        "step": 48,
-        "tool": "find",
-        "args": {
-          "path": "/tubemq-manager/src/main/java",
-          "pattern": "*Controller*.java"
-        },
-        "result_head": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/ManagerControllerAdvice.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/TubeMQResult.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/dto/ClusterDto.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/request/AddClusterReq.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/request/DeleteClusterReq.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/request/SwitchClusterReq.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/request/UpdateClusterReq.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/vo/ClusterVo.java\n/tubemq-manager/src/main/java/org/apache/inlong/tubem"
-      },
-      {
-        "step": 48,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/topic/TopicWebController.java",
-          "pattern": "Mapping|public "
-        },
-        "result_head": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/topic/TopicWebController.java:41: import org.springframework.web.bind.annotation.GetMapping;\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/topic/TopicWebController.java:43: import org.springframework.web.bind.annotation.RequestMapping;\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/topic/TopicWebController.java:53: @RequestMapping(path = \"/v1/topic\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/topic/TopicWebController.java:55: public class TopicWebController {\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/topic/TopicWebController.java:74: @RequestMapping(value = \"\")\n/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/topic/TopicWebController.java:75: public @ResponseBody TubeMQResult topicMethodProxy(@RequestParam String method, @RequestBody String req)\n/tubemq-manager/src/main/ja"
-      },
-      {
-        "step": 49,
-        "tool": "read_file",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Webapi.java",
-          "start": "53"
-        },
-        "result_head": "53: public class Webapi implements Action {\n54: \n55:     private final TMaster master;\n56: \n57:     public Webapi(TMaster master) {\n58:         this.master = master;\n59:         registerHandler(new WebBrokerConfHandler(this.master));\n60:         registerHandler(new WebTopicCtrlHandler(this.master));\n61:         registerHandler(new WebTopicDeployHandler(this.master));\n62:         registerHandler(new WebGroupConsumeCtrlHandler(this.master));\n63:         registerHandler(new WebGroupResCtrlHandler(this.master));\n64:         registerHandler(new WebMasterInfoHandler(this.master));\n65:         registerHandler(new WebOtherInfoHandler(this.master));\n66:         registerHandler(new WebAdminGroupCtrlHandler(this.master));\n67:         registerHandler(new WebAdminTopicAuthHandler(this.master));\n68:         registerHandler(new WebAdminFlowRuleHandler(this.master));\n69:     }\n70: \n71:     @Override\n72:     public void execute(RequestContext requestContext) {\n73:         String method = null;\n74:     "
-      },
-      {
-        "step": 50,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc",
-          "pattern": "getActionKey|actionKey|\\.htm|getRequestURI"
-        },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestContext.java:118: public String getRequestURI() {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestContext.java:119: return req.getRequestURI();\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestDispatcher.java:104: String targetKey = getActionKey(type, target);\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestDispatcher.java:158: public String getActionKey(String type, String target) {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestDispatcher.java:208: String actionKey = entry.getKey().substring(\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestDispatcher.java:210: actions.put(TStringUtils.toCamelCase(actionKey), entry.getValue());\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/w"
-      },
-      {
         "step": 51,
-        "tool": "read_file",
+        "tool": "grep",
         "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestDispatcher.java",
-          "start": "80"
+          "path": "/resources/templates/screen",
+          "pattern": "href=|action="
         },
-        "result_head": "80:     public void processRequest(RequestContext context) throws Exception {\n81:         for (Map.Entry<String, Object> entry : config.getTools().entrySet()) {\n82:             context.put(entry.getKey(), entry.getValue());\n83:         }\n84:         ControlTool control = controlTools.get();\n85:         if (control == null) {\n86:             control = new ControlTool(this);\n87:             controlTools.set(control);\n88:         }\n89:         control.setRequestContext(context);\n90:         context.put(TYPE_CONTROL, control);\n91:         executeTarget(context, context.getTarget(), TYPE_SCREEN);\n92:         executeTarget(context, context.getTarget(), TYPE_LAYOUT);\n93:     }\n94: \n95:     /**\n96:      * Execute required method service\n97:      * @param context   the context\n98:      * @param target    the target information\n99:      * @param type      the operation type\n100:      * @throws Exception the exception\n101:      */\n102:     public void executeTarget(RequestContext context,\n103:   "
+        "result_head": "/resources/templates/screen/cluster/clusterManage.vm:49: <td rowspan=\"3\"><a href=\"\" class=\"link\">切换</a></td>\n/resources/templates/screen/config/brokerDetail.vm:21: <a class=\"back\" href=\"../config/broker_list.htm\">Broker列表</a>\n/resources/templates/screen/config/brokerDetail.vm:26: <li><a href=\"javascript:;\" class=\"btn btn-primary s js_online_one\">上线</a></li>\n/resources/templates/screen/config/brokerDetail.vm:27: <li><a href=\"javascript:;\" class=\"btn btn-primary s js_reload_one\">重载</a></li>\n/resources/templates/screen/config/brokerDetail.vm:28: <li><a href=\"javascript:;\" class=\"btn btn-primary s js_offline_one\">下线</a></li>\n/resources/templates/screen/config/brokerDetail.vm:29: <!-- <li><a href=\"javascript:;\" class=\"btn btn-primary s js_delete_one\">删除Broker</a></li> -->\n/resources/templates/screen/config/brokerDetail.vm:52: <a href=\"javascript:;\" class=\"link fr js_mod_one\">编辑</a>\n/resources/templates/screen/config/brokerDetail.vm:92: <a href=\"javascript:\" class=\"icon-btn\" title=\"搜索\"><i\n/r"
       },
       {
         "step": 52,
+        "tool": "list_dir",
+        "args": {
+          "path": "/bin"
+        },
+        "result_head": "broker.cmd\nenv.cmd\nenv.sh\ngroupAdmin.sh\nindexReBuilder.sh\nmaster.cmd\ntubectl\ntubectl.cmd\ntubemq-broker-admin.sh\ntubemq-consumer-test.sh\ntubemq-metadata-bru.sh\ntubemq-producer-test.sh\ntubemq.sh"
+      },
+      {
+        "step": 52,
+        "tool": "read_file",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/tools/MasterStartup.java",
+          "start": "25"
+        },
+        "result_head": "25: import org.slf4j.LoggerFactory;\n26: \n27: public class MasterStartup {\n28: \n29:     private static final Logger logger =\n30:             LoggerFactory.getLogger(MasterStartup.class);\n31: \n32:     public static void main(final String[] args) throws Exception {\n33:         // get configure file path\n34:         ProcessResult result = new ProcessResult();\n35:         if (!CliUtils.getConfigFilePath(args, result)) {\n36:             System.err.println(result.getErrMsg());\n37:             System.exit(1);\n38:         }\n39:         String configFilePath = (String) result.getRetData();\n40:         // read configure file\n41:         final MasterConfig masterConfig = new MasterConfig();\n42:         masterConfig.loadFromFile(configFilePath);\n43:         logger.info(\"[MasterStartup] master config is: \" + masterConfig);\n44:         // start master instance\n45:         TMaster master = new TMaster(masterConfig);\n46:         master.start();\n47:         master.join();\n48:     }\n49: \n50: }"
+      },
+      {
+        "step": 53,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[\n{\"name\":\"tubemq-server\",\"dirs\":[\"/tubemq-server\",\"/resources\",\"/bin\",\"/conf\",\"/tubemq-docker/tubemq-all\"]},\n{\"name\":\"tubemq-manager\",\"dirs\":[\"/tubemq-manager\",\"/tubemq-docker/tubemq-mana"
+        },
+        "result_head": "Recorded 4 new: service tubemq-server, service tubemq-manager, GET /consume/consume_group_list.htm, POST /consume/consume_group_list.htm\nTotal: 2 services, 29 endpoints in 17 files."
+      },
+      {
+        "step": 54,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/cluster/ClusterManager.java\",\"service\":\"tubemq-server\",\"endpoints\":[\n{\"className\":\"ClusterMana"
+        },
+        "result_head": "Recorded 5 new: ANY /cluster/cluster_manage.htm, ANY /config/broker_list.htm, ANY /config/broker_detail.htm, ANY /config/topic_list.htm, ANY /config/topic_detail.htm\nTotal: 2 services, 34 endpoints in 17 files."
+      },
+      {
+        "step": 55,
+        "tool": "grep",
+        "args": {
+          "pattern": "HttpServer|createContext|setHandler",
+          "path": "/tubemq-server/src/main/java"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 55,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@RestController",
+          "path": "/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/service"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 56,
+        "tool": "read_file",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java",
+          "start": "40"
+        },
+        "result_head": "40:         this.port = port;\n41:         this.broker = broker;\n42:     }\n43: \n44:     @Override\n45:     public void start() throws Exception {\n46:         srv = new org.eclipse.jetty.server.Server(this.port);\n47:         ServletContextHandler servletContext =\n48:                 new ServletContextHandler(srv, \"/\", ServletContextHandler.SESSIONS);\n49: \n50:         servletContext.addServlet(new ServletHolder(new BrokerAdminServlet(broker)), \"/*\");\n51:         srv.start();\n52:         checkArgument(srv.getHandler().equals(servletContext));\n53:     }\n54: \n55:     @Override\n56:     public void stop() throws Exception {\n57:         srv.stop();\n58:     }\n59: }"
+      },
+      {
+        "step": 57,
+        "tool": "read_file",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Webapi.java",
+          "start": "55"
+        },
+        "result_head": "55:     private final TMaster master;\n56: \n57:     public Webapi(TMaster master) {\n58:         this.master = master;\n59:         registerHandler(new WebBrokerConfHandler(this.master));\n60:         registerHandler(new WebTopicCtrlHandler(this.master));\n61:         registerHandler(new WebTopicDeployHandler(this.master));\n62:         registerHandler(new WebGroupConsumeCtrlHandler(this.master));\n63:         registerHandler(new WebGroupResCtrlHandler(this.master));\n64:         registerHandler(new WebMasterInfoHandler(this.master));\n65:         registerHandler(new WebOtherInfoHandler(this.master));\n66:         registerHandler(new WebAdminGroupCtrlHandler(this.master));\n67:         registerHandler(new WebAdminTopicAuthHandler(this.master));\n68:         registerHandler(new WebAdminFlowRuleHandler(this.master));\n69:     }\n70: \n71:     @Override\n72:     public void execute(RequestContext requestContext) {\n73:         String method = null;\n74:         ProcessResult result = new ProcessResult();\n7"
+      },
+      {
+        "step": 58,
+        "tool": "grep",
+        "args": {
+          "pattern": "@Controller|@RequestMapping|@Path\\(",
+          "path": "/tubemq-connectors"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 58,
+        "tool": "grep",
+        "args": {
+          "pattern": "@Controller",
+          "path": "/tubemq-manager"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 59,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestDispatcher.java",
+          "pattern": "htm|getRequestURI|substring|action"
+        },
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestDispatcher.java:49: private final HashMap<String, Action> actions = new HashMap<>();\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestDispatcher.java:68: return filename.substring(dot);\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestDispatcher.java:105: if (actions.containsKey(targetKey)) {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestDispatcher.java:106: actions.get(targetKey).execute(context);\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestDispatcher.java:142: realTemplatePath.substring(0, realTemplatePath.indexOf(\".vm\"));\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestDispatcher.java:143: if (actions.containsKey(realTargetKey)) {\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server"
+      },
+      {
+        "step": 60,
+        "tool": "grep",
+        "args": {
+          "path": "/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java",
+          "pattern": "toCamelCase"
+        },
+        "result_head": "/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java:75: * TStringUtils.toCamelCase(null)  = null\n/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java:76: * TStringUtils.toCamelCase(\"\")    = \"\"\n/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java:77: * TStringUtils.toCamelCase(\"aBc\") = \"aBc\"\n/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java:78: * TStringUtils.toCamelCase(\"aBc def\") = \"aBcDef\"\n/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java:79: * TStringUtils.toCamelCase(\"aBc def_ghi\") = \"aBcDefGhi\"\n/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java:80: * TStringUtils.toCamelCase(\"aBc def_ghi 123\") = \"aBcDefGhi123\"\n/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java:89: public static String toCamelCase(String origStr) {"
+      },
+      {
+        "step": 61,
+        "tool": "read_file",
+        "args": {
+          "path": "/tubemq-core/src/main/java/org/apache/inlong/tubemq/corebase/utils/TStringUtils.java",
+          "start": "85"
+        },
+        "result_head": "85:      * @param origStr The string to be converted\n86:      * @return Convert the string to Camel Case\n87:      *     if it is <code>null</code>, return<code>null</code>\n88:      */\n89:     public static String toCamelCase(String origStr) {\n90:         if (isEmpty(origStr)) {\n91:             return origStr;\n92:         }\n93:         origStr = origStr.trim();\n94:         int length = origStr.length();\n95: \n96:         char curChar;\n97:         char preChar;\n98:         int curWritePos = 0;\n99:         boolean upperCaseNext = false;\n100:         char[] tgtStr = new char[length];\n101:         for (int index = 0; index < length;) {\n102:             curChar = origStr.charAt(index);\n103:             index += Character.charCount(curChar);\n104:             // ignore white space chars\n105:             if (Character.isWhitespace(curChar)) {\n106:                 continue;\n107:             }\n108:             // process char and '_' delimiter\n109:             if (isLetter(curChar)) {\n110:        "
+      },
+      {
+        "step": 61,
+        "tool": "read_file",
+        "args": {
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestDispatcher.java",
+          "start": "55"
+        },
+        "result_head": "55:      * Construct RequestDispatcher from web config\n56:      *\n57:      * @param config  the web configure object\n58:      */\n59:     public RequestDispatcher(WebConfig config) {\n60:         this.config = config;\n61:         this.engine = new VelocityTemplateEngine(config);\n62:     }\n63: \n64:     private static String getFileExtName(String filename) {\n65:         if ((filename != null) && (filename.length() > 0)) {\n66:             int dot = filename.lastIndexOf('.');\n67:             if ((dot > -1) && (dot < (filename.length() - 1))) {\n68:                 return filename.substring(dot);\n69:             }\n70:         }\n71:         return filename;\n72:     }\n73: \n74:     public void init() throws Exception {\n75:         engine.init();\n76:         loadActions();\n77:         loadTemplates();\n78:     }\n79: \n80:     public void processRequest(RequestContext context) throws Exception {\n81:         for (Map.Entry<String, Object> entry : config.getTools().entrySet()) {\n82:             context"
+      },
+      {
+        "step": 62,
         "tool": "read_file",
         "args": {
           "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/RequestContext.java",
@@ -1278,16 +1391,16 @@
         "result_head": "40:     public RequestContext(WebConfig config, HttpServletRequest req, HttpServletResponse resp) {\n41:         this.config = config;\n42:         this.req = req;\n43:         this.resp = resp;\n44:         this.requestPath =\n45:                 new StringBuilder(512).append(req.getServletPath())\n46:                         .append(req.getPathInfo() != null ? req.getPathInfo() : \"\").toString();\n47:         if (\"/\".equals(this.requestPath)) {\n48:             this.requestPath = config.getDefaultPage();\n49:         }\n50:         if (this.requestPath.contains(\".\")) {\n51:             this.requestType = this.requestPath.substring(this.requestPath.indexOf(\".\"));\n52:         }\n53:         this.target = getRequestTarget();\n54:     }\n55: \n56:     private static String normalizePath(String path) {\n57:         if (path.startsWith(\"/\")) {\n58:             path = path.substring(1);\n59:         }\n60:         if (path.indexOf(\".\") > -1) {\n61:             path = path.substring(0, path.indexOf(\".\"));\n62:   "
       },
       {
-        "step": 53,
-        "tool": "read_file",
+        "step": 63,
+        "tool": "grep",
         "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/BrokerAdminServlet.java",
-          "start": "60"
+          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebFilter.java",
+          "pattern": "."
         },
-        "result_head": "60: import java.util.Map;\n61: import java.util.Map.Entry;\n62: import java.util.Set;\n63: import java.util.concurrent.ConcurrentHashMap;\n64: \n65: /**\n66:  * Broker's web servlet. Used for admin operation, like query consumer's status etc.\n67:  */\n68: public class BrokerAdminServlet extends AbstractWebHandler {\n69: \n70:     public BrokerAdminServlet(TubeBroker broker) {\n71:         super(broker);\n72:         registerWebApiMethod();\n73:     }\n74: \n75:     @Override\n76:     public void registerWebApiMethod() {\n77:         // query broker's version\n78:         innRegisterWebMethod(\"admin_query_server_version\",\n79:                 \"adminQueryBrokerVersion\", false);\n80:         // query consumer group's offset\n81:         innRegisterWebMethod(\"admin_query_group_offset\",\n82:                 \"adminQueryCurrentGroupOffSet\", false);\n83:         // query consumer group's offset\n84:         innRegisterWebMethod(\"admin_backup_group_offsets\",\n85:                 \"adminBackupCurrentGroupOffsets\", false"
+        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebFilter.java:1: /*\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebFilter.java:2: * Licensed to the Apache Software Foundation (ASF) under one or more\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebFilter.java:3: * contributor license agreements. See the NOTICE file distributed with\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebFilter.java:4: * this work for additional information regarding copyright ownership.\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebFilter.java:5: * The ASF licenses this file to You under the Apache License, Version 2.0\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebFilter.java:6: * (the \"License\"); you may not use this file except in compliance with\n/tubemq-server/src/main/java/org/apache/in"
       },
       {
-        "step": 53,
+        "step": 64,
         "tool": "read_file",
         "args": {
           "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/AbstractWebHandler.java",
@@ -1296,169 +1409,12 @@
         "result_head": "30: import static org.apache.inlong.tubemq.server.common.webbase.WebMethodMapper.getRegisteredWebMethod;\n31: import static org.apache.inlong.tubemq.server.common.webbase.WebMethodMapper.getWebApiRegInfo;\n32: import static org.apache.inlong.tubemq.server.common.webbase.WebMethodMapper.registerWebMethod;\n33: \n34: public abstract class AbstractWebHandler extends HttpServlet {\n35: \n36:     protected final TubeBroker broker;\n37: \n38:     public AbstractWebHandler(TubeBroker broker) {\n39:         this.broker = broker;\n40:     }\n41: \n42:     @Override\n43:     protected void doGet(HttpServletRequest req,\n44:             HttpServletResponse resp) throws IOException {\n45:         doPost(req, resp);\n46:     }\n47: \n48:     public int getSupportedMethod(StringBuilder sBuffer) {\n49:         return getRegisteredWebMethod(sBuffer);\n50:     }\n51: \n52:     @Override\n53:     protected void doPost(HttpServletRequest req,\n54:             HttpServletResponse resp) throws IOException {\n55:         String met"
       },
       {
-        "step": 54,
-        "tool": "read_file",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebApiServlet.java",
-          "start": "42"
-        },
-        "result_head": "42: public class WebApiServlet extends HttpServlet {\n43: \n44:     public static final int MAX_MULTIPART_POST_DATA_SIZE = 67108864; // 64M, could be bigger if needed\n45:     private static final Logger logger = LoggerFactory.getLogger(WebFilter.class);\n46:     private static final String DEFAULT_CONFIG_PATH = \"/WEB-INF/simple-mvc.xml\";\n47:     private static final String DEFAULT_LOG_CONFIG_PATH = \"/WEB-INF/log4j.xml\";\n48:     private MultipartConfigElement multipartConfig;\n49:     private String configFilePath;\n50:     private File configFile;\n51:     private WebConfig config;\n52:     private RequestDispatcher dispatcher;\n53: \n54:     public WebApiServlet(WebConfig config) {\n55:         this.config = config;\n56:     }\n57: \n58:     protected void doRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {\n59:         if (req instanceof MultipartHttpServletRequest) {\n60:             // We need to manually fix config if it's \"form-data\" by jetty's req"
-      },
-      {
-        "step": 55,
-        "tool": "read_file",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java",
-          "start": "30"
-        },
-        "result_head": "30:  */\n31: public class WebServer implements Server {\n32: \n33:     private String hostname = \"0.0.0.0\";\n34:     private int port = 8080;\n35:     private org.eclipse.jetty.server.Server srv;\n36:     private TubeBroker broker;\n37: \n38:     public WebServer(String hostname, int port, TubeBroker broker) {\n39:         this.hostname = hostname;\n40:         this.port = port;\n41:         this.broker = broker;\n42:     }\n43: \n44:     @Override\n45:     public void start() throws Exception {\n46:         srv = new org.eclipse.jetty.server.Server(this.port);\n47:         ServletContextHandler servletContext =\n48:                 new ServletContextHandler(srv, \"/\", ServletContextHandler.SESSIONS);\n49: \n50:         servletContext.addServlet(new ServletHolder(new BrokerAdminServlet(broker)), \"/*\");\n51:         srv.start();\n52:         checkArgument(srv.getHandler().equals(servletContext));\n53:     }\n54: \n55:     @Override\n56:     public void stop() throws Exception {\n57:         srv.stop();\n58:     }\n5"
-      },
-      {
-        "step": 56,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action",
-          "pattern": "class Default|class Index"
-        },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/layout/Default.java:23: public class Default extends Tubeweb {"
-      },
-      {
-        "step": 56,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Default.java",
-          "pattern": "execute|class"
-        },
-        "result_head": "(no matches)"
-      },
-      {
-        "step": 57,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/tools/cli/CliWebapiAdmin.java",
-          "pattern": "webapi|\\.do|http"
-        },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/tools/cli/CliWebapiAdmin.java:9: * http://www.apache.org/licenses/LICENSE-2.0\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/tools/cli/CliWebapiAdmin.java:98: String masterUrl = \"http://\" + masterAddr + \"/webapi.htm\";"
-      },
-      {
-        "step": 58,
-        "tool": "record",
-        "args": {
-          "json": "{\"files\":[\n{\"path\":\"/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Webapi.java\",\"service\":\"tubemq-server\",\"endpoints\":[\n{\"className\":\"Webapi\",\"methodName\":\"execu"
-        },
-        "result_head": "Recorded 0 new: nothing\nTotal: 2 services, 38 endpoints in 18 files.\nEverything you sent was already recorded; do not resend it."
-      },
-      {
-        "step": 59,
-        "tool": "record",
-        "args": {
-          "json": "{\"files\":[\n{\"path\":\"/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/action/screen/Webapi.java\",\"service\":\"tubemq-server\",\"endpoints\":[\n{\"className\":\"Webapi\",\"methodName\":\"execu"
-        },
-        "result_head": "Recorded 2 new: ANY /webapi.htm, ANY /*\nTotal: 2 services, 40 endpoints in 19 files."
-      },
-      {
-        "step": 60,
-        "tool": "grep",
-        "args": {
-          "path": "/",
-          "pattern": "@Path\\(|@GET|@POST|@Produces"
-        },
-        "result_head": "(no matches)"
-      },
-      {
-        "step": 60,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-connectors",
-          "pattern": "HttpServer|Servlet|Handler|Route"
-        },
-        "result_head": "(no matches)"
-      },
-      {
-        "step": 61,
-        "tool": "grep",
-        "args": {
-          "path": "/bin/tubemq.sh",
-          "pattern": "MAIN|main|class"
-        },
-        "result_head": "(no matches)"
-      },
-      {
-        "step": 62,
-        "tool": "grep",
-        "args": {
-          "path": "/bin",
-          "pattern": "TubeMQMaster|TubeBroker|org.apache.inlong"
-        },
-        "result_head": "/bin/broker.cmd:27: set BROKERMAIN=org.apache.inlong.tubemq.server.tools.BrokerStartup\n/bin/groupAdmin.sh:41: nohup $JAVA $TOOLS_ARGS  org.apache.inlong.tubemq.server.tools.BdbGroupAdmin $1 $2 $3 2>&1 &\n/bin/indexReBuilder.sh:52: nohup $JAVA $TOOL_REPAIR_ARGS  org.apache.inlong.tubemq.server.tools.StoreRepairAdmin $1 $2 2>&1 >>$LOG_FILE  &\n/bin/master.cmd:27: set MASTERMAIN=org.apache.inlong.tubemq.server.tools.MasterStartup\n/bin/tubectl:40: $JAVA $TOOLS_ARGS org.apache.inlong.tubemq.server.tools.cli.CommandToolMain $@\n/bin/tubectl.cmd:27: set TUBECTLMAIN=org.apache.inlong.tubemq.server.tools.cli.CommandToolMain\n/bin/tubemq-broker-admin.sh:40: $JAVA $TOOLS_ARGS org.apache.inlong.tubemq.server.tools.cli.CliBrokerAdmin $@\n/bin/tubemq-consumer-test.sh:40: $JAVA $TOOLS_ARGS org.apache.inlong.tubemq.server.tools.cli.CliConsumer $@\n/bin/tubemq-metadata-bru.sh:41: $JAVA $TOOLS_ARGS org.apache.inlong.tubemq.server.tools.cli.CliMetaDataBRU $@\n/bin/tubemq-producer-test.sh:40: $JAVA $TOOLS_ARGS o"
-      },
-      {
-        "step": 63,
-        "tool": "find",
-        "args": {
-          "path": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/tools",
-          "pattern": "*Startup.java"
-        },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/tools/BrokerStartup.java\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/tools/MasterStartup.java"
-      },
-      {
-        "step": 64,
-        "tool": "record",
-        "args": {
-          "json": "{\"services\":[{\"name\":\"tubemq-master\",\"dirs\":[\"/tubemq-server\"]},{\"name\":\"tubemq-broker\",\"dirs\":[\"/tubemq-server\"]}],\"files\":[\n{\"path\":\"/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/mast"
-        },
-        "result_head": "Recorded 2 new: service tubemq-master, service tubemq-broker\nTotal: 4 services, 40 endpoints in 19 files.\nServices with no endpoints recorded yet: tubemq-master, tubemq-broker."
-      },
-      {
         "step": 65,
-        "tool": "grep",
-        "args": {
-          "path": "/",
-          "pattern": "addServlet|HttpServer\\.create|new Server\\(|@app\\.route|http\\.HandleFunc|gin\\.Default|express\\(\\)"
-        },
-        "result_head": "/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/broker/web/WebServer.java:50: servletContext.addServlet(new ServletHolder(new BrokerAdminServlet(broker)), \"/*\");\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java:81: servletContext.addServlet(servletHolder, \"/\");\n/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java:85: servletContext.addServlet(staticHolder, \"/assets/*\");"
-      },
-      {
-        "step": 66,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-connectors",
-          "pattern": "public static void main|class .*Connector"
-        },
-        "result_head": "(no matches)"
-      },
-      {
-        "step": 66,
-        "tool": "grep",
-        "args": {
-          "path": "/tubemq-client-twins",
-          "pattern": "func main|def main|int main"
-        },
-        "result_head": "/tubemq-client-twins/tubemq-client-cpp/example/consumer/test_consumer.cc:56: int main(int argc, char* argv[]) {\n/tubemq-client-twins/tubemq-client-cpp/example/consumer/test_multi_thread_filter.cc:154: int main(int argc, char* argv[]) {\n/tubemq-client-twins/tubemq-client-cpp/example/consumer/test_multithread_pull.cc:108: int main(int argc, char* argv[]) {\n/tubemq-client-twins/tubemq-client-cpp/example/producer/test_producer.cc:71: int main(int argc, char* argv[]) {\n/tubemq-client-twins/tubemq-client-cpp/tests/executor_pool/main.cc:39: int main() {\n/tubemq-client-twins/tubemq-client-cpp/tests/logger_test/main.cc:41: int main() {\n/tubemq-client-twins/tubemq-client-cpp/tests/thread_pool/main.cc:31: int main() {\n/tubemq-client-twins/tubemq-client-go/example/consumer.go:28: func main() {\n/tubemq-client-twins/tubemq-client-go/example/multi_routine_consumer.go:35: func main() {\n/tubemq-client-twins/tubemq-client-go/example/producer_example.go:30: func main() {"
-      },
-      {
-        "step": 67,
-        "tool": "record",
-        "args": {
-          "json": "{\"files\":[\n{\"path\":\"/tubemq-manager/src/main/java/org/apache/inlong/tubemq/manager/controller/cluster/ClusterController.java\",\"service\":\"tubemq-manager\",\"endpoints\":[\n{\"className\":\"ClusterController\","
-        },
-        "result_head": "Recorded 0 new: nothing\nTotal: 4 services, 40 endpoints in 19 files.\nEverything you sent was already recorded; do not resend it.\nServices with no endpoints recorded yet: tubemq-master, tubemq-broker."
-      },
-      {
-        "step": 68,
-        "tool": "record",
-        "args": {
-          "json": "{\"files\":[\n{\"path\":\"/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/WebServer.java\",\"service\":\"tubemq-master\",\"endpoints\":[\n{\"className\":\"WebApiServlet\",\"methodName\":\"(inline)\""
-        },
-        "result_head": "Recorded 0 new: nothing\nTotal: 4 services, 40 endpoints in 19 files.\nEverything you sent was already recorded; do not resend it.\nServices with no endpoints recorded yet: tubemq-master, tubemq-broker."
-      },
-      {
-        "step": 69,
         "tool": "submit",
         "args": {
-          "json": "{\"services\":[\n{\"name\":\"tubemq-manager\",\"dirs\":[\"/tubemq-manager\"]},\n{\"name\":\"tubemq-server\",\"dirs\":[\"/tubemq-server\"]}\n]}"
+          "json": "{\"files\":[\n{\"path\":\"/tubemq-server/src/main/java/org/apache/inlong/tubemq/server/master/web/simplemvc/WebApiServlet.java\",\"service\":\"tubemq-server\",\"endpoints\":[\n{\"className\":\"WebApiServlet\",\"methodNa"
         },
-        "result_head": "Recorded 2 new: service tubemq-manager, service tubemq-server\nTotal: 4 services, 40 endpoints in 19 files.\nServices with no endpoints recorded yet: tubemq-master, tubemq-broker.\n[ACCEPTED] 4 services, 40 endpoints."
+        "result_head": "Recorded 3 new: GET / (replaces /consume/consume_group_list.htm), POST / (replaces /consume/consume_group_list.htm), GET /*\nTotal: 2 services, 35 endpoints in 17 files.\n[ACCEPTED] 2 services, 35 endpoints."
       }
     ]
   }

@@ -11,15 +11,18 @@ directories. An endpoint needs a file under one of its service's directories,
 the line of the route declaration and that declaration copied verbatim as
 `evidence`. The verb and the end of the path must agree with the evidence.
 Accepted entries are kept and rejected ones go back to the model with the
-reason, so a large system does not have to fit into one reply.
+reason, so a large system does not have to fit into one reply. One verb and
+route in one file is one endpoint, and the same declaration recorded again
+with a prefix added or dropped replaces the earlier path.
 
 The model sees only the files git tracks, minus vendored dependencies
 (`node_modules`, `vendor`). Several checkouts of one system can be mounted
 side by side. `_run` records the commit of each checkout and whether it had
 local changes.
 
-Guards: older tool results are dropped when the context fills up (in one batch,
-so a prompt cache keeps working), and API errors are retried. Repeating the same
+Guards: older tool results and the arguments of long earlier calls are dropped
+when the context fills up (in one batch, so a prompt cache keeps working), and
+API errors are retried. Repeating the same
 call three times triggers a warning; a call whose earlier result was dropped does
 not count. After three warnings only `record` and `submit` run, and the run
 stops after five more refused calls. After 15 steps without a new endpoint the
@@ -93,12 +96,19 @@ read by hand.
 | pravega | 1 | 27 | $0.021 | complete, generated health API skipped |
 | train-ticket | 1 | 272 | $0.067 | 272 / 272 |
 | apollo | 1 | 204 | $0.081 | about 91 % |
-| kapua | 1 | 281 | $0.131 | 235 code locations, about 79 %; routes recorded with and without `/v1` |
-| openlmis | 10 | 382 | $0.124 | complete; one run on all ten repositories found 218 |
-| inlong | 2 | 305 | $0.108 | the `openapi` controllers (49 routes) missed |
-| camunda | 3 | 430 | $0.283 | optimize 145 / 145, gateway-rest 213 / 247 |
+| kapua | 1 | 299 | $0.165 | 297 / 297 |
+| openlmis | 10 | 376 | $0.200 | complete; one run on all ten repositories found 218 |
+| inlong | 2 | 357 | $0.183 | manager 322 / 322; tubemq names some pages two ways |
+| camunda | 3 + 1 rerun | 473 | $0.442 | optimize 145 / 145; gateway-rest 259, complete only in the union of two runs |
 | spinnaker | 10 | 727 | $0.338 | complete except gate (about 87 %) |
-| **total** | 43 | | **$1.44** | |
+| **total** | 44 | | **$1.78** | |
+
+Until the fix of context trimming, record calls of a few hundred endpoints
+filled the context, so every new tool result was dropped as it arrived and the
+agent re-read the same file until it gave up. kapua, inlong-manager,
+openlmis-referencedata and camunda gateway-rest were rerun after the fix (the
+first gateway-rest run is kept as `camunda-gateway-rest-run1`); apollo, gate,
+clouddriver, train-ticket and camunda-other still ran with it.
 
 The six small repositories are golang-crud-rest-api-gin, crud-tutorial-csharp,
 node-js-restful-api-example, E-commerce-Microservice, rasa-sdk and

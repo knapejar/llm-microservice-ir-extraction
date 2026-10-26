@@ -79,6 +79,16 @@ msg, n = rec.record({"files": [{"path": F, "service": "user-service", "endpoints
 assert n == 4 and "Lines" in msg and "declares GET" in msg and "does not end" in msg and "starting with /" in msg, msg
 assert rec.n_endpoints() == 1, rec.doc()      # the valid copy is a duplicate, not a second endpoint
 assert rec.doc()["files"][0]["service"] == "user-service"
+# The same declaration again with a servlet prefix replaces the earlier path, no second endpoint.
+msg, n = rec.record({"files": [{"path": F, "service": "user-service", "endpoints": [dict(ep, path="/api/user/{userId}")]}]})
+assert n == 0 and "replaces /user/{userId}" in msg and rec.n_endpoints() == 1, msg
+assert rec.doc()["files"][0]["endpoints"][0]["path"] == "/api/user/{userId}"
+msg, n = rec.record({"files": [{"path": F, "service": "user-service",      # handler renamed from memory
+                                "endpoints": [dict(ep, path="/api/user/{id}", methodName="User")]}]})
+assert "already recorded" in msg and rec.n_endpoints() == 1, msg
+two = dict(ep, evidence='@GetMapping({"/{userId}", "/by-id/{userId}"})')     # one declaration, two routes
+assert not ag.prefix_variant(dict(two, path="/user/{userId}"), dict(two, path="/user/by-id/{userId}"))
+assert not ag.prefix_variant(dict(ep, path="/user/{userId}"), dict(ep, path="/user/x{userId}"))
 
 assert ag.verbs_in("@app.get('/x')") == {"GET"} and ag.verbs_in("[HttpPost(\"x\")]") == {"POST"}
 assert ag.route_literals('@RequestMapping(value = "/a/:id", produces = "application/json")') == {"/a/{}"}
@@ -101,6 +111,15 @@ msgs = [{"role": "system", "content": "s"}] + [
     {"role": "tool", "tool_call_id": str(i), "content": "x" * 1000} for i in range(20)]
 assert ag.fit(msgs, 15000) > 0 and sum(ag.msg_size(m) for m in msgs) <= 15000 * ag.FIT_TARGET
 assert ag.fit(msgs, 15000) == 0
+# Long record calls are shortened too, so the latest result is not elided on arrival.
+big = '{"json": "%s"}' % ("y" * 5000)
+msgs = [{"role": "system", "content": "s"}] + [m for i in range(20) for m in (
+    {"role": "assistant", "content": "", "tool_calls": [{"id": str(i), "type": "function",
+                                                          "function": {"name": "record", "arguments": big}}]},
+    {"role": "tool", "tool_call_id": str(i), "content": "x" * 500})]
+ag.fit(msgs, 30000)
+assert "[elided" not in msgs[-1]["content"] and sum(ag.msg_size(m) for m in msgs) <= 30000 * ag.FIT_TARGET
+assert msgs[1]["tool_calls"][0]["function"]["arguments"] == '{"json": "[elided]"}'
 
 # Cached input is billed at the cache rate where known.
 assert ag.list_price("GLM-5.3-Flash", 1_000_000, 0, 1_000_000) == 0.03
