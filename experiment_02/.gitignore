@@ -1,3 +1,7 @@
 out/*
 !out/agent_ir*.json
 out/*.messages.json
+!out/pool/
+out/pool/*
+!out/pool/agent_ir.*.low.json
+!out/pool/agent_ir.*.default.json

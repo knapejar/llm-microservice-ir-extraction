@@ -1,0 +1,879 @@
+{
+  "system": "pravega",
+  "services": [
+    {
+      "name": "controller",
+      "dirs": [
+        "/controller",
+        "/shared/rest",
+        "/shared/health-bindings",
+        "/shared/metrics"
+      ]
+    },
+    {
+      "name": "segmentstore",
+      "dirs": [
+        "/segmentstore/server/host",
+        "/segmentstore/server",
+        "/segmentstore/storage",
+        "/segmentstore/contracts",
+        "/shared/rest",
+        "/shared/health-bindings",
+        "/shared/metrics",
+        "/shared/health",
+        "/bindings"
+      ]
+    },
+    {
+      "name": "standalone",
+      "dirs": [
+        "/standalone",
+        "/controller",
+        "/segmentstore/server/host",
+        "/shared/rest",
+        "/shared/health-bindings",
+        "/shared/metrics"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java",
+      "service": "controller",
+      "endpoints": [
+        {
+          "className": "Ping",
+          "methodName": "ping",
+          "httpMethod": "GET",
+          "path": "/ping",
+          "line": 62,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.controller.server.rest.resources.PingImpl"
+        },
+        {
+          "className": "ScopesApi",
+          "methodName": "createScope",
+          "httpMethod": "POST",
+          "path": "/v1/scopes",
+          "line": 73,
+          "evidence": "@POST",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl"
+        },
+        {
+          "className": "ScopesApi",
+          "methodName": "createStream",
+          "httpMethod": "POST",
+          "path": "/v1/scopes/{scopeName}/streams",
+          "line": 91,
+          "evidence": "@Path(\"/{scopeName}/streams\")",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl"
+        },
+        {
+          "className": "ScopesApi",
+          "methodName": "deleteScope",
+          "httpMethod": "DELETE",
+          "path": "/v1/scopes/{scopeName}",
+          "line": 113,
+          "evidence": "@DELETE",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl"
+        },
+        {
+          "className": "ScopesApi",
+          "methodName": "deleteStream",
+          "httpMethod": "DELETE",
+          "path": "/v1/scopes/{scopeName}/streams/{streamName}",
+          "line": 130,
+          "evidence": "@DELETE",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl"
+        },
+        {
+          "className": "ScopesApi",
+          "methodName": "deleteReaderGroup",
+          "httpMethod": "DELETE",
+          "path": "/v1/scopes/{scopeName}/readergroups/{readerGroupName}",
+          "line": 149,
+          "evidence": "@DELETE",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl"
+        },
+        {
+          "className": "ScopesApi",
+          "methodName": "getReaderGroup",
+          "httpMethod": "GET",
+          "path": "/v1/scopes/{scopeName}/readergroups/{readerGroupName}",
+          "line": 167,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl"
+        },
+        {
+          "className": "ScopesApi",
+          "methodName": "getScalingEvents",
+          "httpMethod": "GET",
+          "path": "/v1/scopes/{scopeName}/streams/{streamName}/scaling-events",
+          "line": 186,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl"
+        },
+        {
+          "className": "ScopesApi",
+          "methodName": "getScope",
+          "httpMethod": "GET",
+          "path": "/v1/scopes/{scopeName}",
+          "line": 210,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl"
+        },
+        {
+          "className": "ScopesApi",
+          "methodName": "getStream",
+          "httpMethod": "GET",
+          "path": "/v1/scopes/{scopeName}/streams/{streamName}",
+          "line": 227,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl"
+        },
+        {
+          "className": "ScopesApi",
+          "methodName": "listReaderGroups",
+          "httpMethod": "GET",
+          "path": "/v1/scopes/{scopeName}/readergroups",
+          "line": 245,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl"
+        },
+        {
+          "className": "ScopesApi",
+          "methodName": "listScopes",
+          "httpMethod": "GET",
+          "path": "/v1/scopes",
+          "line": 262,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl"
+        },
+        {
+          "className": "ScopesApi",
+          "methodName": "listStreams",
+          "httpMethod": "GET",
+          "path": "/v1/scopes/{scopeName}/streams",
+          "line": 274,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl"
+        },
+        {
+          "className": "ScopesApi",
+          "methodName": "updateStream",
+          "httpMethod": "PUT",
+          "path": "/v1/scopes/{scopeName}/streams/{streamName}",
+          "line": 293,
+          "evidence": "@PUT",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl"
+        },
+        {
+          "className": "ScopesApi",
+          "methodName": "updateStreamState",
+          "httpMethod": "PUT",
+          "path": "/v1/scopes/{scopeName}/streams/{streamName}/state",
+          "line": 315,
+          "evidence": "@PUT",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl"
+        }
+      ]
+    },
+    {
+      "path": "/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/v1/ApiV1.java",
+      "service": "controller",
+      "endpoints": [
+        {
+          "className": "HealthApi",
+          "methodName": "getContributorDetails",
+          "httpMethod": "GET",
+          "path": "/v1/health/details/{id}",
+          "line": 45,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.shared.health.bindings.resources.HealthImpl"
+        },
+        {
+          "className": "HealthApi",
+          "methodName": "getContributorHealth",
+          "httpMethod": "GET",
+          "path": "/v1/health/{id}",
+          "line": 60,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.shared.health.bindings.resources.HealthImpl"
+        },
+        {
+          "className": "HealthApi",
+          "methodName": "getContributorLiveness",
+          "httpMethod": "GET",
+          "path": "/v1/health/liveness/{id}",
+          "line": 75,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.shared.health.bindings.resources.HealthImpl"
+        },
+        {
+          "className": "HealthApi",
+          "methodName": "getContributorReadiness",
+          "httpMethod": "GET",
+          "path": "/v1/health/readiness/{id}",
+          "line": 90,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.shared.health.bindings.resources.HealthImpl"
+        },
+        {
+          "className": "HealthApi",
+          "methodName": "getContributorStatus",
+          "httpMethod": "GET",
+          "path": "/v1/health/status/{id}",
+          "line": 105,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.shared.health.bindings.resources.HealthImpl"
+        },
+        {
+          "className": "HealthApi",
+          "methodName": "getDetails",
+          "httpMethod": "GET",
+          "path": "/v1/health/details",
+          "line": 120,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.shared.health.bindings.resources.HealthImpl"
+        },
+        {
+          "className": "HealthApi",
+          "methodName": "getHealth",
+          "httpMethod": "GET",
+          "path": "/v1/health",
+          "line": 132,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.shared.health.bindings.resources.HealthImpl"
+        },
+        {
+          "className": "HealthApi",
+          "methodName": "getLiveness",
+          "httpMethod": "GET",
+          "path": "/v1/health/liveness",
+          "line": 142,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.shared.health.bindings.resources.HealthImpl"
+        },
+        {
+          "className": "HealthApi",
+          "methodName": "getReadiness",
+          "httpMethod": "GET",
+          "path": "/v1/health/readiness",
+          "line": 153,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.shared.health.bindings.resources.HealthImpl"
+        },
+        {
+          "className": "HealthApi",
+          "methodName": "getStatus",
+          "httpMethod": "GET",
+          "path": "/v1/health/status",
+          "line": 164,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high",
+          "implementedBy": "io.pravega.shared.health.bindings.resources.HealthImpl"
+        }
+      ]
+    },
+    {
+      "path": "/shared/metrics/src/main/java/io/pravega/shared/metrics/StatsProviderImpl.java",
+      "service": "controller",
+      "endpoints": [
+        {
+          "className": "PrometheusResource",
+          "methodName": "scrape",
+          "httpMethod": "GET",
+          "path": "/prometheus",
+          "line": 145,
+          "evidence": "@GET",
+          "framework": "JAX-RS",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/generated/api/HealthApi.java",
+      "service": "segmentstore",
+      "endpoints": [
+        {
+          "className": "HealthApi",
+          "methodName": "getHealth",
+          "httpMethod": "GET",
+          "path": "/health",
+          "line": 18,
+          "evidence": "@Path(\"/health\")",
+          "framework": "JAX-RS",
+          "confidence": "low"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "pravega",
+    "commit": "3142a01075bfae78d66588e46ff87e6e10225744",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "elided_results": 21,
+    "steps": 36,
+    "tool_calls": 58,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 769842,
+    "cached_input_tokens": 706304,
+    "output_tokens": 16492,
+    "list_price_usd": 0.0215,
+    "wall_seconds": 126.2,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".codecov.yml\n.gitattributes\n.github/\n.gitignore\n.travis.yml\nCODE_OF_CONDUCT.md\nHEADER\nLICENSE\nNOTICE\nPravegaGroup.json\nREADME.md\naws-key-pair.pem.enc\nbindings/\nbuild.gradle\ncheckstyle/\ncli/\nclient/\ncommon/\ncommon_server/\nconfig/\ncontroller/\ndeployment/\ndist/\ndocker/\ndocumentation/\ngradle.properties\ngradle/\ngradlew\ngradlew.bat\nlombok.config\nsegmentstore/\nsettings.gradle\nshared/\nstandalone/\ntest/"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile"
+        },
+        "result_head": "/docker/bookkeeper/Dockerfile\n/docker/pravega/Dockerfile"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle"
+        },
+        "result_head": "1: /**\n2:  * Copyright Pravega Authors.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: rootProject.name = 'pravega'\n17: \n18: include 'common',\n19:         'common_server',\n20:         'shared:cluster',\n21:         'shared:authplugin',\n22:         'shared:basic-authplugin',\n23:         'shared:security',\n24:         'shared:metrics',\n25:         'shared:protocol',\n26:         'shared:rest',\n27:         'shared:controller-api',\n28:   "
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*Main.java"
+        },
+        "result_head": "/controller/src/main/java/io/pravega/controller/server/ControllerServiceMain.java\n/controller/src/main/java/io/pravega/controller/server/Main.java"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "pattern": "@Path\\("
+        },
+        "result_head": "/controller/src/main/java/io/pravega/controller/server/rest/generated/api/ScopesApi.java:37: @Path(\"/scopes\")\n/controller/src/main/java/io/pravega/controller/server/rest/generated/api/ScopesApi.java:83: @Path(\"/{scopeName}/streams\")\n/controller/src/main/java/io/pravega/controller/server/rest/generated/api/ScopesApi.java:102: @Path(\"/{scopeName}/readergroups/{readerGroupName}\")\n/controller/src/main/java/io/pravega/controller/server/rest/generated/api/ScopesApi.java:119: @Path(\"/{scopeName}\")\n/controller/src/main/java/io/pravega/controller/server/rest/generated/api/ScopesApi.java:137: @Path(\"/{scopeName}/streams/{streamName}\")\n/controller/src/main/java/io/pravega/controller/server/rest/generated/api/ScopesApi.java:156: @Path(\"/{scopeName}/readergroups/{readerGroupName}\")\n/controller/src/main/java/io/pravega/controller/server/rest/generated/api/ScopesApi.java:173: @Path(\"/{scopeName}/streams/{streamName}/scaling-events\")\n/controller/src/main/java/io/pravega/controller/server/rest/generate"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 4,
+        "tool": "grep",
+        "args": {
+          "pattern": "public static void main\\("
+        },
+        "result_head": "/cli/admin/src/main/java/io/pravega/cli/admin/AdminCLIRunner.java:68: public static void main(String[] args) throws Exception {\n/cli/user/src/main/java/io/pravega/cli/user/UserCLIRunner.java:45: public static void main(String[] args) {\n/common/src/test/java/io/pravega/common/lang/ProcessStarterTests.java:115: public static void main(String[] args) {\n/controller/src/main/java/io/pravega/controller/server/Main.java:47: public static void main(String[] args) {\n/controller/src/test/java/io/pravega/controller/auth/PasswordEncryptorTool.java:24: public static void main(String[] args) throws InvalidKeySpecException, NoSuchAlgorithmException {\n/controller/src/test/java/io/pravega/controller/auth/PasswordFileCreatorTool.java:28: public static void main(String[] args) throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {\n/controller/src/test/java/io/pravega/controller/auth/PasswordValidatorTool.java:24: public static void main(String[] args) throws InvalidKeySpecException, NoSu"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java"
+        },
+        "result_head": "1: /**\n2:  * Copyright Pravega Authors.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package io.pravega.controller.server.rest.v1;\n17: \n18: import io.pravega.controller.server.rest.generated.model.CreateScopeRequest;\n19: import io.pravega.controller.server.rest.generated.model.CreateStreamRequest;\n20: import io.pravega.controller.server.rest.generated.model.ReaderGroupProperty;\n21: import io.pravega.controller.server.rest.generate"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java",
+          "start": "126"
+        },
+        "result_head": "126:                 @ApiResponse(code = 500, message = \"Server error\", response = void.class) })\n127:         void deleteScope(@ApiParam(value = \"Scope name\", required = true) @PathParam(\"scopeName\") String scopeName,\n128:                 @Context SecurityContext securityContext, @Suspended final AsyncResponse asyncResponse);\n129: \n130:         @DELETE\n131:         @Path(\"/{scopeName}/streams/{streamName}\")\n132:         @ApiOperation(value = \"\", notes = \"Delete a stream\", response = void.class, tags = {  })\n133:         @ApiResponses(value = {\n134:                 @ApiResponse(\n135:                         code = 204, message = \"Successfully deleted the stream\", response = void.class),\n136: \n137:                 @ApiResponse(\n138:                         code = 404, message = \"Stream not found\", response = void.class),\n139: \n140:                 @ApiResponse(\n141:                         code = 412, message = \"Cannot delete stream since it is not sealed\", response = void.class),\n142: "
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "pattern": "implements .*ApiV1|implements .*ScopesApi|implements .*HealthApi|implements .*Ping"
+        },
+        "result_head": "/controller/src/main/java/io/pravega/controller/server/rest/resources/PingImpl.java:27: public class PingImpl implements ApiV1.Ping {\n/controller/src/main/java/io/pravega/controller/server/rest/resources/StreamMetadataResourceImpl.java:82: public class StreamMetadataResourceImpl implements ApiV1.ScopesApi {\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/resources/HealthImpl.java:49: public class HealthImpl implements ApiV1.HealthApi {"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java",
+          "start": "210"
+        },
+        "result_head": "210:         @GET\n211:         @Path(\"/{scopeName}\")\n212:         @Produces({ \"application/json\" })\n213:         @ApiOperation(\n214:                 value = \"\", notes = \"Retrieve scope\", response = ScopeProperty.class, tags = {  })\n215:         @ApiResponses(value = {\n216:                 @ApiResponse(\n217:                         code = 200, message = \"Successfully retrieved the scope\", response = ScopeProperty.class),\n218: \n219:                 @ApiResponse(\n220:                         code = 404, message = \"Scope not found\", response = ScopeProperty.class),\n221: \n222:                 @ApiResponse(\n223:                         code = 500, message = \"Server error\", response = ScopeProperty.class) })\n224:         void getScope(@ApiParam(value = \"Scope name\", required = true) @PathParam(\"scopeName\") String scopeName,\n225:                       @Context SecurityContext securityContext, @Suspended final AsyncResponse asyncResponse);\n226: \n227:         @GET\n228:         @Path(\"/{scopeName"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/v1/ApiV1.java"
+        },
+        "result_head": "1: /**\n2:  * Copyright Pravega Authors.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package io.pravega.shared.health.bindings.v1;\n17: \n18: import io.pravega.shared.health.bindings.generated.api.NotFoundException;\n19: import io.pravega.shared.health.bindings.generated.model.HealthDetails;\n20: import io.pravega.shared.health.bindings.generated.model.HealthResult;\n21: import io.pravega.shared.health.bindings.generated.model.HealthSt"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java",
+          "start": "309"
+        },
+        "result_head": "309:         void updateStream(@ApiParam(value = \"Scope name\", required = true) @PathParam(\"scopeName\") String scopeName,\n310:                 @ApiParam(value = \"Stream name\", required = true) @PathParam(\"streamName\") String streamName,\n311:                 @ApiParam(value = \"The new stream configuration\", required = true)\n312:                                   UpdateStreamRequest updateStreamRequest,\n313:                 @Context SecurityContext securityContext, @Suspended final AsyncResponse asyncResponse);\n314: \n315:         @PUT\n316:         @Path(\"/{scopeName}/streams/{streamName}/state\")\n317:         @Consumes({ \"application/json\" })\n318:         @Produces({ \"application/json\" })\n319:         @ApiOperation(value = \"\", notes = \"Updates the current state of the stream\",\n320:                 response = StreamState.class, tags = {  })\n321:         @ApiResponses(value = {\n322:                 @ApiResponse(code = 200, message = \"Successfully updated the stream state\",\n323:             "
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/v1/ApiV1.java",
+          "start": "96"
+        },
+        "result_head": "96:                 @io.swagger.annotations.ApiResponse(code = 200, message = \"The readiness status for the health contributor with given id.\", response = Boolean.class),\n97: \n98:                 @io.swagger.annotations.ApiResponse(code = 404, message = \"The readiness status for the contributor with given id was not found.\", response = Boolean.class),\n99: \n100:                 @io.swagger.annotations.ApiResponse(code = 500, message = \"Internal server error while fetching the ready state for a given health contributor.\", response = Boolean.class) })\n101:         void getContributorReadiness(@ApiParam(value = \"The id of an existing health contributor.\", required = true) @PathParam(\"id\") String id,\n102:                                      @Context SecurityContext securityContext, @Suspended final AsyncResponse asyncResponse)\n103:                 throws NotFoundException;\n104: \n105:         @GET\n106:         @Path(\"/status/{id}\")\n107: \n108:         @Produces({ \"application/json\" })\n109:  "
+      },
+      {
+        "step": 8,
+        "tool": "grep",
+        "args": {
+          "pattern": "register\\(|ResourceConfig|new Resource\\(|addSingleton|registerInstance",
+          "path": "/controller/src/main/java/io/pravega/controller/server/rest"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 8,
+        "tool": "grep",
+        "args": {
+          "pattern": "generated.api|generated\\.api\\.ScopesApi|HealthApi"
+        },
+        "result_head": "/cli/admin/src/main/java/io/pravega/cli/admin/controller/ControllerCommand.java:22: import io.pravega.controller.server.rest.generated.api.JacksonJsonProvider;\n/controller/src/main/java/io/pravega/controller/server/rest/generated/api/ApiException.java:1: package io.pravega.controller.server.rest.generated.api;\n/controller/src/main/java/io/pravega/controller/server/rest/generated/api/ApiOriginFilter.java:1: package io.pravega.controller.server.rest.generated.api;\n/controller/src/main/java/io/pravega/controller/server/rest/generated/api/ApiResponseMessage.java:1: package io.pravega.controller.server.rest.generated.api;\n/controller/src/main/java/io/pravega/controller/server/rest/generated/api/Bootstrap.java:1: package io.pravega.controller.server.rest.generated.api;\n/controller/src/main/java/io/pravega/controller/server/rest/generated/api/JacksonJsonProvider.java:1: package io.pravega.controller.server.rest.generated.api;\n/controller/src/main/java/io/pravega/controller/server/rest/generat"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "pattern": "ScopesApi|PingImpl|StreamMetadataResourceImpl|HealthImpl",
+          "path": "/controller/src/main/java"
+        },
+        "result_head": "/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java:46: import io.pravega.shared.health.bindings.resources.HealthImpl;\n/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java:47: import io.pravega.controller.server.rest.resources.PingImpl;\n/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java:48: import io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl;\n/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java:378: resources.add(new StreamMetadataResourceImpl(this.localController,\n/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java:383: resources.add(new HealthImpl(grpcServer.getAuthHandlerManager(), healthServiceManager.getEndpoint()));\n/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java:384: resources.add(new PingImpl());\n/controller/src/main/java/io/pravega/controller/server/rest"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "pattern": "HealthImpl|HealthService|register",
+          "path": "/shared/health-bindings/src/main/java"
+        },
+        "result_head": "/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/resources/HealthImpl.java:49: public class HealthImpl implements ApiV1.HealthApi {\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/resources/HealthImpl.java:59: public HealthImpl(AuthHandlerManager pravegaAuthManager, HealthEndpoint endpoint) {\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/resources/HealthImpl.java:192: // The following methods provide a means to cast the HealthService framework models, to the generated models."
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "pattern": "HealthImpl|HealthService|addResource|resources.add|StatsProviderImpl|prometheus",
+          "path": "/segmentstore/server/host/src/main/java"
+        },
+        "result_head": "/segmentstore/server/host/src/main/java/io/pravega/segmentstore/server/host/ServiceStarter.java:34: import io.pravega.shared.health.bindings.resources.HealthImpl;\n/segmentstore/server/host/src/main/java/io/pravega/segmentstore/server/host/ServiceStarter.java:44: import io.pravega.shared.health.HealthServiceManager;\n/segmentstore/server/host/src/main/java/io/pravega/segmentstore/server/host/ServiceStarter.java:77: private HealthServiceManager healthServiceManager;\n/segmentstore/server/host/src/main/java/io/pravega/segmentstore/server/host/ServiceStarter.java:119: healthServiceManager = new HealthServiceManager(serviceConfig.getHealthCheckInterval());\n/segmentstore/server/host/src/main/java/io/pravega/segmentstore/server/host/ServiceStarter.java:121: log.info(\"Initializing HealthService ...\");\n/segmentstore/server/host/src/main/java/io/pravega/segmentstore/server/host/ServiceStarter.java:185: resources.add(new HealthImpl(new AuthHandlerManager(serviceConfig.getRestServerConfig()), health"
+      },
+      {
+        "step": 10,
+        "tool": "read_file",
+        "args": {
+          "path": "/shared/metrics/src/main/java/io/pravega/shared/metrics/StatsProviderImpl.java",
+          "start": "100"
+        },
+        "result_head": "100:         for (MeterRegistry registry : new ArrayList<MeterRegistry>(metrics.getRegistries())) {\n101:             metrics.remove(registry);\n102:         }\n103: \n104:         Metrics.addRegistry(new SimpleMeterRegistry());\n105:         init();\n106:     }\n107: \n108:     @Synchronized\n109:     @Override\n110:     public void close() {\n111:         this.prometheusRegistry = null;\n112:         for (MeterRegistry registry : new ArrayList<MeterRegistry>(metrics.getRegistries())) {\n113:             registry.close();\n114:             metrics.remove(registry);\n115:         }\n116:     }\n117: \n118:     @Override\n119:     public StatsLogger createStatsLogger(String name) {\n120:         return new StatsLoggerImpl(getMetrics());\n121:     }\n122: \n123:     @Override\n124:     public DynamicLogger createDynamicLogger() {\n125:         return new DynamicLoggerImpl(conf, metrics, new StatsLoggerImpl(getMetrics()));\n126:     }\n127: \n128:     @Synchronized\n129:     @Override\n130:     public Optional<Object>"
+      },
+      {
+        "step": 11,
+        "tool": "read_file",
+        "args": {
+          "path": "/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java",
+          "start": "350"
+        },
+        "result_head": "350:                 failoverSweepers.add(txnSweeper);\n351:                 failoverSweepers.add(requestSweeper);\n352:                 if (serviceConfig.getEventProcessorConfig().isPresent()) {\n353:                     assert controllerEventProcessors != null;\n354:                     failoverSweepers.add(controllerEventProcessors);\n355:                 }\n356: \n357:                 controllerClusterListener = new ControllerClusterListener(host, cluster, controllerExecutor, failoverSweepers);\n358:                 controllerClusterListener.startAsync();\n359:                 ClusterListenerHealthContributor clusterListenerHC = new ClusterListenerHealthContributor(\"clusterListener\", controllerClusterListener);\n360:                 healthServiceManager.register(clusterListenerHC);\n361:             }\n362: \n363:             // Start the Health Service.\n364:             healthServiceManager.start();\n365: \n366:             // Start RPC server.\n367:             if (serviceConfig.getGRPCServerCon"
+      },
+      {
+        "step": 11,
+        "tool": "read_file",
+        "args": {
+          "path": "/segmentstore/server/host/src/main/java/io/pravega/segmentstore/server/host/ServiceStarter.java",
+          "start": "160"
+        },
+        "result_head": "160:                                                       autoScaleMonitor.getStatsRecorder(), autoScaleMonitor.getTableSegmentStatsRecorder(),\n161:                                                       tokenVerifier, this.serviceConfig.getCertFile(), this.serviceConfig.getKeyFile(),\n162:                                                       this.serviceConfig.isReplyWithStackTraceOnError(), serviceBuilder.getLowPriorityExecutor(),\n163:                                                       this.serviceConfig.getTlsProtocolVersion(), healthServiceManager, indexAppendProcessor);\n164: \n165:         this.listener.startListening();\n166:         log.info(\"PravegaConnectionListener started successfully.\");\n167: \n168:         if (serviceConfig.isEnableAdminGateway()) {\n169:             this.adminListener = new AdminConnectionListener(this.serviceConfig.isEnableTls(), this.serviceConfig.isEnableTlsReload(),\n170:                     this.serviceConfig.getListeningIPAddress(), this.serviceConfig"
+      },
+      {
+        "step": 12,
+        "tool": "find",
+        "args": {
+          "pattern": "RESTServer.java"
+        },
+        "result_head": "/shared/rest/src/main/java/io/pravega/shared/rest/RESTServer.java"
+      },
+      {
+        "step": 12,
+        "tool": "grep",
+        "args": {
+          "pattern": "@Path|@GET|@POST|@PUT|@DELETE",
+          "path": "/shared/rest/src/main/java"
+        },
+        "result_head": "/shared/rest/src/main/java/io/pravega/shared/rest/resources/Ping.java:25: @Path(\"/ping\")\n/shared/rest/src/main/java/io/pravega/shared/rest/resources/Ping.java:29: @GET"
+      },
+      {
+        "step": 13,
+        "tool": "read_file",
+        "args": {
+          "path": "/shared/rest/src/main/java/io/pravega/shared/rest/RESTServer.java"
+        },
+        "result_head": "1: /**\n2:  * Copyright Pravega Authors.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package io.pravega.shared.rest;\n17: \n18: import com.google.common.util.concurrent.AbstractIdleService;\n19: import io.pravega.common.LoggerHelpers;\n20: import io.pravega.common.security.JKSHelper;\n21: import java.net.URI;\n22: import java.util.Set;\n23: import java.util.concurrent.TimeUnit;\n24: import lombok.extern.slf4j.Slf4j;\n25: import org.glassfi"
+      },
+      {
+        "step": 13,
+        "tool": "read_file",
+        "args": {
+          "path": "/shared/rest/src/main/java/io/pravega/shared/rest/resources/Ping.java"
+        },
+        "result_head": "1: /**\n2:  * Copyright Pravega Authors.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package io.pravega.shared.rest.resources;\n17: \n18: import lombok.extern.slf4j.Slf4j;\n19: \n20: import javax.ws.rs.GET;\n21: import javax.ws.rs.Path;\n22: import javax.ws.rs.core.Response;\n23: import javax.ws.rs.core.Response.Status;\n24: \n25: @Path(\"/ping\")\n26: @Slf4j\n27: public class Ping {\n28: \n29:     @GET\n30:     public Response ping() {\n31:      "
+      },
+      {
+        "step": 14,
+        "tool": "grep",
+        "args": {
+          "pattern": "rest\\.resources\\.Ping|new Ping\\("
+        },
+        "result_head": "/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java:47: import io.pravega.controller.server.rest.resources.PingImpl;\n/controller/src/test/java/io/pravega/controller/rest/v1/PingTest.java:18: import io.pravega.controller.server.rest.resources.PingImpl;\n/shared/rest/src/test/java/io/pravega/shared/rest/impl/RESTServerTest.java:20: import io.pravega.shared.rest.resources.Ping;\n/shared/rest/src/test/java/io/pravega/shared/rest/impl/RESTServerTest.java:55: restServer = new RESTServer(serverConfig, Set.of(new Ping()));"
+      },
+      {
+        "step": 14,
+        "tool": "read_file",
+        "args": {
+          "path": "/controller/src/main/java/io/pravega/controller/server/rest/resources/PingImpl.java"
+        },
+        "result_head": "1: /**\n2:  * Copyright Pravega Authors.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package io.pravega.controller.server.rest.resources;\n17: \n18: import io.pravega.controller.server.rest.v1.ApiV1;\n19: import lombok.extern.slf4j.Slf4j;\n20: import javax.ws.rs.core.Response;\n21: import javax.ws.rs.core.Response.Status;\n22: \n23: /*\n24: Implementation of Ping, which serves as a check for working REST server.\n25:  */\n26: @Slf4j\n27: pub"
+      },
+      {
+        "step": 15,
+        "tool": "grep",
+        "args": {
+          "pattern": "HttpServer|createHttpServer|Servlet|@WebServlet|Router|HandleFunc|app\\.(get|post)\\(|@app\\.route"
+        },
+        "result_head": "/build.gradle:373: compile group: 'javax.servlet', name: 'javax.servlet-api', version: javaxServletApiVersion\n/build.gradle:831: compile group: 'javax.servlet', name: 'javax.servlet-api', version: javaxServletApiVersion\n/client/src/main/java/io/pravega/client/stream/impl/StreamSegments.java:38: private static final HashHelper HASHER = HashHelper.seededWith(\"EventRouter\");  // DO NOT change this string.\n/client/src/main/java/io/pravega/client/tables/impl/KeyValueTableSegments.java:31: private static final HashHelper HASHER = HashHelper.seededWith(\"KeyValueTableRouter\"); // DO NOT change this string.\n/controller/src/main/java/io/pravega/controller/server/rest/generated/api/ApiOriginFilter.java:6: import javax.servlet.http.HttpServletResponse;\n/controller/src/main/java/io/pravega/controller/server/rest/generated/api/ApiOriginFilter.java:10: public void doFilter(ServletRequest request, ServletResponse response,\n/controller/src/main/java/io/pravega/controller/server/rest/generated/api/ApiOr"
+      },
+      {
+        "step": 15,
+        "tool": "grep",
+        "args": {
+          "pattern": "@Path|@GET|@POST",
+          "path": "/bindings"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 16,
+        "tool": "read_file",
+        "args": {
+          "path": "/docker/pravega/Dockerfile"
+        },
+        "result_head": "1: #\n2: # Copyright Pravega Authors.\n3: #\n4: # Licensed under the Apache License, Version 2.0 (the \"License\");\n5: # you may not use this file except in compliance with the License.\n6: # You may obtain a copy of the License at\n7: #\n8: #     http://www.apache.org/licenses/LICENSE-2.0\n9: #\n10: # Unless required by applicable law or agreed to in writing, software\n11: # distributed under the License is distributed on an \"AS IS\" BASIS,\n12: # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13: # See the License for the specific language governing permissions and\n14: # limitations under the License.\n15: #\n16: FROM adoptopenjdk/openjdk11:jre-11.0.13_8-alpine\n17: \n18: RUN apk --update --no-cache add \\\n19:     #used in readiness and liveness probes\n20:     curl \\\n21:     #used in wait_for function\n22:     python3 \\\n23:     #used in init_kubernetes\n24:     jq \\\n25:     && ln -sf python3 /usr/bin/python\n26: \n27: EXPOSE 9090 9091 10000 12345\n28: \n29: WORKDIR /opt/pravega\n30:"
+      },
+      {
+        "step": 16,
+        "tool": "grep",
+        "args": {
+          "path": "/standalone/src/main/java",
+          "pattern": "RESTServer|restServer|ControllerServiceStarter|ServiceStarter"
+        },
+        "result_head": "/standalone/src/main/java/io/pravega/local/InProcPravegaCluster.java:29: import io.pravega.shared.rest.RESTServerConfig;\n/standalone/src/main/java/io/pravega/local/InProcPravegaCluster.java:30: import io.pravega.shared.rest.impl.RESTServerConfigImpl;\n/standalone/src/main/java/io/pravega/local/InProcPravegaCluster.java:41: import io.pravega.segmentstore.server.host.ServiceStarter;\n/standalone/src/main/java/io/pravega/local/InProcPravegaCluster.java:102: private int restServerPort;\n/standalone/src/main/java/io/pravega/local/InProcPravegaCluster.java:123: private ServiceStarter[] nodeServiceStarter;\n/standalone/src/main/java/io/pravega/local/InProcPravegaCluster.java:181: restServerPort, isInProcSegmentStore, segmentStoreCount, segmentStorePorts, isInProcZK, zkPort, zkHost,\n/standalone/src/main/java/io/pravega/local/InProcPravegaCluster.java:182: zkService, isInProcHDFS, hdfsUrl, containerCount, nodeServiceStarter, localHdfs, controllerServers, zkUrl,\n/standalone/src/main/java/io/pravega/"
+      },
+      {
+        "step": 17,
+        "tool": "read_file",
+        "args": {
+          "path": "/controller/src/main/java/io/pravega/controller/server/rest/resources/StreamMetadataResourceImpl.java",
+          "start": "60"
+        },
+        "result_head": "60: import java.util.List;\n61: import java.util.Random;\n62: import java.util.concurrent.CompletableFuture;\n63: import java.util.stream.Collectors;\n64: import javax.ws.rs.container.AsyncResponse;\n65: import javax.ws.rs.core.Context;\n66: import javax.ws.rs.core.HttpHeaders;\n67: import javax.ws.rs.core.Response;\n68: import javax.ws.rs.core.Response.Status;\n69: import javax.ws.rs.core.SecurityContext;\n70: \n71: import org.apache.commons.lang3.tuple.ImmutablePair;\n72: import org.slf4j.LoggerFactory;\n73: \n74: import static io.pravega.auth.AuthHandler.Permissions.READ;\n75: import static io.pravega.auth.AuthHandler.Permissions.READ_UPDATE;\n76: import static io.pravega.shared.NameUtils.INTERNAL_NAME_PREFIX;\n77: import static io.pravega.shared.NameUtils.READER_GROUP_STREAM_PREFIX;\n78: \n79: /**\n80:  * Stream metadata resource implementation.\n81:  */\n82: public class StreamMetadataResourceImpl implements ApiV1.ScopesApi {\n83:     private static final TagLogger log = new TagLogger(LoggerFactory.getL"
+      },
+      {
+        "step": 17,
+        "tool": "read_file",
+        "args": {
+          "path": "/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/resources/HealthImpl.java",
+          "start": "40"
+        },
+        "result_head": "40: import io.pravega.common.LoggerHelpers;\n41: \n42: import java.util.List;\n43: import java.util.Map;\n44: import java.util.stream.Collectors;\n45: \n46: import static io.pravega.auth.AuthHandler.Permissions.READ_UPDATE;\n47: \n48: @Slf4j\n49: public class HealthImpl implements ApiV1.HealthApi {\n50: \n51:     @Context\n52:     HttpHeaders headers;\n53: \n54:     private final HealthEndpoint endpoint;\n55: \n56:     private final RESTAuthHelper restAuthHelper;\n57:     private final AuthorizationResource authorizationResource = new AuthorizationResourceImpl();\n58: \n59:     public HealthImpl(AuthHandlerManager pravegaAuthManager, HealthEndpoint endpoint) {\n60:         this.endpoint = endpoint;\n61:         this.restAuthHelper = new RESTAuthHelper(pravegaAuthManager);\n62:     }\n63: \n64:     @Override\n65:     public void getContributorHealth(String id, SecurityContext securityContext, AsyncResponse asyncResponse) throws NotFoundException {\n66:         getHealth(id, securityContext, asyncResponse, \"getCo"
+      },
+      {
+        "step": 18,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"controller\",\"dirs\":[\"/controller\",\"/shared/rest\",\"/shared/health-bindings\",\"/shared/metrics\"]},{\"name\":\"segmentstore\",\"dirs\":[\"/segmentstore/server/host\",\"/segmentstore/server\",\""
+        },
+        "result_head": "Recorded 3 new: service controller, service segmentstore, service standalone\nTotal: 3 services, 0 endpoints in 0 files.\nServices with no endpoints recorded yet: controller, segmentstore, standalone."
+      },
+      {
+        "step": 19,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java\",\"service\":\"controller\",\"endpoints\":[\n{\"className\":\"Ping\",\"methodName\":\"ping\",\"httpMethod\":\"GET\",\"path\":\"/"
+        },
+        "result_head": "Recorded 26 new: GET /ping, POST /v1/scopes, POST /v1/scopes/{scopeName}/streams, DELETE /v1/scopes/{scopeName}, DELETE /v1/scopes/{scopeName}/streams/{streamName}, DELETE /v1/scopes/{scopeName}/readergroups/{readerGroupName}, GET /v1/scopes/{scopeName}/readergroups/{readerGroupName}, GET /v1/scopes/{scopeName}/streams/{streamName}/scaling-events, GET /v1/scopes/{scopeName}, GET /v1/scopes/{scopeName}/streams/{streamName}, GET /v1/scopes/{scopeName}/readergroups, GET /v1/scopes, GET /v1/scopes/{scopeName}/streams, PUT /v1/scopes/{scopeName}/streams/{streamName}, PUT /v1/scopes/{scopeName}/streams/{streamName}/state, GET /v1/health/details/{id}, GET /v1/health/{id}, GET /v1/health/liveness/{id}, GET /v1/health/readiness/{id}, GET /v1/health/status/{id}, GET /v1/health/details, GET /v1/health, GET /v1/health/liveness, GET /v1/health/readiness, GET /v1/health/status, GET /prometheus\nTotal: 3 services, 26 endpoints in 3 files.\nServices with no endpoints recorded yet: segmentstore, standalo"
+      },
+      {
+        "step": 20,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/v1/ApiV1.java\",\"service\":\"segmentstore\",\"endpoints\":[\n{\"className\":\"HealthApi\",\"methodName\":\"getContributorD"
+        },
+        "result_head": "Recorded 0 new: nothing\nTotal: 3 services, 26 endpoints in 3 files.\nEverything you sent was already recorded; do not resend it.\nServices with no endpoints recorded yet: segmentstore, standalone."
+      },
+      {
+        "step": 21,
+        "tool": "list_dir",
+        "args": {
+          "path": "/bindings"
+        },
+        "result_head": "src/"
+      },
+      {
+        "step": 21,
+        "tool": "grep",
+        "args": {
+          "pattern": "@Path|@GET|@POST|@RequestMapping|@RestController",
+          "path": "/shared/health/src"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 22,
+        "tool": "find",
+        "args": {
+          "pattern": "*",
+          "path": "/bindings/src"
+        },
+        "result_head": "/bindings/src/main/java/io/pravega/storage/azure/AzureBlobClientImpl.java\n/bindings/src/main/java/io/pravega/storage/azure/AzureChunkStorage.java\n/bindings/src/main/java/io/pravega/storage/azure/AzureClient.java\n/bindings/src/main/java/io/pravega/storage/azure/AzureSimpleStorageFactory.java\n/bindings/src/main/java/io/pravega/storage/azure/AzureStorageConfig.java\n/bindings/src/main/java/io/pravega/storage/azure/AzureStorageFactoryCreator.java\n/bindings/src/main/java/io/pravega/storage/extendeds3/ExtendedS3ChunkStorage.java\n/bindings/src/main/java/io/pravega/storage/extendeds3/ExtendedS3SimpleStorageFactory.java\n/bindings/src/main/java/io/pravega/storage/extendeds3/ExtendedS3StorageConfig.java\n/bindings/src/main/java/io/pravega/storage/extendeds3/ExtendedS3StorageFactoryCreator.java\n/bindings/src/main/java/io/pravega/storage/filesystem/FileSystemChunkStorage.java\n/bindings/src/main/java/io/pravega/storage/filesystem/FileSystemSimpleStorageFactory.java\n/bindings/src/main/java/io/pravega/s"
+      },
+      {
+        "step": 22,
+        "tool": "grep",
+        "args": {
+          "pattern": "@Path|@GET|@POST|@RequestMapping|@RestController|@Produces",
+          "path": "/cli"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 23,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"segmentstore\",\"dirs\":[\"/segmentstore/server/host\",\"/segmentstore/server\",\"/segmentstore/storage\",\"/segmentstore/contracts\",\"/shared/rest\",\"/shared/health-bindings\",\"/shared/healt"
+        },
+        "result_head": "Recorded 1 new: service segmentstore\nTotal: 3 services, 26 endpoints in 3 files.\nServices with no endpoints recorded yet: segmentstore, standalone."
+      },
+      {
+        "step": 24,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[{\"path\":\"/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/v1/ApiV1.java\",\"service\":\"segmentstore\",\"endpoints\":[{\"className\":\"HealthApi\",\"methodName\":\"getHealth\",\"httpM"
+        },
+        "result_head": "Recorded 0 new: nothing\nTotal: 3 services, 26 endpoints in 3 files.\nEverything you sent was already recorded; do not resend it.\nServices with no endpoints recorded yet: segmentstore, standalone."
+      },
+      {
+        "step": 25,
+        "tool": "grep",
+        "args": {
+          "pattern": "@Path|@GET|@POST|@PUT|@DELETE|@RequestMapping",
+          "path": "/test/integration/src/main/java/io/pravega/test/integration/demo/StartLocalService.java"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 25,
+        "tool": "grep",
+        "args": {
+          "pattern": "@Path\\(",
+          "path": "/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/generated/api/HealthApi.java"
+        },
+        "result_head": "/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/generated/api/HealthApi.java:18: @Path(\"/health\")\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/generated/api/HealthApi.java:48: @Path(\"/details/{id}\")\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/generated/api/HealthApi.java:64: @Path(\"/{id}\")\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/generated/api/HealthApi.java:80: @Path(\"/liveness/{id}\")\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/generated/api/HealthApi.java:96: @Path(\"/readiness/{id}\")\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/generated/api/HealthApi.java:112: @Path(\"/status/{id}\")\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/generated/api/HealthApi.java:128: @Path(\"/details\")\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/generated/api/HealthApi.java:154: @Path(\"/liven"
+      },
+      {
+        "step": 26,
+        "tool": "grep",
+        "args": {
+          "pattern": "javax\\.ws\\.rs\\.(Path|GET|POST|PUT|DELETE)"
+        },
+        "result_head": "/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:35: import javax.ws.rs.DELETE;\n/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:36: import javax.ws.rs.GET;\n/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:37: import javax.ws.rs.POST;\n/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:38: import javax.ws.rs.PUT;\n/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:39: import javax.ws.rs.Path;\n/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:40: import javax.ws.rs.PathParam;\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/generated/api/HealthApi.java:10: import javax.ws.rs.GET;\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/generated/api/HealthApi.java:11: import javax.ws.rs.Path;\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/generated/api/HealthApi.java:12: import javax."
+      },
+      {
+        "step": 27,
+        "tool": "read_file",
+        "args": {
+          "path": "/standalone/src/main/java/io/pravega/local/LocalPravegaEmulator.java",
+          "start": "100"
+        },
+        "result_head": "100:             this.inProcPravegaCluster.setControllerPorts(new int[]{controllerPort});\n101:             this.inProcPravegaCluster.setSegmentStorePorts(new int[]{segmentStorePort});\n102:             return new LocalPravegaEmulator(zkPort, controllerPort, segmentStorePort, restServerPort, enableRestServer,\n103:                     enableAuth, enableTls, tlsProtocolVersion, certFile, passwd, userName, passwdFile, keyFile, enableTlsReload,\n104:                     jksKeyFile, jksTrustFile, keyPasswordFile, enableMetrics, enableInfluxDB, enablePrometheus,\n105:                     metricsReportInterval, enabledAdminGateway, adminGatewayPort, inProcPravegaCluster);\n106:         }\n107:     }\n108: \n109:     public static void main(String[] args) {\n110:         try {\n111:             ServiceBuilderConfig config = ServiceBuilderConfig\n112:                     .builder()\n113:                     .include(System.getProperty(SingleNodeConfig.PROPERTY_FILE, PROPERTY_FILE_DEFAULT_PATH))\n114:       "
+      },
+      {
+        "step": 28,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"standalone\",\"dirs\":[\"/standalone\",\"/controller\",\"/segmentstore/server/host\",\"/shared/rest\",\"/shared/health-bindings\",\"/shared/metrics\"]}],\n\"files\":[\n{\"path\":\"/controller/src/main"
+        },
+        "result_head": "Recorded 1 new: service standalone\nTotal: 3 services, 26 endpoints in 3 files.\nServices with no endpoints recorded yet: segmentstore, standalone."
+      },
+      {
+        "step": 29,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[{\"path\":\"/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/generated/api/HealthApi.java\",\"service\":\"segmentstore\",\"endpoints\":[{\"className\":\"HealthApi\",\"methodName\":\"ge"
+        },
+        "result_head": "Recorded 1 new: GET /health\nTotal: 3 services, 27 endpoints in 4 files.\nServices with no endpoints recorded yet: standalone."
+      },
+      {
+        "step": 30,
+        "tool": "find",
+        "args": {
+          "pattern": "*.go"
+        },
+        "result_head": "(no files)"
+      },
+      {
+        "step": 30,
+        "tool": "find",
+        "args": {
+          "pattern": "*.py"
+        },
+        "result_head": "/deployment/aws-eks/deploy_pravega.py\n/deployment/aws-eks/undeploy_pravega.py"
+      },
+      {
+        "step": 31,
+        "tool": "grep",
+        "args": {
+          "pattern": "include|project\\(",
+          "path": "/settings.gradle"
+        },
+        "result_head": "/settings.gradle:18: include 'common',"
+      },
+      {
+        "step": 32,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle",
+          "start": "16"
+        },
+        "result_head": "16: rootProject.name = 'pravega'\n17: \n18: include 'common',\n19:         'common_server',\n20:         'shared:cluster',\n21:         'shared:authplugin',\n22:         'shared:basic-authplugin',\n23:         'shared:security',\n24:         'shared:metrics',\n25:         'shared:protocol',\n26:         'shared:rest',\n27:         'shared:controller-api',\n28:         'shared:health',\n29:         'shared:health-bindings',\n30:         'client',\n31:         'segmentstore:contracts',\n32:         'segmentstore:storage',\n33:         'segmentstore:storage:impl',\n34:         'segmentstore:server',\n35:         'segmentstore:server:host',\n36:         'controller',\n37:         'standalone',\n38:         'cli:admin',\n39:         'cli:user',\n40:         'test:testcommon',\n41:         'test:integration',\n42:         'test:system',\n43:         'bindings'"
+      },
+      {
+        "step": 33,
+        "tool": "grep",
+        "args": {
+          "path": "/shared/metrics/src/main/java/io/pravega/shared/metrics/StatsProviderImpl.java",
+          "pattern": "@Path|@GET|class PrometheusResource|scrape"
+        },
+        "result_head": "/shared/metrics/src/main/java/io/pravega/shared/metrics/StatsProviderImpl.java:137: @Path(\"/prometheus\")\n/shared/metrics/src/main/java/io/pravega/shared/metrics/StatsProviderImpl.java:138: public static class PrometheusResource {\n/shared/metrics/src/main/java/io/pravega/shared/metrics/StatsProviderImpl.java:145: @GET\n/shared/metrics/src/main/java/io/pravega/shared/metrics/StatsProviderImpl.java:146: public Response scrape() {\n/shared/metrics/src/main/java/io/pravega/shared/metrics/StatsProviderImpl.java:147: return Response.ok(this.promRegistry.scrape(), \"text/plain\").build();"
+      },
+      {
+        "step": 34,
+        "tool": "grep",
+        "args": {
+          "path": "/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java",
+          "pattern": "PingImpl|StreamMetadataResourceImpl|HealthImpl|prometheusResource|RESTServer"
+        },
+        "result_head": "/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java:46: import io.pravega.shared.health.bindings.resources.HealthImpl;\n/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java:47: import io.pravega.controller.server.rest.resources.PingImpl;\n/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java:48: import io.pravega.controller.server.rest.resources.StreamMetadataResourceImpl;\n/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java:51: import io.pravega.shared.rest.RESTServer;\n/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java:139: private RESTServer restServer;\n/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java:378: resources.add(new StreamMetadataResourceImpl(this.localController,\n/controller/src/main/java/io/pravega/controller/server/ControllerServiceStarter.java:383: resources.add(new HealthImpl(gr"
+      },
+      {
+        "step": 35,
+        "tool": "grep",
+        "args": {
+          "path": "/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/v1/ApiV1.java",
+          "pattern": "@Path|interface|@GET"
+        },
+        "result_head": "/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/v1/ApiV1.java:34: * Different interfaces will hold different groups of APIs.\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/v1/ApiV1.java:43: @Path(\"/v1/health\")\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/v1/ApiV1.java:44: public interface HealthApi {\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/v1/ApiV1.java:45: @GET\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/v1/ApiV1.java:46: @Path(\"/details/{id}\")\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/v1/ApiV1.java:56: void getContributorDetails(@ApiParam(value = \"The id of an existing health contributor.\", required = true) @PathParam(\"id\") String id,\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/v1/ApiV1.java:60: @GET\n/shared/health-bindings/src/main/java/io/pravega/shared/health/bindings/v1/ApiV1.java:61: @Pat"
+      },
+      {
+        "step": 35,
+        "tool": "grep",
+        "args": {
+          "path": "/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java",
+          "pattern": "@Path|interface|@GET|@POST|@PUT|@DELETE"
+        },
+        "result_head": "/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:51: * Different interfaces will hold different groups of APIs.\n/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:60: @Path(\"/ping\")\n/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:61: public interface Ping {\n/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:62: @GET\n/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:69: @Path(\"/v1/scopes\")\n/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:71: public interface ScopesApi {\n/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:73: @POST\n/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:91: @POST\n/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:92: @Path(\"/{scopeName}/streams\")\n/controller/src/main/java/io/pravega/controller/server/rest/v1/ApiV1.java:109: void createStream(@ApiPar"
+      },
+      {
+        "step": 36,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 3 services, 27 endpoints."
+      }
+    ]
+  }
+}

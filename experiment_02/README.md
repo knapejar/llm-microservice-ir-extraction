@@ -19,9 +19,12 @@ side by side. `_run` records the commit of each checkout and whether it had
 local changes.
 
 Guards: older tool results are dropped when the context fills up (in one batch,
-so a prompt cache keeps working), API errors are retried, and repeating the
-same call three times triggers a warning and then a forced submit. A run always
-writes an output, and `_run` records whether it was accepted.
+so a prompt cache keeps working), and API errors are retried. Repeating the same
+call three times triggers a warning; a call whose earlier result was dropped does
+not count. After three warnings only `record` and `submit` run, and the run
+stops after five more refused calls. After 15 steps without a new endpoint the
+model is told to record what it has found. A run always writes an output, and
+`_run` records whether it was accepted.
 
 ## Run
 
@@ -29,6 +32,8 @@ writes an output, and `_run` records whether it was accepted.
 python agent_extract.py --repo <checkout> [<checkout> ...] --system-name <system> --effort none
 python test_record.py && python test_parse_call.py
 python test_loop_guard.py <checkout of spring-cloud-movie-recommendation>
+CLONE=<dir with the checkouts> LLM_API_KEY=<key> sh run_pool.sh <model> [effort]
+python merge_runs.py
 ```
 
 Default model: `spark-x2.5-4b` in LM Studio, temperature 0, 60 steps. Use
@@ -63,3 +68,47 @@ the interfaces in `xs2a-server-api`, which CIMET misses. The 8 endpoints it
 missed are payment and authorisation variants. It used 59 of its 60 steps, so
 more steps may close that gap. On geoserver-cloud it missed
 `GET /accessDenied.html`.
+
+## Benchmark pool: DeepSeek-V4.1-Flash-1017, effort low (inbound)
+
+`run_pool.sh` runs the agent on 35 open-source systems, three runs at a time,
+with `--native-tools --effort low --max-tokens 24000`. Large systems are split
+into units (a service, a repository or a module): a single run declares itself
+done long before it has seen a few hundred endpoints. Only three systems have a
+ground truth; the others were checked against a grep of route declarations
+(outbound Retrofit and Feign clients and tests excluded) and the differences
+read by hand.
+
+| system | units | endpoints | list price | check |
+|---|---:|---:|---:|---|
+| spring-cloud-movie-recommendation | 1 | 14 | $0.003 | ground truth F1 1.000 |
+| xs2a | 1 | 159 | $0.082 | ground truth F1 0.980 (labelled module) |
+| geoserver-cloud | 1 | 18 | $0.057 | ground truth F1 0.320: prefixed routes with each app's `${geoserver.base-path}` |
+| six small repositories | 6 | 38 | $0.012 | complete |
+| pitstop | 1 | 32 | $0.005 | complete, including MVC actions |
+| robot-shop | 1 | 46 | $0.008 | complete, plus nginx proxy routes |
+| sock-shop | 1 (8 repos) | 65 | $0.011 | complete |
+| eShop | 1 | 82 | $0.094 | gateway routes and gRPC methods also counted |
+| ccpay-payment-app | 1 | 74 | $0.013 | 74 / 74 |
+| pravega | 1 | 27 | $0.021 | complete, generated health API skipped |
+| train-ticket | 1 | 272 | $0.067 | 272 / 272 |
+| apollo | 1 | 204 | $0.081 | about 91 % |
+| kapua | 1 | 281 | $0.131 | 235 code locations, about 79 %; routes recorded with and without `/v1` |
+| openlmis | 10 | 382 | $0.124 | complete; one run on all ten repositories found 218 |
+| inlong | 2 | 305 | $0.108 | the `openapi` controllers (49 routes) missed |
+| camunda | 3 | 430 | $0.283 | optimize 145 / 145, gateway-rest 213 / 247 |
+| spinnaker | 10 | 727 | $0.338 | complete except gate (about 87 %) |
+| **total** | 43 | | **$1.44** | |
+
+The six small repositories are golang-crud-rest-api-gin, crud-tutorial-csharp,
+node-js-restful-api-example, E-commerce-Microservice, rasa-sdk and
+microservices-demo. No recorded endpoint was invented: the evidence check
+rejects any route not declared at the cited line. In Spinnaker the agent left
+out the ~710 route declarations of Retrofit clients, which are outbound calls.
+
+GLM-5.3-Flash with reasoning (`--effort default`) on the 14 smaller systems
+costs $0.38, about twice as much. It scores the same on movie-recommendation
+and xs2a and 0.636 on geoserver-cloud, but finds fewer endpoints in large
+repositories (85 against 159 in the whole of xs2a). `merge_runs.py` merges the
+runs of all models into a draft baseline per system (`out/pool/baseline/`),
+where each endpoint lists the models that found it.

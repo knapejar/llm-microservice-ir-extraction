@@ -1,0 +1,1350 @@
+{
+  "system": "spinnaker-orca",
+  "services": [
+    {
+      "name": "orca",
+      "dirs": [
+        "/orca-web",
+        "/orca-api",
+        "/orca-api-tck",
+        "/orca-applications",
+        "/orca-bakery",
+        "/orca-bom",
+        "/orca-clouddriver",
+        "/orca-core",
+        "/orca-core-tck",
+        "/orca-deploymentmonitor",
+        "/orca-dry-run",
+        "/orca-echo",
+        "/orca-flex",
+        "/orca-front50",
+        "/orca-igor",
+        "/orca-integration",
+        "/orca-integrations-cloudfoundry",
+        "/orca-integrations-gremlin",
+        "/orca-interlink",
+        "/orca-kayenta",
+        "/orca-keel",
+        "/orca-kotlin",
+        "/orca-migration",
+        "/orca-mine",
+        "/orca-peering",
+        "/orca-pipelinetemplate",
+        "/orca-plugins-test",
+        "/orca-qos",
+        "/orca-queue",
+        "/orca-queue-redis",
+        "/orca-queue-sql",
+        "/orca-queue-tck",
+        "/orca-redis",
+        "/orca-remote-stage",
+        "/orca-retrofit",
+        "/orca-sql",
+        "/orca-sql-mysql",
+        "/orca-sql-postgres",
+        "/orca-test",
+        "/orca-test-groovy",
+        "/orca-test-kotlin",
+        "/orca-test-redis",
+        "/orca-validation",
+        "/orca-webhook",
+        "/keiko-core",
+        "/keiko-mem",
+        "/keiko-mem-spring",
+        "/keiko-redis",
+        "/keiko-redis-spring",
+        "/keiko-spring",
+        "/keiko-sql",
+        "/keiko-tck",
+        "/keiko-test-common"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy",
+      "service": "orca",
+      "endpoints": [
+        {
+          "className": "AdminController",
+          "methodName": "setInstanceStatus",
+          "httpMethod": "POST",
+          "path": "/admin/instance/enabled",
+          "line": 58,
+          "evidence": "@RequestMapping(value = \"/instance/enabled\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AdminController",
+          "methodName": "forceExecutionStatus",
+          "httpMethod": "PUT",
+          "path": "/admin/forceCancelExecution",
+          "line": 79,
+          "evidence": "@RequestMapping(value = \"/forceCancelExecution\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/ProjectController.groovy",
+      "service": "orca",
+      "endpoints": [
+        {
+          "className": "ProjectController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/projects/{projectId}/pipelines",
+          "line": 39,
+          "evidence": "@RequestMapping(value = \"/projects/{projectId}/pipelines\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/PipelineTemplateController.groovy",
+      "service": "orca",
+      "endpoints": [
+        {
+          "className": "PipelineTemplateController",
+          "methodName": "getPipelineTemplate",
+          "httpMethod": "GET",
+          "path": "/pipelineTemplate",
+          "line": 44,
+          "evidence": "@RequestMapping(value = \"/pipelineTemplate\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PipelineTemplateController",
+          "methodName": "convertPipelineToPipelineTemplate",
+          "httpMethod": "POST",
+          "path": "/convertPipelineToTemplate",
+          "line": 54,
+          "evidence": "@RequestMapping(value = \"/convertPipelineToTemplate\", method = RequestMethod.POST, produces = 'text/x-yaml')",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/orca-queue/src/main/kotlin/com/netflix/spinnaker/orca/q/admin/web/QueueAdminController.kt",
+      "service": "orca",
+      "endpoints": [
+        {
+          "className": "QueueAdminController",
+          "methodName": "hydrateQueue",
+          "httpMethod": "POST",
+          "path": "/admin/queue/hydrate",
+          "line": 51,
+          "evidence": "@PostMapping(value = [\"/hydrate\"])",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "QueueAdminController",
+          "methodName": "killZombies",
+          "httpMethod": "POST",
+          "path": "/admin/queue/zombies:kill",
+          "line": 67,
+          "evidence": "@PostMapping(value = [\"/zombies:kill\"])",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "QueueAdminController",
+          "methodName": "killZombie",
+          "httpMethod": "POST",
+          "path": "/admin/queue/zombies/{executionId}:kill",
+          "line": 72,
+          "evidence": "@PostMapping(value = [\"/zombies/{executionId}:kill\"])",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "QueueAdminController",
+          "methodName": "killApplicationZombies",
+          "httpMethod": "POST",
+          "path": "/admin/queue/zombies/application/{application}:kill",
+          "line": 78,
+          "evidence": "@PostMapping(value = [\"/zombies/application/{application}:kill\"])",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "QueueAdminController",
+          "methodName": "kickPendingExecutions",
+          "httpMethod": "POST",
+          "path": "/admin/queue/kickPending",
+          "line": 93,
+          "evidence": "@PostMapping(value = [\"kickPending\"])",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "QueueAdminController",
+          "methodName": "pushMessageIntoQueue",
+          "httpMethod": "POST",
+          "path": "/admin/queue/pushMessage",
+          "line": 113,
+          "evidence": "@PostMapping(value = [\"pushMessage\"])",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy",
+      "service": "orca",
+      "endpoints": [
+        {
+          "className": "OperationsController",
+          "methodName": "orchestrate",
+          "httpMethod": "POST",
+          "path": "/orchestrate",
+          "line": 103,
+          "evidence": "@RequestMapping(value = \"/orchestrate\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "orchestratePipelineConfig",
+          "httpMethod": "POST",
+          "path": "/orchestrate/{pipelineConfigId}",
+          "line": 108,
+          "evidence": "@RequestMapping(value = \"/orchestrate/{pipelineConfigId}\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "plan",
+          "httpMethod": "POST",
+          "path": "/plan",
+          "line": 114,
+          "evidence": "@RequestMapping(value = \"/plan\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "planPipelineConfig",
+          "httpMethod": "POST",
+          "path": "/plan/{pipelineConfigId}",
+          "line": 119,
+          "evidence": "@RequestMapping(value = \"/plan/{pipelineConfigId}\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "failPipeline",
+          "httpMethod": "POST",
+          "path": "/fail",
+          "line": 131,
+          "evidence": "@RequestMapping(value = '/fail', method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "ops",
+          "httpMethod": "POST",
+          "path": "/ops",
+          "line": 367,
+          "evidence": "@RequestMapping(value = \"/ops\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "preconfiguredWebhooks",
+          "httpMethod": "ANY",
+          "path": "/webhooks/preconfigured",
+          "line": 381,
+          "evidence": "@RequestMapping(value = \"/webhooks/preconfigured\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OperationsController",
+          "methodName": "preconfiguredJob",
+          "httpMethod": "ANY",
+          "path": "/jobs/preconfigured",
+          "line": 416,
+          "evidence": "@RequestMapping(value = \"/jobs/preconfigured\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy",
+      "service": "orca",
+      "endpoints": [
+        {
+          "className": "TaskController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/tasks",
+          "line": 126,
+          "evidence": "@RequestMapping(value = \"/applications/{application}/tasks\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "list",
+          "httpMethod": "GET",
+          "path": "/tasks",
+          "line": 155,
+          "evidence": "@RequestMapping(value = \"/tasks\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "getTask",
+          "httpMethod": "GET",
+          "path": "/tasks/{id}",
+          "line": 168,
+          "evidence": "@RequestMapping(value = \"/tasks/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "deleteTask",
+          "httpMethod": "DELETE",
+          "path": "/tasks/{id}",
+          "line": 178,
+          "evidence": "@RequestMapping(value = \"/tasks/{id}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "cancelTask",
+          "httpMethod": "PUT",
+          "path": "/tasks/{id}/cancel",
+          "line": 191,
+          "evidence": "@RequestMapping(value = \"/tasks/{id}/cancel\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "cancelTasks",
+          "httpMethod": "PUT",
+          "path": "/tasks/cancel",
+          "line": 198,
+          "evidence": "@RequestMapping(value = \"/tasks/cancel\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "listSubsetOfPipelines",
+          "httpMethod": "GET",
+          "path": "/pipelines",
+          "line": 222,
+          "evidence": "@RequestMapping(value = \"/pipelines\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "getFailedStagesForPipelineExecution",
+          "httpMethod": "GET",
+          "path": "/pipelines/failedStages",
+          "line": 286,
+          "evidence": "@RequestMapping(value = \"/pipelines/failedStages\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "searchForPipelinesByTrigger",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/pipelines/search",
+          "line": 439,
+          "evidence": "@RequestMapping(value = \"/applications/{application}/pipelines/search\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "getPipeline",
+          "httpMethod": "GET",
+          "path": "/pipelines/{id}",
+          "line": 577,
+          "evidence": "@RequestMapping(value = \"/pipelines/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "deletePipeline",
+          "httpMethod": "DELETE",
+          "path": "/pipelines/{id}",
+          "line": 583,
+          "evidence": "@RequestMapping(value = \"/pipelines/{id}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "cancel",
+          "httpMethod": "PUT",
+          "path": "/pipelines/{id}/cancel",
+          "line": 596,
+          "evidence": "@RequestMapping(value = \"/pipelines/{id}/cancel\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "pause",
+          "httpMethod": "PUT",
+          "path": "/pipelines/{id}/pause",
+          "line": 605,
+          "evidence": "@RequestMapping(value = \"/pipelines/{id}/pause\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "resume",
+          "httpMethod": "PUT",
+          "path": "/pipelines/{id}/resume",
+          "line": 612,
+          "evidence": "@RequestMapping(value = \"/pipelines/{id}/resume\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "runningPipelines",
+          "httpMethod": "GET",
+          "path": "/pipelines/running",
+          "line": 620,
+          "evidence": "@RequestMapping(value = \"/pipelines/running\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "waitingPipelines",
+          "httpMethod": "GET",
+          "path": "/pipelines/waiting",
+          "line": 628,
+          "evidence": "@RequestMapping(value = \"/pipelines/waiting\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "updatePipelineStage",
+          "httpMethod": "PATCH",
+          "path": "/pipelines/{id}/stages/{stageId}",
+          "line": 635,
+          "evidence": "@RequestMapping(value = \"/pipelines/{id}/stages/{stageId}\", method = RequestMethod.PATCH)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "retryPipelineStage",
+          "httpMethod": "PUT",
+          "path": "/pipelines/{id}/stages/{stageId}/restart",
+          "line": 663,
+          "evidence": "@RequestMapping(value = \"/pipelines/{id}/stages/{stageId}/restart\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "evaluateExpressionForExecution",
+          "httpMethod": "GET",
+          "path": "/pipelines/{id}/evaluateExpression",
+          "line": 670,
+          "evidence": "@RequestMapping(value = \"/pipelines/{id}/evaluateExpression\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "evaluateExpressionForExecutionAtStage",
+          "httpMethod": "GET",
+          "path": "/pipelines/{id}/{stageId}/evaluateExpression",
+          "line": 689,
+          "evidence": "@RequestMapping(value = \"/pipelines/{id}/{stageId}/evaluateExpression\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "evaluateVariables",
+          "httpMethod": "POST",
+          "path": "/pipelines/{id}/evaluateVariables",
+          "line": 709,
+          "evidence": "@PostMapping(\"/pipelines/{id}/evaluateVariables\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "getApplicationPipelines",
+          "httpMethod": "GET",
+          "path": "/v2/applications/{application}/pipelines",
+          "line": 747,
+          "evidence": "@RequestMapping(value = \"/v2/applications/{application}/pipelines\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TaskController",
+          "methodName": "getPipelinesForApplication",
+          "httpMethod": "GET",
+          "path": "/applications/{application}/pipelines",
+          "line": 787,
+          "evidence": "@RequestMapping(value = \"/applications/{application}/pipelines\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CapabilitiesController.java",
+      "service": "orca",
+      "endpoints": [
+        {
+          "className": "CapabilitiesController",
+          "methodName": "getDeploymentMonitors",
+          "httpMethod": "GET",
+          "path": "/capabilities/deploymentMonitors",
+          "line": 40,
+          "evidence": "@GetMapping(\"/capabilities/deploymentMonitors\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CapabilitiesController",
+          "methodName": "getExpressionCapabilities",
+          "httpMethod": "GET",
+          "path": "/capabilities/expressions",
+          "line": 49,
+          "evidence": "@GetMapping(\"/capabilities/expressions\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/ConcourseController.java",
+      "service": "orca",
+      "endpoints": [
+        {
+          "className": "ConcourseController",
+          "methodName": "notifyConcourseExecution",
+          "httpMethod": "POST",
+          "path": "/concourse/stage/start",
+          "line": 24,
+          "evidence": "@PostMapping(\"/concourse/stage/start\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CorrelatedTasksController.java",
+      "service": "orca",
+      "endpoints": [
+        {
+          "className": "CorrelatedTasksController",
+          "methodName": "getCorrelatedExecutions",
+          "httpMethod": "GET",
+          "path": "/executions/correlated/{correlationId}",
+          "line": 30,
+          "evidence": "@GetMapping(path = \"/executions/correlated/{correlationId}\", produces = APPLICATION_JSON_VALUE)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/ExecutionsImportController.java",
+      "service": "orca",
+      "endpoints": [
+        {
+          "className": "ExecutionsImportController",
+          "methodName": "createExecution",
+          "httpMethod": "POST",
+          "path": "/admin/executions",
+          "line": 66,
+          "evidence": "@PostMapping(value = \"\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/V2PipelineTemplateController.java",
+      "service": "orca",
+      "endpoints": [
+        {
+          "className": "V2PipelineTemplateController",
+          "methodName": "plan",
+          "httpMethod": "POST",
+          "path": "/v2/pipelineTemplates/plan",
+          "line": 41,
+          "evidence": "@RequestMapping(value = \"/plan\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "orca",
+    "commit": "d2eaa598c95d0a8e17736f2df61fa1fa9f738b53",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "elided_results": 23,
+    "steps": 39,
+    "tool_calls": 83,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 927082,
+    "cached_input_tokens": 854784,
+    "output_tokens": 10822,
+    "list_price_usd": 0.0199,
+    "wall_seconds": 104.6,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".clog.toml\n.detekt.yml\n.gcloudignore\n.gitignore\nAUTHORS\nDockerfile.compile\nDockerfile.slim\nDockerfile.ubuntu\nLICENSE.txt\nOWNERS.md\nREADME.md\nbuild.gradle\ngradle.properties\ngradle/\nhalconfig/\nkeiko-core/\nkeiko-mem-spring/\nkeiko-mem/\nkeiko-redis-spring/\nkeiko-redis/\nkeiko-spring/\nkeiko-sql/\nkeiko-tck/\nkeiko-test-common/\nlogo.jpg\norca-api-tck/\norca-api/\norca-applications/\norca-bakery/\norca-bom/\norca-clouddriver/\norca-core-tck/\norca-core/\norca-deploymentmonitor/\norca-dry-run/\norca-echo/\norca-flex/\norca-front50/\norca-igor/\norca-integration/\norca-integrations-cloudfoundry/\norca-integrations-gremlin/\norca-interlink/\norca-kayenta/\norca-keel/\norca-kotlin/\norca-migration/\norca-mine/\norca-peering/\norca-pipelinetemplate/\norca-plugins-test/\norca-qos/\norca-queue-redis/\norca-queue-sql/\norca-queue-tck/\norca-queue/\norca-redis/\norca-remote-stage/\norca-retrofit/\norca-sql-mysql/\norca-sql-postgres/\norca-sql/\norca-test-groovy/\norca-test-kotlin/\norca-test-redis/\norca-test/\norca-validation/\norca-web/\norca-web"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile"
+        },
+        "result_head": "(no files)"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile.slim"
+        },
+        "result_head": "1: FROM alpine:3.24\n2: LABEL maintainer=\"sig-platform@spinnaker.io\"\n3: RUN apk --no-cache add --update bash curl openjdk25-jre\n4: # Pick up the latest CA bundle and fail the build if the JVM still trusts emSign ECC Root CA - G3.\n5: RUN apk --no-cache upgrade && ! keytool -list -cacerts -storepass changeit | grep -qiE 'emsign.*ecc.*g3'\n6: RUN addgroup -S -g 10111 spinnaker\n7: RUN adduser -S -G spinnaker -u 10111 spinnaker\n8: COPY orca-web/build/install/orca /opt/orca\n9: RUN mkdir -p /opt/orca/plugins && chown -R spinnaker:nogroup /opt/orca/plugins\n10: USER spinnaker\n11: HEALTHCHECK CMD curl --fail http://localhost:8083/health\n12: CMD [\"/opt/orca/bin/orca\"]"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2014 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: pluginManagement {\n17:   repositories {\n18:     gradlePluginPortal()\n19:   }\n20: }\n21: \n22: apply from: \"../versions.gradle\"\n23: \n24: include \"orca-api\",\n25:   \"orca-api-tck\",\n26:   \"orca-applications\",\n27:   \"orca-bakery\",\n28:   \"orca-bom\",\n29:   \"orca-clouddriver\",\n30:   \"orca-core-tck\",\n31:   \"orca-core\",\n32:   \"orca-deploymentmonitor\",\n33:   \""
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*Application*.java"
+        },
+        "result_head": "/orca-applications/src/main/java/com/netflix/spinnaker/orca/applications/utils/NameConstraint.java\n/orca-applications/src/test/java/com/netflix/spinnaker/orca/applications/pipelines/UpsertProjectStageTest.java\n/orca-clouddriver/src/main/groovy/com/netflix/spinnaker/orca/clouddriver/config/tasks/CheckIfApplicationExistsTaskConfig.java\n/orca-clouddriver/src/main/groovy/com/netflix/spinnaker/orca/clouddriver/tasks/AbstractCheckIfApplicationExistsTask.java\n/orca-clouddriver/src/main/groovy/com/netflix/spinnaker/orca/clouddriver/tasks/cluster/CheckIfApplicationExistsForClusterTask.java\n/orca-clouddriver/src/main/groovy/com/netflix/spinnaker/orca/clouddriver/tasks/servergroup/CheckIfApplicationExistsForServerGroupTask.java\n/orca-clouddriver/src/main/java/com/netflix/spinnaker/orca/clouddriver/tasks/manifest/CheckIfApplicationExistsForManifestTask.java\n/orca-clouddriver/src/test/java/com/netflix/spinnaker/orca/clouddriver/tasks/servergroup/CheckIfApplicationExistsForServerGroupTaskTest.java\n/"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller*.java"
+        },
+        "result_head": "/orca-web/src/main/java/com/netflix/spinnaker/config/TaskControllerConfigurationProperties.java\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CapabilitiesController.java\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/ConcourseController.java\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CorrelatedTasksController.java\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/ExecutionsImportController.java\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/V2PipelineTemplateController.java\n/orca-web/src/test/groovy/com/netflix/spinnaker/orca/controllers/CorrelatedTasksControllerTest.java\n/orca-web/src/test/java/com/netflix/spinnaker/orca/OperationsControllerIT.java\n/orca-web/src/test/java/com/netflix/spinnaker/orca/controllers/OperationsControllerTest.java\n/orca-web/src/test/java/com/netflix/spinnaker/orca/controllers/ProjectControllerTest.java"
+      },
+      {
+        "step": 3,
+        "tool": "find",
+        "args": {
+          "pattern": "*Main*.java"
+        },
+        "result_head": "/orca-api/src/main/java/com/netflix/spinnaker/orca/api/annotations/Immutable.java\n/orca-api/src/main/java/com/netflix/spinnaker/orca/api/operations/OperationsContext.java\n/orca-api/src/main/java/com/netflix/spinnaker/orca/api/operations/OperationsInput.java\n/orca-api/src/main/java/com/netflix/spinnaker/orca/api/operations/OperationsRunner.java\n/orca-api/src/main/java/com/netflix/spinnaker/orca/api/pipeline/CancellableStage.java\n/orca-api/src/main/java/com/netflix/spinnaker/orca/api/pipeline/ExecutionPreprocessor.java\n/orca-api/src/main/java/com/netflix/spinnaker/orca/api/pipeline/OverridableTimeoutRetryableTask.java\n/orca-api/src/main/java/com/netflix/spinnaker/orca/api/pipeline/RetryableTask.java\n/orca-api/src/main/java/com/netflix/spinnaker/orca/api/pipeline/SkippableTask.java\n/orca-api/src/main/java/com/netflix/spinnaker/orca/api/pipeline/SyntheticStageOwner.java\n/orca-api/src/main/java/com/netflix/spinnaker/orca/api/pipeline/Task.java\n/orca-api/src/main/java/com/netflix/spinnaker/o"
+      },
+      {
+        "step": 3,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller*.groovy"
+        },
+        "result_head": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/PipelineTemplateController.groovy\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/ProjectController.groovy\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy\n/orca-web/src/test/groovy/com/netflix/spinnaker/orca/controllers/ExecutionsImportControllerSpec.groovy\n/orca-web/src/test/groovy/com/netflix/spinnaker/orca/controllers/OperationsControllerSpec.groovy\n/orca-web/src/test/groovy/com/netflix/spinnaker/orca/controllers/TaskControllerSpec.groovy"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "pattern": "@SpringBootApplication|static void main"
+        },
+        "result_head": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/Main.groovy:68: @SpringBootApplication(\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/Main.groovy:77: static void main(String... args) {"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller"
+        },
+        "result_head": "/orca-queue/src/main/kotlin/com/netflix/spinnaker/orca/q/admin/web/QueueAdminController.kt:42: @RestController\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy:39: @RestController\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy:58: @RestController\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/PipelineTemplateController.groovy:37: @RestController\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/ProjectController.groovy:31: @RestController\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy:84: @RestController\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CapabilitiesController.java:28: @RestController\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/ConcourseController.java:10: @RestController\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CorrelatedTasksController.java:20: @RestController"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/orca-web.gradle"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2014 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: apply from: \"$rootDir/gradle/groovy.gradle\"\n18: apply from: \"$rootDir/../kotlin.gradle\"\n19: apply from: \"$rootDir/gradle/detekt.gradle\"\n20: apply plugin: 'io.spinnaker.package'\n21: \n22: application.mainClass = 'com.netflix.spinnaker.orca.Main'\n23: \n24: dependencies {\n25:   implementation(\"org.springframework.boot:spring-boot-starter-webmvc\")\n"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/Main.groovy"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2014 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.orca\n18: \n19: import com.netflix.spinnaker.orca.applications.config.ApplicationConfig\n20: import com.netflix.spinnaker.orca.bakery.config.BakeryConfiguration\n21: import com.netflix.spinnaker.orca.clouddriver.config.CloudDriverConfiguration\n22: import com.netflix.spinnaker.orca.clouddriver.config.ClouddriverJobCon"
+      },
+      {
+        "step": 5,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"orca\",\"dirs\":[\"/orca-web\",\"/orca-api\",\"/orca-api-tck\",\"/orca-applications\",\"/orca-bakery\",\"/orca-bom\",\"/orca-clouddriver\",\"/orca-core\",\"/orca-core-tck\",\"/orca-deploymentmonitor\","
+        },
+        "result_head": "Recorded 1 new: service orca\nTotal: 1 services, 0 endpoints in 0 files.\nServices with no endpoints recorded yet: orca."
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2014 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.orca.controllers\n18: \n19: import com.fasterxml.jackson.databind.ObjectMapper\n20: import com.google.common.annotations.VisibleForTesting\n21: import com.google.common.base.Preconditions\n22: import com.google.common.base.Strings\n23: import com.google.common.collect.ImmutableList\n24: import com.google.common.util.con"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)",
+          "path": "/orca-web/src/main"
+        },
+        "result_head": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy:40: @RequestMapping(\"/admin\")\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy:58: @RequestMapping(value = \"/instance/enabled\", method = RequestMethod.POST)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy:79: @RequestMapping(value = \"/forceCancelExecution\", method = RequestMethod.PUT)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy:103: @RequestMapping(value = \"/orchestrate\", method = RequestMethod.POST)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy:108: @RequestMapping(value = \"/orchestrate/{pipelineConfigId}\", method = RequestMethod.POST)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy:114: @RequestMapping(value = \"/plan\", method = RequestMethod.POST)\n/orca-web/src/main/groovy/com/netf"
+      },
+      {
+        "step": 7,
+        "tool": "grep",
+        "args": {
+          "path": "/orca-web/src/main",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)"
+        },
+        "result_head": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy:40: @RequestMapping(\"/admin\")\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy:58: @RequestMapping(value = \"/instance/enabled\", method = RequestMethod.POST)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy:79: @RequestMapping(value = \"/forceCancelExecution\", method = RequestMethod.PUT)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy:103: @RequestMapping(value = \"/orchestrate\", method = RequestMethod.POST)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy:108: @RequestMapping(value = \"/orchestrate/{pipelineConfigId}\", method = RequestMethod.POST)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy:114: @RequestMapping(value = \"/plan\", method = RequestMethod.POST)\n/orca-web/src/main/groovy/com/netf"
+      },
+      {
+        "step": 7,
+        "tool": "grep",
+        "args": {
+          "pattern": "@Path\\(|@GET|@POST|@Produces"
+        },
+        "result_head": "/orca-bakery/src/main/groovy/com/netflix/spinnaker/orca/bakery/api/BakeryService.groovy:34: @POST(\"api/v2/manifest/bake/{type}\")\n/orca-bakery/src/main/groovy/com/netflix/spinnaker/orca/bakery/api/BakeryService.groovy:35: Call<Artifact> bakeManifest(@Path(\"type\") String type, @Body BakeManifestRequest bake)\n/orca-bakery/src/main/groovy/com/netflix/spinnaker/orca/bakery/api/BakeryService.groovy:37: @POST(\"api/v1/{region}/bake\")\n/orca-bakery/src/main/groovy/com/netflix/spinnaker/orca/bakery/api/BakeryService.groovy:38: Call<BakeStatus> createBake(@Path(\"region\") String region, @Body BakeRequest bake, @Query(\"rebake\") String rebake)\n/orca-bakery/src/main/groovy/com/netflix/spinnaker/orca/bakery/api/BakeryService.groovy:40: @GET(\"api/v1/{region}/status/{statusId}\")\n/orca-bakery/src/main/groovy/com/netflix/spinnaker/orca/bakery/api/BakeryService.groovy:41: Call<BakeStatus> lookupStatus(@Path(\"region\") String region, @Path(\"statusId\") String statusId)\n/orca-bakery/src/main/groovy/com/netflix/"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2017 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  *\n16:  */\n17: \n18: package com.netflix.spinnaker.orca.controllers\n19: \n20: import com.netflix.spinnaker.kork.discovery.DiscoveryStatusPublisher\n21: import com.netflix.spinnaker.kork.discovery.NoDiscoveryStatusPublisher\n22: import com.netflix.spinnaker.kork.exceptions.HasAdditionalAttributes\n23: import com.netflix.spinnaker.kork.web.exceptions.ValidationExce"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/ProjectController.groovy"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2015 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: \n18: package com.netflix.spinnaker.orca.controllers\n19: \n20: import com.netflix.spinnaker.kork.retrofit.Retrofit2SyncCall\n21: import com.netflix.spinnaker.kork.retrofit.exceptions.SpinnakerHttpException\n22: import com.netflix.spinnaker.orca.api.pipeline.models.ExecutionStatus\n23: import com.netflix.spinnaker.orca.api.pipeline.models.PipelineEx"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/PipelineTemplateController.groovy"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2017 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.orca.controllers\n17: \n18: import com.netflix.spinnaker.kork.web.exceptions.InvalidRequestException\n19: import com.netflix.spinnaker.orca.pipelinetemplate.PipelineTemplateService\n20: import com.netflix.spinnaker.orca.pipelinetemplate.exceptions.TemplateLoaderException\n21: import com.netflix.spinnaker.orca.pipelinetempl"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-queue/src/main/kotlin/com/netflix/spinnaker/orca/q/admin/web/QueueAdminController.kt"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2018 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.orca.q.admin.web\n17: \n18: import com.netflix.spinnaker.orca.api.pipeline.models.ExecutionType\n19: import com.netflix.spinnaker.orca.api.pipeline.models.PipelineExecution\n20: import com.netflix.spinnaker.orca.pipeline.persistence.ExecutionRepository\n21: import com.netflix.spinnaker.orca.q.StartWaitingExecutions\n22: imp"
+      },
+      {
+        "step": 9,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy\",\"service\":\"orca\",\"endpoints\":[\n{\"className\":\"AdminController\",\"methodName\":\"setInstanceStat"
+        },
+        "result_head": "Recorded 11 new: POST /admin/instance/enabled, PUT /admin/forceCancelExecution, GET /projects/{projectId}/pipelines, GET /pipelineTemplate, POST /convertPipelineToTemplate, POST /admin/queue/hydrate, POST /admin/queue/zombies:kill, POST /admin/queue/zombies/{executionId}:kill, POST /admin/queue/zombies/application/{application}:kill, POST /admin/queue/kickPending, POST /admin/queue/pushMessage\nTotal: 1 services, 11 endpoints in 4 files."
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy",
+          "start": "50"
+        },
+        "result_head": "50: \n51: import jakarta.servlet.http.HttpServletResponse\n52: \n53: import static com.netflix.spinnaker.orca.api.pipeline.models.ExecutionType.ORCHESTRATION\n54: import static com.netflix.spinnaker.orca.api.pipeline.models.ExecutionType.PIPELINE\n55: import static java.net.HttpURLConnection.HTTP_NOT_FOUND\n56: import static net.logstash.logback.argument.StructuredArguments.value\n57: \n58: @RestController\n59: @Slf4j\n60: class OperationsController {\n61:   @Autowired\n62:   ExecutionLauncher executionLauncher\n63: \n64:   @Autowired(required = false)\n65:   BuildService buildService\n66: \n67:   @Autowired\n68:   ObjectMapper objectMapper\n69: \n70:   @Autowired\n71:   ExecutionRepository executionRepository\n72: \n73:   @Autowired(required = false)\n74:   PipelineTemplateService pipelineTemplateService\n75: \n76:   @Autowired\n77:   ContextParameterProcessor contextParameterProcessor\n78: \n79:   @Autowired(required = false)\n80:   List<ExecutionPreprocessor> executionPreprocessors = new ArrayList<>()\n81: \n82:  "
+      },
+      {
+        "step": 10,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy",
+          "start": "360"
+        },
+        "result_head": "360:         } catch (SpinnakerServerException e){\n361:           throw new OperationFailedException(\"Failed to get properties file ${trigger.propertyFile}\", e)\n362:         }\n363:       }\n364:     }\n365:   }\n366: \n367:   @RequestMapping(value = \"/ops\", method = RequestMethod.POST)\n368:   Map<String, String> ops(@RequestBody List<Map> input) {\n369:     def execution = [application: null, name: null, stages: input]\n370:     parsePipelineTrigger(execution, true)\n371:     startTask(execution)\n372:   }\n373: \n374:   @RequestMapping(value = \"/ops\", consumes = \"application/context+json\", method = RequestMethod.POST)\n375:   Map<String, String> ops(@RequestBody Map input) {\n376:     def execution = [application: input.application, name: input.description, stages: input.job, trigger: input.trigger ?: [:]]\n377:     parsePipelineTrigger(execution, true)\n378:     startTask(execution)\n379:   }\n380: \n381:   @RequestMapping(value = \"/webhooks/preconfigured\")\n382:   List<Map<String, Object>> preconfigu"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy",
+          "pattern": "@RequestMapping|@PostMapping|@GetMapping|@PutMapping|@DeleteMapping|@PatchMapping"
+        },
+        "result_head": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy:126: @RequestMapping(value = \"/applications/{application}/tasks\", method = RequestMethod.GET)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy:155: @RequestMapping(value = \"/tasks\", method = RequestMethod.GET)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy:168: @RequestMapping(value = \"/tasks/{id}\", method = RequestMethod.GET)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy:178: @RequestMapping(value = \"/tasks/{id}\", method = RequestMethod.DELETE)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy:191: @RequestMapping(value = \"/tasks/{id}/cancel\", method = RequestMethod.PUT)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy:198: @RequestMapping(value = \"/tasks/cancel\", method = RequestMethod.PUT)\n/orca-web/src/mai"
+      },
+      {
+        "step": 12,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy",
+          "start": "120"
+        },
+        "result_head": "120:     this.stageDefinitionBuilderFactory = stageDefinitionBuilderFactory\n121:     this.configurationProperties = configurationProperties\n122:     this.clock = Clock.systemUTC()\n123:   }\n124: \n125:   @PreAuthorize(\"hasPermission(#application, 'APPLICATION', 'READ')\")\n126:   @RequestMapping(value = \"/applications/{application}/tasks\", method = RequestMethod.GET)\n127:   List<OrchestrationViewModel> list(\n128:     @PathVariable String application,\n129:     @RequestParam(value = \"page\", defaultValue = \"1\") int page,\n130:     @RequestParam(value = \"limit\", defaultValue = \"3500\") int limit,\n131:     @RequestParam(value = \"statuses\", required = false) String statuses\n132:   ) {\n133:     statuses = statuses ?: ExecutionStatus.values()*.toString().join(\",\")\n134:     def executionCriteria = new ExecutionCriteria()\n135:       .setPage(page)\n136:       .setPageSize(limit)\n137:       .setStatuses(statuses.split(\",\") as Collection)\n138:       .setStartTimeCutoff(\n139:         clock\n140:           "
+      },
+      {
+        "step": 13,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy",
+          "start": "280"
+        },
+        "result_head": "280:    * @param deckOrigin (optional) The Deck UI origin to use for building the pipeline execution URL for failing stages.\n281:    * If not set then only the path is generated and returned, i.e. the part after scheme://host:port.\n282:    * @param limit (optional) The maximum number of nested pipeline executions to return for failing stages. The default value is 1.\n283:    * @return List of one or more failed stage summaries.\n284:    */\n285:   @PreAuthorize(\"hasPermission(this.getPipeline(#executionId)?.application, 'APPLICATION', 'READ')\")\n286:   @RequestMapping(value = \"/pipelines/failedStages\", method = RequestMethod.GET)\n287:   List<FailedStageExecution> getFailedStagesForPipelineExecution(\n288:     @RequestParam(value = \"executionId\") String executionId,\n289:     @RequestParam(value = \"deckOrigin\", required = false) String inputDeckOrigin,\n290:     @RequestParam(value = \"limit\", defaultValue = \"1\") Integer limit\n291:   ) {\n292:     // Input validation.\n293:     Preconditions.chec"
+      },
+      {
+        "step": 14,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy",
+          "start": "430"
+        },
+        "result_head": "430:    * missing, it is defaulted to false.\n431:    * @param includeDeletedPipelines (optional) When true, and a specific (non-\"*\") application is\n432:    * given without a pipelineName, also includes executions belonging to pipeline config ids that\n433:    * Front50 no longer knows about (e.g. the pipeline was since deleted) but that Orca still has\n434:    * execution history for. Has no effect when pipelineName is supplied, since a deleted pipeline's\n435:    * name can no longer be resolved from Front50. If this value is missing, it is defaulted to false.\n436:    * @return\n437:    */\n438:   @PreAuthorize(\"hasPermission(#application, 'APPLICATION', 'READ')\")\n439:   @RequestMapping(value = \"/applications/{application}/pipelines/search\", method = RequestMethod.GET)\n440:   List<PipelineExecution> searchForPipelinesByTrigger(\n441:     @PathVariable(value = \"application\") String application,\n442:     @RequestParam(value = \"triggerTypes\", required = false) String triggerTypes,\n443:     @Re"
+      },
+      {
+        "step": 15,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy",
+          "start": "570"
+        },
+        "result_head": "570: \n571:     registry.timer(\"trigger.comparison\").record(ellapsedMillis, TimeUnit.MILLISECONDS)\n572: \n573:     return result\n574:   }\n575: \n576:   @PostAuthorize(\"hasPermission(returnObject.application, 'APPLICATION', 'READ')\")\n577:   @RequestMapping(value = \"/pipelines/{id}\", method = RequestMethod.GET)\n578:   PipelineExecution getPipeline(@PathVariable String id) {\n579:     executionRepository.retrieve(PIPELINE, id, false)\n580:   }\n581: \n582:   @PreAuthorize(\"hasPermission(this.getPipeline(#id)?.application, 'APPLICATION', 'WRITE')\")\n583:   @RequestMapping(value = \"/pipelines/{id}\", method = RequestMethod.DELETE)\n584:   void deletePipeline(@PathVariable String id) {\n585:     executionRepository.retrieve(PIPELINE, id).with {\n586:       if (it.status.complete) {\n587:         executionRepository.delete(PIPELINE, id)\n588:       } else {\n589:         log.warn(\"Not deleting $PIPELINE $id as it is $it.status\")\n590:         throw new CannotDeleteRunningExecution(PIPELINE, id)\n591:       }\n"
+      },
+      {
+        "step": 16,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy",
+          "start": "688"
+        },
+        "result_head": "688:   @PreAuthorize(\"hasPermission(this.getPipeline(#id)?.application, 'APPLICATION', 'READ')\")\n689:   @RequestMapping(value = \"/pipelines/{id}/{stageId}/evaluateExpression\", method = RequestMethod.GET)\n690:   Map evaluateExpressionForExecutionAtStage(@PathVariable(\"id\") String id,\n691:                                             @PathVariable(\"stageId\") String stageId,\n692:                                             @RequestParam(\"expression\") String expression) {\n693:     def execution = executionRepository.retrieve(PIPELINE, id)\n694:     def stage = execution.stages.find { it.id == stageId }\n695: \n696:     if (stage == null) {\n697:       throw new NotFoundException(\"Stage $stageId not found in execution $id\")\n698:     }\n699: \n700:     def evaluated = contextParameterProcessor.process(\n701:       [expression: expression],\n702:       contextParameterProcessor.buildExecutionContext(stage),\n703:       true\n704:     )\n705:     return [result: evaluated?.expression, detail: evaluated?.e"
+      },
+      {
+        "step": 17,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy",
+          "start": "780"
+        },
+        "result_head": "780:    *                      executions belonging to pipeline config ids that front50 no longer knows about\n781:    *                      (e.g. the pipeline was since deleted) but that orca still has execution history\n782:    *                      for. Has no effect when pipelineNameFilter is supplied, since a deleted\n783:    *                      pipeline's name can no longer be resolved from front50. Defaults to false.\n784:    * @return\n785:    */\n786:   @PreAuthorize(\"hasPermission(#application, 'APPLICATION', 'READ')\")\n787:   @RequestMapping(value = \"/applications/{application}/pipelines\", method = RequestMethod.GET)\n788:   List<PipelineExecution> getPipelinesForApplication(@PathVariable String application,\n789:                                                      @RequestParam(value = \"limit\", defaultValue = \"5\") int limit,\n790:                                                      @RequestParam(value = \"statuses\", required = false) String statuses,\n791:                       "
+      },
+      {
+        "step": 18,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy\",\"service\":\"orca\",\"endpoints\":[\n{\"className\":\"OperationsController\",\"methodName\":\"orche"
+        },
+        "result_head": "Recorded 31 new: POST /orchestrate, POST /orchestrate/{pipelineConfigId}, POST /plan, POST /plan/{pipelineConfigId}, POST /fail, POST /ops, ANY /webhooks/preconfigured, ANY /jobs/preconfigured, GET /applications/{application}/tasks, GET /tasks, GET /tasks/{id}, DELETE /tasks/{id}, PUT /tasks/{id}/cancel, PUT /tasks/cancel, GET /pipelines, GET /pipelines/failedStages, GET /applications/{application}/pipelines/search, GET /pipelines/{id}, DELETE /pipelines/{id}, PUT /pipelines/{id}/cancel, PUT /pipelines/{id}/pause, PUT /pipelines/{id}/resume, GET /pipelines/running, GET /pipelines/waiting, PATCH /pipelines/{id}/stages/{stageId}, PUT /pipelines/{id}/stages/{stageId}/restart, GET /pipelines/{id}/evaluateExpression, GET /pipelines/{id}/{stageId}/evaluateExpression, POST /pipelines/{id}/evaluateVariables, GET /v2/applications/{application}/pipelines, GET /applications/{application}/pipelines\nTotal: 1 services, 42 endpoints in 6 files."
+      },
+      {
+        "step": 18,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CapabilitiesController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2019 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.orca.controllers;\n18: \n19: import com.netflix.spinnaker.orca.capabilities.CapabilitiesService;\n20: import com.netflix.spinnaker.orca.capabilities.models.ExpressionCapabilityResult;\n21: import com.netflix.spinnaker.orca.deploymentmonitor.DeploymentMonitorCapabilities;\n22: import com.netflix.spinnaker.orca.deploymen"
+      },
+      {
+        "step": 19,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/ConcourseController.java"
+        },
+        "result_head": "1: package com.netflix.spinnaker.orca.controllers;\n2: \n3: import com.netflix.spinnaker.orca.igor.ConcourseService;\n4: import com.netflix.spinnaker.orca.igor.model.ConcourseStageExecution;\n5: import java.util.Optional;\n6: import org.springframework.web.bind.annotation.PostMapping;\n7: import org.springframework.web.bind.annotation.RequestParam;\n8: import org.springframework.web.bind.annotation.RestController;\n9: \n10: @RestController\n11: public class ConcourseController {\n12:   private ConcourseService concourseService;\n13: \n14:   public ConcourseController(Optional<ConcourseService> concourseService) {\n15:     this.concourseService = concourseService.orElse(null);\n16:   }\n17: \n18:   /**\n19:    * Since there isn't a way to trigger a Concourse job directly with parameterization, Concourse\n20:    * instead monitors Spinnaker pipelines for a running Concourse stage. Concourse then informs\n21:    * Spinnaker of the Concourse build that is running for that stage so Spinnaker can monitor its\n22"
+      },
+      {
+        "step": 19,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CorrelatedTasksController.java"
+        },
+        "result_head": "1: package com.netflix.spinnaker.orca.controllers;\n2: \n3: import static com.netflix.spinnaker.orca.api.pipeline.models.ExecutionType.ORCHESTRATION;\n4: import static com.netflix.spinnaker.orca.api.pipeline.models.ExecutionType.PIPELINE;\n5: import static java.util.stream.Collectors.toList;\n6: import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;\n7: \n8: import com.netflix.spinnaker.orca.api.pipeline.models.ExecutionType;\n9: import com.netflix.spinnaker.orca.api.pipeline.models.PipelineExecution;\n10: import com.netflix.spinnaker.orca.pipeline.persistence.ExecutionNotFoundException;\n11: import com.netflix.spinnaker.orca.pipeline.persistence.ExecutionRepository;\n12: import java.util.List;\n13: import java.util.Objects;\n14: import java.util.stream.Stream;\n15: import org.springframework.beans.factory.annotation.Autowired;\n16: import org.springframework.web.bind.annotation.GetMapping;\n17: import org.springframework.web.bind.annotation.PathVariable;\n18: import org.springframewo"
+      },
+      {
+        "step": 19,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/ExecutionsImportController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2019 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.orca.controllers;\n18: \n19: import com.netflix.spinnaker.kork.retrofit.Retrofit2SyncCall;\n20: import com.netflix.spinnaker.kork.retrofit.exceptions.SpinnakerHttpException;\n21: import com.netflix.spinnaker.kork.retrofit.exceptions.SpinnakerServerException;\n22: import com.netflix.spinnaker.kork.web.exceptions.Invalid"
+      },
+      {
+        "step": 19,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/V2PipelineTemplateController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2018 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.orca.controllers;\n18: \n19: import com.netflix.spinnaker.orca.api.pipeline.ExecutionPreprocessor;\n20: import com.netflix.spinnaker.orca.pipeline.util.ContextParameterProcessor;\n21: import com.netflix.spinnaker.orca.pipelinetemplate.V2Util;\n22: import java.util.ArrayList;\n23: import java.util.List;\n24: import java.u"
+      },
+      {
+        "step": 20,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller",
+          "path": "/orca-web/src/main"
+        },
+        "result_head": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy:39: @RestController\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy:58: @RestController\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/PipelineTemplateController.groovy:37: @RestController\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/ProjectController.groovy:31: @RestController\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy:84: @RestController\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CapabilitiesController.java:28: @RestController\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/ConcourseController.java:10: @RestController\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CorrelatedTasksController.java:20: @RestController\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/ExecutionsImportController.java:44: @RestContro"
+      },
+      {
+        "step": 20,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller",
+          "path": "/orca-queue/src/main"
+        },
+        "result_head": "/orca-queue/src/main/kotlin/com/netflix/spinnaker/orca/q/admin/web/QueueAdminController.kt:42: @RestController"
+      },
+      {
+        "step": 21,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping",
+          "path": "/orca-webhook/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 21,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping",
+          "path": "/orca-keel/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 21,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping",
+          "path": "/orca-deploymentmonitor/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 21,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping",
+          "path": "/orca-pipelinetemplate/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 22,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping",
+          "path": "/orca-core/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 22,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping",
+          "path": "/orca-migration/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 22,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping",
+          "path": "/orca-flex/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 22,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping",
+          "path": "/orca-interlink/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 23,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller"
+        },
+        "result_head": "/orca-queue/src/main/kotlin/com/netflix/spinnaker/orca/q/admin/web/QueueAdminController.kt:42: @RestController\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy:39: @RestController\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy:58: @RestController\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/PipelineTemplateController.groovy:37: @RestController\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/ProjectController.groovy:31: @RestController\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy:84: @RestController\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CapabilitiesController.java:28: @RestController\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/ConcourseController.java:10: @RestController\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CorrelatedTasksController.java:20: @RestController"
+      },
+      {
+        "step": 24,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CapabilitiesController.java\",\"service\":\"orca\",\"endpoints\":[\n{\"className\":\"CapabilitiesController\",\"methodName\":\"getDe"
+        },
+        "result_head": "Recorded 6 new: GET /capabilities/deploymentMonitors, GET /capabilities/expressions, POST /concourse/stage/start, GET /executions/correlated/{correlationId}, POST /admin/executions, POST /v2/pipelineTemplates/plan\nTotal: 1 services, 48 endpoints in 11 files."
+      },
+      {
+        "step": 25,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping\\(|@Path\\(|@GET|@POST|@Produces",
+          "path": "/orca-qos/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 25,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping\\(|@Path\\(|@GET|@POST|@Produces",
+          "path": "/orca-echo/src/main"
+        },
+        "result_head": "/orca-echo/src/main/groovy/com/netflix/spinnaker/orca/echo/EchoService.groovy:30: @POST(\".\")\n/orca-echo/src/main/groovy/com/netflix/spinnaker/orca/echo/EchoService.groovy:33: @GET(\"events/recent/{type}/{since}/\")\n/orca-echo/src/main/groovy/com/netflix/spinnaker/orca/echo/EchoService.groovy:34: Call<ResponseBody> getEvents(@Path(\"type\") String type, @Path(\"since\") Long since)\n/orca-echo/src/main/groovy/com/netflix/spinnaker/orca/echo/EchoService.groovy:37: @POST(\"notifications\")"
+      },
+      {
+        "step": 25,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping\\(|@Path\\(|@GET|@POST|@Produces",
+          "path": "/orca-integration/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 25,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping\\(|@Path\\(|@GET|@POST|@Produces",
+          "path": "/orca-plugins-test/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 26,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2014 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: pluginManagement {\n17:   repositories {\n18:     gradlePluginPortal()\n19:   }\n20: }\n21: \n22: apply from: \"../versions.gradle\"\n23: \n24: include \"orca-api\",\n25:   \"orca-api-tck\",\n26:   \"orca-applications\",\n27:   \"orca-bakery\",\n28:   \"orca-bom\",\n29:   \"orca-clouddriver\",\n30:   \"orca-core-tck\",\n31:   \"orca-core\",\n32:   \"orca-deploymentmonitor\",\n33:   \""
+      },
+      {
+        "step": 26,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile*"
+        },
+        "result_head": "/Dockerfile.compile\n/Dockerfile.slim\n/Dockerfile.ubuntu"
+      },
+      {
+        "step": 27,
+        "tool": "grep",
+        "args": {
+          "pattern": "static void main|fun main|SpringBootApplication",
+          "path": "/orca-web/src/main"
+        },
+        "result_head": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/Main.groovy:38: import org.springframework.boot.autoconfigure.SpringBootApplication\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/Main.groovy:68: @SpringBootApplication(\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/Main.groovy:77: static void main(String... args) {"
+      },
+      {
+        "step": 27,
+        "tool": "grep",
+        "args": {
+          "pattern": "static void main|fun main|SpringBootApplication",
+          "path": "/orca-migration/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 27,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile.slim"
+        },
+        "result_head": "1: FROM alpine:3.24\n2: LABEL maintainer=\"sig-platform@spinnaker.io\"\n3: RUN apk --no-cache add --update bash curl openjdk25-jre\n4: # Pick up the latest CA bundle and fail the build if the JVM still trusts emSign ECC Root CA - G3.\n5: RUN apk --no-cache upgrade && ! keytool -list -cacerts -storepass changeit | grep -qiE 'emsign.*ecc.*g3'\n6: RUN addgroup -S -g 10111 spinnaker\n7: RUN adduser -S -G spinnaker -u 10111 spinnaker\n8: COPY orca-web/build/install/orca /opt/orca\n9: RUN mkdir -p /opt/orca/plugins && chown -R spinnaker:nogroup /opt/orca/plugins\n10: USER spinnaker\n11: HEALTHCHECK CMD curl --fail http://localhost:8083/health\n12: CMD [\"/opt/orca/bin/orca\"]"
+      },
+      {
+        "step": 28,
+        "tool": "grep",
+        "args": {
+          "pattern": "RouterFunction|route\\(|@ServerEndpoint|WebSocket",
+          "path": "/orca-web/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 28,
+        "tool": "grep",
+        "args": {
+          "pattern": "RouterFunction|@ServerEndpoint"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 29,
+        "tool": "grep",
+        "args": {
+          "pattern": "@Path\\(|@javax.ws.rs|jakarta.ws.rs"
+        },
+        "result_head": "/orca-bakery/src/main/groovy/com/netflix/spinnaker/orca/bakery/api/BakeryService.groovy:35: Call<Artifact> bakeManifest(@Path(\"type\") String type, @Body BakeManifestRequest bake)\n/orca-bakery/src/main/groovy/com/netflix/spinnaker/orca/bakery/api/BakeryService.groovy:38: Call<BakeStatus> createBake(@Path(\"region\") String region, @Body BakeRequest bake, @Query(\"rebake\") String rebake)\n/orca-bakery/src/main/groovy/com/netflix/spinnaker/orca/bakery/api/BakeryService.groovy:41: Call<BakeStatus> lookupStatus(@Path(\"region\") String region, @Path(\"statusId\") String statusId)\n/orca-bakery/src/main/groovy/com/netflix/spinnaker/orca/bakery/api/BakeryService.groovy:44: Call<Bake> lookupBake(@Path(\"region\") String region, @Path(\"bakeId\") String bakeId)\n/orca-bakery/src/main/groovy/com/netflix/spinnaker/orca/bakery/api/BakeryService.groovy:55: Call<BaseImage> getBaseImage(@Path(\"cloudProvider\") String cloudProvider,\n/orca-bakery/src/main/groovy/com/netflix/spinnaker/orca/bakery/api/BakeryService.gro"
+      },
+      {
+        "step": 29,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
+          "path": "/orca-webhook/src"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 30,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping\\(",
+          "path": "/orca-remote-stage/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 30,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping\\(",
+          "path": "/orca-dry-run/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 30,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping\\(",
+          "path": "/orca-applications/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 30,
+        "tool": "grep",
+        "args": {
+          "pattern": "Mapping\\(",
+          "path": "/orca-mine/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 31,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller*",
+          "path": "/orca-web/src/main"
+        },
+        "result_head": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/PipelineTemplateController.groovy\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/ProjectController.groovy\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/TaskController.groovy\n/orca-web/src/main/java/com/netflix/spinnaker/config/TaskControllerConfigurationProperties.java\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CapabilitiesController.java\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/ConcourseController.java\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/CorrelatedTasksController.java\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/ExecutionsImportController.java\n/orca-web/src/main/java/com/netflix/spinnaker/orca/controllers/V2PipelineTempla"
+      },
+      {
+        "step": 31,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping",
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy"
+        },
+        "result_head": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy:40: @RequestMapping(\"/admin\")\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy:58: @RequestMapping(value = \"/instance/enabled\", method = RequestMethod.POST)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy:79: @RequestMapping(value = \"/forceCancelExecution\", method = RequestMethod.PUT)"
+      },
+      {
+        "step": 32,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-queue/src/main/kotlin/com/netflix/spinnaker/orca/q/admin/web/QueueAdminController.kt",
+          "start": "40"
+        },
+        "result_head": "40: import org.springframework.web.bind.annotation.RestController\n41: \n42: @RestController\n43: @RequestMapping(\"/admin/queue\")\n44: class QueueAdminController(\n45:   private val hydrateCommand: HydrateQueueCommand,\n46:   private val zombieExecutionService: Optional<ZombieExecutionService>,\n47:   private val queue: Queue,\n48:   private val executionRepository: ExecutionRepository\n49: ) {\n50: \n51:   @PostMapping(value = [\"/hydrate\"])\n52:   fun hydrateQueue(\n53:     @QueryParam(\"dryRun\") dryRun: Boolean?,\n54:     @QueryParam(\"executionId\") executionId: String?,\n55:     @QueryParam(\"startMs\") startMs: Long?,\n56:     @QueryParam(\"endMs\") endMs: Long?\n57:   ): HydrateQueueOutput =\n58:     hydrateCommand(\n59:       HydrateQueueInput(\n60:         executionId,\n61:         if (startMs != null) Instant.ofEpochMilli(startMs) else null,\n62:         if (endMs != null) Instant.ofEpochMilli(endMs) else null,\n63:         dryRun ?: true\n64:       )\n65:     )\n66: \n67:   @PostMapping(value = [\"/zombies:kil"
+      },
+      {
+        "step": 33,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy",
+          "start": "95"
+        },
+        "result_head": "95:   FiatStatus fiatStatus\n96: \n97:   @Autowired(required = false)\n98:   FiatService fiatService\n99: \n100:   @Autowired(required = false)\n101:   Front50Service front50Service\n102: \n103:   @RequestMapping(value = \"/orchestrate\", method = RequestMethod.POST)\n104:   Map<String, Object> orchestrate(@RequestBody Map pipeline, HttpServletResponse response) {\n105:     return planOrOrchestratePipeline(pipeline)\n106:   }\n107: \n108:   @RequestMapping(value = \"/orchestrate/{pipelineConfigId}\", method = RequestMethod.POST)\n109:   Map<String, Object> orchestratePipelineConfig(@PathVariable String pipelineConfigId, @RequestBody Map trigger) {\n110:     Map pipelineConfig = buildPipelineConfig(pipelineConfigId, trigger)\n111:     return planOrOrchestratePipeline(pipelineConfig)\n112:   }\n113: \n114:   @RequestMapping(value = \"/plan\", method = RequestMethod.POST)\n115:   Map<String, Object> plan(@RequestBody Map pipeline, @RequestParam(\"resolveArtifacts\") boolean resolveArtifacts, HttpServletResponse resp"
+      },
+      {
+        "step": 34,
+        "tool": "grep",
+        "args": {
+          "pattern": "static void main|fun main\\("
+        },
+        "result_head": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/Main.groovy:77: static void main(String... args) {"
+      },
+      {
+        "step": 35,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/ProjectController.groovy",
+          "start": "28"
+        },
+        "result_head": "28: import io.reactivex.rxjava3.schedulers.Schedulers\n29: import io.reactivex.rxjava3.core.Observable\n30: \n31: @RestController\n32: class ProjectController {\n33:   @Autowired\n34:   ExecutionRepository executionRepository\n35: \n36:   @Autowired(required = false)\n37:   Front50Service front50Service\n38: \n39:   @RequestMapping(value = \"/projects/{projectId}/pipelines\", method = RequestMethod.GET)\n40:   List<PipelineExecution> list(@PathVariable String projectId,\n41:                                @RequestParam(value=\"limit\", defaultValue=\"5\") int limit,\n42:                                @RequestParam(value = \"statuses\", required = false) String statuses) {\n43:     if (!front50Service) {\n44:       throw new UnsupportedOperationException(\"Front50 is not enabled, no way to retrieve projects. Fix this by setting front50.enabled: true\")\n45:     }\n46:     if (!limit) {\n47:       return []\n48:     }\n49: \n50:     def pipelineConfigIds = []\n51:     try {\n52:       def project = Retrofit2SyncCall.exe"
+      },
+      {
+        "step": 35,
+        "tool": "read_file",
+        "args": {
+          "path": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/PipelineTemplateController.groovy",
+          "start": "30"
+        },
+        "result_head": "30: import org.springframework.web.bind.annotation.RequestBody\n31: import org.springframework.web.bind.annotation.RequestMapping\n32: import org.springframework.web.bind.annotation.RequestMethod\n33: import org.springframework.web.bind.annotation.RequestParam\n34: import org.springframework.web.bind.annotation.RestController\n35: \n36: @ConditionalOnExpression(\"\\${pipeline-templates.enabled:true}\")\n37: @RestController\n38: @Slf4j\n39: class PipelineTemplateController {\n40: \n41:   @Autowired\n42:   PipelineTemplateService pipelineTemplateService\n43: \n44:   @RequestMapping(value = \"/pipelineTemplate\", method = RequestMethod.GET)\n45:   PipelineTemplate getPipelineTemplate(@RequestParam String source,\n46:                                        @RequestParam(required = false) String executionId,\n47:                                        @RequestParam(required = false) String pipelineConfigId) {\n48:     if (!source) {\n49:       throw new InvalidRequestException(\"template source must not be empty\")\n"
+      },
+      {
+        "step": 36,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
+          "path": "/orca-keel/src"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 36,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
+          "path": "/orca-qos/src"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 36,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
+          "path": "/orca-migration/src"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 36,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
+          "path": "/orca-integrations-cloudfoundry/src"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 37,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
+          "path": "/orca-web/src/main"
+        },
+        "result_head": "/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy:40: @RequestMapping(\"/admin\")\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy:58: @RequestMapping(value = \"/instance/enabled\", method = RequestMethod.POST)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/AdminController.groovy:79: @RequestMapping(value = \"/forceCancelExecution\", method = RequestMethod.PUT)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy:103: @RequestMapping(value = \"/orchestrate\", method = RequestMethod.POST)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy:108: @RequestMapping(value = \"/orchestrate/{pipelineConfigId}\", method = RequestMethod.POST)\n/orca-web/src/main/groovy/com/netflix/spinnaker/orca/controllers/OperationsController.groovy:114: @RequestMapping(value = \"/plan\", method = RequestMethod.POST)\n/orca-web/src/main/groovy/com/netf"
+      },
+      {
+        "step": 38,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller|@RequestMapping",
+          "path": "/orca-queue-sql/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 38,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller|@RequestMapping",
+          "path": "/orca-queue-redis/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 38,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller|@RequestMapping",
+          "path": "/orca-sql/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 38,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller|@RequestMapping",
+          "path": "/orca-redis/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 39,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 1 services, 48 endpoints."
+      }
+    ]
+  }
+}

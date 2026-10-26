@@ -1,0 +1,386 @@
+{
+  "system": "openlmis-notification",
+  "services": [
+    {
+      "name": "openlmis-notification",
+      "dirs": [
+        "/"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/src/main/java/org/openlmis/notification/web/VersionController.java",
+      "service": "openlmis-notification",
+      "endpoints": [
+        {
+          "className": "VersionController",
+          "methodName": "display",
+          "httpMethod": "ANY",
+          "path": "/notification",
+          "line": 37,
+          "evidence": "@RequestMapping(\"/notification\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/notification/web/digestconfiguration/DigestConfigurationController.java",
+      "service": "openlmis-notification",
+      "endpoints": [
+        {
+          "className": "DigestConfigurationController",
+          "methodName": "getDigestConfigurations",
+          "httpMethod": "GET",
+          "path": "/api/digestConfiguration",
+          "line": 52,
+          "evidence": "@GetMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DigestConfigurationController",
+          "methodName": "getDigestConfiguration",
+          "httpMethod": "GET",
+          "path": "/api/digestConfiguration/{id}",
+          "line": 76,
+          "evidence": "@GetMapping(\"/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/notification/web/notification/NotificationController.java",
+      "service": "openlmis-notification",
+      "endpoints": [
+        {
+          "className": "NotificationController",
+          "methodName": "sendNotification",
+          "httpMethod": "POST",
+          "path": "/api/notifications",
+          "line": 92,
+          "evidence": "@PostMapping(\"/notifications\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "NotificationController",
+          "methodName": "getNotificationCollection",
+          "httpMethod": "GET",
+          "path": "/api/notifications",
+          "line": 141,
+          "evidence": "@GetMapping(\"/notifications\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/notification/web/subscription/DigestSubscriptionController.java",
+      "service": "openlmis-notification",
+      "endpoints": [
+        {
+          "className": "DigestSubscriptionController",
+          "methodName": "getUserSubscriptions",
+          "httpMethod": "GET",
+          "path": "/api/users/{id}/subscriptions",
+          "line": 83,
+          "evidence": "@GetMapping(USER_ENDPOINT_URL)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "DigestSubscriptionController",
+          "methodName": "createUserSubscriptions",
+          "httpMethod": "POST",
+          "path": "/api/users/{id}/subscriptions",
+          "line": 113,
+          "evidence": "@PostMapping(USER_ENDPOINT_URL)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/notification/web/usercontactdetails/UserContactDetailsController.java",
+      "service": "openlmis-notification",
+      "endpoints": [
+        {
+          "className": "UserContactDetailsController",
+          "methodName": "getAllUserContactDetails",
+          "httpMethod": "GET",
+          "path": "/api/userContactDetails",
+          "line": 102,
+          "evidence": "@GetMapping(\"/userContactDetails\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserContactDetailsController",
+          "methodName": "getUserContactDetails",
+          "httpMethod": "GET",
+          "path": "/api/userContactDetails/{id}",
+          "line": 135,
+          "evidence": "@GetMapping(\"/userContactDetails/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserContactDetailsController",
+          "methodName": "saveUpdateUserContactDetails",
+          "httpMethod": "PUT",
+          "path": "/api/userContactDetails/{id}",
+          "line": 155,
+          "evidence": "@PutMapping(\"/userContactDetails/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserContactDetailsController",
+          "methodName": "saveUsersContactDetails",
+          "httpMethod": "PUT",
+          "path": "/api/userContactDetails/batch",
+          "line": 188,
+          "evidence": "@PutMapping(\"/userContactDetails/batch\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserContactDetailsController",
+          "methodName": "getVerifications",
+          "httpMethod": "GET",
+          "path": "/api/userContactDetails/{id}/verifications",
+          "line": 216,
+          "evidence": "@GetMapping(value = \"/userContactDetails/{id}/verifications\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserContactDetailsController",
+          "methodName": "sendVerification",
+          "httpMethod": "POST",
+          "path": "/api/userContactDetails/{id}/verifications",
+          "line": 239,
+          "evidence": "@RequestMapping(value = \"/userContactDetails/{id}/verifications\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserContactDetailsController",
+          "methodName": "verifyContactDetail",
+          "httpMethod": "GET",
+          "path": "/api/userContactDetails/{id}/verifications/{token}",
+          "line": 265,
+          "evidence": "@GetMapping(value = \"/userContactDetails/{id}/verifications/{token}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserContactDetailsController",
+          "methodName": "deleteContactDetailsByUserIds",
+          "httpMethod": "DELETE",
+          "path": "/api/userContactDetails/batch",
+          "line": 298,
+          "evidence": "@DeleteMapping(value = \"/userContactDetails/batch\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "openlmis-notification",
+    "commit": "dd118037046d84c50cedc4b8d3cb3f559a16eab3",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "record_nudges": 0,
+    "elided_results": 0,
+    "steps": 9,
+    "tool_calls": 20,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 78039,
+    "cached_input_tokens": 61696,
+    "output_tokens": 2315,
+    "list_price_usd": 0.004,
+    "wall_seconds": 15.1,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".github/\n.gitignore\nCHANGELOG.md\nDockerfile\nJenkinsfile\nLICENSE\nLICENSE-HEADER\nREADME.md\nSTYLE-GUIDE.md\nbuild.gradle\nbuild.sh\nci-buildImage.sh\nci-erdGeneration.sh\nconfig/\nconsul/\ndocker-compose.builder.yml\ndocker-compose.erd-generation.yml\ndocker-compose.override.yml\ndocker-compose.yml\ndocumentation.gradle\nexport_schema.sh\ngradle.properties\ngradle/\ngradlew\ngradlew.bat\npackage-lock.json\npackage.json\nperformance/\nregistration.gradle\nsettings.gradle\nsonar-project.properties\nsrc/"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile"
+        },
+        "result_head": "/Dockerfile"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle"
+        },
+        "result_head": "1: rootProject.name = serviceName"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller.java"
+        },
+        "result_head": "/src/main/java/org/openlmis/notification/web/BaseController.java\n/src/main/java/org/openlmis/notification/web/VersionController.java\n/src/main/java/org/openlmis/notification/web/digestconfiguration/DigestConfigurationController.java\n/src/main/java/org/openlmis/notification/web/notification/NotificationController.java\n/src/main/java/org/openlmis/notification/web/subscription/DigestSubscriptionController.java\n/src/main/java/org/openlmis/notification/web/usercontactdetails/UserContactDetailsController.java"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile"
+        },
+        "result_head": "1: FROM openlmis/service-base:7\n2: \n3: COPY build/libs/*.jar /service.jar\n4: COPY src/main/resources/db/demo-data/*.csv /demo-data/\n5: COPY build/schema /schema\n6: \n7: COPY build/consul /consul\n8: WORKDIR /consul\n9: \n10: RUN npm install --production\n11: \n12: WORKDIR /\n13: "
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/notification/web/VersionController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.notification.web;\n17: \n18: import org.openlmis.util.Version;\n19: import o"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/notification/web/BaseController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.notification.web;\n17: \n18: import org.slf4j.ext.XLogger;\n19: import org.s"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/notification/web/digestconfiguration/DigestConfigurationController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.notification.web.digestconfiguration;\n17: \n18: import static org.openlmis"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/notification/web/notification/NotificationController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.notification.web.notification;\n17: \n18: import static org.openlmis.notifi"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/notification/web/subscription/DigestSubscriptionController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.notification.web.subscription;\n17: \n18: import static org.openlmis.notifi"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/notification/web/usercontactdetails/UserContactDetailsController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.notification.web.usercontactdetails;\n17: \n18: import static org.openlmis."
+      },
+      {
+        "step": 4,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping",
+          "path": "/src/main/java/org/openlmis/notification/web"
+        },
+        "result_head": "/src/main/java/org/openlmis/notification/web/VersionController.java:37: @RequestMapping(\"/notification\")\n/src/main/java/org/openlmis/notification/web/digestconfiguration/DigestConfigurationController.java:41: @RequestMapping(RESOURCE_URL)\n/src/main/java/org/openlmis/notification/web/digestconfiguration/DigestConfigurationController.java:52: @GetMapping\n/src/main/java/org/openlmis/notification/web/digestconfiguration/DigestConfigurationController.java:76: @GetMapping(\"/{id}\")\n/src/main/java/org/openlmis/notification/web/notification/NotificationController.java:59: @RequestMapping(\"/api\")\n/src/main/java/org/openlmis/notification/web/notification/NotificationController.java:92: @PostMapping(\"/notifications\")\n/src/main/java/org/openlmis/notification/web/notification/NotificationController.java:141: @GetMapping(\"/notifications\")\n/src/main/java/org/openlmis/notification/web/subscription/DigestSubscriptionController.java:54: @RequestMapping(API_PREFIX)\n/src/main/java/org/openlmis/notification"
+      },
+      {
+        "step": 4,
+        "tool": "find",
+        "args": {
+          "pattern": "*Application.java"
+        },
+        "result_head": "/src/main/java/org/openlmis/notification/Application.java"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/notification/web/usercontactdetails/UserContactDetailsController.java",
+          "start": "130"
+        },
+        "result_head": "130:    * user ID.\n131:    *\n132:    * @param referenceDataUserId  the reference data user ID\n133:    * @return  the contact details of the user with the given ID\n134:    */\n135:   @GetMapping(\"/userContactDetails/{id}\")\n136:   @ResponseStatus(HttpStatus.OK)\n137:   @ResponseBody\n138:   public UserContactDetailsDto getUserContactDetails(@PathVariable(\"id\") UUID referenceDataUserId) {\n139:     permissionService.canManageUserContactDetails(referenceDataUserId);\n140: \n141:     UserContactDetails userContactDetails = userContactDetailsRepository\n142:         .findById(referenceDataUserId)\n143:         .orElseThrow(() -> new NotFoundException(ERROR_USER_CONTACT_DETAILS_NOT_FOUND));\n144: \n145:     return toDto(userContactDetails);\n146:   }\n147: \n148:   /**\n149:    * Creates or updates the user contact details for user with the given reference data ID.\n150:    * \n151:    * @param referenceDataUserId  the reference data user ID\n152:    * @param userContactDetailsDto  the update contact details\n"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/notification/web/notification/NotificationController.java",
+          "start": "135"
+        },
+        "result_head": "135:     XLOGGER.exit();\n136:   }\n137: \n138:   /**\n139:    * Get notifications.\n140:    */\n141:   @GetMapping(\"/notifications\")\n142:   @ResponseStatus(HttpStatus.OK)\n143:   public Page<NotificationDto> getNotificationCollection(\n144:       @RequestParam MultiValueMap<String, String> queryParams,\n145:       Pageable pageable) {\n146:     XLOGGER.entry(queryParams, pageable);\n147:     Profiler profiler = new Profiler(\"GET_NOTIFICATIONS\");\n148:     profiler.setLogger(XLOGGER);\n149: \n150:     profiler.start(\"FIND_ALL\");\n151:     Page<Notification> page;\n152:     if (MapUtils.isEmpty(queryParams)) {\n153:       page = notificationRepository.findAll(pageable);\n154:     } else {\n155:       NotificationSearchParams searchParams = new NotificationSearchParams(queryParams);\n156:       page = notificationRepository.search(searchParams, pageable);\n157:     }\n158: \n159:     profiler.start(\"CREATE_DTOS\");\n160:     List<NotificationDto> notificationDtos = page\n161:         .getContent()\n162:         .s"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/notification/Application.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.notification;\n17: \n18: import com.google.common.collect.Lists;\n19: import"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/notification/web/usercontactdetails/UserContactDetailsController.java",
+          "start": "262"
+        },
+        "result_head": "262:   /**\n263:    * Verify user email address.\n264:    */\n265:   @GetMapping(value = \"/userContactDetails/{id}/verifications/{token}\")\n266:   @ResponseStatus(HttpStatus.OK)\n267:   @ResponseBody\n268:   public LocalizedMessage verifyContactDetail(@PathVariable(\"id\") UUID userId,\n269:       @PathVariable(\"token\") UUID token) {\n270:     EmailVerificationToken verificationToken = emailVerificationTokenRepository.findById(token)\n271:         .orElseThrow(() -> new ValidationException(ERROR_TOKEN_INVALID));\n272: \n273:     if (!userId.equals(verificationToken.getUserContactDetails().getReferenceDataUserId())) {\n274:       throw new ValidationException(ERROR_VERIFICATIONS_ID_MISMATCH);\n275:     }\n276: \n277:     if (verificationToken.isExpired()) {\n278:       throw new ValidationException(ERROR_TOKEN_EXPIRED);\n279:     }\n280: \n281:     UserContactDetails userContactDetails = userContactDetailsRepository.findById(userId)\n282:         .orElseThrow(() -> new NotFoundException(ERROR_USER_CONTACT_DE"
+      },
+      {
+        "step": 7,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main",
+          "pattern": "@(RestController|Controller|RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping)"
+        },
+        "result_head": "/src/main/java/org/openlmis/notification/web/VersionController.java:27: @RestController\n/src/main/java/org/openlmis/notification/web/VersionController.java:37: @RequestMapping(\"/notification\")\n/src/main/java/org/openlmis/notification/web/digestconfiguration/DigestConfigurationController.java:40: @RestController\n/src/main/java/org/openlmis/notification/web/digestconfiguration/DigestConfigurationController.java:41: @RequestMapping(RESOURCE_URL)\n/src/main/java/org/openlmis/notification/web/digestconfiguration/DigestConfigurationController.java:52: @GetMapping\n/src/main/java/org/openlmis/notification/web/digestconfiguration/DigestConfigurationController.java:76: @GetMapping(\"/{id}\")\n/src/main/java/org/openlmis/notification/web/errorhandler/WebErrorHandling.java:44: @ControllerAdvice\n/src/main/java/org/openlmis/notification/web/notification/NotificationController.java:58: @RestController\n/src/main/java/org/openlmis/notification/web/notification/NotificationController.java:59: @RequestMappin"
+      },
+      {
+        "step": 8,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"openlmis-notification\",\"dirs\":[\"/\"]}],\"files\":[\n{\"path\":\"/src/main/java/org/openlmis/notification/web/VersionController.java\",\"service\":\"openlmis-notification\",\"endpoints\":[{\"cla"
+        },
+        "result_head": "Recorded 16 new: service openlmis-notification, ANY /notification, GET /api/digestConfiguration, GET /api/digestConfiguration/{id}, POST /api/notifications, GET /api/notifications, GET /api/users/{id}/subscriptions, POST /api/users/{id}/subscriptions, GET /api/userContactDetails, GET /api/userContactDetails/{id}, PUT /api/userContactDetails/{id}, PUT /api/userContactDetails/batch, GET /api/userContactDetails/{id}/verifications, POST /api/userContactDetails/{id}/verifications, GET /api/userContactDetails/{id}/verifications/{token}, DELETE /api/userContactDetails/batch\nTotal: 1 services, 15 endpoints in 5 files."
+      },
+      {
+        "step": 9,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 1 services, 15 endpoints."
+      }
+    ]
+  }
+}

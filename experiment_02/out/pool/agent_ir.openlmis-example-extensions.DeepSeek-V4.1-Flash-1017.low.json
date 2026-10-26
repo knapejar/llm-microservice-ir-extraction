@@ -1,0 +1,184 @@
+{
+  "system": "openlmis-example-extensions",
+  "services": [
+    {
+      "name": "openlmis-example-extensions",
+      "dirs": [
+        "/"
+      ]
+    }
+  ],
+  "files": [],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "openlmis-example-extensions",
+    "commit": "3d18ed1a613c491c8748c9b8fe802e121d0e9811",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "record_nudges": 0,
+    "elided_results": 0,
+    "steps": 8,
+    "tool_calls": 18,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 25419,
+    "cached_input_tokens": 21632,
+    "output_tokens": 956,
+    "list_price_usd": 0.0012,
+    "wall_seconds": 10.3,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".gitignore\nDockerfile\nLICENSE\nREADME.md\nbuild.gradle\nbuild.sh\ndocker-compose.builder.yml\ndocker-compose.override.yml\ndocker-compose.yml\nextensions.properties\ngradle.properties\nlogback.xml\nsettings.gradle"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile"
+        },
+        "result_head": "/Dockerfile"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle"
+        },
+        "result_head": "1: rootProject.name = serviceName"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile"
+        },
+        "result_head": "1: FROM alpine:3.11\n2: \n3: COPY build/extensions/*.jar /etc/extensions/\n4: COPY extensions.properties /etc/extensions/\n5: \n6: CMD cp /etc/extensions/* /extensions/"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/build.gradle"
+        },
+        "result_head": "1: \n2: repositories {\n3:     mavenCentral()\n4:     maven { url \"https://oss.sonatype.org/content/repositories/snapshots\" }\n5: }\n6: \n7: configurations {\n8:     extension {\n9:         transitive = false\n10:     }\n11: }\n12: \n13: dependencies {\n14:     extension \"org.openlmis:openlmis-stockmanagement-validator-extension:0.0.1-SNAPSHOT\"\n15: }\n16: \n17: task copyExtensions(type: Copy) {\n18:     from configurations.extension.files\n19:     into 'build/extensions/'\n20: }"
+      },
+      {
+        "step": 3,
+        "tool": "find",
+        "args": {
+          "pattern": "*"
+        },
+        "result_head": "/.gitignore\n/Dockerfile\n/LICENSE\n/README.md\n/build.gradle\n/build.sh\n/docker-compose.builder.yml\n/docker-compose.override.yml\n/docker-compose.yml\n/extensions.properties\n/gradle.properties\n/logback.xml\n/settings.gradle"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/README.md"
+        },
+        "result_head": "1: # OpenLMIS Example Extensions\n2: This example is a Docker image containing extensions of OpenLMIS services. It is meant to demonstrate how extensions are added to openlmis-ref-distro.\n3: \n4: \n5: ## Quick start\n6: 1. Fork/clone this repository from GitHub.\n7:  ```shell\n8:  git clone https://github.com/OpenLMIS/openlmis-example-stockmanagement-validator-extension.git\n9:  ```\n10: 2. Add an environment file called `.env` to the root folder of the project, with the required \n11: project settings and credentials. For a starter environment file, you can use [this \n12: one](https://raw.githubusercontent.com/OpenLMIS/openlmis-ref-distro/master/settings-sample.env). eg:\n13:  ```shell\n14:  curl -o .env -L https://raw.githubusercontent.com/OpenLMIS/openlmis-ref-distro/master/settings-sample.env\n15:  ```\n16: \n17: 3. Start up the application.\n18:  ```shell\n19:  docker-compose -f ref-distro-example-docker-compose.yml up\n20:  ```\n21: 4. Check if the application behavior has changed according to the"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/docker-compose.yml"
+        },
+        "result_head": "1: version: \"2\"\n2: services:\n3: \n4:   openlmis-example-extensions:\n5:     image: openlmis/openlmis-example-extensions\n6:     volumes:\n7:       - 'extensions:/extensions'\n8: \n9: volumes:\n10:   extensions:\n11:     external: false"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/extensions.properties"
+        },
+        "result_head": "1: # Example extensions configuration\n2: AdjustmentReasonValidator=NoneValidator\n3: FreeTextValidator=ReasonFreeTextValidator\n4: UnpackKitValidator=NoKitsValidator"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/build.sh"
+        },
+        "result_head": "1: #!/bin/sh\n2: \n3: # Copy extensions with gradle\n4: gradle copyExtensions"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/docker-compose.override.yml"
+        },
+        "result_head": "1: version: \"2\"\n2: services:\n3: \n4:   openlmis-example-extensions:\n5:     image: openlmis/dev:1\n6:     volumes:\n7:       - '.:/app'\n8:       - 'gradlecache:/gradle'\n9: \n10: volumes:\n11:   gradlecache:\n12:     external: false"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "pattern": "(GetMapping|PostMapping|RequestMapping|RestController|Controller|@Path|app\\.(get|post)|router\\.)"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/docker-compose.builder.yml"
+        },
+        "result_head": "1: version: \"2\"\n2: services:\n3: \n4:   builder:\n5:     image: openlmis/dev:1\n6:     volumes:\n7:       - '.:/app'\n8:     command:\n9:       - './build.sh'\n10:     environment:\n11:       GRADLE_OPTS: '-Dorg.gradle.daemon=false'\n12: \n13:   image:\n14:     build: .\n15:     image: openlmis/openlmis-example-extensions"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/gradle.properties"
+        },
+        "result_head": "1: ######################################################################\n2: # Name of the service and group that is responsible for it\n3: ######################################################################\n4: serviceGroup=org.openlmis\n5: serviceName=openlmis-example-extensions\n6: \n7: ######################################################################\n8: # Current version of the service\n9: # Only a Release Manager should update this\n10: # See https://openlmis.atlassian.net/wiki/display/OP/Rolling+a+Release\n11: ######################################################################\n12: serviceVersion=0.0.1-SNAPSHOT"
+      },
+      {
+        "step": 6,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java"
+        },
+        "result_head": "(no files)"
+      },
+      {
+        "step": 6,
+        "tool": "find",
+        "args": {
+          "pattern": "*.{py,js,ts,go,cs,rb}"
+        },
+        "result_head": "(no files)"
+      },
+      {
+        "step": 7,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"openlmis-example-extensions\",\"dirs\":[\"/\"]}]}"
+        },
+        "result_head": "Recorded 1 new: service openlmis-example-extensions\nTotal: 1 services, 0 endpoints in 0 files.\nServices with no endpoints recorded yet: openlmis-example-extensions."
+      },
+      {
+        "step": 8,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 1 services, 0 endpoints."
+      }
+    ]
+  }
+}

@@ -1,0 +1,937 @@
+{
+  "system": "openlmis-stockmanagement",
+  "services": [
+    {
+      "name": "openlmis-stockmanagement",
+      "dirs": [
+        "/src",
+        "/config",
+        "/consul"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/OrganizationController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "OrganizationController",
+          "methodName": "createOrganization",
+          "httpMethod": "POST",
+          "path": "/api/organizations",
+          "line": 60,
+          "evidence": "@RequestMapping(value = \"organizations\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrganizationController",
+          "methodName": "getAllOrganizations",
+          "httpMethod": "GET",
+          "path": "/api/organizations",
+          "line": 78,
+          "evidence": "@RequestMapping(value = \"organizations\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrganizationController",
+          "methodName": "updateOrganization",
+          "httpMethod": "PUT",
+          "path": "/api/organizations/{id}",
+          "line": 91,
+          "evidence": "@RequestMapping(value = \"organizations/{id}\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/PhysicalInventoryController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "PhysicalInventoryController",
+          "methodName": "searchPhysicalInventory",
+          "httpMethod": "GET",
+          "path": "/api/physicalInventories",
+          "line": 102,
+          "evidence": "@RequestMapping(method = GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PhysicalInventoryController",
+          "methodName": "getPhysicalInventory",
+          "httpMethod": "GET",
+          "path": "/api/physicalInventories/{id}",
+          "line": 120,
+          "evidence": "@GetMapping(ID_PATH_VARIABLE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PhysicalInventoryController",
+          "methodName": "createEmptyPhysicalInventory",
+          "httpMethod": "POST",
+          "path": "/api/physicalInventories",
+          "line": 140,
+          "evidence": "@PostMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PhysicalInventoryController",
+          "methodName": "savePhysicalInventory",
+          "httpMethod": "PUT",
+          "path": "/api/physicalInventories/{id}",
+          "line": 156,
+          "evidence": "@PutMapping(ID_PATH_VARIABLE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PhysicalInventoryController",
+          "methodName": "deletePhysicalInventory",
+          "httpMethod": "DELETE",
+          "path": "/api/physicalInventories/{id}",
+          "line": 169,
+          "evidence": "@DeleteMapping(ID_PATH_VARIABLE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PhysicalInventoryController",
+          "methodName": "print",
+          "httpMethod": "GET",
+          "path": "/api/physicalInventories/{id}",
+          "line": 183,
+          "evidence": "@GetMapping(value = ID_PATH_VARIABLE, params = \"format\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/ReasonConfigurationOptionsController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "ReasonConfigurationOptionsController",
+          "methodName": "getReasonTypes",
+          "httpMethod": "GET",
+          "path": "/api/reasonTypes",
+          "line": 40,
+          "evidence": "@RequestMapping(value = \"/reasonTypes\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ReasonConfigurationOptionsController",
+          "methodName": "getReasonCategories",
+          "httpMethod": "GET",
+          "path": "/api/reasonCategories",
+          "line": 46,
+          "evidence": "@RequestMapping(value = \"/reasonCategories\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/ReportsController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "ReportsController",
+          "methodName": "getStockCard",
+          "httpMethod": "GET",
+          "path": "/api/stockCards/{id}/print",
+          "line": 58,
+          "evidence": "@GetMapping(value = \"/stockCards/{id}/print\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ReportsController",
+          "methodName": "getStockCardSummaries",
+          "httpMethod": "GET",
+          "path": "/api/stockCardSummaries/print",
+          "line": 80,
+          "evidence": "@GetMapping(value = \"/stockCardSummaries/print\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ReportsController",
+          "methodName": "print",
+          "httpMethod": "GET",
+          "path": "/api/stockEvents/{stockEventId}/print",
+          "line": 109,
+          "evidence": "@GetMapping(value = \"/stockEvents/{stockEventId}/print\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/StockCardLineItemReasonController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "StockCardLineItemReasonController",
+          "methodName": "createReason",
+          "httpMethod": "POST",
+          "path": "/api/stockCardLineItemReasons",
+          "line": 65,
+          "evidence": "@RequestMapping(value = \"stockCardLineItemReasons\", method = POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StockCardLineItemReasonController",
+          "methodName": "getAllReasons",
+          "httpMethod": "GET",
+          "path": "/api/stockCardLineItemReasons",
+          "line": 93,
+          "evidence": "@RequestMapping(value = \"stockCardLineItemReasons\", method = GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StockCardLineItemReasonController",
+          "methodName": "getReason",
+          "httpMethod": "GET",
+          "path": "/api/stockCardLineItemReasons/{id}",
+          "line": 113,
+          "evidence": "@RequestMapping(value = \"stockCardLineItemReasons/{id}\", method = GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StockCardLineItemReasonController",
+          "methodName": "updateReason",
+          "httpMethod": "PUT",
+          "path": "/api/stockCardLineItemReasons/{id}",
+          "line": 138,
+          "evidence": "@RequestMapping(value = \"stockCardLineItemReasons/{id}\", method = PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/StockCardLineItemReasonTagController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "StockCardLineItemReasonTagController",
+          "methodName": "getAllReasonTags",
+          "httpMethod": "GET",
+          "path": "/api/stockCardLineItemReasonTags",
+          "line": 37,
+          "evidence": "@GetMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/StockCardTemplatesController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "StockCardTemplatesController",
+          "methodName": "searchStockCardTemplate",
+          "httpMethod": "GET",
+          "path": "/api/stockCardTemplates",
+          "line": 55,
+          "evidence": "@RequestMapping(value = \"/stockCardTemplates\", method = GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StockCardTemplatesController",
+          "methodName": "createStockCardTemplate",
+          "httpMethod": "POST",
+          "path": "/api/stockCardTemplates",
+          "line": 75,
+          "evidence": "@RequestMapping(value = \"/stockCardTemplates\", method = POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/StockCardsController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "StockCardsController",
+          "methodName": "getStockCard",
+          "httpMethod": "ANY",
+          "path": "/api/stockCards/{stockCardId}",
+          "line": 67,
+          "evidence": "@RequestMapping(value = \"/stockCards/{stockCardId}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StockCardsController",
+          "methodName": "search",
+          "httpMethod": "ANY",
+          "path": "/api/stockCards",
+          "line": 88,
+          "evidence": "@RequestMapping(value = \"/stockCards\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StockCardsController",
+          "methodName": "getStockCardSummaries",
+          "httpMethod": "ANY",
+          "path": "/api/stockCardSummaries",
+          "line": 99,
+          "evidence": "@RequestMapping(value = \"/stockCardSummaries\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StockCardsController",
+          "methodName": "getStockCardSummariesFor",
+          "httpMethod": "ANY",
+          "path": "/api/stockCardSummaries/noCards",
+          "line": 124,
+          "evidence": "@RequestMapping(value = \"/stockCardSummaries/noCards\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StockCardsController",
+          "methodName": "deactivate",
+          "httpMethod": "POST",
+          "path": "/api/stockCards/{stockCardId}/deactivate",
+          "line": 139,
+          "evidence": "@RequestMapping(value = \"/stockCards/{stockCardId}/deactivate\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StockCardsController",
+          "methodName": "deactivate",
+          "httpMethod": "POST",
+          "path": "/api/stockCards/deactivate",
+          "line": 153,
+          "evidence": "@RequestMapping(value = \"/stockCards/deactivate\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/StockEventsController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "StockEventsController",
+          "methodName": "createStockEvent",
+          "httpMethod": "POST",
+          "path": "/api/stockEvents",
+          "line": 90,
+          "evidence": "@RequestMapping(value = \"stockEvents\", method = POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StockEventsController",
+          "methodName": "cancelStockEvent",
+          "httpMethod": "POST",
+          "path": "/api/stockEvents/{id}/cancel",
+          "line": 115,
+          "evidence": "@RequestMapping(value = \"stockEvents/{id}/cancel\", method = POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StockEventsController",
+          "methodName": "getStockEvents",
+          "httpMethod": "GET",
+          "path": "/api/stockEvents",
+          "line": 131,
+          "evidence": "@GetMapping(\"stockEvents\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StockEventsController",
+          "methodName": "getStockEvent",
+          "httpMethod": "GET",
+          "path": "/api/stockEvents/{id}",
+          "line": 173,
+          "evidence": "@GetMapping(\"stockEvents/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "StockEventsController",
+          "methodName": "getStockEventLineItems",
+          "httpMethod": "GET",
+          "path": "/api/stockEvents/{id}/lineItems",
+          "line": 185,
+          "evidence": "@GetMapping(\"stockEvents/{id}/lineItems\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/ValidReasonAssignmentController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "ValidReasonAssignmentController",
+          "methodName": "getValidReasons",
+          "httpMethod": "GET",
+          "path": "/api/validReasons",
+          "line": 81,
+          "evidence": "@RequestMapping(value = \"/validReasons\", method = GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ValidReasonAssignmentController",
+          "methodName": "removeReasonAssignment",
+          "httpMethod": "DELETE",
+          "path": "/api/validReasons/{id}",
+          "line": 105,
+          "evidence": "@RequestMapping(value = \"/validReasons/{id}\", method = DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ValidReasonAssignmentController",
+          "methodName": "assignReason",
+          "httpMethod": "POST",
+          "path": "/api/validReasons",
+          "line": 127,
+          "evidence": "@RequestMapping(value = \"/validReasons\", method = POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/ValidSourceDestinationController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "ValidSourceDestinationController",
+          "methodName": "getValidDestinations",
+          "httpMethod": "GET",
+          "path": "/api/validDestinations",
+          "line": 70,
+          "evidence": "@GetMapping(value = \"/validDestinations\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ValidSourceDestinationController",
+          "methodName": "assignDestination",
+          "httpMethod": "POST",
+          "path": "/api/validDestinations",
+          "line": 87,
+          "evidence": "@PostMapping(value = \"/validDestinations\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ValidSourceDestinationController",
+          "methodName": "getValidSources",
+          "httpMethod": "GET",
+          "path": "/api/validSources",
+          "line": 110,
+          "evidence": "@GetMapping(value = \"/validSources\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ValidSourceDestinationController",
+          "methodName": "assignSource",
+          "httpMethod": "POST",
+          "path": "/api/validSources",
+          "line": 127,
+          "evidence": "@PostMapping(value = \"/validSources\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ValidSourceDestinationController",
+          "methodName": "removeValidSourceAssignment",
+          "httpMethod": "DELETE",
+          "path": "/api/validSources/{id}",
+          "line": 147,
+          "evidence": "@DeleteMapping(value = \"/validSources/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ValidSourceDestinationController",
+          "methodName": "removeValidDestinationAssignment",
+          "httpMethod": "DELETE",
+          "path": "/api/validDestinations/{id}",
+          "line": 160,
+          "evidence": "@DeleteMapping(value = \"/validDestinations/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/VersionController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "VersionController",
+          "methodName": "display",
+          "httpMethod": "ANY",
+          "path": "/stockmanagement",
+          "line": 37,
+          "evidence": "@RequestMapping(\"/stockmanagement\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/external/stockcardsummaries/StockCardSummariesExternalController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "StockCardSummariesExternalController",
+          "methodName": "getStockCardSummaries",
+          "httpMethod": "GET",
+          "path": "/api/public/stockCardSummaries",
+          "line": 80,
+          "evidence": "@GetMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/external/stockevents/StockEventsExternalController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "StockEventsExternalController",
+          "methodName": "createStockEvent",
+          "httpMethod": "POST",
+          "path": "/api/public/stockEvents",
+          "line": 44,
+          "evidence": "@PostMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/report/PhysicalInventoryTemplateController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "PhysicalInventoryTemplateController",
+          "methodName": "saveTemplate",
+          "httpMethod": "POST",
+          "path": "/api/physicalInventoryTemplates",
+          "line": 70,
+          "evidence": "@PostMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PhysicalInventoryTemplateController",
+          "methodName": "downloadXmlTemplate",
+          "httpMethod": "GET",
+          "path": "/api/physicalInventoryTemplates",
+          "line": 87,
+          "evidence": "@GetMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/stockcardrangesummary/StockCardRangeSummaryController.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "StockCardRangeSummaryController",
+          "methodName": "getStockCardRangeSummaries",
+          "httpMethod": "GET",
+          "path": "/api/stockCardRangeSummaries",
+          "line": 57,
+          "evidence": "@GetMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/stockmanagement/web/stockcardsummariesv2/StockCardSummariesV2Controller.java",
+      "service": "openlmis-stockmanagement",
+      "endpoints": [
+        {
+          "className": "StockCardSummariesV2Controller",
+          "methodName": "getStockCardSummaries",
+          "httpMethod": "GET",
+          "path": "/api/v2/stockCardSummaries",
+          "line": 54,
+          "evidence": "@GetMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "openlmis-stockmanagement",
+    "commit": "4d0e5cfc8f31a5e764b825739ab6af06870a93bf",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "record_nudges": 0,
+    "elided_results": 0,
+    "steps": 13,
+    "tool_calls": 36,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 163642,
+    "cached_input_tokens": 134016,
+    "output_tokens": 6013,
+    "list_price_usd": 0.0085,
+    "wall_seconds": 29.0,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".dockerignore\n.github/\n.gitignore\nCHANGELOG.md\nDockerfile\nERROR_HANDLING.md\nJenkinsfile\nLICENSE\nLICENSE-HEADER\nNEW_SERVICE.md\nREADME.md\nSTYLE-GUIDE.md\nTESTING.md\nbuild.gradle\nbuild.sh\ncheckStyleAndPMD.sh\nci-buildImage.sh\nci-erdGeneration.sh\nconfig/\nconsul/\ndiagrams/\ndocker-compose.builder.yml\ndocker-compose.erd-generation.yml\ndocker-compose.override.yml\ndocker-compose.yml\ndocumentation.gradle\nexport_schema.sh\ngenerateErdFor.sh\ngradle.properties\ngradle/\ngradlew\ngradlew.bat\nlocal-manual-api-test/\npackage-lock.json\npackage.json\nperf_test/\nperformance/\npublishing.gradle\nregistration.gradle\nsettings.gradle\nsonar-project.properties\nsrc/"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile"
+        },
+        "result_head": "/Dockerfile"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle"
+        },
+        "result_head": "1: rootProject.name = serviceName"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller.java"
+        },
+        "result_head": "/src/main/java/org/openlmis/stockmanagement/web/BaseController.java\n/src/main/java/org/openlmis/stockmanagement/web/OrganizationController.java\n/src/main/java/org/openlmis/stockmanagement/web/PhysicalInventoryController.java\n/src/main/java/org/openlmis/stockmanagement/web/ReasonConfigurationOptionsController.java\n/src/main/java/org/openlmis/stockmanagement/web/ReportsController.java\n/src/main/java/org/openlmis/stockmanagement/web/StockCardLineItemReasonController.java\n/src/main/java/org/openlmis/stockmanagement/web/StockCardLineItemReasonTagController.java\n/src/main/java/org/openlmis/stockmanagement/web/StockCardTemplatesController.java\n/src/main/java/org/openlmis/stockmanagement/web/StockCardsController.java\n/src/main/java/org/openlmis/stockmanagement/web/StockEventsController.java\n/src/main/java/org/openlmis/stockmanagement/web/ValidReasonAssignmentController.java\n/src/main/java/org/openlmis/stockmanagement/web/ValidSourceDestinationController.java\n/src/main/java/org/openlmis/stockma"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/BaseController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.stockmanagement.web;\n17: \n18: import org.slf4j.ext.XLogger;\n19: import or"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/OrganizationController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.stockmanagement.web;\n17: \n18: import static org.openlmis.stockmanagement."
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/PhysicalInventoryController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.stockmanagement.web;\n17: \n18: import static java.lang.String.join;\n19: im"
+      },
+      {
+        "step": 4,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)",
+          "path": "/src/main/java/org/openlmis/stockmanagement/web"
+        },
+        "result_head": "/src/main/java/org/openlmis/stockmanagement/web/OrganizationController.java:43: @RequestMapping(\"/api\")\n/src/main/java/org/openlmis/stockmanagement/web/OrganizationController.java:60: @RequestMapping(value = \"organizations\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/stockmanagement/web/OrganizationController.java:78: @RequestMapping(value = \"organizations\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/stockmanagement/web/OrganizationController.java:91: @RequestMapping(value = \"organizations/{id}\", method = RequestMethod.PUT)\n/src/main/java/org/openlmis/stockmanagement/web/PhysicalInventoryController.java:65: @RequestMapping(\"/api/physicalInventories\")\n/src/main/java/org/openlmis/stockmanagement/web/PhysicalInventoryController.java:102: @RequestMapping(method = GET)\n/src/main/java/org/openlmis/stockmanagement/web/PhysicalInventoryController.java:120: @GetMapping(ID_PATH_VARIABLE)\n/src/main/java/org/openlmis/stockmanagement/web/PhysicalInventoryController.java:1"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/ValidSourceDestinationController.java",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)"
+        },
+        "result_head": "/src/main/java/org/openlmis/stockmanagement/web/ValidSourceDestinationController.java:48: @RequestMapping(\"/api\")\n/src/main/java/org/openlmis/stockmanagement/web/ValidSourceDestinationController.java:70: @GetMapping(value = \"/validDestinations\")\n/src/main/java/org/openlmis/stockmanagement/web/ValidSourceDestinationController.java:87: @PostMapping(value = \"/validDestinations\")\n/src/main/java/org/openlmis/stockmanagement/web/ValidSourceDestinationController.java:110: @GetMapping(value = \"/validSources\")\n/src/main/java/org/openlmis/stockmanagement/web/ValidSourceDestinationController.java:127: @PostMapping(value = \"/validSources\")\n/src/main/java/org/openlmis/stockmanagement/web/ValidSourceDestinationController.java:147: @DeleteMapping(value = \"/validSources/{id}\")\n/src/main/java/org/openlmis/stockmanagement/web/ValidSourceDestinationController.java:160: @DeleteMapping(value = \"/validDestinations/{id}\")"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/VersionController.java",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)"
+        },
+        "result_head": "/src/main/java/org/openlmis/stockmanagement/web/VersionController.java:37: @RequestMapping(\"/stockmanagement\")"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/external",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)"
+        },
+        "result_head": "/src/main/java/org/openlmis/stockmanagement/web/external/stockcardsummaries/StockCardSummariesExternalController.java:52: @RequestMapping(\"/api/public/stockCardSummaries\")\n/src/main/java/org/openlmis/stockmanagement/web/external/stockcardsummaries/StockCardSummariesExternalController.java:80: @GetMapping\n/src/main/java/org/openlmis/stockmanagement/web/external/stockevents/StockEventsExternalController.java:35: @RequestMapping(\"/api/public/stockEvents\")\n/src/main/java/org/openlmis/stockmanagement/web/external/stockevents/StockEventsExternalController.java:44: @PostMapping"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/report",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)"
+        },
+        "result_head": "/src/main/java/org/openlmis/stockmanagement/web/report/PhysicalInventoryTemplateController.java:48: @RequestMapping(\"/api/physicalInventoryTemplates\")\n/src/main/java/org/openlmis/stockmanagement/web/report/PhysicalInventoryTemplateController.java:70: @PostMapping\n/src/main/java/org/openlmis/stockmanagement/web/report/PhysicalInventoryTemplateController.java:87: @GetMapping"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/stockcardrangesummary",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)"
+        },
+        "result_head": "/src/main/java/org/openlmis/stockmanagement/web/stockcardrangesummary/StockCardRangeSummaryController.java:37: @RequestMapping(\"/api/stockCardRangeSummaries\")\n/src/main/java/org/openlmis/stockmanagement/web/stockcardrangesummary/StockCardRangeSummaryController.java:57: @GetMapping"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/stockcardsummariesv2",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)"
+        },
+        "result_head": "/src/main/java/org/openlmis/stockmanagement/web/stockcardsummariesv2/StockCardSummariesV2Controller.java:37: @RequestMapping(\"/api/v2/stockCardSummaries\")\n/src/main/java/org/openlmis/stockmanagement/web/stockcardsummariesv2/StockCardSummariesV2Controller.java:54: @GetMapping"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/VersionController.java",
+          "start": "30"
+        },
+        "result_head": "30:   private static final Logger LOGGER = LoggerFactory.getLogger(VersionController.class);\n31: \n32:   /**\n33:    * Displays version information.\n34:    *\n35:    * @return {Version} Returns version read from file.\n36:    */\n37:   @RequestMapping(\"/stockmanagement\")\n38:   public Version display() {\n39:     LOGGER.debug(\"Returning version\");\n40:     return new Version();\n41:   }\n42: }"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/StockCardsController.java",
+          "start": "40"
+        },
+        "result_head": "40: import org.springframework.web.bind.annotation.RequestMapping;\n41: import org.springframework.web.bind.annotation.RequestMethod;\n42: import org.springframework.web.bind.annotation.RequestParam;\n43: import org.springframework.web.bind.annotation.ResponseStatus;\n44: import org.springframework.web.bind.annotation.RestController;\n45: \n46: @RestController\n47: @RequestMapping(\"/api\")\n48: public class StockCardsController {\n49: \n50:   private static final Logger LOGGER = LoggerFactory.getLogger(StockCardsController.class);\n51: \n52:   @Autowired\n53:   private PermissionService permissionService;\n54: \n55:   @Autowired\n56:   private StockCardService stockCardService;\n57: \n58:   @Autowired\n59:   private StockCardSummariesService stockCardSummariesService;\n60: \n61:   /**\n62:    * Get stock card by id.\n63:    *\n64:    * @param stockCardId stock card id.\n65:    * @return found stock card.\n66:    */\n67:   @RequestMapping(value = \"/stockCards/{stockCardId}\")\n68:   public ResponseEntity<StockCardDt"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/StockEventsController.java",
+          "start": "60"
+        },
+        "result_head": "60: /**\n61:  * Controller used to create stock event.\n62:  */\n63: @Controller\n64: @Transactional\n65: @RequestMapping(\"/api\")\n66: public class StockEventsController extends BaseController {\n67:   private static final Logger LOGGER = LoggerFactory.getLogger(StockEventsController.class);\n68: \n69:   @Autowired\n70:   private PermissionService permissionService;\n71: \n72:   @Autowired\n73:   private HomeFacilityPermissionService homeFacilityPermissionService;\n74: \n75:   @Autowired\n76:   private StockEventProcessor stockEventProcessor;\n77: \n78:   @Autowired\n79:   private StockEventsService stockEventsService;\n80: \n81:   @Autowired\n82:   private StockEventCancelService stockEventCancelService;\n83: \n84:   /**\n85:    * Create stock event.\n86:    *\n87:    * @param eventDto a stock event bound to request body.\n88:    * @return created stock event's ID.\n89:    */\n90:   @RequestMapping(value = \"stockEvents\", method = POST)\n91:   public ResponseEntity<UUID> createStockEvent(@RequestBody StockEventDto e"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/PhysicalInventoryController.java",
+          "start": "120"
+        },
+        "result_head": "120:   @GetMapping(ID_PATH_VARIABLE)\n121:   @ResponseStatus(OK)\n122:   @ResponseBody\n123:   public PhysicalInventoryDto getPhysicalInventory(@PathVariable UUID id) {\n124:     PhysicalInventory foundInventory = physicalInventoryRepository.findById(id)\n125:         .orElseThrow(() ->\n126:             new ResourceNotFoundException(new Message(ERROR_PHYSICAL_INVENTORY_NOT_FOUND, id)));\n127: \n128:     physicalInventoryService.checkPermission(\n129:         foundInventory.getProgramId(), foundInventory.getFacilityId());\n130: \n131:     return PhysicalInventoryDto.from(foundInventory);\n132:   }\n133: \n134:   /**\n135:    * Creates an empty physical inventory.\n136:    *\n137:    * @return created physical inventory dto.\n138:    */\n139:   @Transactional\n140:   @PostMapping\n141:   @ResponseStatus(CREATED)\n142:   @ResponseBody\n143:   public PhysicalInventoryDto createEmptyPhysicalInventory(\n144:       @RequestBody PhysicalInventoryDto dto) {\n145:     return physicalInventoryService.createNewDraft(dto)"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/ReasonConfigurationOptionsController.java",
+          "start": "30"
+        },
+        "result_head": "30: import org.springframework.web.bind.annotation.RequestMethod;\n31: import org.springframework.web.bind.annotation.RestController;\n32: \n33: @RestController\n34: @RequestMapping(\"/api\")\n35: public class ReasonConfigurationOptionsController {\n36: \n37:   @Autowired\n38:   private PermissionService permissionService;\n39: \n40:   @RequestMapping(value = \"/reasonTypes\", method = RequestMethod.GET)\n41:   public List<ReasonType> getReasonTypes() {\n42:     permissionService.canManageReasons();\n43:     return asList(CREDIT, DEBIT);\n44:   }\n45: \n46:   @RequestMapping(value = \"/reasonCategories\", method = RequestMethod.GET)\n47:   public List<ReasonCategory> getReasonCategories() {\n48:     permissionService.canManageReasons();\n49:     return asList(TRANSFER, ADJUSTMENT);\n50:   }\n51: }"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/ReportsController.java",
+          "start": "38"
+        },
+        "result_head": "38: \n39: @Controller\n40: @RequestMapping(\"/api\")\n41: @RequiredArgsConstructor\n42: public class ReportsController {\n43: \n44:   private static final Logger LOGGER = LoggerFactory.getLogger(ReportsController.class);\n45: \n46:   private static final String HEADER_CONTENT_DISPOSITION = \"Content-Disposition\";\n47: \n48:   private final JasperReportService reportService;\n49:   private final PermissionService permissionService;\n50:   private final StockEventsRepository stockEventsRepository;\n51: \n52:   /**\n53:    * Get stock card report in PDF format.\n54:    *\n55:    * @param stockCardId stock card id.\n56:    * @return generated PDF report\n57:    */\n58:   @GetMapping(value = \"/stockCards/{id}/print\")\n59:   @ResponseBody\n60:   public ResponseEntity<byte[]> getStockCard(@PathVariable(\"id\") UUID stockCardId,\n61:        @RequestParam(defaultValue = \"en\") String lang,\n62:        @RequestParam(required = false, defaultValue = \"true\") Boolean showInDoses) {\n63:     LOGGER.info(\"Try to generate stock car"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/StockCardLineItemReasonController.java",
+          "start": "40"
+        },
+        "result_head": "40: import org.springframework.web.bind.annotation.RequestMapping;\n41: import org.springframework.web.bind.annotation.ResponseBody;\n42: import org.springframework.web.bind.annotation.ResponseStatus;\n43: \n44: @Controller\n45: @RequestMapping(\"/api\")\n46: public class StockCardLineItemReasonController extends BaseController {\n47:   private static final Logger LOGGER =\n48:       LoggerFactory.getLogger(StockCardLineItemReasonController.class);\n49: \n50:   @Autowired\n51:   private StockCardLineItemReasonService reasonService;\n52: \n53:   @Autowired\n54:   private StockCardLineItemReasonRepository reasonRepository;\n55: \n56:   @Autowired\n57:   private PermissionService permissionService;\n58: \n59:   /**\n60:    * Create a new stock card line item reason. If the ID is specified, ID will be ignored.\n61:    *\n62:    * @param reason a stock card line item reason bound to request body\n63:    * @return created stock card line item reason\n64:    */\n65:   @RequestMapping(value = \"stockCardLineItemReasons\","
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/StockCardLineItemReasonTagController.java",
+          "start": "25"
+        },
+        "result_head": "25: import org.springframework.web.bind.annotation.ResponseBody;\n26: \n27: @Controller\n28: @RequestMapping(\"/api/stockCardLineItemReasonTags\")\n29: public class StockCardLineItemReasonTagController extends BaseController {\n30: \n31:   @Autowired\n32:   private StockCardLineItemReasonRepository reasonRepository;\n33: \n34:   /**\n35:    * Retrieve all stock card line item reason tags.\n36:    */\n37:   @GetMapping\n38:   @ResponseBody\n39:   public List<String> getAllReasonTags() {\n40:     Profiler profiler = getProfiler(\"GET_REASON_TAGS\");\n41: \n42:     profiler.start(\"DB_CALL\");\n43:     List<String> tags = reasonRepository.findTags();\n44: \n45:     return stopProfiler(profiler, tags);\n46:   }\n47: \n48: }"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/StockCardTemplatesController.java",
+          "start": "35"
+        },
+        "result_head": "35: /**\n36:  * Controller used for creating/getting stock card templates.\n37:  */\n38: @Controller\n39: @RequestMapping(\"/api\")\n40: public class StockCardTemplatesController {\n41: \n42:   @Autowired\n43:   private StockCardTemplateService stockCardTemplateService;\n44: \n45:   @Autowired\n46:   private PermissionService permissionService;\n47: \n48:   /**\n49:    * Search for stock card template by program id and facility type id.\n50:    *\n51:    * @param program      Program id\n52:    * @param facilityType Facility type id\n53:    * @return The found stock card template, or 404 when not found.\n54:    */\n55:   @RequestMapping(value = \"/stockCardTemplates\", method = GET)\n56:   public ResponseEntity<StockCardTemplateDto> searchStockCardTemplate(\n57:           @RequestParam(required = false) UUID program,\n58:           @RequestParam(required = false) UUID facilityType) {\n59: \n60:     boolean isRequestingForDefaultTemplate = program == null && facilityType == null;\n61: \n62:     if (isRequestingForDef"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/ValidReasonAssignmentController.java",
+          "start": "50"
+        },
+        "result_head": "50: import org.springframework.web.bind.annotation.RequestMapping;\n51: import org.springframework.web.bind.annotation.RequestParam;\n52: import org.springframework.web.bind.annotation.ResponseBody;\n53: \n54: @Controller\n55: @RequestMapping(\"/api\")\n56: public class ValidReasonAssignmentController {\n57: \n58:   @Autowired\n59:   private StockCardLineItemReasonRepository reasonRepository;\n60: \n61:   @Autowired\n62:   private ValidReasonAssignmentRepository reasonAssignmentRepository;\n63: \n64:   @Autowired\n65:   private ProgramFacilityTypeExistenceService programFacilityTypeExistenceService;\n66: \n67:   @Autowired\n68:   private PermissionService permissionService;\n69: \n70:   @Autowired\n71:   private ValidReasonAssignmentDtoBuilder reasonAssignmentDtoBuilder;\n72: \n73:   private static final Logger LOGGER = LoggerFactory.getLogger(StockCardsController.class);\n74: \n75:   /**\n76:    * Get a list of valid reasons.\n77:    *\n78:    * @param queryParams request parameters\n79:    * @return A list of vali"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java",
+          "pattern": "@(RestController|Controller)"
+        },
+        "result_head": "/src/main/java/org/openlmis/stockmanagement/errorhandling/AbstractErrorHandling.java:30: @ControllerAdvice\n/src/main/java/org/openlmis/stockmanagement/errorhandling/GlobalErrorHandling.java:47: @ControllerAdvice\n/src/main/java/org/openlmis/stockmanagement/web/OrganizationController.java:42: @Controller\n/src/main/java/org/openlmis/stockmanagement/web/PhysicalInventoryController.java:64: @Controller\n/src/main/java/org/openlmis/stockmanagement/web/ReasonConfigurationOptionsController.java:33: @RestController\n/src/main/java/org/openlmis/stockmanagement/web/ReportsController.java:39: @Controller\n/src/main/java/org/openlmis/stockmanagement/web/StockCardLineItemReasonController.java:44: @Controller\n/src/main/java/org/openlmis/stockmanagement/web/StockCardLineItemReasonTagController.java:27: @Controller\n/src/main/java/org/openlmis/stockmanagement/web/StockCardTemplatesController.java:38: @Controller\n/src/main/java/org/openlmis/stockmanagement/web/StockCardsController.java:46: @RestController\n/"
+      },
+      {
+        "step": 9,
+        "tool": "find",
+        "args": {
+          "pattern": "*Application*.java"
+        },
+        "result_head": "/src/main/java/org/openlmis/stockmanagement/Application.java"
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/ValidSourceDestinationController.java",
+          "start": "45"
+        },
+        "result_head": "45: import org.springframework.web.bind.annotation.RestController;\n46: \n47: @RestController\n48: @RequestMapping(\"/api\")\n49: public class ValidSourceDestinationController {\n50: \n51:   private static final Logger LOGGER =\n52:       LoggerFactory.getLogger(ValidSourceDestinationController.class);\n53: \n54:   @Autowired\n55:   private PermissionService permissionService;\n56: \n57:   @Autowired\n58:   private ValidSourceService validSourceService;\n59: \n60:   @Autowired\n61:   private ValidDestinationService validDestinationService;\n62: \n63:   /**\n64:    * Get a page with list of valid destinations.\n65:    *\n66:    * @param parameters filtering parameters.\n67:    * @param pageable valid sources pagination parameters\n68:    * @return found valid destinations\n69:    */\n70:   @GetMapping(value = \"/validDestinations\")\n71:   public Page<ValidSourceDestinationDto> getValidDestinations(\n72:       @RequestParam MultiValueMap<String, String> parameters, Pageable pageable) {\n73:     ValidSourceDestinationS"
+      },
+      {
+        "step": 10,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/external/stockcardsummaries/StockCardSummariesExternalController.java",
+          "start": "48"
+        },
+        "result_head": "48: import org.springframework.web.bind.annotation.RequestParam;\n49: import org.springframework.web.bind.annotation.RestController;\n50: \n51: @RestController\n52: @RequestMapping(\"/api/public/stockCardSummaries\")\n53: public class StockCardSummariesExternalController {\n54:   private static final Logger LOGGER =\n55:       LoggerFactory.getLogger(StockCardSummariesExternalController.class);\n56: \n57:   static final String FACILITY_CODE_PARAM_NAME = \"facility\";\n58:   static final String PROGRAM_CODE_PARAM_NAME = \"program\";\n59:   static final String ORDERABLE_CODE_PARAM_NAME = \"code\";\n60: \n61:   @Autowired\n62:   private StockCardSummariesService stockCardSummariesService;\n63: \n64:   @Autowired\n65:   private StockCardSummariesExternalDtoBuilder stockCardSummariesExternalDtoBuilder;\n66: \n67:   @Autowired\n68:   private FacilityReferenceDataService facilityReferenceDataService;\n69: \n70:   @Autowired\n71:   private ProgramReferenceDataService programReferenceDataService;\n72: \n73:   /**\n74:    * Get "
+      },
+      {
+        "step": 10,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/external/stockevents/StockEventsExternalController.java",
+          "start": "30"
+        },
+        "result_head": "30:  * Adapter Controller which converts {@link StockEventExternalDto} and delegates work to\n31:  * {@link StockEventsExternalController}.\n32:  */\n33: @Transactional\n34: @RestController\n35: @RequestMapping(\"/api/public/stockEvents\")\n36: public class StockEventsExternalController extends BaseController {\n37: \n38:   @Autowired\n39:   private StockEventsAdapterBuilder builder;\n40: \n41:   @Autowired\n42:   private StockEventsController stockEventsController;\n43: \n44:   @PostMapping\n45:   public ResponseEntity<UUID> createStockEvent(@RequestBody StockEventExternalDto eventDto) {\n46:     return stockEventsController.createStockEvent(builder.build(eventDto));\n47:   }\n48: }"
+      },
+      {
+        "step": 10,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/report/PhysicalInventoryTemplateController.java",
+          "start": "44"
+        },
+        "result_head": "44: import org.springframework.web.multipart.MultipartFile;\n45: \n46: @Controller\n47: @Transactional\n48: @RequestMapping(\"/api/physicalInventoryTemplates\")\n49: public class PhysicalInventoryTemplateController {\n50: \n51:   private static final Logger LOGGER =\n52:       LoggerFactory.getLogger(PhysicalInventoryTemplateController.class);\n53: \n54:   private static final String PRINT_PI = \"Print PI\";\n55:   private static final String DESCRIPTION_PI = \"Template to print Physical Inventory\";\n56:   private static final String CONSISTENCY_REPORT = \"Consistency Report\";\n57: \n58:   @Autowired\n59:   private JasperTemplateService templateService;\n60: \n61:   @Autowired\n62:   private PermissionService permissionService;\n63: \n64:   /**\n65:    * Add Physical Inventory report templates with \".jrxml\" format(extension) to database, remove\n66:    * older one if already exists.\n67:    *\n68:    * @param file File in \".jrxml\" format to add or upload.\n69:    */\n70:   @PostMapping\n71:   @ResponseStatus(HttpStatu"
+      },
+      {
+        "step": 10,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/stockcardrangesummary/StockCardRangeSummaryController.java",
+          "start": "33"
+        },
+        "result_head": "33: import org.springframework.web.bind.annotation.RequestParam;\n34: import org.springframework.web.bind.annotation.RestController;\n35: \n36: @RestController\n37: @RequestMapping(\"/api/stockCardRangeSummaries\")\n38: public class StockCardRangeSummaryController {\n39: \n40:   private static final Logger LOGGER =\n41:       LoggerFactory.getLogger(StockCardRangeSummaryController.class);\n42: \n43:   @Autowired\n44:   private StockCardSummariesService stockCardSummariesService;\n45: \n46:   @Autowired\n47:   private StockCardRangeSummaryBuilder builder;\n48: \n49:   @Autowired\n50:   private PermissionService permissionService;\n51: \n52:   /**\n53:    * Get stock card range summaries by program and facility.\n54:    *\n55:    * @return Stock card range summaries.\n56:    */\n57:   @GetMapping\n58:   public Page<StockCardRangeSummaryDto> getStockCardRangeSummaries(\n59:       @RequestParam MultiValueMap<String, String> parameters,\n60:       @PageableDefault(size = Integer.MAX_VALUE) Pageable pageable) {\n61: \n62:"
+      },
+      {
+        "step": 10,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/web/stockcardsummariesv2/StockCardSummariesV2Controller.java",
+          "start": "33"
+        },
+        "result_head": "33: import org.springframework.web.bind.annotation.RequestParam;\n34: import org.springframework.web.bind.annotation.RestController;\n35: \n36: @RestController\n37: @RequestMapping(\"/api/v2/stockCardSummaries\")\n38: public class StockCardSummariesV2Controller {\n39: \n40:   private static final Logger LOGGER =\n41:       LoggerFactory.getLogger(StockCardSummariesV2Controller.class);\n42: \n43:   @Autowired\n44:   private StockCardSummariesService stockCardSummariesService;\n45: \n46:   @Autowired\n47:   private StockCardSummariesV2DtoBuilder stockCardSummariesV2DtoBuilder;\n48: \n49:   /**\n50:    * Get stock card summaries by program and facility.\n51:    *\n52:    * @return Stock card summaries.\n53:    */\n54:   @GetMapping\n55:   public Page<StockCardSummaryV2Dto> getStockCardSummaries(\n56:       @RequestParam MultiValueMap<String, String> parameters,\n57:       @PageableDefault(size = Integer.MAX_VALUE) Pageable pageable) {\n58: \n59:     Profiler profiler = new Profiler(\"GET_STOCK_CARDS_V2\");\n60:     pro"
+      },
+      {
+        "step": 11,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/stockmanagement/Application.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.stockmanagement;\n17: \n18: import java.time.Clock;\n19: import java.time.Zo"
+      },
+      {
+        "step": 11,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile"
+        },
+        "result_head": "1: FROM openlmis/service-base:7\n2: \n3: COPY build/libs/*.jar /service.jar\n4: COPY src/main/resources/db/demo-data/*.csv /demo-data/\n5: COPY build/schema /schema\n6: \n7: COPY build/consul /consul\n8: WORKDIR /consul\n9: \n10: RUN npm install --production\n11: \n12: WORKDIR /\n13: "
+      },
+      {
+        "step": 12,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"openlmis-stockmanagement\",\"dirs\":[\"/src\",\"/config\",\"/consul\"]}],\"files\":[\n{\"path\":\"/src/main/java/org/openlmis/stockmanagement/web/OrganizationController.java\",\"service\":\"openlmi"
+        },
+        "result_head": "Recorded 49 new: service openlmis-stockmanagement, POST /api/organizations, GET /api/organizations, PUT /api/organizations/{id}, GET /api/physicalInventories, GET /api/physicalInventories/{id}, POST /api/physicalInventories, PUT /api/physicalInventories/{id}, DELETE /api/physicalInventories/{id}, GET /api/physicalInventories/{id}, GET /api/reasonTypes, GET /api/reasonCategories, GET /api/stockCards/{id}/print, GET /api/stockCardSummaries/print, GET /api/stockEvents/{stockEventId}/print, POST /api/stockCardLineItemReasons, GET /api/stockCardLineItemReasons, GET /api/stockCardLineItemReasons/{id}, PUT /api/stockCardLineItemReasons/{id}, GET /api/stockCardLineItemReasonTags, GET /api/stockCardTemplates, POST /api/stockCardTemplates, ANY /api/stockCards/{stockCardId}, ANY /api/stockCards, ANY /api/stockCardSummaries, ANY /api/stockCardSummaries/noCards, POST /api/stockCards/{stockCardId}/deactivate, POST /api/stockCards/deactivate, POST /api/stockEvents, POST /api/stockEvents/{id}/cancel, "
+      },
+      {
+        "step": 13,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 1 services, 48 endpoints."
+      }
+    ]
+  }
+}

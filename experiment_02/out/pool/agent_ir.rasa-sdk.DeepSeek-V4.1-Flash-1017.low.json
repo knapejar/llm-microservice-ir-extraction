@@ -1,0 +1,241 @@
+{
+  "system": "rasa-sdk",
+  "services": [
+    {
+      "name": "rasa-sdk-action-server",
+      "dirs": [
+        "/rasa_sdk"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/rasa_sdk/endpoint.py",
+      "service": "rasa-sdk-action-server",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "health",
+          "httpMethod": "GET",
+          "path": "/health",
+          "line": 104,
+          "evidence": "@app.get(\"/health\")",
+          "framework": "Sanic",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "webhook",
+          "httpMethod": "POST",
+          "path": "/webhook",
+          "line": 110,
+          "evidence": "@app.post(\"/webhook\")",
+          "framework": "Sanic",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "actions",
+          "httpMethod": "GET",
+          "path": "/actions",
+          "line": 173,
+          "evidence": "@app.get(\"/actions\")",
+          "framework": "Sanic",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "rasa-sdk",
+    "commit": "07b0b74f9c653638b3795d5465c503aa82182faf",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "elided_results": 0,
+    "steps": 10,
+    "tool_calls": 20,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 68290,
+    "cached_input_tokens": 58880,
+    "output_tokens": 1406,
+    "list_price_usd": 0.0024,
+    "wall_seconds": 12.3,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".backportrc.json\n.dockerignore\n.github/\n.gitignore\n.pre-commit-config.yaml\n.typo-ci.yml\nCHANGELOG.mdx\nDockerfile\nDockerfile.dev\nDockerfile.patch\nLICENSE.txt\nMakefile\nREADME.md\ncerts/\nchangelog/\ndata/\nentrypoint.sh\nexamples/\ngrpc-standalone-server-integration-test-results.xml\nintegration_tests/\npoetry.lock\nproto/\npyproject.toml\nrasa_sdk/\nrenovate.json5\nscripts/\ntests/\ntrivy-secret.yaml"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile*"
+        },
+        "result_head": "/Dockerfile\n/Dockerfile.dev\n/Dockerfile.patch"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/rasa_sdk"
+        },
+        "result_head": "__init__.py\n__main__.py\ncli/\nconstants.py\ncors.py\nendpoint.py\nevents.py\nexceptions.py\nexecutor.py\nforms.py\ngrpc_errors.py\ngrpc_py/\ngrpc_server.py\ninterfaces.py\nknowledge_base/\nplugin.py\nslots.py\ntracing/\ntypes.py\nutils.py\nversion.py"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile"
+        },
+        "result_head": "1: # Keep this in sync with the version pinned in poetry.lock\n2: ARG SETUPTOOLS_VERSION=82.0.1\n3: # Minimum pip version\n4: ARG PIP_MIN_VERSION=26.1\n5: # Recompute with: curl -fsSL https://bootstrap.pypa.io/get-pip.py | sha256sum\n6: ARG GET_PIP_SHA256=f4448a01e3ab2914c65f4ca59d4cacba6b2dbde19a483fbac46587f8bbaff424\n7: \n8: FROM ubuntu:24.04 AS base\n9: \n10: ARG SETUPTOOLS_VERSION\n11: ARG PIP_MIN_VERSION\n12: ARG GET_PIP_SHA256\n13: \n14: SHELL [\"/bin/bash\", \"-o\", \"pipefail\", \"-c\"]\n15: \n16: # hadolint ignore=DL3005,DL3008\n17: RUN apt-get update -qq \\\n18:     # Make sure that all security updates are installed \\\n19:     && apt-get upgrade -y --no-install-recommends --fix-missing \\\n20:     && apt-get install -y --no-install-recommends --fix-missing \\\n21:       ca-certificates \\\n22:       python3 \\\n23:       python3-venv \\\n24:       python3-dev \\\n25:       curl \\\n26:     && apt-get autoremove -y \\\n27:     && apt-get clean \\\n28:     && rm -rf /var/lib/apt/lists/*\n29: \n30: RUN curl -fsSL https://b"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/entrypoint.sh"
+        },
+        "result_head": "1: #!/bin/bash\n2: \n3: set -Eeuo pipefail\n4: \n5: function print_help {\n6:     echo \"Available options:\"\n7:     echo \" start  - Start Rasa Action Server\"\n8:     echo \" help   - Print this help\"\n9:     echo \" run    - Run an arbitrary command inside the container\"\n10: }\n11: \n12: case ${1} in\n13:     start)\n14:         exec python -m rasa_sdk \"${@:2}\"\n15:         ;;\n16:     run)\n17:         exec \"${@:2}\"\n18:         ;;\n19:     *)\n20:         print_help\n21:         ;;\n22: esac"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/rasa_sdk/__main__.py"
+        },
+        "result_head": "1: import asyncio\n2: import logging\n3: \n4: from rasa_sdk import utils\n5: from rasa_sdk.constants import APPLICATION_ROOT_LOGGER_NAME\n6: from rasa_sdk.endpoint import create_argument_parser, run\n7: from rasa_sdk.executor import ActionExecutor\n8: from rasa_sdk.grpc_server import run_grpc\n9: \n10: logger = logging.getLogger(__name__)\n11: \n12: \n13: def main_from_args(args):\n14:     \"\"\"Run with arguments.\"\"\"\n15:     logging.getLogger(\"matplotlib\").setLevel(logging.WARN)\n16: \n17:     utils.configure_colored_logging(args.loglevel)\n18:     utils.configure_file_logging(\n19:         logging.getLogger(APPLICATION_ROOT_LOGGER_NAME),\n20:         args.log_file,\n21:         args.loglevel,\n22:         args.logging_config_file,\n23:     )\n24:     utils.update_sanic_log_level()\n25: \n26:     action_executor = ActionExecutor()\n27:     action_executor.register_package(\n28:         args.actions_module or args.actions,\n29:     )\n30: \n31:     if args.grpc:\n32:         asyncio.run(\n33:             run_grpc(\n34: "
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/rasa_sdk/endpoint.py"
+        },
+        "result_head": "1: import argparse\n2: import logging\n3: import os\n4: import warnings\n5: import zlib\n6: import json\n7: from functools import partial\n8: from typing import Dict, List, Text, Union, Optional, Any\n9: \n10: from multidict import MultiDict\n11: from sanic import Sanic, response\n12: from sanic.compat import Header\n13: from sanic.response import HTTPResponse\n14: from sanic.worker.loader import AppLoader\n15: \n16: # catching:\n17: # - all `pkg_resources` deprecation warning from multiple dependencies\n18: # - google rcp warnings (`pkg_resources.namespaces`)\n19: # - open telemetry (`pkg_resources`)\n20: with warnings.catch_warnings():\n21:     warnings.filterwarnings(\n22:         \"ignore\", category=DeprecationWarning, message=\".*pkg_resources.*\"\n23:     )\n24:     from sanic.request import Request\n25:     from rasa_sdk import utils\n26:     from rasa_sdk.cli.arguments import add_endpoint_arguments\n27:     from rasa_sdk.cors import configure_cors\n28:     from rasa_sdk.constants import (\n29:         DEFAUL"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/rasa_sdk/endpoint.py",
+          "start": "150"
+        },
+        "result_head": "150:                 body = {\"error\": e.message, \"action_name\": e.action_name}\n151:                 return response.json(body, status=400)\n152:             except ActionNotFoundException as e:\n153:                 logger.error(e)\n154:                 body = {\"error\": e.message, \"action_name\": e.action_name}\n155:                 return response.json(body, status=404)\n156:             except ActionMissingDomainException as e:\n157:                 logger.debug(e)\n158:                 body = {\"error\": e.message, \"action_name\": e.action_name}\n159:                 return response.json(body, status=449)\n160: \n161:             set_http_span_attributes(\n162:                 span,\n163:                 action_call,\n164:                 http_method=\"POST\",\n165:                 route=\"/webhook\",\n166:             )\n167: \n168:             return response.json(\n169:                 result.model_dump() if result else None,\n170:                 status=200,\n171:             )\n172: \n173:     @app.get(\"/ac"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/rasa_sdk/grpc_server.py"
+        },
+        "result_head": "1: from __future__ import annotations\n2: \n3: import contextlib\n4: import os\n5: import signal\n6: import time\n7: import uuid\n8: \n9: import asyncio\n10: \n11: import grpc\n12: import logging\n13: from typing import AsyncIterator, Optional, Any, Dict\n14: from concurrent import futures\n15: \n16: from google.protobuf import empty_pb2\n17: from grpc import aio\n18: from grpc_health.v1 import health\n19: from grpc_health.v1 import health_pb2\n20: from grpc_health.v1 import health_pb2_grpc\n21: from google.protobuf.json_format import MessageToDict, ParseDict\n22: from grpc.aio import Metadata\n23: from multidict import MultiDict\n24: \n25: from rasa_sdk.constants import (\n26:     DEFAULT_SERVER_PORT,\n27:     DEFAULT_ENDPOINTS_PATH,\n28:     DEFAULT_STREAM_BARGE_IN_TIMEOUT_SECONDS,\n29:     ACTION_SERVER_STREAM_BARGE_IN_TIMEOUT_SECONDS_ENV_VAR,\n30:     NO_GRACE_PERIOD,\n31: )\n32: from rasa_sdk.executor import ActionExecutor, CollectingDispatcher\n33: from rasa_sdk.grpc_errors import (\n34:     ResourceNotFound,\n35"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "pattern": "@app\\.(get|post|put|delete|patch|route)|add_route|app\\.route|Blueprint|@bp\\.",
+          "path": "/rasa_sdk"
+        },
+        "result_head": "/rasa_sdk/endpoint.py:104: @app.get(\"/health\")\n/rasa_sdk/endpoint.py:110: @app.post(\"/webhook\")\n/rasa_sdk/endpoint.py:173: @app.get(\"/actions\")"
+      },
+      {
+        "step": 5,
+        "tool": "list_dir",
+        "args": {
+          "path": "/rasa_sdk/cli"
+        },
+        "result_head": "__init__.py\narguments.py"
+      },
+      {
+        "step": 5,
+        "tool": "list_dir",
+        "args": {
+          "path": "/rasa_sdk/knowledge_base"
+        },
+        "result_head": "__init__.py\nactions.py\nstorage.py\nutils.py"
+      },
+      {
+        "step": 6,
+        "tool": "list_dir",
+        "args": {
+          "path": "/examples"
+        },
+        "result_head": "docker-compose.yml"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "path": "/examples",
+          "pattern": "@app\\.|add_route|Flask|FastAPI|Sanic\\("
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 6,
+        "tool": "list_dir",
+        "args": {
+          "path": "/integration_tests"
+        },
+        "result_head": "__init__.py\nconftest.py\ngrpc_server/\ntest_standalone_grpc_server.py"
+      },
+      {
+        "step": 7,
+        "tool": "grep",
+        "args": {
+          "path": "/pyproject.toml",
+          "pattern": "scripts|packages|name ="
+        },
+        "result_head": "/pyproject.toml:6: name = \"rasa-sdk\"\n/pyproject.toml:23: filename = \"CHANGELOG.mdx\"\n/pyproject.toml:32: name = \"Deprecations and Removals\"\n/pyproject.toml:37: name = \"Features\"\n/pyproject.toml:42: name = \"Improvements\"\n/pyproject.toml:47: name = \"Bugfixes\"\n/pyproject.toml:52: name = \"Improved Documentation\"\n/pyproject.toml:57: name = \"Miscellaneous internal changes\""
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/examples/docker-compose.yml"
+        },
+        "result_head": "1: version: '3'\n2: services:\n3:   app:\n4:     image: \"app\"      #  this is your container running the sdk server and your actions\n5:     container_name: \"app\"\n6:     expose:\n7:       - \"5055\"\n8:     depends_on:\n9:       - rasa\n10: \n11:   rasa:\n12:     image: \"rasa/rasa\"\n13:     container_name: \"rasa\"\n14:     expose:\n15:       - \"5005\"\n16:     depends_on:\n17:       - mongo\n18: \n19:   mongo:\n20:     image: \"mongo:3.7-jessie\"\n21:     container_name: \"mongo\"\n22:     expose:\n23:       - \"27017\"\n24:     volumes:\n25:       - ./mongo:/data/db\n26: \n27:   duckling:\n28:     image: \"rasa/duckling:latest\"\n29:     container_name: \"duckling\"\n30:     expose:\n31:       - \"8000\""
+      },
+      {
+        "step": 8,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"rasa-sdk-action-server\",\"dirs\":[\"/rasa_sdk\"]}],\"files\":[{\"path\":\"/rasa_sdk/endpoint.py\",\"service\":\"rasa-sdk-action-server\",\"endpoints\":[{\"className\":\"\",\"methodName\":\"health\",\"htt"
+        },
+        "result_head": "Recorded 4 new: service rasa-sdk-action-server, GET /health, POST /webhook, GET /actions\nTotal: 1 services, 3 endpoints in 1 files."
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "path": "/rasa_sdk",
+          "pattern": "route|endpoint=|add_route|websocket"
+        },
+        "result_head": "/rasa_sdk/cors.py:16: and never reach a route handler. Sanic resolves the route *before* running\n/rasa_sdk/cors.py:21: ``POST``-only route, or to an unknown path, still receive a ``200``.\n/rasa_sdk/cors.py:297: \"\"\"Answer CORS preflight requests before they reach a route handler.\n/rasa_sdk/cors.py:308: # usable `Access-Control-Request-Method`, and whether or not the route\n/rasa_sdk/cors.py:322: response: The response to amend. `None` for websocket upgrades.\n/rasa_sdk/endpoint.py:165: route=\"/webhook\",\n/rasa_sdk/endpoint.py:270: route: str,\n/rasa_sdk/endpoint.py:276: span.set_attribute(\"http.route\", route)\n/rasa_sdk/plugin.py:36: \"\"\"Hook specification for attaching sanic listeners, routes and middlewares.\"\"\"\n/rasa_sdk/tracing/config.py:125: endpoint=otlp_endpoint,\n/rasa_sdk/tracing/config.py:198: endpoint=cfg.kwargs[\"endpoint\"],"
+      },
+      {
+        "step": 10,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 1 services, 3 endpoints."
+      }
+    ]
+  }
+}

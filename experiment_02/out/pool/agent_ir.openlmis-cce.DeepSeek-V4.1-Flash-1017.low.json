@@ -1,0 +1,499 @@
+{
+  "system": "openlmis-cce",
+  "services": [
+    {
+      "name": "openlmis-cce",
+      "dirs": [
+        "/"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/src/main/java/org/openlmis/cce/web/AlertController.java",
+      "service": "openlmis-cce",
+      "endpoints": [
+        {
+          "className": "AlertController",
+          "methodName": "saveAlert",
+          "httpMethod": "PUT",
+          "path": "/api/cceAlerts",
+          "line": 77,
+          "evidence": "@RequestMapping(method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AlertController",
+          "methodName": "getAlertCollection",
+          "httpMethod": "GET",
+          "path": "/api/cceAlerts",
+          "line": 120,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/cce/web/CatalogItemController.java",
+      "service": "openlmis-cce",
+      "endpoints": [
+        {
+          "className": "CatalogItemController",
+          "methodName": "create",
+          "httpMethod": "POST",
+          "path": "/api/catalogItems",
+          "line": 113,
+          "evidence": "@RequestMapping(value = RESOURCE_URL, method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CatalogItemController",
+          "methodName": "search",
+          "httpMethod": "GET",
+          "path": "/api/catalogItems",
+          "line": 152,
+          "evidence": "@GetMapping(value = RESOURCE_URL)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CatalogItemController",
+          "methodName": "getCatalogItem",
+          "httpMethod": "GET",
+          "path": "/api/catalogItems/{id}",
+          "line": 186,
+          "evidence": "@RequestMapping(value = RESOURCE_URL + \"/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CatalogItemController",
+          "methodName": "updateCatalogItem",
+          "httpMethod": "PUT",
+          "path": "/api/catalogItems/{id}",
+          "line": 219,
+          "evidence": "@RequestMapping(value = RESOURCE_URL + \"/{id}\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CatalogItemController",
+          "methodName": "upload",
+          "httpMethod": "POST",
+          "path": "/api/catalogItems",
+          "line": 257,
+          "evidence": "@PostMapping(value = RESOURCE_URL, params = FORMAT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CatalogItemController",
+          "methodName": "download",
+          "httpMethod": "GET",
+          "path": "/api/catalogItems",
+          "line": 308,
+          "evidence": "@GetMapping(value = RESOURCE_URL, params = FORMAT)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/cce/web/InventoryItemController.java",
+      "service": "openlmis-cce",
+      "endpoints": [
+        {
+          "className": "InventoryItemController",
+          "methodName": "create",
+          "httpMethod": "POST",
+          "path": "/api/inventoryItems",
+          "line": 117,
+          "evidence": "@RequestMapping(method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "InventoryItemController",
+          "methodName": "getInventoryItem",
+          "httpMethod": "GET",
+          "path": "/api/inventoryItems/{id}",
+          "line": 150,
+          "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "InventoryItemController",
+          "methodName": "getAll",
+          "httpMethod": "GET",
+          "path": "/api/inventoryItems",
+          "line": 188,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "InventoryItemController",
+          "methodName": "transfer",
+          "httpMethod": "PUT",
+          "path": "/api/inventoryItems/{id}/transfer",
+          "line": 220,
+          "evidence": "@PutMapping(\"/{id}/transfer\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "InventoryItemController",
+          "methodName": "updateInventoryItem",
+          "httpMethod": "PUT",
+          "path": "/api/inventoryItems/{id}",
+          "line": 252,
+          "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "InventoryItemController",
+          "methodName": "deleteInventoryItem",
+          "httpMethod": "DELETE",
+          "path": "/api/inventoryItems/{id}",
+          "line": 299,
+          "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "InventoryItemController",
+          "methodName": "download",
+          "httpMethod": "GET",
+          "path": "/api/inventoryItems/download",
+          "line": 328,
+          "evidence": "@GetMapping(value = \"/download\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/cce/web/DeviceController.java",
+      "service": "openlmis-cce",
+      "endpoints": [
+        {
+          "className": "DeviceController",
+          "methodName": "getDevices",
+          "httpMethod": "GET",
+          "path": "/api/Device",
+          "line": 43,
+          "evidence": "@GetMapping(\"/Device\")",
+          "framework": "Spring",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/cce/web/VolumeController.java",
+      "service": "openlmis-cce",
+      "endpoints": [
+        {
+          "className": "VolumeController",
+          "methodName": "getVolumeForFacilityId",
+          "httpMethod": "GET",
+          "path": "/api/inventoryItems/volume",
+          "line": 51,
+          "evidence": "@GetMapping(value = \"inventoryItems/volume\")",
+          "framework": "Spring",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/cce/web/VersionController.java",
+      "service": "openlmis-cce",
+      "endpoints": [
+        {
+          "className": "VersionController",
+          "methodName": "display",
+          "httpMethod": "ANY",
+          "path": "/cce",
+          "line": 37,
+          "evidence": "@RequestMapping(\"/cce\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "openlmis-cce",
+    "commit": "6b159e61896c2ef77e2884f5acb33e2a59dc8597",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "record_nudges": 0,
+    "elided_results": 0,
+    "steps": 13,
+    "tool_calls": 29,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 164573,
+    "cached_input_tokens": 139648,
+    "output_tokens": 3321,
+    "list_price_usd": 0.0062,
+    "wall_seconds": 23.5,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".github/\n.gitignore\nCHANGELOG.md\nDockerfile\nJenkinsfile\nLICENSE\nLICENSE-HEADER\nREADME.md\nSTYLE-GUIDE.md\nbuild.gradle\nbuild.sh\nci-buildImage.sh\nci-erdGeneration.sh\nconfig/\nconsul/\ndocker-compose.builder.yml\ndocker-compose.erd-generation.yml\ndocker-compose.override.yml\ndocker-compose.yml\ndocumentation.gradle\nexport_schema.sh\ngenerateErdFor.sh\ngradle.properties\ngradle/\ngradlew\ngradlew.bat\npackage-lock.json\npackage.json\nperformance/\nregistration.gradle\nsettings.gradle\nsonar-project.properties\nsrc/\nsync_transifex.sh"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile"
+        },
+        "result_head": "/Dockerfile"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle"
+        },
+        "result_head": "1: rootProject.name = serviceName"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller.java"
+        },
+        "result_head": "/src/main/java/org/openlmis/cce/web/AlertController.java\n/src/main/java/org/openlmis/cce/web/BaseController.java\n/src/main/java/org/openlmis/cce/web/CatalogItemController.java\n/src/main/java/org/openlmis/cce/web/DeviceController.java\n/src/main/java/org/openlmis/cce/web/InventoryItemController.java\n/src/main/java/org/openlmis/cce/web/VersionController.java\n/src/main/java/org/openlmis/cce/web/VolumeController.java"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/cce/web/AlertController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.cce.web;\n17: \n18: import static org.openlmis.cce.service.ResourceNames.BA"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/cce/web/BaseController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.cce.web;\n17: \n18: import static org.openlmis.cce.i18n.MessageKeys.ERROR_F"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/cce/web/CatalogItemController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.cce.web;\n17: \n18: import static org.openlmis.cce.i18n.CatalogItemMessageK"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/cce/web/DeviceController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.cce.web;\n17: \n18: import static org.openlmis.cce.util.Pagination.handlePa"
+      },
+      {
+        "step": 4,
+        "tool": "find",
+        "args": {
+          "pattern": "ResourceNames.java"
+        },
+        "result_head": "/src/main/java/org/openlmis/cce/service/ResourceNames.java"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/cce/web/InventoryItemController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.cce.web;\n17: \n18: import static org.openlmis.cce.i18n.CatalogItemMessageK"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/cce/web/VersionController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.cce.web;\n17: \n18: import org.openlmis.util.Version;\n19: import org.slf4j."
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/cce/web/VolumeController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.cce.web;\n17: \n18: import java.util.Optional;\n19: import java.util.UUID;\n2"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/cce/service/ResourceNames.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.cce.service;\n17: \n18: import org.apache.commons.lang3.StringUtils;\n19: \n2"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)",
+          "path": "/src/main/java/org/openlmis/cce/web"
+        },
+        "result_head": "/src/main/java/org/openlmis/cce/web/AlertController.java:51: @RequestMapping(RESOURCE_PATH)\n/src/main/java/org/openlmis/cce/web/AlertController.java:77: @RequestMapping(method = RequestMethod.PUT)\n/src/main/java/org/openlmis/cce/web/AlertController.java:120: @RequestMapping(method = RequestMethod.GET)\n/src/main/java/org/openlmis/cce/web/BaseController.java:37: @RequestMapping(BASE_PATH)\n/src/main/java/org/openlmis/cce/web/CatalogItemController.java:113: @RequestMapping(value = RESOURCE_URL, method = RequestMethod.POST)\n/src/main/java/org/openlmis/cce/web/CatalogItemController.java:152: @GetMapping(value = RESOURCE_URL)\n/src/main/java/org/openlmis/cce/web/CatalogItemController.java:186: @RequestMapping(value = RESOURCE_URL + \"/{id}\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/cce/web/CatalogItemController.java:219: @RequestMapping(value = RESOURCE_URL + \"/{id}\", method = RequestMethod.PUT)\n/src/main/java/org/openlmis/cce/web/CatalogItemController.java:257: @PostMapping(valu"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main",
+          "pattern": "@(RestController|Controller|RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping)"
+        },
+        "result_head": "/src/main/java/org/openlmis/cce/errorhandling/AbstractErrorHandling.java:30: @ControllerAdvice\n/src/main/java/org/openlmis/cce/errorhandling/GlobalErrorHandling.java:44: @ControllerAdvice\n/src/main/java/org/openlmis/cce/web/AlertController.java:49: @Controller\n/src/main/java/org/openlmis/cce/web/AlertController.java:51: @RequestMapping(RESOURCE_PATH)\n/src/main/java/org/openlmis/cce/web/AlertController.java:77: @RequestMapping(method = RequestMethod.PUT)\n/src/main/java/org/openlmis/cce/web/AlertController.java:120: @RequestMapping(method = RequestMethod.GET)\n/src/main/java/org/openlmis/cce/web/BaseController.java:37: @RequestMapping(BASE_PATH)\n/src/main/java/org/openlmis/cce/web/CatalogItemController.java:68: @Controller\n/src/main/java/org/openlmis/cce/web/CatalogItemController.java:113: @RequestMapping(value = RESOURCE_URL, method = RequestMethod.POST)\n/src/main/java/org/openlmis/cce/web/CatalogItemController.java:152: @GetMapping(value = RESOURCE_URL)\n/src/main/java/org/openlmis/cce/w"
+      },
+      {
+        "step": 6,
+        "tool": "find",
+        "args": {
+          "pattern": "*Application.java"
+        },
+        "result_head": "/src/main/java/org/openlmis/cce/Application.java"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile"
+        },
+        "result_head": "1: FROM openlmis/service-base:7\n2: \n3: COPY build/libs/*.jar /service.jar\n4: COPY src/main/resources/db/demo-data/*.csv /demo-data/\n5: COPY build/schema /schema\n6: \n7: COPY build/consul /consul\n8: WORKDIR /consul\n9: \n10: RUN npm install --production\n11: \n12: WORKDIR /"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/cce/web/CatalogItemController.java",
+          "start": "145"
+        },
+        "result_head": "145:    *\n146:    * @param type             request parameter: type\n147:    * @param archived         request parameter: archived\n148:    * @param visibleInCatalog request parameter: visibleInCatalog\n149:    * @param pageable         object used to encapsulate the pagination values: page and size.\n150:    * @return Page of wanted catalog items matching request parameters.\n151:    */\n152:   @GetMapping(value = RESOURCE_URL)\n153:   @ResponseStatus(HttpStatus.OK)\n154:   @ResponseBody\n155:   public Page<CatalogItemDto> search(\n156:       @RequestParam(value = \"type\", required = false) String type,\n157:       @RequestParam(value = \"archived\", required = false) Boolean archived,\n158:       @RequestParam(value = \"visibleInCatalog\", required = false) Boolean visibleInCatalog,\n159:       Pageable pageable) {\n160:     XLOGGER.entry(type, archived, visibleInCatalog, pageable);\n161:     Profiler profiler = new Profiler(\"SEARCH_CATALOG_ITEMS\");\n162:     profiler.setLogger(XLOGGER);\n163: \n164:     p"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/cce/web/InventoryItemController.java",
+          "start": "145"
+        },
+        "result_head": "145:    * Get chosen CCE Inventory item.\n146:    *\n147:    * @param inventoryItemId UUID of CCE Inventory item which we want to get\n148:    * @return CCE Inventory item.\n149:    */\n150:   @RequestMapping(value = \"/{id}\", method = RequestMethod.GET)\n151:   @ResponseStatus(HttpStatus.OK)\n152:   @ResponseBody\n153:   public InventoryItemDto getInventoryItem(@PathVariable(\"id\") UUID inventoryItemId,\n154:                                            @RequestParam(value = \"expand\", required = false)\n155:                                                List<String> expands) {\n156:     XLOGGER.entry(inventoryItemId);\n157:     Profiler profiler = new Profiler(\"GET_INVENTORY_ITEM_BY_ID\");\n158:     profiler.setLogger(XLOGGER);\n159: \n160:     profiler.start(\"FIND_IN_DB\");\n161:     Optional<InventoryItem> inventoryItem = inventoryRepository.findById(inventoryItemId);\n162:     if (!inventoryItem.isPresent()) {\n163:       profiler.stop().log();\n164:       XLOGGER.exit(inventoryItemId);\n165: \n166:       t"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/cce/web/InventoryItemController.java",
+          "start": "293"
+        },
+        "result_head": "293:     return dto;\n294:   }\n295: \n296:   /**\n297:    * Deletes CCE Inventory item with the given id.\n298:    */\n299:   @RequestMapping(value = \"/{id}\", method = RequestMethod.DELETE)\n300:   @ResponseStatus(HttpStatus.NO_CONTENT)\n301:   public void deleteInventoryItem(@PathVariable(\"id\") UUID id) {\n302:     XLOGGER.entry(id);\n303:     Profiler profiler = new Profiler(\"DELETE_INVENTORY_ITEM\");\n304:     profiler.setLogger(XLOGGER);\n305: \n306:     profiler.start(\"FIND_IN_DB\");\n307:     Optional<InventoryItem> inventoryItem = inventoryRepository.findById(id);\n308:     if (!inventoryItem.isPresent()) {\n309:       profiler.stop().log();\n310:       XLOGGER.exit(id);\n311: \n312:       throw new NotFoundException(ERROR_ITEM_NOT_FOUND);\n313:     }\n314: \n315:     profiler.start(PROFILER_CHECK_PERMISSION);\n316:     permissionService.canEditInventory(inventoryItem.get());\n317: \n318:     profiler.start(\"DELETE\");\n319:     inventoryRepository.delete(inventoryItem.get());\n320: \n321:     profiler.stop("
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/cce/web/CatalogItemController.java",
+          "start": "305"
+        },
+        "result_head": "305:   /**\n306:    * Downloads csv file with all catalog items.\n307:    */\n308:   @GetMapping(value = RESOURCE_URL, params = FORMAT)\n309:   @ResponseBody\n310:   @ResponseStatus(HttpStatus.OK)\n311:   public void download(@RequestParam(FORMAT) String format,\n312:                        HttpServletResponse response) throws IOException {\n313:     XLOGGER.entry(format);\n314:     Profiler profiler = new Profiler(\"DOWNLOAD_CATALOG_ITEMS_AS_FILE\");\n315:     profiler.setLogger(XLOGGER);\n316: \n317:     if (!CSV.equals(format)) {\n318:       profiler.stop().log();\n319:       XLOGGER.exit();\n320: \n321:       response.sendError(HttpServletResponse.SC_BAD_REQUEST,\n322:           messageService.localize(new Message(ERROR_FORMAT_NOT_ALLOWED, format, CSV)).asMessage());\n323:       return;\n324:     }\n325: \n326:     profiler.start(\"FIND_ALL\");\n327:     Iterable<CatalogItem> items = catalogRepository.findAll();\n328: \n329:     profiler.start(PROFILER_CREATE_DTO);\n330:     List<CatalogItemDto> catalogItems ="
+      },
+      {
+        "step": 8,
+        "tool": "grep",
+        "args": {
+          "pattern": "context-path|contextPath|server.port",
+          "path": "/src/main/resources"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 9,
+        "tool": "find",
+        "args": {
+          "pattern": "application*.properties",
+          "path": "/src/main/resources"
+        },
+        "result_head": "/src/main/resources/application-demo-data.properties\n/src/main/resources/application.properties"
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/cce/Application.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.cce;\n17: \n18: import java.time.Clock;\n19: import java.time.ZoneId;\n20: im"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/resources/application.properties",
+          "pattern": "."
+        },
+        "result_head": "/src/main/resources/application.properties:1: spring.flyway.locations=classpath:db/migration\n/src/main/resources/application.properties:2: spring.flyway.schemas=cce\n/src/main/resources/application.properties:3: spring.flyway.sql-migration-prefix=\n/src/main/resources/application.properties:4: spring.flyway.table=schema_version\n/src/main/resources/application.properties:6: spring.datasource.url=${DATABASE_URL}?stringtype=unspecified\n/src/main/resources/application.properties:7: spring.datasource.username=${POSTGRES_USER}\n/src/main/resources/application.properties:8: spring.datasource.password=${POSTGRES_PASSWORD}\n/src/main/resources/application.properties:9: spring.datasource.driver-class-name=org.postgresql.Driver\n/src/main/resources/application.properties:11: spring.jackson.serialization.INDENT_OUTPUT=true\n/src/main/resources/application.properties:12: spring.jackson.serialization.WRITE_DATES_AS_TIMESTAMPS=false\n/src/main/resources/application.properties:14: spring.main.allow-bean-defi"
+      },
+      {
+        "step": 11,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"openlmis-cce\",\"dirs\":[\"/\"]}],\"files\":[\n{\"path\":\"/src/main/java/org/openlmis/cce/web/AlertController.java\",\"service\":\"openlmis-cce\",\"endpoints\":[\n{\"className\":\"AlertController\",\"m"
+        },
+        "result_head": "Recorded 19 new: service openlmis-cce, PUT /api/cceAlerts, GET /api/cceAlerts, POST /api/catalogItems, GET /api/catalogItems, GET /api/catalogItems/{id}, PUT /api/catalogItems/{id}, POST /api/catalogItems, GET /api/catalogItems, POST /api/inventoryItems, GET /api/inventoryItems/{id}, GET /api/inventoryItems, PUT /api/inventoryItems/{id}/transfer, PUT /api/inventoryItems/{id}, DELETE /api/inventoryItems/{id}, GET /api/inventoryItems/download, GET /api/Device, GET /api/inventoryItems/volume, ANY /cce\nTotal: 1 services, 18 endpoints in 6 files."
+      },
+      {
+        "step": 12,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java",
+          "pattern": "@(Path|GET|POST|PUT|DELETE)\\(|Router|app\\.(get|post)|http\\.HandleFunc"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 12,
+        "tool": "list_dir",
+        "args": {
+          "path": "/src/main/java/org/openlmis/cce/web"
+        },
+        "result_head": "AlertController.java\nBaseController.java\nCatalogItemController.java\nDeviceController.java\nInventoryItemController.java\nInventoryItemDtoBuilder.java\nVersionController.java\nVolumeController.java\ncsv/\nfhir/\nvalidator/"
+      },
+      {
+        "step": 13,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 1 services, 18 endpoints."
+      }
+    ]
+  }
+}

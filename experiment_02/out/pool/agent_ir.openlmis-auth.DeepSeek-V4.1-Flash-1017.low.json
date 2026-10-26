@@ -1,0 +1,447 @@
+{
+  "system": "openlmis-auth",
+  "services": [
+    {
+      "name": "openlmis-auth",
+      "dirs": [
+        "/"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/src/main/java/org/openlmis/auth/web/ApiKeyController.java",
+      "service": "openlmis-auth",
+      "endpoints": [
+        {
+          "className": "ApiKeyController",
+          "methodName": "createApiKey",
+          "httpMethod": "POST",
+          "path": "/api/apiKeys",
+          "line": 94,
+          "evidence": "@RequestMapping(value = \"/apiKeys\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApiKeyController",
+          "methodName": "getApiKeys",
+          "httpMethod": "GET",
+          "path": "/api/apiKeys",
+          "line": 146,
+          "evidence": "@RequestMapping(value = \"/apiKeys\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ApiKeyController",
+          "methodName": "removeApiKey",
+          "httpMethod": "DELETE",
+          "path": "/api/apiKeys/{token}",
+          "line": 175,
+          "evidence": "@RequestMapping(value = \"/apiKeys/{token}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/auth/web/UserController.java",
+      "service": "openlmis-auth",
+      "endpoints": [
+        {
+          "className": "UserController",
+          "methodName": "saveUser",
+          "httpMethod": "POST",
+          "path": "/api/users/auth",
+          "line": 134,
+          "evidence": "@RequestMapping(value = \"/users/auth\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserController",
+          "methodName": "saveUsers",
+          "httpMethod": "POST",
+          "path": "/api/users/auth/batch",
+          "line": 156,
+          "evidence": "@RequestMapping(value = \"/users/auth/batch\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserController",
+          "methodName": "getUser",
+          "httpMethod": "GET",
+          "path": "/api/users/auth/{id}",
+          "line": 176,
+          "evidence": "@RequestMapping(value = \"/users/auth/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserController",
+          "methodName": "revokeToken",
+          "httpMethod": "POST",
+          "path": "/api/users/auth/logout",
+          "line": 197,
+          "evidence": "@RequestMapping(value = \"/users/auth/logout\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserController",
+          "methodName": "passwordReset",
+          "httpMethod": "POST",
+          "path": "/api/users/auth/passwordReset",
+          "line": 213,
+          "evidence": "@RequestMapping(value = \"/users/auth/passwordReset\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserController",
+          "methodName": "forgotPassword",
+          "httpMethod": "POST",
+          "path": "/api/users/auth/forgotPassword",
+          "line": 241,
+          "evidence": "@RequestMapping(value = \"/users/auth/forgotPassword\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserController",
+          "methodName": "showChangePasswordPage",
+          "httpMethod": "POST",
+          "path": "/api/users/auth/changePassword",
+          "line": 265,
+          "evidence": "@RequestMapping(value = \"/users/auth/changePassword\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserController",
+          "methodName": "generatePasswordResetToken",
+          "httpMethod": "POST",
+          "path": "/api/users/auth/passwordResetToken",
+          "line": 290,
+          "evidence": "@RequestMapping(value = \"/users/auth/passwordResetToken\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserController",
+          "methodName": "getAllAuthUsers",
+          "httpMethod": "GET",
+          "path": "/api/users/auth/batch",
+          "line": 312,
+          "evidence": "@GetMapping(value = \"/users/auth/batch\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserController",
+          "methodName": "unlockUsers",
+          "httpMethod": "POST",
+          "path": "/api/users/auth/unlock",
+          "line": 326,
+          "evidence": "@RequestMapping(value = \"/users/auth/unlock\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UserController",
+          "methodName": "deleteAuthUsersByIds",
+          "httpMethod": "DELETE",
+          "path": "/api/users/auth/batch",
+          "line": 345,
+          "evidence": "@DeleteMapping(value = \"/users/auth/batch\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/auth/web/VersionController.java",
+      "service": "openlmis-auth",
+      "endpoints": [
+        {
+          "className": "VersionController",
+          "methodName": "display",
+          "httpMethod": "ANY",
+          "path": "/auth",
+          "line": 37,
+          "evidence": "@RequestMapping(\"/auth\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/auth/web/CustomApprovalEndpoint.java",
+      "service": "openlmis-auth",
+      "endpoints": [
+        {
+          "className": "CustomApprovalEndpoint",
+          "methodName": "getAccessConfirmation",
+          "httpMethod": "ANY",
+          "path": "/api/oauth/confirm_access",
+          "line": 40,
+          "evidence": "@RequestMapping(\"/api/oauth/confirm_access\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/auth/security/AuthorizationServerConfiguration.java",
+      "service": "openlmis-auth",
+      "endpoints": [
+        {
+          "className": "AuthorizationServerConfiguration",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/api/oauth/token",
+          "line": 57,
+          "evidence": ".pathMapping(\"/oauth/token\", \"/api/oauth/token\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AuthorizationServerConfiguration",
+          "methodName": "(inline)",
+          "httpMethod": "ANY",
+          "path": "/api/oauth/check_token",
+          "line": 58,
+          "evidence": ".pathMapping(\"/oauth/check_token\", \"/api/oauth/check_token\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AuthorizationServerConfiguration",
+          "methodName": "(inline)",
+          "httpMethod": "ANY",
+          "path": "/api/oauth/authorize",
+          "line": 59,
+          "evidence": ".pathMapping(\"/oauth/authorize\", \"/api/oauth/authorize\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AuthorizationServerConfiguration",
+          "methodName": "(inline)",
+          "httpMethod": "ANY",
+          "path": "/api/oauth/error",
+          "line": 60,
+          "evidence": ".pathMapping(\"/oauth/error\", \"/api/oauth/error\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "openlmis-auth",
+    "commit": "1cc42c16a4d375cb42626b6e3e636f791a5f43e7",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "record_nudges": 0,
+    "elided_results": 0,
+    "steps": 12,
+    "tool_calls": 21,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 107142,
+    "cached_input_tokens": 76800,
+    "output_tokens": 2762,
+    "list_price_usd": 0.0064,
+    "wall_seconds": 26.2,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".github/\n.gitignore\nCHANGELOG.md\nCONFIGURATION.md\nDESIGN.md\nDockerfile\nJenkinsfile\nLICENSE\nLICENSE-HEADER\nREADME.md\nSTYLE-GUIDE.md\nbuild.gradle\nbuild.sh\nci-buildImage.sh\nci-erdGeneration.sh\nconfig/\nconsul/\ndocker-compose.builder.yml\ndocker-compose.erd-generation.yml\ndocker-compose.override.yml\ndocker-compose.yml\ndocumentation.gradle\nexport_schema.sh\ngenerateErdFor.sh\ngradle.properties\ngradle/\ngradlew\ngradlew.bat\npackage-lock.json\npackage.json\nperformance/\nregistration.gradle\nsettings.gradle\nsonar-project.properties\nsrc/"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile"
+        },
+        "result_head": "/Dockerfile"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle"
+        },
+        "result_head": "1: rootProject.name = serviceName"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller.java"
+        },
+        "result_head": "/src/main/java/org/openlmis/auth/web/ApiKeyController.java\n/src/main/java/org/openlmis/auth/web/UserController.java\n/src/main/java/org/openlmis/auth/web/VersionController.java"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile"
+        },
+        "result_head": "1: FROM openlmis/service-base:7\n2: \n3: COPY build/libs/*.jar /service.jar\n4: COPY src/main/resources/db/demo-data/*.csv /demo-data/\n5: COPY build/schema /schema\n6: \n7: COPY build/consul /consul\n8: WORKDIR /consul\n9: \n10: RUN npm install --production\n11: \n12: WORKDIR /\n13: "
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/auth/web/ApiKeyController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.auth.web;\n17: \n18: import static org.openlmis.auth.i18n.MessageKeys.ERROR"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/auth/web/UserController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: \n17: package org.openlmis.auth.web;\n18: \n19: import static org.openlmis.auth.i18n.MessageKeys."
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/auth/web/VersionController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.auth.web;\n17: \n18: import org.openlmis.util.Version;\n19: import org.slf4j"
+      },
+      {
+        "step": 4,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)",
+          "path": "/src/main/java/org/openlmis/auth/web"
+        },
+        "result_head": "/src/main/java/org/openlmis/auth/web/ApiKeyController.java:63: @RequestMapping(\"/api\")\n/src/main/java/org/openlmis/auth/web/ApiKeyController.java:94: @RequestMapping(value = \"/apiKeys\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/auth/web/ApiKeyController.java:146: @RequestMapping(value = \"/apiKeys\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/auth/web/ApiKeyController.java:175: @RequestMapping(value = \"/apiKeys/{token}\", method = RequestMethod.DELETE)\n/src/main/java/org/openlmis/auth/web/CustomApprovalEndpoint.java:40: @RequestMapping(\"/api/oauth/confirm_access\")\n/src/main/java/org/openlmis/auth/web/UserController.java:82: @RequestMapping(\"/api\")\n/src/main/java/org/openlmis/auth/web/UserController.java:134: @RequestMapping(value = \"/users/auth\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/auth/web/UserController.java:156: @RequestMapping(value = \"/users/auth/batch\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/auth/web/UserController.j"
+      },
+      {
+        "step": 4,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/src/main/java/org/openlmis/auth"
+        },
+        "result_head": "/src/main/java/org/openlmis/auth/ApiKeyInitializer.java\n/src/main/java/org/openlmis/auth/ApiSupersetClientInitializer.java\n/src/main/java/org/openlmis/auth/Application.java\n/src/main/java/org/openlmis/auth/ExportSchemaFlywayCallback.java\n/src/main/java/org/openlmis/auth/Resource2Db.java\n/src/main/java/org/openlmis/auth/TestDataInitializer.java\n/src/main/java/org/openlmis/auth/domain/ApiKey.java\n/src/main/java/org/openlmis/auth/domain/BaseEntity.java\n/src/main/java/org/openlmis/auth/domain/Client.java\n/src/main/java/org/openlmis/auth/domain/ClientDetails.java\n/src/main/java/org/openlmis/auth/domain/ClientRole.java\n/src/main/java/org/openlmis/auth/domain/ConditionalUuidGenerator.java\n/src/main/java/org/openlmis/auth/domain/CreationDetails.java\n/src/main/java/org/openlmis/auth/domain/ExpirationToken.java\n/src/main/java/org/openlmis/auth/domain/Identifiable.java\n/src/main/java/org/openlmis/auth/domain/PasswordResetRegistry.java\n/src/main/java/org/openlmis/auth/domain/PasswordResetToken.jav"
+      },
+      {
+        "step": 5,
+        "tool": "list_dir",
+        "args": {
+          "path": "/src/main/java/org/openlmis/auth/web"
+        },
+        "result_head": "AbstractErrorHandling.java\nApiKeyController.java\nBaseValidator.java\nCustomApprovalEndpoint.java\nCustomWebMvcConfigurerAdapter.java\nDefaultContentTypeInterceptor.java\nPasswordResetRequestDtoValidator.java\nPasswordStrengthValidator.java\nSpelView.java\nUserController.java\nUserDtoValidator.java\nVersionController.java\nWebErrorHandling.java"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/auth/web/ApiKeyController.java",
+          "start": "140"
+        },
+        "result_head": "140: \n141:   /**\n142:    * Retrieves all API Keys.\n143:    *\n144:    * @return Page of API Keys.\n145:    */\n146:   @RequestMapping(value = \"/apiKeys\", method = RequestMethod.GET)\n147:   @ResponseStatus(HttpStatus.OK)\n148:   @ResponseBody\n149:   public Page<ApiKeyDto> getApiKeys(Pageable pageable) {\n150:     Profiler profiler = new Profiler(\"GET_API_KEYS\");\n151:     profiler.setLogger(LOGGER);\n152: \n153:     canManageApiKeys(profiler);\n154: \n155:     profiler.start(\"DB_CALL\");\n156:     Page<ApiKey> result = apiKeyRepository.findAll(pageable);\n157: \n158:     profiler.start(\"EXPORT_API_KEYS_TO_DTO\");\n159:     List<ApiKeyDto> dtos = result.getContent()\n160:         .stream()\n161:         .map(ApiKeyDto::newInstance)\n162:         .collect(Collectors.toList());\n163: \n164:     profiler.start(\"CREATE_PAGE\");\n165:     Page<ApiKeyDto> page = Pagination.getPage(dtos, pageable, result.getTotalElements());\n166: \n167:     profiler.stop().log();\n168: \n169:     return page;\n170:   }\n171: \n172:   /**\n1"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/auth/web/CustomApprovalEndpoint.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.auth.web;\n17: \n18: import java.util.Map;\n19: import javax.servlet.http.Ht"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/auth/web/UserController.java",
+          "start": "128"
+        },
+        "result_head": "128:   /**\n129:    * Custom endpoint for creating and updating single user.\n130:    * Encrypts password with BCryptPasswordEncoder.\n131:    *\n132:    * @return saved user.\n133:    */\n134:   @RequestMapping(value = \"/users/auth\", method = RequestMethod.POST)\n135:   @ResponseStatus(HttpStatus.OK)\n136:   @ResponseBody\n137:   public UserDto saveUser(@RequestBody UserDto request, BindingResult bindingResult) {\n138:     permissionService.canManageUsers(request.getId());\n139:     LOGGER.debug(\"Creating or updating user\");\n140: \n141:     userDtoValidator.validate(request, bindingResult);\n142: \n143:     if (bindingResult.hasErrors()) {\n144:       throw new ValidationMessageException(bindingResult.getFieldError().getDefaultMessage());\n145:     }\n146: \n147:     return userService.saveUser(request);\n148:   }\n149: \n150:   /**\n151:    * Custom endpoint for creating and updating multiple users.\n152:    * Encrypts password with BCryptPasswordEncoder.\n153:    *\n154:    * @return saved list of users.\n15"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/auth/web/UserController.java",
+          "start": "270"
+        },
+        "result_head": "270:     PasswordResetToken token =\n271:         passwordResetTokenRepository.findById(passwordChangeRequest.getToken()).orElseThrow(\n272:             () -> new ValidationMessageException(ERROR_TOKEN_INVALID)\n273:         );\n274: \n275:     if (token.isExpired()) {\n276:       throw new ValidationMessageException(ERROR_TOKEN_EXPIRED);\n277:     }\n278: \n279:     User user = token.getUser();\n280:     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();\n281:     user.setPassword(encoder.encode(passwordChangeRequest.getNewPassword()));\n282:     userRepository.save(user);\n283: \n284:     passwordResetTokenRepository.delete(token);\n285:   }\n286: \n287:   /**\n288:    * Creates token which can be used to change user's password.\n289:    */\n290:   @RequestMapping(value = \"/users/auth/passwordResetToken\", method = RequestMethod.POST)\n291:   @ResponseStatus(HttpStatus.OK)\n292:   @ResponseBody\n293:   public UUID generatePasswordResetToken(\n294:       @RequestParam(value = \"userId\") UUID referenc"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/auth/Application.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.auth;\n17: \n18: import java.util.Locale;\n19: import org.flywaydb.core.Flyw"
+      },
+      {
+        "step": 8,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/auth/security",
+          "pattern": "pathMapping|antMatchers|/oauth|check_token|/api"
+        },
+        "result_head": "/src/main/java/org/openlmis/auth/security/AuthorizationEndpointConfigurer.java:37: authorizationEndpoint.setUserApprovalPage(\"forward:/api/oauth/confirm_access\");\n/src/main/java/org/openlmis/auth/security/AuthorizationServerConfiguration.java:57: .pathMapping(\"/oauth/token\", \"/api/oauth/token\")\n/src/main/java/org/openlmis/auth/security/AuthorizationServerConfiguration.java:58: .pathMapping(\"/oauth/check_token\", \"/api/oauth/check_token\")\n/src/main/java/org/openlmis/auth/security/AuthorizationServerConfiguration.java:59: .pathMapping(\"/oauth/authorize\", \"/api/oauth/authorize\")\n/src/main/java/org/openlmis/auth/security/AuthorizationServerConfiguration.java:60: .pathMapping(\"/oauth/error\", \"/api/oauth/error\");\n/src/main/java/org/openlmis/auth/security/ResourceServerSecurityConfiguration.java:80: .antMatchers(\n/src/main/java/org/openlmis/auth/security/ResourceServerSecurityConfiguration.java:83: \"/api/users/auth/forgotPassword\",\n/src/main/java/org/openlmis/auth/security/ResourceServerSecuri"
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/auth/security/AuthorizationServerConfiguration.java",
+          "start": "40"
+        },
+        "result_head": "40:   @Qualifier(\"clientDetailsServiceImpl\")\n41:   private ClientDetailsService clientDetailsService;\n42: \n43:   @Autowired\n44:   private DefaultTokenServices tokenServices;\n45: \n46:   @Autowired\n47:   private TokenEnhancer tokenEnhancer;\n48: \n49:   @Override\n50:   public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {\n51:     endpoints.setClientDetailsService(clientDetailsService);\n52:     endpoints\n53:         .tokenStore(tokenStore)\n54:         .authenticationManager(authenticationManager)\n55:         .tokenServices(tokenServices)\n56:         .tokenEnhancer(tokenEnhancer)\n57:         .pathMapping(\"/oauth/token\", \"/api/oauth/token\")\n58:         .pathMapping(\"/oauth/check_token\", \"/api/oauth/check_token\")\n59:         .pathMapping(\"/oauth/authorize\", \"/api/oauth/authorize\")\n60:         .pathMapping(\"/oauth/error\", \"/api/oauth/error\");\n61:   }\n62: \n63:   @Override\n64:   public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Ex"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java",
+          "pattern": "@(RestController|Controller|RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping)"
+        },
+        "result_head": "/src/main/java/org/openlmis/auth/web/ApiKeyController.java:61: @Controller\n/src/main/java/org/openlmis/auth/web/ApiKeyController.java:63: @RequestMapping(\"/api\")\n/src/main/java/org/openlmis/auth/web/ApiKeyController.java:94: @RequestMapping(value = \"/apiKeys\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/auth/web/ApiKeyController.java:146: @RequestMapping(value = \"/apiKeys\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/auth/web/ApiKeyController.java:175: @RequestMapping(value = \"/apiKeys/{token}\", method = RequestMethod.DELETE)\n/src/main/java/org/openlmis/auth/web/CustomApprovalEndpoint.java:30: @RestController\n/src/main/java/org/openlmis/auth/web/CustomApprovalEndpoint.java:40: @RequestMapping(\"/api/oauth/confirm_access\")\n/src/main/java/org/openlmis/auth/web/UserController.java:80: @Controller\n/src/main/java/org/openlmis/auth/web/UserController.java:82: @RequestMapping(\"/api\")\n/src/main/java/org/openlmis/auth/web/UserController.java:134: @RequestMapping(value = "
+      },
+      {
+        "step": 11,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"openlmis-auth\",\"dirs\":[\"/\"]}],\"files\":[\n{\"path\":\"/src/main/java/org/openlmis/auth/web/ApiKeyController.java\",\"service\":\"openlmis-auth\",\"endpoints\":[\n{\"className\":\"ApiKeyControlle"
+        },
+        "result_head": "Recorded 21 new: service openlmis-auth, POST /api/apiKeys, GET /api/apiKeys, DELETE /api/apiKeys/{token}, POST /api/users/auth, POST /api/users/auth/batch, GET /api/users/auth/{id}, POST /api/users/auth/logout, POST /api/users/auth/passwordReset, POST /api/users/auth/forgotPassword, POST /api/users/auth/changePassword, POST /api/users/auth/passwordResetToken, GET /api/users/auth/batch, POST /api/users/auth/unlock, DELETE /api/users/auth/batch, ANY /auth, ANY /api/oauth/confirm_access, POST /api/oauth/token, ANY /api/oauth/check_token, ANY /api/oauth/authorize, ANY /api/oauth/error\nTotal: 1 services, 20 endpoints in 5 files."
+      },
+      {
+        "step": 12,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 1 services, 20 endpoints."
+      }
+    ]
+  }
+}

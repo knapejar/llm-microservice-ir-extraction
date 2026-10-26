@@ -1,0 +1,1034 @@
+{
+  "system": "openlmis-requisition",
+  "services": [
+    {
+      "name": "openlmis-requisition",
+      "dirs": [
+        "/src",
+        "/config",
+        "/consul"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/src/main/java/org/openlmis/requisition/web/RequisitionController.java",
+      "service": "openlmis-requisition",
+      "endpoints": [
+        {
+          "className": "RequisitionController",
+          "methodName": "initiate",
+          "httpMethod": "POST",
+          "path": "/api/requisitions/initiate",
+          "line": 108,
+          "evidence": "@PostMapping(RESOURCE_URL + \"/initiate\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "getProcessingPeriodIds",
+          "httpMethod": "GET",
+          "path": "/api/requisitions/periodsForInitiate",
+          "line": 149,
+          "evidence": "@GetMapping(RESOURCE_URL + \"/periodsForInitiate\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "submitRequisition",
+          "httpMethod": "POST",
+          "path": "/api/requisitions/{id}/submit",
+          "line": 202,
+          "evidence": "@PostMapping(RESOURCE_URL + \"/{id}/submit\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "deleteRequisition",
+          "httpMethod": "DELETE",
+          "path": "/api/requisitions/{id}",
+          "line": 255,
+          "evidence": "@DeleteMapping(RESOURCE_URL + \"/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "updateRequisition",
+          "httpMethod": "PUT",
+          "path": "/api/requisitions/{id}",
+          "line": 268,
+          "evidence": "@PutMapping(RESOURCE_URL + \"/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "getRequisition",
+          "httpMethod": "GET",
+          "path": "/api/requisitions/{id}",
+          "line": 304,
+          "evidence": "@GetMapping(RESOURCE_URL + \"/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "searchRequisitions",
+          "httpMethod": "GET",
+          "path": "/api/requisitions/search",
+          "line": 332,
+          "evidence": "@GetMapping(RESOURCE_URL + \"/search\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "skipRequisition",
+          "httpMethod": "PUT",
+          "path": "/api/requisitions/{id}/skip",
+          "line": 358,
+          "evidence": "@PutMapping(RESOURCE_URL + \"/{id}/skip\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "rejectRequisition",
+          "httpMethod": "PUT",
+          "path": "/api/requisitions/{id}/reject",
+          "line": 392,
+          "evidence": "@PutMapping(RESOURCE_URL + \"/{id}/reject\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "approveRequisition",
+          "httpMethod": "POST",
+          "path": "/api/requisitions/{id}/approve",
+          "line": 434,
+          "evidence": "@PostMapping(RESOURCE_URL + \"/{id}/approve\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "requisitionsForApproval",
+          "httpMethod": "GET",
+          "path": "/api/requisitions/requisitionsForApproval",
+          "line": 498,
+          "evidence": "@GetMapping(RESOURCE_URL + \"/requisitionsForApproval\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "countRequisitionsForApproval",
+          "httpMethod": "GET",
+          "path": "/api/requisitions/numberOfRequisitionsForApproval",
+          "line": 528,
+          "evidence": "@GetMapping(RESOURCE_URL + \"/numberOfRequisitionsForApproval\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "getRequisitionsStatusesStatsData",
+          "httpMethod": "GET",
+          "path": "/api/requisitions/statusesStatsData",
+          "line": 548,
+          "evidence": "@GetMapping(RESOURCE_URL + \"/statusesStatsData\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "getSubmittedRequisitions",
+          "httpMethod": "GET",
+          "path": "/api/requisitions/submitted",
+          "line": 571,
+          "evidence": "@GetMapping(RESOURCE_URL + \"/submitted\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "authorizeRequisition",
+          "httpMethod": "POST",
+          "path": "/api/requisitions/{id}/authorize",
+          "line": 600,
+          "evidence": "@PostMapping(RESOURCE_URL + \"/{id}/authorize\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "listForConvertToOrder",
+          "httpMethod": "GET",
+          "path": "/api/requisitions/requisitionsForConvert",
+          "line": 656,
+          "evidence": "@GetMapping(RESOURCE_URL + \"/requisitionsForConvert\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionController",
+          "methodName": "convertToOrder",
+          "httpMethod": "POST",
+          "path": "/api/requisitions/convertToOrder",
+          "line": 683,
+          "evidence": "@PostMapping(RESOURCE_URL + \"/convertToOrder\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/requisition/web/RequisitionV2Controller.java",
+      "service": "openlmis-requisition",
+      "endpoints": [
+        {
+          "className": "RequisitionV2Controller",
+          "methodName": "initiate",
+          "httpMethod": "POST",
+          "path": "/api/v2/requisitions/initiate",
+          "line": 95,
+          "evidence": "@PostMapping(\"/initiate\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionV2Controller",
+          "methodName": "updateRequisition",
+          "httpMethod": "PUT",
+          "path": "/api/v2/requisitions/{id}",
+          "line": 128,
+          "evidence": "@PutMapping(\"/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionV2Controller",
+          "methodName": "getRequisition",
+          "httpMethod": "GET",
+          "path": "/api/v2/requisitions/{id}",
+          "line": 172,
+          "evidence": "@GetMapping(\"/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionV2Controller",
+          "methodName": "updatePatientsData",
+          "httpMethod": "PATCH",
+          "path": "/api/v2/requisitions/{id}/updatePatientsData",
+          "line": 199,
+          "evidence": "@PatchMapping(\"/{id}/updatePatientsData\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java",
+      "service": "openlmis-requisition",
+      "endpoints": [
+        {
+          "className": "BatchRequisitionController",
+          "methodName": "retrieveAll",
+          "httpMethod": "GET",
+          "path": "/api/requisitions",
+          "line": 131,
+          "evidence": "@RequestMapping(value = \"/requisitions\", params = \"retrieveAll\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "BatchRequisitionController",
+          "methodName": "approve",
+          "httpMethod": "POST",
+          "path": "/api/requisitions",
+          "line": 185,
+          "evidence": "@RequestMapping(value = \"/requisitions\", params = \"approveAll\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "BatchRequisitionController",
+          "methodName": "update",
+          "httpMethod": "PUT",
+          "path": "/api/requisitions",
+          "line": 259,
+          "evidence": "@RequestMapping(value = \"/requisitions\", params = \"saveAll\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "BatchRequisitionController",
+          "methodName": "batchReleaseRequisitions",
+          "httpMethod": "POST",
+          "path": "/api/requisitions/batchReleases",
+          "line": 345,
+          "evidence": "@RequestMapping(value = \"/requisitions/batchReleases\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/requisition/web/ConfigurationController.java",
+      "service": "openlmis-requisition",
+      "endpoints": [
+        {
+          "className": "ConfigurationController",
+          "methodName": "unskipRequisition",
+          "httpMethod": "GET",
+          "path": "/api/requisitions/unSkipRequisition",
+          "line": 39,
+          "evidence": "@GetMapping(RESOURCE_URL + \"/unSkipRequisition\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/requisition/web/ReportsController.java",
+      "service": "openlmis-requisition",
+      "endpoints": [
+        {
+          "className": "ReportsController",
+          "methodName": "print",
+          "httpMethod": "GET",
+          "path": "/api/requisitions/{id}/print",
+          "line": 59,
+          "evidence": "@RequestMapping(value = \"/requisitions/{id}/print\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/requisition/web/StatusMessageController.java",
+      "service": "openlmis-requisition",
+      "endpoints": [
+        {
+          "className": "StatusMessageController",
+          "methodName": "getAllRequisitionStatusMessages",
+          "httpMethod": "GET",
+          "path": "/api/requisitions/{id}/statusMessages",
+          "line": 51,
+          "evidence": "@RequestMapping(value = \"/requisitions/{id}/statusMessages\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/requisition/web/RequisitionTemplateController.java",
+      "service": "openlmis-requisition",
+      "endpoints": [
+        {
+          "className": "RequisitionTemplateController",
+          "methodName": "createRequisitionTemplate",
+          "httpMethod": "POST",
+          "path": "/api/requisitionTemplates",
+          "line": 84,
+          "evidence": "@RequestMapping(value = \"/requisitionTemplates\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionTemplateController",
+          "methodName": "getCurrentRequisitionTemplates",
+          "httpMethod": "GET",
+          "path": "/api/requisitionTemplates",
+          "line": 113,
+          "evidence": "@RequestMapping(value = \"/requisitionTemplates\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionTemplateController",
+          "methodName": "updateRequisitionTemplate",
+          "httpMethod": "PUT",
+          "path": "/api/requisitionTemplates/{id}",
+          "line": 129,
+          "evidence": "@RequestMapping(value = \"/requisitionTemplates/{id}\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionTemplateController",
+          "methodName": "getRequisitionTemplate",
+          "httpMethod": "GET",
+          "path": "/api/requisitionTemplates/{id}",
+          "line": 179,
+          "evidence": "@RequestMapping(value = \"/requisitionTemplates/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionTemplateController",
+          "methodName": "deleteRequisitionTemplate",
+          "httpMethod": "DELETE",
+          "path": "/api/requisitionTemplates/{id}",
+          "line": 199,
+          "evidence": "@RequestMapping(value = \"/requisitionTemplates/{id}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RequisitionTemplateController",
+          "methodName": "findTemplateL",
+          "httpMethod": "GET",
+          "path": "/api/requisitionTemplates/{facilityTypeId}/{programId}/{reportOnly}",
+          "line": 224,
+          "evidence": "@RequestMapping(value = \"/requisitionTemplates/{facilityTypeId}/{programId}/{reportOnly}\",",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/requisition/web/RejectionReasonController.java",
+      "service": "openlmis-requisition",
+      "endpoints": [
+        {
+          "className": "RejectionReasonController",
+          "methodName": "getAllRejectionReasons",
+          "httpMethod": "GET",
+          "path": "/api/rejectionReasons",
+          "line": 74,
+          "evidence": "@RequestMapping(value = \"/rejectionReasons\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RejectionReasonController",
+          "methodName": "getRejectionReason",
+          "httpMethod": "GET",
+          "path": "/api/rejectionReasons/{id}",
+          "line": 93,
+          "evidence": "@RequestMapping(value = \"/rejectionReasons/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RejectionReasonController",
+          "methodName": "saveRejectionReason",
+          "httpMethod": "POST",
+          "path": "/api/rejectionReasons",
+          "line": 113,
+          "evidence": "@RequestMapping(value = \"/rejectionReasons\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RejectionReasonController",
+          "methodName": "updateRejectionReason",
+          "httpMethod": "PUT",
+          "path": "/api/rejectionReasons/{id}",
+          "line": 136,
+          "evidence": "@RequestMapping(value = \"/rejectionReasons/{id}\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RejectionReasonController",
+          "methodName": "searchRejectionReason",
+          "httpMethod": "GET",
+          "path": "/api/rejectionReasons/search",
+          "line": 170,
+          "evidence": "@RequestMapping(value = \"/rejectionReasons/search\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/requisition/web/RejectionReasonCategoryController.java",
+      "service": "openlmis-requisition",
+      "endpoints": [
+        {
+          "className": "RejectionReasonCategoryController",
+          "methodName": "getAllRejectionReasonCategories",
+          "httpMethod": "GET",
+          "path": "/api/rejectionReasonCategories",
+          "line": 70,
+          "evidence": "@RequestMapping(value = \"/rejectionReasonCategories\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RejectionReasonCategoryController",
+          "methodName": "getRejectionReasonCategory",
+          "httpMethod": "GET",
+          "path": "/api/rejectionReasonCategories/{id}",
+          "line": 90,
+          "evidence": "@RequestMapping(value = \"/rejectionReasonCategories/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RejectionReasonCategoryController",
+          "methodName": "saveRejectionReasonCategory",
+          "httpMethod": "POST",
+          "path": "/api/rejectionReasonCategories",
+          "line": 111,
+          "evidence": "@RequestMapping(value = \"/rejectionReasonCategories\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RejectionReasonCategoryController",
+          "methodName": "updateRejectionReasonCategory",
+          "httpMethod": "PUT",
+          "path": "/api/rejectionReasonCategories/{id}",
+          "line": 138,
+          "evidence": "@RequestMapping(value = \"/rejectionReasonCategories/{id}\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RejectionReasonCategoryController",
+          "methodName": "searchRejectionReasonCategory",
+          "httpMethod": "GET",
+          "path": "/api/rejectionReasonCategories/search",
+          "line": 170,
+          "evidence": "@RequestMapping(value = \"/rejectionReasonCategories/search\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/requisition/web/JasperTemplateController.java",
+      "service": "openlmis-requisition",
+      "endpoints": [
+        {
+          "className": "JasperTemplateController",
+          "methodName": "createJasperReportTemplate",
+          "httpMethod": "POST",
+          "path": "/api/reports/templates/requisitions",
+          "line": 89,
+          "evidence": "@RequestMapping(method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "JasperTemplateController",
+          "methodName": "getAllTemplates",
+          "httpMethod": "GET",
+          "path": "/api/reports/templates/requisitions",
+          "line": 121,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "JasperTemplateController",
+          "methodName": "getTemplate",
+          "httpMethod": "GET",
+          "path": "/api/reports/templates/requisitions/{id}",
+          "line": 137,
+          "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "JasperTemplateController",
+          "methodName": "deleteTemplate",
+          "httpMethod": "DELETE",
+          "path": "/api/reports/templates/requisitions/{id}",
+          "line": 154,
+          "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "JasperTemplateController",
+          "methodName": "generateReport",
+          "httpMethod": "GET",
+          "path": "/api/reports/templates/requisitions/{id}/{format}",
+          "line": 173,
+          "evidence": "@RequestMapping(value = \"/{id}/{format}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/requisition/web/AvailableRequisitionColumnController.java",
+      "service": "openlmis-requisition",
+      "endpoints": [
+        {
+          "className": "AvailableRequisitionColumnController",
+          "methodName": "getAllColumns",
+          "httpMethod": "GET",
+          "path": "/api/availableRequisitionColumns",
+          "line": 51,
+          "evidence": "@GetMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/requisition/web/VersionController.java",
+      "service": "openlmis-requisition",
+      "endpoints": [
+        {
+          "className": "VersionController",
+          "methodName": "display",
+          "httpMethod": "ANY",
+          "path": "/requisition",
+          "line": 37,
+          "evidence": "@RequestMapping(\"/requisition\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "openlmis-requisition",
+    "commit": "367374d2cbf9f9fd2357daacd088e4c0d0e31e2d",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "record_nudges": 1,
+    "elided_results": 0,
+    "steps": 20,
+    "tool_calls": 47,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 316359,
+    "cached_input_tokens": 284032,
+    "output_tokens": 8134,
+    "list_price_usd": 0.0106,
+    "wall_seconds": 52.7,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".dockerignore\n.github/\n.gitignore\nCHANGELOG.md\nDockerfile\nJenkinsfile\nLICENSE\nLICENSE-HEADER\nREADME.md\nSTYLE-GUIDE.md\nbuild.gradle\nbuild.sh\nci-buildImage.sh\nci-erdGeneration.sh\nconfig/\nconsul/\ndocker-compose.builder.yml\ndocker-compose.erd-generation.yml\ndocker-compose.override.yml\ndocker-compose.yml\ndocumentation.gradle\nexport_schema.sh\ngenerateErdFor.sh\ngradle.properties\ngradle/\ngradlew\ngradlew.bat\nlombok.config\npackage-lock.json\npackage.json\nperformance/\npublishing.gradle\nregistration.gradle\nsample/\nsettings.gradle\nsonar-project.properties\nsrc/"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile"
+        },
+        "result_head": "/Dockerfile"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle"
+        },
+        "result_head": "1: rootProject.name = serviceName"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile"
+        },
+        "result_head": "1: FROM openlmis/service-base:7\n2: \n3: COPY build/libs/*.jar /service.jar\n4: COPY src/main/resources/db/demo-data/*.csv /demo-data/\n5: COPY build/schema /schema\n6: \n7: COPY build/consul /consul\n8: WORKDIR /consul\n9: \n10: RUN npm install --production\n11: \n12: WORKDIR /"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/src"
+        },
+        "result_head": "integration-test/\nmain/\ntest/"
+      },
+      {
+        "step": 3,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller.java"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/AvailableRequisitionColumnController.java\n/src/main/java/org/openlmis/requisition/web/BaseController.java\n/src/main/java/org/openlmis/requisition/web/BaseRequisitionController.java\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java\n/src/main/java/org/openlmis/requisition/web/ConfigurationController.java\n/src/main/java/org/openlmis/requisition/web/JasperTemplateController.java\n/src/main/java/org/openlmis/requisition/web/RejectionReasonCategoryController.java\n/src/main/java/org/openlmis/requisition/web/RejectionReasonController.java\n/src/main/java/org/openlmis/requisition/web/ReportsController.java\n/src/main/java/org/openlmis/requisition/web/RequisitionController.java\n/src/main/java/org/openlmis/requisition/web/RequisitionTemplateController.java\n/src/main/java/org/openlmis/requisition/web/RequisitionV2Controller.java\n/src/main/java/org/openlmis/requisition/web/StatusMessageController.java\n/src/main/java/org/openlmis/req"
+      },
+      {
+        "step": 3,
+        "tool": "find",
+        "args": {
+          "pattern": "*Application.java"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/Application.java"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/RequisitionController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.requisition.web;\n17: \n18: import java.time.LocalDate;\n19: import java.uti"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/BaseController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.requisition.web;\n17: \n18: import java.util.Arrays;\n19: import java.util.H"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)",
+          "path": "/src/main/java/org/openlmis/requisition/web"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/AvailableRequisitionColumnController.java:37: @RequestMapping(\"/api/availableRequisitionColumns\")\n/src/main/java/org/openlmis/requisition/web/AvailableRequisitionColumnController.java:51: @GetMapping\n/src/main/java/org/openlmis/requisition/web/BaseController.java:39: @RequestMapping(\"/api\")\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:131: @RequestMapping(value = \"/requisitions\", params = \"retrieveAll\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:185: @RequestMapping(value = \"/requisitions\", params = \"approveAll\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:259: @RequestMapping(value = \"/requisitions\", params = \"saveAll\", method = RequestMethod.PUT)\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:345: @RequestMapping(value = \"/requisitions/batchReleases\", method = R"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/RequisitionTemplateController.java",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)|class "
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/RequisitionTemplateController.java:51: public class RequisitionTemplateController extends BaseController {\n/src/main/java/org/openlmis/requisition/web/RequisitionTemplateController.java:84: @RequestMapping(value = \"/requisitionTemplates\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/requisition/web/RequisitionTemplateController.java:113: @RequestMapping(value = \"/requisitionTemplates\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/requisition/web/RequisitionTemplateController.java:129: @RequestMapping(value = \"/requisitionTemplates/{id}\", method = RequestMethod.PUT)\n/src/main/java/org/openlmis/requisition/web/RequisitionTemplateController.java:179: @RequestMapping(value = \"/requisitionTemplates/{id}\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/requisition/web/RequisitionTemplateController.java:199: @RequestMapping(value = \"/requisitionTemplates/{id}\", method = RequestMethod.DELETE)\n/src/main/java/org/openlmi"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/RequisitionV2Controller.java",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)|class "
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/RequisitionV2Controller.java:69: @RequestMapping(RESOURCE_URL)\n/src/main/java/org/openlmis/requisition/web/RequisitionV2Controller.java:70: public class RequisitionV2Controller extends BaseRequisitionController {\n/src/main/java/org/openlmis/requisition/web/RequisitionV2Controller.java:95: @PostMapping(\"/initiate\")\n/src/main/java/org/openlmis/requisition/web/RequisitionV2Controller.java:128: @PutMapping(\"/{id}\")\n/src/main/java/org/openlmis/requisition/web/RequisitionV2Controller.java:172: @GetMapping(\"/{id}\")\n/src/main/java/org/openlmis/requisition/web/RequisitionV2Controller.java:199: @PatchMapping(\"/{id}/updatePatientsData\")"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/StatusMessageController.java",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)|class "
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/StatusMessageController.java:37: public class StatusMessageController extends BaseController {\n/src/main/java/org/openlmis/requisition/web/StatusMessageController.java:51: @RequestMapping(value = \"/requisitions/{id}/statusMessages\", method = RequestMethod.GET)"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/VersionController.java",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)|class "
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/VersionController.java:28: public class VersionController {\n/src/main/java/org/openlmis/requisition/web/VersionController.java:37: @RequestMapping(\"/requisition\")"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/BaseRequisitionController.java",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)|class |RESOURCE_URL"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/BaseRequisitionController.java:117: public abstract class BaseRequisitionController extends BaseController {\n/src/main/java/org/openlmis/requisition/web/BaseRequisitionController.java:119: static final String RESOURCE_URL = \"/requisitions\";\n/src/main/java/org/openlmis/requisition/web/BaseRequisitionController.java:667: // functional interface and this anonymous class cannot be rewritten as a lambda.\n/src/main/java/org/openlmis/requisition/web/BaseRequisitionController.java:689: baseUrl + API_URL + RESOURCE_URL + '/' + requisitionId);\n/src/main/java/org/openlmis/requisition/web/BaseRequisitionController.java:734: class ApproveParams {\n/src/main/java/org/openlmis/requisition/web/BaseRequisitionController.java:744: class UpdateParams {\n/src/main/java/org/openlmis/requisition/web/BaseRequisitionController.java:773: class InitiateResult {\n/src/main/java/org/openlmis/requisition/web/BaseRequisitionController.java:783: class UpdatePreparationResult "
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/ConfigurationController.java",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)|class |RESOURCE_URL"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/ConfigurationController.java:30: public class ConfigurationController extends BaseRequisitionController {\n/src/main/java/org/openlmis/requisition/web/ConfigurationController.java:39: @GetMapping(RESOURCE_URL + \"/unSkipRequisition\")"
+      },
+      {
+        "step": 7,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/AvailableRequisitionColumnController.java:37: @RequestMapping(\"/api/availableRequisitionColumns\")\n/src/main/java/org/openlmis/requisition/web/AvailableRequisitionColumnController.java:51: @GetMapping\n/src/main/java/org/openlmis/requisition/web/BaseController.java:39: @RequestMapping(\"/api\")\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:131: @RequestMapping(value = \"/requisitions\", params = \"retrieveAll\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:185: @RequestMapping(value = \"/requisitions\", params = \"approveAll\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:259: @RequestMapping(value = \"/requisitions\", params = \"saveAll\", method = RequestMethod.PUT)\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:345: @RequestMapping(value = \"/requisitions/batchReleases\", method = R"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/RequisitionController.java",
+          "start": "680"
+        },
+        "result_head": "680:    *\n681:    * @param list List of Requisitions with their supplyingDepots that will be converted to Orders\n682:    */\n683:   @PostMapping(RESOURCE_URL + \"/convertToOrder\")\n684:   @ResponseStatus(HttpStatus.CREATED)\n685:   public void convertToOrder(@RequestBody List<ReleasableRequisitionDto> list) {\n686:     Profiler profiler = getProfiler(\"CONVERT_TO_ORDER\", list);\n687:     checkPermission(profiler, () -> permissionService.canConvertToOrder(list));\n688: \n689:     profiler.start(\"CONVERT\");\n690:     requisitionService.convertToOrder(list, getCurrentUser(profiler));\n691: \n692:     stopProfiler(profiler);\n693:   }\n694: \n695:   private SupervisoryNodeDto getSupervisoryNodeDto(Profiler profiler, Requisition requisition) {\n696:     profiler.start(\"GET_SUPERVISORY_NODE\");\n697:     return supervisoryNodeService\n698:         .findOne(requisition.getSupervisoryNodeId());\n699:   }\n700: \n701:   private Map<VersionIdentityDto, OrderableDto> findOrderables(Profiler profiler,\n702:       Requis"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/RequisitionTemplateController.java",
+          "start": "40"
+        },
+        "result_head": "40: import org.springframework.transaction.annotation.Transactional;\n41: import org.springframework.validation.BindingResult;\n42: import org.springframework.web.bind.annotation.PathVariable;\n43: import org.springframework.web.bind.annotation.RequestBody;\n44: import org.springframework.web.bind.annotation.RequestMapping;\n45: import org.springframework.web.bind.annotation.RequestMethod;\n46: import org.springframework.web.bind.annotation.ResponseBody;\n47: import org.springframework.web.bind.annotation.ResponseStatus;\n48: \n49: @Controller\n50: @Transactional\n51: public class RequisitionTemplateController extends BaseController {\n52: \n53:   private static final Logger LOGGER = LoggerFactory.getLogger(RequisitionTemplateController.class);\n54: \n55:   @Autowired\n56:   private RequisitionRepository requisitionRepository;\n57: \n58:   @Autowired\n59:   private RequisitionTemplateRepository requisitionTemplateRepository;\n60: \n61:   @Autowired\n62:   private RequisitionTemplateDtoValidator validator;\n6"
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/RequisitionTemplateController.java",
+          "start": "179"
+        },
+        "result_head": "179:   @RequestMapping(value = \"/requisitionTemplates/{id}\", method = RequestMethod.GET)\n180:   @ResponseStatus(HttpStatus.OK)\n181:   @ResponseBody\n182:   public RequisitionTemplateDto getRequisitionTemplate(\n183:       @PathVariable(\"id\") UUID requisitionTemplateId) {\n184:     permissionService.canManageRequisitionTemplate().throwExceptionIfHasErrors();\n185: \n186:     RequisitionTemplate requisitionTemplate =\n187:         requisitionTemplateRepository.findById(requisitionTemplateId)\n188:             .orElseThrow(() -> new ContentNotFoundMessageException(new Message(\n189:                 MessageKeys.ERROR_REQUISITION_TEMPLATE_NOT_FOUND_FOR_ID, requisitionTemplateId)));\n190: \n191:     return dtoBuilder.newInstance(requisitionTemplate);\n192:   }\n193: \n194:   /**\n195:    * Allows deleting requisitionTemplate.\n196:    *\n197:    * @param requisitionTemplateId UUID of requisitionTemplate which we want to delete\n198:    */\n199:   @RequestMapping(value = \"/requisitionTemplates/{id}\", method = "
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/VersionController.java",
+          "start": "25"
+        },
+        "result_head": "25:  * Controller used for displaying service's version information.\n26:  */\n27: @RestController\n28: public class VersionController {\n29: \n30:   private static final Logger LOGGER = LoggerFactory.getLogger(VersionController.class);\n31: \n32:   /**\n33:    * Displays version information.\n34:    *\n35:    * @return {Version} Returns version read from file.\n36:    */\n37:   @RequestMapping(\"/requisition\")\n38:   public Version display() {\n39:     LOGGER.debug(\"Returning version\");\n40:     return new Version();\n41:   }\n42: }"
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/AvailableRequisitionColumnController.java",
+          "start": "30"
+        },
+        "result_head": "30: import org.springframework.web.bind.annotation.GetMapping;\n31: import org.springframework.web.bind.annotation.RequestMapping;\n32: import org.springframework.web.bind.annotation.ResponseBody;\n33: import org.springframework.web.bind.annotation.ResponseStatus;\n34: import org.springframework.web.bind.annotation.RestController;\n35: \n36: @RestController\n37: @RequestMapping(\"/api/availableRequisitionColumns\")\n38: public class AvailableRequisitionColumnController {\n39: \n40:   private final XLogger logger = XLoggerFactory.getXLogger(getClass());\n41: \n42:   @Autowired\n43:   private AvailableRequisitionColumnRepository repository;\n44: \n45:   /**\n46:    * Returns a page of Available Requisition Columns.\n47:    *\n48:    * @param pageable holds pagination and sort parameters\n49:    * @return page of Available Requisition Columns\n50:    */\n51:   @GetMapping\n52:   @ResponseStatus(HttpStatus.OK)\n53:   @ResponseBody\n54:   public Page<AvailableRequisitionColumnDto> getAllColumns(Pageable pageable) {\n"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java",
+          "pattern": "class |@Controller|@RestController|@RequestMapping"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:95: @Controller\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:98: public class BatchRequisitionController extends BaseRequisitionController {\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:131: @RequestMapping(value = \"/requisitions\", params = \"retrieveAll\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:185: @RequestMapping(value = \"/requisitions\", params = \"approveAll\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:259: @RequestMapping(value = \"/requisitions\", params = \"saveAll\", method = RequestMethod.PUT)\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:345: @RequestMapping(value = \"/requisitions/batchReleases\", method = RequestMethod.POST)"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/ReportsController.java",
+          "pattern": "class |@Controller|@RestController|@RequestMapping"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/ReportsController.java:38: @Controller\n/src/main/java/org/openlmis/requisition/web/ReportsController.java:39: public class ReportsController extends BaseController {\n/src/main/java/org/openlmis/requisition/web/ReportsController.java:59: @RequestMapping(value = \"/requisitions/{id}/print\", method = RequestMethod.GET)"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/RejectionReasonController.java",
+          "pattern": "class |@Controller|@RestController|@RequestMapping"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/RejectionReasonController.java:53: @Controller\n/src/main/java/org/openlmis/requisition/web/RejectionReasonController.java:55: public class RejectionReasonController extends BaseController {\n/src/main/java/org/openlmis/requisition/web/RejectionReasonController.java:74: @RequestMapping(value = \"/rejectionReasons\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/requisition/web/RejectionReasonController.java:93: @RequestMapping(value = \"/rejectionReasons/{id}\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/requisition/web/RejectionReasonController.java:113: @RequestMapping(value = \"/rejectionReasons\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/requisition/web/RejectionReasonController.java:136: @RequestMapping(value = \"/rejectionReasons/{id}\", method = RequestMethod.PUT)\n/src/main/java/org/openlmis/requisition/web/RejectionReasonController.java:170: @RequestMapping(value = \"/rejectionReasons/search\", method = Requ"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/RejectionReasonCategoryController.java",
+          "pattern": "class |@Controller|@RestController|@RequestMapping"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/RejectionReasonCategoryController.java:51: @Controller\n/src/main/java/org/openlmis/requisition/web/RejectionReasonCategoryController.java:53: public class RejectionReasonCategoryController extends BaseController {\n/src/main/java/org/openlmis/requisition/web/RejectionReasonCategoryController.java:70: @RequestMapping(value = \"/rejectionReasonCategories\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/requisition/web/RejectionReasonCategoryController.java:90: @RequestMapping(value = \"/rejectionReasonCategories/{id}\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/requisition/web/RejectionReasonCategoryController.java:111: @RequestMapping(value = \"/rejectionReasonCategories\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/requisition/web/RejectionReasonCategoryController.java:138: @RequestMapping(value = \"/rejectionReasonCategories/{id}\", method = RequestMethod.PUT)\n/src/main/java/org/openlmis/requisition/web/Rejection"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/StatusMessageController.java",
+          "pattern": "class |@Controller|@RestController|@RequestMapping"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/StatusMessageController.java:35: @Controller\n/src/main/java/org/openlmis/requisition/web/StatusMessageController.java:37: public class StatusMessageController extends BaseController {\n/src/main/java/org/openlmis/requisition/web/StatusMessageController.java:51: @RequestMapping(value = \"/requisitions/{id}/statusMessages\", method = RequestMethod.GET)"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/JasperTemplateController.java",
+          "pattern": "class |@Controller|@RestController|@RequestMapping"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/JasperTemplateController.java:52: @Controller\n/src/main/java/org/openlmis/requisition/web/JasperTemplateController.java:54: @RequestMapping(\"/api/reports/templates/requisitions\")\n/src/main/java/org/openlmis/requisition/web/JasperTemplateController.java:55: public class JasperTemplateController extends BaseController {\n/src/main/java/org/openlmis/requisition/web/JasperTemplateController.java:89: @RequestMapping(method = RequestMethod.POST)\n/src/main/java/org/openlmis/requisition/web/JasperTemplateController.java:121: @RequestMapping(method = RequestMethod.GET)\n/src/main/java/org/openlmis/requisition/web/JasperTemplateController.java:137: @RequestMapping(value = \"/{id}\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/requisition/web/JasperTemplateController.java:154: @RequestMapping(value = \"/{id}\", method = RequestMethod.DELETE)\n/src/main/java/org/openlmis/requisition/web/JasperTemplateController.java:173: @RequestMapping(value = \"/{i"
+      },
+      {
+        "step": 11,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java",
+          "start": "125"
+        },
+        "result_head": "125:   @Value(\"${transferDataToStockManagement.enabled}\")\n126:   private boolean isTransferStockDataFromRequisitionToStockManagementEnabled;\n127: \n128:   /**\n129:    * Attempts to retrieve requisitions with the provided UUIDs.\n130:    */\n131:   @RequestMapping(value = \"/requisitions\", params = \"retrieveAll\", method = RequestMethod.GET)\n132:   @ResponseBody\n133:   public ResponseEntity<RequisitionsProcessingStatusDto> retrieveAll(\n134:       @RequestParam(value = \"id\") List<UUID> uuids) {\n135: \n136:     XLOGGER.entry(uuids);\n137:     Profiler profiler = new Profiler(\"BATCH_RETRIEVE_ALL_REQUISITIONS\");\n138:     profiler.setLogger(XLOGGER);\n139: \n140:     profiler.start(\"FIND_ALL_REQUISITIONS_BY_IDS\");\n141:     List<Requisition> requisitions = Lists.newArrayList(requisitionRepository.findAllById(uuids));\n142: \n143:     Map<UUID, FacilityDto> facilities = findFacilities(requisitions, profiler);\n144:     profiler.start(\"FIND_ALL_ORDERABLES_FOR_REQUISITIONS\");\n145:     Map<VersionIdentityDto"
+      },
+      {
+        "step": 12,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/ReportsController.java",
+          "start": "36"
+        },
+        "result_head": "36: import org.springframework.web.bind.annotation.ResponseBody;\n37: \n38: @Controller\n39: public class ReportsController extends BaseController {\n40: \n41:   @Autowired\n42:   private RequisitionRepository requisitionRepository;\n43: \n44:   @Autowired\n45:   private PermissionService permissionService;\n46: \n47:   @Autowired\n48:   private JasperReportsViewService jasperReportsViewService;\n49: \n50:   /**\n51:    * Print out requisition as a PDF file.\n52:    *\n53:    * @param id The UUID of the requisition to print\n54:    * @param showInDoses whether quantities should be rendered in doses\n55:    * @param lang language tag the report should be rendered in\n56:    * @return ResponseEntity with the \"#200 OK\" HTTP response status and PDF file on success, or\n57:    *     ResponseEntity containing the error description status.\n58:    */\n59:   @RequestMapping(value = \"/requisitions/{id}/print\", method = RequestMethod.GET)\n60:   @ResponseBody\n61:   public ResponseEntity<byte[]> print(@PathVariable(\"id\""
+      },
+      {
+        "step": 12,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/StatusMessageController.java",
+          "start": "33"
+        },
+        "result_head": "33: import org.springframework.web.bind.annotation.ResponseStatus;\n34: \n35: @Controller\n36: @Transactional\n37: public class StatusMessageController extends BaseController {\n38: \n39:   @Autowired\n40:   private StatusMessageRepository statusMessageRepository;\n41: \n42:   @Autowired\n43:   private PermissionService permissionService;\n44: \n45:   /**\n46:    * Get all status messages for the specified requisition.\n47:    *\n48:    * @param id ID of requisition to get messages for.\n49:    * @return List of status messages.\n50:    */\n51:   @RequestMapping(value = \"/requisitions/{id}/statusMessages\", method = RequestMethod.GET)\n52:   @ResponseStatus(HttpStatus.OK)\n53:   @ResponseBody\n54:   public List<StatusMessageDto> getAllRequisitionStatusMessages(@PathVariable(\"id\") UUID id) {\n55:     permissionService.canViewRequisition(id).throwExceptionIfHasErrors();\n56:     List<StatusMessage> statusMessages = statusMessageRepository.findByRequisitionId(id);\n57:     return exportToDtos(statusMessages);\n58:"
+      },
+      {
+        "step": 12,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/JasperTemplateController.java",
+          "start": "80"
+        },
+        "result_head": "80:   private String timeZoneId;\n81: \n82:   /**\n83:    * Adding report templates with \".jrxml\" format to database.\n84:    *\n85:    * @param file        File in \".jrxml\" format to upload\n86:    * @param name        Name of file in database\n87:    * @param description Description of the file\n88:    */\n89:   @RequestMapping(method = RequestMethod.POST)\n90:   @ResponseStatus(HttpStatus.OK)\n91:   public void createJasperReportTemplate(\n92:       @RequestPart(\"file\") MultipartFile file, String name, String description,\n93:       @RequestParam(value = \"override\", required = false) Boolean override)\n94:       throws ReportingException {\n95:     permissionService.canEditReportTemplates().throwExceptionIfHasErrors();\n96: \n97:     JasperTemplate jasperTemplateToUpdate = jasperTemplateRepository.findByName(name);\n98:     if (jasperTemplateToUpdate == null) {\n99:       LOGGER.debug(\"Creating new template\");\n100:       jasperTemplateToUpdate = new JasperTemplate(name, null, null, CONSISTENCY_REPORT,"
+      },
+      {
+        "step": 13,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java",
+          "pattern": "@(RestController|Controller)"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/errorhandling/AbstractErrorHandling.java:30: @ControllerAdvice\n/src/main/java/org/openlmis/requisition/errorhandling/GlobalErrorHandling.java:59: @ControllerAdvice\n/src/main/java/org/openlmis/requisition/errorhandling/RequisitionErrorHandling.java:32: @ControllerAdvice\n/src/main/java/org/openlmis/requisition/web/AvailableRequisitionColumnController.java:36: @RestController\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:95: @Controller\n/src/main/java/org/openlmis/requisition/web/ConfigurationController.java:29: @RestController\n/src/main/java/org/openlmis/requisition/web/JasperTemplateController.java:52: @Controller\n/src/main/java/org/openlmis/requisition/web/RejectionReasonCategoryController.java:51: @Controller\n/src/main/java/org/openlmis/requisition/web/RejectionReasonController.java:53: @Controller\n/src/main/java/org/openlmis/requisition/web/ReportsController.java:38: @Controller\n/src/main/java/org/openlmis/requisit"
+      },
+      {
+        "step": 13,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/RequisitionV2Controller.java",
+          "start": "60"
+        },
+        "result_head": "60: import org.springframework.web.bind.annotation.PutMapping;\n61: import org.springframework.web.bind.annotation.RequestBody;\n62: import org.springframework.web.bind.annotation.RequestMapping;\n63: import org.springframework.web.bind.annotation.RequestParam;\n64: import org.springframework.web.bind.annotation.ResponseStatus;\n65: import org.springframework.web.bind.annotation.RestController;\n66: \n67: @Transactional\n68: @RestController\n69: @RequestMapping(RESOURCE_URL)\n70: public class RequisitionV2Controller extends BaseRequisitionController {\n71: \n72:   @Autowired\n73:   private RequisitionService requisitionService;\n74: \n75:   @Autowired\n76:   private PeriodService periodService;\n77: \n78:   @Autowired\n79:   private SupplyingFacilityStockService supplyingFacilityStockService;\n80: \n81:   public static final String RESOURCE_URL = API_URL + \"/v2/requisitions\";\n82: \n83:   @Value(\"${service.url}\")\n84:   private String serviceUrl;\n85: \n86:   /**\n87:    * Allows creating new requisitions.\n88:  "
+      },
+      {
+        "step": 14,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/ConfigurationController.java",
+          "start": "25"
+        },
+        "result_head": "25: import org.springframework.web.bind.annotation.ResponseBody;\n26: import org.springframework.web.bind.annotation.ResponseStatus;\n27: import org.springframework.web.bind.annotation.RestController;\n28: \n29: @RestController\n30: public class ConfigurationController extends BaseRequisitionController {\n31: \n32:   @Autowired\n33:   private ConfigurationSettingService configurationSettingService;\n34: \n35:   /**\n36:    * Return unskiprequisition environment variable value.\n37:    * @return map with unskipRequisition value\n38:    */\n39:   @GetMapping(RESOURCE_URL + \"/unSkipRequisition\")\n40:   @ResponseStatus(HttpStatus.OK)\n41:   @ResponseBody\n42:   public Map<String,Boolean> unskipRequisition() {\n43:     Map<String,Boolean> response = new HashMap<>();\n44:     String unskipRequisition = configurationSettingService.getUnskippingRequisition();\n45:     response.put(\"unskipRequisition\",Boolean.valueOf(unskipRequisition));\n46:     return response;\n47:   }\n48: }"
+      },
+      {
+        "step": 14,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/RejectionReasonController.java",
+          "start": "70"
+        },
+        "result_head": "70:    * Get all rejection reasons in the system.\n71:    *\n72:    * @return all rejection reasons in the system.\n73:    */\n74:   @RequestMapping(value = \"/rejectionReasons\", method = RequestMethod.GET)\n75:   @ResponseStatus(HttpStatus.OK)\n76:   @ResponseBody\n77:   public Page<RejectionReasonDto> getAllRejectionReasons(Pageable pageable) {\n78: \n79:     LOGGER.debug(\"Getting all rejection reasons\");\n80:     Set<RejectionReason> rejectionReasons = Sets.newHashSet(rejectionReasonsRepository.findAll());\n81:     Set<RejectionReasonDto> rejectionReasonDtos =\n82:             rejectionReasons.stream().map(this::exportToDto).collect(Collectors.toSet());\n83: \n84:     return toPage(rejectionReasonDtos, pageable);\n85:   }\n86: \n87:   /**\n88:    * Get chosen rejection reason.\n89:    *\n90:    * @param id id of the rejection reason to get.\n91:    * @return the rejection reason.\n92:    */\n93:   @RequestMapping(value = \"/rejectionReasons/{id}\", method = RequestMethod.GET)\n94:   @ResponseStatus(HttpStatus"
+      },
+      {
+        "step": 14,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/RejectionReasonCategoryController.java",
+          "start": "66"
+        },
+        "result_head": "66:    * Get all rejection reason categories in the system.\n67:    *\n68:    * @return all rejection reason categories in the system.\n69:    */\n70:   @RequestMapping(value = \"/rejectionReasonCategories\", method = RequestMethod.GET)\n71:   @ResponseStatus(HttpStatus.OK)\n72:   @ResponseBody\n73:   public Page<RejectionReasonCategoryDto> getAllRejectionReasonCategories(Pageable pageable) {\n74: \n75:     LOGGER.debug(\"Getting all rejection reason categories\");\n76:     Set<RejectionReasonCategory> rejectionReasonCategories = Sets\n77:             .newHashSet(rejectionReasonCategoryRepository.findAll());\n78:     Set<RejectionReasonCategoryDto> rejectionReasonCategoryDtos =\n79:             rejectionReasonCategories.stream().map(this::exportToDto).collect(Collectors.toSet());\n80: \n81:     return toPage(rejectionReasonCategoryDtos, pageable);\n82:   }\n83: \n84:   /**\n85:    * Get chosen rejection reason category.\n86:    *\n87:    * @param id id of the rejection reason to get.\n88:    * @return the rejec"
+      },
+      {
+        "step": 15,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/RequisitionController.java",
+          "pattern": "public .*\\(|@(Get|Post|Put|Delete|Patch)Mapping"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/RequisitionController.java:108: @PostMapping(RESOURCE_URL + \"/initiate\")\n/src/main/java/org/openlmis/requisition/web/RequisitionController.java:110: public RequisitionDto initiate(@RequestParam(value = \"program\") UUID programId,\n/src/main/java/org/openlmis/requisition/web/RequisitionController.java:149: @GetMapping(RESOURCE_URL + \"/periodsForInitiate\")\n/src/main/java/org/openlmis/requisition/web/RequisitionController.java:151: public Collection<RequisitionPeriodDto> getProcessingPeriodIds(\n/src/main/java/org/openlmis/requisition/web/RequisitionController.java:202: @PostMapping(RESOURCE_URL + \"/{id}/submit\")\n/src/main/java/org/openlmis/requisition/web/RequisitionController.java:204: public BasicRequisitionDto submitRequisition(\n/src/main/java/org/openlmis/requisition/web/RequisitionController.java:255: @DeleteMapping(RESOURCE_URL + \"/{id}\")\n/src/main/java/org/openlmis/requisition/web/RequisitionController.java:257: public void deleteRequisitio"
+      },
+      {
+        "step": 15,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java",
+          "pattern": "public .*\\(|@RequestMapping"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:131: @RequestMapping(value = \"/requisitions\", params = \"retrieveAll\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:133: public ResponseEntity<RequisitionsProcessingStatusDto> retrieveAll(\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:185: @RequestMapping(value = \"/requisitions\", params = \"approveAll\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:187: public ResponseEntity<RequisitionsProcessingStatusDto> approve(\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:259: @RequestMapping(value = \"/requisitions\", params = \"saveAll\", method = RequestMethod.PUT)\n/src/main/java/org/openlmis/requisition/web/BatchRequisitionController.java:261: public ResponseEntity<RequisitionsProcessingStatusDto> update(\n/src/main/java/org/openlmis/requisition/web/"
+      },
+      {
+        "step": 16,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"openlmis-requisition\",\"dirs\":[\"/src\",\"/config\",\"/consul\"]}],\"files\":[\n{\"path\":\"/src/main/java/org/openlmis/requisition/web/RequisitionController.java\",\"service\":\"openlmis-requisi"
+        },
+        "result_head": "Recorded 52 new: service openlmis-requisition, POST /api/requisitions/initiate, GET /api/requisitions/periodsForInitiate, POST /api/requisitions/{id}/submit, DELETE /api/requisitions/{id}, PUT /api/requisitions/{id}, GET /api/requisitions/{id}, GET /api/requisitions/search, PUT /api/requisitions/{id}/skip, PUT /api/requisitions/{id}/reject, POST /api/requisitions/{id}/approve, GET /api/requisitions/requisitionsForApproval, GET /api/requisitions/numberOfRequisitionsForApproval, GET /api/requisitions/statusesStatsData, GET /api/requisitions/submitted, POST /api/requisitions/{id}/authorize, GET /api/requisitions/requisitionsForConvert, POST /api/requisitions/convertToOrder, POST /api/v2/requisitions/initiate, PUT /api/v2/requisitions/{id}, GET /api/v2/requisitions/{id}, PATCH /api/v2/requisitions/{id}/updatePatientsData, GET /api/requisitions, POST /api/requisitions, PUT /api/requisitions, POST /api/requisitions/batchReleases, GET /api/requisitions/unSkipRequisition, GET /api/requisitions"
+      },
+      {
+        "step": 17,
+        "tool": "list_dir",
+        "args": {
+          "path": "/sample"
+        },
+        "result_head": "OpenLMISv3-Requisitions.jrxml\nREADME.md"
+      },
+      {
+        "step": 17,
+        "tool": "list_dir",
+        "args": {
+          "path": "/performance"
+        },
+        "result_head": "config.yml\ntest.sh\ntests/"
+      },
+      {
+        "step": 17,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)",
+          "path": "/src/integration-test"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 18,
+        "tool": "grep",
+        "args": {
+          "pattern": "SpringBootApplication|public static void main",
+          "path": "/src"
+        },
+        "result_head": "/src/main/java/org/openlmis/requisition/Application.java:45: import org.springframework.boot.autoconfigure.SpringBootApplication;\n/src/main/java/org/openlmis/requisition/Application.java:65: @SpringBootApplication\n/src/main/java/org/openlmis/requisition/Application.java:97: public static void main(String[] args) {"
+      },
+      {
+        "step": 18,
+        "tool": "list_dir",
+        "args": {
+          "path": "/consul"
+        },
+        "result_head": "config.json\npackage.json\nregistration.js"
+      },
+      {
+        "step": 19,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main",
+          "pattern": "@Path\\(|@GET|@POST|app\\.(get|post|put|delete)|router\\."
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 20,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 1 services, 51 endpoints."
+      }
+    ]
+  }
+}

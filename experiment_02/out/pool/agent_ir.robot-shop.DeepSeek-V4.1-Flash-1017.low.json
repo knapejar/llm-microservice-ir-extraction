@@ -1,0 +1,966 @@
+{
+  "system": "robot-shop",
+  "services": [
+    {
+      "name": "cart",
+      "dirs": [
+        "/cart"
+      ]
+    },
+    {
+      "name": "catalogue",
+      "dirs": [
+        "/catalogue"
+      ]
+    },
+    {
+      "name": "dispatch",
+      "dirs": [
+        "/dispatch"
+      ]
+    },
+    {
+      "name": "payment",
+      "dirs": [
+        "/payment"
+      ]
+    },
+    {
+      "name": "ratings",
+      "dirs": [
+        "/ratings"
+      ]
+    },
+    {
+      "name": "shipping",
+      "dirs": [
+        "/shipping"
+      ]
+    },
+    {
+      "name": "user",
+      "dirs": [
+        "/user"
+      ]
+    },
+    {
+      "name": "web",
+      "dirs": [
+        "/web"
+      ]
+    },
+    {
+      "name": "load-gen",
+      "dirs": [
+        "/load-gen"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/cart/server.js",
+      "service": "cart",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/health",
+          "line": 68,
+          "evidence": "app.get('/health', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/metrics",
+          "line": 77,
+          "evidence": "app.get('/metrics', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/cart/:id",
+          "line": 84,
+          "evidence": "app.get('/cart/:id', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "DELETE",
+          "path": "/cart/:id",
+          "line": 101,
+          "evidence": "app.delete('/cart/:id', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/rename/:from/:to",
+          "line": 117,
+          "evidence": "app.get('/rename/:from/:to', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/add/:id/:sku/:qty",
+          "line": 139,
+          "evidence": "app.get('/add/:id/:sku/:qty', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/update/:id/:sku/:qty",
+          "line": 213,
+          "evidence": "app.get('/update/:id/:sku/:qty', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/shipping/:id",
+          "line": 269,
+          "evidence": "app.post('/shipping/:id', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/catalogue/server.js",
+      "service": "catalogue",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/health",
+          "line": 58,
+          "evidence": "app.get('/health', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/products",
+          "line": 67,
+          "evidence": "app.get('/products', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/product/:sku",
+          "line": 82,
+          "evidence": "app.get('/product/:sku', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/products/:cat",
+          "line": 106,
+          "evidence": "app.get('/products/:cat', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/categories",
+          "line": 125,
+          "evidence": "app.get('/categories', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/search/:text",
+          "line": 140,
+          "evidence": "app.get('/search/:text', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/user/server.js",
+      "service": "user",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/health",
+          "line": 61,
+          "evidence": "app.get('/health', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/uniqueid",
+          "line": 70,
+          "evidence": "app.get('/uniqueid', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/check/:id",
+          "line": 85,
+          "evidence": "app.get('/check/:id', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/users",
+          "line": 104,
+          "evidence": "app.get('/users', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/login",
+          "line": 118,
+          "evidence": "app.post('/login', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/register",
+          "line": 148,
+          "evidence": "app.post('/register', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/order/:id",
+          "line": 183,
+          "evidence": "app.post('/order/:id', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/history/:id",
+          "line": 237,
+          "evidence": "app.get('/history/:id', (req, res) => {",
+          "framework": "Express",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/payment/payment.py",
+      "service": "payment",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "health",
+          "httpMethod": "GET",
+          "path": "/health",
+          "line": 40,
+          "evidence": "@app.route('/health', methods=['GET'])",
+          "framework": "Flask",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "metrics",
+          "httpMethod": "GET",
+          "path": "/metrics",
+          "line": 45,
+          "evidence": "@app.route('/metrics', methods=['GET'])",
+          "framework": "Flask",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "pay",
+          "httpMethod": "POST",
+          "path": "/pay/<id>",
+          "line": 54,
+          "evidence": "@app.route('/pay/<id>', methods=['POST'])",
+          "framework": "Flask",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/shipping/src/main/java/com/instana/robotshop/shipping/Controller.java",
+      "service": "shipping",
+      "endpoints": [
+        {
+          "className": "Controller",
+          "methodName": "memory",
+          "httpMethod": "GET",
+          "path": "/memory",
+          "line": 41,
+          "evidence": "@GetMapping(path = \"/memory\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "Controller",
+          "methodName": "free",
+          "httpMethod": "GET",
+          "path": "/free",
+          "line": 50,
+          "evidence": "@GetMapping(path = \"/free\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "Controller",
+          "methodName": "health",
+          "httpMethod": "GET",
+          "path": "/health",
+          "line": 57,
+          "evidence": "@GetMapping(\"/health\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "Controller",
+          "methodName": "count",
+          "httpMethod": "GET",
+          "path": "/count",
+          "line": 62,
+          "evidence": "@GetMapping(\"/count\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "Controller",
+          "methodName": "codes",
+          "httpMethod": "GET",
+          "path": "/codes",
+          "line": 69,
+          "evidence": "@GetMapping(\"/codes\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "Controller",
+          "methodName": "cities",
+          "httpMethod": "GET",
+          "path": "/cities/{code}",
+          "line": 78,
+          "evidence": "@GetMapping(\"/cities/{code}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "Controller",
+          "methodName": "match",
+          "httpMethod": "GET",
+          "path": "/match/{code}/{text}",
+          "line": 87,
+          "evidence": "@GetMapping(\"/match/{code}/{text}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "Controller",
+          "methodName": "caclc",
+          "httpMethod": "GET",
+          "path": "/calc/{id}",
+          "line": 108,
+          "evidence": "@GetMapping(\"/calc/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "Controller",
+          "methodName": "confirm",
+          "httpMethod": "POST",
+          "path": "/confirm/{id}",
+          "line": 131,
+          "evidence": "@PostMapping(path = \"/confirm/{id}\", consumes = \"application/json\", produces = \"application/json\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/ratings/html/src/Controller/RatingsApiController.php",
+      "service": "ratings",
+      "endpoints": [
+        {
+          "className": "RatingsApiController",
+          "methodName": "put",
+          "httpMethod": "PUT",
+          "path": "/api/rate/{sku}/{score}",
+          "line": 42,
+          "evidence": "@Route(path=\"/rate/{sku}/{score}\", methods={\"PUT\"})",
+          "framework": "Symfony",
+          "confidence": "high"
+        },
+        {
+          "className": "RatingsApiController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/api/fetch/{sku}",
+          "line": 76,
+          "evidence": "@Route(\"/fetch/{sku}\", methods={\"GET\"})",
+          "framework": "Symfony",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/ratings/html/src/Controller/HealthController.php",
+      "service": "ratings",
+      "endpoints": [
+        {
+          "className": "HealthController",
+          "methodName": "__invoke",
+          "httpMethod": "ANY",
+          "path": "/_health",
+          "line": 16,
+          "evidence": "@Route(\"/_health\")",
+          "framework": "Symfony",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "path": "/web/default.conf.template",
+      "service": "web",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "ANY",
+          "path": "/",
+          "line": 16,
+          "evidence": "location / {",
+          "framework": "nginx",
+          "confidence": "medium"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "ANY",
+          "path": "/images/",
+          "line": 22,
+          "evidence": "location /images/ {",
+          "framework": "nginx",
+          "confidence": "medium"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "ANY",
+          "path": "/api/catalogue/",
+          "line": 60,
+          "evidence": "location /api/catalogue/ {",
+          "framework": "nginx",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "ANY",
+          "path": "/api/user/",
+          "line": 64,
+          "evidence": "location /api/user/ {",
+          "framework": "nginx",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "ANY",
+          "path": "/api/cart/",
+          "line": 68,
+          "evidence": "location /api/cart/ {",
+          "framework": "nginx",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "ANY",
+          "path": "/api/shipping/",
+          "line": 72,
+          "evidence": "location /api/shipping/ {",
+          "framework": "nginx",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "ANY",
+          "path": "/api/payment/",
+          "line": 76,
+          "evidence": "location /api/payment/ {",
+          "framework": "nginx",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "ANY",
+          "path": "/api/ratings/",
+          "line": 80,
+          "evidence": "location /api/ratings/ {",
+          "framework": "nginx",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "ANY",
+          "path": "/nginx_status",
+          "line": 84,
+          "evidence": "location /nginx_status {",
+          "framework": "nginx",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "robot-shop",
+    "commit": "55292e2199f2fb00a165b1f7d3045fe7f8922038",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "elided_results": 0,
+    "steps": 14,
+    "tool_calls": 45,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 234474,
+    "cached_input_tokens": 205184,
+    "output_tokens": 5531,
+    "list_price_usd": 0.0083,
+    "wall_seconds": 26.9,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".env\n.github/\n.gitignore\nDCOS/\nK8s/\nLICENSE\nOpenShift/\nREADME.md\nSwarm/\ncart/\ncatalogue/\ndispatch/\ndocker-compose-load.yaml\ndocker-compose.yaml\nfluentd/\nload-gen/\nmongo/\nmysql/\npayment/\npullbaseimages.sh\nratings/\nshipping/\nuser/\nweb/"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile*"
+        },
+        "result_head": "/cart/Dockerfile\n/catalogue/Dockerfile\n/dispatch/Dockerfile\n/fluentd/Dockerfile\n/load-gen/Dockerfile\n/mongo/Dockerfile\n/mysql/Dockerfile\n/payment/Dockerfile\n/ratings/Dockerfile\n/shipping/Dockerfile\n/user/Dockerfile\n/web/Dockerfile"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/cart"
+        },
+        "result_head": "Dockerfile\npackage.json\nserver.js"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/catalogue"
+        },
+        "result_head": "Dockerfile\npackage.json\nserver.js"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/dispatch"
+        },
+        "result_head": "Dockerfile\ndocker-compose.yaml\nmain.go"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/payment"
+        },
+        "result_head": "Dockerfile\ndocker-compose.yaml\npayment.ini\npayment.py\nrabbitmq.py\nrequirements.txt"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/ratings"
+        },
+        "result_head": "Dockerfile\nhtml/\nstatus.conf"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/shipping"
+        },
+        "result_head": ".gitignore\nDockerfile\npom.xml\nsrc/"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/user"
+        },
+        "result_head": "Dockerfile\npackage.json\nserver.js"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/web"
+        },
+        "result_head": "Dockerfile\ndefault.conf.template\nentrypoint.sh\nstatic/"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/load-gen"
+        },
+        "result_head": "Dockerfile\nREADME.md\nbuild.sh\nentrypoint.sh\nload-gen.sh\nrequirements.txt\nrobot-shop.py"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/cart/server.js"
+        },
+        "result_head": "1: const instana = require('@instana/collector');\n2: // init tracing\n3: // MUST be done before loading anything else!\n4: instana({\n5:     tracing: {\n6:         enabled: true\n7:     }\n8: });\n9: \n10: const redis = require('redis');\n11: const request = require('request');\n12: const bodyParser = require('body-parser');\n13: const express = require('express');\n14: const pino = require('pino');\n15: const expPino = require('express-pino-logger');\n16: // Prometheus\n17: const promClient = require('prom-client');\n18: const Registry = promClient.Registry;\n19: const register = new Registry();\n20: const counter = new promClient.Counter({\n21:     name: 'items_added',\n22:     help: 'running count of items added to cart',\n23:     registers: [register]\n24: });\n25: \n26: \n27: var redisConnected = false;\n28: \n29: var redisHost = process.env.REDIS_HOST || 'redis'\n30: var catalogueHost = process.env.CATALOGUE_HOST || 'catalogue'\n31: \n32: const logger = pino({\n33:     level: 'info',\n34:     prettyPrint: false"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/catalogue/server.js"
+        },
+        "result_head": "1: const instana = require('@instana/collector');\n2: // init tracing\n3: // MUST be done before loading anything else!\n4: instana({\n5:     tracing: {\n6:         enabled: true\n7:     }\n8: });\n9: \n10: const mongoClient = require('mongodb').MongoClient;\n11: const mongoObjectID = require('mongodb').ObjectID;\n12: const bodyParser = require('body-parser');\n13: const express = require('express');\n14: const pino = require('pino');\n15: const expPino = require('express-pino-logger');\n16: \n17: const logger = pino({\n18:     level: 'info',\n19:     prettyPrint: false,\n20:     useLevelLabels: true\n21: });\n22: const expLogger = expPino({\n23:     logger: logger\n24: });\n25: \n26: // MongoDB\n27: var db;\n28: var collection;\n29: var mongoConnected = false;\n30: \n31: const app = express();\n32: \n33: app.use(expLogger);\n34: \n35: app.use((req, res, next) => {\n36:     res.set('Timing-Allow-Origin', '*');\n37:     res.set('Access-Control-Allow-Origin', '*');\n38:     next();\n39: });\n40: \n41: app.use((req, res, next) "
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/user/server.js"
+        },
+        "result_head": "1: const instana = require('@instana/collector');\n2: // init tracing\n3: // MUST be done before loading anything else!\n4: instana({\n5:     tracing: {\n6:         enabled: true\n7:     }\n8: });\n9: \n10: const mongoClient = require('mongodb').MongoClient;\n11: const mongoObjectID = require('mongodb').ObjectID;\n12: const redis = require('redis');\n13: const bodyParser = require('body-parser');\n14: const express = require('express');\n15: const pino = require('pino');\n16: const expPino = require('express-pino-logger');\n17: \n18: // MongoDB\n19: var db;\n20: var usersCollection;\n21: var ordersCollection;\n22: var mongoConnected = false;\n23: \n24: const logger = pino({\n25:     level: 'info',\n26:     prettyPrint: false,\n27:     useLevelLabels: true\n28: });\n29: const expLogger = expPino({\n30:     logger: logger\n31: \n32: });\n33: \n34: const app = express();\n35: \n36: app.use(expLogger);\n37: \n38: app.use((req, res, next) => {\n39:     res.set('Timing-Allow-Origin', '*');\n40:     res.set('Access-Control-Allow-O"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/dispatch/main.go"
+        },
+        "result_head": "1: package main\n2: \n3: import (\n4: \t\"encoding/json\"\n5: \t\"fmt\"\n6: \t\"log\"\n7: \t\"math/rand\"\n8: \t\"os\"\n9: \t\"strconv\"\n10: \t\"time\"\n11: \n12: \t\"github.com/instana/go-sensor\"\n13: \tot \"github.com/opentracing/opentracing-go\"\n14: \t\"github.com/opentracing/opentracing-go/ext\"\n15: \totlog \"github.com/opentracing/opentracing-go/log\"\n16: \t\"github.com/streadway/amqp\"\n17: )\n18: \n19: const (\n20: \tService = \"dispatch\"\n21: )\n22: \n23: var (\n24: \tamqpUri          string\n25: \trabbitChan       *amqp.Channel\n26: \trabbitCloseError chan *amqp.Error\n27: \trabbitReady      chan bool\n28: \terrorPercent     int\n29: \n30: \tdataCenters = []string{\n31: \t\t\"asia-northeast2\",\n32: \t\t\"asia-south1\",\n33: \t\t\"europe-west3\",\n34: \t\t\"us-east1\",\n35: \t\t\"us-west1\",\n36: \t}\n37: )\n38: \n39: func connectToRabbitMQ(uri string) *amqp.Connection {\n40: \tfor {\n41: \t\tconn, err := amqp.Dial(uri)\n42: \t\tif err == nil {\n43: \t\t\treturn conn\n44: \t\t}\n45: \n46: \t\tlog.Println(err)\n47: \t\tlog.Printf(\"Reconnecting to %s\\n\", uri)\n48: \t\ttime.Sleep(1 * time.Second)\n49:"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/cart/server.js",
+          "start": "190"
+        },
+        "result_head": "190:                 var list = mergeList(cart.items, item, qty);\n191:                 cart.items = list;\n192:                 cart.total = calcTotal(cart.items);\n193:                 // work out tax\n194:                 cart.tax = calcTax(cart.total);\n195: \n196:                 // save the new cart\n197:                 saveCart(req.params.id, cart).then((data) => {\n198:                     counter.inc(qty);\n199:                     res.json(cart);\n200:                 }).catch((err) => {\n201:                     req.log.error(err);\n202:                     res.status(500).send(err);\n203:                 });\n204:             }\n205:         });\n206:     }).catch((err) => {\n207:         req.log.error(err);\n208:         res.status(500).send(err);\n209:     });\n210: });\n211: \n212: // update quantity - remove item when qty == 0\n213: app.get('/update/:id/:sku/:qty', (req, res) => {\n214:     // check quantity\n215:     var qty = parseInt(req.params.qty);\n216:     if(isNaN(qty)) {\n217:         r"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/user/server.js",
+          "start": "180"
+        },
+        "result_head": "180:     }\n181: });\n182: \n183: app.post('/order/:id', (req, res) => {\n184:     req.log.info('order', req.body);\n185:     // only for registered users\n186:     if(mongoConnected) {\n187:         usersCollection.findOne({\n188:             name: req.params.id\n189:         }).then((user) => {\n190:             if(user) {\n191:                 // found user record\n192:                 // get orders\n193:                 ordersCollection.findOne({\n194:                     name: req.params.id\n195:                 }).then((history) => {\n196:                     if(history) {\n197:                         var list = history.history;\n198:                         list.push(req.body);\n199:                         ordersCollection.updateOne(\n200:                             { name: req.params.id },\n201:                             { $set: { history: list }}\n202:                         ).then((r) => {\n203:                             res.send('OK');\n204:                         }).catch((e) => {\n205:   "
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/payment/payment.py"
+        },
+        "result_head": "1: import random\n2: \n3: import instana\n4: import os\n5: import sys\n6: import time\n7: import logging\n8: import uuid\n9: import json\n10: import requests\n11: import traceback\n12: from flask import Flask\n13: from flask import Response\n14: from flask import request\n15: from flask import jsonify\n16: from rabbitmq import Publisher\n17: # Prometheus\n18: import prometheus_client\n19: from prometheus_client import Counter, Histogram\n20: \n21: app = Flask(__name__)\n22: app.logger.setLevel(logging.INFO)\n23: \n24: CART = os.getenv('CART_HOST', 'cart')\n25: USER = os.getenv('USER_HOST', 'user')\n26: PAYMENT_GATEWAY = os.getenv('PAYMENT_GATEWAY', 'https://paypal.com/')\n27: \n28: # Prometheus\n29: PromMetrics = {}\n30: PromMetrics['SOLD_COUNTER'] = Counter('sold_count', 'Running count of items sold')\n31: PromMetrics['AUS'] = Histogram('units_sold', 'Avergae Unit Sale', buckets=(1, 2, 5, 10, 100))\n32: PromMetrics['AVS'] = Histogram('cart_value', 'Avergae Value Sale', buckets=(100, 200, 500, 1000, 2000, 5000, 1000"
+      },
+      {
+        "step": 4,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/shipping"
+        },
+        "result_head": "/shipping/src/main/java/com/instana/robotshop/shipping/Calculator.java\n/shipping/src/main/java/com/instana/robotshop/shipping/CartHelper.java\n/shipping/src/main/java/com/instana/robotshop/shipping/City.java\n/shipping/src/main/java/com/instana/robotshop/shipping/CityRepository.java\n/shipping/src/main/java/com/instana/robotshop/shipping/Code.java\n/shipping/src/main/java/com/instana/robotshop/shipping/CodeRepository.java\n/shipping/src/main/java/com/instana/robotshop/shipping/Controller.java\n/shipping/src/main/java/com/instana/robotshop/shipping/JpaConfig.java\n/shipping/src/main/java/com/instana/robotshop/shipping/RetryableDataSource.java\n/shipping/src/main/java/com/instana/robotshop/shipping/Ship.java\n/shipping/src/main/java/com/instana/robotshop/shipping/ShippingServiceApplication.java"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/shipping/src/main/java/com/instana/robotshop/shipping/Controller.java"
+        },
+        "result_head": "1: package com.instana.robotshop.shipping;\n2: \n3: import java.util.List;\n4: import java.util.Arrays;\n5: import java.util.ArrayList;\n6: import java.util.Collections;\n7: import org.slf4j.Logger;\n8: import org.slf4j.LoggerFactory;\n9: \n10: import org.springframework.data.domain.Sort;\n11: import org.springframework.beans.factory.annotation.Autowired;\n12: import org.springframework.web.bind.annotation.GetMapping;\n13: import org.springframework.web.bind.annotation.PostMapping;\n14: import org.springframework.web.bind.annotation.PathVariable;\n15: import org.springframework.web.bind.annotation.RequestBody;\n16: import org.springframework.web.bind.annotation.RestController;\n17: import org.springframework.web.server.ResponseStatusException;\n18: import org.springframework.http.HttpStatus;\n19: \n20: @RestController\n21: public class Controller {\n22:     private static final Logger logger = LoggerFactory.getLogger(Controller.class);\n23: \n24:     private String CART_URL = String.format(\"http://%s/shippin"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/ratings/status.conf"
+        },
+        "result_head": "1: <IfModule mod_status.c>\n2: \t# Allow server status reports generated by mod_status,\n3: \t# with the URL of http://servername/server-status\n4: \t# Uncomment and change the \"192.0.2.0/24\" to allow access from other hosts.\n5: \n6: \t<Location /server-status>\n7: \t\tSetHandler server-status\n8: \t\t#Require local\n9: \t\t#Require ip 192.0.2.0/24\n10: \t</Location>\n11: \n12: \t# Keep track of extended status information for each request\n13: \tExtendedStatus On\n14: \n15: \t# Determine if mod_status displays the first 63 characters of a request or\n16: \t# the last 63, assuming the request itself is greater than 63 chars.\n17: \t# Default: Off\n18: \t#SeeRequestTail On\n19: \n20: \n21: \t<IfModule mod_proxy.c>\n22: \t\t# Show Proxy LoadBalancer status in mod_status\n23: \t\tProxyStatus On\n24: \t</IfModule>\n25: \n26: \n27: </IfModule>\n28: \n29: # vim: syntax=apache ts=4 sw=4 sts=4 sr noet"
+      },
+      {
+        "step": 5,
+        "tool": "list_dir",
+        "args": {
+          "path": "/ratings/html"
+        },
+        "result_head": ".htaccess\ncomposer.json\nindex.php\ninfo.php\nsrc/\nvar/"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/web/default.conf.template"
+        },
+        "result_head": "1: # Instana tracing\n2: opentracing_load_tracer /usr/local/lib/libinstana_sensor.so /etc/instana-config.json;\n3: opentracing_propagate_context;\n4: \n5: server {\n6:     listen       8080;\n7:     server_name  localhost;\n8: \n9:     proxy_http_version 1.1;\n10: \n11:     #charset koi8-r;\n12:     #access_log  /var/log/nginx/host.access.log  main;\n13:     #error_log /dev/stdout debug;\n14:     #rewrite_log on;\n15: \n16:     location / {\n17:         root   /usr/share/nginx/html;\n18:         index  index.html index.htm;\n19:         ssi    on;\n20:     }\n21: \n22:     location /images/ {\n23:         expires 5s;\n24:         root   /usr/share/nginx/html;\n25:         try_files $uri /images/placeholder.png;\n26:     }\n27: \n28:     #error_page  404              /404.html;\n29: \n30:     # redirect server error pages to the static page /50x.html\n31:     #\n32:     error_page   500 502 503 504  /50x.html;\n33:     location = /50x.html {\n34:         root   /usr/share/nginx/html;\n35:     }\n36: \n37:     # proxy the "
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/ratings/html/index.php"
+        },
+        "result_head": "1: <?php\n2: \n3: declare(strict_types=1);\n4: \n5: require __DIR__.'/vendor/autoload.php';\n6: \n7: use Instana\\RobotShop\\Ratings\\Kernel;\n8: use Symfony\\Component\\HttpFoundation\\Request;\n9: \n10: $env = getenv('APP_ENV') ?: 'dev';\n11: $kernel = new Kernel($env, true);\n12: $request = Request::createFromGlobals();\n13: $response = $kernel->handle($request);\n14: $response->send();\n15: $kernel->terminate($request, $response);"
+      },
+      {
+        "step": 6,
+        "tool": "find",
+        "args": {
+          "path": "/ratings/html/src",
+          "pattern": "*"
+        },
+        "result_head": "/ratings/html/src/Controller/HealthController.php\n/ratings/html/src/Controller/RatingsApiController.php\n/ratings/html/src/Database.php\n/ratings/html/src/EventListener/InstanaDataCenterListener.php\n/ratings/html/src/Integration/InstanaHeadersLoggingProcessor.php\n/ratings/html/src/Kernel.php\n/ratings/html/src/Service/CatalogueService.php\n/ratings/html/src/Service/HealthCheckService.php\n/ratings/html/src/Service/RatingsService.php"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/ratings/Dockerfile"
+        },
+        "result_head": "1: #\n2: # Build the app\n3: #\n4: FROM php:7.4-apache\n5: \n6: RUN apt-get update && apt-get install -yqq unzip libzip-dev \\\n7:     && docker-php-ext-install pdo_mysql opcache zip\n8: \n9: # Enable AutoProfile for PHP which is currently opt-in beta\n10: RUN echo \"instana.enable_auto_profile=1\" > \"/usr/local/etc/php/conf.d/zzz-instana-extras.ini\"\n11: \n12: # relax permissions on status\n13: COPY status.conf /etc/apache2/mods-available/status.conf\n14: # Enable Apache mod_rewrite and status\n15: RUN a2enmod rewrite && a2enmod status\n16: \n17: WORKDIR /var/www/html\n18: \n19: COPY html/ /var/www/html\n20: \n21: COPY --from=composer /usr/bin/composer /usr/bin/composer\n22: RUN composer install\n23: \n24: # This is important. Symfony needs write permissions and we\n25: # dont know the context in which the container will run, i.e.\n26: # which user will be forced from the outside so better play\n27: # safe for this simple demo.\n28: RUN rm -Rf /var/www/var/*\n29: RUN chown -R www-data /var/www\n30: RUN chmod -R 777 "
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/load-gen/robot-shop.py"
+        },
+        "result_head": "1: import os\n2: import random\n3: \n4: from locust import HttpUser, task, between\n5: from random import choice\n6: from random import randint\n7: \n8: class UserBehavior(HttpUser):\n9:     wait_time = between(2, 10)\n10: \n11:     # source: https://tools.tracemyip.org/search--ip/list\n12:     fake_ip_addresses = [\n13:         # white house\n14:         \"156.33.241.5\",\n15:         # Hollywood\n16:         \"34.196.93.245\",\n17:         # Chicago\n18:         \"98.142.103.241\",\n19:         # Los Angeles\n20:         \"192.241.230.151\",\n21:         # Berlin\n22:         \"46.114.35.116\",\n23:         # Singapore\n24:         \"52.77.99.130\",\n25:         # Sydney\n26:         \"60.242.161.215\"\n27:     ]\n28: \n29:     def on_start(self):\n30:         \"\"\" on_start is called when a Locust start before any task is scheduled \"\"\"\n31:         print('Starting')\n32: \n33:     @task\n34:     def login(self):\n35:         fake_ip = random.choice(self.fake_ip_addresses)\n36: \n37:         credentials = {\n38:                 'name':"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/ratings/html/src/Controller/RatingsApiController.php"
+        },
+        "result_head": "1: <?php\n2: \n3: declare(strict_types=1);\n4: \n5: namespace Instana\\RobotShop\\Ratings\\Controller;\n6: \n7: use Instana\\RobotShop\\Ratings\\Service\\CatalogueService;\n8: use Instana\\RobotShop\\Ratings\\Service\\RatingsService;\n9: use Psr\\Log\\LoggerAwareInterface;\n10: use Psr\\Log\\LoggerAwareTrait;\n11: use Symfony\\Component\\HttpFoundation\\JsonResponse;\n12: use Symfony\\Component\\HttpFoundation\\Request;\n13: use Symfony\\Component\\HttpFoundation\\Response;\n14: use Symfony\\Component\\HttpKernel\\Exception\\HttpException;\n15: use Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException;\n16: use Symfony\\Component\\Routing\\Annotation\\Route;\n17: \n18: /**\n19:  * @Route(\"/api\")\n20:  */\n21: class RatingsApiController implements LoggerAwareInterface\n22: {\n23:     use LoggerAwareTrait;\n24: \n25:     /**\n26:      * @var RatingsService\n27:      */\n28:     private $ratingsService;\n29: \n30:     /**\n31:      * @var CatalogueService\n32:      */\n33:     private $catalogueService;\n34: \n35:     public function __construct("
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/ratings/html/src/Controller/HealthController.php"
+        },
+        "result_head": "1: <?php\n2: \n3: declare(strict_types=1);\n4: \n5: namespace Instana\\RobotShop\\Ratings\\Controller;\n6: \n7: use Instana\\RobotShop\\Ratings\\Service\\HealthCheckService;\n8: use Psr\\Log\\LoggerAwareInterface;\n9: use Psr\\Log\\LoggerAwareTrait;\n10: use Symfony\\Component\\HttpFoundation\\JsonResponse;\n11: use Symfony\\Component\\HttpFoundation\\Request;\n12: use Symfony\\Component\\HttpFoundation\\Response;\n13: use Symfony\\Component\\Routing\\Annotation\\Route;\n14: \n15: /**\n16:  * @Route(\"/_health\")\n17:  */\n18: class HealthController implements LoggerAwareInterface\n19: {\n20:     use LoggerAwareTrait;\n21: \n22:     /**\n23:      * @var HealthCheckService\n24:      */\n25:     private $healthCheckService;\n26: \n27:     public function __construct(HealthCheckService $healthCheckService)\n28:     {\n29:         $this->healthCheckService = $healthCheckService;\n30:     }\n31: \n32:     public function __invoke(Request $request)\n33:     {\n34:         $checks = [];\n35:         try {\n36:             $this->healthCheckService->che"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/ratings/html/src/Kernel.php"
+        },
+        "result_head": "1: <?php\n2: \n3: declare(strict_types=1);\n4: \n5: namespace Instana\\RobotShop\\Ratings;\n6: \n7: use Instana\\RobotShop\\Ratings\\Controller\\HealthController;\n8: use Instana\\RobotShop\\Ratings\\Controller\\RatingsApiController;\n9: use Instana\\RobotShop\\Ratings\\EventListener\\InstanaDataCenterListener;\n10: use Instana\\RobotShop\\Ratings\\Integration\\InstanaHeadersLoggingProcessor;\n11: use Instana\\RobotShop\\Ratings\\Service\\CatalogueService;\n12: use Instana\\RobotShop\\Ratings\\Service\\HealthCheckService;\n13: use Instana\\RobotShop\\Ratings\\Service\\RatingsService;\n14: use Monolog\\Formatter\\LineFormatter;\n15: use Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle;\n16: use Symfony\\Bundle\\FrameworkBundle\\Kernel\\MicroKernelTrait;\n17: use Symfony\\Bundle\\MonologBundle\\MonologBundle;\n18: use Symfony\\Component\\Config\\Loader\\LoaderInterface;\n19: use Symfony\\Component\\DependencyInjection\\ContainerBuilder;\n20: use Symfony\\Component\\DependencyInjection\\Reference;\n21: use Symfony\\Component\\EventDispatcher\\EventSubscriberInt"
+      },
+      {
+        "step": 8,
+        "tool": "grep",
+        "args": {
+          "pattern": "_health|Route\\(",
+          "path": "/ratings"
+        },
+        "result_head": "/ratings/html/src/Controller/HealthController.php:16: * @Route(\"/_health\")\n/ratings/html/src/Controller/RatingsApiController.php:19: * @Route(\"/api\")\n/ratings/html/src/Controller/RatingsApiController.php:42: * @Route(path=\"/rate/{sku}/{score}\", methods={\"PUT\"})\n/ratings/html/src/Controller/RatingsApiController.php:76: * @Route(\"/fetch/{sku}\", methods={\"GET\"})"
+      },
+      {
+        "step": 8,
+        "tool": "list_dir",
+        "args": {
+          "path": "/ratings/html/var"
+        },
+        "result_head": "cache/\nlog/"
+      },
+      {
+        "step": 8,
+        "tool": "list_dir",
+        "args": {
+          "path": "/web/static"
+        },
+        "result_head": "cart.html\ncss/\nempty.html\neum-tmpl.html\nimages/\nindex.html\njs/\nlogin.html\nmedia/\npayment.html\nproduct.html\nsearch.html\nshipping.html\nsplash.html"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/web/entrypoint.sh"
+        },
+        "result_head": "1: #!/usr/bin/env bash\n2: \n3: # set -x\n4: \n5: # echo \"arg 1 $1\"\n6: \n7: \n8: BASE_DIR=/usr/share/nginx/html\n9: \n10: if [ -n \"$1\" ]\n11: then\n12:     exec \"$@\"\n13: fi\n14: \n15: if [ -n \"$INSTANA_EUM_KEY\" -a -n \"$INSTANA_EUM_REPORTING_URL\" ]\n16: then\n17:     echo \"Enabling Instana EUM\"\n18:     result=$(curl -kv -s --connect-timeout 10 \"$INSTANA_EUM_REPORTING_URL\" 2>&1 | grep \"301 Moved Permanently\")\n19:     if [ -n \"$result\" ]; \n20:     then\n21:         echo '301 Moved Permanently found!'\n22:         [[ \"${INSTANA_EUM_REPORTING_URL}\" != */ ]] &&  INSTANA_EUM_REPORTING_URL=\"${INSTANA_EUM_REPORTING_URL}/\"\n23:         sed -i \"s|INSTANA_EUM_KEY|$INSTANA_EUM_KEY|\" $BASE_DIR/eum-tmpl.html\n24:         sed -i \"s|INSTANA_EUM_REPORTING_URL|$INSTANA_EUM_REPORTING_URL|\" $BASE_DIR/eum-tmpl.html\n25:         cp $BASE_DIR/eum-tmpl.html $BASE_DIR/eum.html\n26:     else\n27:         echo \"Go with the user input\"\n28:         sed -i \"s|INSTANA_EUM_KEY|$INSTANA_EUM_KEY|\" $BASE_DIR/eum-tmpl.html\n29:         sed -i "
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/shipping/src/main/java/com/instana/robotshop/shipping/ShippingServiceApplication.java"
+        },
+        "result_head": "1: package com.instana.robotshop.shipping;\n2: \n3: import javax.servlet.http.HttpServletRequest;\n4: import javax.servlet.http.HttpServletResponse;\n5: import javax.sql.DataSource;\n6: \n7: import com.instana.sdk.support.SpanSupport;\n8: import org.springframework.boot.SpringApplication;\n9: import org.springframework.boot.autoconfigure.SpringBootApplication;\n10: \n11: import org.springframework.beans.BeansException;\n12: import org.springframework.beans.factory.config.BeanPostProcessor;\n13: import org.springframework.context.annotation.Bean;\n14: import org.springframework.core.Ordered;\n15: import org.springframework.core.annotation.Order;\n16: import org.springframework.retry.annotation.EnableRetry;\n17: import org.springframework.web.servlet.config.annotation.EnableWebMvc;\n18: import org.springframework.web.servlet.config.annotation.InterceptorRegistry;\n19: import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n20: import org.springframework.web.servlet.handler.HandlerInterc"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "path": "/shipping",
+          "pattern": "context-path|server.port|RequestMapping"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/dispatch/main.go",
+          "start": "210"
+        },
+        "result_head": "210: \trabbitCloseError <- amqp.ErrClosed\n211: \n212: \tgo func() {\n213: \t\tfor {\n214: \t\t\t// wait for rabbit to be ready\n215: \t\t\tready := <-rabbitReady\n216: \t\t\tlog.Printf(\"Rabbit MQ ready %v\\n\", ready)\n217: \n218: \t\t\t// subscribe to bound queue\n219: \t\t\tmsgs, err := rabbitChan.Consume(\"orders\", \"\", true, false, false, false, nil)\n220: \t\t\tfailOnError(err, \"Failed to consume\")\n221: \n222: \t\t\tfor d := range msgs {\n223: \t\t\t\tlog.Printf(\"Order %s\\n\", d.Body)\n224: \t\t\t\tlog.Printf(\"Headers %v\\n\", d.Headers)\n225: \t\t\t\tid := getOrderId(d.Body)\n226: \t\t\t\tgo createSpan(d.Headers, id)\n227: \t\t\t}\n228: \t\t}\n229: \t}()\n230: \n231: \tlog.Println(\"Waiting for messages\")\n232: \tselect {}\n233: }"
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/load-gen/entrypoint.sh"
+        },
+        "result_head": "1: #!/bin/sh\n2: \n3: # set -x\n4: \n5: if [ -z \"$HOST\" ]\n6: then\n7:     echo \"HOST env not set\"\n8:     exit 1\n9: fi\n10: \n11: if echo \"$NUM_CLIENTS\" | egrep -q '^[0-9]+$'\n12: then\n13:     if [ $NUM_CLIENTS -eq 0 ]\n14:     then\n15:         NUM_CLIENTS=1\n16:     fi\n17:     echo \"Starting load with $NUM_CLIENTS clients\"\n18: else\n19:     echo \"NUM_CLIENTS $NUM_CLIENTS is not a number\"\n20:     exit 1\n21: fi\n22: \n23: \n24: if [ \"$RUN_TIME\" != \"0\" ]\n25: then\n26:     if echo \"$RUN_TIME\" | egrep -q '^([0-9]+h)?([0-9]+m)?$'\n27:     then\n28:         TIME=\"-t $RUN_TIME\"\n29:     else\n30:         echo \"Wrong time format, use 2h42m\"\n31:         exit 1\n32:     fi\n33: else\n34:     unset RUN_TIME\n35:     unset TIME\n36: fi\n37: \n38: echo \"Starting $CLIENTS clients for ${RUN_TIME:-ever}\"\n39: if [ \"$SILENT\" -eq 1 ]\n40: then\n41:     locust -f robot-shop.py --host \"$HOST\" --headless -r 1 -u $NUM_CLIENTS $TIME > /dev/null 2>&1\n42: else\n43:     locust -f robot-shop.py --host \"$HOST\" --headless -r 1 -u $NUM_CLIENTS $"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/cart/server.js",
+          "pattern": "app\\.(get|post|put|delete|patch|use)\\("
+        },
+        "result_head": "/cart/server.js:43: app.use(expLogger);\n/cart/server.js:45: app.use((req, res, next) => {\n/cart/server.js:51: app.use((req, res, next) => {\n/cart/server.js:65: app.use(bodyParser.urlencoded({ extended: true }));\n/cart/server.js:66: app.use(bodyParser.json());\n/cart/server.js:68: app.get('/health', (req, res) => {\n/cart/server.js:77: app.get('/metrics', (req, res) => {\n/cart/server.js:84: app.get('/cart/:id', (req, res) => {\n/cart/server.js:101: app.delete('/cart/:id', (req, res) => {\n/cart/server.js:117: app.get('/rename/:from/:to', (req, res) => {\n/cart/server.js:139: app.get('/add/:id/:sku/:qty', (req, res) => {\n/cart/server.js:213: app.get('/update/:id/:sku/:qty', (req, res) => {\n/cart/server.js:269: app.post('/shipping/:id', (req, res) => {"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/user/server.js",
+          "pattern": "app\\.(get|post|put|delete|patch)\\("
+        },
+        "result_head": "/user/server.js:61: app.get('/health', (req, res) => {\n/user/server.js:70: app.get('/uniqueid', (req, res) => {\n/user/server.js:85: app.get('/check/:id', (req, res) => {\n/user/server.js:104: app.get('/users', (req, res) => {\n/user/server.js:118: app.post('/login', (req, res) => {\n/user/server.js:148: app.post('/register', (req, res) => {\n/user/server.js:183: app.post('/order/:id', (req, res) => {\n/user/server.js:237: app.get('/history/:id', (req, res) => {"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/catalogue/server.js",
+          "pattern": "app\\.(get|post|put|delete|patch)\\("
+        },
+        "result_head": "/catalogue/server.js:58: app.get('/health', (req, res) => {\n/catalogue/server.js:67: app.get('/products', (req, res) => {\n/catalogue/server.js:82: app.get('/product/:sku', (req, res) => {\n/catalogue/server.js:106: app.get('/products/:cat', (req, res) => {\n/catalogue/server.js:125: app.get('/categories', (req, res) => {\n/catalogue/server.js:140: app.get('/search/:text', (req, res) => {"
+      },
+      {
+        "step": 11,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"cart\",\"dirs\":[\"/cart\"]},{\"name\":\"catalogue\",\"dirs\":[\"/catalogue\"]},{\"name\":\"dispatch\",\"dirs\":[\"/dispatch\"]},{\"name\":\"payment\",\"dirs\":[\"/payment\"]},{\"name\":\"ratings\",\"dirs\":[\"/rat"
+        },
+        "result_head": "Recorded 9 new: service cart, service catalogue, service dispatch, service payment, service ratings, service shipping, service user, service web, service load-gen\nTotal: 9 services, 0 endpoints in 0 files.\nServices with no endpoints recorded yet: cart, catalogue, dispatch, payment, ratings, shipping, user, web, load-gen."
+      },
+      {
+        "step": 12,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/cart/server.js\",\"service\":\"cart\",\"endpoints\":[\n{\"className\":\"\",\"methodName\":\"(inline)\",\"httpMethod\":\"GET\",\"path\":\"/health\",\"line\":68,\"evidence\":\"app.get('/health', (req, res) => {"
+        },
+        "result_head": "Recorded 37 new: GET /health, GET /metrics, GET /cart/:id, DELETE /cart/:id, GET /rename/:from/:to, GET /add/:id/:sku/:qty, GET /update/:id/:sku/:qty, POST /shipping/:id, GET /health, GET /products, GET /product/:sku, GET /products/:cat, GET /categories, GET /search/:text, GET /health, GET /uniqueid, GET /check/:id, GET /users, POST /login, POST /register, POST /order/:id, GET /history/:id, GET /health, GET /metrics, POST /pay/<id>, GET /memory, GET /free, GET /health, GET /count, GET /codes, GET /cities/{code}, GET /match/{code}/{text}, GET /calc/{id}, POST /confirm/{id}, PUT /api/rate/{sku}/{score}, GET /api/fetch/{sku}, ANY /_health\nTotal: 9 services, 37 endpoints in 7 files.\nServices with no endpoints recorded yet: dispatch, web, load-gen."
+      },
+      {
+        "step": 13,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/web/default.conf.template\",\"service\":\"web\",\"endpoints\":[\n{\"className\":\"\",\"methodName\":\"(inline)\",\"httpMethod\":\"ANY\",\"path\":\"/\",\"line\":16,\"evidence\":\"location / {\",\"framework\":\"ngi"
+        },
+        "result_head": "Recorded 9 new: ANY /, ANY /images/, ANY /api/catalogue/, ANY /api/user/, ANY /api/cart/, ANY /api/shipping/, ANY /api/payment/, ANY /api/ratings/, ANY /nginx_status\nTotal: 9 services, 46 endpoints in 8 files.\nServices with no endpoints recorded yet: dispatch, load-gen."
+      },
+      {
+        "step": 14,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 9 services, 46 endpoints."
+      }
+    ]
+  }
+}

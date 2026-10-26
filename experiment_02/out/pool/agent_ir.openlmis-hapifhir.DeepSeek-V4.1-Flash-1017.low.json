@@ -1,0 +1,426 @@
+{
+  "system": "openlmis-hapifhir",
+  "services": [
+    {
+      "name": "openlmis-hapifhir",
+      "dirs": [
+        "/"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/src/main/java/org/openlmis/hapifhir/config/HapiFhirRestfulServer.java",
+      "service": "openlmis-hapifhir",
+      "endpoints": [
+        {
+          "className": "HapiFhirRestfulServer",
+          "methodName": "service",
+          "httpMethod": "GET",
+          "path": "/hapifhir",
+          "line": 108,
+          "evidence": "if (\"/hapifhir\".equalsIgnoreCase(uri) && null == queryString) {",
+          "framework": "Servlet (HAPI FHIR RestfulServer)",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/hapifhir/CustomWebMvcConfigurerAdapter.java",
+      "service": "openlmis-hapifhir",
+      "endpoints": [
+        {
+          "className": "CustomWebMvcConfigurerAdapter",
+          "methodName": "addViewControllers",
+          "httpMethod": "GET",
+          "path": "/hapifhir/docs",
+          "line": 33,
+          "evidence": "registry.addViewController(\"/hapifhir/docs\")",
+          "framework": "Spring MVC",
+          "confidence": "high"
+        },
+        {
+          "className": "CustomWebMvcConfigurerAdapter",
+          "methodName": "addViewControllers",
+          "httpMethod": "GET",
+          "path": "/hapifhir/docs/",
+          "line": 35,
+          "evidence": "registry.addViewController(\"/hapifhir/docs/\")",
+          "framework": "Spring MVC",
+          "confidence": "high"
+        },
+        {
+          "className": "CustomWebMvcConfigurerAdapter",
+          "methodName": "addResourceHandlers",
+          "httpMethod": "GET",
+          "path": "/hapifhir/webjars/**",
+          "line": 41,
+          "evidence": "registry.addResourceHandler(\"/hapifhir/webjars/**\")",
+          "framework": "Spring MVC",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/resources/api-definition.yaml",
+      "service": "openlmis-hapifhir",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/hapifhir/Location",
+          "line": 84,
+          "evidence": "    get:",
+          "framework": "HAPI FHIR (RAML definition)",
+          "confidence": "medium"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/hapifhir/Measure",
+          "line": 200,
+          "evidence": "    get:",
+          "framework": "HAPI FHIR (RAML definition)",
+          "confidence": "medium"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/hapifhir/MeasureReport",
+          "line": 225,
+          "evidence": "    get:",
+          "framework": "HAPI FHIR (RAML definition)",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/resources/application.properties",
+      "service": "openlmis-hapifhir",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/actuator/health",
+          "line": 38,
+          "evidence": "management.endpoint.health.enabled=true",
+          "framework": "Spring Boot Actuator",
+          "confidence": "medium"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/actuator/prometheus",
+          "line": 39,
+          "evidence": "management.endpoint.prometheus.enabled=true",
+          "framework": "Spring Boot Actuator",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "openlmis-hapifhir",
+    "commit": "e689f8b99bbef4abd9bc6ba64e2215dd6c64a6ca",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "record_nudges": 0,
+    "elided_results": 0,
+    "steps": 17,
+    "tool_calls": 33,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 240226,
+    "cached_input_tokens": 211456,
+    "output_tokens": 3773,
+    "list_price_usd": 0.0072,
+    "wall_seconds": 39.8,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".github/\n.gitignore\nCHANGELOG.md\nDockerfile\nERROR_HANDLING.md\nFLYWAY.md\nJenkinsfile\nLICENSE\nLICENSE-HEADER\nLICENSE-HEADER.md\nREADME.md\nSTYLE-GUIDE.md\nTESTING.md\nbuild.gradle\nbuild.sh\nci-buildImage.sh\nconfig/\nconsul/\ndemo-data/\ndocker-compose.builder.yml\ndocker-compose.erd-generation.yml\ndocker-compose.override.yml\ndocker-compose.yml\ndocumentation.gradle\ngradle.properties\ngradle/\ngradlew\ngradlew.bat\npackage-lock.json\npackage.json\nregistration.gradle\nsettings.gradle\nsonar-project.properties\nsrc/\nsync_transifex.sh"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile"
+        },
+        "result_head": "/Dockerfile"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle"
+        },
+        "result_head": "1: rootProject.name = serviceName"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile"
+        },
+        "result_head": "1: FROM openlmis/service-base:7\n2: \n3: COPY build/libs/*.jar /service.jar\n4: \n5: COPY build/consul /consul\n6: WORKDIR /consul\n7: \n8: RUN npm install --production\n9: \n10: WORKDIR /"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller.java"
+        },
+        "result_head": "(no files)"
+      },
+      {
+        "step": 3,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java"
+        },
+        "result_head": "/src/integration-test/java/org/openlmis/hapifhir/i18n/ExposedMessageSourceIntegrationTest.java\n/src/integration-test/java/org/openlmis/hapifhir/web/BaseResourceIntegrationTest.java\n/src/integration-test/java/org/openlmis/hapifhir/web/LocationResourceIntegrationTest.java\n/src/integration-test/java/org/openlmis/hapifhir/web/VersionEndpointIntegrationTest.java\n/src/main/java/org/openlmis/hapifhir/Application.java\n/src/main/java/org/openlmis/hapifhir/CustomWebMvcConfigurerAdapter.java\n/src/main/java/org/openlmis/hapifhir/TestDataInitializer.java\n/src/main/java/org/openlmis/hapifhir/config/AuthenticationMessageException.java\n/src/main/java/org/openlmis/hapifhir/config/CustomAuthorizationInterceptor.java\n/src/main/java/org/openlmis/hapifhir/config/FhirServerConfig.java\n/src/main/java/org/openlmis/hapifhir/config/HapiFhirRestfulServer.java\n/src/main/java/org/openlmis/hapifhir/i18n/BaseMessageException.java\n/src/main/java/org/openlmis/hapifhir/i18n/ExposedMessageSource.java\n/src/main/java/org/"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/build.gradle"
+        },
+        "result_head": "1: buildscript {\n2:     repositories {\n3:         mavenCentral()\n4:     }\n5: }\n6: \n7: plugins {\n8:     id \"org.flywaydb.flyway\" version \"6.0.8\"\n9:     id \"com.moowork.node\" version \"1.2.0\"\n10:     id 'org.springframework.boot' version '2.1.1.RELEASE'\n11: }\n12: \n13: apply plugin: 'java'\n14: apply plugin: 'idea'\n15: apply plugin: 'io.spring.dependency-management'\n16: apply plugin: 'checkstyle'\n17: apply plugin: 'jacoco'\n18: apply plugin: 'pmd'\n19: \n20: group = serviceGroup\n21: version = serviceVersion\n22: archivesBaseName = rootProject.name\n23: project.ext.buildTime = java.time.Instant.now().toString() // for versioning\n24: sourceCompatibility = 1.8\n25: targetCompatibility = 1.8\n26: \n27: repositories {\n28:     mavenCentral()\n29:     jcenter()\n30:     maven { url \"https://oss.sonatype.org/content/repositories/snapshots\" }\n31: }\n32: \n33: dependencies {\n34:     compile \"org.springframework.boot:spring-boot-starter-actuator\"\n35:     compile \"io.micrometer:micrometer-registry-prometheus\"\n36: "
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/hapifhir/Application.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.hapifhir;\n17: \n18: import java.util.Locale;\n19: import org.openlmis.hapif"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/hapifhir/config/HapiFhirRestfulServer.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.hapifhir.config;\n17: \n18: import ca.uhn.fhir.context.FhirContext;\n19: imp"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/hapifhir/config/FhirServerConfig.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.hapifhir.config;\n17: \n18: import ca.uhn.fhir.jpa.config.BaseJavaConfigR4;"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
+          "path": "/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "pattern": "IResourceProvider|@Search|@Read|@Create|@Update|@Delete|@Transaction",
+          "path": "/src/main"
+        },
+        "result_head": "/src/main/java/org/openlmis/hapifhir/config/HapiFhirRestfulServer.java:28: import ca.uhn.fhir.rest.server.IResourceProvider;\n/src/main/java/org/openlmis/hapifhir/config/HapiFhirRestfulServer.java:70: List<IResourceProvider> beans = myAppCtx.getBean(\"myResourceProvidersR4\", List.class);\n/src/main/java/org/openlmis/hapifhir/service/LocationLoadingService.java:91: @Transactional\n/src/main/java/org/openlmis/hapifhir/service/LocationLoadingService.java:111: @Transactional"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/integration-test/java/org/openlmis/hapifhir/web/LocationResourceIntegrationTest.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.hapifhir.web;\n17: \n18: import static org.hamcrest.Matchers.hasItem;\n19: i"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/integration-test/java/org/openlmis/hapifhir/web/VersionEndpointIntegrationTest.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.hapifhir.web;\n17: \n18: import static org.hamcrest.Matchers.is;\n19: import"
+      },
+      {
+        "step": 6,
+        "tool": "find",
+        "args": {
+          "pattern": "application*.properties"
+        },
+        "result_head": "/src/main/resources/application.properties"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/resources/application.properties"
+        },
+        "result_head": "1: spring.flyway.locations=classpath:db/migration\n2: spring.flyway.schemas=hapifhir\n3: spring.flyway.sql-migration-prefix=\n4: \n5: spring.datasource.url=${DATABASE_URL}?stringtype=unspecified\n6: spring.datasource.username=${POSTGRES_USER}\n7: spring.datasource.password=${POSTGRES_PASSWORD}\n8: spring.datasource.driver-class-name=org.postgresql.Driver\n9: spring.datasource.tomcat.default-auto-commit=false\n10: spring.datasource.hikari.auto-commit=false\n11: \n12: spring.jackson.deserialization.ACCEPT_FLOAT_AS_INT=false\n13: spring.jackson.serialization.INDENT_OUTPUT=true\n14: spring.jackson.serialization.WRITE_DATES_AS_TIMESTAMPS=false\n15: \n16: spring.jpa.generate-ddl=false\n17: spring.jpa.hibernate.ddl-auto=validate\n18: spring.jpa.hibernate.naming.implicit-strategy=org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl\n19: spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl\n20: \n21: spring.jpa.hibernate.jdbc.time_zone=U"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/hapifhir/CustomWebMvcConfigurerAdapter.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.hapifhir;\n17: \n18: import org.springframework.beans.factory.annotation.Va"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/hapifhir/config/CustomAuthorizationInterceptor.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.hapifhir.config;\n17: \n18: import static org.apache.commons.lang3.StringUt"
+      },
+      {
+        "step": 8,
+        "tool": "grep",
+        "args": {
+          "pattern": "Provider|ResourceProvider",
+          "path": "/src/main/java"
+        },
+        "result_head": "/src/main/java/org/openlmis/hapifhir/config/HapiFhirRestfulServer.java:21: import ca.uhn.fhir.jpa.provider.r4.JpaConformanceProviderR4;\n/src/main/java/org/openlmis/hapifhir/config/HapiFhirRestfulServer.java:22: import ca.uhn.fhir.jpa.provider.r4.JpaSystemProviderR4;\n/src/main/java/org/openlmis/hapifhir/config/HapiFhirRestfulServer.java:23: import ca.uhn.fhir.jpa.search.DatabaseBackedPagingProvider;\n/src/main/java/org/openlmis/hapifhir/config/HapiFhirRestfulServer.java:28: import ca.uhn.fhir.rest.server.IResourceProvider;\n/src/main/java/org/openlmis/hapifhir/config/HapiFhirRestfulServer.java:70: List<IResourceProvider> beans = myAppCtx.getBean(\"myResourceProvidersR4\", List.class);\n/src/main/java/org/openlmis/hapifhir/config/HapiFhirRestfulServer.java:71: setResourceProviders(beans);\n/src/main/java/org/openlmis/hapifhir/config/HapiFhirRestfulServer.java:73: registerProviders(myAppCtx.getBean(\"mySystemProviderR4\", JpaSystemProviderR4.class));\n/src/main/java/org/openlmis/hapifhir/config/Ha"
+      },
+      {
+        "step": 8,
+        "tool": "find",
+        "args": {
+          "pattern": "*.raml"
+        },
+        "result_head": "(no files)"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/README.md"
+        },
+        "result_head": "1: # OpenLMIS HAPI FHIR service\n2: \n3: This repository contains openlmis-hapifhir service. \n4: \n5: ## Prerequisites\n6: * Docker 1.11+\n7: * Docker Compose 1.6+\n8: \n9: All other dependencies, such as Java, are delivered automatically via the Docker image. It is unnecessary to install them locally to run the service, though often helpful to do so for the sake of development. See the _Tech_ section of [openlmis/dev](https://hub.docker.com/r/openlmis/dev/) for a list of these optional dependencies.\n10: \n11: ## Quick Start\n12: 1. Fork/clone this repository from GitHub.\n13: \n14:  ```shell\n15:  git clone https://github.com/OpenLMIS/openlmis-hapifhir.git <openlmis-your-service-name>\n16:  ```\n17: \n18: 2. Add an environment file called `.env` to the root folder of the project, with the required \n19: project settings and credentials. For a starter environment file, you can use [this \n20: one](https://raw.githubusercontent.com/OpenLMIS/openlmis-ref-distro/master/settings-sample.env). e.g.\n21: \n22: "
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/integration-test/java/org/openlmis/hapifhir/web/BaseResourceIntegrationTest.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.hapifhir.web;\n17: \n18: import static org.mockito.BDDMockito.given;\n19: im"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "pattern": "Servlet|Filter|addViewController|addResourceHandler|@Bean",
+          "path": "/src/main/java"
+        },
+        "result_head": "/src/main/java/org/openlmis/hapifhir/Application.java:49: @Bean\n/src/main/java/org/openlmis/hapifhir/Application.java:63: @Bean\n/src/main/java/org/openlmis/hapifhir/Application.java:78: @Bean\n/src/main/java/org/openlmis/hapifhir/CustomWebMvcConfigurerAdapter.java:32: public void addViewControllers(ViewControllerRegistry registry) {\n/src/main/java/org/openlmis/hapifhir/CustomWebMvcConfigurerAdapter.java:33: registry.addViewController(\"/hapifhir/docs\")\n/src/main/java/org/openlmis/hapifhir/CustomWebMvcConfigurerAdapter.java:35: registry.addViewController(\"/hapifhir/docs/\")\n/src/main/java/org/openlmis/hapifhir/CustomWebMvcConfigurerAdapter.java:40: public void addResourceHandlers(ResourceHandlerRegistry registry) {\n/src/main/java/org/openlmis/hapifhir/CustomWebMvcConfigurerAdapter.java:41: registry.addResourceHandler(\"/hapifhir/webjars/**\")\n/src/main/java/org/openlmis/hapifhir/config/CustomAuthorizationInterceptor.java:21: import javax.servlet.http.HttpServletRequest;\n/src/main/java/org/op"
+      },
+      {
+        "step": 10,
+        "tool": "find",
+        "args": {
+          "pattern": "*.yaml",
+          "path": "/src/main/resources"
+        },
+        "result_head": "/src/main/resources/api-definition.yaml"
+      },
+      {
+        "step": 10,
+        "tool": "find",
+        "args": {
+          "pattern": "*",
+          "path": "/src/main/resources"
+        },
+        "result_head": "/src/main/resources/api-definition.yaml\n/src/main/resources/application.properties\n/src/main/resources/db/migration/20180912143230822__initial_schema.sql\n/src/main/resources/db/migration/20190320094412184__upgrade_to_3_5_0.sql\n/src/main/resources/db/migration/20190320110942964__upgrade_to_3_6_0.sql\n/src/main/resources/logback.xml\n/src/main/resources/messages_en.properties\n/src/main/resources/schemas/version.json\n/src/main/resources/static/hapifhir/docs/index.html\n/src/main/resources/version.properties"
+      },
+      {
+        "step": 11,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/resources/api-definition.yaml"
+        },
+        "result_head": "1: #%RAML 0.8\n2: ---\n3: title: OpenLMIS HAPI FHIR API\n4: version: \"@version@\"\n5: baseUri: \"@baseUrl@\"\n6: protocols: [ HTTP, HTTPS ]\n7: \n8: documentation:\n9: - title: Getting Started\n10:   content: Welcome to the OpenLMIS hapifhir-service documentation. This minimal API is intended for illustrative purposes.\n11: \n12: schemas:\n13: - version: !include schemas/version.json\n14: \n15: traits:\n16: - fhir-resource:\n17:     queryParameters:\n18:       \"_content\":\n19:         displayName: \"_content\"\n20:         description: Search on the entire content of the resource\n21:         type: string\n22:         required: false\n23:         repeat: false\n24:       \"_id\":\n25:         displayName: \"_id\"\n26:         description: Logical id of this artifact\n27:         type: string\n28:         required: false\n29:         repeat: false\n30:       \"_lastUpdated\":\n31:         displayName: \"_lastUpdated\"\n32:         description: When the resource version last changed\n33:         type: string\n34:         required: f"
+      },
+      {
+        "step": 12,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/resources/api-definition.yaml",
+          "start": "170"
+        },
+        "result_head": "170:           type: string\n171:           required: false\n172:           repeat: false\n173:         partof:\n174:           displayName: partof\n175:           description: A location of which this location is a part\n176:           type: string\n177:           required: false\n178:           repeat: false\n179:         status:\n180:           displayName: status\n181:           description: Searches for locations with a specific kind of status\n182:           type: string\n183:           required: false\n184:           repeat: false\n185:         type:\n186:           displayName: type\n187:           description: A code for the type of location\n188:           type: string\n189:           required: false\n190:           repeat: false\n191:       responses:\n192:         200:\n193:           body:\n194:             application/json:\n195:         401:\n196:           body:\n197:             application/json:\n198:   /Measure:\n199:     displayName: Measure\n200:     get:\n201:       is: [ fhir-resource, secured"
+      },
+      {
+        "step": 13,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/hapifhir/security/ResourceServerSecurityConfiguration.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.hapifhir.security;\n17: \n18: import java.io.IOException;\n19: import java.u"
+      },
+      {
+        "step": 13,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/hapifhir/TestDataInitializer.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2018 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.hapifhir;\n17: \n18: import org.openlmis.hapifhir.service.LocationLoadingSe"
+      },
+      {
+        "step": 14,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"openlmis-hapifhir\",\"dirs\":[\"/\"]}]}"
+        },
+        "result_head": "Recorded 1 new: service openlmis-hapifhir\nTotal: 1 services, 0 endpoints in 0 files.\nServices with no endpoints recorded yet: openlmis-hapifhir."
+      },
+      {
+        "step": 15,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/src/main/java/org/openlmis/hapifhir/config/HapiFhirRestfulServer.java\",\"service\":\"openlmis-hapifhir\",\"endpoints\":[\n{\"className\":\"HapiFhirRestfulServer\",\"methodName\":\"service\",\"htt"
+        },
+        "result_head": "Recorded 7 new: GET /hapifhir, GET /hapifhir/docs, GET /hapifhir/docs/, GET /hapifhir/webjars/**, GET /hapifhir/Location, GET /hapifhir/Measure, GET /hapifhir/MeasureReport\nTotal: 1 services, 7 endpoints in 3 files."
+      },
+      {
+        "step": 16,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/src/main/resources/application.properties\",\"service\":\"openlmis-hapifhir\",\"endpoints\":[\n{\"className\":\"\",\"methodName\":\"(inline)\",\"httpMethod\":\"GET\",\"path\":\"/actuator/health\",\"line\":"
+        },
+        "result_head": "Recorded 2 new: GET /actuator/health, GET /actuator/prometheus\nTotal: 1 services, 9 endpoints in 4 files."
+      },
+      {
+        "step": 17,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 1 services, 9 endpoints."
+      }
+    ]
+  }
+}

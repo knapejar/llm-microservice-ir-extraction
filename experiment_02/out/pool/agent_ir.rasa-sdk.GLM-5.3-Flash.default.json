@@ -1,0 +1,315 @@
+{
+  "system": "rasa-sdk",
+  "services": [
+    {
+      "name": "rasa-sdk-action-server",
+      "dirs": [
+        "/",
+        "/rasa_sdk"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/rasa_sdk/endpoint.py",
+      "service": "rasa-sdk-action-server",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "health",
+          "httpMethod": "GET",
+          "path": "/health",
+          "line": 104,
+          "evidence": "@app.get(\"/health\")",
+          "framework": "Sanic",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "webhook",
+          "httpMethod": "POST",
+          "path": "/webhook",
+          "line": 110,
+          "evidence": "@app.post(\"/webhook\")",
+          "framework": "Sanic",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "actions",
+          "httpMethod": "GET",
+          "path": "/actions",
+          "line": 173,
+          "evidence": "@app.get(\"/actions\")",
+          "framework": "Sanic",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/rasa_sdk/grpc_server.py",
+      "service": "rasa-sdk-action-server",
+      "endpoints": [
+        {
+          "className": "GRPCActionServerWebhook",
+          "methodName": "WebhookStream",
+          "httpMethod": "ANY",
+          "path": "/rasa_sdk.grpc_action_server.ActionService/WebhookStream",
+          "line": 237,
+          "evidence": "async def WebhookStream(",
+          "framework": "gRPC (action_webhook_pb2_grpc.ActionService)",
+          "confidence": "high"
+        },
+        {
+          "className": "GRPCActionServerWebhook",
+          "methodName": "AckStreamChunks",
+          "httpMethod": "ANY",
+          "path": "/rasa_sdk.grpc_action_server.ActionService/AckStreamChunks",
+          "line": 427,
+          "evidence": "async def AckStreamChunks(",
+          "framework": "gRPC (action_webhook_pb2_grpc.ActionService)",
+          "confidence": "high"
+        },
+        {
+          "className": "GRPCActionServerWebhook",
+          "methodName": "Webhook",
+          "httpMethod": "ANY",
+          "path": "/rasa_sdk.grpc_action_server.ActionService/Webhook",
+          "line": 171,
+          "evidence": "async def Webhook(",
+          "framework": "gRPC (action_webhook_pb2_grpc.ActionService)",
+          "confidence": "high"
+        },
+        {
+          "className": "GRPCActionServerWebhook",
+          "methodName": "Actions",
+          "httpMethod": "ANY",
+          "path": "/rasa_sdk.grpc_action_server.ActionService/Actions",
+          "line": 145,
+          "evidence": "async def Actions(",
+          "framework": "gRPC (action_webhook_pb2_grpc.ActionService)",
+          "confidence": "high"
+        },
+        {
+          "className": "GRPCActionServerWebhook",
+          "methodName": "Webhook",
+          "httpMethod": "ANY",
+          "path": "/action_server_webhook.ActionService/Webhook",
+          "line": 171,
+          "evidence": "async def Webhook(",
+          "framework": "gRPC (action_server_webhook.ActionService, /proto/action_webhook.proto)",
+          "confidence": "high"
+        },
+        {
+          "className": "GRPCActionServerWebhook",
+          "methodName": "WebhookStream",
+          "httpMethod": "ANY",
+          "path": "/action_server_webhook.ActionService/WebhookStream",
+          "line": 237,
+          "evidence": "async def WebhookStream(",
+          "framework": "gRPC (action_server_webhook.ActionService, /proto/action_webhook.proto)",
+          "confidence": "high"
+        },
+        {
+          "className": "GRPCActionServerWebhook",
+          "methodName": "AckStreamChunks",
+          "httpMethod": "ANY",
+          "path": "/action_server_webhook.ActionService/AckStreamChunks",
+          "line": 427,
+          "evidence": "async def AckStreamChunks(",
+          "framework": "gRPC (action_server_webhook.ActionService, /proto/action_webhook.proto)",
+          "confidence": "high"
+        },
+        {
+          "className": "GRPCActionServerWebhook",
+          "methodName": "Actions",
+          "httpMethod": "ANY",
+          "path": "/action_server_webhook.ActionService/Actions",
+          "line": 145,
+          "evidence": "async def Actions(",
+          "framework": "gRPC (action_server_webhook.ActionService, /proto/action_webhook.proto)",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "GLM-5.3-Flash",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "default",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "rasa-sdk",
+    "commit": "07b0b74f9c653638b3795d5465c503aa82182faf",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "record_nudges": 0,
+    "elided_results": 0,
+    "steps": 13,
+    "tool_calls": 18,
+    "rejected_entries": 2,
+    "no_call_replies": 0,
+    "input_tokens": 97127,
+    "cached_input_tokens": 76544,
+    "output_tokens": 2356,
+    "list_price_usd": 0.0066,
+    "wall_seconds": 27.6,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".backportrc.json\n.dockerignore\n.github/\n.gitignore\n.pre-commit-config.yaml\n.typo-ci.yml\nCHANGELOG.mdx\nDockerfile\nDockerfile.dev\nDockerfile.patch\nLICENSE.txt\nMakefile\nREADME.md\ncerts/\nchangelog/\ndata/\nentrypoint.sh\nexamples/\ngrpc-standalone-server-integration-test-results.xml\nintegration_tests/\npoetry.lock\nproto/\npyproject.toml\nrasa_sdk/\nrenovate.json5\nscripts/\ntests/\ntrivy-secret.yaml"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/rasa_sdk"
+        },
+        "result_head": "__init__.py\n__main__.py\ncli/\nconstants.py\ncors.py\nendpoint.py\nevents.py\nexceptions.py\nexecutor.py\nforms.py\ngrpc_errors.py\ngrpc_py/\ngrpc_server.py\ninterfaces.py\nknowledge_base/\nplugin.py\nslots.py\ntracing/\ntypes.py\nutils.py\nversion.py"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/pyproject.toml"
+        },
+        "result_head": "1: [build-system]\n2: requires = [ \"poetry-core>=1.0.4\",]\n3: build-backend = \"poetry.core.masonry.api\"\n4: \n5: [tool.poetry]\n6: name = \"rasa-sdk\"\n7: version = \"3.21.0\"\n8: description = \"Open source machine learning framework to automate text- and voice-based conversations: NLU, dialogue management, connect to Slack, Facebook, and more - Create chatbots and voice assistants\"\n9: authors = [ \"Rasa Technologies GmbH <hi@rasa.com>\",]\n10: maintainers = [ \"Tom Bocklisch <tom@rasa.com>\",]\n11: homepage = \"https://rasa.com\"\n12: repository = \"https://github.com/rasahq/rasa-sdk\"\n13: documentation = \"https://rasa.com/docs\"\n14: classifiers = [ \"Development Status :: 5 - Production/Stable\", \"Intended Audience :: Developers\", \"License :: OSI Approved :: Apache Software License\", \"Topic :: Software Development :: Libraries\",]\n15: keywords = [ \"nlp\", \"machine-learning\", \"machine-learning-library\", \"bot\", \"bots\", \"botkit\", \"rasa conversational-agents\", \"conversational-ai\", \"chatbot\", \"chatbot-framework\", \""
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/rasa_sdk/endpoint.py"
+        },
+        "result_head": "1: import argparse\n2: import logging\n3: import os\n4: import warnings\n5: import zlib\n6: import json\n7: from functools import partial\n8: from typing import Dict, List, Text, Union, Optional, Any\n9: \n10: from multidict import MultiDict\n11: from sanic import Sanic, response\n12: from sanic.compat import Header\n13: from sanic.response import HTTPResponse\n14: from sanic.worker.loader import AppLoader\n15: \n16: # catching:\n17: # - all `pkg_resources` deprecation warning from multiple dependencies\n18: # - google rcp warnings (`pkg_resources.namespaces`)\n19: # - open telemetry (`pkg_resources`)\n20: with warnings.catch_warnings():\n21:     warnings.filterwarnings(\n22:         \"ignore\", category=DeprecationWarning, message=\".*pkg_resources.*\"\n23:     )\n24:     from sanic.request import Request\n25:     from rasa_sdk import utils\n26:     from rasa_sdk.cli.arguments import add_endpoint_arguments\n27:     from rasa_sdk.cors import configure_cors\n28:     from rasa_sdk.constants import (\n29:         DEFAUL"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/rasa_sdk/__main__.py"
+        },
+        "result_head": "1: import asyncio\n2: import logging\n3: \n4: from rasa_sdk import utils\n5: from rasa_sdk.constants import APPLICATION_ROOT_LOGGER_NAME\n6: from rasa_sdk.endpoint import create_argument_parser, run\n7: from rasa_sdk.executor import ActionExecutor\n8: from rasa_sdk.grpc_server import run_grpc\n9: \n10: logger = logging.getLogger(__name__)\n11: \n12: \n13: def main_from_args(args):\n14:     \"\"\"Run with arguments.\"\"\"\n15:     logging.getLogger(\"matplotlib\").setLevel(logging.WARN)\n16: \n17:     utils.configure_colored_logging(args.loglevel)\n18:     utils.configure_file_logging(\n19:         logging.getLogger(APPLICATION_ROOT_LOGGER_NAME),\n20:         args.log_file,\n21:         args.loglevel,\n22:         args.logging_config_file,\n23:     )\n24:     utils.update_sanic_log_level()\n25: \n26:     action_executor = ActionExecutor()\n27:     action_executor.register_package(\n28:         args.actions_module or args.actions,\n29:     )\n30: \n31:     if args.grpc:\n32:         asyncio.run(\n33:             run_grpc(\n34: "
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/rasa_sdk/endpoint.py",
+          "start": "154"
+        },
+        "result_head": "154:                 body = {\"error\": e.message, \"action_name\": e.action_name}\n155:                 return response.json(body, status=404)\n156:             except ActionMissingDomainException as e:\n157:                 logger.debug(e)\n158:                 body = {\"error\": e.message, \"action_name\": e.action_name}\n159:                 return response.json(body, status=449)\n160: \n161:             set_http_span_attributes(\n162:                 span,\n163:                 action_call,\n164:                 http_method=\"POST\",\n165:                 route=\"/webhook\",\n166:             )\n167: \n168:             return response.json(\n169:                 result.model_dump() if result else None,\n170:                 status=200,\n171:             )\n172: \n173:     @app.get(\"/actions\")\n174:     async def actions(_) -> HTTPResponse:\n175:         \"\"\"List all registered actions.\"\"\"\n176:         if auto_reload:\n177:             action_executor.reload()\n178: \n179:         body = [\n180:             action_name"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/rasa_sdk/grpc_server.py"
+        },
+        "result_head": "1: from __future__ import annotations\n2: \n3: import contextlib\n4: import os\n5: import signal\n6: import time\n7: import uuid\n8: \n9: import asyncio\n10: \n11: import grpc\n12: import logging\n13: from typing import AsyncIterator, Optional, Any, Dict\n14: from concurrent import futures\n15: \n16: from google.protobuf import empty_pb2\n17: from grpc import aio\n18: from grpc_health.v1 import health\n19: from grpc_health.v1 import health_pb2\n20: from grpc_health.v1 import health_pb2_grpc\n21: from google.protobuf.json_format import MessageToDict, ParseDict\n22: from grpc.aio import Metadata\n23: from multidict import MultiDict\n24: \n25: from rasa_sdk.constants import (\n26:     DEFAULT_SERVER_PORT,\n27:     DEFAULT_ENDPOINTS_PATH,\n28:     DEFAULT_STREAM_BARGE_IN_TIMEOUT_SECONDS,\n29:     ACTION_SERVER_STREAM_BARGE_IN_TIMEOUT_SECONDS_ENV_VAR,\n30:     NO_GRACE_PERIOD,\n31: )\n32: from rasa_sdk.executor import ActionExecutor, CollectingDispatcher\n33: from rasa_sdk.grpc_errors import (\n34:     ResourceNotFound,\n35"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile"
+        },
+        "result_head": "1: # Keep this in sync with the version pinned in poetry.lock\n2: ARG SETUPTOOLS_VERSION=82.0.1\n3: # Minimum pip version\n4: ARG PIP_MIN_VERSION=26.1\n5: # Recompute with: curl -fsSL https://bootstrap.pypa.io/get-pip.py | sha256sum\n6: ARG GET_PIP_SHA256=f4448a01e3ab2914c65f4ca59d4cacba6b2dbde19a483fbac46587f8bbaff424\n7: \n8: FROM ubuntu:24.04 AS base\n9: \n10: ARG SETUPTOOLS_VERSION\n11: ARG PIP_MIN_VERSION\n12: ARG GET_PIP_SHA256\n13: \n14: SHELL [\"/bin/bash\", \"-o\", \"pipefail\", \"-c\"]\n15: \n16: # hadolint ignore=DL3005,DL3008\n17: RUN apt-get update -qq \\\n18:     # Make sure that all security updates are installed \\\n19:     && apt-get upgrade -y --no-install-recommends --fix-missing \\\n20:     && apt-get install -y --no-install-recommends --fix-missing \\\n21:       ca-certificates \\\n22:       python3 \\\n23:       python3-venv \\\n24:       python3-dev \\\n25:       curl \\\n26:     && apt-get autoremove -y \\\n27:     && apt-get clean \\\n28:     && rm -rf /var/lib/apt/lists/*\n29: \n30: RUN curl -fsSL https://b"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "path": "/rasa_sdk",
+          "pattern": "def (Webhook|Actions|AckStreamChunks|WebhookStream|Check)"
+        },
+        "result_head": "/rasa_sdk/grpc_py/action_webhook_pb2_grpc.py:63: def Webhook(self, request, context):\n/rasa_sdk/grpc_py/action_webhook_pb2_grpc.py:69: def WebhookStream(self, request, context):\n/rasa_sdk/grpc_py/action_webhook_pb2_grpc.py:75: def AckStreamChunks(self, request, context):\n/rasa_sdk/grpc_py/action_webhook_pb2_grpc.py:81: def Actions(self, request, context):\n/rasa_sdk/grpc_py/action_webhook_pb2_grpc.py:122: def Webhook(request,\n/rasa_sdk/grpc_py/action_webhook_pb2_grpc.py:149: def WebhookStream(request,\n/rasa_sdk/grpc_py/action_webhook_pb2_grpc.py:176: def AckStreamChunks(request,\n/rasa_sdk/grpc_py/action_webhook_pb2_grpc.py:203: def Actions(request,\n/rasa_sdk/grpc_server.py:145: async def Actions(\n/rasa_sdk/grpc_server.py:171: async def Webhook(\n/rasa_sdk/grpc_server.py:237: async def WebhookStream(\n/rasa_sdk/grpc_server.py:427: async def AckStreamChunks("
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "path": "/rasa_sdk",
+          "pattern": "add_route|@app\\.|route\\(|add_rpc|servicer"
+        },
+        "result_head": "/rasa_sdk/endpoint.py:104: @app.get(\"/health\")\n/rasa_sdk/endpoint.py:110: @app.post(\"/webhook\")\n/rasa_sdk/endpoint.py:173: @app.get(\"/actions\")\n/rasa_sdk/endpoint.py:185: @app.exception(Exception)\n/rasa_sdk/grpc_py/action_webhook_pb2_grpc.py:88: def add_ActionServiceServicer_to_server(servicer, server):\n/rasa_sdk/grpc_py/action_webhook_pb2_grpc.py:91: servicer.Webhook,\n/rasa_sdk/grpc_py/action_webhook_pb2_grpc.py:96: servicer.WebhookStream,\n/rasa_sdk/grpc_py/action_webhook_pb2_grpc.py:101: servicer.AckStreamChunks,\n/rasa_sdk/grpc_py/action_webhook_pb2_grpc.py:106: servicer.Actions,\n/rasa_sdk/grpc_server.py:452: context: The gRPC context (unused but required by the servicer API).\n/rasa_sdk/grpc_server.py:718: health_servicer = health.HealthServicer(\n/rasa_sdk/grpc_server.py:722: health_servicer.set(GRPC_ACTION_SERVER_NAME, health_pb2.HealthCheckResponse.SERVING)\n/rasa_sdk/grpc_server.py:723: health_pb2_grpc.add_HealthServicer_to_server(health_servicer, server)"
+      },
+      {
+        "step": 7,
+        "tool": "grep",
+        "args": {
+          "path": "/examples",
+          "pattern": "sanic|Flask|@app\\.|FastAPI"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/entrypoint.sh"
+        },
+        "result_head": "1: #!/bin/bash\n2: \n3: set -Eeuo pipefail\n4: \n5: function print_help {\n6:     echo \"Available options:\"\n7:     echo \" start  - Start Rasa Action Server\"\n8:     echo \" help   - Print this help\"\n9:     echo \" run    - Run an arbitrary command inside the container\"\n10: }\n11: \n12: case ${1} in\n13:     start)\n14:         exec python -m rasa_sdk \"${@:2}\"\n15:         ;;\n16:     run)\n17:         exec \"${@:2}\"\n18:         ;;\n19:     *)\n20:         print_help\n21:         ;;\n22: esac"
+      },
+      {
+        "step": 8,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\": [{\"name\": \"rasa-sdk-action-server\", \"dirs\": [\"/\", \"/rasa_sdk\"]}]}"
+        },
+        "result_head": "Recorded 1 new: service rasa-sdk-action-server\nTotal: 1 services, 0 endpoints in 0 files.\nServices with no endpoints recorded yet: rasa-sdk-action-server."
+      },
+      {
+        "step": 9,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\": [\n{\"path\": \"/rasa_sdk/endpoint.py\", \"service\": \"rasa-sdk-action-server\", \"endpoints\": [\n{\"className\": \"\", \"methodName\": \"health\", \"httpMethod\": \"GET\", \"path\": \"/health\", \"line\": 104, \"eviden"
+        },
+        "result_head": "Recorded 5 new: GET /health, POST /webhook, GET /actions, ANY /rasa_sdk.grpc_action_server.ActionService/WebhookStream, ANY /rasa_sdk.grpc_action_server.ActionService/AckStreamChunks\nTotal: 1 services, 5 endpoints in 2 files.\n[REJECTED 2] Fix these and record them again (accepted entries are kept, do not resend them):\n- files[1].endpoints[0] ANY /rasa_sdk.grpc_action_server.ActionService/Webhook (GRPCActionServerWebhook.Webhook): evidence is not at line 171; copy the route declaration verbatim. Lines 168-174 read: response, ) async def Webhook( self, request: WebhookRequest, context: grpc.aio.ServicerContext,\n- files[1].endpoints[3] ANY /rasa_sdk.grpc_action_server.ActionService/Actions (GRPCActionServerWebhook.Actions): evidence is not at line 145; copy the route declaration verbatim. Lines 142-148 read: # coupling the RPC handler to the WebhookStream coroutine. self._dispatcher_registry: Dict[str, \"CollectingDispatcher\"] = {} async def Actions( self, request: ActionsRequest, context:"
+      },
+      {
+        "step": 10,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\": [{\"path\": \"/rasa_sdk/grpc_server.py\", \"service\": \"rasa-sdk-action-server\", \"endpoints\": [\n{\"className\": \"GRPCActionServerWebhook\", \"methodName\": \"Webhook\", \"httpMethod\": \"ANY\", \"path\": \"/ras"
+        },
+        "result_head": "Recorded 2 new: ANY /rasa_sdk.grpc_action_server.ActionService/Webhook, ANY /rasa_sdk.grpc_action_server.ActionService/Actions\nTotal: 1 services, 7 endpoints in 2 files."
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/proto",
+          "pattern": "package|service"
+        },
+        "result_head": "/proto/action_webhook.proto:3: package action_server_webhook;\n/proto/action_webhook.proto:7: service ActionService {"
+      },
+      {
+        "step": 12,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\": [{\"path\": \"/rasa_sdk/grpc_server.py\", \"service\": \"rasa-sdk-action-server\", \"endpoints\": [\n{\"className\": \"GRPCActionServerWebhook\", \"methodName\": \"Webhook\", \"httpMethod\": \"ANY\", \"path\": \"/act"
+        },
+        "result_head": "Recorded 4 new: ANY /action_server_webhook.ActionService/Webhook, ANY /action_server_webhook.ActionService/WebhookStream, ANY /action_server_webhook.ActionService/AckStreamChunks, ANY /action_server_webhook.ActionService/Actions\nTotal: 1 services, 11 endpoints in 2 files."
+      },
+      {
+        "step": 13,
+        "tool": "submit",
+        "args": {
+          "json": "{\"services\": [{\"name\": \"rasa-sdk-action-server\", \"dirs\": [\"/\", \"/rasa_sdk\"], \"notes\": \"Single deployable: Rasa Action Server (Dockerfile + entrypoint.sh -> python -m rasa_sdk). Serves HTTP via Sanic ("
+        },
+        "result_head": "Recorded 1 new: service rasa-sdk-action-server\nTotal: 1 services, 11 endpoints in 2 files.\n[ACCEPTED] 1 services, 11 endpoints."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1530 @@
+{
+  "system": "ccpay-payment-app",
+  "services": [
+    {
+      "name": "payment-api",
+      "dirs": [
+        "/api",
+        "/api-contract",
+        "/model",
+        "/reference-data",
+        "/gov-pay-client",
+        "/case-payment-orders-client",
+        "/lib"
+      ]
+    },
+    {
+      "name": "payment-otp",
+      "dirs": [
+        "/otp"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/AccountController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "AccountController",
+          "methodName": "getAccounts",
+          "httpMethod": "GET",
+          "path": "/accounts/{accountNumber}",
+          "line": 61,
+          "evidence": "@GetMapping(value = \"/accounts/{accountNumber}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/BulkScanningReportController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "BulkScanningReportController",
+          "methodName": "getBulkScanReports",
+          "httpMethod": "GET",
+          "path": "/payment/bulkscan-data-report",
+          "line": 52,
+          "evidence": "@GetMapping(\"/payment/bulkscan-data-report\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "CardPaymentController",
+          "methodName": "createCardPayment",
+          "httpMethod": "POST",
+          "path": "/card-payments",
+          "line": 114,
+          "evidence": "@PostMapping(value = \"/card-payments\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CardPaymentController",
+          "methodName": "retrieve",
+          "httpMethod": "GET",
+          "path": "/card-payments/{reference}",
+          "line": 197,
+          "evidence": "@GetMapping(value = \"/card-payments/{reference}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CardPaymentController",
+          "methodName": "retrieveWithCardDetails",
+          "httpMethod": "GET",
+          "path": "/card-payments/{reference}/details",
+          "line": 208,
+          "evidence": "@RequestMapping(value = \"/card-payments/{reference}/details\", method = GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CardPaymentController",
+          "methodName": "retrievePaymentStatus",
+          "httpMethod": "GET",
+          "path": "/card-payments/{reference}/statuses",
+          "line": 219,
+          "evidence": "@GetMapping(value = \"/card-payments/{reference}/statuses\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CardPaymentController",
+          "methodName": "cancelPayment",
+          "httpMethod": "POST",
+          "path": "/card-payments/{reference}/cancel",
+          "line": 241,
+          "evidence": "@PostMapping(value = \"/card-payments/{reference}/cancel\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CaseController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "CaseController",
+          "methodName": "retrieveCasePayments",
+          "httpMethod": "GET",
+          "path": "/cases/{case}/payments",
+          "line": 82,
+          "evidence": "@RequestMapping(value = \"/cases/{case}/payments\", method = GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CaseController",
+          "methodName": "retrieveCasePaymentGroups",
+          "httpMethod": "GET",
+          "path": "/cases/{ccdcasenumber}/paymentgroups",
+          "line": 109,
+          "evidence": "@RequestMapping(value = \"/cases/{ccdcasenumber}/paymentgroups\", method = GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CasePaymentOrdersController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "CasePaymentOrdersController",
+          "methodName": "retrieveCasePaymentOrders",
+          "httpMethod": "GET",
+          "path": "/case-payment-orders",
+          "line": 63,
+          "evidence": "@RequestMapping(value = \"/case-payment-orders\", method = GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CreditAccountPaymentController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "CreditAccountPaymentController",
+          "methodName": "createCreditAccountPayment",
+          "httpMethod": "POST",
+          "path": "/credit-account-payments",
+          "line": 110,
+          "evidence": "@PostMapping(value = \"/credit-account-payments\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CreditAccountPaymentController",
+          "methodName": "retrieve",
+          "httpMethod": "GET",
+          "path": "/credit-account-payments/{paymentReference}",
+          "line": 198,
+          "evidence": "@RequestMapping(value = \"/credit-account-payments/{paymentReference}\", method = GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CreditAccountPaymentController",
+          "methodName": "retrievePaymentStatus",
+          "httpMethod": "GET",
+          "path": "/credit-account-payments/{paymentReference}/statuses",
+          "line": 214,
+          "evidence": "@RequestMapping(value = \"/credit-account-payments/{paymentReference}/statuses\", method = GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CreditAccountPaymentController",
+          "methodName": "deleteByPaymentReference",
+          "httpMethod": "DELETE",
+          "path": "/credit-account-payments/{paymentReference}",
+          "line": 230,
+          "evidence": "@DeleteMapping(value = \"/credit-account-payments/{paymentReference}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/FeePayApportionController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "FeePayApportionController",
+          "methodName": "retrieveApportionDetails",
+          "httpMethod": "GET",
+          "path": "/payment-groups/fee-pay-apportion/{paymentreference}",
+          "line": 75,
+          "evidence": "@GetMapping(value = \"/payment-groups/fee-pay-apportion/{paymentreference}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/FeesController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "FeesController",
+          "methodName": "deleteFee",
+          "httpMethod": "DELETE",
+          "path": "/fees/{feeId}",
+          "line": 41,
+          "evidence": "@DeleteMapping(value = \"/fees/{feeId}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/MaintenanceJobsController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "MaintenanceJobsController",
+          "methodName": "updatePaymentsStatus",
+          "httpMethod": "PATCH",
+          "path": "/jobs/card-payments-status-update",
+          "line": 56,
+          "evidence": "@PatchMapping(value = \"/jobs/card-payments-status-update\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PBAController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "PBAController",
+          "methodName": "retrievePaymentsByAccount",
+          "httpMethod": "GET",
+          "path": "/pba-accounts/{account}/payments",
+          "line": 81,
+          "evidence": "@GetMapping(value = \"/pba-accounts/{account}/payments\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PBAController",
+          "methodName": "retrievePBADetails",
+          "httpMethod": "GET",
+          "path": "/pba-accounts",
+          "line": 101,
+          "evidence": "@GetMapping(value = \"/pba-accounts\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentAllocationController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "PaymentAllocationController",
+          "methodName": "addNewFee",
+          "httpMethod": "POST",
+          "path": "/payment-allocations",
+          "line": 51,
+          "evidence": "@PostMapping(value = \"/payment-allocations\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "PaymentController",
+          "methodName": "updateCaseReference",
+          "httpMethod": "PATCH",
+          "path": "/payments/{reference}",
+          "line": 104,
+          "evidence": "@RequestMapping(value = \"/payments/{reference}\", method = PATCH)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentController",
+          "methodName": "updatePaymentsForCCDCaseNumberByCertainDays",
+          "httpMethod": "PATCH",
+          "path": "/payments/ccd_case_reference/{ccd_case_number}/lag_time/{lag_time}",
+          "line": 134,
+          "evidence": "@RequestMapping(value = \"/payments/ccd_case_reference/{ccd_case_number}/lag_time/{lag_time}\", method = PATCH)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentController",
+          "methodName": "retrievePayments",
+          "httpMethod": "GET",
+          "path": "/payments",
+          "line": 150,
+          "evidence": "@GetMapping(value = \"/payments\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentController",
+          "methodName": "retrievePaymentsWithApportion",
+          "httpMethod": "GET",
+          "path": "/reconciliation-payments",
+          "line": 187,
+          "evidence": "@GetMapping(value = \"/reconciliation-payments\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentController",
+          "methodName": "updatePaymentStatus",
+          "httpMethod": "PATCH",
+          "path": "/payments/{reference}/status/{status}",
+          "line": 250,
+          "evidence": "@PatchMapping(\"/payments/{reference}/status/{status}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentController",
+          "methodName": "retrievePayment",
+          "httpMethod": "GET",
+          "path": "/payments/{reference}",
+          "line": 274,
+          "evidence": "@GetMapping(value = \"/payments/{reference}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentController",
+          "methodName": "retrievePayments",
+          "httpMethod": "GET",
+          "path": "/refunds/payments",
+          "line": 294,
+          "evidence": "@GetMapping(value = \"/refunds/payments\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentGroupController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "PaymentGroupController",
+          "methodName": "retrievePayment",
+          "httpMethod": "GET",
+          "path": "/payment-groups/{payment-group-reference}",
+          "line": 179,
+          "evidence": "@GetMapping(value = \"/payment-groups/{payment-group-reference}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentGroupController",
+          "methodName": "addNewFee",
+          "httpMethod": "POST",
+          "path": "/payment-groups",
+          "line": 192,
+          "evidence": "@PostMapping(value = \"/payment-groups\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentGroupController",
+          "methodName": "addNewFeetoPaymentGroup",
+          "httpMethod": "PUT",
+          "path": "/payment-groups/{payment-group-reference}",
+          "line": 226,
+          "evidence": "@PutMapping(value = \"/payment-groups/{payment-group-reference}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentGroupController",
+          "methodName": "recordBulkScanPayment",
+          "httpMethod": "POST",
+          "path": "/payment-groups/{payment-group-reference}/bulk-scan-payments",
+          "line": 250,
+          "evidence": "@PostMapping(value = \"/payment-groups/{payment-group-reference}/bulk-scan-payments\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentGroupController",
+          "methodName": "recordUnsolicitedBulkScanPayment",
+          "httpMethod": "POST",
+          "path": "/payment-groups/bulk-scan-payments",
+          "line": 312,
+          "evidence": "@PostMapping(value = \"/payment-groups/bulk-scan-payments\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentGroupController",
+          "methodName": "recordBulkScanPaymentStrategic",
+          "httpMethod": "POST",
+          "path": "/payment-groups/{payment-group-reference}/bulk-scan-payments-strategic",
+          "line": 368,
+          "evidence": "@PostMapping(value = \"/payment-groups/{payment-group-reference}/bulk-scan-payments-strategic\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentGroupController",
+          "methodName": "recordUnsolicitedBulkScanPaymentStrategic",
+          "httpMethod": "POST",
+          "path": "/payment-groups/bulk-scan-payments-strategic",
+          "line": 441,
+          "evidence": "@PostMapping(value = \"/payment-groups/bulk-scan-payments-strategic\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentGroupController",
+          "methodName": "createTelephonyCardPayment",
+          "httpMethod": "POST",
+          "path": "/payment-groups/{payment-group-reference}/telephony-card-payments",
+          "line": 554,
+          "evidence": "@PostMapping(value = \"/payment-groups/{payment-group-reference}/telephony-card-payments\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentRecordController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "PaymentRecordController",
+          "methodName": "recordPayment",
+          "httpMethod": "POST",
+          "path": "/payment-records",
+          "line": 82,
+          "evidence": "@RequestMapping(value = \"/payment-records\", method = POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReferenceDataController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "PaymentReferenceDataController",
+          "methodName": "findAllPaymentChannels",
+          "httpMethod": "GET",
+          "path": "/refdata/channels",
+          "line": 64,
+          "evidence": "@GetMapping(\"/channels\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentReferenceDataController",
+          "methodName": "findAllPaymentMethods",
+          "httpMethod": "GET",
+          "path": "/refdata/methods",
+          "line": 78,
+          "evidence": "@GetMapping(\"/methods\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentReferenceDataController",
+          "methodName": "findAllPaymentProviders",
+          "httpMethod": "GET",
+          "path": "/refdata/providers",
+          "line": 91,
+          "evidence": "@GetMapping(\"/providers\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentReferenceDataController",
+          "methodName": "findAllPaymentStatuses",
+          "httpMethod": "GET",
+          "path": "/refdata/status",
+          "line": 105,
+          "evidence": "@GetMapping(\"/status\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentReferenceDataController",
+          "methodName": "findAllLegacySites",
+          "httpMethod": "GET",
+          "path": "/refdata/legacy-sites",
+          "line": 120,
+          "evidence": "@GetMapping(value = \"/legacy-sites\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReportController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "PaymentReportController",
+          "methodName": "generateAndEmailReport",
+          "httpMethod": "POST",
+          "path": "/jobs/email-pay-reports",
+          "line": 48,
+          "evidence": "@PostMapping(value = \"/jobs/email-pay-reports\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentReportController",
+          "methodName": "duplicatePaymentEmailReport",
+          "httpMethod": "POST",
+          "path": "/jobs/duplicate-payment-process",
+          "line": 72,
+          "evidence": "@PostMapping(value = \"/jobs/duplicate-payment-process\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentStatusController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "PaymentStatusController",
+          "methodName": "paymentStatusBouncedCheque",
+          "httpMethod": "POST",
+          "path": "/payment-failures/bounced-cheque",
+          "line": 62,
+          "evidence": "@PostMapping(path = \"/payment-failures/bounced-cheque\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentStatusController",
+          "methodName": "paymentStatusChargeBack",
+          "httpMethod": "POST",
+          "path": "/payment-failures/chargeback",
+          "line": 85,
+          "evidence": "@PostMapping(path = \"/payment-failures/chargeback\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentStatusController",
+          "methodName": "unprocessedPayment",
+          "httpMethod": "POST",
+          "path": "/payment-failures/unprocessed-payment",
+          "line": 105,
+          "evidence": "@PostMapping(path = \"/payment-failures/unprocessed-payment\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentStatusController",
+          "methodName": "retrievePaymentFailure",
+          "httpMethod": "GET",
+          "path": "/payment-failures/{paymentReference}",
+          "line": 126,
+          "evidence": "@GetMapping(\"/payment-failures/{paymentReference}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentStatusController",
+          "methodName": "deleteByFailureReference",
+          "httpMethod": "DELETE",
+          "path": "/payment-status-delete/{failureReference}",
+          "line": 153,
+          "evidence": "@DeleteMapping(value = \"/payment-status-delete/{failureReference}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentStatusController",
+          "methodName": "paymentStatusSecond",
+          "httpMethod": "PATCH",
+          "path": "/payment-failures/{failureReference}",
+          "line": 161,
+          "evidence": "@PatchMapping(\"/payment-failures/{failureReference}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentStatusController",
+          "methodName": "updateUnprocessedPayment",
+          "httpMethod": "PATCH",
+          "path": "/jobs/unprocessed-payment-update",
+          "line": 177,
+          "evidence": "@PatchMapping(value = \"/jobs/unprocessed-payment-update\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentStatusController",
+          "methodName": "retrievePaymentFailureReport",
+          "httpMethod": "GET",
+          "path": "/payment-failures/failure-report",
+          "line": 197,
+          "evidence": "@GetMapping(\"/payment-failures/failure-report\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentStatusController",
+          "methodName": "retrieveTelephonyPaymentsReport",
+          "httpMethod": "GET",
+          "path": "/telephony-payments/telephony-payments-report",
+          "line": 220,
+          "evidence": "@GetMapping(\"/telephony-payments/telephony-payments-report\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RefundsController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "RefundsController",
+          "methodName": "createRefundPayment",
+          "httpMethod": "POST",
+          "path": "/refund-for-payment",
+          "line": 52,
+          "evidence": "@PostMapping(value = \"/refund-for-payment\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RefundsController",
+          "methodName": "createRefundForRetrospective",
+          "httpMethod": "POST",
+          "path": "/refund-retro-remission",
+          "line": 60,
+          "evidence": "@PostMapping(value = \"/refund-retro-remission\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RefundsController",
+          "methodName": "updateRemissionAmountResubmitRefund",
+          "httpMethod": "PATCH",
+          "path": "/refund/resubmit/{payment-reference}",
+          "line": 75,
+          "evidence": "@PatchMapping(\"/refund/resubmit/{payment-reference}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RefundsController",
+          "methodName": "deleteByRefundReference",
+          "httpMethod": "DELETE",
+          "path": "/refund/{refundReference}",
+          "line": 91,
+          "evidence": "@DeleteMapping(value = \"/refund/{refundReference}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RemissionController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "RemissionController",
+          "methodName": "createRemission",
+          "httpMethod": "POST",
+          "path": "/remissions",
+          "line": 57,
+          "evidence": "@PostMapping(value = \"/remissions\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RemissionController",
+          "methodName": "createRetrospectiveRemission",
+          "httpMethod": "POST",
+          "path": "/payment-groups/{payment-group-reference}/fees/{unique_fee_id}/remissions",
+          "line": 81,
+          "evidence": "@PostMapping(value = \"/payment-groups/{payment-group-reference}/fees/{unique_fee_id}/remissions\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "RemissionController",
+          "methodName": "createRetrospectiveRemissionForPayment",
+          "httpMethod": "POST",
+          "path": "/payment-groups/{payment-group-reference}/fees/{unique_fee_id}/retro-remission",
+          "line": 105,
+          "evidence": "@PostMapping(value = \"/payment-groups/{payment-group-reference}/fees/{unique_fee_id}/retro-remission\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ReplayCreditAccountPaymentController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "ReplayCreditAccountPaymentController",
+          "methodName": "replayCreditAccountPayment",
+          "httpMethod": "POST",
+          "path": "/replay-credit-account-payments",
+          "line": 70,
+          "evidence": "@PostMapping(value = \"/replay-credit-account-payments\", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "ServiceRequestController",
+          "methodName": "create",
+          "httpMethod": "POST",
+          "path": "/service-request",
+          "line": 126,
+          "evidence": "@PostMapping(value = \"/service-request\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ServiceRequestController",
+          "methodName": "createCreditAccountPaymentForServiceRequest",
+          "httpMethod": "POST",
+          "path": "/service-request/{service-request-reference}/pba-payments",
+          "line": 167,
+          "evidence": "@PostMapping(value = \"/service-request/{service-request-reference}/pba-payments\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ServiceRequestController",
+          "methodName": "receiveDeadLetterQueueMessage",
+          "httpMethod": "PATCH",
+          "path": "/jobs/dead-letter-queue-process",
+          "line": 293,
+          "evidence": "@PatchMapping(value = \"/jobs/dead-letter-queue-process\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ServiceRequestController",
+          "methodName": "createCardPayment",
+          "httpMethod": "POST",
+          "path": "/service-request/{service-request-reference}/card-payments",
+          "line": 317,
+          "evidence": "@PostMapping(value = \"/service-request/{service-request-reference}/card-payments\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ServiceRequestController",
+          "methodName": "retrieveStatusByInternalReference",
+          "httpMethod": "GET",
+          "path": "/card-payments/{internal-reference}/status",
+          "line": 337,
+          "evidence": "@GetMapping(value = \"/card-payments/{internal-reference}/status\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestReportController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "ServiceRequestReportController",
+          "methodName": "generateAndEmailDuplicateSRReport",
+          "httpMethod": "POST",
+          "path": "/jobs/email-duplicate-sr-report",
+          "line": 40,
+          "evidence": "@PostMapping(value = \"/jobs/email-duplicate-sr-report\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/pcipal/TelephonyController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "TelephonyController",
+          "methodName": "updateTelephonyPaymentStatus",
+          "httpMethod": "POST",
+          "path": "/telephony/callback",
+          "line": 50,
+          "evidence": "@PostMapping(path = \"/telephony/callback\", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/v1/controllers/PaymentOldController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "PaymentOldController",
+          "methodName": "create",
+          "httpMethod": "POST",
+          "path": "/users/{userId}/payments",
+          "line": 59,
+          "evidence": "@RequestMapping(value = \"/users/{userId}/payments\", method = POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentOldController",
+          "methodName": "retrieve",
+          "httpMethod": "GET",
+          "path": "/users/{userId}/payments/{paymentId}",
+          "line": 78,
+          "evidence": "@RequestMapping(value = \"/users/{userId}/payments/{paymentId}\", method = GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentOldController",
+          "methodName": "cancel",
+          "httpMethod": "POST",
+          "path": "/users/{userId}/payments/{paymentId}/cancel",
+          "line": 91,
+          "evidence": "@RequestMapping(value = \"/users/{userId}/payments/{paymentId}/cancel\", method = POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "PaymentOldController",
+          "methodName": "refund",
+          "httpMethod": "POST",
+          "path": "/users/{userId}/payments/{paymentId}/refunds",
+          "line": 110,
+          "evidence": "@RequestMapping(value = \"/users/{userId}/payments/{paymentId}/refunds\", method = POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/mock/MockCallbackControllerForTesting.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "MockCallbackControllerForTesting",
+          "methodName": "mockCallback",
+          "httpMethod": "PUT",
+          "path": "/mock-api/serviceCallback",
+          "line": 26,
+          "evidence": "@PutMapping(\"/serviceCallback\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "MockCallbackControllerForTesting",
+          "methodName": "exists",
+          "httpMethod": "GET",
+          "path": "/mock-api/serviceCallback/{reference}",
+          "line": 34,
+          "evidence": "@GetMapping(\"/serviceCallback/{reference}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/reference-data/src/main/java/uk/gov/hmcts/payment/referencedata/controllers/ReferenceDataController.java",
+      "service": "payment-api",
+      "endpoints": [
+        {
+          "className": "ReferenceDataController",
+          "methodName": "getSites",
+          "httpMethod": "GET",
+          "path": "/reference-data/sites",
+          "line": 33,
+          "evidence": "@GetMapping(value = \"/reference-data/sites\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "ccpay-payment-app",
+    "commit": "c1ab457b394448ebf875cb40b3df74488ef2d04e",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "elided_results": 0,
+    "steps": 18,
+    "tool_calls": 67,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 291995,
+    "cached_input_tokens": 256768,
+    "output_tokens": 12037,
+    "list_price_usd": 0.0133,
+    "wall_seconds": 62.1,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".dockerignore\n.editorconfig\n.env\n.github/\n.gitignore\nCODEOWNERS.md\nDockerfile\nJenkinsfile_CNP\nJenkinsfile_nightly\nJenkinsfile_parameterized\nREADME.md\nSECURITY.md\napi-contract/\napi/\naudit.json\nbuild.gradle\ncase-payment-orders-client/\ncatalog-info.yaml\ncharts/\nconfig/\ncve-resolution-strategy.gradle\ndependency-check-suppressions.xml\ndocker-compose.yml\ndocker/\nfindbugs-security-exclude.xml\nfindbugs-security-include.xml\nfunctional-output/\ngov-pay-client/\ngradle.properties\ngradle/\ngradlew\ngradlew.bat\ninfrastructure/\nlib/\nmodel/\nmonitoring/\notp/\nreference-data/\nscripts/\nsettings.gradle\nversion.txt\nweb.config"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile"
+        },
+        "result_head": "/Dockerfile\n/docker/database/Dockerfile"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle"
+        },
+        "result_head": "1: pluginManagement {\n2:     repositories {\n3:         if (!System.getenv(\"GITHUB_ACTIONS\")) {\n4:             maven {\n5:                 url = uri(\"https://artifactory.platform.hmcts.net/artifactory/maven-remotes\")\n6:             }\n7:         }\n8:         maven {\n9:             // Maven Central mirror used when HMCTS Artifactory is unavailable, for example on GitHub-hosted runners.\n10:             url = uri(\"https://maven-central.storage-download.googleapis.com/maven2\")\n11:         }\n12:         maven {\n13:             url = uri(\"https://pkgs.dev.azure.com/hmcts/Artifacts/_packaging/hmcts-lib/maven/v1\")\n14:         }\n15:         gradlePluginPortal() {\n16:             content {\n17:                 excludeGroupByRegex(\"com\\\\.github\\\\.hmcts(\\\\..*)?\")\n18:             }\n19:         }\n20:     }\n21: }\n22: \n23: dependencyResolutionManagement {\n24:     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)\n25:     repositories {\n26:         mavenLocal()\n27:         if (!System.getenv(\"GITHUB_AC"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile"
+        },
+        "result_head": "1: # renovate: datasource=github-releases depName=microsoft/ApplicationInsights-Java\n2: ARG APP_INSIGHTS_AGENT_VERSION=3.7.10\n3: FROM hmctsprod.azurecr.io/base/java:21-distroless\n4: \n5: COPY lib/applicationinsights.json /opt/app/\n6: COPY build/libs/payment-app.jar /opt/app/\n7: \n8: EXPOSE 8080\n9: \n10: CMD [ \\\n11:     \"--add-opens\", \"java.base/java.lang=ALL-UNNAMED\", \\\n12:     \"payment-app.jar\" \\\n13:     ]"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller.java"
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/AccountController.java\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/BulkScanningReportController.java\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CaseController.java\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CasePaymentOrdersController.java\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CreditAccountPaymentController.java\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/FeePayApportionController.java\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/FeesController.java\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/MaintenanceJobsController.java\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PBAController.java\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentAllocationController.java\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentController.jav"
+      },
+      {
+        "step": 3,
+        "tool": "find",
+        "args": {
+          "pattern": "*Application.java"
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/PaymentApiApplication.java\n/api/src/test/java/uk/gov/hmcts/LocalEmbeddedPaymentApiApplication.java\n/api/src/test/java/uk/gov/hmcts/LocalPaymentApiApplication.java\n/api/src/test/java/uk/gov/hmcts/payment/api/componenttests/serviceanduser/ServiceAndUserTestApplication.java\n/api/src/test/java/uk/gov/hmcts/payment/api/unit/SendMessageApplication.java"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RestController|Controller|RequestMapping|FeignClient)",
+          "path": "/otp"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RestController|Controller|RequestMapping|FeignClient)",
+          "path": "/gov-pay-client"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RestController|Controller|RequestMapping|FeignClient)",
+          "path": "/case-payment-orders-client"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RestController|Controller|RequestMapping|FeignClient)",
+          "path": "/reference-data"
+        },
+        "result_head": "/reference-data/src/main/java/uk/gov/hmcts/payment/referencedata/controllers/ReferenceDataController.java:21: @RestController"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/api/build.gradle"
+        },
+        "result_head": "1: buildscript {\n2:     repositories {\n3:         mavenLocal()\n4:         if (!System.getenv(\"GITHUB_ACTIONS\")) {\n5:             maven {\n6:                 url = uri('https://artifactory.platform.hmcts.net/artifactory/maven-remotes')\n7:             }\n8:         }\n9:         maven {\n10:             url = uri('https://pkgs.dev.azure.com/hmcts/Artifacts/_packaging/hmcts-lib/maven/v1')\n11:         }\n12:         maven {\n13:             // Mirror of Maven Central to reduce transient throttling in CI.\n14:             url = uri('https://maven-central.storage-download.googleapis.com/maven2')\n15:         }\n16:         mavenCentral()\n17:     }\n18:     configurations.classpath {\n19:         resolutionStrategy.eachDependency { details ->\n20:             if (details.requested.group == 'org.bouncycastle' && details.requested.name == 'bcutil-jdk18on') {\n21:                 // Avoid dynamic version lookup ([1.81,1.82)) during plugin resolution in CI.\n22:                 details.useVersion '1.81'\n23:   "
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/reference-data/build.gradle"
+        },
+        "result_head": "1: description = 'Managing reference data required for payments'\n2: \n3: dependencies {\n4:     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'\n5:     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'\n6:     implementation group: 'io.github.resilience4j', name: 'resilience4j-spring-boot3', version: '2.2.0'\n7:     implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.8.16'\n8: \n9:     testImplementation(group: 'org.springframework.boot', name: 'spring-boot-starter-test') {\n10:         exclude(module: 'commons-logging')\n11:     }\n12: \n13:     testImplementation group: 'org.testcontainers', name: 'testcontainers-postgresql', version: '2.0.5'\n14: }"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/PaymentApiApplication.java"
+        },
+        "result_head": "1: package uk.gov.hmcts;\n2: \n3: import com.github.benmanes.caffeine.cache.Caffeine;\n4: import io.swagger.v3.oas.annotations.OpenAPIDefinition;\n5: import org.slf4j.Logger;\n6: import org.slf4j.LoggerFactory;\n7: import org.springframework.beans.factory.annotation.Value;\n8: import org.springframework.boot.SpringApplication;\n9: import org.springframework.boot.autoconfigure.SpringBootApplication;\n10: import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;\n11: import org.springframework.cache.CacheManager;\n12: import org.springframework.cache.annotation.EnableCaching;\n13: import org.springframework.cache.caffeine.CaffeineCache;\n14: import org.springframework.cache.support.SimpleCacheManager;\n15: import org.springframework.cloud.openfeign.EnableFeignClients;\n16: import org.springframework.context.annotation.Bean;\n17: import org.springframework.scheduling.annotation.EnableAsync;\n18: import uk.gov.hmcts.payment.api.logging.Markers;\n19: import org.springframework.hateoas.clie"
+      },
+      {
+        "step": 5,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/reference-data/src/main"
+        },
+        "result_head": "/reference-data/src/main/java/uk/gov/hmcts/payment/referencedata/controllers/ReferenceDataController.java\n/reference-data/src/main/java/uk/gov/hmcts/payment/referencedata/dto/SiteDTO.java\n/reference-data/src/main/java/uk/gov/hmcts/payment/referencedata/exception/ReferenceDataNotFoundException.java\n/reference-data/src/main/java/uk/gov/hmcts/payment/referencedata/model/Site.java\n/reference-data/src/main/java/uk/gov/hmcts/payment/referencedata/model/SiteRepository.java\n/reference-data/src/main/java/uk/gov/hmcts/payment/referencedata/service/SiteService.java\n/reference-data/src/main/java/uk/gov/hmcts/payment/referencedata/service/SiteServiceImpl.java"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/reference-data/src/main/java/uk/gov/hmcts/payment/referencedata/controllers/ReferenceDataController.java"
+        },
+        "result_head": "1: package uk.gov.hmcts.payment.referencedata.controllers;\n2: \n3: import io.github.resilience4j.ratelimiter.annotation.RateLimiter;\n4: \n5: import io.swagger.v3.oas.annotations.Operation;\n6: import io.swagger.v3.oas.annotations.responses.ApiResponse;\n7: import io.swagger.v3.oas.annotations.responses.ApiResponses;\n8: import io.swagger.v3.oas.annotations.tags.Tag;\n9: import org.springframework.beans.factory.annotation.Autowired;\n10: import org.springframework.http.HttpStatus;\n11: import org.springframework.http.ResponseEntity;\n12: import org.springframework.web.bind.annotation.GetMapping;\n13: import org.springframework.web.bind.annotation.ResponseBody;\n14: import org.springframework.web.bind.annotation.RestController;\n15: import uk.gov.hmcts.payment.referencedata.dto.SiteDTO;\n16: import uk.gov.hmcts.payment.referencedata.model.Site;\n17: import uk.gov.hmcts.payment.referencedata.service.SiteService;\n18: \n19: import java.util.List;\n20: \n21: @RestController\n22: @Tag(name = \"ReferenceDataCont"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/otp/build.gradle"
+        },
+        "result_head": "1: description = 'OTP (One Time Password) utility in Java'\n2: dependencies {\n3:     implementation 'com.amdelamar:jotp:1.3.0'\n4:     testImplementation(group: 'org.springframework.boot', name: 'spring-boot-starter-test') {\n5:         exclude(module: 'commons-logging')\n6:     }\n7: }\n8: \n9: task customFatJar(type: Jar) {\n10:     manifest {\n11:         attributes 'Main-Class': 'uk.gov.hmcts.payment.OtpBootstrap'\n12:     }\n13:     archiveFileName.set('payment-otp-all.jar')\n14:     from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }\n15:     with jar\n16:     duplicatesStrategy = 'include'\n17: }\n18: \n19: assemble.dependsOn(customFatJar)\n20: assemble.doLast {\n21:     copy {\n22:         from('build/libs/') {\n23:             include 'payment-otp-all.jar'\n24:         }\n25:         into '../build/libs'\n26:     }\n27: }"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "pattern": "payment-otp"
+        },
+        "result_head": "/otp/build.gradle:13: archiveFileName.set('payment-otp-all.jar')\n/otp/build.gradle:23: include 'payment-otp-all.jar'\n/settings.gradle:56: include ':payment-otp'\n/settings.gradle:64: project(':payment-otp').projectDir = \"$rootDir/otp\" as File"
+      },
+      {
+        "step": 6,
+        "tool": "find",
+        "args": {
+          "path": "/otp",
+          "pattern": "*.java"
+        },
+        "result_head": "/otp/src/main/java/uk/gov/hmcts/payment/otp/OtpBootstrap.java\n/otp/src/test/java/TestJunit.java\n/otp/src/test/java/uk/gov/hmcts/payment/otp/OtpBootStrapTest.java"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/AccountController.java"
+        },
+        "result_head": "1: package uk.gov.hmcts.payment.api.controllers;\n2: \n3: import io.github.resilience4j.ratelimiter.annotation.RateLimiter;\n4: \n5: import io.swagger.v3.oas.annotations.Operation;\n6: import io.swagger.v3.oas.annotations.responses.ApiResponse;\n7: import io.swagger.v3.oas.annotations.responses.ApiResponses;\n8: import io.swagger.v3.oas.annotations.tags.Tag;\n9: import lombok.extern.slf4j.Slf4j;\n10: import org.springframework.beans.factory.annotation.Autowired;\n11: import org.springframework.http.HttpStatus;\n12: import org.springframework.http.ResponseEntity;\n13: import org.springframework.web.bind.annotation.ExceptionHandler;\n14: import org.springframework.web.bind.annotation.GetMapping;\n15: import org.springframework.web.bind.annotation.PathVariable;\n16: import org.springframework.web.bind.annotation.ResponseStatus;\n17: import org.springframework.web.bind.annotation.RestController;\n18: import org.springframework.web.client.HttpClientErrorException;\n19: import uk.gov.hmcts.payment.api.dto.Acc"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/BulkScanningReportController.java"
+        },
+        "result_head": "1: package uk.gov.hmcts.payment.api.controllers;\n2: \n3: import io.github.resilience4j.ratelimiter.annotation.RateLimiter;\n4: \n5: import io.swagger.v3.oas.annotations.Operation;\n6: import io.swagger.v3.oas.annotations.responses.ApiResponse;\n7: import io.swagger.v3.oas.annotations.responses.ApiResponses;\n8: import io.swagger.v3.oas.annotations.tags.Tag;\n9: import org.slf4j.Logger;\n10: import org.slf4j.LoggerFactory;\n11: import org.springframework.beans.factory.annotation.Autowired;\n12: import org.springframework.http.HttpStatus;\n13: import org.springframework.http.ResponseEntity;\n14: import org.springframework.web.bind.annotation.GetMapping;\n15: import org.springframework.web.bind.annotation.RequestParam;\n16: import org.springframework.web.bind.annotation.RestController;\n17: import uk.gov.hmcts.payment.api.contract.BulkScanningReportDto;\n18: import uk.gov.hmcts.payment.api.contract.BulkScanningUnderOverPaymentDto;\n19: import uk.gov.hmcts.payment.api.dto.mapper.BulkScanningReportMapper;\n2"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java"
+        },
+        "result_head": "1: package uk.gov.hmcts.payment.api.controllers;\n2: \n3: import io.github.resilience4j.ratelimiter.annotation.RateLimiter;\n4: \n5: import io.swagger.v3.oas.annotations.Operation;\n6: import io.swagger.v3.oas.annotations.responses.ApiResponse;\n7: import io.swagger.v3.oas.annotations.responses.ApiResponses;\n8: import io.swagger.v3.oas.annotations.tags.Tag;\n9: import org.apache.commons.lang3.StringUtils;\n10: import org.apache.commons.validator.routines.checkdigit.CheckDigitException;\n11: import org.owasp.encoder.Encode;\n12: import org.slf4j.Logger;\n13: import org.slf4j.LoggerFactory;\n14: import org.springframework.beans.BeansException;\n15: import org.springframework.beans.factory.annotation.Autowired;\n16: import org.springframework.context.ApplicationContext;\n17: import org.springframework.context.ApplicationContextAware;\n18: import org.springframework.http.HttpStatus;\n19: import org.springframework.http.ResponseEntity;\n20: import org.springframework.transaction.annotation.Transactional;\n21:"
+      },
+      {
+        "step": 8,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers",
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping"
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/AccountController.java:61: @GetMapping(value = \"/accounts/{accountNumber}\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/BulkScanningReportController.java:52: @GetMapping(\"/payment/bulkscan-data-report\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java:114: @PostMapping(value = \"/card-payments\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java:197: @GetMapping(value = \"/card-payments/{reference}\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java:208: @RequestMapping(value = \"/card-payments/{reference}/details\", method = GET)\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java:219: @GetMapping(value = \"/card-payments/{reference}/statuses\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java:241: @PostMapping(value = \"/card-payments/{reference}/cancel\")\n/api/sr"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReportController.java",
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping"
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReportController.java:48: @PostMapping(value = \"/jobs/email-pay-reports\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReportController.java:72: @PostMapping(value = \"/jobs/duplicate-payment-process\")"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentStatusController.java",
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping"
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentStatusController.java:62: @PostMapping(path = \"/payment-failures/bounced-cheque\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentStatusController.java:85: @PostMapping(path = \"/payment-failures/chargeback\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentStatusController.java:105: @PostMapping(path = \"/payment-failures/unprocessed-payment\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentStatusController.java:126: @GetMapping(\"/payment-failures/{paymentReference}\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentStatusController.java:153: @DeleteMapping(value = \"/payment-status-delete/{failureReference}\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentStatusController.java:161: @PatchMapping(\"/payment-failures/{failureReference}\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentStatusController.java:177: @PatchMapping(value = \"/jobs/"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RefundsController.java",
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping"
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RefundsController.java:52: @PostMapping(value = \"/refund-for-payment\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RefundsController.java:60: @PostMapping(value = \"/refund-retro-remission\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RefundsController.java:75: @PatchMapping(\"/refund/resubmit/{payment-reference}\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RefundsController.java:91: @DeleteMapping(value = \"/refund/{refundReference}\")"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RemissionController.java",
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping"
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RemissionController.java:57: @PostMapping(value = \"/remissions\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RemissionController.java:81: @PostMapping(value = \"/payment-groups/{payment-group-reference}/fees/{unique_fee_id}/remissions\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RemissionController.java:105: @PostMapping(value = \"/payment-groups/{payment-group-reference}/fees/{unique_fee_id}/retro-remission\")"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ReplayCreditAccountPaymentController.java",
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping"
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ReplayCreditAccountPaymentController.java:70: @PostMapping(value = \"/replay-credit-account-payments\", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestController.java",
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping"
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestController.java:126: @PostMapping(value = \"/service-request\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestController.java:167: @PostMapping(value = \"/service-request/{service-request-reference}/pba-payments\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestController.java:293: @PatchMapping(value = \"/jobs/dead-letter-queue-process\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestController.java:317: @PostMapping(value = \"/service-request/{service-request-reference}/card-payments\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestController.java:337: @GetMapping(value = \"/card-payments/{internal-reference}/status\")"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestReportController.java",
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping"
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestReportController.java:40: @PostMapping(value = \"/jobs/email-duplicate-sr-report\")"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/pcipal/TelephonyController.java",
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping"
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/pcipal/TelephonyController.java:50: @PostMapping(path = \"/telephony/callback\", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/v1/controllers/PaymentOldController.java",
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping"
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/v1/controllers/PaymentOldController.java:59: @RequestMapping(value = \"/users/{userId}/payments\", method = POST)\n/api/src/main/java/uk/gov/hmcts/payment/api/v1/controllers/PaymentOldController.java:78: @RequestMapping(value = \"/users/{userId}/payments/{paymentId}\", method = GET)\n/api/src/main/java/uk/gov/hmcts/payment/api/v1/controllers/PaymentOldController.java:91: @RequestMapping(value = \"/users/{userId}/payments/{paymentId}/cancel\", method = POST)\n/api/src/main/java/uk/gov/hmcts/payment/api/v1/controllers/PaymentOldController.java:110: @RequestMapping(value = \"/users/{userId}/payments/{paymentId}/refunds\", method = POST)"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReferenceDataController.java",
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping"
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReferenceDataController.java:33: @RequestMapping(\"/refdata\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReferenceDataController.java:64: @GetMapping(\"/channels\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReferenceDataController.java:78: @GetMapping(\"/methods\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReferenceDataController.java:91: @GetMapping(\"/providers\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReferenceDataController.java:105: @GetMapping(\"/status\")\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReferenceDataController.java:120: @GetMapping(value = \"/legacy-sites\")"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java",
+          "pattern": "@(RestController|Controller)\\b"
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/AccountController.java:30: @RestController\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/BulkScanningReportController.java:33: @RestController\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java:68: @RestController\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CaseController.java:46: @RestController\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CasePaymentOrdersController.java:38: @RestController\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CreditAccountPaymentController.java:49: @RestController\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/FeePayApportionController.java:39: @RestController\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/FeesController.java:23: @RestController\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/MaintenanceJobsController.java:24: @RestController\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PBACo"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java:88: public CardPaymentController(DelegatingPaymentService<PaymentFeeLink, String> cardDelegatingPaymentService,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java:117: public ResponseEntity<PaymentDto> createCardPayment(\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java:198: public PaymentDto retrieve(@PathVariable(\"reference\") String paymentReference) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java:209: public CardDetails retrieveWithCardDetails(@PathVariable(\"reference\") String paymentReference) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java:220: public PaymentDto retrievePaymentStatus(@PathVariable(\"reference\") String paymentReference) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CardPaymentController.java:242: public ResponseEntity cancelPayment(@Pat"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CaseController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CaseController.java:68: public CaseController(PaymentService<PaymentFeeLink, String> paymentService, PaymentGroupService paymentGroupService,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CaseController.java:84: public PaymentsResponse retrieveCasePayments(@PathVariable(name = \"case\") String ccdCaseNumber) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CaseController.java:110: public ResponseEntity<PaymentGroupResponse> retrieveCasePaymentGroups(@PathVariable(name = \"ccdcasenumber\") String ccdCaseNumber,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CaseController.java:163: public String notFound(PaymentException ex) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CaseController.java:169: public String notFound(PaymentGroupNotFoundException ex) {"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CasePaymentOrdersController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CasePaymentOrdersController.java:47: public CasePaymentOrdersController(CasePaymentOrdersService casePaymentOrdersService,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CasePaymentOrdersController.java:64: public CasePaymentOrdersDto retrieveCasePaymentOrders(\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CasePaymentOrdersController.java:80: public ResponseEntity<String> cpoBadRequestException(CpoBadRequestException e) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CasePaymentOrdersController.java:86: public ResponseEntity<String> cpoInternalServerErrorException(CpoInternalServerErrorException e) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CasePaymentOrdersController.java:92: public ResponseEntity<String> cpoClientException(CpoClientException e) {"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CreditAccountPaymentController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CreditAccountPaymentController.java:74: public CreditAccountPaymentController(\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CreditAccountPaymentController.java:113: public ResponseEntity<PaymentDto> createCreditAccountPayment(@Valid @RequestBody CreditAccountPaymentRequest creditAccountPaymentRequest, @RequestHeader(required = false) MultiValueMap<String, String>\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CreditAccountPaymentController.java:199: public ResponseEntity<PaymentDto> retrieve(@PathVariable(\"paymentReference\") String paymentReference) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CreditAccountPaymentController.java:215: public ResponseEntity<PaymentDto> retrievePaymentStatus(@PathVariable(\"paymentReference\") String paymentReference) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/CreditAccountPaymentController.java:232: public void deleteByPaymentReference(@PathVariable(\"pay"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/FeePayApportionController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/FeePayApportionController.java:61: public FeePayApportionController(PaymentService<PaymentFeeLink, String> paymentService,PaymentFeeRepository paymentFeeRepository,PaymentGroupDtoMapper paymentGroupDtoMapper,LaunchDarklyFeatureToggler \n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/FeePayApportionController.java:76: public ResponseEntity<PaymentGroupDto> retrieveApportionDetails(@PathVariable(\"paymentreference\") String paymentReference,@RequestHeader(required = false) MultiValueMap<String, String> headers) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/FeePayApportionController.java:124: public String notFound(PaymentNotFoundException ex) {"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/FeesController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/FeesController.java:31: public FeesController(FeesService feesService) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/FeesController.java:42: public ResponseEntity<Boolean> deleteFee(@NotNull @PathVariable(\"feeId\") String feeId) throws EmptyResultDataAccessException {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/FeesController.java:49: public String return400(EmptyResultDataAccessException ex) {"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/MaintenanceJobsController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/MaintenanceJobsController.java:43: public MaintenanceJobsController(PaymentService<PaymentFeeLink, String> paymentService,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/MaintenanceJobsController.java:57: public void updatePaymentsStatus() {"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PBAController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PBAController.java:68: public PBAController(PaymentService<PaymentFeeLink, String> paymentService, PaymentDtoMapper paymentDtoMapper, IdamService idamService, AuthTokenGenerator authTokenGenerator) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PBAController.java:83: public PaymentsResponse retrievePaymentsByAccount(@PathVariable(name = \"account\") String account) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PBAController.java:103: public ResponseEntity<PBAResponse> retrievePBADetails(@RequestHeader(required = false) MultiValueMap<String, String> headers) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PBAController.java:169: public String return204(AccountNotFoundException ex) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PBAController.java:176: public String return500( AccountServiceUnavailableException ex) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PBAController.java:1"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentAllocationController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentAllocationController.java:38: public PaymentAllocationController(PaymentDtoMapper paymentDtoMapper,PaymentService<PaymentFeeLink, String> paymentService,Payment2Repository paymentRepository) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentAllocationController.java:52: public ResponseEntity<PaymentAllocationDto> addNewFee(@Valid @RequestBody PaymentAllocationDto paymentAllocationDto) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentAllocationController.java:89: public String notFound(PaymentNotFoundException ex) {"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentController.java:83: public PaymentController(PaymentService<PaymentFeeLink, String> paymentService,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentController.java:106: public ResponseEntity updateCaseReference(@PathVariable(\"reference\") String reference,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentController.java:152: public PaymentsResponse retrievePayments(@RequestParam(name = \"start_date\", required = false) Optional<String> startDateTimeString,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentController.java:189: public ResponseEntity<ReconciliationPaymentsResponse> retrievePaymentsWithApportion(@RequestParam(name = \"start_date\", required = false) Optional<String> startDateTimeString,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentController.java:252: public ResponseEntity updatePaymentStatus(@PathVariable(value = \"reference\", required = true) String refere"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentGroupController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentGroupController.java:146: public PaymentGroupController(PaymentGroupService paymentGroupService, PaymentGroupDtoMapper paymentGroupDtoMapper,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentGroupController.java:180: public ResponseEntity<PaymentGroupDto> retrievePayment(@PathVariable(\"payment-group-reference\") String paymentGroupReference) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentGroupController.java:193: public ResponseEntity<PaymentGroupDto> addNewFee(@Valid @RequestBody PaymentGroupDto paymentGroupDto) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentGroupController.java:227: public ResponseEntity<PaymentGroupDto> addNewFeetoPaymentGroup(@PathVariable(\"payment-group-reference\") String paymentGroupReference,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentGroupController.java:253: public ResponseEntity<PaymentDto> recordBulkScanPayment(@PathVariable(\"pa"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentRecordController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentRecordController.java:64: public PaymentRecordController(PaymentRecordService<PaymentFeeLink, String> paymentRecordService,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentRecordController.java:84: public ResponseEntity<PaymentDto> recordPayment(@Valid @RequestBody PaymentRecordRequest paymentRecordRequest) throws CheckDigitException {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentRecordController.java:125: public String return400(PaymentException ex) {"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReferenceDataController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReferenceDataController.java:49: public PaymentReferenceDataController(PaymentStatusRepository paymentStatusRepository, PaymentProviderRepository paymentProviderRespository,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReferenceDataController.java:66: public List<PaymentChannel> findAllPaymentChannels() {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReferenceDataController.java:79: public List<PaymentMethod> findAllPaymentMethods() {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReferenceDataController.java:93: public List<PaymentProvider> findAllPaymentProviders() {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReferenceDataController.java:106: public List<PaymentStatus> findAllPaymentStatuses() {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReferenceDataController.java:121: public List<LegacySite> findAllLegacySites() {"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReportController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReportController.java:37: public PaymentReportController(PaymentsReportFacade paymentsReportFacade, PaymentValidator validator, Clock clock) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReportController.java:49: public void generateAndEmailReport(@RequestParam(name = \"payment_method\", required = false) Optional<String> paymentMethodType,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentReportController.java:73: public void duplicatePaymentEmailReport(@RequestParam(name = \"start_date\", required = false) Optional<String> startDateString,"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentStatusController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentStatusController.java:63: public ResponseEntity<String> paymentStatusBouncedCheque(@Valid @RequestBody PaymentStatusBouncedChequeDto paymentStatusBouncedChequeDto){\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentStatusController.java:86: public ResponseEntity<String> paymentStatusChargeBack(@Valid @RequestBody PaymentStatusChargebackDto paymentStatusChargebackDto) throws JsonProcessingException {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentStatusController.java:106: public ResponseEntity<String> unprocessedPayment(@Valid @RequestBody UnprocessedPayment unprocessedPayment,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentStatusController.java:127: public ResponseEntity<PaymentFailureResponse> retrievePaymentFailure(@PathVariable(\"paymentReference\") String paymentReference) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentStatusController.java:155: public void d"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RefundsController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RefundsController.java:55: public ResponseEntity<RefundResponse> createRefundPayment(@Valid @RequestBody PaymentRefundRequest paymentRefundRequest, @RequestHeader(required = false) MultiValueMap<String, String> headers) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RefundsController.java:62: public ResponseEntity<RefundResponse> createRefundForRetrospective(@Valid @RequestBody RetrospectiveRemissionRequest\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RefundsController.java:77: public ResponseEntity updateRemissionAmountResubmitRefund(\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RefundsController.java:93: public void deleteByRefundReference(@PathVariable(\"refundReference\") String refundReference,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RefundsController.java:100: public String return400(Exception ex) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RefundsController.java:1"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RemissionController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RemissionController.java:59: public ResponseEntity<RemissionDto> createRemission(@Valid @RequestBody RemissionRequest remissionRequest,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RemissionController.java:83: public ResponseEntity<RemissionDto> createRetrospectiveRemission(\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RemissionController.java:107: public ResponseEntity<RetroRemissionDto> createRetrospectiveRemissionForPayment(\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RemissionController.java:141: public String return400onDataIntegrityViolation(DataIntegrityViolationException ex) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RemissionController.java:148: public String return404onInvalidPaymentGroupReference(PaymentException ex) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/RemissionController.java:155: public String return404(NoServiceFoundException ex) {\n/api/src/main/j"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ReplayCreditAccountPaymentController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ReplayCreditAccountPaymentController.java:55: public ReplayCreditAccountPaymentController(LaunchDarklyFeatureToggler featureToggler,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ReplayCreditAccountPaymentController.java:73: public ResponseEntity<String> replayCreditAccountPayment(@RequestParam(\"csvFile\") MultipartFile replayPBAPaymentsFile,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ReplayCreditAccountPaymentController.java:186: public ResponseEntity httpClientErrorException() {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ReplayCreditAccountPaymentController.java:191: public ResponseEntity returnInternalError(PaymentException ex) {"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestController.java:109: public ServiceRequestController(\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestController.java:129: public ResponseEntity<ServiceRequestResponseDto> create(@Valid @RequestBody ServiceRequestDto serviceRequestDto,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestController.java:170: public ResponseEntity<ServiceRequestPaymentBo> createCreditAccountPaymentForServiceRequest(@Parameter(name = \"idempotency_key\", hidden = true)@RequestHeader(required = false) String idempotencyKey,\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestController.java:295: public void receiveDeadLetterQueueMessage() throws ServiceBusException, InterruptedException, IOException {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestController.java:321: public ResponseEntity<OnlineCardPaymentResponse> createCardPayment(@Parameter(name = \"return-"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestReportController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestReportController.java:31: public ServiceRequestReportController(ServiceRequestReportService serviceRequestReportService) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestReportController.java:41: public void generateAndEmailDuplicateSRReport(@RequestParam(name = \"date\", required = true) String dateString) throws ValidationErrorException {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestReportController.java:59: public String reportValidationNotSuccess(ValidationErrorException ex) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/ServiceRequestReportController.java:65: public String reportMissingDateNotSuccess(MissingServletRequestParameterException ex) {"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/pcipal/TelephonyController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/pcipal/TelephonyController.java:35: public TelephonyController(PaymentService<PaymentFeeLink, String> paymentService) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/pcipal/TelephonyController.java:51: public ResponseEntity updateTelephonyPaymentStatus(@Valid @ModelAttribute TelephonyCallbackDto callbackDto) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/pcipal/TelephonyController.java:60: public String notFound(PaymentNotFoundException ex) {\n/api/src/main/java/uk/gov/hmcts/payment/api/controllers/pcipal/TelephonyController.java:65: public ResponseEntity<String> handleValidationExceptions(MethodArgumentNotValidException ex) {"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/v1/controllers/PaymentOldController.java",
+          "pattern": "public .*\\("
+        },
+        "result_head": "/api/src/main/java/uk/gov/hmcts/payment/api/v1/controllers/PaymentOldController.java:46: public PaymentOldController(@Qualifier(\"loggingOldPaymentService\") PaymentService<PaymentOld, Integer> paymentService,\n/api/src/main/java/uk/gov/hmcts/payment/api/v1/controllers/PaymentOldController.java:60: public ResponseEntity<PaymentOldDto> create(@PathVariable(\"userId\") String userId,\n/api/src/main/java/uk/gov/hmcts/payment/api/v1/controllers/PaymentOldController.java:79: public PaymentOldDto retrieve(@PathVariable(\"userId\") String userId,\n/api/src/main/java/uk/gov/hmcts/payment/api/v1/controllers/PaymentOldController.java:92: public ResponseEntity<?> cancel(@PathVariable(\"userId\") String userId,\n/api/src/main/java/uk/gov/hmcts/payment/api/v1/controllers/PaymentOldController.java:111: public ResponseEntity<?> refund(@PathVariable(\"userId\") String userId,\n/api/src/main/java/uk/gov/hmcts/payment/api/v1/controllers/PaymentOldController.java:124: public ResponseEntity httpClientErrorException() {\n"
+      },
+      {
+        "step": 11,
+        "tool": "read_file",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/mock/MockCallbackControllerForTesting.java"
+        },
+        "result_head": "1: package uk.gov.hmcts.payment.api.controllers.mock;\n2: \n3: import io.github.resilience4j.ratelimiter.annotation.RateLimiter;\n4: \n5: import com.google.common.collect.Lists;\n6: import org.slf4j.Logger;\n7: import org.slf4j.LoggerFactory;\n8: import org.springframework.context.annotation.Profile;\n9: import org.springframework.http.ResponseEntity;\n10: import org.springframework.web.bind.annotation.*;\n11: \n12: import uk.gov.hmcts.payment.api.contract.PaymentDto;\n13: \n14: import java.util.List;\n15: \n16: @RestController\n17: @Profile(\"callbackMock\")\n18: @RequestMapping(\"/mock-api\")\n19: public class MockCallbackControllerForTesting {\n20: \n21:     private static final Logger LOG = LoggerFactory.getLogger(MockCallbackControllerForTesting.class);\n22: \n23:     private List<String> callbackList = Lists.newArrayList();\n24: \n25:     @RateLimiter(name = \"default-rate-limiter\")\n26:     @PutMapping(\"/serviceCallback\")\n27:     public ResponseEntity mockCallback(@RequestBody PaymentDto paymentDto) {\n28:   "
+      },
+      {
+        "step": 12,
+        "tool": "grep",
+        "args": {
+          "pattern": "context-path|contextPath|server\\.port",
+          "path": "/api/src/main/resources"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 12,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RestController|Controller|RequestMapping|Path)\\b",
+          "path": "/api-contract"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 12,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RestController|Controller|RequestMapping|Path)\\b",
+          "path": "/model"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 12,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RestController|Controller|RequestMapping|Path)\\b",
+          "path": "/lib"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 13,
+        "tool": "read_file",
+        "args": {
+          "path": "/otp/src/main/java/uk/gov/hmcts/payment/otp/OtpBootstrap.java"
+        },
+        "result_head": "1: package uk.gov.hmcts.payment.otp;\n2: \n3: import com.amdelamar.jotp.OTP;\n4: import com.amdelamar.jotp.type.Type;\n5: \n6: /**\n7:  * Utility jar used by azure webjob to read onetime password from console.\n8:  */\n9: public class OtpBootstrap {\n10: \n11:     public static void main(String[] args) throws Exception {\n12:         if (args.length == 0) {\n13:             System.out.println(\"Proper Usage is: java -jar otp.jar <base32-secret>\");\n14:             System.exit(0);\n15:         }\n16:         String secret = args[0];\n17:         // Generate a Time-based OTP from the secret, using Unix-time rounded down to the nearest 30 seconds.\n18:         String otp = OTP.create(secret, OTP.timeInHex(), 6, Type.TOTP);\n19:         System.out.println(otp);\n20:     }\n21: }"
+      },
+      {
+        "step": 13,
+        "tool": "grep",
+        "args": {
+          "path": "/api/src/main/resources",
+          "pattern": "servlet|port"
+        },
+        "result_head": "/api/src/main/resources/application-local.properties:25: card.payments.report.scheduler.enabled = ${CARD_PAYMENTS_REPORT_SCHEDULER_ENABLED:true}\n/api/src/main/resources/application-local.properties:29: card.payments.email.message=${CARD_PAYMENTS_EMAIL_MESSAGE:Hi <br/><br/>Please find attached today's reconciliation report. <br/><br/>Regards <br/><br/>Payments team<br/><br/>}\n/api/src/main/resources/application-local.properties:31: pba.cmc.payments.report.scheduler.enabled = ${PBA_CMC_PAYMENTS_REPORT_SCHEDULER_ENABLED:true}\n/api/src/main/resources/application-local.properties:35: pba.cmc.payments.email.message=${PBA_CMC_PAYMENTS_EMAIL_MESSAGE:Hi <br/><br/>Please find attached today's Payment by Account reconciliation report. <br/><br/>Regards <br/><br/>Payments team <br/><br/>\n/api/src/main/resources/application-local.properties:37: pba.probate.payments.report.scheduler.enabled = ${PBA_PROBATE_PAYMENTS_REPORT_SCHEDULER_ENABLED:true}\n/api/src/main/resources/application-local.properties:4"
+      },
+      {
+        "step": 14,
+        "tool": "read_file",
+        "args": {
+          "path": "/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentController.java",
+          "start": "100"
+        },
+        "result_head": "100:         @ApiResponse(responseCode = \"200\", description = \"No content\"),\n101:         @ApiResponse(responseCode = \"404\", description = \"Payment not found\")\n102:     })\n103:     @RateLimiter(name = \"default-rate-limiter\")\n104:     @RequestMapping(value = \"/payments/{reference}\", method = PATCH)\n105:     @Transactional\n106:     public ResponseEntity updateCaseReference(@PathVariable(\"reference\") String reference,\n107:                                               @RequestBody @Validated UpdatePaymentRequest request) {\n108:         Optional<Payment> payment = getPaymentByReference(reference);\n109: \n110:         if (payment.isPresent()) {\n111:             if (request.getCaseReference() != null) {\n112:                 payment.get().setCaseReference(request.getCaseReference());\n113:             }\n114:             if (request.getCcdCaseNumber() != null) {\n115:                 payment.get().setCcdCaseNumber(request.getCcdCaseNumber());\n116:             }\n117: \n118:             serviceReque"
+      },
+      {
+        "step": 15,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"payment-api\",\"dirs\":[\"/api\",\"/api-contract\",\"/model\",\"/reference-data\",\"/gov-pay-client\",\"/case-payment-orders-client\",\"/lib\"]},{\"name\":\"payment-otp\",\"dirs\":[\"/otp\"]}]}"
+        },
+        "result_head": "Recorded 2 new: service payment-api, service payment-otp\nTotal: 2 services, 0 endpoints in 0 files.\nServices with no endpoints recorded yet: payment-api, payment-otp."
+      },
+      {
+        "step": 16,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/api/src/main/java/uk/gov/hmcts/payment/api/controllers/AccountController.java\",\"service\":\"payment-api\",\"endpoints\":[{\"className\":\"AccountController\",\"methodName\":\"getAccounts\",\"ht"
+        },
+        "result_head": "Recorded 20 new: GET /accounts/{accountNumber}, GET /payment/bulkscan-data-report, POST /card-payments, GET /card-payments/{reference}, GET /card-payments/{reference}/details, GET /card-payments/{reference}/statuses, POST /card-payments/{reference}/cancel, GET /cases/{case}/payments, GET /cases/{ccdcasenumber}/paymentgroups, GET /case-payment-orders, POST /credit-account-payments, GET /credit-account-payments/{paymentReference}, GET /credit-account-payments/{paymentReference}/statuses, DELETE /credit-account-payments/{paymentReference}, GET /payment-groups/fee-pay-apportion/{paymentreference}, DELETE /fees/{feeId}, PATCH /jobs/card-payments-status-update, GET /pba-accounts/{account}/payments, GET /pba-accounts, POST /payment-allocations\nTotal: 2 services, 20 endpoints in 11 files.\nServices with no endpoints recorded yet: payment-otp."
+      },
+      {
+        "step": 17,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/api/src/main/java/uk/gov/hmcts/payment/api/controllers/PaymentController.java\",\"service\":\"payment-api\",\"endpoints\":[\n{\"className\":\"PaymentController\",\"methodName\":\"updateCaseRefer"
+        },
+        "result_head": "Recorded 54 new: PATCH /payments/{reference}, PATCH /payments/ccd_case_reference/{ccd_case_number}/lag_time/{lag_time}, GET /payments, GET /reconciliation-payments, PATCH /payments/{reference}/status/{status}, GET /payments/{reference}, GET /refunds/payments, GET /payment-groups/{payment-group-reference}, POST /payment-groups, PUT /payment-groups/{payment-group-reference}, POST /payment-groups/{payment-group-reference}/bulk-scan-payments, POST /payment-groups/bulk-scan-payments, POST /payment-groups/{payment-group-reference}/bulk-scan-payments-strategic, POST /payment-groups/bulk-scan-payments-strategic, POST /payment-groups/{payment-group-reference}/telephony-card-payments, POST /payment-records, GET /refdata/channels, GET /refdata/methods, GET /refdata/providers, GET /refdata/status, GET /refdata/legacy-sites, POST /jobs/email-pay-reports, POST /jobs/duplicate-payment-process, POST /payment-failures/bounced-cheque, POST /payment-failures/chargeback, POST /payment-failures/unprocessed"
+      },
+      {
+        "step": 18,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 2 services, 74 endpoints."
+      }
+    ]
+  }
+}

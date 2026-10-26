@@ -1,0 +1,322 @@
+{
+  "system": "spinnaker-fiat",
+  "services": [
+    {
+      "name": "fiat",
+      "dirs": [
+        "/fiat-web",
+        "/fiat-api",
+        "/fiat-core",
+        "/fiat-file",
+        "/fiat-github",
+        "/fiat-google-groups",
+        "/fiat-integration",
+        "/fiat-ldap",
+        "/fiat-roles",
+        "/fiat-sql",
+        "/fiat-sql-mysql",
+        "/fiat-sql-postgres",
+        "/fiat-bom"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java",
+      "service": "fiat",
+      "endpoints": [
+        {
+          "className": "AuthorizeController",
+          "methodName": "getAll",
+          "httpMethod": "GET",
+          "path": "/authorize",
+          "line": 86,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "confidence": "high"
+        },
+        {
+          "className": "AuthorizeController",
+          "methodName": "getUserPermission",
+          "httpMethod": "GET",
+          "path": "/authorize/{userId:.+}",
+          "line": 106,
+          "evidence": "@RequestMapping(value = \"/{userId:.+}\", method = RequestMethod.GET)",
+          "confidence": "high"
+        },
+        {
+          "className": "AuthorizeController",
+          "methodName": "getUserAccounts",
+          "httpMethod": "GET",
+          "path": "/authorize/{userId:.+}/accounts",
+          "line": 111,
+          "evidence": "@RequestMapping(value = \"/{userId:.+}/accounts\", method = RequestMethod.GET)",
+          "confidence": "high"
+        },
+        {
+          "className": "AuthorizeController",
+          "methodName": "getUserRoles",
+          "httpMethod": "GET",
+          "path": "/authorize/{userId:.+}/roles",
+          "line": 116,
+          "evidence": "@RequestMapping(value = \"/{userId:.+}/roles\", method = RequestMethod.GET)",
+          "confidence": "high"
+        },
+        {
+          "className": "AuthorizeController",
+          "methodName": "getUserAccount",
+          "httpMethod": "GET",
+          "path": "/authorize/{userId:.+}/accounts/{accountName:.+}",
+          "line": 121,
+          "evidence": "@RequestMapping(value = \"/{userId:.+}/accounts/{accountName:.+}\", method = RequestMethod.GET)",
+          "confidence": "high"
+        },
+        {
+          "className": "AuthorizeController",
+          "methodName": "getUserApplications",
+          "httpMethod": "GET",
+          "path": "/authorize/{userId:.+}/applications",
+          "line": 130,
+          "evidence": "@RequestMapping(value = \"/{userId:.+}/applications\", method = RequestMethod.GET)",
+          "confidence": "high"
+        },
+        {
+          "className": "AuthorizeController",
+          "methodName": "getUserApplication",
+          "httpMethod": "GET",
+          "path": "/authorize/{userId:.+}/applications/{applicationName:.+}",
+          "line": 135,
+          "evidence": "@RequestMapping(value = \"/{userId:.+}/applications/{applicationName:.+}\", method = RequestMethod.GET)",
+          "confidence": "high"
+        },
+        {
+          "className": "AuthorizeController",
+          "methodName": "getServiceAccounts",
+          "httpMethod": "GET",
+          "path": "/authorize/{userId:.+}/serviceAccounts",
+          "line": 146,
+          "evidence": "@RequestMapping(value = \"/{userId:.+}/serviceAccounts\", method = RequestMethod.GET)",
+          "confidence": "high"
+        },
+        {
+          "className": "AuthorizeController",
+          "methodName": "getServiceAccount",
+          "httpMethod": "GET",
+          "path": "/authorize/{userId:.+}/serviceAccounts/{serviceAccountName:.+}",
+          "line": 168,
+          "evidence": "@RequestMapping(value = \"/{userId:.+}/serviceAccounts/{serviceAccountName:.+}\", method = RequestMethod.GET)",
+          "confidence": "high"
+        },
+        {
+          "className": "AuthorizeController",
+          "methodName": "getUserAuthorization",
+          "httpMethod": "GET",
+          "path": "/authorize/{userId:.+}/{resourceType:.+}/{resourceName:.+}/{authorization:.+}",
+          "line": 187,
+          "evidence": "@RequestMapping(value = \"/{userId:.+}/{resourceType:.+}/{resourceName:.+}/{authorization:.+}\", method = RequestMethod.GET)",
+          "confidence": "high"
+        },
+        {
+          "className": "AuthorizeController",
+          "methodName": "canCreate",
+          "httpMethod": "POST",
+          "path": "/authorize/{userId:.+}/{resourceType:.+}/create",
+          "line": 224,
+          "evidence": "@RequestMapping(value = \"/{userId:.+}/{resourceType:.+}/create\", method = RequestMethod.POST)",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/RolesController.java",
+      "service": "fiat",
+      "endpoints": [
+        {
+          "className": "RolesController",
+          "methodName": "putUserPermission",
+          "httpMethod": "POST",
+          "path": "/roles/{userId:.+}",
+          "line": 53,
+          "evidence": "@RequestMapping(value = \"/{userId:.+}\", method = RequestMethod.POST)",
+          "confidence": "high"
+        },
+        {
+          "className": "RolesController",
+          "methodName": "putUserPermission",
+          "httpMethod": "PUT",
+          "path": "/roles/{userId:.+}",
+          "line": 69,
+          "evidence": "@RequestMapping(value = \"/{userId:.+}\", method = RequestMethod.PUT)",
+          "confidence": "high"
+        },
+        {
+          "className": "RolesController",
+          "methodName": "deleteUserPermission",
+          "httpMethod": "DELETE",
+          "path": "/roles/{userId:.+}",
+          "line": 96,
+          "evidence": "@RequestMapping(value = \"/{userId:.+}\", method = RequestMethod.DELETE)",
+          "confidence": "high"
+        },
+        {
+          "className": "RolesController",
+          "methodName": "sync",
+          "httpMethod": "POST",
+          "path": "/roles/sync",
+          "line": 101,
+          "evidence": "@RequestMapping(value = \"/sync\", method = RequestMethod.POST)",
+          "confidence": "high"
+        },
+        {
+          "className": "RolesController",
+          "methodName": "syncServiceAccount",
+          "httpMethod": "POST",
+          "path": "/roles/sync/serviceAccount/{serviceAccountId:.+}",
+          "line": 116,
+          "evidence": "@RequestMapping(value = \"/sync/serviceAccount/{serviceAccountId:.+}\", method = RequestMethod.POST)",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "GLM-5.3-Flash",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "default",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "fiat",
+    "commit": "d2eaa598c95d0a8e17736f2df61fa1fa9f738b53",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "record_nudges": 0,
+    "elided_results": 0,
+    "steps": 10,
+    "tool_calls": 13,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 51970,
+    "cached_input_tokens": 38016,
+    "output_tokens": 3021,
+    "list_price_usd": 0.0047,
+    "wall_seconds": 22.5,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".clog.toml\n.gcloudignore\n.gitignore\nAUTHORS\nCODEOWNERS\nDockerfile.compile\nDockerfile.slim\nDockerfile.ubuntu\nLICENSE.txt\nREADME.md\nautobump.sh\nbuild.gradle\nfiat-api/\nfiat-bom/\nfiat-core/\nfiat-file/\nfiat-github/\nfiat-google-groups/\nfiat-integration/\nfiat-ldap/\nfiat-roles/\nfiat-sql-mysql/\nfiat-sql-postgres/\nfiat-sql/\nfiat-web/\ngradle.properties\nhalconfig/\nlombok.config\nsettings.gradle"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/fiat-web"
+        },
+        "result_head": "config/\netc/\nfiat-web.gradle\nlib/\npkg_scripts/\nsrc/"
+      },
+      {
+        "step": 2,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)",
+          "path": "/fiat-web"
+        },
+        "result_head": "/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java:49: @RequestMapping(\"/authorize\")\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java:86: @RequestMapping(method = RequestMethod.GET)\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java:106: @RequestMapping(value = \"/{userId:.+}\", method = RequestMethod.GET)\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java:111: @RequestMapping(value = \"/{userId:.+}/accounts\", method = RequestMethod.GET)\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java:116: @RequestMapping(value = \"/{userId:.+}/roles\", method = RequestMethod.GET)\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java:121: @RequestMapping(value = \"/{userId:.+}/accounts/{accountName:.+}\", method = RequestMethod.GET)\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/contro"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java",
+          "start": "40"
+        },
+        "result_head": "40: import lombok.extern.slf4j.Slf4j;\n41: import lombok.val;\n42: import org.springframework.beans.factory.annotation.Autowired;\n43: import org.springframework.http.HttpStatus;\n44: import org.springframework.web.bind.annotation.*;\n45: import org.springframework.web.server.ResponseStatusException;\n46: \n47: @Slf4j\n48: @RestController\n49: @RequestMapping(\"/authorize\")\n50: public class AuthorizeController {\n51: \n52:   private final Registry registry;\n53:   private final PermissionsRepository permissionsRepository;\n54:   private final PermissionsResolver permissionsResolver;\n55:   private final FiatServerConfigurationProperties configProps;\n56:   private final ResourcePermissionProvider<Application> applicationResourcePermissionProvider;\n57:   private final ObjectMapper objectMapper;\n58:   private final List<Resource> resources;\n59: \n60:   private final Id getUserPermissionCounterId;\n61: \n62:   @Autowired\n63:   public AuthorizeController(\n64:       Registry registry,\n65:       PermissionsRep"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java",
+          "start": "168"
+        },
+        "result_head": "168:   @RequestMapping(\n169:       value = \"/{userId:.+}/serviceAccounts/{serviceAccountName:.+}\",\n170:       method = RequestMethod.GET)\n171:   public ServiceAccount.View getServiceAccount(\n172:       @PathVariable String userId, @PathVariable String serviceAccountName) {\n173:     return getUserPermissionOrDefault(userId)\n174:         .orElseThrow(userNotFound(userId))\n175:         .getView()\n176:         .getServiceAccounts()\n177:         .stream()\n178:         .filter(\n179:             serviceAccount ->\n180:                 serviceAccount\n181:                     .getName()\n182:                     .equalsIgnoreCase(ControllerSupport.convert(serviceAccountName)))\n183:         .findFirst()\n184:         .orElseThrow(serviceAccountNotFound(userId, serviceAccountName));\n185:   }\n186: \n187:   @RequestMapping(\n188:       value = \"/{userId:.+}/{resourceType:.+}/{resourceName:.+}/{authorization:.+}\",\n189:       method = RequestMethod.GET)\n190:   public void getUserAuthorization(\n191:       "
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/RolesController.java",
+          "start": "40"
+        },
+        "result_head": "40: \n41: @Slf4j\n42: @RestController\n43: @RequestMapping(\"/roles\")\n44: @ConditionalOnExpression(\"${fiat.write-mode.enabled:true}\")\n45: public class RolesController {\n46: \n47:   @Autowired @Setter PermissionsResolver permissionsResolver;\n48: \n49:   @Autowired @Setter PermissionsRepository permissionsRepository;\n50: \n51:   @Autowired @Setter UserRolesSyncer syncer;\n52: \n53:   @RequestMapping(value = \"/{userId:.+}\", method = RequestMethod.POST)\n54:   public void putUserPermission(@PathVariable String userId) {\n55:     try {\n56:       UserPermission userPermission =\n57:           permissionsResolver.resolve(ControllerSupport.convert(userId));\n58:       log.debug(\n59:           \"Updated user permissions (userId: {}, roles: {})\",\n60:           userId,\n61:           userPermission.getRoles().stream().map(Role::getName).collect(Collectors.toList()));\n62: \n63:       permissionsRepository.put(userPermission);\n64:     } catch (PermissionResolutionException pre) {\n65:       throw new UserPermission"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/fiat-web/src/main",
+          "pattern": "@RestController|@Controller|RouterFunction|main\\("
+        },
+        "result_head": "/fiat-web/src/main/java/com/netflix/spinnaker/fiat/Main.java:48: public static void main(String... args) {\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java:48: @RestController\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/RolesController.java:42: @RestController"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/fiat-web/src/main",
+          "pattern": "serverProperties|setPort|SpringApplication|class .*Main|Application\\b"
+        },
+        "result_head": "/fiat-web/src/main/java/com/netflix/spinnaker/fiat/Main.java:23: import org.springframework.boot.builder.SpringApplicationBuilder;\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/Main.java:43: public class Main extends SpringBootServletInitializer {\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/Main.java:49: new SpringApplicationBuilder().properties(DEFAULT_PROPS).sources(Main.class).run(args);\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/Main.java:53: protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/config/AggregateResourcePermissionConfig.java:4: import com.netflix.spinnaker.fiat.model.resources.Application;\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/config/AggregateResourcePermissionConfig.java:27: public ResourcePermissionProvider<Application> aggregateApplicationPermissionProvider(\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/config/AggregateResourcePermissionConfig.j"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/fiat-web/src/main/java/com/netflix/spinnaker/fiat/Main.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2016 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.fiat;\n18: \n19: import com.netflix.spinnaker.config.ErrorConfiguration;\n20: import com.netflix.spinnaker.kork.boot.DefaultPropertiesBuilder;\n21: import java.util.Map;\n22: import org.springframework.boot.autoconfigure.EnableAutoConfiguration;\n23: import org.springframework.boot.builder.SpringApplicationBuilder;\n24:"
+      },
+      {
+        "step": 7,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\": [{\"name\": \"fiat\", \"dirs\": [\"/fiat-web\", \"/fiat-api\", \"/fiat-core\", \"/fiat-file\", \"/fiat-github\", \"/fiat-google-groups\", \"/fiat-integration\", \"/fiat-ldap\", \"/fiat-roles\", \"/fiat-sql\", \"/fi"
+        },
+        "result_head": "Recorded 1 new: service fiat\nTotal: 1 services, 0 endpoints in 0 files.\nServices with no endpoints recorded yet: fiat."
+      },
+      {
+        "step": 8,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\": [{\"path\": \"/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java\", \"service\": \"fiat\", \"framework\": \"Spring\", \"endpoints\": [\n{\"className\": \"AuthorizeControll"
+        },
+        "result_head": "Recorded 16 new: GET /authorize, GET /authorize/{userId:.+}, GET /authorize/{userId:.+}/accounts, GET /authorize/{userId:.+}/roles, GET /authorize/{userId:.+}/accounts/{accountName:.+}, GET /authorize/{userId:.+}/applications, GET /authorize/{userId:.+}/applications/{applicationName:.+}, GET /authorize/{userId:.+}/serviceAccounts, GET /authorize/{userId:.+}/serviceAccounts/{serviceAccountName:.+}, GET /authorize/{userId:.+}/{resourceType:.+}/{resourceName:.+}/{authorization:.+}, POST /authorize/{userId:.+}/{resourceType:.+}/create, POST /roles/{userId:.+}, PUT /roles/{userId:.+}, DELETE /roles/{userId:.+}, POST /roles/sync, POST /roles/sync/serviceAccount/{serviceAccountId:.+}\nTotal: 1 services, 16 endpoints in 2 files."
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller\\b|RouterFunction|@RequestMapping",
+          "path": "/"
+        },
+        "result_head": "/fiat-api/src/main/java/com/netflix/spinnaker/fiat/shared/EnableFiatAutoConfig.java:37: * <p>With this annotation and Fiat enabled, @Controller invocations annotated with Fiat\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java:48: @RestController\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java:49: @RequestMapping(\"/authorize\")\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java:86: @RequestMapping(method = RequestMethod.GET)\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java:106: @RequestMapping(value = \"/{userId:.+}\", method = RequestMethod.GET)\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java:111: @RequestMapping(value = \"/{userId:.+}/accounts\", method = RequestMethod.GET)\n/fiat-web/src/main/java/com/netflix/spinnaker/fiat/controllers/AuthorizeController.java:116: @RequestMapping(value = \"/{userId:"
+      },
+      {
+        "step": 10,
+        "tool": "submit",
+        "args": {
+          "json": "{\"services\": [{\"name\": \"fiat\", \"dirs\": [\"/fiat-web\", \"/fiat-api\", \"/fiat-core\", \"/fiat-file\", \"/fiat-github\", \"/fiat-google-groups\", \"/fiat-integration\", \"/fiat-ldap\", \"/fiat-roles\", \"/fiat-sql\", \"/fi"
+        },
+        "result_head": "Recorded 1 new: service fiat\nTotal: 1 services, 16 endpoints in 2 files.\n[ACCEPTED] 1 services, 16 endpoints."
+      }
+    ]
+  }
+}

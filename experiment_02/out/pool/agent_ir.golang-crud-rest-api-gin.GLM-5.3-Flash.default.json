@@ -1,0 +1,148 @@
+{
+  "system": "golang-crud-rest-api-gin",
+  "services": [
+    {
+      "name": "golang-crud-rest-api-gin",
+      "dirs": [
+        "/"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/main.go",
+      "service": "golang-crud-rest-api-gin",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "handlers.GetUsers",
+          "httpMethod": "GET",
+          "path": "/users",
+          "line": 11,
+          "evidence": "r.GET(\"/users\", handlers.GetUsers)",
+          "framework": "Gin",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "handlers.GetUser",
+          "httpMethod": "GET",
+          "path": "/user/:id",
+          "line": 12,
+          "evidence": "r.GET(\"/user/:id\", handlers.GetUser)",
+          "framework": "Gin",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "handlers.CreateUser",
+          "httpMethod": "POST",
+          "path": "/create_user",
+          "line": 13,
+          "evidence": "r.POST(\"/create_user\", handlers.CreateUser)",
+          "framework": "Gin",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "handlers.UpdateUser",
+          "httpMethod": "PUT",
+          "path": "/update_user/:id",
+          "line": 14,
+          "evidence": "r.PUT(\"/update_user/:id\", handlers.UpdateUser)",
+          "framework": "Gin",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "handlers.DeleteUser",
+          "httpMethod": "DELETE",
+          "path": "/delete_user/:id",
+          "line": 15,
+          "evidence": "r.DELETE(\"/delete_user/:id\", handlers.DeleteUser)",
+          "framework": "Gin",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "GLM-5.3-Flash",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "default",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "golang-crud-rest-api-gin",
+    "commit": "3072397d45859cd289e637d1f1da46c2a8d180ba",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "record_nudges": 0,
+    "elided_results": 0,
+    "steps": 5,
+    "tool_calls": 6,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 7077,
+    "cached_input_tokens": 3520,
+    "output_tokens": 811,
+    "list_price_usd": 0.001,
+    "wall_seconds": 6.1,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".gitignore\nLICENSE\nREADME.md\ngo.mod\ngo.sum\nhandlers/\nmain.go"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/main.go"
+        },
+        "result_head": "1: package main\n2: \n3: import (\n4: \t\"github.com/gin-gonic/gin\"\n5: \t\"github.com/Shikha-code36/golang-crud-rest-api-gin/handlers\"\n6: )\n7: \n8: func main() {\n9: \tr := gin.Default()\n10: \n11: \tr.GET(\"/users\", handlers.GetUsers)\n12: \tr.GET(\"/user/:id\", handlers.GetUser)\n13: \tr.POST(\"/create_user\", handlers.CreateUser)\n14: \tr.PUT(\"/update_user/:id\", handlers.UpdateUser)\n15: \tr.DELETE(\"/delete_user/:id\", handlers.DeleteUser)\n16: \n17: \tr.Run()\n18: }"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/handlers"
+        },
+        "result_head": "README.md\nusers.go"
+      },
+      {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "path": "/handlers",
+          "pattern": "func (Get|Create|Update|Delete)"
+        },
+        "result_head": "/handlers/users.go:19: func GetUsers(c *gin.Context) {\n/handlers/users.go:23: func GetUser(c *gin.Context) {\n/handlers/users.go:36: func CreateUser(c *gin.Context) {\n/handlers/users.go:49: func UpdateUser(c *gin.Context) {\n/handlers/users.go:68: func DeleteUser(c *gin.Context) {"
+      },
+      {
+        "step": 4,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\": [{\"name\": \"golang-crud-rest-api-gin\", \"dirs\": [\"/\"]}], \"files\": [{\"path\": \"/main.go\", \"service\": \"golang-crud-rest-api-gin\", \"endpoints\": [{\"className\": \"\", \"methodName\": \"handlers.GetUse"
+        },
+        "result_head": "Recorded 6 new: service golang-crud-rest-api-gin, GET /users, GET /user/:id, POST /create_user, PUT /update_user/:id, DELETE /delete_user/:id\nTotal: 1 services, 5 endpoints in 1 files."
+      },
+      {
+        "step": 5,
+        "tool": "submit",
+        "args": {
+          "json": "{\"services\": [{\"name\": \"golang-crud-rest-api-gin\", \"dirs\": [\"/\"]}], \"files\": [{\"path\": \"/main.go\", \"service\": \"golang-crud-rest-api-gin\", \"endpoints\": [{\"className\": \"\", \"methodName\": \"handlers.GetUse"
+        },
+        "result_head": "Recorded 1 new: service golang-crud-rest-api-gin\nTotal: 1 services, 5 endpoints in 1 files.\n[ACCEPTED] 1 services, 5 endpoints."
+      }
+    ]
+  }
+}

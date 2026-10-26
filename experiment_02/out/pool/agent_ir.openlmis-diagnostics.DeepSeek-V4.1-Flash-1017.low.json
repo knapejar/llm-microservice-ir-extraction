@@ -1,0 +1,341 @@
+{
+  "system": "openlmis-diagnostics",
+  "services": [
+    {
+      "name": "openlmis-diagnostics",
+      "dirs": [
+        "/src",
+        "/consul",
+        "/config"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/src/main/java/org/openlmis/diagnostics/web/HealthController.java",
+      "service": "openlmis-diagnostics",
+      "endpoints": [
+        {
+          "className": "HealthController",
+          "methodName": "getHealth",
+          "httpMethod": "GET",
+          "path": "/api/health",
+          "line": 33,
+          "evidence": "@GetMapping(value = \"/api/health\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/diagnostics/web/VersionController.java",
+      "service": "openlmis-diagnostics",
+      "endpoints": [
+        {
+          "className": "VersionController",
+          "methodName": "display",
+          "httpMethod": "ANY",
+          "path": "/diagnostics",
+          "line": 37,
+          "evidence": "@RequestMapping(\"/diagnostics\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/diagnostics/CustomWebMvcConfigurerAdapter.java",
+      "service": "openlmis-diagnostics",
+      "endpoints": [
+        {
+          "className": "CustomWebMvcConfigurerAdapter",
+          "methodName": "addViewControllers",
+          "httpMethod": "GET",
+          "path": "/diagnostics/docs",
+          "line": 32,
+          "evidence": "registry.addViewController(\"/diagnostics/docs\")",
+          "framework": "Spring",
+          "confidence": "medium"
+        },
+        {
+          "className": "CustomWebMvcConfigurerAdapter",
+          "methodName": "addViewControllers",
+          "httpMethod": "GET",
+          "path": "/diagnostics/docs/",
+          "line": 34,
+          "evidence": "registry.addViewController(\"/diagnostics/docs/\")",
+          "framework": "Spring",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/resources/application.properties",
+      "service": "openlmis-diagnostics",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/actuator/health",
+          "line": 26,
+          "evidence": "management.endpoint.health.enabled=true",
+          "framework": "Spring Boot Actuator",
+          "confidence": "medium"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/actuator/prometheus",
+          "line": 26,
+          "evidence": "management.endpoint.prometheus.enabled=true",
+          "framework": "Spring Boot Actuator",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "openlmis-diagnostics",
+    "commit": "97f18eab99b3534f360ac066e330da486306723a",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "record_nudges": 0,
+    "elided_results": 0,
+    "steps": 15,
+    "tool_calls": 26,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 73709,
+    "cached_input_tokens": 65792,
+    "output_tokens": 2258,
+    "list_price_usd": 0.0027,
+    "wall_seconds": 20.1,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".github/\n.gitignore\nCHANGELOG.md\nDockerfile\nERROR_HANDLING.md\nFLYWAY.md\nJenkinsfile\nLICENSE\nLICENSE-HEADER\nLICENSE-HEADER.md\nREADME.md\nSTYLE-GUIDE.md\nTESTING.md\nbuild.gradle\nbuild.sh\nconfig/\nconsul/\ndocker-compose.builder.yml\ndocker-compose.override.yml\ndocker-compose.yml\ndocumentation.gradle\ngradle.properties\ngradle/\ngradlew\ngradlew.bat\npackage-lock.json\npackage.json\nperformance/\nregistration.gradle\nsettings.gradle\nsonar-project.properties\nsrc/\nsync_transifex.sh"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile"
+        },
+        "result_head": "/Dockerfile"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle"
+        },
+        "result_head": "1: rootProject.name = serviceName"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile"
+        },
+        "result_head": "1: FROM openlmis/service-base:7\n2: \n3: COPY build/libs/*.jar /service.jar\n4: \n5: COPY build/consul /consul\n6: WORKDIR /consul\n7: \n8: RUN npm install --production\n9: \n10: WORKDIR /"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller.java"
+        },
+        "result_head": "/src/main/java/org/openlmis/diagnostics/web/HealthController.java\n/src/main/java/org/openlmis/diagnostics/web/VersionController.java"
+      },
+      {
+        "step": 3,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/src/main/java"
+        },
+        "result_head": "/src/main/java/org/openlmis/diagnostics/Application.java\n/src/main/java/org/openlmis/diagnostics/CustomWebMvcConfigurerAdapter.java\n/src/main/java/org/openlmis/diagnostics/errorhandling/AbstractErrorHandling.java\n/src/main/java/org/openlmis/diagnostics/errorhandling/GlobalErrorHandling.java\n/src/main/java/org/openlmis/diagnostics/exception/BaseMessageException.java\n/src/main/java/org/openlmis/diagnostics/exception/NotFoundException.java\n/src/main/java/org/openlmis/diagnostics/i18n/ExposedMessageSource.java\n/src/main/java/org/openlmis/diagnostics/i18n/ExposedMessageSourceImpl.java\n/src/main/java/org/openlmis/diagnostics/i18n/MessageKeys.java\n/src/main/java/org/openlmis/diagnostics/i18n/MessageService.java\n/src/main/java/org/openlmis/diagnostics/security/MethodSecurityConfiguration.java\n/src/main/java/org/openlmis/diagnostics/security/ResourceServerSecurityConfiguration.java\n/src/main/java/org/openlmis/diagnostics/service/consul/ConsulCommunicationService.java\n/src/main/java/org/openlmis"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/diagnostics/web/HealthController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.diagnostics.web;\n17: \n18: import java.util.Set;\n19: import org.openlmis.d"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/diagnostics/web/VersionController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.diagnostics.web;\n17: \n18: import org.openlmis.util.Version;\n19: import or"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/diagnostics/Application.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.diagnostics;\n17: \n18: import java.util.Locale;\n19: import org.openlmis.di"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/diagnostics/CustomWebMvcConfigurerAdapter.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.diagnostics;\n17: \n18: import org.springframework.beans.factory.annotation"
+      },
+      {
+        "step": 4,
+        "tool": "grep",
+        "args": {
+          "pattern": "RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping|context-path|contextPath",
+          "path": "/src/main"
+        },
+        "result_head": "/src/main/java/org/openlmis/diagnostics/web/HealthController.java:24: import org.springframework.web.bind.annotation.GetMapping;\n/src/main/java/org/openlmis/diagnostics/web/HealthController.java:33: @GetMapping(value = \"/api/health\")\n/src/main/java/org/openlmis/diagnostics/web/VersionController.java:21: import org.springframework.web.bind.annotation.RequestMapping;\n/src/main/java/org/openlmis/diagnostics/web/VersionController.java:37: @RequestMapping(\"/diagnostics\")"
+      },
+      {
+        "step": 5,
+        "tool": "find",
+        "args": {
+          "pattern": "application*.properties",
+          "path": "/src/main"
+        },
+        "result_head": "/src/main/resources/application.properties"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "pattern": "context-path|contextPath|server.port",
+          "path": "/src"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/resources/application.properties"
+        },
+        "result_head": "1: spring.jackson.serialization.INDENT_OUTPUT=true\n2: \n3: auth.server.authorizationUrl=${BASE_URL}/api/oauth/token\n4: auth.server.url=${BASE_URL}/api/oauth/check_token\n5: auth.server.clientId=trusted-client\n6: auth.server.clientSecret=secret\n7: auth.resourceId=template\n8: \n9: server.compression.enabled=true\n10: server.compression.mime-types=application/json,application/xml,text/html,text/xml,text/plain,application/javascript,text/css\n11: server.compression.min-response-size=1024\n12: \n13: defaultLocale=${LOCALE:en}\n14: \n15: service.url=${BASE_URL}\n16: \n17: cors.allowedOrigins=${CORS_ALLOWED_ORIGINS:}\n18: cors.allowedMethods=${CORS_ALLOWED_METHODS:}\n19: \n20: consul.host=${CONSUL_HOST:consul}\n21: consul.port=${CONSUL_PORT:8500}\n22: consul.serviceTag=${SERVICE_TAG:openlmis-service}\n23: \n24: management.endpoints.enabled-by-default=false\n25: management.endpoint.health.enabled=true\n26: management.endpoint.prometheus.enabled=true\n27: management.endpoints.web.exposure.include=health,prometheus"
+      },
+      {
+        "step": 7,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"openlmis-diagnostics\",\"dirs\":[\"/src\",\"/consul\",\"/config\"]}],\"files\":[{\"path\":\"/src/main/java/org/openlmis/diagnostics/web/HealthController.java\",\"service\":\"openlmis-diagnostics\","
+        },
+        "result_head": "Recorded 3 new: service openlmis-diagnostics, GET /api/health, ANY /diagnostics\nTotal: 1 services, 2 endpoints in 2 files."
+      },
+      {
+        "step": 8,
+        "tool": "list_dir",
+        "args": {
+          "path": "/consul"
+        },
+        "result_head": "config.json\npackage.json\nregistration.js"
+      },
+      {
+        "step": 8,
+        "tool": "list_dir",
+        "args": {
+          "path": "/config"
+        },
+        "result_head": "checkstyle/\npmd/"
+      },
+      {
+        "step": 9,
+        "tool": "list_dir",
+        "args": {
+          "path": "/performance"
+        },
+        "result_head": "config.yml\ntest.sh\ntests/"
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/package.json"
+        },
+        "result_head": "1: {\n2:   \"name\": \"openlmis-diagnostics\",\n3:   \"version\": \"1.0.0\",\n4:   \"description\": \"Root package for documentation and build tools\",\n5:   \"devDependencies\": {\n6:     \"raml2html\": \"^3.0.1\"\n7:   },\n8:   \"scripts\": {\n9:     \"runApiHtmlConverter\": \"raml2html --input src/main/resources/api-definition.yaml --output build/resources/main/api-definition.html\"\n10:   }\n11: }"
+      },
+      {
+        "step": 10,
+        "tool": "find",
+        "args": {
+          "path": "/src/main/resources",
+          "pattern": "*"
+        },
+        "result_head": "/src/main/resources/api-definition.yaml\n/src/main/resources/application.properties\n/src/main/resources/applicationContext.xml\n/src/main/resources/logback.xml\n/src/main/resources/messages_en.properties\n/src/main/resources/schemas/healthDetails.json\n/src/main/resources/schemas/version.json\n/src/main/resources/static/diagnostics/docs/index.html\n/src/main/resources/version.properties"
+      },
+      {
+        "step": 11,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/resources/api-definition.yaml"
+        },
+        "result_head": "1: #%RAML 0.8\n2: ---\n3: title: OpenLMIS Health & Information API\n4: version: \"@version@\"\n5: baseUri: \"@baseUrl@\"\n6: protocols: [ HTTP, HTTPS ]\n7: \n8: documentation:\n9:   - title: Getting Started\n10:     content: Welcome to the OpenLMIS diagnostics documentation.\n11: \n12: schemas:\n13:   - version: !include schemas/version.json\n14:   - healthDetails: !include schemas/healthDetails.json\n15:   - healthDetailsArray: |\n16:       {\n17:           \"type\": \"array\",\n18:           \"items\": { \"type\": \"object\", \"$ref\": \"schemas/healthDetails.json\" }\n19:       }\n20: \n21: /diagnostics:\n22:   displayName: Version\n23:   get:\n24:     description: Get version\n25:     responses:\n26:       200:\n27:         description: Returns version information.\n28:         body:\n29:           application/json:\n30:             schema: version\n31: /api:\n32:   /health:\n33:     displayName: System Health Status\n34:     get:\n35:       description: >\n36:         Return current system health status. Response code depends on hea"
+      },
+      {
+        "step": 12,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[{\"path\":\"/src/main/java/org/openlmis/diagnostics/CustomWebMvcConfigurerAdapter.java\",\"service\":\"openlmis-diagnostics\",\"endpoints\":[{\"className\":\"CustomWebMvcConfigurerAdapter\",\"methodName\":\""
+        },
+        "result_head": "Recorded 2 new: GET /diagnostics/docs, GET /diagnostics/docs/\nTotal: 1 services, 4 endpoints in 3 files."
+      },
+      {
+        "step": 13,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[{\"path\":\"/src/main/resources/application.properties\",\"service\":\"openlmis-diagnostics\",\"endpoints\":[{\"className\":\"\",\"methodName\":\"(inline)\",\"httpMethod\":\"GET\",\"path\":\"/actuator/health\",\"line\""
+        },
+        "result_head": "Recorded 2 new: GET /actuator/health, GET /actuator/prometheus\nTotal: 1 services, 6 endpoints in 4 files."
+      },
+      {
+        "step": 14,
+        "tool": "grep",
+        "args": {
+          "path": "/build.gradle",
+          "pattern": "project\\(|include|sourceSets"
+        },
+        "result_head": "/build.gradle:92: sourceSets {\n/build.gradle:109: testClassesDirs = sourceSets.integrationTest.output.classesDirs\n/build.gradle:110: classpath = sourceSets.integrationTest.runtimeClasspath\n/build.gradle:147: additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)\n/build.gradle:182: // we want the generated HTML spec file included in the output jar"
+      },
+      {
+        "step": 14,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/diagnostics/security/ResourceServerSecurityConfiguration.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.diagnostics.security;\n17: \n18: import java.io.IOException;\n19: import jav"
+      },
+      {
+        "step": 15,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 1 services, 6 endpoints."
+      }
+    ]
+  }
+}

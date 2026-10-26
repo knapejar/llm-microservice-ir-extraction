@@ -1,0 +1,811 @@
+{
+  "system": "openlmis-fulfillment",
+  "services": [
+    {
+      "name": "openlmis-fulfillment",
+      "dirs": [
+        "/src",
+        "/config",
+        "/consul"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/src/main/java/org/openlmis/fulfillment/web/OrderController.java",
+      "service": "openlmis-fulfillment",
+      "endpoints": [
+        {
+          "className": "OrderController",
+          "methodName": "createOrder",
+          "httpMethod": "POST",
+          "path": "/api/orders",
+          "line": 185,
+          "evidence": "@RequestMapping(value = \"/orders\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrderController",
+          "methodName": "createRequisitionLessOrder",
+          "httpMethod": "POST",
+          "path": "/api/orders/requisitionLess",
+          "line": 207,
+          "evidence": "@RequestMapping(value = \"/orders/requisitionLess\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrderController",
+          "methodName": "updateOrder",
+          "httpMethod": "PUT",
+          "path": "/api/orders/{id}",
+          "line": 233,
+          "evidence": "@PutMapping(\"/orders/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrderController",
+          "methodName": "sendRequisitionLessOrder",
+          "httpMethod": "PUT",
+          "path": "/api/orders/{id}/requisitionLess/send",
+          "line": 259,
+          "evidence": "@PutMapping(\"/orders/{id}/requisitionLess/send\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrderController",
+          "methodName": "batchCreateOrders",
+          "httpMethod": "POST",
+          "path": "/api/orders/batch",
+          "line": 288,
+          "evidence": "@RequestMapping(value = \"/orders/batch\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrderController",
+          "methodName": "searchOrders",
+          "httpMethod": "GET",
+          "path": "/api/orders",
+          "line": 307,
+          "evidence": "@GetMapping(\"/orders\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrderController",
+          "methodName": "getOrdersData",
+          "httpMethod": "GET",
+          "path": "/api/orders/numberOfOrdersData",
+          "line": 331,
+          "evidence": "@GetMapping(\"/orders/numberOfOrdersData\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrderController",
+          "methodName": "getOrderStatusesStatsData",
+          "httpMethod": "GET",
+          "path": "/api/orders/statusesStatsData",
+          "line": 349,
+          "evidence": "@GetMapping(\"/orders/statusesStatsData\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrderController",
+          "methodName": "getOrder",
+          "httpMethod": "GET",
+          "path": "/api/orders/{id}",
+          "line": 372,
+          "evidence": "@RequestMapping(value = \"/orders/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrderController",
+          "methodName": "getRequestingFacilities",
+          "httpMethod": "GET",
+          "path": "/api/orders/requestingFacilities",
+          "line": 388,
+          "evidence": "@RequestMapping(value = \"/orders/requestingFacilities\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrderController",
+          "methodName": "printOrder",
+          "httpMethod": "GET",
+          "path": "/api/orders/{id}/print",
+          "line": 403,
+          "evidence": "@RequestMapping(value = \"/orders/{id}/print\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrderController",
+          "methodName": "export",
+          "httpMethod": "GET",
+          "path": "/api/orders/{id}/export",
+          "line": 469,
+          "evidence": "@RequestMapping(value = \"/orders/{id}/export\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrderController",
+          "methodName": "retryOrderTransfer",
+          "httpMethod": "GET",
+          "path": "/api/orders/{id}/retry",
+          "line": 523,
+          "evidence": "@RequestMapping(value = \"/orders/{id}/retry\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrderController",
+          "methodName": "cancelOrder",
+          "httpMethod": "PUT",
+          "path": "/api/orders/{id}/cancel",
+          "line": 558,
+          "evidence": "@PutMapping(\"/orders/{id}/cancel\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrderController",
+          "methodName": "deleteMultipleOrders",
+          "httpMethod": "DELETE",
+          "path": "/api/orders",
+          "line": 586,
+          "evidence": "@RequestMapping(value = \"/orders\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/fulfillment/web/FileTemplateController.java",
+      "service": "openlmis-fulfillment",
+      "endpoints": [
+        {
+          "className": "FileTemplateController",
+          "methodName": "saveCsvFileTemplate",
+          "httpMethod": "PUT",
+          "path": "/api/fileTemplates",
+          "line": 70,
+          "evidence": "@RequestMapping(value = \"/fileTemplates\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "FileTemplateController",
+          "methodName": "getCsvFileTemplate",
+          "httpMethod": "GET",
+          "path": "/api/fileTemplates",
+          "line": 100,
+          "evidence": "@RequestMapping(value = \"/fileTemplates\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/fulfillment/web/OrderNumberConfigurationController.java",
+      "service": "openlmis-fulfillment",
+      "endpoints": [
+        {
+          "className": "OrderNumberConfigurationController",
+          "methodName": "saveOrderNumberConfigurations",
+          "httpMethod": "POST",
+          "path": "/api/orderNumberConfigurations",
+          "line": 67,
+          "evidence": "@RequestMapping(value = \"/orderNumberConfigurations\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "OrderNumberConfigurationController",
+          "methodName": "getOrderFileTemplate",
+          "httpMethod": "GET",
+          "path": "/api/orderNumberConfigurations",
+          "line": 102,
+          "evidence": "@RequestMapping(value = \"/orderNumberConfigurations\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/fulfillment/web/ProofOfDeliveryController.java",
+      "service": "openlmis-fulfillment",
+      "endpoints": [
+        {
+          "className": "ProofOfDeliveryController",
+          "methodName": "getAllProofsOfDelivery",
+          "httpMethod": "GET",
+          "path": "/api/proofsOfDelivery",
+          "line": 154,
+          "evidence": "@RequestMapping(value = \"/proofsOfDelivery\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ProofOfDeliveryController",
+          "methodName": "updateProofOfDelivery",
+          "httpMethod": "PUT",
+          "path": "/api/proofsOfDelivery/{id}",
+          "line": 186,
+          "evidence": "@RequestMapping(value = \"/proofsOfDelivery/{id}\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ProofOfDeliveryController",
+          "methodName": "getProofOfDelivery",
+          "httpMethod": "GET",
+          "path": "/api/proofsOfDelivery/{id}",
+          "line": 258,
+          "evidence": "@RequestMapping(value = \"/proofsOfDelivery/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ProofOfDeliveryController",
+          "methodName": "printProofOfDelivery",
+          "httpMethod": "GET",
+          "path": "/api/proofsOfDelivery/{id}/print",
+          "line": 289,
+          "evidence": "@RequestMapping(value = \"/proofsOfDelivery/{id}/print\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ProofOfDeliveryController",
+          "methodName": "getAuditLog",
+          "httpMethod": "GET",
+          "path": "/api/proofsOfDelivery/{id}/auditLog",
+          "line": 353,
+          "evidence": "@RequestMapping(value = \"proofsOfDelivery/{id}/auditLog\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/fulfillment/web/TemplateController.java",
+      "service": "openlmis-fulfillment",
+      "endpoints": [
+        {
+          "className": "TemplateController",
+          "methodName": "createJasperReportTemplate",
+          "httpMethod": "POST",
+          "path": "/api/reports/templates/fulfillment",
+          "line": 61,
+          "evidence": "@RequestMapping(method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TemplateController",
+          "methodName": "getAllTemplates",
+          "httpMethod": "GET",
+          "path": "/api/reports/templates/fulfillment",
+          "line": 74,
+          "evidence": "@RequestMapping(method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TemplateController",
+          "methodName": "updateTemplate",
+          "httpMethod": "PUT",
+          "path": "/api/reports/templates/fulfillment/{id}",
+          "line": 88,
+          "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TemplateController",
+          "methodName": "getTemplate",
+          "httpMethod": "GET",
+          "path": "/api/reports/templates/fulfillment/{id}",
+          "line": 113,
+          "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TemplateController",
+          "methodName": "deleteTemplate",
+          "httpMethod": "DELETE",
+          "path": "/api/reports/templates/fulfillment/{id}",
+          "line": 129,
+          "evidence": "@RequestMapping(value = \"/{id}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/fulfillment/web/TransferPropertiesController.java",
+      "service": "openlmis-fulfillment",
+      "endpoints": [
+        {
+          "className": "TransferPropertiesController",
+          "methodName": "create",
+          "httpMethod": "POST",
+          "path": "/api/transferProperties",
+          "line": 82,
+          "evidence": "@RequestMapping(value = \"/transferProperties\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TransferPropertiesController",
+          "methodName": "update",
+          "httpMethod": "PUT",
+          "path": "/api/transferProperties/{id}",
+          "line": 115,
+          "evidence": "@RequestMapping(value = \"/transferProperties/{id}\", method = RequestMethod.PUT)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TransferPropertiesController",
+          "methodName": "retrieve",
+          "httpMethod": "GET",
+          "path": "/api/transferProperties/{id}",
+          "line": 159,
+          "evidence": "@RequestMapping(value = \"/transferProperties/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TransferPropertiesController",
+          "methodName": "delete",
+          "httpMethod": "DELETE",
+          "path": "/api/transferProperties/{id}",
+          "line": 177,
+          "evidence": "@RequestMapping(value = \"/transferProperties/{id}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "TransferPropertiesController",
+          "methodName": "search",
+          "httpMethod": "GET",
+          "path": "/api/transferProperties/search",
+          "line": 199,
+          "evidence": "@RequestMapping(value = \"/transferProperties/search\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/fulfillment/web/VersionController.java",
+      "service": "openlmis-fulfillment",
+      "endpoints": [
+        {
+          "className": "VersionController",
+          "methodName": "display",
+          "httpMethod": "GET",
+          "path": "/fulfillment",
+          "line": 36,
+          "evidence": "@RequestMapping(\"/fulfillment\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/fulfillment/web/shipment/ShipmentController.java",
+      "service": "openlmis-fulfillment",
+      "endpoints": [
+        {
+          "className": "ShipmentController",
+          "methodName": "createShipment",
+          "httpMethod": "POST",
+          "path": "/api/shipments",
+          "line": 112,
+          "evidence": "@PostMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ShipmentController",
+          "methodName": "getShipments",
+          "httpMethod": "GET",
+          "path": "/api/shipments",
+          "line": 171,
+          "evidence": "@GetMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ShipmentController",
+          "methodName": "getShipment",
+          "httpMethod": "GET",
+          "path": "/api/shipments/{id}",
+          "line": 209,
+          "evidence": "@GetMapping(\"/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/main/java/org/openlmis/fulfillment/web/shipmentdraft/ShipmentDraftController.java",
+      "service": "openlmis-fulfillment",
+      "endpoints": [
+        {
+          "className": "ShipmentDraftController",
+          "methodName": "createShipmentDraft",
+          "httpMethod": "POST",
+          "path": "/api/shipmentDrafts",
+          "line": 99,
+          "evidence": "@PostMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ShipmentDraftController",
+          "methodName": "updateShipmentDraft",
+          "httpMethod": "PUT",
+          "path": "/api/shipmentDrafts/{id}",
+          "line": 145,
+          "evidence": "@PutMapping(\"/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ShipmentDraftController",
+          "methodName": "getShipmentDrafts",
+          "httpMethod": "GET",
+          "path": "/api/shipmentDrafts",
+          "line": 192,
+          "evidence": "@GetMapping",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ShipmentDraftController",
+          "methodName": "getShipmentDraft",
+          "httpMethod": "GET",
+          "path": "/api/shipmentDrafts/{id}",
+          "line": 230,
+          "evidence": "@GetMapping(\"/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ShipmentDraftController",
+          "methodName": "deleteShipmentDraft",
+          "httpMethod": "DELETE",
+          "path": "/api/shipmentDrafts/{id}",
+          "line": 258,
+          "evidence": "@DeleteMapping(\"/{id}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "openlmis-fulfillment",
+    "commit": "044e750ef981b8eeae2eab1ebbc3d517f65c83bb",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "record_nudges": 1,
+    "elided_results": 0,
+    "steps": 18,
+    "tool_calls": 33,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 253760,
+    "cached_input_tokens": 221056,
+    "output_tokens": 6093,
+    "list_price_usd": 0.0092,
+    "wall_seconds": 40.0,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".dockerignore\n.github/\n.gitignore\nCHANGELOG.md\nDockerfile\nJenkinsfile\nLICENSE\nLICENSE-HEADER\nREADME.md\nbuild.gradle\nbuild.sh\nci-buildImage.sh\nci-erdGeneration.sh\nconfig/\nconsul/\ndocker-compose.builder.yml\ndocker-compose.erd-generation.yml\ndocker-compose.override.yml\ndocker-compose.yml\ndocumentation.gradle\nexport_schema.sh\ngenerateErdFor.sh\ngradle.properties\ngradle/\ngradlew\ngradlew.bat\npackage-lock.json\npackage.json\nperformance/\npublishing.gradle\nregistration.gradle\nsettings.gradle\nsonar-project.properties\nsrc/"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile"
+        },
+        "result_head": "/Dockerfile"
+      },
+      {
+        "step": 2,
+        "tool": "read_file",
+        "args": {
+          "path": "/settings.gradle"
+        },
+        "result_head": "1: rootProject.name = serviceName"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller.java"
+        },
+        "result_head": "/src/main/java/org/openlmis/fulfillment/web/BaseController.java\n/src/main/java/org/openlmis/fulfillment/web/FileTemplateController.java\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java\n/src/main/java/org/openlmis/fulfillment/web/OrderNumberConfigurationController.java\n/src/main/java/org/openlmis/fulfillment/web/ProofOfDeliveryController.java\n/src/main/java/org/openlmis/fulfillment/web/TemplateController.java\n/src/main/java/org/openlmis/fulfillment/web/TransferPropertiesController.java\n/src/main/java/org/openlmis/fulfillment/web/VersionController.java\n/src/main/java/org/openlmis/fulfillment/web/shipment/ShipmentController.java\n/src/main/java/org/openlmis/fulfillment/web/shipmentdraft/ShipmentDraftController.java"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/OrderController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.fulfillment.web;\n17: \n18: import static org.openlmis.fulfillment.domain.O"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/BaseController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.fulfillment.web;\n17: \n18: import static java.util.Comparator.comparing;\n1"
+      },
+      {
+        "step": 4,
+        "tool": "grep",
+        "args": {
+          "pattern": "BASE_PATH|String .*=.*\\\"/",
+          "path": "/src/main/java/org/openlmis/fulfillment/service/ResourceNames.java"
+        },
+        "result_head": "/src/main/java/org/openlmis/fulfillment/service/ResourceNames.java:21: public static final String SEPARATOR = \"/\";\n/src/main/java/org/openlmis/fulfillment/service/ResourceNames.java:22: public static final String BASE_PATH = \"/api\";\n/src/main/java/org/openlmis/fulfillment/service/ResourceNames.java:36: return StringUtils.joinWith(SEPARATOR, BASE_PATH, resourseName) + SEPARATOR;"
+      },
+      {
+        "step": 4,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)",
+          "path": "/src/main/java/org/openlmis/fulfillment/web"
+        },
+        "result_head": "/src/main/java/org/openlmis/fulfillment/web/BaseController.java:49: @RequestMapping(BASE_PATH)\n/src/main/java/org/openlmis/fulfillment/web/FileTemplateController.java:70: @RequestMapping(value = \"/fileTemplates\", method = RequestMethod.PUT)\n/src/main/java/org/openlmis/fulfillment/web/FileTemplateController.java:100: @RequestMapping(value = \"/fileTemplates\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:185: @RequestMapping(value = \"/orders\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:207: @RequestMapping(value = \"/orders/requisitionLess\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:233: @PutMapping(\"/orders/{id}\")\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:259: @PutMapping(\"/orders/{id}/requisitionLess/send\")\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:288: @RequestMapping(value = \"/orders/batch\", "
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/shipmentdraft/ShipmentDraftController.java",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)|RESOURCE_PATH"
+        },
+        "result_head": "/src/main/java/org/openlmis/fulfillment/web/shipmentdraft/ShipmentDraftController.java:25: import static org.openlmis.fulfillment.web.shipmentdraft.ShipmentDraftController.RESOURCE_PATH;\n/src/main/java/org/openlmis/fulfillment/web/shipmentdraft/ShipmentDraftController.java:67: @RequestMapping(RESOURCE_PATH)\n/src/main/java/org/openlmis/fulfillment/web/shipmentdraft/ShipmentDraftController.java:72: static final String RESOURCE_PATH = BASE_PATH + \"/shipmentDrafts\";\n/src/main/java/org/openlmis/fulfillment/web/shipmentdraft/ShipmentDraftController.java:99: @PostMapping\n/src/main/java/org/openlmis/fulfillment/web/shipmentdraft/ShipmentDraftController.java:145: @PutMapping(\"/{id}\")\n/src/main/java/org/openlmis/fulfillment/web/shipmentdraft/ShipmentDraftController.java:192: @GetMapping\n/src/main/java/org/openlmis/fulfillment/web/shipmentdraft/ShipmentDraftController.java:230: @GetMapping(\"/{id}\")\n/src/main/java/org/openlmis/fulfillment/web/shipmentdraft/ShipmentDraftController.java:258: @Delete"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/shipment/ShipmentController.java",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)|RESOURCE_PATH"
+        },
+        "result_head": "/src/main/java/org/openlmis/fulfillment/web/shipment/ShipmentController.java:24: import static org.openlmis.fulfillment.web.shipment.ShipmentController.RESOURCE_PATH;\n/src/main/java/org/openlmis/fulfillment/web/shipment/ShipmentController.java:72: @RequestMapping(RESOURCE_PATH)\n/src/main/java/org/openlmis/fulfillment/web/shipment/ShipmentController.java:77: static final String RESOURCE_PATH = BASE_PATH + \"/shipments\";\n/src/main/java/org/openlmis/fulfillment/web/shipment/ShipmentController.java:112: @PostMapping\n/src/main/java/org/openlmis/fulfillment/web/shipment/ShipmentController.java:171: @GetMapping\n/src/main/java/org/openlmis/fulfillment/web/shipment/ShipmentController.java:209: @GetMapping(\"/{id}\")"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java",
+          "pattern": "@(RestController|Controller)\\b"
+        },
+        "result_head": "/src/main/java/org/openlmis/fulfillment/web/FileTemplateController.java:44: @Controller\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:106: @Controller\n/src/main/java/org/openlmis/fulfillment/web/OrderNumberConfigurationController.java:40: @Controller\n/src/main/java/org/openlmis/fulfillment/web/ProofOfDeliveryController.java:84: @Controller\n/src/main/java/org/openlmis/fulfillment/web/TemplateController.java:39: @Controller\n/src/main/java/org/openlmis/fulfillment/web/TransferPropertiesController.java:52: @Controller\n/src/main/java/org/openlmis/fulfillment/web/VersionController.java:26: @RestController\n/src/main/java/org/openlmis/fulfillment/web/shipment/ShipmentController.java:70: @Controller\n/src/main/java/org/openlmis/fulfillment/web/shipmentdraft/ShipmentDraftController.java:65: @Controller"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java",
+          "pattern": "extends BaseController|class \\w+Controller"
+        },
+        "result_head": "/src/main/java/org/openlmis/fulfillment/web/BaseController.java:50: public abstract class BaseController {\n/src/main/java/org/openlmis/fulfillment/web/FileTemplateController.java:46: public class FileTemplateController extends BaseController {\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:109: public class OrderController extends BaseController {\n/src/main/java/org/openlmis/fulfillment/web/OrderNumberConfigurationController.java:42: public class OrderNumberConfigurationController extends BaseController {\n/src/main/java/org/openlmis/fulfillment/web/ProofOfDeliveryController.java:86: public class ProofOfDeliveryController extends BaseController {\n/src/main/java/org/openlmis/fulfillment/web/TemplateController.java:42: public class TemplateController extends BaseController {\n/src/main/java/org/openlmis/fulfillment/web/TransferPropertiesController.java:54: public class TransferPropertiesController extends BaseController {\n/src/main/java/org/openlmis/fulfillment/web/Versio"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/VersionController.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.fulfillment.web;\n17: \n18: import org.slf4j.Logger;\n19: import org.slf4j.L"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/OrderController.java",
+          "start": "180"
+        },
+        "result_head": "180:    * If the id is specified, it will be ignored.\n181:    *\n182:    * @param orderDto A order bound to the request body\n183:    * @return the newly created order\n184:    */\n185:   @RequestMapping(value = \"/orders\", method = RequestMethod.POST)\n186:   @ResponseStatus(HttpStatus.CREATED)\n187:   @ResponseBody\n188:   public OrderDto createOrder(@RequestBody OrderDto orderDto, OAuth2Authentication authentication) {\n189:     if (orderDto.getExternalId() != null) {\n190:       Order existingOrder = orderRepository.findByExternalId(orderDto.getExternalId());\n191:       if (existingOrder != null) {\n192:         throw new ValidationException(ORDER_EXISTS);\n193:       }\n194:     }\n195: \n196:     Order order = createSingleOrder(orderDto, authentication);\n197:     return orderDtoBuilder.build(order);\n198:   }\n199: \n200:   /**\n201:    * Allows creating requisition-less orders.\n202:    * If the id is specified, it will be ignored.\n203:    *\n204:    * @param orderDto A order bound to the request bo"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/OrderController.java",
+          "start": "340"
+        },
+        "result_head": "340:     profiler.stop().log();\n341:     return ordersData;\n342:   }\n343: \n344:   /**\n345:    * Get information about number of orders of each status for user's home facility.\n346:    *\n347:    * @return Orders statistics data.\n348:    */\n349:   @GetMapping(\"/orders/statusesStatsData\")\n350:   @ResponseBody\n351:   public OrderStatsData getOrderStatusesStatsData() {\n352:     Profiler profiler = new Profiler(\"GET_ORDER_STATISTICS_DATA\");\n353:     profiler.setLogger(XLOGGER);\n354:     UUID facilityId = authenticationHelper.getCurrentUser().getHomeFacilityId();\n355:     if (facilityId == null) {\n356:       return new OrderStatsData();\n357:     }\n358:     profiler.start(\"COUNT_ORDERS_STATUSES_DATA\");\n359:     OrderStatsData orderStatusesData = orderService.getStatusesStatsData(facilityId);\n360: \n361:     profiler.stop().log();\n362:     return orderStatusesData;\n363:   }\n364: \n365:   /**\n366:    * Get chosen order.\n367:    *\n368:    * @param orderId UUID of order whose we want to get\n369:    "
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/OrderController.java",
+          "start": "515"
+        },
+        "result_head": "515:   /**\n516:    * Manually retry transmitting the order CSV to the configured FTP target. The order must be\n517:    * in {@link OrderStatus#TRANSFER_FAILED} and the supplying facility must have\n518:    * {@link FtpTransferProperties} configured. On a successful upload the order moves to\n519:    * {@link OrderStatus#IN_ROUTE}; on failure it remains in {@code TRANSFER_FAILED}.\n520:    *\n521:    * @param id UUID of order\n522:    */\n523:   @RequestMapping(value = \"/orders/{id}/retry\", method = RequestMethod.GET)\n524:   @ResponseBody\n525:   public ResultDto<Boolean> retryOrderTransfer(@PathVariable(\"id\") UUID id) {\n526:     Order order = orderRepository.findById(id)\n527:         .orElseThrow(() -> new OrderNotFoundException(id));\n528: \n529:     permissionService.canTransferOrder(order);\n530: \n531:     if (TRANSFER_FAILED != order.getStatus()) {\n532:       throw new ValidationException(ORDER_RETRY_INVALID_STATUS, TRANSFER_FAILED.toString());\n533:     }\n534: \n535:     TransferProperties pr"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main",
+          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)"
+        },
+        "result_head": "/src/main/java/org/openlmis/fulfillment/web/BaseController.java:49: @RequestMapping(BASE_PATH)\n/src/main/java/org/openlmis/fulfillment/web/FileTemplateController.java:70: @RequestMapping(value = \"/fileTemplates\", method = RequestMethod.PUT)\n/src/main/java/org/openlmis/fulfillment/web/FileTemplateController.java:100: @RequestMapping(value = \"/fileTemplates\", method = RequestMethod.GET)\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:185: @RequestMapping(value = \"/orders\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:207: @RequestMapping(value = \"/orders/requisitionLess\", method = RequestMethod.POST)\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:233: @PutMapping(\"/orders/{id}\")\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:259: @PutMapping(\"/orders/{id}/requisitionLess/send\")\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:288: @RequestMapping(value = \"/orders/batch\", "
+      },
+      {
+        "step": 10,
+        "tool": "find",
+        "args": {
+          "pattern": "*Application*.java"
+        },
+        "result_head": "/src/main/java/org/openlmis/fulfillment/Application.java"
+      },
+      {
+        "step": 11,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/FileTemplateController.java",
+          "start": "60"
+        },
+        "result_head": "60:   protected void initBinder(WebDataBinder binder) {\n61:     binder.setValidator(this.validator);\n62:   }\n63: \n64:   /**\n65:    * Allows updating order file templates.\n66:    *\n67:    * @param fileTemplateDto An order file template bound to the request body\n68:    * @return ResponseEntity containing saved fileTemplate\n69:    */\n70:   @RequestMapping(value = \"/fileTemplates\", method = RequestMethod.PUT)\n71:   @ResponseBody\n72:   public FileTemplateDto saveCsvFileTemplate(\n73:           @RequestBody @Valid FileTemplateDto fileTemplateDto, BindingResult bindingResult) {\n74:     LOGGER.debug(\"Checking right to update order file template\");\n75:     permissionService.canManageSystemSettings();\n76: \n77:     if (bindingResult.hasErrors()) {\n78:       throw new ValidationException(bindingResult.getAllErrors().get(0).getDefaultMessage());\n79:     }\n80: \n81:     FileTemplate template = fileTemplateService.getFileTemplate(fileTemplateDto\n82:         .getTemplateType());\n83:     if (!template.ge"
+      },
+      {
+        "step": 11,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/OrderNumberConfigurationController.java",
+          "start": "60"
+        },
+        "result_head": "60: \n61:   /**\n62:    * Saves given OrderNumberConfiguration to database.\n63:    *\n64:    * @param orderNumberConfigurationDto object to save.\n65:    * @return Response entity with Http status code.\n66:    */\n67:   @RequestMapping(value = \"/orderNumberConfigurations\", method = RequestMethod.POST)\n68:   public ResponseEntity<Object> saveOrderNumberConfigurations(\n69:       @RequestBody @Valid OrderNumberConfigurationDto orderNumberConfigurationDto,\n70:       BindingResult bindingResult) {\n71: \n72:     LOGGER.debug(\"Checking right to update order number configuration\");\n73:     permissionService.canManageSystemSettings();\n74: \n75:     if (bindingResult.hasErrors()) {\n76:       return new ResponseEntity<>(getErrors(bindingResult), HttpStatus.BAD_REQUEST);\n77:     }\n78: \n79:     OrderNumberConfiguration orderNumberConfiguration = OrderNumberConfiguration\n80:         .newInstance(orderNumberConfigurationDto);\n81: \n82:     Iterator<OrderNumberConfiguration> it = orderNumberConfigurationRepos"
+      },
+      {
+        "step": 12,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/ProofOfDeliveryController.java",
+          "start": "150"
+        },
+        "result_head": "150:    * Get all proofs of delivery.\n151:    *\n152:    * @return proofs of delivery.\n153:    */\n154:   @RequestMapping(value = \"/proofsOfDelivery\", method = RequestMethod.GET)\n155:   @ResponseBody\n156:   public Page<ProofOfDeliveryDto> getAllProofsOfDelivery(\n157:       @RequestParam(required = false) UUID orderId,\n158:       @RequestParam(required = false) UUID shipmentId,\n159:       Pageable pageable) {\n160:     XLOGGER.entry(shipmentId, pageable);\n161:     Profiler profiler = new Profiler(\"GET_PODS\");\n162:     profiler.setLogger(XLOGGER);\n163: \n164:     profiler.start(\"SEARCH_PODS_SERVICE\");\n165:     Page<ProofOfDelivery> result = proofOfDeliveryService.search(shipmentId, orderId, pageable);\n166: \n167:     profiler.start(\"BUILD_DTO_PAGE\");\n168:     Page<ProofOfDeliveryDto> dtoPage = Pagination.getPage(dtoBuilder.build(result.getContent()),\n169:         pageable, result.getTotalElements());\n170: \n171:     profiler.stop().log();\n172:     XLOGGER.exit(dtoPage);\n173: \n174:     return d"
+      },
+      {
+        "step": 12,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/TemplateController.java",
+          "start": "38"
+        },
+        "result_head": "38: \n39: @Controller\n40: @Transactional\n41: @RequestMapping(\"/api/reports/templates/fulfillment\")\n42: public class TemplateController extends BaseController {\n43: \n44:   private static final Logger LOGGER = LoggerFactory.getLogger(TemplateController.class);\n45: \n46:   private static final String CONSISTENCY_REPORT = \"Consistency Report\";\n47: \n48:   @Autowired\n49:   private TemplateService templateService;\n50: \n51:   @Autowired\n52:   private TemplateRepository templateRepository;\n53: \n54:   /**\n55:    * Adding report templates with \".jrxml\" format to database.\n56:    *\n57:    * @param file        File in \".jrxml\" format to upload\n58:    * @param name        Name of file in database\n59:    * @param description Description of the file\n60:    */\n61:   @RequestMapping(method = RequestMethod.POST)\n62:   @ResponseStatus(HttpStatus.OK)\n63:   public void createJasperReportTemplate(@RequestPart(\"file\") MultipartFile file,\n64:                                          String name, String descripti"
+      },
+      {
+        "step": 13,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/ProofOfDeliveryController.java",
+          "start": "345"
+        },
+        "result_head": "345:    *                            If null or empty, changes are returned regardless of author.\n346:    * @param changedPropertyName The name of the property about which changes should be returned.\n347:    *                            If null or empty, changes associated with any and all properties\n348:    *                            are returned.\n349:    * @param page                A Pageable object that allows client to optionally add \"page\"\n350:    *                            (page number) and \"size\" (page size) query parameters to the\n351:    *                            request.\n352:    */\n353:   @RequestMapping(value = \"proofsOfDelivery/{id}/auditLog\", method = RequestMethod.GET)\n354:   @ResponseStatus(HttpStatus.OK)\n355:   @ResponseBody\n356:   public ResponseEntity<String> getAuditLog(\n357:       @PathVariable(\"id\") UUID id,\n358:       @RequestParam(name = \"author\", required = false, defaultValue = \"\") String author,\n359:       @RequestParam(name = \"changedPropertyName\", re"
+      },
+      {
+        "step": 13,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/TransferPropertiesController.java",
+          "start": "75"
+        },
+        "result_head": "75:   /**\n76:    * Allows creating new transfer properties.\n77:    * If the id is specified, it will be ignored.\n78:    *\n79:    * @param properties A transfer properties bound to the request body\n80:    * @return ResponseEntity containing the created transfer properties\n81:    */\n82:   @RequestMapping(value = \"/transferProperties\", method = RequestMethod.POST)\n83:   @ResponseBody\n84:   public ResponseEntity create(@RequestBody TransferPropertiesDto properties) {\n85: \n86:     LOGGER.debug(\"Checking right to create transfer properties\");\n87:     permissionService.canManageSystemSettings();\n88: \n89:     LOGGER.debug(\"Creating new Transfer Properties\");\n90: \n91:     TransferProperties entity = TransferPropertiesFactory.newInstance(properties);\n92: \n93:     List<Message.LocalizedMessage> errors = validate(entity);\n94:     if (isNotTrue(errors.isEmpty())) {\n95:       return ResponseEntity.badRequest().body(errors);\n96:     }\n97: \n98:     properties.setId(null);\n99:     TransferProperties sa"
+      },
+      {
+        "step": 14,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/shipment/ShipmentController.java",
+          "start": "105"
+        },
+        "result_head": "105: \n106:   /**\n107:    * Allows creating new shipment. If the id is specified, it will be ignored.\n108:    *\n109:    * @param shipmentDto A shipment item bound to the request body.\n110:    * @return created shipment.\n111:    */\n112:   @PostMapping\n113:   @ResponseStatus(HttpStatus.CREATED)\n114:   @ResponseBody\n115:   public ShipmentDto createShipment(@RequestBody ShipmentDto shipmentDto) {\n116:     XLOGGER.entry(shipmentDto);\n117:     Profiler profiler = new Profiler(\"CREATE_SHIPMENT\");\n118:     profiler.setLogger(XLOGGER);\n119: \n120:     nullIds(shipmentDto);\n121:     ObjectReferenceDto dtoOrder = shipmentDto.getOrder();\n122:     if (dtoOrder == null || dtoOrder.getId() == null) {\n123:       throw new ValidationException(SHIPMENT_ORDERLESS_NOT_SUPPORTED);\n124:     }\n125: \n126:     profiler.start(\"CHECK_RIGHTS\");\n127:     permissionService.canEditShipment(shipmentDto);\n128: \n129:     profiler.start(\"CREATE_DOMAIN_INSTANCE\");\n130:     setShipDetailsToDto(shipmentDto);\n131: \n132:     O"
+      },
+      {
+        "step": 14,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/web/shipmentdraft/ShipmentDraftController.java",
+          "start": "95"
+        },
+        "result_head": "95:    *\n96:    * @param draftDto A shipment draft DTO bound to the request body.\n97:    * @return created shipment draft.\n98:    */\n99:   @PostMapping\n100:   @ResponseStatus(HttpStatus.CREATED)\n101:   @ResponseBody\n102:   public ShipmentDraftDto createShipmentDraft(@RequestBody ShipmentDraftDto draftDto) {\n103:     XLOGGER.entry(draftDto);\n104:     Profiler profiler = new Profiler(\"CREATE_SHIPMENT_DRAFT\");\n105:     profiler.setLogger(XLOGGER);\n106: \n107:     nullIds(draftDto);\n108:     profiler.start(\"VALIDATE\");\n109:     validateOrder(draftDto.getOrder());\n110: \n111:     profiler.start(CHECK_RIGHTS);\n112:     permissionService.canEditShipmentDraft(draftDto);\n113: \n114:     profiler.start(\"CREATE_DOMAIN_INSTANCE\");\n115:     ShipmentDraft draft = ShipmentDraft.newInstance(draftDto);\n116: \n117:     Order order = orderRepository.findById(draftDto.getOrder().getId())\n118:         .orElseThrow(() -> new ValidationException(SHIPMENT_DRAFT_ORDER_NOT_FOUND));\n119:     if (!order.isOrdered()) "
+      },
+      {
+        "step": 15,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main",
+          "pattern": "@Path\\(|RouterFunction|@ServerEndpoint|app\\.(get|post|put|delete)\\("
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 15,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile"
+        },
+        "result_head": "1: FROM openlmis/service-base:7\n2: \n3: COPY build/libs/*.jar /service.jar\n4: COPY src/main/resources/db/demo-data/*.csv /demo-data/\n5: COPY build/schema /schema\n6: \n7: COPY build/consul /consul\n8: WORKDIR /consul\n9: \n10: RUN npm install --production\n11: \n12: WORKDIR /"
+      },
+      {
+        "step": 15,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/java/org/openlmis/fulfillment/Application.java"
+        },
+        "result_head": "1: /*\n2:  * This program is part of the OpenLMIS logistics management information system platform software.\n3:  * Copyright © 2017 VillageReach\n4:  *\n5:  * This program is free software: you can redistribute it and/or modify it under the terms\n6:  * of the GNU Affero General Public License as published by the Free Software Foundation, either\n7:  * version 3 of the License, or (at your option) any later version.\n8:  *\n9:  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n10:  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n11:  * See the GNU Affero General Public License for more details. You should have received a copy of\n12:  * the GNU Affero General Public License along with this program. If not, see\n13:  * http://www.gnu.org/licenses.  For additional information contact info@OpenLMIS.org.\n14:  */\n15: \n16: package org.openlmis.fulfillment;\n17: \n18: import com.google.gson.internal.bind.TypeAdapters;\n"
+      },
+      {
+        "step": 16,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"openlmis-fulfillment\",\"dirs\":[\"/src\",\"/config\",\"/consul\"]}],\"files\":[\n{\"path\":\"/src/main/java/org/openlmis/fulfillment/web/OrderController.java\",\"service\":\"openlmis-fulfillment\","
+        },
+        "result_head": "Recorded 44 new: service openlmis-fulfillment, POST /api/orders, POST /api/orders/requisitionLess, PUT /api/orders/{id}, PUT /api/orders/{id}/requisitionLess/send, POST /api/orders/batch, GET /api/orders, GET /api/orders/numberOfOrdersData, GET /api/orders/statusesStatsData, GET /api/orders/{id}, GET /api/orders/requestingFacilities, GET /api/orders/{id}/print, GET /api/orders/{id}/export, GET /api/orders/{id}/retry, PUT /api/orders/{id}/cancel, DELETE /api/orders, PUT /api/fileTemplates, GET /api/fileTemplates, POST /api/orderNumberConfigurations, GET /api/orderNumberConfigurations, GET /api/proofsOfDelivery, PUT /api/proofsOfDelivery/{id}, GET /api/proofsOfDelivery/{id}, GET /api/proofsOfDelivery/{id}/print, GET /api/proofsOfDelivery/{id}/auditLog, POST /api/reports/templates/fulfillment, GET /api/reports/templates/fulfillment, PUT /api/reports/templates/fulfillment/{id}, GET /api/reports/templates/fulfillment/{id}, DELETE /api/reports/templates/fulfillment/{id}, POST /api/transferPr"
+      },
+      {
+        "step": 17,
+        "tool": "list_dir",
+        "args": {
+          "path": "/consul"
+        },
+        "result_head": "config.json\npackage.json\nregistration.js"
+      },
+      {
+        "step": 17,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main/java",
+          "pattern": "@(GET|POST|PUT|DELETE)\\b|@Path"
+        },
+        "result_head": "/src/main/java/org/openlmis/fulfillment/web/OrderController.java:236: @PathVariable(\"id\") UUID orderId,\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:262: @PathVariable(\"id\") UUID orderId,\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:374: public OrderDto getOrder(@PathVariable(\"id\") UUID orderId,\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:405: public ResponseEntity<byte[]> printOrder(@PathVariable(\"id\") UUID orderId,\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:471: public void export(@PathVariable(\"id\") UUID orderId,\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:525: public ResultDto<Boolean> retryOrderTransfer(@PathVariable(\"id\") UUID id) {\n/src/main/java/org/openlmis/fulfillment/web/OrderController.java:560: public OrderDto cancelOrder(@PathVariable(\"id\") UUID orderId) {\n/src/main/java/org/openlmis/fulfillment/web/ProofOfDeliveryController.java:188: public ProofOfDeliveryDto updatePro"
+      },
+      {
+        "step": 18,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 1 services, 43 endpoints."
+      }
+    ]
+  }
+}

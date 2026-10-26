@@ -1,0 +1,180 @@
+{
+  "system": "node-js-restful-api-example",
+  "services": [
+    {
+      "name": "node-js-restful-api-example",
+      "dirs": [
+        "/server",
+        "/client"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/server/server.js",
+      "service": "node-js-restful-api-example",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "ANY",
+          "path": "/events",
+          "line": 24,
+          "evidence": "app.use('/events', eventsRouter);",
+          "framework": "Express",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/server/routers/events-router.js",
+      "service": "node-js-restful-api-example",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/events/",
+          "line": 27,
+          "evidence": "eventsRouter.get('/', function (req, res) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/events/:id",
+          "line": 31,
+          "evidence": "eventsRouter.get('/:id', function (req, res) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/events/",
+          "line": 36,
+          "evidence": "eventsRouter.post('/', updateId, function (req, res) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "PUT",
+          "path": "/events/:id",
+          "line": 43,
+          "evidence": "eventsRouter.put('/:id', function (req, res) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "DELETE",
+          "path": "/events/:id",
+          "line": 60,
+          "evidence": "eventsRouter.delete('/:id', function (req, res) {",
+          "framework": "Express",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "GLM-5.3-Flash",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "default",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "node-js-restful-api-example",
+    "commit": "1758f866ee904c7765265340b9c2723788eb2ee2",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "record_nudges": 0,
+    "elided_results": 0,
+    "steps": 6,
+    "tool_calls": 8,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 9768,
+    "cached_input_tokens": 7104,
+    "output_tokens": 977,
+    "list_price_usd": 0.0011,
+    "wall_seconds": 9.6,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".gitignore\nREADME.md\nclient/\npackage.json\nserver/"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/server"
+        },
+        "result_head": "data/\nrouters/\nserver.js"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/client"
+        },
+        "result_head": "apple-touch-icon.png\ncss/\nimg/\nindex.html\njs/"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/server/server.js"
+        },
+        "result_head": "1: var express = require('express');\n2: var bodyParser = require('body-parser');\n3: var morgan = require('morgan');\n4: var eventsRouter = require('./routers/events-router');\n5: \n6: var app = express();\n7: var port = 3000;\n8: \n9: app.use(morgan('dev'));\n10: app.use(express.static('client'));\n11: \n12: \n13: // Enable CORS on ExpressJS to avoid cross-origin errors when calling this server using AJAX\n14: // We are authorizing all domains to be able to manage information via AJAX (this is just for development)\n15: app.use((req, res, next) => {\n16:     res.header(\"Access-Control-Allow-Origin\", \"*\");\n17:     res.header(\"Access-Control-Allow-Headers\", \"Origin, X-Requested-With, Content-Type, Accept,recording-session\");\n18:     next();\n19: });\n20: \n21: app.use(bodyParser.urlencoded({extended: true}));\n22: app.use(bodyParser.json());\n23: \n24: app.use('/events', eventsRouter);\n25: \n26: app.listen(port);\n27: console.log(\"Running app on port port. Visit: http://localhost:\" + port + \"/\");\n28: "
+      },
+      {
+        "step": 3,
+        "tool": "list_dir",
+        "args": {
+          "path": "/server/routers"
+        },
+        "result_head": "events-router.js"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/server/routers/events-router.js"
+        },
+        "result_head": "1: var eventsRouter = require('express').Router();\n2: var eventsData = require('../data/events-data');\n3: var _ = require('lodash');\n4: \n5: var events = eventsData;\n6: var id = 12;\n7: \n8: var updateId = function (req, res, next) {\n9:     console.log(req.body);\n10:     if (!req.body.id) {\n11:         id++;\n12:         req.body.id = id + '';\n13:     }\n14:     next();\n15: };\n16: \n17: eventsRouter.param('id', function (req, res, next, id) {\n18:     var event = _.find(events, {id: id});\n19:     if (event) {\n20:         req.event = event;\n21:         next();\n22:     } else {\n23:         res.json({\"error\": \"Id not found\"});\n24:     }\n25: });\n26: \n27: eventsRouter.get('/', function (req, res) {\n28:     res.json(events);\n29: });\n30: \n31: eventsRouter.get('/:id', function (req, res) {\n32:     var event = req.event;\n33:     res.json(event || {});\n34: });\n35: \n36: eventsRouter.post('/', updateId, function (req, res) {\n37:     var event = req.body;\n38: \n39:     events.push(event);\n40:     res.statu"
+      },
+      {
+        "step": 5,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\": [{\"name\": \"node-js-restful-api-example\", \"dirs\": [\"/server\", \"/client\"]}], \"files\": [{\"path\": \"/server/server.js\", \"service\": \"node-js-restful-api-example\", \"endpoints\": [{\"className\": \"\""
+        },
+        "result_head": "Recorded 7 new: service node-js-restful-api-example, ANY /events, GET /events/, GET /events/:id, POST /events/, PUT /events/:id, DELETE /events/:id\nTotal: 1 services, 6 endpoints in 2 files."
+      },
+      {
+        "step": 6,
+        "tool": "submit",
+        "args": {
+          "json": "{\"services\": [{\"name\": \"node-js-restful-api-example\", \"dirs\": [\"/server\", \"/client\"]}], \"files\": [{\"path\": \"/server/server.js\", \"service\": \"node-js-restful-api-example\", \"endpoints\": [{\"className\": \"\""
+        },
+        "result_head": "Recorded 1 new: service node-js-restful-api-example\nTotal: 1 services, 6 endpoints in 2 files.\n[ACCEPTED] 1 services, 6 endpoints."
+      }
+    ]
+  }
+}

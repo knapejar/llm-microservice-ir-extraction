@@ -1,0 +1,1801 @@
+{
+  "system": "geoserver-cloud",
+  "services": [
+    {
+      "name": "wfs",
+      "dirs": [
+        "/src/apps/geoserver/wfs",
+        "/src/catalog/events",
+        "/src/main"
+      ]
+    },
+    {
+      "name": "wms",
+      "dirs": [
+        "/src/apps/geoserver/wms",
+        "/src/catalog/events",
+        "/src/main"
+      ]
+    },
+    {
+      "name": "wcs",
+      "dirs": [
+        "/src/apps/geoserver/wcs",
+        "/src/catalog/events",
+        "/src/main"
+      ]
+    },
+    {
+      "name": "wps",
+      "dirs": [
+        "/src/apps/geoserver/wps",
+        "/src/catalog/events",
+        "/src/main"
+      ]
+    },
+    {
+      "name": "restconfig",
+      "dirs": [
+        "/src/apps/geoserver/restconfig",
+        "/src/catalog/events",
+        "/src/main"
+      ]
+    },
+    {
+      "name": "webui",
+      "dirs": [
+        "/src/apps/geoserver/webui",
+        "/src/catalog/events",
+        "/src/main"
+      ]
+    },
+    {
+      "name": "gwc",
+      "dirs": [
+        "/src/apps/geoserver/gwc",
+        "/src/catalog/events",
+        "/src/main"
+      ]
+    },
+    {
+      "name": "config-service",
+      "dirs": [
+        "/src/apps/infrastructure/config"
+      ]
+    },
+    {
+      "name": "gateway",
+      "dirs": [
+        "/src/apps/infrastructure/gateway-webmvc"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java",
+      "service": "gwc",
+      "endpoints": [
+        {
+          "className": "RootRedirectController",
+          "methodName": "redirectRootToGetCapabilities",
+          "httpMethod": "GET",
+          "path": "/",
+          "line": 16,
+          "evidence": "@GetMapping(\"/\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLIconsController.java",
+      "service": "wms",
+      "endpoints": [
+        {
+          "className": "KMLIconsController",
+          "methodName": "getKmlIcon",
+          "httpMethod": "GET",
+          "path": "/kml/icon/**",
+          "line": 44,
+          "evidence": "@GetMapping(path = \"/kml/icon/**\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLReflectorController.java",
+      "service": "wms",
+      "endpoints": [
+        {
+          "className": "KMLReflectorController",
+          "methodName": "kmlReflect",
+          "httpMethod": "GET",
+          "path": "/wms/kml",
+          "line": 31,
+          "evidence": "@GetMapping(path = {\"/wms/kml\", \"/{workspace}/wms/kml\"})",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "KMLReflectorController",
+          "methodName": "kmlReflect",
+          "httpMethod": "GET",
+          "path": "/{workspace}/wms/kml",
+          "line": 31,
+          "evidence": "@GetMapping(path = {\"/wms/kml\", \"/{workspace}/wms/kml\"})",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java",
+      "service": "wfs",
+      "endpoints": [
+        {
+          "className": "UpdateSequenceController",
+          "methodName": "currVal",
+          "httpMethod": "GET",
+          "path": "/wfs/admin/updatesequence",
+          "line": 32,
+          "evidence": "@GetMapping(path = \"/admin/updatesequence\", produces = \"application/json\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UpdateSequenceController",
+          "methodName": "nextVal",
+          "httpMethod": "POST",
+          "path": "/wfs/admin/updatesequence",
+          "line": 40,
+          "evidence": "@PostMapping(path = \"/admin/updatesequence\", produces = \"application/json\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UpdateSequenceController",
+          "methodName": "currVal",
+          "httpMethod": "GET",
+          "path": "/wms/admin/updatesequence",
+          "line": 32,
+          "evidence": "@GetMapping(path = \"/admin/updatesequence\", produces = \"application/json\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UpdateSequenceController",
+          "methodName": "nextVal",
+          "httpMethod": "POST",
+          "path": "/wms/admin/updatesequence",
+          "line": 40,
+          "evidence": "@PostMapping(path = \"/admin/updatesequence\", produces = \"application/json\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UpdateSequenceController",
+          "methodName": "currVal",
+          "httpMethod": "GET",
+          "path": "/wcs/admin/updatesequence",
+          "line": 32,
+          "evidence": "@GetMapping(path = \"/admin/updatesequence\", produces = \"application/json\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UpdateSequenceController",
+          "methodName": "nextVal",
+          "httpMethod": "POST",
+          "path": "/wcs/admin/updatesequence",
+          "line": 40,
+          "evidence": "@PostMapping(path = \"/admin/updatesequence\", produces = \"application/json\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UpdateSequenceController",
+          "methodName": "currVal",
+          "httpMethod": "GET",
+          "path": "/wps/admin/updatesequence",
+          "line": 32,
+          "evidence": "@GetMapping(path = \"/admin/updatesequence\", produces = \"application/json\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UpdateSequenceController",
+          "methodName": "nextVal",
+          "httpMethod": "POST",
+          "path": "/wps/admin/updatesequence",
+          "line": 40,
+          "evidence": "@PostMapping(path = \"/admin/updatesequence\", produces = \"application/json\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UpdateSequenceController",
+          "methodName": "currVal",
+          "httpMethod": "GET",
+          "path": "/rest/admin/updatesequence",
+          "line": 32,
+          "evidence": "@GetMapping(path = \"/admin/updatesequence\", produces = \"application/json\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UpdateSequenceController",
+          "methodName": "nextVal",
+          "httpMethod": "POST",
+          "path": "/rest/admin/updatesequence",
+          "line": 40,
+          "evidence": "@PostMapping(path = \"/admin/updatesequence\", produces = \"application/json\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UpdateSequenceController",
+          "methodName": "currVal",
+          "httpMethod": "GET",
+          "path": "/geoserver/admin/updatesequence",
+          "line": 32,
+          "evidence": "@GetMapping(path = \"/admin/updatesequence\", produces = \"application/json\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UpdateSequenceController",
+          "methodName": "nextVal",
+          "httpMethod": "POST",
+          "path": "/geoserver/admin/updatesequence",
+          "line": 40,
+          "evidence": "@PostMapping(path = \"/admin/updatesequence\", produces = \"application/json\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UpdateSequenceController",
+          "methodName": "currVal",
+          "httpMethod": "GET",
+          "path": "/gwc/admin/updatesequence",
+          "line": 32,
+          "evidence": "@GetMapping(path = \"/admin/updatesequence\", produces = \"application/json\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "UpdateSequenceController",
+          "methodName": "nextVal",
+          "httpMethod": "POST",
+          "path": "/gwc/admin/updatesequence",
+          "line": 40,
+          "evidence": "@PostMapping(path = \"/admin/updatesequence\", produces = \"application/json\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "geoserver-cloud",
+    "commit": "70cf08256322c8f5e2ad4d870335dbda3aa5d3dd",
+    "dirty": false,
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "elided_results": 110,
+    "steps": 104,
+    "tool_calls": 173,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 3065902,
+    "cached_input_tokens": 2868864,
+    "output_tokens": 31131,
+    "list_price_usd": 0.0568,
+    "wall_seconds": 266.4,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".all-contributorsrc\n.github/\n.gitignore\n.gitmodules\n.mvn/\nCODE_OF_CONDUCT.md\nCONTRIBUTING.md\nLICENSE.txt\nMakefile\nREADME.md\nSECURITY.md\nSPONSORS.md\nacceptance_tests/\ncompose/\ndocker-build/\ndocs/\nexamples/\nmvnw\nmvnw.cmd\npom.xml\nreport-aggregate/\nsrc/"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile"
+        },
+        "result_head": "/acceptance_tests/Dockerfile\n/src/apps/base-images/geoserver/Dockerfile\n/src/apps/base-images/jre/Dockerfile\n/src/apps/base-images/spring-boot/Dockerfile\n/src/apps/geoserver/gwc/Dockerfile\n/src/apps/geoserver/restconfig/Dockerfile\n/src/apps/geoserver/wcs/Dockerfile\n/src/apps/geoserver/webui/Dockerfile\n/src/apps/geoserver/wfs/Dockerfile\n/src/apps/geoserver/wms/Dockerfile\n/src/apps/geoserver/wps/Dockerfile\n/src/apps/infrastructure/config/Dockerfile\n/src/apps/infrastructure/gateway-webmvc/Dockerfile"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/src/apps"
+        },
+        "result_head": "base-images/\ngeoserver/\ninfrastructure/\npom.xml"
+      },
+      {
+        "step": 2,
+        "tool": "list_dir",
+        "args": {
+          "path": "/src"
+        },
+        "result_head": "apps/\nbuild-tools/\ncatalog/\nconfig/\nextensions/\ngwc/\nlombok.config\nmain/\npom.xml\nstarters/"
+      },
+      {
+        "step": 3,
+        "tool": "list_dir",
+        "args": {
+          "path": "/src/apps/geoserver"
+        },
+        "result_head": "gwc/\npom.xml\nrestconfig/\nwcs/\nwebui/\nwfs/\nwms/\nwps/"
+      },
+      {
+        "step": 3,
+        "tool": "list_dir",
+        "args": {
+          "path": "/src/apps/infrastructure"
+        },
+        "result_head": "README.md\nconfig/\ngateway-webmvc/\npom.xml"
+      },
+      {
+        "step": 3,
+        "tool": "list_dir",
+        "args": {
+          "path": "/src/main"
+        },
+        "result_head": "pom.xml\nsrc/"
+      },
+      {
+        "step": 4,
+        "tool": "find",
+        "args": {
+          "pattern": "*Application.java"
+        },
+        "result_head": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplication.java\n/src/apps/geoserver/restconfig/src/main/java/org/geoserver/cloud/restconfig/RestConfigApplication.java\n/src/apps/geoserver/wcs/src/main/java/org/geoserver/cloud/wcs/WcsApplication.java\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/web/app/WebUIApplication.java\n/src/apps/geoserver/wfs/src/main/java/org/geoserver/cloud/wfs/app/WfsApplication.java\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/app/WmsApplication.java\n/src/apps/geoserver/wps/src/main/java/org/geoserver/cloud/wps/WpsApplication.java\n/src/apps/infrastructure/config/src/main/java/org/geoserver/cloud/config/ConfigApplication.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/app/GatewayMvcApplication.java"
+      },
+      {
+        "step": 4,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/src/apps"
+        },
+        "result_head": "/src/apps/base-images/geoserver/src/main/java/org/geoserver/cloud/InstallDuckDBExtensions.java\n/src/apps/base-images/geoserver/src/main/java/org/geoserver/cloud/app/dummy/DummyApp.java\n/src/apps/base-images/spring-boot/src/main/java/org/geoserver/cloud/app/dummy/DummyApp.java\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplication.java\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplicationConfiguration.java\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java\n/src/apps/geoserver/gwc/src/test/java/org/geoserver/cloud/gwc/app/DiskQuotaControllerPgconfigIT.java\n/src/apps/geoserver/gwc/src/test/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplicationDatadirTest.java\n/src/apps/geoserver/gwc/src/test/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplicationPgconfigIT.java\n/src/apps/geoserver/gwc/src/test/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplicationTest.java\n/src/apps/geoserver/"
+      },
+      {
+        "step": 5,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(RestController|Controller|RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)",
+          "path": "/src"
+        },
+        "result_head": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java:13: @Controller\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java:16: @GetMapping(\"/\")\n/src/apps/geoserver/gwc/src/main/resources/application.yml:27: # gwc.context.suffix is used by gwc rest controllers # (e.g. @RequestMapping(path = \"${gwc.context.suffix:}/rest\"))\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLIconsController.java:28: @Controller\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLIconsController.java:44: @GetMapping(path = \"/kml/icon/**\")\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLReflectorController.java:25: @Controller\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLReflectorController.java:31: @GetMapping(path = {\"/wms/kml\", \"/{workspace}/wms/kml\"})\n/src/apps/infrastructure/gateway-webmvc/src/main/jav"
+      },
+      {
+        "step": 6,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/src/apps/infrastructure/gateway-webmvc"
+        },
+        "result_head": "/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GatewayApplicationAutoconfiguration.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GlobalCorsProperties.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/NormalizedBasePathPropertySource.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/SecureHeadersProperties.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/SharedAuthConfigurationProperties.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/app/GatewayMvcApplication.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/filter/GatewaySharedAuth.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/filter/GeoServerGatewayFilterFunctions.j"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "pattern": "RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping",
+          "path": "/src"
+        },
+        "result_head": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java:9: import org.springframework.web.bind.annotation.GetMapping;\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java:16: @GetMapping(\"/\")\n/src/apps/geoserver/gwc/src/main/resources/application.yml:27: # gwc.context.suffix is used by gwc rest controllers # (e.g. @RequestMapping(path = \"${gwc.context.suffix:}/rest\"))\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLIconsController.java:16: import org.springframework.web.bind.annotation.GetMapping;\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLIconsController.java:44: @GetMapping(path = \"/kml/icon/**\")\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLReflectorController.java:15: import org.springframework.web.bind.annotation.GetMapping;\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/K"
+      },
+      {
+        "step": 7,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "@Path\\(|@GET|@POST|@Produces|RouterFunction|RequestPredicates|@ServerEndpoint|@WebServlet"
+        },
+        "result_head": "/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GatewayApplicationAutoconfiguration.java:10: import org.geoserver.cloud.gateway.predicate.GeoServerGatewayRequestPredicates;\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GatewayApplicationAutoconfiguration.java:90: PredicateSupplier gatewayRequestPredicatesSupplier() {\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GatewayApplicationAutoconfiguration.java:91: return new GeoServerGatewayRequestPredicates.GeoServerGatewayPredicateSupplier();\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/predicate/GeoServerGatewayRequestPredicates.java:11: import org.springframework.cloud.gateway.server.mvc.predicate.GatewayRequestPredicates;\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/predicate/GeoServerGatewayRequestPredicates.java:18: * "
+      },
+      {
+        "step": 7,
+        "tool": "list_dir",
+        "args": {
+          "path": "/src/extensions"
+        },
+        "result_head": "README.md\napp-schema/\ncontrol-flow/\ncore/\ncss-styling/\nimporter/\ninput-formats/\ninspire/\nmapbox-styling/\nogcapi/\noutput-formats/\nparquetry/\npom.xml\nsecurity/"
+      },
+      {
+        "step": 8,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "RestController|@Controller|Controller\\b"
+        },
+        "result_head": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplicationConfiguration.java:13: import org.geoserver.gwc.dispatch.GeoServerGWCDispatcherController;\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplicationConfiguration.java:37: GeoServerGWCDispatcherController gwcDispatcherController() {\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplicationConfiguration.java:38: return new GeoServerGWCDispatcherController();\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java:8: import org.springframework.stereotype.Controller;\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java:13: @Controller\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java:14: public class RootRedirectController {\n/src/apps/geoserver/gwc/src/test/java/org/geoserver/cloud/gwc/app/DiskQuotaControllerPgconfigIT.ja"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "Mapping\\("
+        },
+        "result_head": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java:16: @GetMapping(\"/\")\n/src/apps/geoserver/gwc/src/main/resources/application.yml:27: # gwc.context.suffix is used by gwc rest controllers # (e.g. @RequestMapping(path = \"${gwc.context.suffix:}/rest\"))\n/src/apps/geoserver/gwc/src/test/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplicationTest.java:77: void testPostSeedDoesNotThrowAmbiguousHandlerMapping() {\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLIconsController.java:44: @GetMapping(path = \"/kml/icon/**\")\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLReflectorController.java:31: @GetMapping(path = {\"/wms/kml\", \"/{workspace}/wms/kml\"})\n/src/build-tools/spring-config-transpiler/src/test/java/org/geoserver/spring/config/processor/TranspileXmlConfigAnnotationProcessorMethodGenerationTest.java:687: void testSimpleUrlHandlerMapping() {\n/src/build-tools/spring-config-transpiler/"
+      },
+      {
+        "step": 9,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "@(Path|GET|POST|PUT|DELETE|HEAD|OPTIONS)\\b"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 10,
+        "tool": "grep",
+        "args": {
+          "path": "/src/extensions",
+          "pattern": "Controller|@RequestMapping|HandlerMapping|Servlet"
+        },
+        "result_head": "/src/extensions/control-flow/README.md:141: - `FlowControllerProvider`: Provides flow controllers based on configuration\n/src/extensions/control-flow/src/main/java/org/geoserver/cloud/autoconfigure/extensions/controlflow/ControlFlowAutoConfiguration.java:14: import org.geoserver.flow.DefaultFlowControllerProvider;\n/src/extensions/control-flow/src/main/java/org/geoserver/cloud/autoconfigure/extensions/controlflow/ControlFlowAutoConfiguration.java:15: import org.geoserver.flow.FlowControllerProvider;\n/src/extensions/control-flow/src/main/java/org/geoserver/cloud/autoconfigure/extensions/controlflow/ControlFlowAutoConfiguration.java:57: *   <li>{@link FlowControllerProvider} - Provides flow controllers based on configuration\n/src/extensions/control-flow/src/main/java/org/geoserver/cloud/autoconfigure/extensions/controlflow/ControlFlowAutoConfiguration.java:89: * Sets up {@link ControlFlowConfigurator} and {@link FlowControllerProvider} when\n/src/extensions/control-flow/src/main/java/org/g"
+      },
+      {
+        "step": 10,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller*.java",
+          "path": "/src"
+        },
+        "result_head": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java\n/src/apps/geoserver/gwc/src/test/java/org/geoserver/cloud/gwc/app/DiskQuotaControllerPgconfigIT.java\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLIconsController.java\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLReflectorController.java\n/src/build-tools/spring-config-transpiler/src/test/java/org/geoserver/spring/config/test/components/ControllerAdviceComponent.java\n/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java\n/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceControllerAutoConfiguration.java\n/src/extensions/control-flow/src/main/java/org/geoserver/flow/controller/QueueControllerState.java\n/src/extensions/control-flow/src/test/java/org/geoserver/flow/controller/QueueControllerStateTest.java"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "RouterFunction|@Endpoint|addViewController|ServletRegistrationBean|@WebFilter|@WebServlet|HttpHandler"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 11,
+        "tool": "find",
+        "args": {
+          "path": "/src/apps/infrastructure/config",
+          "pattern": "*.java"
+        },
+        "result_head": "/src/apps/infrastructure/config/src/main/java/org/geoserver/cloud/config/ConfigApplication.java\n/src/apps/infrastructure/config/src/test/java/org/geoserver/cloud/config/ConfigApplicationTest.java"
+      },
+      {
+        "step": 12,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.gwc.app;\n7: \n8: import org.springframework.stereotype.Controller;\n9: import org.springframework.web.bind.annotation.GetMapping;\n10: import org.springframework.web.servlet.view.RedirectView;\n11: \n12: /** @since 1.0 */\n13: @Controller\n14: public class RootRedirectController {\n15: \n16:     @GetMapping(\"/\")\n17:     public RedirectView redirectRootToGetCapabilities() {\n18:         return new RedirectView(\"/gwc\");\n19:     }\n20: }"
+      },
+      {
+        "step": 12,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLIconsController.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.wms.controller.kml;\n7: \n8: import jakarta.servlet.http.HttpServletRequest;\n9: import jakarta.servlet.http.HttpServletRequestWrapper;\n10: import jakarta.servlet.http.HttpServletResponse;\n11: import lombok.NonNull;\n12: import lombok.RequiredArgsConstructor;\n13: import org.geoserver.kml.KMLReflector;\n14: import org.geoserver.wms.icons.IconService;\n15: import org.springframework.stereotype.Controller;\n16: import org.springframework.web.bind.annotation.GetMapping;\n17: \n18: /**\n19:  * Controller for KML icons at {@literal /kml/icon/**}.\n20:  *\n21:  * <p>Replaces {@code kmlURLMapping} in {@literal gs-kml.jar!/applicationContext.xml}\n22:  *\n23:  * <p>Note the upstream URL mappings for {@literal /kml} and {@literal /kml/**} seem to be not used at all, as all kml\n24:  * service re"
+      },
+      {
+        "step": 12,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLReflectorController.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.wms.controller.kml;\n7: \n8: import jakarta.servlet.http.HttpServletRequest;\n9: import jakarta.servlet.http.HttpServletResponse;\n10: import lombok.NonNull;\n11: import lombok.RequiredArgsConstructor;\n12: import org.geoserver.kml.KMLReflector;\n13: import org.geoserver.ows.Dispatcher;\n14: import org.springframework.stereotype.Controller;\n15: import org.springframework.web.bind.annotation.GetMapping;\n16: \n17: /**\n18:  * Controller for {@link KMLReflector} at {@literal /wms/kml?}/{@literal /{workspace}/wms/kml?}\n19:  *\n20:  * <p>Forwards to {@link Dispatcher}, to finally get the request intercepted by the\n21:  * {@code wmsServiceInterceptor-kmlReflector} method advice defined in {@literal gs-kml.jar!/applicationContext.xml}.\n22:  *\n23:  * @since 1.0\n24:  */\n25: @Controller\n26: "
+      },
+      {
+        "step": 12,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.autoconfigure.catalog.event;\n7: \n8: import jakarta.annotation.security.RolesAllowed;\n9: import lombok.NonNull;\n10: import lombok.RequiredArgsConstructor;\n11: import org.geoserver.cloud.event.UpdateSequenceEvent;\n12: import org.geoserver.config.GeoServer;\n13: import org.geoserver.platform.config.UpdateSequence;\n14: import org.springframework.context.ApplicationEventPublisher;\n15: import org.springframework.web.bind.annotation.GetMapping;\n16: import org.springframework.web.bind.annotation.PostMapping;\n17: import org.springframework.web.bind.annotation.RequestMapping;\n18: import org.springframework.web.bind.annotation.RestController;\n19: \n20: /** @since 1.0 */\n21: @RestController\n22: @RequestMapping({\"${geoserver.base-path:}\", \"${geoserver.base-path:}/\"})\n23: @RequiredArgsC"
+      },
+      {
+        "step": 13,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps",
+          "pattern": "catalog-events|gs-cloud-catalog-events|events"
+        },
+        "result_head": "/src/apps/geoserver/gwc/README.md:14: distributed events in order to react to changes in GeoServer that should affect the tile\n/src/apps/geoserver/gwc/src/test/resources/application-test.yml:30: # eventual consistency enfocement. Bus events may come out of order under stress"
+      },
+      {
+        "step": 13,
+        "tool": "find",
+        "args": {
+          "path": "/src/apps/infrastructure/gateway-webmvc",
+          "pattern": "*.yml"
+        },
+        "result_head": "/src/apps/infrastructure/gateway-webmvc/src/main/resources/application.yml\n/src/apps/infrastructure/gateway-webmvc/src/test/resources/application-test.yml"
+      },
+      {
+        "step": 14,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps",
+          "pattern": "artifactId"
+        },
+        "result_head": "/src/apps/base-images/geoserver/pom.xml:6: <artifactId>gs-cloud-base-images</artifactId>\n/src/apps/base-images/geoserver/pom.xml:9: <artifactId>gs-cloud-base-geoserver-image</artifactId>\n/src/apps/base-images/geoserver/pom.xml:14: <artifactId>gs-spring-configuration</artifactId>\n/src/apps/base-images/geoserver/pom.xml:18: <artifactId>spring-boot-simplejndi</artifactId>\n/src/apps/base-images/geoserver/pom.xml:24: <artifactId>gs-cloud-spring-boot-starter</artifactId>\n/src/apps/base-images/geoserver/pom.xml:29: <artifactId>gs-cloud-spring-cloud-starter</artifactId>\n/src/apps/base-images/geoserver/pom.xml:34: <artifactId>gs-cloud-starter-webmvc</artifactId>\n/src/apps/base-images/geoserver/pom.xml:39: <artifactId>gs-cloud-starter-extensions</artifactId>\n/src/apps/base-images/geoserver/pom.xml:43: <artifactId>gs-cloud-starter-security</artifactId>\n/src/apps/base-images/geoserver/pom.xml:47: <artifactId>gs-cloud-starter-observability</artifactId>\n/src/apps/base-images/geoserver/pom.xml:51: <a"
+      },
+      {
+        "step": 15,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/pom.xml",
+          "start": "1"
+        },
+        "result_head": "1: <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n2: <project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\n3:   <modelVersion>4.0.0</modelVersion>\n4:   <parent>\n5:     <groupId>org.geoserver.cloud.apps</groupId>\n6:     <artifactId>gs-cloud-apps</artifactId>\n7:     <version>${revision}</version>\n8:   </parent>\n9:   <artifactId>gs-cloud-services</artifactId>\n10:   <packaging>pom</packaging>\n11:   <name>GeoServer microservices</name>\n12:   <modules>\n13:     <module>wfs</module>\n14:     <module>wms</module>\n15:     <module>wcs</module>\n16:     <module>wps</module>\n17:     <module>restconfig</module>\n18:     <module>webui</module>\n19:     <module>gwc</module>\n20:   </modules>\n21:   <dependencyManagement>\n22:     <dependencies>\n23:       <dependency>\n24:         <!-- For testing service conditional annotations -->\n25:         <groupId>org.geoserver.cl"
+      },
+      {
+        "step": 16,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/infrastructure/gateway-webmvc/src/main/resources/application.yml"
+        },
+        "result_head": "1: server:\n2:   port: 8080\n3:   # Let spring-boot's ForwardedHeaderFilter take care of reflecting the client-originated protocol and address in the HttpServletRequest\n4:   forward-headers-strategy: framework\n5: \n6: spring:\n7:   application.name: gateway\n8:   threads.virtual.enabled: true\n9:   servlet:\n10:     # The gateway is a reverse proxy: request bodies and Content-Type headers must be forwarded\n11:     # verbatim to downstream services.\n12:     encoding:\n13:       # Disable CharacterEncodingFilter. It appends ';charset=UTF-8' to Content-Type headers\n14:       # (e.g. 'application/zip' becomes 'application/zip;charset=UTF-8'), which breaks\n15:       # downstream services that rely on exact media type matching.\n16:       enabled: false\n17:     multipart:\n18:       # Disable multipart request parsing so multipart/form-data bodies are streamed through\n19:       # to backend services without being consumed by the gateway.\n20:       enabled: false\n21:   config:\n22:     import:\n23:      "
+      },
+      {
+        "step": 17,
+        "tool": "find",
+        "args": {
+          "pattern": "gateway*.yml"
+        },
+        "result_head": "(no files)"
+      },
+      {
+        "step": 17,
+        "tool": "find",
+        "args": {
+          "pattern": "*.yml",
+          "path": "/src/apps/infrastructure/config"
+        },
+        "result_head": "/src/apps/infrastructure/config/src/main/resources/application.yml\n/src/apps/infrastructure/config/src/test/resources/application-test.yml\n/src/apps/infrastructure/config/src/test/resources/config/test-service-profile1.yml\n/src/apps/infrastructure/config/src/test/resources/config/test-service.yml"
+      },
+      {
+        "step": 18,
+        "tool": "grep",
+        "args": {
+          "path": "/src/starters",
+          "pattern": "Dispatcher|Servlet|Mapping"
+        },
+        "result_head": "/src/starters/observability/src/main/java/org/geoserver/cloud/autoconfigure/logging/accesslog/AccessLogServletAutoConfiguration.java:9: import org.geoserver.cloud.logging.accesslog.AccessLogServletFilter;\n/src/starters/observability/src/main/java/org/geoserver/cloud/autoconfigure/logging/accesslog/AccessLogServletAutoConfiguration.java:18: * Auto-configuration for access logging in Servlet applications.\n/src/starters/observability/src/main/java/org/geoserver/cloud/autoconfigure/logging/accesslog/AccessLogServletAutoConfiguration.java:20: * <p>This configuration automatically sets up the {@link AccessLogServletFilter} for servlet web applications, enabling\n/src/starters/observability/src/main/java/org/geoserver/cloud/autoconfigure/logging/accesslog/AccessLogServletAutoConfiguration.java:27: *   <li>The application is a Servlet web application ({@code spring.main.web-application-type=servlet})\n/src/starters/observability/src/main/java/org/geoserver/cloud/autoconfigure/logging/accesslog/A"
+      },
+      {
+        "step": 18,
+        "tool": "list_dir",
+        "args": {
+          "path": "/src/starters"
+        },
+        "result_head": "README.md\ncatalog-backend/\nextensions/\ninput-formats/\nobservability/\noutput-formats/\npom.xml\nsecurity/\nspring-boot/\nspring-cloud/\nwebmvc/"
+      },
+      {
+        "step": 19,
+        "tool": "grep",
+        "args": {
+          "path": "/src/starters/webmvc",
+          "pattern": "Mapping|Servlet|Dispatcher"
+        },
+        "result_head": "/src/starters/webmvc/src/main/java/org/geoserver/cloud/autoconfigure/context/GeoServerContextInitializer.java:8: import jakarta.servlet.ServletContext;\n/src/starters/webmvc/src/main/java/org/geoserver/cloud/autoconfigure/context/GeoServerContextInitializer.java:9: import jakarta.servlet.ServletContextEvent;\n/src/starters/webmvc/src/main/java/org/geoserver/cloud/autoconfigure/context/GeoServerContextInitializer.java:47: ServletContext source = mockServletContext();\n/src/starters/webmvc/src/main/java/org/geoserver/cloud/autoconfigure/context/GeoServerContextInitializer.java:48: ServletContextEvent sce = new ServletContextEvent(source);\n/src/starters/webmvc/src/main/java/org/geoserver/cloud/autoconfigure/context/GeoServerContextInitializer.java:53: protected ServletContext mockServletContext() {\n/src/starters/webmvc/src/main/java/org/geoserver/cloud/autoconfigure/context/GeoServerContextInitializer.java:60: return (ServletContext)\n/src/starters/webmvc/src/main/java/org/geoserver/cloud/aut"
+      },
+      {
+        "step": 20,
+        "tool": "find",
+        "args": {
+          "pattern": "*.go"
+        },
+        "result_head": "(no files)"
+      },
+      {
+        "step": 20,
+        "tool": "find",
+        "args": {
+          "pattern": "*.py"
+        },
+        "result_head": "/acceptance_tests/entrypoint.py"
+      },
+      {
+        "step": 20,
+        "tool": "find",
+        "args": {
+          "pattern": "package.json"
+        },
+        "result_head": "(no files)"
+      },
+      {
+        "step": 21,
+        "tool": "grep",
+        "args": {
+          "path": "/src/extensions",
+          "pattern": "@(RestController|Controller|RequestMapping|GetMapping|PostMapping|Path|GET|POST)"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 21,
+        "tool": "grep",
+        "args": {
+          "path": "/src/catalog",
+          "pattern": "@(RestController|Controller|RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping)"
+        },
+        "result_head": "/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java:21: @RestController\n/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java:22: @RequestMapping({\"${geoserver.base-path:}\", \"${geoserver.base-path:}/\"})\n/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java:32: @GetMapping(path = \"/admin/updatesequence\", produces = \"application/json\")\n/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java:40: @PostMapping(path = \"/admin/updatesequence\", produces = \"application/json\")"
+      },
+      {
+        "step": 22,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "catalog-events"
+        },
+        "result_head": "/src/catalog/README.md:34: * gs-cloud-catalog-events"
+      },
+      {
+        "step": 23,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "gs-cloud-catalog-events"
+        },
+        "result_head": "/src/catalog/README.md:34: * gs-cloud-catalog-events"
+      },
+      {
+        "step": 24,
+        "tool": "grep",
+        "args": {
+          "path": "/src/catalog/events/pom.xml",
+          "pattern": "artifactId"
+        },
+        "result_head": "/src/catalog/events/pom.xml:6: <artifactId>gs-cloud-catalog</artifactId>\n/src/catalog/events/pom.xml:9: <artifactId>gs-cloud-events</artifactId>\n/src/catalog/events/pom.xml:15: <artifactId>spring-cloud-bus</artifactId>\n/src/catalog/events/pom.xml:21: <artifactId>gs-jackson-bindings</artifactId>\n/src/catalog/events/pom.xml:25: <artifactId>gs-cloud-catalog-plugin</artifactId>\n/src/catalog/events/pom.xml:29: <artifactId>spring-boot-configuration-processor</artifactId>\n/src/catalog/events/pom.xml:34: <artifactId>spring-boot-autoconfigure-processor</artifactId>\n/src/catalog/events/pom.xml:39: <artifactId>gs-cloud-catalog-plugin</artifactId>\n/src/catalog/events/pom.xml:46: <artifactId>spring-boot-starter-test</artifactId>\n/src/catalog/events/pom.xml:51: <artifactId>spring-boot-starter-webmvc</artifactId>\n/src/catalog/events/pom.xml:56: <artifactId>spring-cloud-starter-bus-amqp</artifactId>\n/src/catalog/events/pom.xml:61: <artifactId>testcontainers-junit-jupiter</artifactId>\n/src/catalog/even"
+      },
+      {
+        "step": 24,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "catalog.event|events"
+        },
+        "result_head": "/src/apps/geoserver/gwc/README.md:14: distributed events in order to react to changes in GeoServer that should affect the tile\n/src/apps/geoserver/gwc/src/test/resources/application-test.yml:30: # eventual consistency enfocement. Bus events may come out of order under stress\n/src/build-tools/spring-config-transpiler/src/test/java/org/geoserver/spring/config/processor/TranspileXmlConfigAnnotationProcessorMethodGenerationTest.java:845: // NOTE: The _5d582b suffix prevents method name collisions across independent @Configuration classes.\n/src/build-tools/spring-config-transpiler/src/test/java/org/geoserver/spring/config/processor/TranspileXmlConfigAnnotationProcessorMethodGenerationTest.java:883: // NOTE: The _5d582b suffix prevents method name collisions across independent @Configuration classes.\n/src/build-tools/spring-config-transpiler/src/test/java/org/geoserver/spring/config/processor/TranspileXmlConfigAnnotationProcessorTest.java:867: * Verifies that setting {@code componentScanStra"
+      },
+      {
+        "step": 25,
+        "tool": "grep",
+        "args": {
+          "path": "/src/starters/catalog-backend",
+          "pattern": "artifactId"
+        },
+        "result_head": "/src/starters/catalog-backend/pom.xml:6: <artifactId>gs-cloud-starters</artifactId>\n/src/starters/catalog-backend/pom.xml:9: <artifactId>gs-cloud-starter-catalog-backend</artifactId>\n/src/starters/catalog-backend/pom.xml:15: <artifactId>gs-cloud-catalog-backend-datadir</artifactId>\n/src/starters/catalog-backend/pom.xml:19: <artifactId>gs-cloud-catalog-backend-pgconfig</artifactId>\n/src/starters/catalog-backend/pom.xml:23: <artifactId>gs-cloud-catalog-cache</artifactId>\n/src/starters/catalog-backend/pom.xml:27: <artifactId>gs-cloud-events</artifactId>"
+      },
+      {
+        "step": 25,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/geoserver",
+          "pattern": "catalog-backend|gs-cloud-events"
+        },
+        "result_head": "/src/apps/geoserver/restconfig/pom.xml:44: <artifactId>gs-cloud-catalog-backend-pgconfig</artifactId>"
+      },
+      {
+        "step": 26,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "gs-cloud-starter-catalog-backend"
+        },
+        "result_head": "/src/gwc/core/pom.xml:14: <artifactId>gs-cloud-starter-catalog-backend</artifactId>\n/src/pom.xml:1111: [ERROR]     +-org.geoserver.cloud:gs-cloud-starter-catalog-backend:jar:3.1.0-SNAPSHOT:compile\n/src/starters/README.md:44: ├── gs-cloud-starter-catalog-backend\n/src/starters/README.md:66: gs-cloud-starter-catalog-backend\n/src/starters/catalog-backend/README.md:1: # gs-cloud-starter-catalog-backend\n/src/starters/catalog-backend/pom.xml:9: <artifactId>gs-cloud-starter-catalog-backend</artifactId>\n/src/starters/security/pom.xml:15: <artifactId>gs-cloud-starter-catalog-backend</artifactId>\n/src/starters/webmvc/README.md:22: - `gs-cloud-starter-catalog-backend`: GeoServer catalog backend configuration\n/src/starters/webmvc/pom.xml:20: <artifactId>gs-cloud-starter-catalog-backend</artifactId>"
+      },
+      {
+        "step": 27,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/geoserver/webui/pom.xml",
+          "pattern": "artifactId"
+        },
+        "result_head": "/src/apps/geoserver/webui/pom.xml:6: <artifactId>gs-cloud-services</artifactId>\n/src/apps/geoserver/webui/pom.xml:9: <artifactId>gs-cloud-webui</artifactId>\n/src/apps/geoserver/webui/pom.xml:19: <artifactId>gs-cloud-starter-output-formats</artifactId>\n/src/apps/geoserver/webui/pom.xml:23: <artifactId>gs-main</artifactId>\n/src/apps/geoserver/webui/pom.xml:27: <artifactId>gs-web-core</artifactId>\n/src/apps/geoserver/webui/pom.xml:31: <artifactId>gs-web-sec-jdbc</artifactId>\n/src/apps/geoserver/webui/pom.xml:35: <artifactId>gs-web-sec-ldap</artifactId>\n/src/apps/geoserver/webui/pom.xml:39: <artifactId>gs-web-wms</artifactId>\n/src/apps/geoserver/webui/pom.xml:43: <artifactId>gs-web-wfs</artifactId>\n/src/apps/geoserver/webui/pom.xml:47: <artifactId>gs-web-wcs</artifactId>\n/src/apps/geoserver/webui/pom.xml:51: <artifactId>gs-wcs1_0</artifactId>\n/src/apps/geoserver/webui/pom.xml:55: <artifactId>gs-wcs1_1</artifactId>\n/src/apps/geoserver/webui/pom.xml:59: <artifactId>gs-wcs2_0</artifactId>\n/sr"
+      },
+      {
+        "step": 27,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/geoserver/wfs/pom.xml",
+          "pattern": "artifactId"
+        },
+        "result_head": "/src/apps/geoserver/wfs/pom.xml:6: <artifactId>gs-cloud-services</artifactId>\n/src/apps/geoserver/wfs/pom.xml:9: <artifactId>gs-cloud-wfs</artifactId>\n/src/apps/geoserver/wfs/pom.xml:19: <artifactId>gs-cloud-starter-output-formats</artifactId>\n/src/apps/geoserver/wfs/pom.xml:23: <artifactId>gs-wfs-core</artifactId>\n/src/apps/geoserver/wfs/pom.xml:27: <artifactId>gs-wfs1_x</artifactId>\n/src/apps/geoserver/wfs/pom.xml:31: <artifactId>gs-wfs2_x</artifactId>\n/src/apps/geoserver/wfs/pom.xml:36: <artifactId>gt-shapefile</artifactId>\n/src/apps/geoserver/wfs/pom.xml:40: <artifactId>gt-property</artifactId>\n/src/apps/geoserver/wfs/pom.xml:45: <artifactId>testcontainers-junit-jupiter</artifactId>\n/src/apps/geoserver/wfs/pom.xml:50: <artifactId>testcontainers-postgresql</artifactId>\n/src/apps/geoserver/wfs/pom.xml:55: <artifactId>spring-boot-configuration-processor</artifactId>\n/src/apps/geoserver/wfs/pom.xml:60: <artifactId>spring-boot-autoconfigure-processor</artifactId>\n/src/apps/geoserver/wfs"
+      },
+      {
+        "step": 28,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceControllerAutoConfiguration.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.autoconfigure.catalog.event;\n7: \n8: import org.geoserver.config.GeoServer;\n9: import org.geoserver.platform.config.UpdateSequence;\n10: import org.springframework.boot.autoconfigure.AutoConfiguration;\n11: import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;\n12: import org.springframework.context.ApplicationEventPublisher;\n13: import org.springframework.context.annotation.Bean;\n14: import org.springframework.context.annotation.Configuration;\n15: import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;\n16: \n17: /** @since 1.0 */\n18: @AutoConfiguration\n19: @SuppressWarnings(\"java:S1118\")\n20: // Suppress SonarLint warning, constructor needs to be public\n21: @ConditionalOnWebApplication\n22: @Configuration\n"
+      },
+      {
+        "step": 28,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/gwc/pom.xml",
+          "start": "1"
+        },
+        "result_head": "1: <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n2: <project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\n3:   <modelVersion>4.0.0</modelVersion>\n4:   <parent>\n5:     <groupId>org.geoserver.cloud.apps</groupId>\n6:     <artifactId>gs-cloud-services</artifactId>\n7:     <version>${revision}</version>\n8:   </parent>\n9:   <artifactId>gs-cloud-gwc</artifactId>\n10:   <packaging>jar</packaging>\n11:   <name>gwc-service</name>\n12:   <properties>\n13:     <start-class>org.geoserver.cloud.gwc.app.GeoWebCacheApplication</start-class>\n14:   </properties>\n15:   <dependencies>\n16:     <!-- Inherit common starters from parent pom -->\n17:     <dependency>\n18:       <groupId>org.geoserver.cloud.gwc</groupId>\n19:       <artifactId>gwc-cloud-spring-boot-starter</artifactId>\n20:     </dependency>\n21:     <dependency>\n22:       <groupId>org.geoserver</groupId>\n23:    "
+      },
+      {
+        "step": 29,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/infrastructure/config/src/main/resources/application.yml"
+        },
+        "result_head": "1: server:\n2:   tomcat:\n3:     max-connections: 1024    \n4:     threads:\n5:       min-spare: 1\n6:       max: 25\n7: \n8: spring:\n9:   application.name: config\n10:   threads.virtual.enabled: true\n11:   config:\n12:     import:\n13:       - classpath:geoserver_spring_boot_profiles.yml\n14:       - classpath:geoserver_spring_cloud_profiles.yml\n15:   profiles:\n16:     active: native\n17:   cloud:\n18:     # This is the config server, it doesn't need discovery to find itself\n19:     discovery.enabled: false\n20:     config:\n21:       # allow clients to override external property sources\n22:       allow-override: true\n23:       override-none: false\n24:       override-system-properties: false\n25:       server: # see https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server\n26:         enabled: true\n27:         bootstrap: false\n28:         default-application-name: application\n29:         git:\n30:           uri: ${config.git.uri}\n31:           default-label: ${config.git."
+      },
+      {
+        "step": 29,
+        "tool": "find",
+        "args": {
+          "pattern": "*.yml",
+          "path": "/compose"
+        },
+        "result_head": "/compose/acceptance.yml\n/compose/catalog-datadir.yml\n/compose/catalog-pgconfig.yml\n/compose/compose.yml\n/compose/infra.yml\n/compose/localports.yml\n/compose/monitoring.yml\n/compose/monitoring/grafana/provisioning/dashboards/dashboards.yml\n/compose/monitoring/grafana/provisioning/datasources/prometheus.yml\n/compose/monitoring/prometheus-consul.yml\n/compose/monitoring/prometheus.yml\n/compose/pgbouncer.yml\n/compose/standalone.yml\n/compose/templates.yml"
+      },
+      {
+        "step": 30,
+        "tool": "grep",
+        "args": {
+          "path": "/compose/compose.yml",
+          "pattern": "image:|container_name|^  [a-z]"
+        },
+        "result_head": "/compose/compose.yml:3: geowebcache_data:\n/compose/compose.yml:5: geoserver_data:\n/compose/compose.yml:11: rabbitmq:\n/compose/compose.yml:14: config:\n/compose/compose.yml:17: consul:\n/compose/compose.yml:20: acl:\n/compose/compose.yml:23: geodatabase:\n/compose/compose.yml:26: init-test-data:\n/compose/compose.yml:31: init-test-data:\n/compose/compose.yml:32: image: alpine:3.24.0\n/compose/compose.yml:40: acl:\n/compose/compose.yml:41: image: ${ACL_REPOSITORY}/geoserver-acl:${ACL_TAG}\n/compose/compose.yml:74: config:\n/compose/compose.yml:75: image: ${REPOSITORY}/geoserver-cloud-config:${TAG}\n/compose/compose.yml:97: consul:\n/compose/compose.yml:98: image: hashicorp/consul:1.22.5\n/compose/compose.yml:114: gateway:\n/compose/compose.yml:115: image: ${REPOSITORY}/geoserver-cloud-gateway:${TAG}\n/compose/compose.yml:136: wfs:\n/compose/compose.yml:140: image: ${REPOSITORY}/geoserver-cloud-wfs:${TAG}\n/compose/compose.yml:143: wms:\n/compose/compose.yml:144: image: ${REPOSITORY}/geoserver-cloud-wms:${"
+      },
+      {
+        "step": 31,
+        "tool": "list_dir",
+        "args": {
+          "path": "/docker-build"
+        },
+        "result_head": ".env\nbase-images.yml\ngeoserver.yml\ninfrastructure.yml\ntemplates.yml"
+      },
+      {
+        "step": 31,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/app/WmsApplication.java"
+        },
+        "result_head": "1: /* (c) 2020 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.wms.app;\n7: \n8: import org.geoserver.cloud.app.GeoServerApplicationLauncher;\n9: import org.springframework.boot.autoconfigure.SpringBootApplication;\n10: import org.springframework.retry.annotation.EnableRetry;\n11: \n12: @SpringBootApplication\n13: @EnableRetry\n14: public class WmsApplication {\n15: \n16:     public static void main(String... args) {\n17:         GeoServerApplicationLauncher.run(WmsApplication.class, args);\n18:     }\n19: }"
+      },
+      {
+        "step": 32,
+        "tool": "grep",
+        "args": {
+          "path": "/src/extensions",
+          "pattern": "Controller\\(|RestController|@RequestMapping"
+        },
+        "result_head": "/src/extensions/control-flow/src/main/java/org/geoserver/cloud/autoconfigure/extensions/controlflow/PropertiesControlFlowConfigurator.java:111: return new RateFlowController(requestMatcher, rate, interval, delay, keyGenerator);\n/src/extensions/control-flow/src/main/java/org/geoserver/cloud/autoconfigure/extensions/controlflow/PropertiesControlFlowConfigurator.java:160: controller = new GlobalFlowController(queueSize, buildBlocker(queueSize, priorityProvider));\n/src/extensions/control-flow/src/main/java/org/geoserver/cloud/autoconfigure/extensions/controlflow/PropertiesControlFlowConfigurator.java:165: controller = new BasicOWSController(keys[1], keys[2], keys[3], queueSize, threadBlocker);\n/src/extensions/control-flow/src/main/java/org/geoserver/cloud/autoconfigure/extensions/controlflow/PropertiesControlFlowConfigurator.java:167: controller = new BasicOWSController(keys[1], keys[2], queueSize, threadBlocker);\n/src/extensions/control-flow/src/main/java/org/geoserver/cloud/autoconfigure"
+      },
+      {
+        "step": 32,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "@ConditionalOnWebApplication|@SpringBootApplication"
+        },
+        "result_head": "/src/apps/base-images/geoserver/src/main/java/org/geoserver/cloud/app/dummy/DummyApp.java:11: @SpringBootApplication\n/src/apps/base-images/spring-boot/src/main/java/org/geoserver/cloud/app/dummy/DummyApp.java:11: @SpringBootApplication\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplication.java:12: @SpringBootApplication\n/src/apps/geoserver/restconfig/src/main/java/org/geoserver/cloud/restconfig/RestConfigApplication.java:18: @SpringBootApplication\n/src/apps/geoserver/wcs/src/main/java/org/geoserver/cloud/wcs/WcsApplication.java:12: @SpringBootApplication\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/web/app/WebUIApplication.java:15: @SpringBootApplication\n/src/apps/geoserver/wfs/src/main/java/org/geoserver/cloud/wfs/app/WfsApplication.java:12: @SpringBootApplication\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/app/WmsApplication.java:12: @SpringBootApplication\n/src/apps/geoserver/wps/src/main/java/org/geoserver/cloud/wps"
+      },
+      {
+        "step": 33,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main",
+          "pattern": "Mapping|Controller|mountPage|@Bean"
+        },
+        "result_head": "/src/main/src/main/java/org/geoserver/cloud/autoconfigure/geotools/GeoToolsHttpClientAutoConfiguration.java:76: @Bean\n/src/main/src/main/java/org/geoserver/cloud/autoconfigure/main/AccessDeniedPageAutoConfiguration.java:15: import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;\n/src/main/src/main/java/org/geoserver/cloud/autoconfigure/main/AccessDeniedPageAutoConfiguration.java:37: /** One step ahead of upstream's {@code filePublisherMapping}, registered at {@code -50}. */\n/src/main/src/main/java/org/geoserver/cloud/autoconfigure/main/AccessDeniedPageAutoConfiguration.java:40: @Bean\n/src/main/src/main/java/org/geoserver/cloud/autoconfigure/main/AccessDeniedPageAutoConfiguration.java:41: SimpleUrlHandlerMapping accessDeniedPageMapping(ResourceHttpRequestHandler accessDeniedPageHandler) {\n/src/main/src/main/java/org/geoserver/cloud/autoconfigure/main/AccessDeniedPageAutoConfiguration.java:42: return new SimpleUrlHandlerMapping(Map.of(ACCESS_DENIED_PAGE, accessDeniedPageH"
+      },
+      {
+        "step": 33,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/geoserver/webui",
+          "pattern": "mountPage|mount\\(|WicketFilter|filterPath|@GetMapping"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 34,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/src/main/java/org/geoserver/cloud/autoconfigure/main/AccessDeniedPageAutoConfiguration.java"
+        },
+        "result_head": "1: /* (c) 2026 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.autoconfigure.main;\n7: \n8: import java.util.List;\n9: import java.util.Map;\n10: import org.springframework.boot.autoconfigure.AutoConfiguration;\n11: import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;\n12: import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;\n13: import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication.Type;\n14: import org.springframework.context.annotation.Bean;\n15: import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;\n16: import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;\n17: \n18: /**\n19:  * Serves the {@code /accessDenied.html} page to which GeoServer's exception translation filters forward a 403.\n20:  *\n21:  * <p>GeoServer maps t"
+      },
+      {
+        "step": 35,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "setUrlMap|addPathPatterns|UrlHandlerMapping|addViewController|setViewName"
+        },
+        "result_head": "/src/build-tools/spring-config-transpiler/src/test/java/org/geoserver/spring/config/processor/TranspileXmlConfigAnnotationProcessorMethodGenerationTest.java:687: void testSimpleUrlHandlerMapping() {\n/src/build-tools/spring-config-transpiler/src/test/java/org/geoserver/spring/config/processor/TranspileXmlConfigAnnotationProcessorMethodGenerationTest.java:691: class=\"org.springframework.web.servlet.handler.SimpleUrlHandlerMapping\">\n/src/build-tools/spring-config-transpiler/src/test/java/org/geoserver/spring/config/processor/TranspileXmlConfigAnnotationProcessorMethodGenerationTest.java:706: org.springframework.web.servlet.handler.SimpleUrlHandlerMapping apiClasspathPublisherMapping() {\n/src/build-tools/spring-config-transpiler/src/test/java/org/geoserver/spring/config/processor/TranspileXmlConfigAnnotationProcessorMethodGenerationTest.java:707: org.springframework.web.servlet.handler.SimpleUrlHandlerMapping bean = new org.springframework.web.servlet.handler.SimpleUrlHandlerMapping();\n/sr"
+      },
+      {
+        "step": 36,
+        "tool": "grep",
+        "args": {
+          "path": "/src/gwc",
+          "pattern": "gs-cloud-starter-webmvc|gs-cloud-starter-catalog-backend"
+        },
+        "result_head": "/src/gwc/core/pom.xml:14: <artifactId>gs-cloud-starter-catalog-backend</artifactId>"
+      },
+      {
+        "step": 36,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/geoserver/restconfig/pom.xml",
+          "pattern": "artifactId"
+        },
+        "result_head": "/src/apps/geoserver/restconfig/pom.xml:6: <artifactId>gs-cloud-services</artifactId>\n/src/apps/geoserver/restconfig/pom.xml:9: <artifactId>gs-cloud-restconfig-v1</artifactId>\n/src/apps/geoserver/restconfig/pom.xml:19: <artifactId>gs-restconfig</artifactId>\n/src/apps/geoserver/restconfig/pom.xml:23: <artifactId>gs-restconfig-wcs</artifactId>\n/src/apps/geoserver/restconfig/pom.xml:27: <artifactId>gs-restconfig-wfs</artifactId>\n/src/apps/geoserver/restconfig/pom.xml:31: <artifactId>gs-restconfig-wms</artifactId>\n/src/apps/geoserver/restconfig/pom.xml:35: <artifactId>gs-restconfig-wmts</artifactId>\n/src/apps/geoserver/restconfig/pom.xml:40: <artifactId>gwc-cloud-spring-boot-starter</artifactId>\n/src/apps/geoserver/restconfig/pom.xml:44: <artifactId>gs-cloud-catalog-backend-pgconfig</artifactId>\n/src/apps/geoserver/restconfig/pom.xml:51: <artifactId>spring-boot-resttestclient</artifactId>\n/src/apps/geoserver/restconfig/pom.xml:56: <artifactId>testcontainers-postgresql</artifactId>\n/src/apps"
+      },
+      {
+        "step": 37,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "gs-cloud-main"
+        },
+        "result_head": "/src/apps/geoserver/wcs/pom.xml:43: <artifactId>gs-cloud-main</artifactId>\n/src/apps/geoserver/webui/pom.xml:140: <artifactId>gs-cloud-main</artifactId>\n/src/catalog/backends/common/pom.xml:15: <artifactId>gs-cloud-main</artifactId>\n/src/main/pom.xml:9: <artifactId>gs-cloud-main</artifactId>\n/src/starters/webmvc/pom.xml:60: <artifactId>gs-cloud-main</artifactId>"
+      },
+      {
+        "step": 37,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/gwc/autoconfigure/src/main/java/org/geoserver/cloud/autoconfigure/gwc/web/GeoWebCacheUIAutoConfiguration.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.autoconfigure.gwc.web;\n7: \n8: import jakarta.annotation.PostConstruct;\n9: import lombok.extern.slf4j.Slf4j;\n10: import org.geoserver.catalog.Catalog;\n11: import org.geoserver.cloud.autoconfigure.gwc.ConditionalOnGeoWebCacheRestConfigEnabled;\n12: import org.geoserver.cloud.autoconfigure.gwc.ConditionalOnWebUIEnabled;\n13: import org.geoserver.cloud.autoconfigure.gwc.GeoWebCacheConfigurationProperties;\n14: import org.geoserver.cloud.gwc.config.core.CloudGwcUrlHandlerMapping;\n15: import org.geoserver.gwc.controller.GwcUrlHandlerMapping;\n16: import org.geowebcache.rest.controller.ByteStreamController;\n17: import org.springframework.boot.autoconfigure.AutoConfiguration;\n18: import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;\n19: import org.springf"
+      },
+      {
+        "step": 38,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/base-images/geoserver/src/main/java/org/geoserver/cloud/app/dummy/DummyApp.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.app.dummy;\n7: \n8: import org.springframework.boot.autoconfigure.SpringBootApplication;\n9: \n10: /** @since 1.0 */\n11: @SpringBootApplication\n12: public class DummyApp {\n13: \n14:     public static void main(String... args) {\n15:         throw new UnsupportedOperationException();\n16:     }\n17: }"
+      },
+      {
+        "step": 38,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/base-images/spring-boot/src/main/java/org/geoserver/cloud/app/dummy/DummyApp.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.app.dummy;\n7: \n8: import org.springframework.boot.autoconfigure.SpringBootApplication;\n9: \n10: /** @since 1.0 */\n11: @SpringBootApplication\n12: public class DummyApp {\n13: \n14:     public static void main(String... args) {\n15:         throw new UnsupportedOperationException();\n16:     }\n17: }"
+      },
+      {
+        "step": 39,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/starters/catalog-backend/pom.xml"
+        },
+        "result_head": "1: <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n2: <project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\n3:   <modelVersion>4.0.0</modelVersion>\n4:   <parent>\n5:     <groupId>org.geoserver.cloud</groupId>\n6:     <artifactId>gs-cloud-starters</artifactId>\n7:     <version>${revision}</version>\n8:   </parent>\n9:   <artifactId>gs-cloud-starter-catalog-backend</artifactId>\n10:   <packaging>jar</packaging>\n11:   <description>Catalog backends starter</description>\n12:   <dependencies>\n13:     <dependency>\n14:       <groupId>org.geoserver.cloud.catalog.backend</groupId>\n15:       <artifactId>gs-cloud-catalog-backend-datadir</artifactId>\n16:     </dependency>\n17:     <dependency>\n18:       <groupId>org.geoserver.cloud.catalog.backend</groupId>\n19:       <artifactId>gs-cloud-catalog-backend-pgconfig</artifactId>\n20:     </dependency>\n21:     <dependency"
+      },
+      {
+        "step": 39,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/starters/webmvc/pom.xml"
+        },
+        "result_head": "1: <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n2: <project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\n3:   <modelVersion>4.0.0</modelVersion>\n4:   <parent>\n5:     <groupId>org.geoserver.cloud</groupId>\n6:     <artifactId>gs-cloud-starters</artifactId>\n7:     <version>${revision}</version>\n8:   </parent>\n9:   <artifactId>gs-cloud-starter-webmvc</artifactId>\n10:   <packaging>jar</packaging>\n11:   <description>Provides auto-configuration for servlet/webmvc GeoServer microservices</description>\n12:   <dependencies>\n13:     <!-- Base dependencies -->\n14:     <dependency>\n15:       <groupId>org.geoserver.cloud</groupId>\n16:       <artifactId>gs-cloud-spring-boot-starter</artifactId>\n17:     </dependency>\n18:     <dependency>\n19:       <groupId>org.geoserver.cloud</groupId>\n20:       <artifactId>gs-cloud-starter-catalog-backend</artifactId>\n21:   "
+      },
+      {
+        "step": 40,
+        "tool": "grep",
+        "args": {
+          "path": "/src/catalog/backends",
+          "pattern": "gs-cloud-catalog-backend-common|artifactId>gs-cloud-catalog-backend"
+        },
+        "result_head": "/src/catalog/backends/README.md:14: <artifactId>gs-cloud-catalog-backend-starter</artifactId>\n/src/catalog/backends/common/pom.xml:6: <artifactId>gs-cloud-catalog-backends</artifactId>\n/src/catalog/backends/common/pom.xml:9: <artifactId>gs-cloud-catalog-backend-common</artifactId>\n/src/catalog/backends/datadir/pom.xml:6: <artifactId>gs-cloud-catalog-backends</artifactId>\n/src/catalog/backends/datadir/pom.xml:9: <artifactId>gs-cloud-catalog-backend-datadir</artifactId>\n/src/catalog/backends/datadir/pom.xml:15: <artifactId>gs-cloud-catalog-backend-common</artifactId>\n/src/catalog/backends/datadir/src/test/java/org/geoserver/cloud/autoconfigure/catalog/backend/datadir/DataDirectoryAutoConfigurationTest.java:45: // AutoConfigurations from gs-cloud-catalog-backend-common\n/src/catalog/backends/datadir/src/test/java/org/geoserver/cloud/autoconfigure/catalog/backend/datadir/RemoteEventDataDirectoryAutoConfigurationTest.java:31: // AutoConfigurations from gs-cloud-catalog-backend-common\n/src/ca"
+      },
+      {
+        "step": 40,
+        "tool": "grep",
+        "args": {
+          "path": "/src/catalog/backends/common/pom.xml",
+          "pattern": "artifactId"
+        },
+        "result_head": "/src/catalog/backends/common/pom.xml:6: <artifactId>gs-cloud-catalog-backends</artifactId>\n/src/catalog/backends/common/pom.xml:9: <artifactId>gs-cloud-catalog-backend-common</artifactId>\n/src/catalog/backends/common/pom.xml:15: <artifactId>gs-cloud-main</artifactId>\n/src/catalog/backends/common/pom.xml:19: <artifactId>gs-spring-configuration</artifactId>\n/src/catalog/backends/common/pom.xml:23: <artifactId>gs-cloud-catalog-plugin</artifactId>\n/src/catalog/backends/common/pom.xml:27: <artifactId>gs-cloud-events</artifactId>\n/src/catalog/backends/common/pom.xml:32: <artifactId>spring-boot-starter-actuator</artifactId>\n/src/catalog/backends/common/pom.xml:37: <artifactId>spring-boot-configuration-processor</artifactId>\n/src/catalog/backends/common/pom.xml:42: <artifactId>spring-boot-autoconfigure-processor</artifactId>\n/src/catalog/backends/common/pom.xml:47: <artifactId>httpclient5</artifactId>\n/src/catalog/backends/common/pom.xml:51: <artifactId>gs-main</artifactId>\n/src/catalog/backen"
+      },
+      {
+        "step": 41,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/infrastructure/gateway-webmvc/pom.xml",
+          "pattern": "artifactId"
+        },
+        "result_head": "/src/apps/infrastructure/gateway-webmvc/pom.xml:6: <artifactId>gs-cloud-infrastructure</artifactId>\n/src/apps/infrastructure/gateway-webmvc/pom.xml:9: <artifactId>gs-cloud-gateway-webmvc</artifactId>\n/src/apps/infrastructure/gateway-webmvc/pom.xml:17: <artifactId>gs-cloud-spring-boot-starter</artifactId>\n/src/apps/infrastructure/gateway-webmvc/pom.xml:21: <artifactId>spring-cloud-starter-gateway-server-webmvc</artifactId>\n/src/apps/infrastructure/gateway-webmvc/pom.xml:25: <artifactId>reactor-netty-http</artifactId>\n/src/apps/infrastructure/gateway-webmvc/pom.xml:29: <artifactId>spring-boot-starter-web</artifactId>\n/src/apps/infrastructure/gateway-webmvc/pom.xml:33: <artifactId>spring-cloud-starter-consul-discovery</artifactId>\n/src/apps/infrastructure/gateway-webmvc/pom.xml:37: <artifactId>spring-cloud-loadbalancer</artifactId>\n/src/apps/infrastructure/gateway-webmvc/pom.xml:41: <artifactId>spring-cloud-config-client</artifactId>\n/src/apps/infrastructure/gateway-webmvc/pom.xml:45: <ar"
+      },
+      {
+        "step": 41,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/infrastructure/config/pom.xml",
+          "pattern": "artifactId"
+        },
+        "result_head": "/src/apps/infrastructure/config/pom.xml:6: <artifactId>gs-cloud-infrastructure</artifactId>\n/src/apps/infrastructure/config/pom.xml:9: <artifactId>gs-cloud-config-service</artifactId>\n/src/apps/infrastructure/config/pom.xml:19: <artifactId>gs-cloud-spring-boot-starter</artifactId>\n/src/apps/infrastructure/config/pom.xml:23: <artifactId>spring-cloud-config-server</artifactId>\n/src/apps/infrastructure/config/pom.xml:27: <artifactId>spring-boot-starter-aspectj</artifactId>\n/src/apps/infrastructure/config/pom.xml:31: <artifactId>spring-cloud-starter-consul-discovery</artifactId>\n/src/apps/infrastructure/config/pom.xml:35: <artifactId>spring-cloud-loadbalancer</artifactId>\n/src/apps/infrastructure/config/pom.xml:39: <artifactId>spring-boot-starter-actuator</artifactId>\n/src/apps/infrastructure/config/pom.xml:43: <artifactId>spring-retry</artifactId>\n/src/apps/infrastructure/config/pom.xml:47: <artifactId>spring-boot-resttestclient</artifactId>\n/src/apps/infrastructure/config/pom.xml:52: <ar"
+      },
+      {
+        "step": 42,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/src/apps/infrastructure/gateway-webmvc/src/main"
+        },
+        "result_head": "/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GatewayApplicationAutoconfiguration.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GlobalCorsProperties.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/NormalizedBasePathPropertySource.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/SecureHeadersProperties.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/SharedAuthConfigurationProperties.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/app/GatewayMvcApplication.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/filter/GatewaySharedAuth.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/filter/GeoServerGatewayFilterFunctions.j"
+      },
+      {
+        "step": 42,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/src/apps/infrastructure/config/src/main"
+        },
+        "result_head": "/src/apps/infrastructure/config/src/main/java/org/geoserver/cloud/config/ConfigApplication.java"
+      },
+      {
+        "step": 43,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GatewayApplicationAutoconfiguration.java"
+        },
+        "result_head": "1: /* (c) 2026 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.autoconfigure.gateway;\n7: \n8: import org.geoserver.cloud.gateway.filter.GeoServerGatewayFilterFunctions;\n9: import org.geoserver.cloud.gateway.filter.ProxyExceptionFilter;\n10: import org.geoserver.cloud.gateway.predicate.GeoServerGatewayRequestPredicates;\n11: import org.springframework.beans.factory.config.BeanFactoryPostProcessor;\n12: import org.springframework.boot.autoconfigure.AutoConfiguration;\n13: import org.springframework.boot.context.properties.EnableConfigurationProperties;\n14: import org.springframework.cloud.gateway.server.mvc.filter.FilterSupplier;\n15: import org.springframework.cloud.gateway.server.mvc.predicate.PredicateSupplier;\n16: import org.springframework.context.annotation.Bean;\n17: import org.springframework.core.env.ConfigurableEnvironment;\n18: imp"
+      },
+      {
+        "step": 44,
+        "tool": "grep",
+        "args": {
+          "pattern": "spring.cloud.gateway.server.webmvc.routes|gateway.server.webmvc",
+          "path": "/"
+        },
+        "result_head": "/docs/dockerhub/geoserver-cloud-gateway.md:16: This image runs the **Gateway** service, built on [Spring Cloud Gateway Server MVC](https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway-server-webmvc.html) (servlet model with v\n/docs/src/configuration/migration-2.28-to-3.0.md:94: | Config namespace | `spring.cloud.gateway.server.webflux` | `spring.cloud.gateway.server.webmvc` |\n/docs/src/configuration/migration-2.28-to-3.0.md:112: spring.cloud.gateway.server.webmvc:\n/docs/src/configuration/migration-2.28-to-3.0.md:123: spring.cloud.gateway.server.webmvc:\n/docs/src/configuration/migration-2.28-to-3.0.md:167: For the default WebMVC gateway, routes are under `spring.cloud.gateway.server.webmvc.routes`.\n/docs/src/configuration/migration-2.28-to-3.0.md:225: 4. **Update Gateway Configurations** (if customized): If you have not modified the default gateway configuration, no action is needed — the new WebMVC gateway works out of the box. If you have custom \n/docs/src/develo"
+      },
+      {
+        "step": 44,
+        "tool": "find",
+        "args": {
+          "pattern": "*gateway*",
+          "path": "/config"
+        },
+        "result_head": "(no files)"
+      },
+      {
+        "step": 45,
+        "tool": "find",
+        "args": {
+          "pattern": "*gateway*",
+          "path": "/"
+        },
+        "result_head": "/docs/dockerhub/geoserver-cloud-gateway.md\n/docs/src/developer-guide/services/gateway-service.md\n/src/apps/infrastructure/gateway-webmvc/Dockerfile\n/src/apps/infrastructure/gateway-webmvc/README.md\n/src/apps/infrastructure/gateway-webmvc/pom.xml\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GatewayApplicationAutoconfiguration.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GlobalCorsProperties.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/NormalizedBasePathPropertySource.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/SecureHeadersProperties.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/SharedAuthConfigurationProperties.java\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/app/GatewayMvcAppli"
+      },
+      {
+        "step": 46,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/infrastructure/gateway-webmvc/src/main/resources/application.yml"
+        },
+        "result_head": "1: server:\n2:   port: 8080\n3:   # Let spring-boot's ForwardedHeaderFilter take care of reflecting the client-originated protocol and address in the HttpServletRequest\n4:   forward-headers-strategy: framework\n5: \n6: spring:\n7:   application.name: gateway\n8:   threads.virtual.enabled: true\n9:   servlet:\n10:     # The gateway is a reverse proxy: request bodies and Content-Type headers must be forwarded\n11:     # verbatim to downstream services.\n12:     encoding:\n13:       # Disable CharacterEncodingFilter. It appends ';charset=UTF-8' to Content-Type headers\n14:       # (e.g. 'application/zip' becomes 'application/zip;charset=UTF-8'), which breaks\n15:       # downstream services that rely on exact media type matching.\n16:       enabled: false\n17:     multipart:\n18:       # Disable multipart request parsing so multipart/form-data bodies are streamed through\n19:       # to backend services without being consumed by the gateway.\n20:       enabled: false\n21:   config:\n22:     import:\n23:      "
+      },
+      {
+        "step": 47,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.gwc.app;\n7: \n8: import org.springframework.stereotype.Controller;\n9: import org.springframework.web.bind.annotation.GetMapping;\n10: import org.springframework.web.servlet.view.RedirectView;\n11: \n12: /** @since 1.0 */\n13: @Controller\n14: public class RootRedirectController {\n15: \n16:     @GetMapping(\"/\")\n17:     public RedirectView redirectRootToGetCapabilities() {\n18:         return new RedirectView(\"/gwc\");\n19:     }\n20: }"
+      },
+      {
+        "step": 48,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/src/apps/geoserver/wms/src/main"
+        },
+        "result_head": "/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/autoconfigure/wms/KMLAutoConfiguration.java\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/autoconfigure/wms/WmsApplicationAutoConfiguration.java\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/app/StatusCodeWmsExceptionHandler.java\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/app/WmsApplication.java\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLIconsController.java\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLReflectorController.java"
+      },
+      {
+        "step": 48,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/src/apps/geoserver/wps/src/main"
+        },
+        "result_head": "/src/apps/geoserver/wps/src/main/java/org/geoserver/cloud/wps/WpsApplication.java\n/src/apps/geoserver/wps/src/main/java/org/geoserver/cloud/wps/WpsApplicationConfiguration.java"
+      },
+      {
+        "step": 49,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLIconsController.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.wms.controller.kml;\n7: \n8: import jakarta.servlet.http.HttpServletRequest;\n9: import jakarta.servlet.http.HttpServletRequestWrapper;\n10: import jakarta.servlet.http.HttpServletResponse;\n11: import lombok.NonNull;\n12: import lombok.RequiredArgsConstructor;\n13: import org.geoserver.kml.KMLReflector;\n14: import org.geoserver.wms.icons.IconService;\n15: import org.springframework.stereotype.Controller;\n16: import org.springframework.web.bind.annotation.GetMapping;\n17: \n18: /**\n19:  * Controller for KML icons at {@literal /kml/icon/**}.\n20:  *\n21:  * <p>Replaces {@code kmlURLMapping} in {@literal gs-kml.jar!/applicationContext.xml}\n22:  *\n23:  * <p>Note the upstream URL mappings for {@literal /kml} and {@literal /kml/**} seem to be not used at all, as all kml\n24:  * service re"
+      },
+      {
+        "step": 49,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLReflectorController.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.wms.controller.kml;\n7: \n8: import jakarta.servlet.http.HttpServletRequest;\n9: import jakarta.servlet.http.HttpServletResponse;\n10: import lombok.NonNull;\n11: import lombok.RequiredArgsConstructor;\n12: import org.geoserver.kml.KMLReflector;\n13: import org.geoserver.ows.Dispatcher;\n14: import org.springframework.stereotype.Controller;\n15: import org.springframework.web.bind.annotation.GetMapping;\n16: \n17: /**\n18:  * Controller for {@link KMLReflector} at {@literal /wms/kml?}/{@literal /{workspace}/wms/kml?}\n19:  *\n20:  * <p>Forwards to {@link Dispatcher}, to finally get the request intercepted by the\n21:  * {@code wmsServiceInterceptor-kmlReflector} method advice defined in {@literal gs-kml.jar!/applicationContext.xml}.\n22:  *\n23:  * @since 1.0\n24:  */\n25: @Controller\n26: "
+      },
+      {
+        "step": 50,
+        "tool": "grep",
+        "args": {
+          "pattern": "@(Get|Post|Put|Delete|Patch|Request)Mapping",
+          "path": "/src"
+        },
+        "result_head": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java:16: @GetMapping(\"/\")\n/src/apps/geoserver/gwc/src/main/resources/application.yml:27: # gwc.context.suffix is used by gwc rest controllers # (e.g. @RequestMapping(path = \"${gwc.context.suffix:}/rest\"))\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLIconsController.java:44: @GetMapping(path = \"/kml/icon/**\")\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLReflectorController.java:31: @GetMapping(path = {\"/wms/kml\", \"/{workspace}/wms/kml\"})\n/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java:22: @RequestMapping({\"${geoserver.base-path:}\", \"${geoserver.base-path:}/\"})\n/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java:32: @GetMapping(path = \"/admin/updatesequence\", produces = \"application/json\")\n/src/catalog/events/"
+      },
+      {
+        "step": 51,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.autoconfigure.catalog.event;\n7: \n8: import jakarta.annotation.security.RolesAllowed;\n9: import lombok.NonNull;\n10: import lombok.RequiredArgsConstructor;\n11: import org.geoserver.cloud.event.UpdateSequenceEvent;\n12: import org.geoserver.config.GeoServer;\n13: import org.geoserver.platform.config.UpdateSequence;\n14: import org.springframework.context.ApplicationEventPublisher;\n15: import org.springframework.web.bind.annotation.GetMapping;\n16: import org.springframework.web.bind.annotation.PostMapping;\n17: import org.springframework.web.bind.annotation.RequestMapping;\n18: import org.springframework.web.bind.annotation.RestController;\n19: \n20: /** @since 1.0 */\n21: @RestController\n22: @RequestMapping({\"${geoserver.base-path:}\", \"${geoserver.base-path:}/\"})\n23: @RequiredArgsC"
+      },
+      {
+        "step": 51,
+        "tool": "grep",
+        "args": {
+          "pattern": "@Endpoint|@WebEndpoint|@RestControllerEndpoint|@ServletEndpoint",
+          "path": "/src"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 52,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/pom.xml"
+        },
+        "result_head": "1: <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n2: <project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\n3:   <modelVersion>4.0.0</modelVersion>\n4:   <parent>\n5:     <groupId>org.geoserver.cloud.apps</groupId>\n6:     <artifactId>gs-cloud-apps</artifactId>\n7:     <version>${revision}</version>\n8:   </parent>\n9:   <artifactId>gs-cloud-services</artifactId>\n10:   <packaging>pom</packaging>\n11:   <name>GeoServer microservices</name>\n12:   <modules>\n13:     <module>wfs</module>\n14:     <module>wms</module>\n15:     <module>wcs</module>\n16:     <module>wps</module>\n17:     <module>restconfig</module>\n18:     <module>webui</module>\n19:     <module>gwc</module>\n20:   </modules>\n21:   <dependencyManagement>\n22:     <dependencies>\n23:       <dependency>\n24:         <!-- For testing service conditional annotations -->\n25:         <groupId>org.geoserver.cl"
+      },
+      {
+        "step": 53,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/src/apps/geoserver/webui/src/main"
+        },
+        "result_head": "/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/cloudnative/CloudNativeUIAutoConfiguration.java\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/AbstractWebUIAutoConfiguration.java\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/WebUIApplicationAutoConfiguration.java\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/WebUIConfigurationProperties.java\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/WebUIContextInitializer.java\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/WebUIInitializer.java\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/WicketComponentFilter.java\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/demo/DemoRequestsAutoConfiguration.java\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigu"
+      },
+      {
+        "step": 53,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/src/apps/geoserver/restconfig/src/main"
+        },
+        "result_head": "/src/apps/geoserver/restconfig/src/main/java/org/geoserver/cloud/restconfig/RestConfigApplication.java\n/src/apps/geoserver/restconfig/src/main/java/org/geoserver/cloud/restconfig/RestConfigApplicationConfiguration.java"
+      },
+      {
+        "step": 54,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/web/app/WebUIApplication.java"
+        },
+        "result_head": "1: /* (c) 2020 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.web.app;\n7: \n8: import org.geoserver.cloud.app.GeoServerApplicationLauncher;\n9: import org.springframework.boot.autoconfigure.SpringBootApplication;\n10: import org.springframework.boot.context.event.ApplicationReadyEvent;\n11: import org.springframework.context.event.EventListener;\n12: import org.springframework.core.env.ConfigurableEnvironment;\n13: import org.springframework.retry.annotation.EnableRetry;\n14: \n15: @SpringBootApplication\n16: @EnableRetry\n17: public class WebUIApplication {\n18: \n19:     public static void main(String... args) {\n20:         GeoServerApplicationLauncher.run(WebUIApplication.class, args);\n21:     }\n22: \n23:     @EventListener(ApplicationReadyEvent.class)\n24:     public void onApplicationReady(ApplicationReadyEvent e) {\n25:         Configurable"
+      },
+      {
+        "step": 54,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/WebUIApplicationAutoConfiguration.java"
+        },
+        "result_head": "1: /* (c) 2020 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.autoconfigure.web.core;\n7: \n8: import org.geoserver.cloud.autoconfigure.core.GeoServerMainAutoConfiguration;\n9: import org.geoserver.cloud.autoconfigure.web.demo.WebDemosAutoConfiguration;\n10: import org.geoserver.cloud.autoconfigure.web.security.WebSecCoreAutoConfiguration;\n11: import org.geoserver.cloud.autoconfigure.web.tools.WebToolsAutoConfiguration;\n12: import org.geoserver.cloud.autoconfigure.web.wcs.WebWcsAutoConfiguration;\n13: import org.geoserver.cloud.autoconfigure.web.wfs.WebWfsAutoConfiguration;\n14: import org.geoserver.cloud.autoconfigure.web.wms.WebWmsAutoConfiguration;\n15: import org.geoserver.cloud.autoconfigure.web.wps.WebWpsAutoConfiguration;\n16: import org.geoserver.configuration.core.web.WebCoreConfiguration;\n17: import org.geoserver.configuration.co"
+      },
+      {
+        "step": 55,
+        "tool": "grep",
+        "args": {
+          "pattern": "mountPage|mountBookmarkablePage|mount\\(",
+          "path": "/src/apps/geoserver/webui"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 55,
+        "tool": "grep",
+        "args": {
+          "pattern": "@Path|@GET|@POST|@Produces|@Consumes",
+          "path": "/src"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 56,
+        "tool": "list_dir",
+        "args": {
+          "path": "/src/apps"
+        },
+        "result_head": "base-images/\ngeoserver/\ninfrastructure/\npom.xml"
+      },
+      {
+        "step": 56,
+        "tool": "grep",
+        "args": {
+          "pattern": "Controller|@RequestMapping|HandlerMapping",
+          "path": "/src/gwc"
+        },
+        "result_head": "/src/gwc/autoconfigure/src/main/java/org/geoserver/cloud/autoconfigure/gwc/ConditionalOnGeoWebCacheRestConfigEnabled.java:20: @ConditionalOnClass(name = \"org.geowebcache.rest.controller.GWCController\")\n/src/gwc/autoconfigure/src/main/java/org/geoserver/cloud/autoconfigure/gwc/service/GwcRestServiceAutoConfiguration.java:13: import org.geoserver.rest.RestControllerAdvice;\n/src/gwc/autoconfigure/src/main/java/org/geoserver/cloud/autoconfigure/gwc/service/GwcRestServiceAutoConfiguration.java:36: * Since we don't scan the {@literal org.geoserver.rest}, we need a {@link RestControllerAdvice} explicitly to\n/src/gwc/autoconfigure/src/main/java/org/geoserver/cloud/autoconfigure/gwc/service/GwcRestServiceAutoConfiguration.java:43: RestControllerAdvice restControllerAdvice() {\n/src/gwc/autoconfigure/src/main/java/org/geoserver/cloud/autoconfigure/gwc/service/GwcRestServiceAutoConfiguration.java:44: return new RestControllerAdvice();\n/src/gwc/autoconfigure/src/main/java/org/geoserver/cloud/autoco"
+      },
+      {
+        "step": 57,
+        "tool": "find",
+        "args": {
+          "pattern": "gateway.yml"
+        },
+        "result_head": "(no files)"
+      },
+      {
+        "step": 57,
+        "tool": "grep",
+        "args": {
+          "pattern": "web.bind.annotation|jakarta.ws.rs|javax.ws.rs",
+          "path": "/src"
+        },
+        "result_head": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java:9: import org.springframework.web.bind.annotation.GetMapping;\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLIconsController.java:16: import org.springframework.web.bind.annotation.GetMapping;\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLReflectorController.java:15: import org.springframework.web.bind.annotation.GetMapping;\n/src/build-tools/spring-config-transpiler/src/test/java/org/geoserver/spring/config/test/components/ControllerAdviceComponent.java:7: import org.springframework.web.bind.annotation.ControllerAdvice;\n/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java:15: import org.springframework.web.bind.annotation.GetMapping;\n/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java:16: import org.springframe"
+      },
+      {
+        "step": 58,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile",
+          "path": "/src/apps"
+        },
+        "result_head": "/src/apps/base-images/geoserver/Dockerfile\n/src/apps/base-images/jre/Dockerfile\n/src/apps/base-images/spring-boot/Dockerfile\n/src/apps/geoserver/gwc/Dockerfile\n/src/apps/geoserver/restconfig/Dockerfile\n/src/apps/geoserver/wcs/Dockerfile\n/src/apps/geoserver/webui/Dockerfile\n/src/apps/geoserver/wfs/Dockerfile\n/src/apps/geoserver/wms/Dockerfile\n/src/apps/geoserver/wps/Dockerfile\n/src/apps/infrastructure/config/Dockerfile\n/src/apps/infrastructure/gateway-webmvc/Dockerfile"
+      },
+      {
+        "step": 58,
+        "tool": "read_file",
+        "args": {
+          "path": "/docker-build/geoserver.yml"
+        },
+        "result_head": "1: services:\n2:   wfs:\n3:     extends:\n4:       file: templates.yml\n5:       service: current-platform\n6:     image: ${REPOSITORY}/geoserver-cloud-wfs:${TAG}\n7:     build:\n8:       context: ../src/apps/geoserver/wfs/\n9: \n10:   wms:\n11:     extends:\n12:       file: templates.yml\n13:       service: current-platform\n14:     image: ${REPOSITORY}/geoserver-cloud-wms:${TAG}\n15:     build:\n16:       context: ../src/apps/geoserver/wms/\n17: \n18:   wcs:\n19:     extends:\n20:       file: templates.yml\n21:       service: current-platform\n22:     image: ${REPOSITORY}/geoserver-cloud-wcs:${TAG}\n23:     build:\n24:       context: ../src/apps/geoserver/wcs/\n25: \n26:   wps:\n27:     extends:\n28:       file: templates.yml\n29:       service: current-platform\n30:     image: ${REPOSITORY}/geoserver-cloud-wps:${TAG}\n31:     build:\n32:       context: ../src/apps/geoserver/wps/\n33: \n34:   restconfig:\n35:     extends:\n36:       file: templates.yml\n37:       service: current-platform\n38:     image: ${REPOSITORY}/g"
+      },
+      {
+        "step": 59,
+        "tool": "grep",
+        "args": {
+          "pattern": "artifactId>gs-spring-configuration|artifactId>spring-boot-simplejndi",
+          "path": "/src"
+        },
+        "result_head": "/src/apps/base-images/geoserver/pom.xml:14: <artifactId>gs-spring-configuration</artifactId>\n/src/apps/base-images/geoserver/pom.xml:18: <artifactId>spring-boot-simplejndi</artifactId>\n/src/apps/geoserver/pom.xml:37: <artifactId>gs-spring-configuration</artifactId>\n/src/apps/geoserver/pom.xml:41: <artifactId>spring-boot-simplejndi</artifactId>\n/src/catalog/backends/common/pom.xml:19: <artifactId>gs-spring-configuration</artifactId>\n/src/catalog/backends/pgconfig/pom.xml:38: <artifactId>spring-boot-simplejndi</artifactId>\n/src/config/geoserver-configuration/pom.xml:9: <artifactId>gs-spring-configuration</artifactId>\n/src/config/spring-boot-simplejndi/pom.xml:9: <artifactId>spring-boot-simplejndi</artifactId>\n/src/extensions/core/pom.xml:18: <artifactId>gs-spring-configuration</artifactId>\n/src/extensions/pom.xml:31: <artifactId>gs-spring-configuration</artifactId>\n/src/main/pom.xml:18: <artifactId>gs-spring-configuration</artifactId>"
+      },
+      {
+        "step": 59,
+        "tool": "list_dir",
+        "args": {
+          "path": "/src"
+        },
+        "result_head": "apps/\nbuild-tools/\ncatalog/\nconfig/\nextensions/\ngwc/\nlombok.config\nmain/\npom.xml\nstarters/"
+      },
+      {
+        "step": 60,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/gwc/autoconfigure/src/main/java/org/geoserver/cloud/autoconfigure/gwc/ConditionalOnWebUIEnabled.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.autoconfigure.gwc;\n7: \n8: import java.lang.annotation.Documented;\n9: import java.lang.annotation.ElementType;\n10: import java.lang.annotation.Retention;\n11: import java.lang.annotation.RetentionPolicy;\n12: import java.lang.annotation.Target;\n13: import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;\n14: \n15: /**\n16:  * Conditionals:\n17:  *\n18:  * <ul>\n19:  *   <li>{@literal gwc.enabled=true}: Core gwc integration is enabled\n20:  *   <li>{@literal gwc.web-ui=true}: gwc web-ui is enabled\n21:  * </ul>\n22:  *\n23:  * @since 1.0\n24:  */\n25: @Retention(RetentionPolicy.RUNTIME)\n26: @Target({ElementType.METHOD, ElementType.TYPE})\n27: @Documented\n28: @ConditionalOnGeoWebCacheEnabled\n29: @ConditionalOnProperty(\n30:         name = GeoWebCacheConfigurationProp"
+      },
+      {
+        "step": 60,
+        "tool": "grep",
+        "args": {
+          "pattern": "gwc-cloud-spring-boot-starter",
+          "path": "/src"
+        },
+        "result_head": "/src/apps/geoserver/gwc/pom.xml:19: <artifactId>gwc-cloud-spring-boot-starter</artifactId>\n/src/apps/geoserver/restconfig/pom.xml:40: <artifactId>gwc-cloud-spring-boot-starter</artifactId>\n/src/apps/geoserver/webui/pom.xml:107: <artifactId>gwc-cloud-spring-boot-starter</artifactId>\n/src/apps/geoserver/webui/pom.xml:110: <!-- add gs-web-gwc, optional in gwc-cloud-spring-boot-starter -->\n/src/apps/geoserver/wms/pom.xml:50: <artifactId>gwc-cloud-spring-boot-starter</artifactId>\n/src/gwc/starter/pom.xml:9: <artifactId>gwc-cloud-spring-boot-starter</artifactId>\n/src/pom.xml:1150: [ERROR]   +-org.geoserver.cloud.gwc:gwc-cloud-spring-boot-starter:jar:3.1.0-SNAPSHOT:compile"
+      },
+      {
+        "step": 61,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "gs-cloud-catalog-events|gs-cloud-starter-catalog-events"
+        },
+        "result_head": "/src/catalog/README.md:34: * gs-cloud-catalog-events"
+      },
+      {
+        "step": 62,
+        "tool": "grep",
+        "args": {
+          "path": "/src/catalog/events/pom.xml",
+          "pattern": "artifactId"
+        },
+        "result_head": "/src/catalog/events/pom.xml:6: <artifactId>gs-cloud-catalog</artifactId>\n/src/catalog/events/pom.xml:9: <artifactId>gs-cloud-events</artifactId>\n/src/catalog/events/pom.xml:15: <artifactId>spring-cloud-bus</artifactId>\n/src/catalog/events/pom.xml:21: <artifactId>gs-jackson-bindings</artifactId>\n/src/catalog/events/pom.xml:25: <artifactId>gs-cloud-catalog-plugin</artifactId>\n/src/catalog/events/pom.xml:29: <artifactId>spring-boot-configuration-processor</artifactId>\n/src/catalog/events/pom.xml:34: <artifactId>spring-boot-autoconfigure-processor</artifactId>\n/src/catalog/events/pom.xml:39: <artifactId>gs-cloud-catalog-plugin</artifactId>\n/src/catalog/events/pom.xml:46: <artifactId>spring-boot-starter-test</artifactId>\n/src/catalog/events/pom.xml:51: <artifactId>spring-boot-starter-webmvc</artifactId>\n/src/catalog/events/pom.xml:56: <artifactId>spring-cloud-starter-bus-amqp</artifactId>\n/src/catalog/events/pom.xml:61: <artifactId>testcontainers-junit-jupiter</artifactId>\n/src/catalog/even"
+      },
+      {
+        "step": 62,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "catalog-events"
+        },
+        "result_head": "/src/catalog/README.md:34: * gs-cloud-catalog-events"
+      },
+      {
+        "step": 63,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "gs-cloud-events"
+        },
+        "result_head": "/src/catalog/backends/common/pom.xml:27: <artifactId>gs-cloud-events</artifactId>\n/src/catalog/backends/datadir/pom.xml:19: <artifactId>gs-cloud-events</artifactId>\n/src/catalog/backends/pgconfig/pom.xml:19: <artifactId>gs-cloud-events</artifactId>\n/src/catalog/cache/pom.xml:19: <artifactId>gs-cloud-events</artifactId>\n/src/catalog/events/pom.xml:9: <artifactId>gs-cloud-events</artifactId>\n/src/extensions/security/gateway-shared-auth/pom.xml:25: <artifactId>gs-cloud-events</artifactId>\n/src/gwc/autoconfigure/pom.xml:26: <artifactId>gs-cloud-events</artifactId>\n/src/main/pom.xml:22: <artifactId>gs-cloud-events</artifactId>\n/src/starters/catalog-backend/pom.xml:27: <artifactId>gs-cloud-events</artifactId>\n/src/starters/spring-cloud/pom.xml:29: <artifactId>gs-cloud-events</artifactId>"
+      },
+      {
+        "step": 64,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps",
+          "pattern": "gs-cloud-spring-cloud-starter"
+        },
+        "result_head": "/src/apps/base-images/geoserver/pom.xml:29: <artifactId>gs-cloud-spring-cloud-starter</artifactId>\n/src/apps/geoserver/pom.xml:52: <artifactId>gs-cloud-spring-cloud-starter</artifactId>"
+      },
+      {
+        "step": 64,
+        "tool": "grep",
+        "args": {
+          "path": "/src/starters/spring-cloud/pom.xml",
+          "pattern": "artifactId"
+        },
+        "result_head": "/src/starters/spring-cloud/pom.xml:6: <artifactId>gs-cloud-starters</artifactId>\n/src/starters/spring-cloud/pom.xml:9: <artifactId>gs-cloud-spring-cloud-starter</artifactId>\n/src/starters/spring-cloud/pom.xml:16: <artifactId>spring-cloud-starter-consul-discovery</artifactId>\n/src/starters/spring-cloud/pom.xml:20: <artifactId>spring-cloud-loadbalancer</artifactId>\n/src/starters/spring-cloud/pom.xml:24: <artifactId>spring-cloud-config-client</artifactId>\n/src/starters/spring-cloud/pom.xml:29: <artifactId>gs-cloud-events</artifactId>\n/src/starters/spring-cloud/pom.xml:33: <artifactId>spring-cloud-starter-bus-amqp</artifactId>\n/src/starters/spring-cloud/pom.xml:39: <artifactId>spring-retry</artifactId>"
+      },
+      {
+        "step": 65,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "WebMvcConfigurer|addInterceptors|addResourceHandlers|ErrorController|@ControllerAdvice"
+        },
+        "result_head": "/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/filter/ProxyExceptionFilter.java:57: // let other handlers (like @ControllerAdvice) handle non-connection errors\n/src/build-tools/spring-config-transpiler/src/test/java/org/geoserver/spring/config/processor/TranspileXmlConfigAnnotationProcessorMethodGenerationTest.java:2203: .as(\"Should contain @ControllerAdvice bean (meta-annotated with @Component)\")\n/src/build-tools/spring-config-transpiler/src/test/java/org/geoserver/spring/config/processor/TranspileXmlConfigAnnotationProcessorTest.java:972: .as(\"Should generate @Bean method for @ControllerAdvice (meta-annotated with @Component)\")\n/src/build-tools/spring-config-transpiler/src/test/java/org/geoserver/spring/config/test/components/ControllerAdviceComponent.java:9: /** @ControllerAdvice-annotated class for testing GENERATE mode picks up non-stereotype @Component meta-annotations. */\n/src/build-tools/spring-config-transpiler/src/test/java/org/geoserver/spr"
+      },
+      {
+        "step": 65,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/geoserver/gwc/src/main",
+          "pattern": "class |@Bean"
+        },
+        "result_head": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplication.java:14: public class GeoWebCacheApplication {\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplicationConfiguration.java:30: public class GeoWebCacheApplicationConfiguration {\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplicationConfiguration.java:36: @Bean\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplicationConfiguration.java:41: @Bean\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplicationConfiguration.java:48: @Bean\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplicationConfiguration.java:53: static class NpeAwareSuffixStripFilter extends SuffixStripFilter {\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java:14: public class RootRedirectController {"
+      },
+      {
+        "step": 66,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/base-images/geoserver/src/main/java/org/geoserver/cloud/app/dummy/DummyApp.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.app.dummy;\n7: \n8: import org.springframework.boot.autoconfigure.SpringBootApplication;\n9: \n10: /** @since 1.0 */\n11: @SpringBootApplication\n12: public class DummyApp {\n13: \n14:     public static void main(String... args) {\n15:         throw new UnsupportedOperationException();\n16:     }\n17: }"
+      },
+      {
+        "step": 66,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/base-images/spring-boot/src/main/java/org/geoserver/cloud/app/dummy/DummyApp.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.app.dummy;\n7: \n8: import org.springframework.boot.autoconfigure.SpringBootApplication;\n9: \n10: /** @since 1.0 */\n11: @SpringBootApplication\n12: public class DummyApp {\n13: \n14:     public static void main(String... args) {\n15:         throw new UnsupportedOperationException();\n16:     }\n17: }"
+      },
+      {
+        "step": 67,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/app/GatewayMvcApplication.java"
+        },
+        "result_head": "1: /* (c) 2026 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.gateway.app;\n7: \n8: import org.geoserver.cloud.app.GeoServerApplicationLauncher;\n9: import org.geoserver.cloud.autoconfigure.gateway.GatewayApplicationAutoconfiguration;\n10: import org.springframework.boot.autoconfigure.SpringBootApplication;\n11: \n12: /**\n13:  * Spring Cloud Gateway Server MVC application for GeoServer Cloud\n14:  *\n15:  * @see GatewayApplicationAutoconfiguration\n16:  * @since 3.0.0\n17:  */\n18: @SpringBootApplication\n19: public class GatewayMvcApplication {\n20: \n21:     public static void main(String... args) {\n22:         GeoServerApplicationLauncher.run(GatewayMvcApplication.class, args);\n23:     }\n24: }"
+      },
+      {
+        "step": 67,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/infrastructure/config/src/main/java/org/geoserver/cloud/config/ConfigApplication.java"
+        },
+        "result_head": "1: /* (c) 2020 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.config;\n7: \n8: import org.geoserver.cloud.app.GeoServerApplicationLauncher;\n9: import org.springframework.boot.autoconfigure.SpringBootApplication;\n10: import org.springframework.cloud.config.server.EnableConfigServer;\n11: import org.springframework.retry.annotation.EnableRetry;\n12: \n13: @SpringBootApplication\n14: @EnableConfigServer\n15: @EnableRetry\n16: public class ConfigApplication {\n17: \n18:     public static void main(String... args) {\n19:         GeoServerApplicationLauncher.run(ConfigApplication.class, args);\n20:     }\n21: }"
+      },
+      {
+        "step": 68,
+        "tool": "grep",
+        "args": {
+          "path": "/",
+          "pattern": "routes\\[0\\]|id: wms_ows|Path=/"
+        },
+        "result_head": "/docs/src/configuration/migration-2.28-to-3.0.md:162: - Path=/geoserver/wms/**\n/docs/src/configuration/migration-2.28-to-3.0.md:181: - Path=/geoserver/wms/**\n/docs/src/developer-guide/services/gateway-service.md:41: - StripBasePath=/geoserver/cloud\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GatewayApplicationAutoconfiguration.java:82: * - id: wms_ows\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/filter/GeoServerGatewayFilterFunctions.java:29: * <p>YAML: {@code filters: - StripBasePath=/geoserver/cloud}\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/filter/StripBasePath.java:26: *   - StripBasePath=/geoserver/cloud\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/gateway/predicate/RegExpQueryRoutePredicate.java:29: * <p>{@snippet lang = \"yaml\": - id: wms_ows uri: http://wms:8080 predicates: # match service=wms case insensitively -\n/src/apps"
+      },
+      {
+        "step": 69,
+        "tool": "grep",
+        "args": {
+          "path": "/src/extensions",
+          "pattern": "Controller|@RequestMapping|@GetMapping"
+        },
+        "result_head": "/src/extensions/control-flow/README.md:141: - `FlowControllerProvider`: Provides flow controllers based on configuration\n/src/extensions/control-flow/src/main/java/org/geoserver/cloud/autoconfigure/extensions/controlflow/ControlFlowAutoConfiguration.java:14: import org.geoserver.flow.DefaultFlowControllerProvider;\n/src/extensions/control-flow/src/main/java/org/geoserver/cloud/autoconfigure/extensions/controlflow/ControlFlowAutoConfiguration.java:15: import org.geoserver.flow.FlowControllerProvider;\n/src/extensions/control-flow/src/main/java/org/geoserver/cloud/autoconfigure/extensions/controlflow/ControlFlowAutoConfiguration.java:57: *   <li>{@link FlowControllerProvider} - Provides flow controllers based on configuration\n/src/extensions/control-flow/src/main/java/org/geoserver/cloud/autoconfigure/extensions/controlflow/ControlFlowAutoConfiguration.java:89: * Sets up {@link ControlFlowConfigurator} and {@link FlowControllerProvider} when\n/src/extensions/control-flow/src/main/java/org/g"
+      },
+      {
+        "step": 69,
+        "tool": "grep",
+        "args": {
+          "path": "/src/main",
+          "pattern": "Controller|Mapping|Servlet"
+        },
+        "result_head": "/src/main/src/main/java/org/geoserver/cloud/autoconfigure/main/AccessDeniedPageAutoConfiguration.java:15: import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;\n/src/main/src/main/java/org/geoserver/cloud/autoconfigure/main/AccessDeniedPageAutoConfiguration.java:37: /** One step ahead of upstream's {@code filePublisherMapping}, registered at {@code -50}. */\n/src/main/src/main/java/org/geoserver/cloud/autoconfigure/main/AccessDeniedPageAutoConfiguration.java:41: SimpleUrlHandlerMapping accessDeniedPageMapping(ResourceHttpRequestHandler accessDeniedPageHandler) {\n/src/main/src/main/java/org/geoserver/cloud/autoconfigure/main/AccessDeniedPageAutoConfiguration.java:42: return new SimpleUrlHandlerMapping(Map.of(ACCESS_DENIED_PAGE, accessDeniedPageHandler), ORDER);\n/src/main/src/test/java/org/geoserver/cloud/autoconfigure/main/AccessDeniedPageAutoConfigurationTest.java:10: import jakarta.servlet.http.HttpServletResponse;\n/src/main/src/test/java/org/geoserver/cloud/autoconfig"
+      },
+      {
+        "step": 70,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/main/src/main/java/org/geoserver/cloud/autoconfigure/main/AccessDeniedPageAutoConfiguration.java"
+        },
+        "result_head": "1: /* (c) 2026 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.autoconfigure.main;\n7: \n8: import java.util.List;\n9: import java.util.Map;\n10: import org.springframework.boot.autoconfigure.AutoConfiguration;\n11: import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;\n12: import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;\n13: import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication.Type;\n14: import org.springframework.context.annotation.Bean;\n15: import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;\n16: import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;\n17: \n18: /**\n19:  * Serves the {@code /accessDenied.html} page to which GeoServer's exception translation filters forward a 403.\n20:  *\n21:  * <p>GeoServer maps t"
+      },
+      {
+        "step": 71,
+        "tool": "grep",
+        "args": {
+          "path": "/src/config",
+          "pattern": "mountPage|mount\\(|addPathPatterns|setUrlMap"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 71,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "mountPage"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 72,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/gwc/autoconfigure/src/main/java/org/geoserver/cloud/autoconfigure/gwc/web/GeoWebCacheUIAutoConfiguration.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.autoconfigure.gwc.web;\n7: \n8: import jakarta.annotation.PostConstruct;\n9: import lombok.extern.slf4j.Slf4j;\n10: import org.geoserver.catalog.Catalog;\n11: import org.geoserver.cloud.autoconfigure.gwc.ConditionalOnGeoWebCacheRestConfigEnabled;\n12: import org.geoserver.cloud.autoconfigure.gwc.ConditionalOnWebUIEnabled;\n13: import org.geoserver.cloud.autoconfigure.gwc.GeoWebCacheConfigurationProperties;\n14: import org.geoserver.cloud.gwc.config.core.CloudGwcUrlHandlerMapping;\n15: import org.geoserver.gwc.controller.GwcUrlHandlerMapping;\n16: import org.geowebcache.rest.controller.ByteStreamController;\n17: import org.springframework.boot.autoconfigure.AutoConfiguration;\n18: import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;\n19: import org.springf"
+      },
+      {
+        "step": 73,
+        "tool": "find",
+        "args": {
+          "path": "/src/apps/geoserver/webui/src/main/resources",
+          "pattern": "*.yml"
+        },
+        "result_head": "/src/apps/geoserver/webui/src/main/resources/application.yml"
+      },
+      {
+        "step": 73,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/geoserver/webui/src/main",
+          "pattern": "FilterRegistrationBean|addUrlPatterns|setUrlPatterns"
+        },
+        "result_head": "/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/WebUIApplicationAutoConfiguration.java:23: import org.springframework.boot.web.servlet.FilterRegistrationBean;\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/WebUIApplicationAutoConfiguration.java:64: FilterRegistrationBean<WicketComponentFilter> wicketComponentFilter(WebUIConfigurationProperties config) {\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/WebUIApplicationAutoConfiguration.java:66: FilterRegistrationBean<WicketComponentFilter> registrationBean = new FilterRegistrationBean<>();\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/WebUIApplicationAutoConfiguration.java:69: registrationBean.addUrlPatterns(\"/web/*\");\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/security/WebSecCoreAutoConfiguration.java:22: import org.springframework.boot.web.servlet.FilterRegistr"
+      },
+      {
+        "step": 74,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "gs-cloud-main"
+        },
+        "result_head": "/src/apps/geoserver/wcs/pom.xml:43: <artifactId>gs-cloud-main</artifactId>\n/src/apps/geoserver/webui/pom.xml:140: <artifactId>gs-cloud-main</artifactId>\n/src/catalog/backends/common/pom.xml:15: <artifactId>gs-cloud-main</artifactId>\n/src/main/pom.xml:9: <artifactId>gs-cloud-main</artifactId>\n/src/starters/webmvc/pom.xml:60: <artifactId>gs-cloud-main</artifactId>"
+      },
+      {
+        "step": 74,
+        "tool": "grep",
+        "args": {
+          "path": "/src/starters/spring-boot/pom.xml",
+          "pattern": "artifactId"
+        },
+        "result_head": "/src/starters/spring-boot/pom.xml:6: <artifactId>gs-cloud-starters</artifactId>\n/src/starters/spring-boot/pom.xml:9: <artifactId>gs-cloud-spring-boot-starter</artifactId>\n/src/starters/spring-boot/pom.xml:14: <artifactId>spring-boot-autoconfigure</artifactId>\n/src/starters/spring-boot/pom.xml:18: <artifactId>spring-boot-starter-actuator</artifactId>\n/src/starters/spring-boot/pom.xml:22: <artifactId>spring-webmvc</artifactId>\n/src/starters/spring-boot/pom.xml:27: <artifactId>spring-boot-configuration-processor</artifactId>\n/src/starters/spring-boot/pom.xml:32: <artifactId>spring-boot-autoconfigure-processor</artifactId>\n/src/starters/spring-boot/pom.xml:40: <artifactId>maven-compiler-plugin</artifactId>\n/src/starters/spring-boot/pom.xml:45: <artifactId>lombok</artifactId>\n/src/starters/spring-boot/pom.xml:50: <artifactId>spring-boot-configuration-processor</artifactId>\n/src/starters/spring-boot/pom.xml:54: <artifactId>spring-boot-autoconfigure-processor</artifactId>"
+      },
+      {
+        "step": 75,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "ServletRegistrationBean|extends HttpServlet|@WebServlet|@WebFilter"
+        },
+        "result_head": "/src/config/geoserver-configuration/src/main/java/org/geoserver/configuration/core/rest/RestRequestPathInfoFilter.java:75: private static class SuffixStripFilterAwareHttpServletRequest extends HttpServletRequestWrapper {"
+      },
+      {
+        "step": 75,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/web/ui/ServiceRegistryPage.java",
+          "start": "1"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.web.ui;\n7: \n8: import java.io.Serial;\n9: import org.apache.wicket.Component;\n10: import org.apache.wicket.behavior.AttributeAppender;\n11: import org.apache.wicket.markup.html.basic.Label;\n12: import org.apache.wicket.model.IModel;\n13: import org.geoserver.cloud.web.service.ServiceInstance;\n14: import org.geoserver.web.GeoServerSecuredPage;\n15: import org.geoserver.web.wicket.GeoServerDataProvider.Property;\n16: import org.geoserver.web.wicket.GeoServerTablePanel;\n17: import org.geoserver.web.wicket.SimpleExternalLink;\n18: \n19: /** @since 1.0 */\n20: public class ServiceRegistryPage extends GeoServerSecuredPage {\n21: \n22:     @Serial\n23:     private static final long serialVersionUID = 1L;\n24: \n25:     public ServiceRegistryPage() {\n26:         initUI();\n27:     }\n28: \n29: "
+      },
+      {
+        "step": 76,
+        "tool": "grep",
+        "args": {
+          "path": "/src/config",
+          "pattern": "Controller|@RequestMapping|@GetMapping|@PostMapping"
+        },
+        "result_head": "/src/config/geoserver-configuration/src/main/java/org/geoserver/configuration/core/rest/RestConfigConfiguration.java:50: \"org.geoserver.rest.service.WCSSettingsController\", // in RestconfigWcsConfiguration\n/src/config/geoserver-configuration/src/main/java/org/geoserver/configuration/core/rest/RestConfigConfiguration.java:51: \"org.geoserver.rest.service.WFSSettingsController\", // in RestconfigWfsConfiguration\n/src/config/geoserver-configuration/src/main/java/org/geoserver/configuration/core/rest/RestConfigConfiguration.java:52: \"org.geoserver.rest.service.WMSSettingsController\", // in RestconfigWmsConfiguration\n/src/config/geoserver-configuration/src/main/java/org/geoserver/configuration/core/rest/RestConfigConfiguration.java:53: \"org.geoserver.rest.service.WMTSSettingsController\", // in RestconfigWmtsConfiguration\n/src/config/geoserver-configuration/src/main/java/org/geoserver/configuration/core/rest/RestconfigWcsConfiguration.java:8: import org.geoserver.rest.service.WCSSettingsContro"
+      },
+      {
+        "step": 77,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/gwc/src/main/resources/application.yml"
+        },
+        "result_head": "1: server:\n2:   servlet:\n3:     session:\n4:       tracking-modes: COOKIE\n5:       cookie:\n6:         name: JSESSIONID_${spring.application.name}\n7:         http-only: true\n8: spring:\n9:   application.name: gwc\n10:   config:\n11:     name: geoserver # load externalized configuration from geoserver.yml\n12:     import:\n13:       - classpath:geoserver_spring_boot_profiles.yml\n14:       - classpath:geoserver_spring_cloud_profiles.yml\n15:   # and always include the service specific settings from the profile\n16:   profiles.include: ${spring.application.name}\n17:   # also ask for geoserver.yml when loading the externalized config through a config-server\n18:   cloud.config.name: geoserver\n19: \n20: # Fixed per-service value to support conditional activation of extensions.\n21: # This property is checked by @ConditionalOnGeoServerGWC\n22: geoserver.service.gwc.enabled: true\n23: geoserver.base-path: /gwc\n24: \n25: gwc:\n26:   enabled: true\n27:   # gwc.context.suffix is used by gwc rest controllers # (e"
+      },
+      {
+        "step": 77,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/wms/src/main/resources/application.yml"
+        },
+        "result_head": "1: spring:\n2:   application.name: wms\n3:   config:\n4:     name: geoserver # load externalized configuration from geoserver.yml\n5:     import:\n6:       - classpath:geoserver_spring_boot_profiles.yml\n7:       - classpath:geoserver_spring_cloud_profiles.yml\n8:   # and always include the service specific settings from the profile\n9:   profiles.include: ${spring.application.name}\n10:   # also ask for geoserver.yml when loading the externalized config through a config-server\n11:   cloud.config.name: geoserver\n12: \n13: # Fixed per-service value to support conditional activation of extensions.\n14: # This property is checked by @ConditionalOnGeoServerWMS\n15: geoserver.service.wms.enabled: true\n16: geoserver.base-path: /wms\n17: ---\n18: spring.config.activate.on-profile: \"bootstrap-standalone\"\n19: spring.config.import: ${standalone.config.location:file:/etc/geoserver/geoserver.yml}\n20: ---\n21: spring.config.activate.on-profile: local\n22: server.port: 9102\n23: management.server.port: 8102"
+      },
+      {
+        "step": 78,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/starters/webmvc/pom.xml",
+          "start": "40"
+        },
+        "result_head": "40:     <dependency>\n41:       <groupId>org.springframework.boot</groupId>\n42:       <artifactId>spring-boot-autoconfigure-processor</artifactId>\n43:       <optional>true</optional>\n44:     </dependency>\n45:     <dependency>\n46:       <groupId>org.geoserver</groupId>\n47:       <artifactId>gs-main</artifactId>\n48:       <version>${gs.version}</version>\n49:       <type>test-jar</type>\n50:       <scope>test</scope>\n51:     </dependency>\n52:     <dependency>\n53:       <groupId>org.springframework.boot</groupId>\n54:       <artifactId>spring-boot-starter-actuator-test</artifactId>\n55:       <scope>test</scope>\n56:     </dependency>\n57:     <dependency>\n58:       <!-- registers the access denied page with GeoServer for tests on the mock servlet context -->\n59:       <groupId>org.geoserver.cloud</groupId>\n60:       <artifactId>gs-cloud-main</artifactId>\n61:       <version>${project.version}</version>\n62:       <type>test-jar</type>\n63:       <scope>test</scope>\n64:     </dependency>\n65:   </de"
+      },
+      {
+        "step": 79,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceControllerAutoConfiguration.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.autoconfigure.catalog.event;\n7: \n8: import org.geoserver.config.GeoServer;\n9: import org.geoserver.platform.config.UpdateSequence;\n10: import org.springframework.boot.autoconfigure.AutoConfiguration;\n11: import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;\n12: import org.springframework.context.ApplicationEventPublisher;\n13: import org.springframework.context.annotation.Bean;\n14: import org.springframework.context.annotation.Configuration;\n15: import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;\n16: \n17: /** @since 1.0 */\n18: @AutoConfiguration\n19: @SuppressWarnings(\"java:S1118\")\n20: // Suppress SonarLint warning, constructor needs to be public\n21: @ConditionalOnWebApplication\n22: @Configuration\n"
+      },
+      {
+        "step": 79,
+        "tool": "grep",
+        "args": {
+          "path": "/src/catalog/events/src/main/resources",
+          "pattern": "."
+        },
+        "result_head": "/src/catalog/events/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports:1: org.geoserver.cloud.autoconfigure.catalog.event.LocalCatalogEventsAutoConfiguration\n/src/catalog/events/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports:2: org.geoserver.cloud.autoconfigure.catalog.event.UpdateSequenceControllerAutoConfiguration\n/src/catalog/events/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports:3: org.geoserver.cloud.autoconfigure.catalog.event.LifecycleEventAutoConfiguration\n/src/catalog/events/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports:4: org.geoserver.cloud.autoconfigure.event.bus.GeoServerBusIntegrationAutoConfiguration"
+      },
+      {
+        "step": 80,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[\n{\"name\":\"wfs\",\"dirs\":[\"/src/apps/geoserver/wfs\",\"/src/catalog/events\",\"/src/main\"]},\n{\"name\":\"wms\",\"dirs\":[\"/src/apps/geoserver/wms\",\"/src/catalog/events\",\"/src/main\"]},\n{\"name\":\"wcs\",\"d"
+        },
+        "result_head": "Recorded 9 new: service wfs, service wms, service wcs, service wps, service restconfig, service webui, service gwc, service config-service, service gateway\nTotal: 9 services, 0 endpoints in 0 files.\nServices with no endpoints recorded yet: wfs, wms, wcs, wps, restconfig, webui, gwc, config-service, gateway."
+      },
+      {
+        "step": 81,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java\",\"service\":\"gwc\",\"endpoints\":[\n{\"className\":\"RootRedirectController\",\"methodName\":\"red"
+        },
+        "result_head": "Recorded 4 new: GET /, GET /kml/icon/**, GET /wms/kml, GET /{workspace}/wms/kml\nTotal: 9 services, 4 endpoints in 3 files.\nServices with no endpoints recorded yet: wfs, wcs, wps, restconfig, webui, config-service, gateway."
+      },
+      {
+        "step": 82,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/catalog/backends/common/pom.xml",
+          "start": "1"
+        },
+        "result_head": "1: <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n2: <project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\n3:   <modelVersion>4.0.0</modelVersion>\n4:   <parent>\n5:     <groupId>org.geoserver.cloud.catalog.backend</groupId>\n6:     <artifactId>gs-cloud-catalog-backends</artifactId>\n7:     <version>${revision}</version>\n8:   </parent>\n9:   <artifactId>gs-cloud-catalog-backend-common</artifactId>\n10:   <packaging>jar</packaging>\n11:   <description>Base Autoconfigurations to set up the Catalog and Config backend</description>\n12:   <dependencies>\n13:     <dependency>\n14:       <groupId>org.geoserver.cloud</groupId>\n15:       <artifactId>gs-cloud-main</artifactId>\n16:     </dependency>\n17:     <dependency>\n18:       <groupId>org.geoserver.cloud</groupId>\n19:       <artifactId>gs-spring-configuration</artifactId>\n20:     </dependency>\n21:     <dependen"
+      },
+      {
+        "step": 82,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/geoserver/wcs/pom.xml",
+          "pattern": "gs-cloud-main"
+        },
+        "result_head": "/src/apps/geoserver/wcs/pom.xml:43: <artifactId>gs-cloud-main</artifactId>"
+      },
+      {
+        "step": 83,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/starters/catalog-backend/pom.xml"
+        },
+        "result_head": "1: <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n2: <project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\n3:   <modelVersion>4.0.0</modelVersion>\n4:   <parent>\n5:     <groupId>org.geoserver.cloud</groupId>\n6:     <artifactId>gs-cloud-starters</artifactId>\n7:     <version>${revision}</version>\n8:   </parent>\n9:   <artifactId>gs-cloud-starter-catalog-backend</artifactId>\n10:   <packaging>jar</packaging>\n11:   <description>Catalog backends starter</description>\n12:   <dependencies>\n13:     <dependency>\n14:       <groupId>org.geoserver.cloud.catalog.backend</groupId>\n15:       <artifactId>gs-cloud-catalog-backend-datadir</artifactId>\n16:     </dependency>\n17:     <dependency>\n18:       <groupId>org.geoserver.cloud.catalog.backend</groupId>\n19:       <artifactId>gs-cloud-catalog-backend-pgconfig</artifactId>\n20:     </dependency>\n21:     <dependency"
+      },
+      {
+        "step": 84,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps",
+          "pattern": "gs-cloud-starter-catalog-backend|gs-cloud-catalog-backend"
+        },
+        "result_head": "/src/apps/geoserver/restconfig/pom.xml:44: <artifactId>gs-cloud-catalog-backend-pgconfig</artifactId>"
+      },
+      {
+        "step": 84,
+        "tool": "grep",
+        "args": {
+          "path": "/src/starters",
+          "pattern": "gs-cloud-starter-catalog-backend"
+        },
+        "result_head": "/src/starters/README.md:44: ├── gs-cloud-starter-catalog-backend\n/src/starters/README.md:66: gs-cloud-starter-catalog-backend\n/src/starters/catalog-backend/README.md:1: # gs-cloud-starter-catalog-backend\n/src/starters/catalog-backend/pom.xml:9: <artifactId>gs-cloud-starter-catalog-backend</artifactId>\n/src/starters/security/pom.xml:15: <artifactId>gs-cloud-starter-catalog-backend</artifactId>\n/src/starters/webmvc/README.md:22: - `gs-cloud-starter-catalog-backend`: GeoServer catalog backend configuration\n/src/starters/webmvc/pom.xml:20: <artifactId>gs-cloud-starter-catalog-backend</artifactId>"
+      },
+      {
+        "step": 85,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/geoserver",
+          "pattern": "geoserver.base-path"
+        },
+        "result_head": "/src/apps/geoserver/gwc/src/main/resources/application.yml:23: geoserver.base-path: /gwc\n/src/apps/geoserver/restconfig/src/main/resources/application.yml:16: geoserver.base-path: /rest\n/src/apps/geoserver/wcs/src/main/resources/application.yml:16: geoserver.base-path: /wcs\n/src/apps/geoserver/webui/src/main/resources/application.yml:23: geoserver.base-path: /geoserver\n/src/apps/geoserver/wfs/src/main/resources/application.yml:16: geoserver.base-path: /wfs\n/src/apps/geoserver/wms/src/main/resources/application.yml:16: geoserver.base-path: /wms\n/src/apps/geoserver/wps/src/main/resources/application.yml:16: geoserver.base-path: /wps"
+      },
+      {
+        "step": 86,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.autoconfigure.catalog.event;\n7: \n8: import jakarta.annotation.security.RolesAllowed;\n9: import lombok.NonNull;\n10: import lombok.RequiredArgsConstructor;\n11: import org.geoserver.cloud.event.UpdateSequenceEvent;\n12: import org.geoserver.config.GeoServer;\n13: import org.geoserver.platform.config.UpdateSequence;\n14: import org.springframework.context.ApplicationEventPublisher;\n15: import org.springframework.web.bind.annotation.GetMapping;\n16: import org.springframework.web.bind.annotation.PostMapping;\n17: import org.springframework.web.bind.annotation.RequestMapping;\n18: import org.springframework.web.bind.annotation.RestController;\n19: \n20: /** @since 1.0 */\n21: @RestController\n22: @RequestMapping({\"${geoserver.base-path:}\", \"${geoserver.base-path:}/\"})\n23: @RequiredArgsC"
+      },
+      {
+        "step": 87,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/infrastructure/gateway-webmvc/src/main",
+          "pattern": "RestController|@Controller|@Bean|class "
+        },
+        "result_head": "/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GatewayApplicationAutoconfiguration.java:29: public class GatewayApplicationAutoconfiguration {\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GatewayApplicationAutoconfiguration.java:39: @Bean\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GatewayApplicationAutoconfiguration.java:48: @Bean\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GatewayApplicationAutoconfiguration.java:59: @Bean\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GatewayApplicationAutoconfiguration.java:70: @Bean\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GatewayApplicationAutoconfiguration.java:89: @Bean\n/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud"
+      },
+      {
+        "step": 88,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/geoserver/webui/src/main",
+          "pattern": "RestController|@Controller|@RequestMapping|@GetMapping"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 88,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/geoserver/restconfig/src/main",
+          "pattern": "RestController|@Controller|@RequestMapping|@GetMapping"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 89,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/pom.xml",
+          "start": "20"
+        },
+        "result_head": "20:   </modules>\n21:   <dependencyManagement>\n22:     <dependencies>\n23:       <dependency>\n24:         <!-- For testing service conditional annotations -->\n25:         <groupId>org.geoserver.cloud.extensions</groupId>\n26:         <artifactId>gs-cloud-extensions-core</artifactId>\n27:         <version>${project.version}</version>\n28:         <classifier>tests</classifier>\n29:         <type>test-jar</type>\n30:         <scope>test</scope>\n31:       </dependency>\n32:     </dependencies>\n33:   </dependencyManagement>\n34:   <dependencies>\n35:     <dependency>\n36:       <groupId>org.geoserver.cloud</groupId>\n37:       <artifactId>gs-spring-configuration</artifactId>\n38:     </dependency>\n39:     <dependency>\n40:       <groupId>org.geoserver.cloud</groupId>\n41:       <artifactId>spring-boot-simplejndi</artifactId>\n42:       <scope>runtime</scope>\n43:     </dependency>\n44:     <!-- Base Spring Boot integration -->\n45:     <dependency>\n46:       <groupId>org.geoserver.cloud</groupId>\n47:       <"
+      },
+      {
+        "step": 90,
+        "tool": "grep",
+        "args": {
+          "path": "/src/catalog/events/pom.xml",
+          "pattern": "artifactId"
+        },
+        "result_head": "/src/catalog/events/pom.xml:6: <artifactId>gs-cloud-catalog</artifactId>\n/src/catalog/events/pom.xml:9: <artifactId>gs-cloud-events</artifactId>\n/src/catalog/events/pom.xml:15: <artifactId>spring-cloud-bus</artifactId>\n/src/catalog/events/pom.xml:21: <artifactId>gs-jackson-bindings</artifactId>\n/src/catalog/events/pom.xml:25: <artifactId>gs-cloud-catalog-plugin</artifactId>\n/src/catalog/events/pom.xml:29: <artifactId>spring-boot-configuration-processor</artifactId>\n/src/catalog/events/pom.xml:34: <artifactId>spring-boot-autoconfigure-processor</artifactId>\n/src/catalog/events/pom.xml:39: <artifactId>gs-cloud-catalog-plugin</artifactId>\n/src/catalog/events/pom.xml:46: <artifactId>spring-boot-starter-test</artifactId>\n/src/catalog/events/pom.xml:51: <artifactId>spring-boot-starter-webmvc</artifactId>\n/src/catalog/events/pom.xml:56: <artifactId>spring-cloud-starter-bus-amqp</artifactId>\n/src/catalog/events/pom.xml:61: <artifactId>testcontainers-junit-jupiter</artifactId>\n/src/catalog/even"
+      },
+      {
+        "step": 90,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/starters/webmvc/pom.xml",
+          "start": "1"
+        },
+        "result_head": "1: <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n2: <project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\n3:   <modelVersion>4.0.0</modelVersion>\n4:   <parent>\n5:     <groupId>org.geoserver.cloud</groupId>\n6:     <artifactId>gs-cloud-starters</artifactId>\n7:     <version>${revision}</version>\n8:   </parent>\n9:   <artifactId>gs-cloud-starter-webmvc</artifactId>\n10:   <packaging>jar</packaging>\n11:   <description>Provides auto-configuration for servlet/webmvc GeoServer microservices</description>\n12:   <dependencies>\n13:     <!-- Base dependencies -->\n14:     <dependency>\n15:       <groupId>org.geoserver.cloud</groupId>\n16:       <artifactId>gs-cloud-spring-boot-starter</artifactId>\n17:     </dependency>\n18:     <dependency>\n19:       <groupId>org.geoserver.cloud</groupId>\n20:       <artifactId>gs-cloud-starter-catalog-backend</artifactId>\n21:   "
+      },
+      {
+        "step": 91,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java\",\"service\":\"wfs\",\"endpoints\":[\n{\"className\":\"UpdateSequenceControlle"
+        },
+        "result_head": "Recorded 14 new: GET /wfs/admin/updatesequence, POST /wfs/admin/updatesequence, GET /wms/admin/updatesequence, POST /wms/admin/updatesequence, GET /wcs/admin/updatesequence, POST /wcs/admin/updatesequence, GET /wps/admin/updatesequence, POST /wps/admin/updatesequence, GET /rest/admin/updatesequence, POST /rest/admin/updatesequence, GET /geoserver/admin/updatesequence, POST /geoserver/admin/updatesequence, GET /gwc/admin/updatesequence, POST /gwc/admin/updatesequence\nTotal: 9 services, 18 endpoints in 4 files.\nServices with no endpoints recorded yet: wcs, wps, restconfig, webui, config-service, gateway."
+      },
+      {
+        "step": 92,
+        "tool": "find",
+        "args": {
+          "path": "/config",
+          "pattern": "*.yml"
+        },
+        "result_head": "(no files)"
+      },
+      {
+        "step": 92,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": ".all-contributorsrc\n.github/\n.gitignore\n.gitmodules\n.mvn/\nCODE_OF_CONDUCT.md\nCONTRIBUTING.md\nLICENSE.txt\nMakefile\nREADME.md\nSECURITY.md\nSPONSORS.md\nacceptance_tests/\ncompose/\ndocker-build/\ndocs/\nexamples/\nmvnw\nmvnw.cmd\npom.xml\nreport-aggregate/\nsrc/"
+      },
+      {
+        "step": 93,
+        "tool": "find",
+        "args": {
+          "path": "/src/apps/infrastructure/config/src/main",
+          "pattern": "*.java"
+        },
+        "result_head": "/src/apps/infrastructure/config/src/main/java/org/geoserver/cloud/config/ConfigApplication.java"
+      },
+      {
+        "step": 93,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/geoserver/webui/src/main/resources/application.yml",
+          "pattern": "."
+        },
+        "result_head": "/src/apps/geoserver/webui/src/main/resources/application.yml:1: server:\n/src/apps/geoserver/webui/src/main/resources/application.yml:2: servlet:\n/src/apps/geoserver/webui/src/main/resources/application.yml:3: session:\n/src/apps/geoserver/webui/src/main/resources/application.yml:4: tracking-modes: COOKIE\n/src/apps/geoserver/webui/src/main/resources/application.yml:5: cookie:\n/src/apps/geoserver/webui/src/main/resources/application.yml:6: name: JSESSIONID_${spring.application.name}\n/src/apps/geoserver/webui/src/main/resources/application.yml:7: http-only: true\n/src/apps/geoserver/webui/src/main/resources/application.yml:8: spring:\n/src/apps/geoserver/webui/src/main/resources/application.yml:9: application.name: webui\n/src/apps/geoserver/webui/src/main/resources/application.yml:10: config:\n/src/apps/geoserver/webui/src/main/resources/application.yml:11: name: geoserver # load externalized configuration from geoserver.yml\n/src/apps/geoserver/webui/src/main/resources/application.yml:12: imp"
+      },
+      {
+        "step": 94,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/infrastructure/gateway-webmvc/src/main/java/org/geoserver/cloud/autoconfigure/gateway/GatewayApplicationAutoconfiguration.java"
+        },
+        "result_head": "1: /* (c) 2026 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.autoconfigure.gateway;\n7: \n8: import org.geoserver.cloud.gateway.filter.GeoServerGatewayFilterFunctions;\n9: import org.geoserver.cloud.gateway.filter.ProxyExceptionFilter;\n10: import org.geoserver.cloud.gateway.predicate.GeoServerGatewayRequestPredicates;\n11: import org.springframework.beans.factory.config.BeanFactoryPostProcessor;\n12: import org.springframework.boot.autoconfigure.AutoConfiguration;\n13: import org.springframework.boot.context.properties.EnableConfigurationProperties;\n14: import org.springframework.cloud.gateway.server.mvc.filter.FilterSupplier;\n15: import org.springframework.cloud.gateway.server.mvc.predicate.PredicateSupplier;\n16: import org.springframework.context.annotation.Bean;\n17: import org.springframework.core.env.ConfigurableEnvironment;\n18: imp"
+      },
+      {
+        "step": 95,
+        "tool": "grep",
+        "args": {
+          "path": "/compose",
+          "pattern": "gateway"
+        },
+        "result_head": "/compose/.env:17: # geoserver entry point for the gateway\n/compose/README.md:49: ./pgconfig logs -f gateway\n/compose/README.md:108: To ensure the gateway directs requests only to your IDE instance (rather than load balancing between it and the container), stop the container:\n/compose/README.md:125: - Join the cluster and be discoverable by the gateway\n/compose/README.md:141: Access all services through the gateway at [http://localhost:9090/geoserver/cloud/](http://localhost:9090/geoserver/cloud/)\n/compose/README.md:169: 5. Access WMS requests through the gateway, and Eclipse will hit your breakpoints.\n/compose/acceptance.yml:8: gateway:\n/compose/acceptance.yml:66: gateway:\n/compose/compose.yml:114: gateway:\n/compose/compose.yml:115: image: ${REPOSITORY}/geoserver-cloud-gateway:${TAG}\n/compose/localports.yml:2: # for example, when running the gateway through the IDE\n/compose/localports.yml:15: gateway:\n/compose/monitoring/MONITORING.md:164: # Or access via the gateway (if configured to "
+      },
+      {
+        "step": 96,
+        "tool": "list_dir",
+        "args": {
+          "path": "/src/apps/geoserver"
+        },
+        "result_head": "gwc/\npom.xml\nrestconfig/\nwcs/\nwebui/\nwfs/\nwms/\nwps/"
+      },
+      {
+        "step": 96,
+        "tool": "list_dir",
+        "args": {
+          "path": "/src/apps/infrastructure"
+        },
+        "result_head": "README.md\nconfig/\ngateway-webmvc/\npom.xml"
+      },
+      {
+        "step": 97,
+        "tool": "grep",
+        "args": {
+          "path": "/src/gwc",
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 97,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping"
+        },
+        "result_head": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java:16: @GetMapping(\"/\")\n/src/apps/geoserver/gwc/src/main/resources/application.yml:27: # gwc.context.suffix is used by gwc rest controllers # (e.g. @RequestMapping(path = \"${gwc.context.suffix:}/rest\"))\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLIconsController.java:44: @GetMapping(path = \"/kml/icon/**\")\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLReflectorController.java:31: @GetMapping(path = {\"/wms/kml\", \"/{workspace}/wms/kml\"})\n/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java:22: @RequestMapping({\"${geoserver.base-path:}\", \"${geoserver.base-path:}/\"})\n/src/catalog/events/src/main/java/org/geoserver/cloud/autoconfigure/catalog/event/UpdateSequenceController.java:32: @GetMapping(path = \"/admin/updatesequence\", produces = \"application/json\")\n/src/catalog/events/"
+      },
+      {
+        "step": 98,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLIconsController.java",
+          "start": "25"
+        },
+        "result_head": "25:  *\n26:  * @since 1.0\n27:  */\n28: @Controller\n29: @RequiredArgsConstructor\n30: public class KMLIconsController {\n31:     // <bean id=\"kmlURLMapping\" class=\"org.geoserver.ows.OWSHandlerMapping\">\n32:     // <constructor-arg ref=\"catalog\" />\n33:     // <property name=\"alwaysUseFullPath\" value=\"true\" />\n34:     // <property name=\"mappings\">\n35:     // <props>\n36:     // <prop key=\"/kml/icon/**/*\">kmlIconService</prop>\n37:     // <prop key=\"/kml\">dispatcher</prop>\n38:     // <prop key=\"/kml/*\">dispatcher</prop>\n39:     // </props>\n40:     // </property>\n41:     // </bean>\n42:     private final @NonNull IconService kmlIconService;\n43: \n44:     @GetMapping(path = \"/kml/icon/**\")\n45:     public void getKmlIcon(HttpServletRequest request, HttpServletResponse response) throws Exception {\n46:         kmlIconService.handleRequest(adaptRequest(request), response);\n47:     }\n48: \n49:     /**\n50:      * {@link IconService} requires {@link HttpServletRequest#getPathInfo()} to be non-null, but it's "
+      },
+      {
+        "step": 98,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/controller/kml/KMLReflectorController.java",
+          "start": "15"
+        },
+        "result_head": "15: import org.springframework.web.bind.annotation.GetMapping;\n16: \n17: /**\n18:  * Controller for {@link KMLReflector} at {@literal /wms/kml?}/{@literal /{workspace}/wms/kml?}\n19:  *\n20:  * <p>Forwards to {@link Dispatcher}, to finally get the request intercepted by the\n21:  * {@code wmsServiceInterceptor-kmlReflector} method advice defined in {@literal gs-kml.jar!/applicationContext.xml}.\n22:  *\n23:  * @since 1.0\n24:  */\n25: @Controller\n26: @RequiredArgsConstructor\n27: public class KMLReflectorController {\n28: \n29:     private final @NonNull Dispatcher geoserverDispatcher;\n30: \n31:     @GetMapping(path = {\"/wms/kml\", \"/{workspace}/wms/kml\"})\n32:     public void kmlReflect(HttpServletRequest request, HttpServletResponse response) throws Exception {\n33: \n34:         geoserverDispatcher.handleRequest(request, response);\n35:     }\n36: }"
+      },
+      {
+        "step": 99,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java"
+        },
+        "result_head": "1: /* (c) 2022 Open Source Geospatial Foundation - all rights reserved\n2:  * This code is licensed under the GPL 2.0 license, available at the root\n3:  * application directory.\n4:  */\n5: \n6: package org.geoserver.cloud.gwc.app;\n7: \n8: import org.springframework.stereotype.Controller;\n9: import org.springframework.web.bind.annotation.GetMapping;\n10: import org.springframework.web.servlet.view.RedirectView;\n11: \n12: /** @since 1.0 */\n13: @Controller\n14: public class RootRedirectController {\n15: \n16:     @GetMapping(\"/\")\n17:     public RedirectView redirectRootToGetCapabilities() {\n18:         return new RedirectView(\"/gwc\");\n19:     }\n20: }"
+      },
+      {
+        "step": 100,
+        "tool": "grep",
+        "args": {
+          "path": "/src/apps/geoserver/webui/src/main",
+          "pattern": "mount|Wicket|Page.class"
+        },
+        "result_head": "/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/WebUIApplicationAutoConfiguration.java:59: * A {@link WicketComponentFilter} that effectively hides pages (returns 404) for components that are disabled by\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/WebUIApplicationAutoConfiguration.java:64: FilterRegistrationBean<WicketComponentFilter> wicketComponentFilter(WebUIConfigurationProperties config) {\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/WebUIApplicationAutoConfiguration.java:66: FilterRegistrationBean<WicketComponentFilter> registrationBean = new FilterRegistrationBean<>();\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/WebUIApplicationAutoConfiguration.java:68: registrationBean.setFilter(new WicketComponentFilter(config));\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/autoconfigure/web/core/WebUIApplicationAutoConfiguration"
+      },
+      {
+        "step": 101,
+        "tool": "read_file",
+        "args": {
+          "path": "/src/apps/infrastructure/config/src/main/resources/application.yml"
+        },
+        "result_head": "1: server:\n2:   tomcat:\n3:     max-connections: 1024    \n4:     threads:\n5:       min-spare: 1\n6:       max: 25\n7: \n8: spring:\n9:   application.name: config\n10:   threads.virtual.enabled: true\n11:   config:\n12:     import:\n13:       - classpath:geoserver_spring_boot_profiles.yml\n14:       - classpath:geoserver_spring_cloud_profiles.yml\n15:   profiles:\n16:     active: native\n17:   cloud:\n18:     # This is the config server, it doesn't need discovery to find itself\n19:     discovery.enabled: false\n20:     config:\n21:       # allow clients to override external property sources\n22:       allow-override: true\n23:       override-none: false\n24:       override-system-properties: false\n25:       server: # see https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server\n26:         enabled: true\n27:         bootstrap: false\n28:         default-application-name: application\n29:         git:\n30:           uri: ${config.git.uri}\n31:           default-label: ${config.git."
+      },
+      {
+        "step": 102,
+        "tool": "find",
+        "args": {
+          "path": "/src/apps/geoserver",
+          "pattern": "*Application.java"
+        },
+        "result_head": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/GeoWebCacheApplication.java\n/src/apps/geoserver/restconfig/src/main/java/org/geoserver/cloud/restconfig/RestConfigApplication.java\n/src/apps/geoserver/wcs/src/main/java/org/geoserver/cloud/wcs/WcsApplication.java\n/src/apps/geoserver/webui/src/main/java/org/geoserver/cloud/web/app/WebUIApplication.java\n/src/apps/geoserver/wfs/src/main/java/org/geoserver/cloud/wfs/app/WfsApplication.java\n/src/apps/geoserver/wms/src/main/java/org/geoserver/cloud/wms/app/WmsApplication.java\n/src/apps/geoserver/wps/src/main/java/org/geoserver/cloud/wps/WpsApplication.java"
+      },
+      {
+        "step": 102,
+        "tool": "find",
+        "args": {
+          "path": "/src/apps",
+          "pattern": "Dockerfile*"
+        },
+        "result_head": "/src/apps/base-images/geoserver/Dockerfile\n/src/apps/base-images/jre/Dockerfile\n/src/apps/base-images/spring-boot/Dockerfile\n/src/apps/geoserver/gwc/Dockerfile\n/src/apps/geoserver/restconfig/Dockerfile\n/src/apps/geoserver/wcs/Dockerfile\n/src/apps/geoserver/webui/Dockerfile\n/src/apps/geoserver/wfs/Dockerfile\n/src/apps/geoserver/wms/Dockerfile\n/src/apps/geoserver/wps/Dockerfile\n/src/apps/infrastructure/config/Dockerfile\n/src/apps/infrastructure/gateway-webmvc/Dockerfile"
+      },
+      {
+        "step": 103,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "RedirectView|addViewController|setViewName|ResponseEntity"
+        },
+        "result_head": "/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java:10: import org.springframework.web.servlet.view.RedirectView;\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java:17: public RedirectView redirectRootToGetCapabilities() {\n/src/apps/geoserver/gwc/src/main/java/org/geoserver/cloud/gwc/app/RootRedirectController.java:18: return new RedirectView(\"/gwc\");\n/src/apps/geoserver/gwc/src/test/java/org/geoserver/cloud/gwc/app/DiskQuotaControllerPgconfigIT.java:26: import org.springframework.http.ResponseEntity;\n/src/apps/geoserver/gwc/src/test/java/org/geoserver/cloud/gwc/app/DiskQuotaControllerPgconfigIT.java:89: ResponseEntity<String> resp = authed.getForEntity(\"/gwc/rest/diskquota\", String.class);\n/src/apps/geoserver/gwc/src/test/java/org/geoserver/cloud/gwc/app/DiskQuotaControllerPgconfigIT.java:121: ResponseEntity<String> putResp = authed.exchange(\n/src/apps/geoserver/gwc/src/test/java/org/geoserver/cloud/g"
+      },
+      {
+        "step": 103,
+        "tool": "grep",
+        "args": {
+          "path": "/src",
+          "pattern": "@Endpoint|@ReadOperation|@WriteOperation"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 104,
+        "tool": "submit",
+        "args": {
+          "json": "{\"services\":[\n{\"name\":\"wfs\",\"dirs\":[\"/src/apps/geoserver/wfs\",\"/src/catalog/events\",\"/src/main\"]},\n{\"name\":\"wms\",\"dirs\":[\"/src/apps/geoserver/wms\",\"/src/catalog/events\",\"/src/main\"]},\n{\"name\":\"wcs\",\"d"
+        },
+        "result_head": "Recorded 9 new: service wfs, service wms, service wcs, service wps, service restconfig, service webui, service gwc, service config-service, service gateway\nTotal: 9 services, 18 endpoints in 4 files.\nServices with no endpoints recorded yet: wcs, wps, restconfig, webui, config-service, gateway.\n[ACCEPTED] 9 services, 18 endpoints."
+      }
+    ]
+  }
+}

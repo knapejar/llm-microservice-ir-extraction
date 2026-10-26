@@ -1,0 +1,1276 @@
+{
+  "system": "sock-shop",
+  "services": [
+    {
+      "name": "front-end",
+      "dirs": [
+        "/front-end"
+      ]
+    },
+    {
+      "name": "catalogue",
+      "dirs": [
+        "/catalogue"
+      ]
+    },
+    {
+      "name": "carts",
+      "dirs": [
+        "/carts"
+      ]
+    },
+    {
+      "name": "orders",
+      "dirs": [
+        "/orders"
+      ]
+    },
+    {
+      "name": "payment",
+      "dirs": [
+        "/payment"
+      ]
+    },
+    {
+      "name": "user",
+      "dirs": [
+        "/user"
+      ]
+    },
+    {
+      "name": "shipping",
+      "dirs": [
+        "/shipping"
+      ]
+    },
+    {
+      "name": "queue-master",
+      "dirs": [
+        "/queue-master"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/carts/src/main/java/works/weave/socks/cart/controllers/CartsController.java",
+      "service": "carts",
+      "endpoints": [
+        {
+          "className": "CartsController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/carts/{customerId}",
+          "line": 23,
+          "evidence": "@RequestMapping(value = \"/{customerId}\", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CartsController",
+          "methodName": "delete",
+          "httpMethod": "DELETE",
+          "path": "/carts/{customerId}",
+          "line": 29,
+          "evidence": "@RequestMapping(value = \"/{customerId}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CartsController",
+          "methodName": "mergeCarts",
+          "httpMethod": "GET",
+          "path": "/carts/{customerId}/merge",
+          "line": 35,
+          "evidence": "@RequestMapping(value = \"/{customerId}/merge\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/carts/src/main/java/works/weave/socks/cart/controllers/ItemsController.java",
+      "service": "carts",
+      "endpoints": [
+        {
+          "className": "ItemsController",
+          "methodName": "get",
+          "httpMethod": "GET",
+          "path": "/carts/{customerId}/items/{itemId}",
+          "line": 33,
+          "evidence": "@RequestMapping(value = \"/{itemId:.*}\", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ItemsController",
+          "methodName": "getItems",
+          "httpMethod": "GET",
+          "path": "/carts/{customerId}/items",
+          "line": 39,
+          "evidence": "@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ItemsController",
+          "methodName": "addToCart",
+          "httpMethod": "POST",
+          "path": "/carts/{customerId}/items",
+          "line": 45,
+          "evidence": "@RequestMapping(consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ItemsController",
+          "methodName": "removeItem",
+          "httpMethod": "DELETE",
+          "path": "/carts/{customerId}/items/{itemId}",
+          "line": 63,
+          "evidence": "@RequestMapping(value = \"/{itemId:.*}\", method = RequestMethod.DELETE)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ItemsController",
+          "methodName": "updateItem",
+          "httpMethod": "PATCH",
+          "path": "/carts/{customerId}/items",
+          "line": 76,
+          "evidence": "@RequestMapping(consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.PATCH)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/carts/src/main/java/works/weave/socks/cart/controllers/HealthCheckController.java",
+      "service": "carts",
+      "endpoints": [
+        {
+          "className": "HealthCheckController",
+          "methodName": "getHealth",
+          "httpMethod": "GET",
+          "path": "/health",
+          "line": 23,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, path = \"/health\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/orders/src/main/java/works/weave/socks/orders/controllers/OrdersController.java",
+      "service": "orders",
+      "endpoints": [
+        {
+          "className": "OrdersController",
+          "methodName": "newOrder",
+          "httpMethod": "POST",
+          "path": "/orders",
+          "line": 50,
+          "evidence": "@RequestMapping(path = \"/orders\", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/orders/src/main/java/works/weave/socks/orders/controllers/HealthCheckController.java",
+      "service": "orders",
+      "endpoints": [
+        {
+          "className": "HealthCheckController",
+          "methodName": "getHealth",
+          "httpMethod": "GET",
+          "path": "/health",
+          "line": 23,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, path = \"/health\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/shipping/src/main/java/works/weave/socks/shipping/controllers/ShippingController.java",
+      "service": "shipping",
+      "endpoints": [
+        {
+          "className": "ShippingController",
+          "methodName": "getShipping",
+          "httpMethod": "GET",
+          "path": "/shipping",
+          "line": 26,
+          "evidence": "@RequestMapping(value = \"/shipping\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ShippingController",
+          "methodName": "getShippingById",
+          "httpMethod": "GET",
+          "path": "/shipping/{id}",
+          "line": 31,
+          "evidence": "@RequestMapping(value = \"/shipping/{id}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ShippingController",
+          "methodName": "postShipping",
+          "httpMethod": "POST",
+          "path": "/shipping",
+          "line": 37,
+          "evidence": "@RequestMapping(value = \"/shipping\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ShippingController",
+          "methodName": "getHealth",
+          "httpMethod": "GET",
+          "path": "/health",
+          "line": 52,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, path = \"/health\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/queue-master/src/main/java/works/weave/socks/queuemaster/controllers/HealthCheckController.java",
+      "service": "queue-master",
+      "endpoints": [
+        {
+          "className": "HealthCheckController",
+          "methodName": "getHealth",
+          "httpMethod": "GET",
+          "path": "/health",
+          "line": 27,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, path = \"/health\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/queue-master/src/main/java/works/weave/socks/queuemaster/controllers/PrometheusMvcEndpoint.java",
+      "service": "queue-master",
+      "endpoints": [
+        {
+          "className": "PrometheusMvcEndpoint",
+          "methodName": "invoke",
+          "httpMethod": "GET",
+          "path": "/prometheus",
+          "line": 20,
+          "evidence": "@RequestMapping(method = RequestMethod.GET, produces = TextFormat.CONTENT_TYPE_004)",
+          "framework": "Spring",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "path": "/catalogue/transport.go",
+      "service": "catalogue",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/catalogue",
+          "line": 38,
+          "evidence": "r.Methods(\"GET\").Path(\"/catalogue\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/catalogue/size",
+          "line": 48,
+          "evidence": "r.Methods(\"GET\").Path(\"/catalogue/size\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/catalogue/{id}",
+          "line": 58,
+          "evidence": "r.Methods(\"GET\").Path(\"/catalogue/{id}\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/tags",
+          "line": 68,
+          "evidence": "r.Methods(\"GET\").Path(\"/tags\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/catalogue/images/",
+          "line": 78,
+          "evidence": "r.Methods(\"GET\").PathPrefix(\"/catalogue/images/\").Handler(http.StripPrefix(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/health",
+          "line": 82,
+          "evidence": "r.Methods(\"GET\").PathPrefix(\"/health\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/metrics",
+          "line": 92,
+          "evidence": "r.Handle(\"/metrics\", promhttp.Handler())",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/payment/transport.go",
+      "service": "payment",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/paymentAuth",
+          "line": 29,
+          "evidence": "r.Methods(\"POST\").Path(\"/paymentAuth\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/health",
+          "line": 36,
+          "evidence": "r.Methods(\"GET\").Path(\"/health\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/metrics",
+          "line": 43,
+          "evidence": "r.Handle(\"/metrics\", promhttp.Handler())",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/user/api/transport.go",
+      "service": "user",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/login",
+          "line": 38,
+          "evidence": "r.Methods(\"GET\").Path(\"/login\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/register",
+          "line": 44,
+          "evidence": "r.Methods(\"POST\").Path(\"/register\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/customers",
+          "line": 50,
+          "evidence": "r.Methods(\"GET\").PathPrefix(\"/customers\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/cards",
+          "line": 56,
+          "evidence": "r.Methods(\"GET\").PathPrefix(\"/cards\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/addresses",
+          "line": 62,
+          "evidence": "r.Methods(\"GET\").PathPrefix(\"/addresses\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/customers",
+          "line": 68,
+          "evidence": "r.Methods(\"POST\").Path(\"/customers\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/addresses",
+          "line": 74,
+          "evidence": "r.Methods(\"POST\").Path(\"/addresses\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/cards",
+          "line": 80,
+          "evidence": "r.Methods(\"POST\").Path(\"/cards\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "DELETE",
+          "path": "/",
+          "line": 86,
+          "evidence": "r.Methods(\"DELETE\").PathPrefix(\"/\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/health",
+          "line": 92,
+          "evidence": "r.Methods(\"GET\").PathPrefix(\"/health\").Handler(httptransport.NewServer(",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/metrics",
+          "line": 98,
+          "evidence": "r.Handle(\"/metrics\", promhttp.Handler())",
+          "framework": "go-kit/gorilla-mux",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front-end/api/cart/index.js",
+      "service": "front-end",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/cart",
+          "line": 12,
+          "evidence": "app.get(\"/cart\", function (req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "DELETE",
+          "path": "/cart",
+          "line": 25,
+          "evidence": "app.delete(\"/cart\", function (req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "DELETE",
+          "path": "/cart/:id",
+          "line": 42,
+          "evidence": "app.delete(\"/cart/:id\", function (req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/cart",
+          "line": 65,
+          "evidence": "app.post(\"/cart\", function (req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/cart/update",
+          "line": 110,
+          "evidence": "app.post(\"/cart/update\", function (req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front-end/api/catalogue/index.js",
+      "service": "front-end",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/catalogue/images*",
+          "line": 10,
+          "evidence": "app.get(\"/catalogue/images*\", function (req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/catalogue*",
+          "line": 17,
+          "evidence": "app.get(\"/catalogue*\", function (req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/tags",
+          "line": 21,
+          "evidence": "app.get(\"/tags\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front-end/api/orders/index.js",
+      "service": "front-end",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/orders",
+          "line": 11,
+          "evidence": "app.get(\"/orders\", function (req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/orders/*",
+          "line": 43,
+          "evidence": "app.get(\"/orders/*\", function (req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/orders",
+          "line": 48,
+          "evidence": "app.post(\"/orders\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front-end/api/user/index.js",
+      "service": "front-end",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/customers/:id",
+          "line": 7,
+          "evidence": "app.get(\"/customers/:id\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/cards/:id",
+          "line": 10,
+          "evidence": "app.get(\"/cards/:id\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/customers",
+          "line": 14,
+          "evidence": "app.get(\"/customers\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/addresses",
+          "line": 17,
+          "evidence": "app.get(\"/addresses\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/cards",
+          "line": 20,
+          "evidence": "app.get(\"/cards\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/customers",
+          "line": 25,
+          "evidence": "app.post(\"/customers\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/addresses",
+          "line": 45,
+          "evidence": "app.post(\"/addresses\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/card",
+          "line": 65,
+          "evidence": "app.get(\"/card\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/address",
+          "line": 88,
+          "evidence": "app.get(\"/address\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/cards",
+          "line": 109,
+          "evidence": "app.post(\"/cards\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "DELETE",
+          "path": "/customers/:id",
+          "line": 130,
+          "evidence": "app.delete(\"/customers/:id\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "DELETE",
+          "path": "/addresses/:id",
+          "line": 147,
+          "evidence": "app.delete(\"/addresses/:id\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "DELETE",
+          "path": "/cards/:id",
+          "line": 164,
+          "evidence": "app.delete(\"/cards/:id\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "POST",
+          "path": "/register",
+          "line": 180,
+          "evidence": "app.post(\"/register\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        },
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/login",
+          "line": 250,
+          "evidence": "app.get(\"/login\", function(req, res, next) {",
+          "framework": "Express",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/front-end/api/metrics/index.js",
+      "service": "front-end",
+      "endpoints": [
+        {
+          "className": "",
+          "methodName": "(inline)",
+          "httpMethod": "GET",
+          "path": "/metrics",
+          "line": 47,
+          "evidence": "app.get(\"/metrics\", function(req, res) {",
+          "framework": "Express",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "_run": {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "provider": "https://pass.wafer.ai/v1",
+    "workflow": "agent",
+    "effort": "low",
+    "temperature": 0,
+    "native_tools": true,
+    "repo": "front-end, catalogue, carts, orders, payment, user, shipping, queue-master",
+    "repos": {
+      "front-end": {
+        "commit": "52dee656f4423be041619bbb090205f912e00113",
+        "dirty": false
+      },
+      "catalogue": {
+        "commit": "925e08ee17c28b94b87160e1ae5e03da7f61cf84",
+        "dirty": false
+      },
+      "carts": {
+        "commit": "f4e80051668c6a83359c41b03a27baefa590adc8",
+        "dirty": false
+      },
+      "orders": {
+        "commit": "546a10c92d1ff9998c21f3849f5b95a0f14430a0",
+        "dirty": false
+      },
+      "payment": {
+        "commit": "384e33447dda5334187517dda09566c9a17fd6af",
+        "dirty": false
+      },
+      "user": {
+        "commit": "e1a79e77860734cacc3f64cabff1487e22a442a4",
+        "dirty": false
+      },
+      "shipping": {
+        "commit": "9c0fbfa31895dd029d44d3434de93f64cd71f87b",
+        "dirty": false
+      },
+      "queue-master": {
+        "commit": "7dc33721c765e5af415c9d244d84637ff2d510cd",
+        "dirty": false
+      }
+    },
+    "accepted": true,
+    "fallback": null,
+    "error": null,
+    "stopped": null,
+    "loop_warnings": 0,
+    "blocked_calls": 0,
+    "elided_results": 0,
+    "steps": 16,
+    "tool_calls": 50,
+    "rejected_entries": 0,
+    "no_call_replies": 0,
+    "input_tokens": 330478,
+    "cached_input_tokens": 293504,
+    "output_tokens": 7165,
+    "list_price_usd": 0.0107,
+    "wall_seconds": 58.2,
+    "trace": [
+      {
+        "step": 1,
+        "tool": "list_dir",
+        "args": {
+          "path": "/"
+        },
+        "result_head": "carts/\ncatalogue/\nfront-end/\norders/\npayment/\nqueue-master/\nshipping/\nuser/"
+      },
+      {
+        "step": 1,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile"
+        },
+        "result_head": "/carts/Dockerfile\n/carts/docker/carts/Dockerfile\n/carts/test/Dockerfile\n/catalogue/docker/catalogue-db/Dockerfile\n/catalogue/docker/catalogue/Dockerfile\n/catalogue/test/Dockerfile\n/front-end/Dockerfile\n/front-end/test/Dockerfile\n/orders/docker/orders/Dockerfile\n/orders/test/Dockerfile\n/orders/test/json-server/Dockerfile\n/payment/docker/payment/Dockerfile\n/payment/test/Dockerfile\n/queue-master/Dockerfile\n/queue-master/docker/queue-master/Dockerfile\n/queue-master/test/Dockerfile\n/shipping/docker/shipping/Dockerfile\n/shipping/test/Dockerfile\n/user/Dockerfile\n/user/docker/user-db/Dockerfile"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/user"
+        },
+        "result_head": "(no files)"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/carts"
+        },
+        "result_head": "/carts/src/main/java/works/weave/socks/cart/CartApplication.java\n/carts/src/main/java/works/weave/socks/cart/action/FirstResultOrDefault.java\n/carts/src/main/java/works/weave/socks/cart/cart/CartContentsResource.java\n/carts/src/main/java/works/weave/socks/cart/cart/CartDAO.java\n/carts/src/main/java/works/weave/socks/cart/cart/CartResource.java\n/carts/src/main/java/works/weave/socks/cart/cart/Contents.java\n/carts/src/main/java/works/weave/socks/cart/cart/HasContents.java\n/carts/src/main/java/works/weave/socks/cart/cart/Resource.java\n/carts/src/main/java/works/weave/socks/cart/configuration/BeanConfiguration.java\n/carts/src/main/java/works/weave/socks/cart/configuration/MongoConfiguration.java\n/carts/src/main/java/works/weave/socks/cart/configuration/ValidationConfiguration.java\n/carts/src/main/java/works/weave/socks/cart/configuration/WebMvcConfig.java\n/carts/src/main/java/works/weave/socks/cart/controllers/CartsController.java\n/carts/src/main/java/works/weave/socks/cart/controllers/Hea"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/catalogue"
+        },
+        "result_head": "(no files)"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/orders"
+        },
+        "result_head": "/orders/src/main/java/works/weave/socks/orders/OrderApplication.java\n/orders/src/main/java/works/weave/socks/orders/config/MongoConfiguration.java\n/orders/src/main/java/works/weave/socks/orders/config/OrdersConfiguration.java\n/orders/src/main/java/works/weave/socks/orders/config/OrdersConfigurationProperties.java\n/orders/src/main/java/works/weave/socks/orders/config/PrometheusAutoConfiguration.java\n/orders/src/main/java/works/weave/socks/orders/config/RestProxyTemplate.java\n/orders/src/main/java/works/weave/socks/orders/config/WebMvcConfig.java\n/orders/src/main/java/works/weave/socks/orders/controllers/HealthCheckController.java\n/orders/src/main/java/works/weave/socks/orders/controllers/OrdersController.java\n/orders/src/main/java/works/weave/socks/orders/entities/Address.java\n/orders/src/main/java/works/weave/socks/orders/entities/Card.java\n/orders/src/main/java/works/weave/socks/orders/entities/Cart.java\n/orders/src/main/java/works/weave/socks/orders/entities/Customer.java\n/orders/src"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/payment"
+        },
+        "result_head": "(no files)"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/shipping"
+        },
+        "result_head": "/shipping/src/main/java/works/weave/socks/shipping/ShippingServiceApplication.java\n/shipping/src/main/java/works/weave/socks/shipping/configuration/PrometheusAutoConfiguration.java\n/shipping/src/main/java/works/weave/socks/shipping/configuration/RabbitMqConfiguration.java\n/shipping/src/main/java/works/weave/socks/shipping/configuration/WebMvcConfig.java\n/shipping/src/main/java/works/weave/socks/shipping/controllers/ShippingController.java\n/shipping/src/main/java/works/weave/socks/shipping/entities/HealthCheck.java\n/shipping/src/main/java/works/weave/socks/shipping/entities/Shipment.java\n/shipping/src/main/java/works/weave/socks/shipping/middleware/HTTPMonitoringInterceptor.java\n/shipping/src/test/java/works/weave/socks/shipping/controllers/ITShippingController.java\n/shipping/src/test/java/works/weave/socks/shipping/entities/UnitPojo.java"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*.java",
+          "path": "/queue-master"
+        },
+        "result_head": "/queue-master/src/main/java/works/weave/socks/queuemaster/DockerSpawner.java\n/queue-master/src/main/java/works/weave/socks/queuemaster/QueueMasterApplication.java\n/queue-master/src/main/java/works/weave/socks/queuemaster/ShippingTaskHandler.java\n/queue-master/src/main/java/works/weave/socks/queuemaster/configuration/PrometheusEndpointContextConfiguration.java\n/queue-master/src/main/java/works/weave/socks/queuemaster/configuration/RabbitMqConfiguration.java\n/queue-master/src/main/java/works/weave/socks/queuemaster/configuration/ShippingConsumerConfiguration.java\n/queue-master/src/main/java/works/weave/socks/queuemaster/controllers/HealthCheckController.java\n/queue-master/src/main/java/works/weave/socks/queuemaster/controllers/PrometheusEndpoint.java\n/queue-master/src/main/java/works/weave/socks/queuemaster/controllers/PrometheusMvcEndpoint.java\n/queue-master/src/main/java/works/weave/socks/queuemaster/entities/HealthCheck.java\n/queue-master/src/main/java/works/weave/socks/queuemaster/mo"
+      },
+      {
+        "step": 2,
+        "tool": "find",
+        "args": {
+          "pattern": "*.js",
+          "path": "/front-end"
+        },
+        "result_head": "/front-end/api/cart/index.js\n/front-end/api/catalogue/index.js\n/front-end/api/endpoints.js\n/front-end/api/metrics/index.js\n/front-end/api/orders/index.js\n/front-end/api/user/index.js\n/front-end/config.js\n/front-end/helpers/index.js\n/front-end/public/js/bootstrap-hover-dropdown.js\n/front-end/public/js/bootstrap.min.js\n/front-end/public/js/client.js\n/front-end/public/js/front.js\n/front-end/public/js/jquery-1.11.0.min.js\n/front-end/public/js/jquery.cookie.js\n/front-end/public/js/jquery.flexslider.js\n/front-end/public/js/jquery.flexslider.min.js\n/front-end/public/js/jquery.query-object.js\n/front-end/public/js/js.cookie.js\n/front-end/public/js/main.js\n/front-end/public/js/modernizr.js\n/front-end/public/js/owl.carousel.min.js\n/front-end/public/js/respond.min.js\n/front-end/public/js/waypoints.min.js\n/front-end/server.js\n/front-end/test/api/endpoints_test.js\n/front-end/test/e2e/cart_test.js\n/front-end/test/e2e/catalogue_test.js\n/front-end/test/e2e/checkout_test.js\n/front-end/test/e2e/config.js"
+      },
+      {
+        "step": 3,
+        "tool": "find",
+        "args": {
+          "pattern": "*.go",
+          "path": "/catalogue"
+        },
+        "result_head": "/catalogue/cmd/cataloguesvc/main.go\n/catalogue/endpoints.go\n/catalogue/logging.go\n/catalogue/service.go\n/catalogue/service_test.go\n/catalogue/transport.go"
+      },
+      {
+        "step": 3,
+        "tool": "find",
+        "args": {
+          "pattern": "*.go",
+          "path": "/payment"
+        },
+        "result_head": "/payment/cmd/paymentsvc/main.go\n/payment/component_test.go\n/payment/endpoints.go\n/payment/logging.go\n/payment/service.go\n/payment/service_test.go\n/payment/transport.go\n/payment/wiring.go"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/carts/src/main/java/works/weave/socks/cart/controllers/CartsController.java"
+        },
+        "result_head": "1: package works.weave.socks.cart.controllers;\n2: \n3: import org.slf4j.Logger;\n4: import org.slf4j.LoggerFactory;\n5: import org.springframework.beans.factory.annotation.Autowired;\n6: import org.springframework.http.HttpStatus;\n7: import org.springframework.http.MediaType;\n8: import org.springframework.web.bind.annotation.*;\n9: import works.weave.socks.cart.cart.CartDAO;\n10: import works.weave.socks.cart.cart.CartResource;\n11: import works.weave.socks.cart.entities.Cart;\n12: \n13: \n14: @RestController\n15: @RequestMapping(path = \"/carts\")\n16: public class CartsController {\n17:     private final Logger logger = LoggerFactory.getLogger(this.getClass());\n18: \n19:     @Autowired\n20:     private CartDAO cartDAO;\n21: \n22:     @ResponseStatus(HttpStatus.OK)\n23:     @RequestMapping(value = \"/{customerId}\", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)\n24:     public Cart get(@PathVariable String customerId) {\n25:         return new CartResource(cartDAO, customerId).valu"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/carts/src/main/java/works/weave/socks/cart/controllers/ItemsController.java"
+        },
+        "result_head": "1: package works.weave.socks.cart.controllers;\n2: \n3: import org.slf4j.Logger;\n4: import org.springframework.beans.factory.annotation.Autowired;\n5: import org.springframework.http.HttpStatus;\n6: import org.springframework.http.MediaType;\n7: import org.springframework.web.bind.annotation.*;\n8: import works.weave.socks.cart.cart.CartDAO;\n9: import works.weave.socks.cart.cart.CartResource;\n10: import works.weave.socks.cart.entities.Item;\n11: import works.weave.socks.cart.item.FoundItem;\n12: import works.weave.socks.cart.item.ItemDAO;\n13: import works.weave.socks.cart.item.ItemResource;\n14: \n15: import java.util.List;\n16: import java.util.function.Supplier;\n17: \n18: import static org.slf4j.LoggerFactory.getLogger;\n19: \n20: @RestController\n21: @RequestMapping(value = \"/carts/{customerId:.*}/items\")\n22: public class ItemsController {\n23:     private final Logger LOG = getLogger(getClass());\n24: \n25:     @Autowired\n26:     private ItemDAO itemDAO;\n27:     @Autowired\n28:     private CartsContr"
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/carts/src/main/java/works/weave/socks/cart/controllers/HealthCheckController.java"
+        },
+        "result_head": "1: package works.weave.socks.cart.controllers;\n2: \n3: import org.springframework.beans.factory.annotation.Autowired;\n4: import org.springframework.data.mongodb.core.MongoTemplate;\n5: import org.springframework.http.HttpStatus;\n6: import org.springframework.web.bind.annotation.*;\n7: import works.weave.socks.cart.entities.HealthCheck;\n8: \n9: import java.util.ArrayList;\n10: import java.util.Calendar;\n11: import java.util.Date;\n12: import java.util.HashMap;\n13: import java.util.List;\n14: import java.util.Map;\n15: \n16: @RestController\n17: public class HealthCheckController {\n18: \n19:     @Autowired\n20:     private MongoTemplate mongoTemplate;\n21: \n22:     @ResponseStatus(HttpStatus.OK)\n23:     @RequestMapping(method = RequestMethod.GET, path = \"/health\")\n24:     public\n25:     @ResponseBody\n26:     Map<String, List<HealthCheck>> getHealth() {\n27:        Map<String, List<HealthCheck>> map = new HashMap<String, List<HealthCheck>>();\n28:        List<HealthCheck> healthChecks = new ArrayList<He"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/carts/src/main/java/works/weave/socks/cart/configuration/WebMvcConfig.java"
+        },
+        "result_head": "1: package works.weave.socks.cart.configuration;\n2: \n3: import org.springframework.context.annotation.Bean;\n4: import org.springframework.context.annotation.Configuration;\n5: import org.springframework.web.servlet.handler.MappedInterceptor;\n6: import works.weave.socks.cart.middleware.HTTPMonitoringInterceptor;\n7: \n8: @Configuration\n9: public class WebMvcConfig {\n10:     @Bean\n11:     HTTPMonitoringInterceptor httpMonitoringInterceptor() {\n12:         return new HTTPMonitoringInterceptor();\n13:     }\n14: \n15:     @Bean\n16:     public MappedInterceptor myMappedInterceptor(HTTPMonitoringInterceptor interceptor) {\n17:         return new MappedInterceptor(new String[]{\"/**\"}, interceptor);\n18:     }\n19: }"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/carts/src/main/java/works/weave/socks/cart/CartApplication.java"
+        },
+        "result_head": "1: package works.weave.socks.cart;\n2: \n3: import io.prometheus.client.spring.boot.EnablePrometheusEndpoint;\n4: import org.springframework.boot.SpringApplication;\n5: import org.springframework.boot.autoconfigure.SpringBootApplication;\n6: \n7: @SpringBootApplication\n8: @EnablePrometheusEndpoint\n9: public class CartApplication {\n10:     public static void main(String[] args) {\n11:         SpringApplication.run(CartApplication.class, args);\n12:     }\n13: }"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/catalogue/transport.go"
+        },
+        "result_head": "1: package catalogue\n2: \n3: // transport.go contains the binding from endpoints to a concrete transport.\n4: // In our case we just use a REST-y HTTP transport.\n5: \n6: import (\n7: \t\"encoding/json\"\n8: \t\"net/http\"\n9: \t\"strconv\"\n10: \t\"strings\"\n11: \t\"time\"\n12: \n13: \t\"github.com/go-kit/kit/circuitbreaker\"\n14: \t\"github.com/go-kit/kit/log\"\n15: \t\"github.com/go-kit/kit/tracing/opentracing\"\n16: \thttptransport \"github.com/go-kit/kit/transport/http\"\n17: \t\"github.com/gorilla/mux\"\n18: \tstdopentracing \"github.com/opentracing/opentracing-go\"\n19: \t\"github.com/prometheus/client_golang/prometheus/promhttp\"\n20: \t\"github.com/sony/gobreaker\"\n21: \t\"golang.org/x/net/context\"\n22: )\n23: \n24: // MakeHTTPHandler mounts the endpoints into a REST-y HTTP handler.\n25: func MakeHTTPHandler(ctx context.Context, e Endpoints, imagePath string, logger log.Logger, tracer stdopentracing.Tracer) *mux.Router {\n26: \tr := mux.NewRouter().StrictSlash(false)\n27: \toptions := []httptransport.ServerOption{\n28: \t\thttptransport.ServerE"
+      },
+      {
+        "step": 4,
+        "tool": "read_file",
+        "args": {
+          "path": "/payment/transport.go"
+        },
+        "result_head": "1: package payment\n2: \n3: import (\n4: \t\"encoding/json\"\n5: \t\"errors\"\n6: \t\"fmt\"\n7: \t\"io/ioutil\"\n8: \t\"net/http\"\n9: \n10: \t\"github.com/go-kit/kit/log\"\n11: \t\"github.com/go-kit/kit/circuitbreaker\"\n12: \t\"github.com/go-kit/kit/tracing/opentracing\"\n13: \thttptransport \"github.com/go-kit/kit/transport/http\"\n14: \t\"github.com/gorilla/mux\"\n15: \tstdopentracing \"github.com/opentracing/opentracing-go\"\n16: \t\"github.com/prometheus/client_golang/prometheus/promhttp\"\n17:         \"github.com/streadway/handy/breaker\"\n18: \t\"golang.org/x/net/context\"\n19: )\n20: \n21: // MakeHTTPHandler mounts the endpoints into a REST-y HTTP handler.\n22: func MakeHTTPHandler(ctx context.Context, e Endpoints, logger log.Logger, tracer stdopentracing.Tracer) *mux.Router {\n23: \tr := mux.NewRouter().StrictSlash(false)\n24: \toptions := []httptransport.ServerOption{\n25: \t\thttptransport.ServerErrorLogger(logger),\n26: \t\thttptransport.ServerErrorEncoder(encodeError),\n27: \t}\n28: \n29: \tr.Methods(\"POST\").Path(\"/paymentAuth\").Handler(httptrans"
+      },
+      {
+        "step": 5,
+        "tool": "list_dir",
+        "args": {
+          "path": "/user"
+        },
+        "result_head": ".github/\n.gitignore\n.travis.yml\nDockerfile\nDockerfile-test\nLICENSE\nMakefile\nREADME.md\napi/\napispec/\ndb/\ndocker-compose-zipkin.yml\ndocker-compose.yml\ndocker/\nglide.lock\nglide.yaml\nmain.go\nscripts/\nusers/"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/orders/src/main/java/works/weave/socks/orders/controllers/OrdersController.java"
+        },
+        "result_head": "1: package works.weave.socks.orders.controllers;\n2: \n3: import org.slf4j.Logger;\n4: import org.slf4j.LoggerFactory;\n5: import org.springframework.beans.factory.annotation.Autowired;\n6: import org.springframework.beans.factory.annotation.Value;\n7: import org.springframework.core.ParameterizedTypeReference;\n8: import org.springframework.data.rest.webmvc.RepositoryRestController;\n9: import org.springframework.hateoas.Resource;\n10: import org.springframework.hateoas.mvc.TypeReferences;\n11: import org.springframework.http.HttpStatus;\n12: import org.springframework.http.MediaType;\n13: import org.springframework.web.bind.annotation.*;\n14: import works.weave.socks.orders.config.OrdersConfigurationProperties;\n15: import works.weave.socks.orders.entities.*;\n16: import works.weave.socks.orders.repositories.CustomerOrderRepository;\n17: import works.weave.socks.orders.resources.NewOrderResource;\n18: import works.weave.socks.orders.services.AsyncGetService;\n19: import works.weave.socks.orders.values"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/orders/src/main/java/works/weave/socks/orders/controllers/HealthCheckController.java"
+        },
+        "result_head": "1: package works.weave.socks.orders.controllers;\n2: \n3: import org.springframework.beans.factory.annotation.Autowired;\n4: import org.springframework.data.mongodb.core.MongoTemplate;\n5: import org.springframework.http.HttpStatus;\n6: import org.springframework.web.bind.annotation.*;\n7: import works.weave.socks.orders.entities.HealthCheck;\n8: \n9: import java.util.ArrayList;\n10: import java.util.Calendar;\n11: import java.util.Date;\n12: import java.util.HashMap;\n13: import java.util.List;\n14: import java.util.Map;\n15: \n16: @RestController\n17: public class HealthCheckController {\n18: \n19:     @Autowired\n20:     private MongoTemplate mongoTemplate;\n21: \n22:     @ResponseStatus(HttpStatus.OK)\n23:     @RequestMapping(method = RequestMethod.GET, path = \"/health\")\n24:     public\n25:     @ResponseBody\n26:     Map<String, List<HealthCheck>> getHealth() {\n27:       Map<String, List<HealthCheck>> map = new HashMap<String, List<HealthCheck>>();\n28:       List<HealthCheck> healthChecks = new ArrayList<"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/shipping/src/main/java/works/weave/socks/shipping/controllers/ShippingController.java"
+        },
+        "result_head": "1: package works.weave.socks.shipping.controllers;\n2: \n3: import com.rabbitmq.client.Channel;\n4: import org.springframework.amqp.AmqpException;\n5: import org.springframework.amqp.rabbit.core.ChannelCallback;\n6: import org.springframework.amqp.rabbit.core.RabbitTemplate;\n7: import org.springframework.beans.factory.annotation.Autowired;\n8: import org.springframework.http.HttpStatus;\n9: import org.springframework.web.bind.annotation.*;\n10: import works.weave.socks.shipping.entities.HealthCheck;\n11: import works.weave.socks.shipping.entities.Shipment;\n12: \n13: import java.util.ArrayList;\n14: import java.util.Calendar;\n15: import java.util.Date;\n16: import java.util.HashMap;\n17: import java.util.List;\n18: import java.util.Map;\n19: \n20: @RestController\n21: public class ShippingController {\n22: \n23:     @Autowired\n24:     RabbitTemplate rabbitTemplate;\n25: \n26:     @RequestMapping(value = \"/shipping\", method = RequestMethod.GET)\n27:     public String getShipping() {\n28:         return \"GET AL"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/queue-master/src/main/java/works/weave/socks/queuemaster/controllers/HealthCheckController.java"
+        },
+        "result_head": "1: package works.weave.socks.queuemaster.controllers;\n2: \n3: import com.rabbitmq.client.Channel;\n4: import org.springframework.amqp.AmqpException;\n5: import org.springframework.amqp.rabbit.core.ChannelCallback;\n6: import org.springframework.amqp.rabbit.core.RabbitTemplate;\n7: import org.springframework.beans.factory.annotation.Autowired;\n8: import org.springframework.beans.factory.annotation.Autowired;\n9: import org.springframework.http.HttpStatus;\n10: import org.springframework.web.bind.annotation.*;\n11: import works.weave.socks.queuemaster.entities.HealthCheck;\n12: \n13: import java.util.ArrayList;\n14: import java.util.Calendar;\n15: import java.util.Date;\n16: import java.util.HashMap;\n17: import java.util.List;\n18: import java.util.Map;\n19: \n20: @RestController\n21: public class HealthCheckController {\n22: \n23:     @Autowired\n24:     RabbitTemplate rabbitTemplate;\n25: \n26:     @ResponseStatus(HttpStatus.OK)\n27:     @RequestMapping(method = RequestMethod.GET, path = \"/health\")\n28:     p"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/queue-master/src/main/java/works/weave/socks/queuemaster/controllers/PrometheusEndpoint.java"
+        },
+        "result_head": "1: package works.weave.socks.queuemaster.controllers;\n2: \n3: import io.prometheus.client.CollectorRegistry;\n4: import io.prometheus.client.exporter.common.TextFormat;\n5: import org.springframework.boot.actuate.endpoint.AbstractEndpoint;\n6: \n7: import java.io.IOException;\n8: import java.io.StringWriter;\n9: import java.io.Writer;\n10: \n11: public class PrometheusEndpoint extends AbstractEndpoint<String> {\n12: \n13:     private CollectorRegistry registry;\n14: \n15:     public PrometheusEndpoint(CollectorRegistry registry) {\n16:         super(\"prometheus\", false, true);\n17:         this.registry = registry;\n18:     }\n19: \n20:     @Override\n21:     public String invoke() {\n22:         Writer writer = new StringWriter();\n23:         try {\n24:             TextFormat.write004(writer, registry.metricFamilySamples());\n25:         } catch (IOException e) {\n26:             e.printStackTrace();\n27:         }\n28:         return writer.toString();\n29:     }\n30: }"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/queue-master/src/main/java/works/weave/socks/queuemaster/controllers/PrometheusMvcEndpoint.java"
+        },
+        "result_head": "1: package works.weave.socks.queuemaster.controllers;\n2: \n3: import io.prometheus.client.exporter.common.TextFormat;\n4: import org.springframework.boot.actuate.endpoint.mvc.AbstractEndpointMvcAdapter;\n5: import org.springframework.boot.actuate.endpoint.mvc.HypermediaDisabled;\n6: import org.springframework.http.HttpStatus;\n7: import org.springframework.http.ResponseEntity;\n8: import org.springframework.web.bind.annotation.RequestMapping;\n9: import org.springframework.web.bind.annotation.RequestMethod;\n10: import org.springframework.web.bind.annotation.ResponseBody;\n11: \n12: import java.util.Collections;\n13: \n14: public class PrometheusMvcEndpoint extends AbstractEndpointMvcAdapter<PrometheusEndpoint> {\n15: \n16:     public PrometheusMvcEndpoint(PrometheusEndpoint delegate) {\n17:         super(delegate);\n18:     }\n19: \n20:     @RequestMapping(method = RequestMethod.GET, produces = TextFormat.CONTENT_TYPE_004)\n21:     @ResponseBody\n22:     @HypermediaDisabled\n23:     protected Object invok"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/user/main.go"
+        },
+        "result_head": "1: package main\n2: \n3: import (\n4: \t\"flag\"\n5: \t\"fmt\"\n6: \t\"net\"\n7: \t\"net/http\"\n8: \t\"os\"\n9: \t\"os/signal\"\n10: \t\"strings\"\n11: \t\"syscall\"\n12: \n13: \tcorelog \"log\"\n14: \n15: \t\"github.com/go-kit/kit/log\"\n16: \tkitprometheus \"github.com/go-kit/kit/metrics/prometheus\"\n17: \t\"github.com/microservices-demo/user/api\"\n18: \t\"github.com/microservices-demo/user/db\"\n19: \t\"github.com/microservices-demo/user/db/mongodb\"\n20: \tstdopentracing \"github.com/opentracing/opentracing-go\"\n21: \tzipkin \"github.com/openzipkin/zipkin-go-opentracing\"\n22: \tstdprometheus \"github.com/prometheus/client_golang/prometheus\"\n23: \tcommonMiddleware \"github.com/weaveworks/common/middleware\"\n24: )\n25: \n26: var (\n27: \tport string\n28: \tzip  string\n29: )\n30: \n31: var (\n32: \tHTTPLatency = stdprometheus.NewHistogramVec(stdprometheus.HistogramOpts{\n33: \t\tName:    \"http_request_duration_seconds\",\n34: \t\tHelp:    \"Time (in seconds) spent serving HTTP requests.\",\n35: \t\tBuckets: stdprometheus.DefBuckets,\n36: \t}, []string{\"method\", \"path\", \"statu"
+      },
+      {
+        "step": 6,
+        "tool": "find",
+        "args": {
+          "path": "/user",
+          "pattern": "*.go"
+        },
+        "result_head": "/user/api/endpoints.go\n/user/api/endpoints_test.go\n/user/api/middlewares.go\n/user/api/middlewares_test.go\n/user/api/service.go\n/user/api/service_test.go\n/user/api/transport.go\n/user/db/db.go\n/user/db/db_test.go\n/user/db/mongodb/mongodb.go\n/user/db/mongodb/mongodb_test.go\n/user/main.go\n/user/users/addresses.go\n/user/users/addresses_test.go\n/user/users/cards.go\n/user/users/cards_test.go\n/user/users/links.go\n/user/users/users.go\n/user/users/users_test.go"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/queue-master/src/main/java/works/weave/socks/queuemaster/configuration/PrometheusEndpointContextConfiguration.java"
+        },
+        "result_head": "1: package works.weave.socks.queuemaster.configuration;\n2: \n3: import io.prometheus.client.CollectorRegistry;\n4: import org.springframework.boot.actuate.autoconfigure.ExportMetricWriter;\n5: import org.springframework.boot.actuate.autoconfigure.ManagementContextConfiguration;\n6: import org.springframework.boot.actuate.condition.ConditionalOnEnabledEndpoint;\n7: import org.springframework.boot.actuate.metrics.writer.MetricWriter;\n8: import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;\n9: import org.springframework.context.annotation.Bean;\n10: import works.weave.socks.queuemaster.controllers.PrometheusEndpoint;\n11: import works.weave.socks.queuemaster.controllers.PrometheusMvcEndpoint;\n12: import works.weave.socks.queuemaster.monitoring.PrometheusMetricWriter;\n13: \n14: @ManagementContextConfiguration\n15: public class PrometheusEndpointContextConfiguration {\n16: \n17:     @Bean\n18:     public PrometheusEndpoint prometheusEndpoint(CollectorRegistry registry) {\n19:       "
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/user/api/transport.go"
+        },
+        "result_head": "1: package api\n2: \n3: // transport.go contains the binding from endpoints to a concrete transport.\n4: // In our case we just use a REST-y HTTP transport.\n5: \n6: import (\n7: \t\"context\"\n8: \t\"encoding/json\"\n9: \t\"errors\"\n10: \t\"net/http\"\n11: \t\"strings\"\n12: \n13: \t\"github.com/go-kit/kit/log\"\n14: \t\"github.com/go-kit/kit/tracing/opentracing\"\n15: \thttptransport \"github.com/go-kit/kit/transport/http\"\n16: \t\"github.com/gorilla/mux\"\n17: \t\"github.com/microservices-demo/user/users\"\n18: \tstdopentracing \"github.com/opentracing/opentracing-go\"\n19: \t\"github.com/prometheus/client_golang/prometheus/promhttp\"\n20: )\n21: \n22: var (\n23: \tErrInvalidRequest = errors.New(\"Invalid request\")\n24: )\n25: \n26: // MakeHTTPHandler mounts the endpoints into a REST-y HTTP handler.\n27: func MakeHTTPHandler(e Endpoints, logger log.Logger, tracer stdopentracing.Tracer) *mux.Router {\n28: \tr := mux.NewRouter().StrictSlash(false)\n29: \toptions := []httptransport.ServerOption{\n30: \t\thttptransport.ServerErrorLogger(logger),\n31: \t\tht"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/front-end/server.js"
+        },
+        "result_head": "1: var request      = require(\"request\")\n2:   , express      = require(\"express\")\n3:   , morgan       = require(\"morgan\")\n4:   , path         = require(\"path\")\n5:   , bodyParser   = require(\"body-parser\")\n6:   , async        = require(\"async\")\n7:   , cookieParser = require(\"cookie-parser\")\n8:   , session      = require(\"express-session\")\n9:   , config       = require(\"./config\")\n10:   , helpers      = require(\"./helpers\")\n11:   , cart         = require(\"./api/cart\")\n12:   , catalogue    = require(\"./api/catalogue\")\n13:   , orders       = require(\"./api/orders\")\n14:   , user         = require(\"./api/user\")\n15:   , metrics      = require(\"./api/metrics\")\n16:   , app          = express()\n17: \n18: \n19: app.use(helpers.rewriteSlash);\n20: app.use(metrics);\n21: app.use(express.static(\"public\"));\n22: if(process.env.SESSION_REDIS) {\n23:     console.log('Using the redis based session manager');\n24:     app.use(session(config.session_redis));\n25: }\n26: else {\n27:     console.log('Using local sess"
+      },
+      {
+        "step": 7,
+        "tool": "read_file",
+        "args": {
+          "path": "/front-end/api/endpoints.js"
+        },
+        "result_head": "1: (function (){\n2:   'use strict';\n3: \n4:   var util = require('util');\n5: \n6:   var domain = \"\";\n7:   process.argv.forEach(function (val, index, array) {\n8:     var arg = val.split(\"=\");\n9:     if (arg.length > 1) {\n10:       if (arg[0] == \"--domain\") {\n11:         domain = \".\" + arg[1];\n12:         console.log(\"Setting domain to:\", domain);\n13:       }\n14:     }\n15:   });\n16: \n17:   module.exports = {\n18:     catalogueUrl:  util.format(\"http://catalogue%s\", domain),\n19:     tagsUrl:       util.format(\"http://catalogue%s/tags\", domain),\n20:     cartsUrl:      util.format(\"http://carts%s/carts\", domain),\n21:     ordersUrl:     util.format(\"http://orders%s\", domain),\n22:     customersUrl:  util.format(\"http://user%s/customers\", domain),\n23:     addressUrl:    util.format(\"http://user%s/addresses\", domain),\n24:     cardsUrl:      util.format(\"http://user%s/cards\", domain),\n25:     loginUrl:      util.format(\"http://user%s/login\", domain),\n26:     registerUrl:   util.format(\"http://user%"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/front-end/api/cart/index.js"
+        },
+        "result_head": "1: (function (){\n2:   'use strict';\n3: \n4:   var async     = require(\"async\")\n5:     , express   = require(\"express\")\n6:     , request   = require(\"request\")\n7:     , helpers   = require(\"../../helpers\")\n8:     , endpoints = require(\"../endpoints\")\n9:     , app       = express()\n10: \n11:   // List items in cart for current logged in user.\n12:   app.get(\"/cart\", function (req, res, next) {\n13:     console.log(\"Request received: \" + req.url + \", \" + req.query.custId);\n14:     var custId = helpers.getCustomerId(req, app.get(\"env\"));\n15:     console.log(\"Customer ID: \" + custId);\n16:     request(endpoints.cartsUrl + \"/\" + custId + \"/items\", function (error, response, body) {\n17:       if (error) {\n18:         return next(error);\n19:       }\n20:       helpers.respondStatusBody(res, response.statusCode, body)\n21:     });\n22:   });\n23: \n24:   // Delete cart\n25:   app.delete(\"/cart\", function (req, res, next) {\n26:     var custId = helpers.getCustomerId(req, app.get(\"env\"));\n27:     console.lo"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/front-end/api/catalogue/index.js"
+        },
+        "result_head": "1: (function (){\n2:   'use strict';\n3: \n4:   var express   = require(\"express\")\n5:     , request   = require(\"request\")\n6:     , endpoints = require(\"../endpoints\")\n7:     , helpers   = require(\"../../helpers\")\n8:     , app       = express()\n9: \n10:   app.get(\"/catalogue/images*\", function (req, res, next) {\n11:     var url = endpoints.catalogueUrl + req.url.toString();\n12:     request.get(url)\n13:         .on('error', function(e) { next(e); })\n14:         .pipe(res);\n15:   });\n16: \n17:   app.get(\"/catalogue*\", function (req, res, next) {\n18:     helpers.simpleHttpRequest(endpoints.catalogueUrl + req.url.toString(), res, next);\n19:   });\n20: \n21:   app.get(\"/tags\", function(req, res, next) {\n22:     helpers.simpleHttpRequest(endpoints.tagsUrl, res, next);\n23:   });\n24: \n25:   module.exports = app;\n26: }());"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/front-end/api/orders/index.js"
+        },
+        "result_head": "1: (function (){\n2:   'use strict';\n3: \n4:   var async     = require(\"async\")\n5:     , express   = require(\"express\")\n6:     , request   = require(\"request\")\n7:     , endpoints = require(\"../endpoints\")\n8:     , helpers   = require(\"../../helpers\")\n9:     , app       = express()\n10: \n11:   app.get(\"/orders\", function (req, res, next) {\n12:     console.log(\"Request received with body: \" + JSON.stringify(req.body));\n13:     var logged_in = req.cookies.logged_in;\n14:     if (!logged_in) {\n15:       throw new Error(\"User not logged in.\");\n16:       return\n17:     }\n18: \n19:     var custId = req.session.customerId;\n20:     async.waterfall([\n21:         function (callback) {\n22:           request(endpoints.ordersUrl + \"/orders/search/customerId?sort=date&custId=\" + custId, function (error, response, body) {\n23:             if (error) {\n24:               return callback(error);\n25:             }\n26:             console.log(\"Received response: \" + JSON.stringify(body));\n27:             if (res"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/front-end/api/user/index.js"
+        },
+        "result_head": "1: (function() {\n2:     'use strict';\n3: \n4:     var async = require(\"async\"), express = require(\"express\"), request = require(\"request\"), endpoints = require(\"../endpoints\"), helpers = require(\"../../helpers\"), app = express(), cookie_name = \"logged_in\"\n5: \n6: \n7:     app.get(\"/customers/:id\", function(req, res, next) {\n8:         helpers.simpleHttpRequest(endpoints.customersUrl + \"/\" + req.session.customerId, res, next);\n9:     });\n10:     app.get(\"/cards/:id\", function(req, res, next) {\n11:         helpers.simpleHttpRequest(endpoints.cardsUrl + \"/\" + req.params.id, res, next);\n12:     });\n13: \n14:     app.get(\"/customers\", function(req, res, next) {\n15:         helpers.simpleHttpRequest(endpoints.customersUrl, res, next);\n16:     });\n17:     app.get(\"/addresses\", function(req, res, next) {\n18:         helpers.simpleHttpRequest(endpoints.addressUrl, res, next);\n19:     });\n20:     app.get(\"/cards\", function(req, res, next) {\n21:         helpers.simpleHttpRequest(endpoints.cardsUrl, r"
+      },
+      {
+        "step": 8,
+        "tool": "read_file",
+        "args": {
+          "path": "/front-end/api/metrics/index.js"
+        },
+        "result_head": "1: (function (){\n2:   'use strict';\n3:   const apiRoutes = ['cart', 'catalogue', 'orders', 'user'];\n4:   var express = require(\"express\")\n5:     , client  = require('prom-client')\n6:     , app     = express()\n7: \n8:   const metric = {\n9:     http: {\n10:       requests: {\n11:         duration: new client.Histogram('http_request_duration_seconds', 'request duration in seconds', ['service', 'method', 'path', 'status_code']),\n12:       }\n13:     }\n14:   }\n15: \n16:   function s(start) {\n17:     var diff = process.hrtime(start);\n18:     return (diff[0] * 1e9 + diff[1]) / 1000000000;\n19:   }\n20: \n21:   function observe(method, path, statusCode, start) {\n22:     var route = path.toLowerCase();\n23:     if (route !== '/metrics' && route !== '/metrics/') {\n24:         var duration = s(start);\n25:         var method = method.toLowerCase();\n26:         metric.http.requests.duration.labels('front-end', method, route, statusCode).observe(duration);\n27:     }\n28:   };\n29: \n30:   function middleware(re"
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/front-end/api/user/index.js",
+          "start": "150"
+        },
+        "result_head": "150:             uri: endpoints.addressUrl + \"/\" + req.params.id,\n151:             method: 'DELETE'\n152:         };\n153:         request(options, function(error, response, body) {\n154:             if (error) {\n155:                 return next(error);\n156:             }\n157:             helpers.respondSuccessBody(res, JSON.stringify(body));\n158:         }.bind({\n159:             res: res\n160:         }));\n161:     });\n162: \n163:     // Delete Card - TO BE USED FOR TESTING ONLY (for now)\n164:     app.delete(\"/cards/:id\", function(req, res, next) {\n165:         console.log(\"Deleting Card \" + req.params.id);\n166:         var options = {\n167:             uri: endpoints.cardsUrl + \"/\" + req.params.id,\n168:             method: 'DELETE'\n169:         };\n170:         request(options, function(error, response, body) {\n171:             if (error) {\n172:                 return next(error);\n173:             }\n174:             helpers.respondSuccessBody(res, JSON.stringify(body));\n175:         }.bind"
+      },
+      {
+        "step": 9,
+        "tool": "read_file",
+        "args": {
+          "path": "/front-end/helpers/index.js"
+        },
+        "result_head": "1: (function (){\n2:   'use strict';\n3: \n4:   var request = require(\"request\");\n5:   var helpers = {};\n6: \n7:   /* Public: errorHandler is a middleware that handles your errors\n8:    *\n9:    * Example:\n10:    *\n11:    * var app = express();\n12:    * app.use(helpers.errorHandler);\n13:    * */\n14: \n15:   helpers.errorHandler = function(err, req, res, next) {\n16:     var ret = {\n17:       message: err.message,\n18:       error:   err\n19:     };\n20:     res.\n21:       status(err.status || 500).\n22:       send(ret);\n23:   };\n24: \n25:   helpers.sessionMiddleware = function(err, req, res, next) {\n26:     if(!req.cookies.logged_in) {\n27:       res.session.customerId = null;\n28:     }\n29:   };\n30: \n31:   /* Responds with the given body and status 200 OK  */\n32:   helpers.respondSuccessBody = function(res, body) {\n33:     helpers.respondStatusBody(res, 200, body);\n34:   }\n35: \n36:   /* Public: responds with the given body and status\n37:    *\n38:    * res        - response object to use as output\n3"
+      },
+      {
+        "step": 10,
+        "tool": "read_file",
+        "args": {
+          "path": "/user/api/transport.go",
+          "start": "170"
+        },
+        "result_head": "170: \n171: func decodeAddressRequest(_ context.Context, r *http.Request) (interface{}, error) {\n172: \tdefer r.Body.Close()\n173: \ta := addressPostRequest{}\n174: \terr := json.NewDecoder(r.Body).Decode(&a)\n175: \tif err != nil {\n176: \t\treturn nil, err\n177: \t}\n178: \treturn a, nil\n179: }\n180: \n181: func decodeCardRequest(_ context.Context, r *http.Request) (interface{}, error) {\n182: \tdefer r.Body.Close()\n183: \tc := cardPostRequest{}\n184: \terr := json.NewDecoder(r.Body).Decode(&c)\n185: \tif err != nil {\n186: \t\treturn nil, err\n187: \t}\n188: \treturn c, nil\n189: }\n190: \n191: func decodeHealthRequest(_ context.Context, r *http.Request) (interface{}, error) {\n192: \treturn struct{}{}, nil\n193: }\n194: \n195: func encodeHealthResponse(ctx context.Context, w http.ResponseWriter, response interface{}) error {\n196: \treturn encodeResponse(ctx, w, response.(healthResponse))\n197: }\n198: \n199: func encodeResponse(_ context.Context, w http.ResponseWriter, response interface{}) error {\n200: \t// All of our respo"
+      },
+      {
+        "step": 10,
+        "tool": "read_file",
+        "args": {
+          "path": "/catalogue/cmd/cataloguesvc/main.go"
+        },
+        "result_head": "1: package main\n2: \n3: import (\n4: \t\"flag\"\n5: \t\"fmt\"\n6: \t\"os\"\n7: \t\"os/signal\"\n8: \t\"strings\"\n9: \t\"syscall\"\n10: \n11: \t\"github.com/go-kit/kit/log\"\n12: \tstdopentracing \"github.com/opentracing/opentracing-go\"\n13: \tzipkin \"github.com/openzipkin/zipkin-go-opentracing\"\n14: \n15: \t\"net\"\n16: \t\"net/http\"\n17: \n18: \t\"path/filepath\"\n19: \n20: \t_ \"github.com/go-sql-driver/mysql\"\n21: \t\"github.com/jmoiron/sqlx\"\n22: \t\"github.com/microservices-demo/catalogue\"\n23: \t\"github.com/prometheus/client_golang/prometheus\"\n24: \t\"github.com/weaveworks/common/middleware\"\n25: \t\"golang.org/x/net/context\"\n26: )\n27: \n28: const (\n29: \tServiceName = \"catalogue\"\n30: )\n31: \n32: var (\n33: \tHTTPLatency = prometheus.NewHistogramVec(prometheus.HistogramOpts{\n34: \t\tName:    \"http_request_duration_seconds\",\n35: \t\tHelp:    \"Time (in seconds) spent serving HTTP requests.\",\n36: \t\tBuckets: prometheus.DefBuckets,\n37: \t}, []string{\"method\", \"path\", \"status_code\", \"isWS\"})\n38: )\n39: \n40: func init() {\n41: \tprometheus.MustRegister(HTTPLaten"
+      },
+      {
+        "step": 10,
+        "tool": "read_file",
+        "args": {
+          "path": "/payment/cmd/paymentsvc/main.go"
+        },
+        "result_head": "1: package main\n2: \n3: import (\n4: \t\"flag\"\n5: \t\"fmt\"\n6: \t\"net\"\n7: \t\"net/http\"\n8: \t\"os\"\n9: \t\"os/signal\"\n10: \t\"strings\"\n11: \t\"syscall\"\n12: \n13: \t\"github.com/go-kit/kit/log\"\n14: \t\"github.com/microservices-demo/payment\"\n15: \tstdopentracing \"github.com/opentracing/opentracing-go\"\n16: \tzipkin \"github.com/openzipkin/zipkin-go-opentracing\"\n17: \t\"golang.org/x/net/context\"\n18: )\n19: \n20: const (\n21: \tServiceName = \"payment\"\n22: )\n23: \n24: func main() {\n25: \tvar (\n26: \t\tport          = flag.String(\"port\", \"8080\", \"Port to bind HTTP listener\")\n27: \t\tzip           = flag.String(\"zipkin\", os.Getenv(\"ZIPKIN\"), \"Zipkin address\")\n28: \t\tdeclineAmount = flag.Float64(\"decline\", 105, \"Decline payments over certain amount\")\n29: \t)\n30: \tflag.Parse()\n31: \tvar tracer stdopentracing.Tracer\n32: \t{\n33: \t\t// Log domain.\n34: \t\tvar logger log.Logger\n35: \t\t{\n36: \t\t\tlogger = log.NewLogfmtLogger(os.Stderr)\n37: \t\t\tlogger = log.NewContext(logger).With(\"ts\", log.DefaultTimestampUTC)\n38: \t\t\tlogger = log.NewContext(logger)."
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
+          "path": "/orders/src/main"
+        },
+        "result_head": "/orders/src/main/java/works/weave/socks/orders/controllers/HealthCheckController.java:23: @RequestMapping(method = RequestMethod.GET, path = \"/health\")\n/orders/src/main/java/works/weave/socks/orders/controllers/OrdersController.java:50: @RequestMapping(path = \"/orders\", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)\n/orders/src/main/java/works/weave/socks/orders/controllers/OrdersController.java:138: //    @RequestMapping(method = RequestMethod.GET, value = \"/orders\")"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "pattern": "app\\.(get|post|put|delete|patch|use)\\(",
+          "path": "/front-end"
+        },
+        "result_head": "/front-end/api/cart/index.js:12: app.get(\"/cart\", function (req, res, next) {\n/front-end/api/cart/index.js:14: var custId = helpers.getCustomerId(req, app.get(\"env\"));\n/front-end/api/cart/index.js:25: app.delete(\"/cart\", function (req, res, next) {\n/front-end/api/cart/index.js:26: var custId = helpers.getCustomerId(req, app.get(\"env\"));\n/front-end/api/cart/index.js:42: app.delete(\"/cart/:id\", function (req, res, next) {\n/front-end/api/cart/index.js:49: var custId = helpers.getCustomerId(req, app.get(\"env\"));\n/front-end/api/cart/index.js:65: app.post(\"/cart\", function (req, res, next) {\n/front-end/api/cart/index.js:73: var custId = helpers.getCustomerId(req, app.get(\"env\"));\n/front-end/api/cart/index.js:110: app.post(\"/cart/update\", function (req, res, next) {\n/front-end/api/cart/index.js:121: var custId = helpers.getCustomerId(req, app.get(\"env\"));\n/front-end/api/catalogue/index.js:10: app.get(\"/catalogue/images*\", function (req, res, next) {\n/front-end/api/catalogue/index.js:17: app.g"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "pattern": "base-path|basePath|spring.data.rest",
+          "path": "/orders"
+        },
+        "result_head": "/orders/api-spec/orders.json:13: \"basePath\": \"/\",\n/orders/pom.xml:57: <artifactId>spring-data-rest-hal-browser</artifactId>"
+      },
+      {
+        "step": 12,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"front-end\",\"dirs\":[\"/front-end\"]},{\"name\":\"catalogue\",\"dirs\":[\"/catalogue\"]},{\"name\":\"carts\",\"dirs\":[\"/carts\"]},{\"name\":\"orders\",\"dirs\":[\"/orders\"]},{\"name\":\"payment\",\"dirs\":[\"/p"
+        },
+        "result_head": "Recorded 8 new: service front-end, service catalogue, service carts, service orders, service payment, service user, service shipping, service queue-master\nTotal: 8 services, 0 endpoints in 0 files.\nServices with no endpoints recorded yet: front-end, catalogue, carts, orders, payment, user, shipping, queue-master."
+      },
+      {
+        "step": 13,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/carts/src/main/java/works/weave/socks/cart/controllers/CartsController.java\",\"service\":\"carts\",\"endpoints\":[\n{\"className\":\"CartsController\",\"methodName\":\"get\",\"httpMethod\":\"GET\",\""
+        },
+        "result_head": "Recorded 17 new: GET /carts/{customerId}, DELETE /carts/{customerId}, GET /carts/{customerId}/merge, GET /carts/{customerId}/items/{itemId}, GET /carts/{customerId}/items, POST /carts/{customerId}/items, DELETE /carts/{customerId}/items/{itemId}, PATCH /carts/{customerId}/items, GET /health, POST /orders, GET /health, GET /shipping, GET /shipping/{id}, POST /shipping, GET /health, GET /health, GET /prometheus\nTotal: 8 services, 17 endpoints in 8 files.\nServices with no endpoints recorded yet: front-end, catalogue, payment, user."
+      },
+      {
+        "step": 14,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/catalogue/transport.go\",\"service\":\"catalogue\",\"endpoints\":[\n{\"className\":\"\",\"methodName\":\"(inline)\",\"httpMethod\":\"GET\",\"path\":\"/catalogue\",\"line\":38,\"evidence\":\"r.Methods(\\\"GET\\\")"
+        },
+        "result_head": "Recorded 21 new: GET /catalogue, GET /catalogue/size, GET /catalogue/{id}, GET /tags, GET /catalogue/images/, GET /health, GET /metrics, POST /paymentAuth, GET /health, GET /metrics, GET /login, POST /register, GET /customers, GET /cards, GET /addresses, POST /customers, POST /addresses, POST /cards, DELETE /, GET /health, GET /metrics\nTotal: 8 services, 38 endpoints in 11 files.\nServices with no endpoints recorded yet: front-end."
+      },
+      {
+        "step": 15,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/front-end/api/cart/index.js\",\"service\":\"front-end\",\"endpoints\":[\n{\"className\":\"\",\"methodName\":\"(inline)\",\"httpMethod\":\"GET\",\"path\":\"/cart\",\"line\":12,\"evidence\":\"app.get(\\\"/cart\\\","
+        },
+        "result_head": "Recorded 27 new: GET /cart, DELETE /cart, DELETE /cart/:id, POST /cart, POST /cart/update, GET /catalogue/images*, GET /catalogue*, GET /tags, GET /orders, GET /orders/*, POST /orders, GET /customers/:id, GET /cards/:id, GET /customers, GET /addresses, GET /cards, POST /customers, POST /addresses, GET /card, GET /address, POST /cards, DELETE /customers/:id, DELETE /addresses/:id, DELETE /cards/:id, POST /register, GET /login, GET /metrics\nTotal: 8 services, 65 endpoints in 16 files."
+      },
+      {
+        "step": 16,
+        "tool": "submit",
+        "args": {},
+        "result_head": "[ACCEPTED] 8 services, 65 endpoints."
+      }
+    ]
+  }
+}
