@@ -1054,16 +1054,17 @@
     "stopped": null,
     "loop_warnings": 0,
     "blocked_calls": 0,
-    "elided_results": 20,
-    "steps": 34,
-    "tool_calls": 57,
+    "record_nudges": 0,
+    "elided_results": 25,
+    "steps": 31,
+    "tool_calls": 62,
     "rejected_entries": 0,
     "no_call_replies": 0,
-    "input_tokens": 719370,
-    "cached_input_tokens": 621696,
-    "output_tokens": 10800,
-    "list_price_usd": 0.023,
-    "wall_seconds": 72.3,
+    "input_tokens": 571529,
+    "cached_input_tokens": 488704,
+    "output_tokens": 10733,
+    "list_price_usd": 0.0203,
+    "wall_seconds": 106.0,
     "trace": [
       {
         "step": 1,
@@ -1074,12 +1075,12 @@
         "result_head": ".clog.toml\n.gcloudignore\n.gitignore\nAUTHORS\nDockerfile.compile\nDockerfile.slim\nDockerfile.ubuntu\nLICENSE.txt\nOWNERS.md\nREADME.md\nbuild.gradle\nfront50-api-tck/\nfront50-api/\nfront50-azure/\nfront50-bom/\nfront50-core/\nfront50-gcs/\nfront50-integration/\nfront50-migrations/\nfront50-oracle/\nfront50-redis/\nfront50-s3/\nfront50-sql-mysql/\nfront50-sql-postgres/\nfront50-sql/\nfront50-swift/\nfront50-test/\nfront50-web/\ngradle.properties\nhalconfig/\nsettings.gradle"
       },
       {
-        "step": 1,
+        "step": 2,
         "tool": "find",
         "args": {
-          "pattern": "Dockerfile*"
+          "pattern": "*Controller.java"
         },
-        "result_head": "/Dockerfile.compile\n/Dockerfile.slim\n/Dockerfile.ubuntu"
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java\n/front50-web/src/main/java/com/netflix/"
       },
       {
         "step": 2,
@@ -1090,13 +1091,20 @@
         "result_head": "1: /*\n2:  * Copyright 2014 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: apply from: \"../versions.gradle\"\n18: \n19: rootProject.name = \"front50\"\n20: \n21: include 'front50-web',\n22:     'front50-api',\n23:     'front50-api-tck',\n24:     'front50-core',\n25:     'front50-gcs',\n26:     'front50-integration',\n27:     'front50-redis',\n28:     'front50-s3',\n29:     'front50-sql',\n30:     'front50-sql-mysql',\n31:     'front"
       },
       {
-        "step": 2,
+        "step": 3,
         "tool": "find",
         "args": {
-          "pattern": "*Controller.java",
-          "path": "/front50-web"
+          "pattern": "*Application.java"
         },
-        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java\n/front50-web/src/main/java/com/netflix/"
+        "result_head": "/front50-core/src/main/java/com/netflix/spinnaker/front50/model/application/Application.java"
+      },
+      {
+        "step": 3,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile*"
+        },
+        "result_head": "/Dockerfile.compile\n/Dockerfile.slim\n/Dockerfile.ubuntu"
       },
       {
         "step": 3,
@@ -1105,14 +1113,6 @@
           "pattern": "@SpringBootApplication|public static void main"
         },
         "result_head": "/front50-sql/src/test/kotlin/com/netflix/spinnaker/config/CompositeStorageServiceConfigurationTests.kt:67: @SpringBootApplication\n/front50-web/src/main/java/com/netflix/spinnaker/front50/Main.java:47: public static void main(String... args) {"
-      },
-      {
-        "step": 3,
-        "tool": "find",
-        "args": {
-          "pattern": "*Controller.java"
-        },
-        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java\n/front50-web/src/main/java/com/netflix/"
       },
       {
         "step": 4,
@@ -1126,12 +1126,20 @@
         "step": 4,
         "tool": "read_file",
         "args": {
+          "path": "/Dockerfile.slim"
+        },
+        "result_head": "1: FROM alpine:3.24\n2: LABEL maintainer=\"sig-platform@spinnaker.io\"\n3: RUN apk --no-cache add --update bash curl openjdk25-jre\n4: # Pick up the latest CA bundle and fail the build if the JVM still trusts emSign ECC Root CA - G3.\n5: RUN apk --no-cache upgrade && ! keytool -list -cacerts -storepass changeit | grep -qiE 'emsign.*ecc.*g3'\n6: RUN addgroup -S -g 10111 spinnaker\n7: RUN adduser -S -G spinnaker -u 10111 spinnaker\n8: COPY front50-web/build/install/front50 /opt/front50\n9: RUN mkdir -p /opt/front50/plugins && chown -R spinnaker:nogroup /opt/front50/plugins\n10: USER spinnaker\n11: HEALTHCHECK CMD curl http://localhost:8080/health | grep UP || exit 1\n12: CMD [\"/opt/front50/bin/front50\"]"
+      },
+      {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
           "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java"
         },
         "result_head": "1: /*\n2:  * Copyright 2014 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import static com.netflix.spinnaker.front50.api.model.pipeline.Pipeline.TYPE_TEMPLATED;\n19: import static com.netflix.spinnaker.front50.model.pipeline.TemplateConfiguration.TemplateSource.SPINNAKER_PREFIX;\n20: import static java.lang.String.format;\n21: \n22: import com.fasterxml.jackson.c"
       },
       {
-        "step": 5,
+        "step": 6,
         "tool": "grep",
         "args": {
           "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)",
@@ -1140,7 +1148,15 @@
         "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:31: @RequestMapping(\"/admin\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:43: @RequestMapping(value = \"/recover\", method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:29: @RequestMapping(method = RequestMethod.GET, value = \"/deliveries\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:36: @RequestMapping(method = RequestMethod.GET, value = \"/applications/{application}/deliveries\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:43: @RequestMapping(method = RequestMethod.GET, value = \"deliveries/{id}\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:50: @RequestMapping(method = RequestMethod.POST, value = \"/deliveries\")\n/front50-web/src/main/java/com/ne"
       },
       {
-        "step": 6,
+        "step": 7,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"front50\",\"dirs\":[\"/front50-web\",\"/front50-api\",\"/front50-api-tck\",\"/front50-core\",\"/front50-gcs\",\"/front50-integration\",\"/front50-redis\",\"/front50-s3\",\"/front50-sql\",\"/front50-sq"
+        },
+        "result_head": "Recorded 1 new: service front50\nTotal: 1 services, 0 endpoints in 0 files.\nServices with no endpoints recorded yet: front50."
+      },
+      {
+        "step": 8,
         "tool": "read_file",
         "args": {
           "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java"
@@ -1148,7 +1164,7 @@
         "result_head": "1: /*\n2:  * Copyright 2019 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.front50.controllers;\n18: \n19: import com.netflix.spinnaker.front50.model.AdminOperations;\n20: import com.netflix.spinnaker.front50.model.ObjectType;\n21: import io.swagger.v3.oas.annotations.Operation;\n22: import io.swagger.v3.oas.annotations.tags.Tag;\n23: import java.util.Collection;\n24: import org.springframewor"
       },
       {
-        "step": 6,
+        "step": 8,
         "tool": "read_file",
         "args": {
           "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java"
@@ -1156,7 +1172,7 @@
         "result_head": "1: package com.netflix.spinnaker.front50.controllers;\n2: \n3: import com.netflix.spinnaker.front50.exceptions.InvalidRequestException;\n4: import com.netflix.spinnaker.front50.model.delivery.Delivery;\n5: import com.netflix.spinnaker.front50.model.delivery.DeliveryRepository;\n6: import com.netflix.spinnaker.kork.web.exceptions.NotFoundException;\n7: import io.swagger.v3.oas.annotations.Operation;\n8: import java.util.Collection;\n9: import org.springframework.beans.factory.annotation.Autowired;\n10: import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;\n11: import org.springframework.security.access.prepost.PostAuthorize;\n12: import org.springframework.security.access.prepost.PostFilter;\n13: import org.springframework.security.access.prepost.PreAuthorize;\n14: import org.springframework.web.bind.annotation.*;\n15: \n16: @RestController\n17: @ConditionalOnExpression(\"${spinnaker.delivery.enabled:false}\")\n18: public class DeliveryController {\n19: \n20:   private final Deliv"
       },
       {
-        "step": 6,
+        "step": 8,
         "tool": "read_file",
         "args": {
           "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java"
@@ -1164,7 +1180,7 @@
         "result_head": "1: package com.netflix.spinnaker.front50.controllers;\n2: \n3: import static java.lang.String.format;\n4: \n5: import com.google.common.base.Strings;\n6: import com.netflix.spinnaker.front50.UntypedUtils;\n7: import com.netflix.spinnaker.front50.model.notification.HierarchicalLevel;\n8: import com.netflix.spinnaker.front50.model.notification.Notification;\n9: import com.netflix.spinnaker.front50.model.notification.NotificationDAO;\n10: import com.netflix.spinnaker.kork.web.exceptions.NotFoundException;\n11: import java.util.ArrayList;\n12: import java.util.Collection;\n13: import java.util.List;\n14: import org.slf4j.Logger;\n15: import org.slf4j.LoggerFactory;\n16: import org.springframework.security.access.prepost.PostAuthorize;\n17: import org.springframework.security.access.prepost.PreAuthorize;\n18: import org.springframework.web.bind.annotation.*;\n19: \n20: /** Controller for presets */\n21: @RestController\n22: @RequestMapping(\"notifications\")\n23: public class NotificationController {\n24: \n25:   pr"
       },
       {
-        "step": 6,
+        "step": 8,
         "tool": "read_file",
         "args": {
           "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java"
@@ -1172,334 +1188,15 @@
         "result_head": "1: package com.netflix.spinnaker.front50.controllers;\n2: \n3: import com.netflix.spinnaker.front50.ApplicationPermissionsService;\n4: import com.netflix.spinnaker.front50.model.application.Application;\n5: import io.swagger.v3.oas.annotations.Operation;\n6: import java.util.Set;\n7: import org.springframework.web.bind.annotation.*;\n8: \n9: @RestController\n10: @RequestMapping(\"/permissions\")\n11: public class PermissionsController {\n12: \n13:   private final ApplicationPermissionsService permissionsService;\n14: \n15:   public PermissionsController(ApplicationPermissionsService permissionsService) {\n16:     this.permissionsService = permissionsService;\n17:   }\n18: \n19:   @Operation(summary = \"\", description = \"Get all application permissions. Internal use only.\")\n20:   @RequestMapping(method = RequestMethod.GET, value = \"/applications\")\n21:   public Set<Application.Permission> getAllApplicationPermissions() {\n22:     return permissionsService.getAllApplicationPermissions();\n23:   }\n24: \n25:   @Re"
       },
       {
-        "step": 7,
+        "step": 9,
         "tool": "record",
         "args": {
-          "json": "{\"services\":[{\"name\":\"front50\",\"dirs\":[\"/front50-web\",\"/front50-api\",\"/front50-api-tck\",\"/front50-core\",\"/front50-gcs\",\"/front50-integration\",\"/front50-redis\",\"/front50-s3\",\"/front50-sql\",\"/front50-sq"
+          "json": "{\"files\":[\n{\"path\":\"/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java\",\"service\":\"front50\",\"endpoints\":[{\"className\":\"AdminController\",\"methodName\":\"recover\",\"h"
         },
-        "result_head": "Recorded 20 new: service front50, POST /admin/recover, GET /deliveries, GET /applications/{application}/deliveries, GET /deliveries/{id}, POST /deliveries, PUT /deliveries/{id}, DELETE /applications/{application}/deliveries/{id}, GET /notifications, GET /notifications/global, POST /notifications/global, GET /notifications/{type}/{name}, POST /notifications/batchUpdate, POST /notifications/{type}/{name}, DELETE /notifications/{type}/{name}, GET /permissions/applications, GET /permissions/applications/{appName:.+}, POST /permissions/applications, PUT /permissions/applications/{appName:.+}, DELETE /permissions/applications/{appName:.+}\nTotal: 1 services, 19 endpoints in 4 files."
-      },
-      {
-        "step": 8,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java",
-          "start": "100"
-        },
-        "result_head": "100:     this.pipelineValidators = pipelineValidators;\n101:     this.pipelineTemplateDAO = pipelineTemplateDAO;\n102:     this.pipelineControllerConfig = pipelineControllerConfig;\n103:     this.fiatPermissionEvaluator = fiatPermissionEvaluator;\n104:     this.authorizationSupport = authorizationSupport;\n105:   }\n106: \n107:   @PreAuthorize(\"#restricted ? @fiatPermissionEvaluator.storeWholePermission() : true\")\n108:   @PostFilter(\"#restricted ? hasPermission(filterObject.application, 'APPLICATION', 'READ') : true\")\n109:   @RequestMapping(value = \"\", method = RequestMethod.GET)\n110:   public Collection<Pipeline> list(\n111:       @RequestParam(required = false, value = \"restricted\", defaultValue = \"true\")\n112:           boolean restricted,\n113:       @RequestParam(required = false, value = \"refresh\", defaultValue = \"true\") boolean refresh,\n114:       @RequestParam(required = false, value = \"enabledPipelines\") Boolean enabledPipelines,\n115:       @RequestParam(required = false, value = \"enabl"
-      },
-      {
-        "step": 9,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java",
-          "start": "260"
-        },
-        "result_head": "260: \n261:     List<Pipeline> copiedPipelines = new ArrayList<>();\n262:     int i = 0;\n263:     for (Pipeline p : pipelines) {\n264:       Pipeline copied = p.clone();\n265:       copied.setIndex(i);\n266:       copiedPipelines.add(copied);\n267:       i++;\n268:     }\n269: \n270:     return copiedPipelines;\n271:   }\n272: \n273:   @PreAuthorize(\"@fiatPermissionEvaluator.storeWholePermission()\")\n274:   @PostFilter(\"hasPermission(filterObject.application, 'APPLICATION', 'READ')\")\n275:   @RequestMapping(value = \"{id:.+}/history\", method = RequestMethod.GET)\n276:   public Collection<Pipeline> getHistory(\n277:       @PathVariable String id, @RequestParam(value = \"limit\", defaultValue = \"20\") int limit) {\n278:     return pipelineDAO.history(id, limit);\n279:   }\n280: \n281:   @PreAuthorize(\"@fiatPermissionEvaluator.storeWholePermission()\")\n282:   @PostAuthorize(\"hasPermission(returnObject.application, 'APPLICATION', 'READ')\")\n283:   @RequestMapping(value = \"{id:.+}/get\", method = RequestMethod.GET)\n2"
+        "result_head": "Recorded 19 new: POST /admin/recover, GET /deliveries, GET /applications/{application}/deliveries, GET /deliveries/{id}, POST /deliveries, PUT /deliveries/{id}, DELETE /applications/{application}/deliveries/{id}, GET /notifications, GET /notifications/global, POST /notifications/global, GET /notifications/{type}/{name}, POST /notifications/batchUpdate, POST /notifications/{type}/{name}, DELETE /notifications/{type}/{name}, GET /permissions/applications, GET /permissions/applications/{appName:.+}, POST /permissions/applications, PUT /permissions/applications/{appName:.+}, DELETE /permissions/applications/{appName:.+}\nTotal: 1 services, 19 endpoints in 4 files."
       },
       {
         "step": 10,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java",
-          "start": "395"
-        },
-        "result_head": "395:         savedPipelines.size(),\n396:         System.currentTimeMillis() - batchUpdateStartTime,\n397:         savedPipelines);\n398: \n399:     return returnData;\n400:   }\n401: \n402:   @PreAuthorize(\"hasPermission(#application, 'APPLICATION', 'WRITE')\")\n403:   @RequestMapping(value = \"{application}/{pipeline:.+}\", method = RequestMethod.DELETE)\n404:   public void delete(@PathVariable String application, @PathVariable String pipeline) {\n405:     String pipelineId = pipelineDAO.getPipelineId(application, pipeline);\n406:     log.info(\n407:         \"Deleting pipeline \\\"{}\\\" with id {} in application {}\", pipeline, pipelineId, application);\n408:     pipelineDAO.delete(pipelineId);\n409: \n410:     serviceAccountsService.ifPresent(\n411:         accountsService ->\n412:             accountsService.deleteManagedServiceAccounts(Collections.singletonList(pipelineId)));\n413:   }\n414: \n415:   public void delete(@PathVariable String id) {\n416:     pipelineDAO.delete(id);\n417:     serviceAccountsServi"
-      },
-      {
-        "step": 11,
-        "tool": "record",
-        "args": {
-          "json": "{\"files\":[{\"path\":\"/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java\",\"service\":\"front50\",\"endpoints\":[{\"className\":\"PipelineController\",\"methodName\":\"list\","
-        },
-        "result_head": "Recorded 10 new: GET /pipelines, GET /pipelines/triggeredBy/{id:.+}/{status}, GET /pipelines/{application:.+}, GET /pipelines/{id:.+}/history, GET /pipelines/{id:.+}/get, GET /pipelines/{application:.+}/name/{name:.+}, POST /pipelines, POST /pipelines/batchUpdate, DELETE /pipelines/{application}/{pipeline:.+}, PUT /pipelines/{id}\nTotal: 1 services, 29 endpoints in 5 files."
-      },
-      {
-        "step": 12,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java"
-        },
-        "result_head": "1: /*\n2:  * Copyright 2017 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import static com.netflix.spinnaker.front50.api.model.pipeline.Pipeline.TYPE_TEMPLATED;\n19: import static com.netflix.spinnaker.front50.model.pipeline.TemplateConfiguration.TemplateSource.SPINNAKER_PREFIX;\n20: \n21: import com.fasterxml.jackson.databind.ObjectMapper;\n22: import com.google."
-      },
-      {
-        "step": 12,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java"
-        },
-        "result_head": "1: /*\n2:  * Copyright 2020 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import com.google.common.hash.Hashing;\n19: import com.netflix.spinnaker.front50.plugins.PluginBinaryStorageService;\n20: import com.netflix.spinnaker.kork.exceptions.SystemException;\n21: import java.util.Optional;\n22: import lombok.SneakyThrows;\n23: import org.springframework.http.HttpStatu"
-      },
-      {
-        "step": 12,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java"
-        },
-        "result_head": "1: /*\n2:  * Copyright 2019 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import com.netflix.spinnaker.front50.config.annotations.ConditionalOnAnyProviderExceptRedisIsEnabled;\n19: import com.netflix.spinnaker.front50.model.plugins.PluginInfo;\n20: import com.netflix.spinnaker.front50.model.plugins.PluginInfoService;\n21: import jakarta.validation.Valid;\n22: import"
-      },
-      {
-        "step": 12,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java"
-        },
-        "result_head": "1: /*\n2:  * Copyright 2020 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import com.netflix.spinnaker.front50.config.annotations.ConditionalOnAnyProviderExceptRedisIsEnabled;\n19: import com.netflix.spinnaker.front50.model.plugins.PluginInfo;\n20: import com.netflix.spinnaker.front50.model.plugins.PluginVersionPinningService;\n21: import java.util.Map;\n22: import "
-      },
-      {
-        "step": 13,
-        "tool": "record",
-        "args": {
-          "json": "{\"files\":[{\"path\":\"/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java\",\"service\":\"front50\",\"endpoints\":[{\"className\":\"PipelineTemplateController\",\"met"
-        },
-        "result_head": "Recorded 17 new: GET /pipelineTemplates, POST /pipelineTemplates, GET /pipelineTemplates/{id}, PUT /pipelineTemplates/{id}, DELETE /pipelineTemplates/{id}, GET /pipelineTemplates/{id}/dependentPipelines, POST /pluginBinaries/{id}/{version}, GET /pluginBinaries/{id}/{version}, GET /pluginInfo, GET /pluginInfo/{id}, POST /pluginInfo, DELETE /pluginInfo/{id}, POST /pluginInfo/{id}/releases, PUT /pluginInfo/{id}/releases, PUT /pluginInfo/{id}/releases/{releaseVersion}, DELETE /pluginInfo/{id}/releases/{releaseVersion}, PUT /pluginVersions/{serverGroupName}\nTotal: 1 services, 46 endpoints in 9 files."
-      },
-      {
-        "step": 14,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java"
-        },
-        "result_head": "1: /*\n2:  * Copyright 2019 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import com.netflix.spinnaker.fiat.shared.FiatPermissionEvaluator;\n19: import com.netflix.spinnaker.front50.api.model.pipeline.Pipeline;\n20: import com.netflix.spinnaker.front50.exceptions.InvalidRequestException;\n21: import com.netflix.spinnaker.front50.model.ItemDAO;\n22: import com.netfl"
-      },
-      {
-        "step": 14,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.java"
-        },
-        "result_head": "1: /*\n2:  * Copyright 2016 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import com.netflix.spinnaker.front50.ServiceAccountsService;\n19: import com.netflix.spinnaker.front50.config.ServiceAccountsProperties;\n20: import com.netflix.spinnaker.front50.config.annotations.ConditionalOnAnyProviderExceptRedisIsEnabled;\n21: import com.netflix.spinnaker.front50.model.ser"
-      },
-      {
-        "step": 14,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/SnapshotsController.java"
-        },
-        "result_head": "1: /*\n2:  * Copyright 2016 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import com.google.common.base.Strings;\n19: import com.netflix.spinnaker.front50.config.annotations.ConditionalOnAnyProviderExceptRedisIsEnabled;\n20: import com.netflix.spinnaker.front50.exceptions.InvalidEntityException;\n21: import com.netflix.spinnaker.front50.model.snapshot.Snapshot;\n22: i"
-      },
-      {
-        "step": 14,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/StrategyController.java"
-        },
-        "result_head": "1: /*\n2:  * Copyright 2014 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import static java.lang.String.format;\n19: \n20: import com.google.common.base.Strings;\n21: import com.netflix.spinnaker.front50.api.model.pipeline.Pipeline;\n22: import com.netflix.spinnaker.front50.exceptions.DuplicateEntityException;\n23: import com.netflix.spinnaker.front50.exceptions.I"
-      },
-      {
-        "step": 14,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java"
-        },
-        "result_head": "1: /*\n2:  * Copyright 2018 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  *\n16:  */\n17: \n18: package com.netflix.spinnaker.front50.controllers;\n19: \n20: import static com.netflix.spinnaker.front50.api.model.pipeline.Pipeline.TYPE_TEMPLATED;\n21: import static com.netflix.spinnaker.front50.model.pipeline.TemplateConfiguration.TemplateSource.SPINNAKER_PREFIX;\n22: \n23: import com.fasterxml.jackson.core.JsonProcessingException;\n24: "
-      },
-      {
-        "step": 15,
-        "tool": "grep",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java",
-          "pattern": "@RequestMapping|@GetMapping|@DeleteMapping|@PostMapping|@PutMapping"
-        },
-        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:57: @RequestMapping(\"/v2/pipelineTemplates\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:73: @RequestMapping(value = \"\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:80: @RequestMapping(value = \"versions\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:88: @RequestMapping(value = \"\", method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:121: @RequestMapping(value = \"{id}\", method = RequestMethod.PUT)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:148: @RequestMapping(value = \"{id}\", method = RequestMethod.GET)\n/front50-web/src/m"
-      },
-      {
-        "step": 16,
-        "tool": "record",
-        "args": {
-          "json": "{\"files\":[{\"path\":\"/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java\",\"service\":\"front50\",\"endpoints\":[{\"className\":\"ReorderPipelinesController\",\"met"
-        },
-        "result_head": "Recorded 24 new: POST /actions/pipelines/reorder, POST /actions/strategies/reorder, GET /serviceAccounts, GET /serviceAccounts/tokenEligible, POST /serviceAccounts, DELETE /serviceAccounts/{serviceAccountId:.+}, GET /snapshots/{id:.+}/history, GET /snapshots/{id:.+}, GET /snapshots/{id:.+}/{timestamp:.+}, POST /snapshots, GET /strategies, GET /strategies/{application:.+}, GET /strategies/{id:.+}/history, POST /strategies, POST /strategies/batchUpdate, DELETE /strategies/{application}/{strategy:.+}, PUT /strategies/{id}, GET /v2/pipelineTemplates, GET /v2/pipelineTemplates/versions, POST /v2/pipelineTemplates, PUT /v2/pipelineTemplates/{id}, GET /v2/pipelineTemplates/{id}, DELETE /v2/pipelineTemplates/{id}, GET /v2/pipelineTemplates/{id}/dependentPipelines\nTotal: 1 services, 70 endpoints in 14 files."
-      },
-      {
-        "step": 17,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java"
-        },
-        "result_head": "1: package com.netflix.spinnaker.front50.controllers.v2;\n2: \n3: import static java.lang.String.format;\n4: \n5: import com.netflix.spinnaker.fiat.shared.FiatService;\n6: import com.netflix.spinnaker.fiat.shared.FiatStatus;\n7: import com.netflix.spinnaker.front50.config.FiatConfigurationProperties;\n8: import com.netflix.spinnaker.front50.controllers.exception.InvalidApplicationRequestException;\n9: import com.netflix.spinnaker.front50.exception.ApplicationAlreadyExistsException;\n10: import com.netflix.spinnaker.front50.exception.ValidationException;\n11: import com.netflix.spinnaker.front50.model.application.Application;\n12: import com.netflix.spinnaker.front50.model.application.ApplicationDAO;\n13: import com.netflix.spinnaker.front50.model.application.ApplicationPermissionDAO;\n14: import com.netflix.spinnaker.front50.model.application.ApplicationService;\n15: import com.netflix.spinnaker.kork.retrofit.Retrofit2SyncCall;\n16: import com.netflix.spinnaker.kork.web.exceptions.NotFoundException;\n"
-      },
-      {
-        "step": 17,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/EntityTagsController.java"
-        },
-        "result_head": "1: package com.netflix.spinnaker.front50.controllers.v2;\n2: \n3: import static java.lang.String.format;\n4: \n5: import com.google.common.base.Strings;\n6: import com.netflix.spinnaker.front50.exception.BadRequestException;\n7: import com.netflix.spinnaker.front50.model.tag.EntityTags;\n8: import com.netflix.spinnaker.front50.model.tag.EntityTagsDAO;\n9: import com.netflix.spinnaker.kork.web.exceptions.NotFoundException;\n10: import jakarta.servlet.http.HttpServletRequest;\n11: import jakarta.servlet.http.HttpServletResponse;\n12: import java.util.*;\n13: import java.util.stream.Collectors;\n14: import org.slf4j.Logger;\n15: import org.slf4j.LoggerFactory;\n16: import org.springframework.http.HttpStatus;\n17: import org.springframework.http.MediaType;\n18: import org.springframework.util.AntPathMatcher;\n19: import org.springframework.web.bind.annotation.*;\n20: import org.springframework.web.servlet.HandlerMapping;\n21: \n22: @RestController\n23: @RequestMapping(value = \"/v2/tags\", produces = MediaType.AP"
-      },
-      {
-        "step": 17,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java"
-        },
-        "result_head": "1: /*\n2:  * Copyright 2015 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers.v2;\n17: \n18: import static java.lang.String.format;\n19: \n20: import com.google.common.base.Splitter;\n21: import com.google.common.base.Strings;\n22: import com.netflix.spinnaker.front50.UntypedUtils;\n23: import com.netflix.spinnaker.front50.exceptions.InvalidRequestException;\n24: import com.netflix."
-      },
-      {
-        "step": 18,
-        "tool": "grep",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java",
-          "pattern": "@RequestMapping|@GetMapping|@DeleteMapping|@PostMapping|@PutMapping"
-        },
-        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:33: @RequestMapping(\"/v2/applications\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:70: @RequestMapping(method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:118: @RequestMapping(method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:140: @RequestMapping(method = RequestMethod.DELETE, value = \"/{applicationName:.+}\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:148: @RequestMapping(method = RequestMethod.PATCH, value = \"/{applicationName:.+}\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:165: @RequestMapping(method = RequestMethod.PUT, value = \"/{applicationName:.+}\")\n/front50-we"
-      },
-      {
-        "step": 18,
-        "tool": "grep",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java",
-          "pattern": "@RequestMapping|@GetMapping|@DeleteMapping|@PostMapping|@PutMapping"
-        },
-        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java:40: @RequestMapping(value = \"/v2/projects\", produces = MediaType.APPLICATION_JSON_VALUE)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java:52: @RequestMapping(value = \"/search\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java:71: @RequestMapping(method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java:82: @RequestMapping(method = RequestMethod.GET, value = \"/{projectId}\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java:92: @RequestMapping(method = RequestMethod.PUT, value = \"/{projectId}\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java:114: @RequestMapping(method = RequestMethod.POST)\n/front50-web/src/main/java"
-      },
-      {
-        "step": 19,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java",
-          "start": "138"
-        },
-        "result_head": "138:   @PreAuthorize(\"hasPermission(#applicationName, 'APPLICATION', 'WRITE')\")\n139:   @Operation(summary = \"\", description = \"Delete an application\")\n140:   @RequestMapping(method = RequestMethod.DELETE, value = \"/{applicationName:.+}\")\n141:   public void delete(@PathVariable String applicationName, HttpServletResponse response) {\n142:     applicationService.delete(applicationName);\n143:     response.setStatus(HttpStatus.NO_CONTENT.value());\n144:   }\n145: \n146:   @PreAuthorize(\"hasPermission(#app.name, 'APPLICATION', 'WRITE')\")\n147:   @Operation(summary = \"\", description = \"Update an existing application by merging the attributes\")\n148:   @RequestMapping(method = RequestMethod.PATCH, value = \"/{applicationName:.+}\")\n149:   public Application update(\n150:       @PathVariable final String applicationName, @RequestBody final Application app) {\n151:     if (!applicationName.trim().equalsIgnoreCase(app.getName())) {\n152:       throw new InvalidApplicationRequestException(\n153:           fo"
-      },
-      {
-        "step": 19,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java",
-          "start": "200"
-        },
-        "result_head": "200:                             applications.stream()\n201:                                 .anyMatch(it -> app.toLowerCase().contains(it.toLowerCase()))))\n202:         .orElse(false);\n203:   }\n204: \n205:   @Operation(summary = \"\", description = \"Delete a project\")\n206:   @RequestMapping(method = RequestMethod.DELETE, value = \"/{projectId}\")\n207:   public void delete(@PathVariable String projectId, HttpServletResponse response) {\n208:     projectDAO.delete(projectId);\n209:     response.setStatus(HttpStatus.ACCEPTED.value());\n210:   }\n211: \n212:   @RequestMapping(method = RequestMethod.POST, value = \"/batchUpdate\")\n213:   public void batchUpdate(\n214:       @RequestBody final Collection<Project> projects, HttpServletResponse response) {\n215:     projectDAO.bulkImport(projects);\n216:     response.setStatus(HttpStatus.ACCEPTED.value());\n217:   }\n218: \n219:   private static final Predicate<FuzzySearch> FUZZY_SEARCH_PREDICATE =\n220:       fuzzySearch -> {\n221:         boolean matches =\n222:"
-      },
-      {
-        "step": 20,
-        "tool": "record",
-        "args": {
-          "json": "{\"files\":[{\"path\":\"/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java\",\"service\":\"front50\",\"endpoints\":[{\"className\":\"ApplicationsController\",\"methodNa"
-        },
-        "result_head": "Recorded 21 new: GET /v2/applications, POST /v2/applications, DELETE /v2/applications/{applicationName:.+}, PATCH /v2/applications/{applicationName:.+}, PUT /v2/applications/{applicationName:.+}, GET /v2/applications/{applicationName:.+}, GET /v2/applications/{applicationName:.+}/history, POST /v2/applications/batch/applications, GET /v2/tags, GET /v2/tags/**, POST /v2/tags, POST /v2/tags/batchUpdate, POST /v2/tags/batchDelete, DELETE /v2/tags/**, GET /v2/projects/search, GET /v2/projects, GET /v2/projects/{projectId}, PUT /v2/projects/{projectId}, POST /v2/projects, DELETE /v2/projects/{projectId}, POST /v2/projects/batchUpdate\nTotal: 1 services, 91 endpoints in 17 files."
-      },
-      {
-        "step": 21,
-        "tool": "grep",
-        "args": {
-          "pattern": "@RestController|@Controller"
-        },
-        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:30: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:16: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java:21: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java:9: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:74: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:47: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java:28: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java:36: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVers"
-      },
-      {
-        "step": 22,
-        "tool": "grep",
-        "args": {
-          "pattern": "public static void main|SpringBootApplication"
-        },
-        "result_head": "/front50-sql/src/test/kotlin/com/netflix/spinnaker/config/CompositeStorageServiceConfigurationTests.kt:29: import org.springframework.boot.autoconfigure.SpringBootApplication\n/front50-sql/src/test/kotlin/com/netflix/spinnaker/config/CompositeStorageServiceConfigurationTests.kt:67: @SpringBootApplication\n/front50-web/src/main/java/com/netflix/spinnaker/front50/Main.java:47: public static void main(String... args) {"
-      },
-      {
-        "step": 22,
-        "tool": "find",
-        "args": {
-          "pattern": "Dockerfile*"
-        },
-        "result_head": "/Dockerfile.compile\n/Dockerfile.slim\n/Dockerfile.ubuntu"
-      },
-      {
-        "step": 23,
-        "tool": "list_dir",
-        "args": {
-          "path": "/"
-        },
-        "result_head": ".clog.toml\n.gcloudignore\n.gitignore\nAUTHORS\nDockerfile.compile\nDockerfile.slim\nDockerfile.ubuntu\nLICENSE.txt\nOWNERS.md\nREADME.md\nbuild.gradle\nfront50-api-tck/\nfront50-api/\nfront50-azure/\nfront50-bom/\nfront50-core/\nfront50-gcs/\nfront50-integration/\nfront50-migrations/\nfront50-oracle/\nfront50-redis/\nfront50-s3/\nfront50-sql-mysql/\nfront50-sql-postgres/\nfront50-sql/\nfront50-swift/\nfront50-test/\nfront50-web/\ngradle.properties\nhalconfig/\nsettings.gradle"
-      },
-      {
-        "step": 24,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java",
-          "start": "28"
-        },
-        "result_head": "28: import org.springframework.web.bind.annotation.RestController;\n29: \n30: @RestController\n31: @RequestMapping(\"/admin\")\n32: @Tag(name = \"admin\", description = \"Various administrative operations\")\n33: public class AdminController {\n34: \n35:   private final Collection<AdminOperations> adminOperations;\n36: \n37:   @Autowired\n38:   public AdminController(Collection<AdminOperations> adminOperations) {\n39:     this.adminOperations = adminOperations;\n40:   }\n41: \n42:   @Operation(summary = \"\", description = \"Recover a previously deleted object\")\n43:   @RequestMapping(value = \"/recover\", method = RequestMethod.POST)\n44:   void recover(@RequestBody AdminOperations.Recover operation) {\n45:     adminOperations.forEach(o -> o.recover(operation));\n46:     // Application permissions need to be recovered alongside the application itself.\n47:     if (operation.getObjectType().equalsIgnoreCase(ObjectType.APPLICATION.clazz.getSimpleName())) {\n48:       adminOperations.forEach(\n49:           o ->\n50:   "
-      },
-      {
-        "step": 24,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java",
-          "start": "14"
-        },
-        "result_head": "14: import org.springframework.web.bind.annotation.*;\n15: \n16: @RestController\n17: @ConditionalOnExpression(\"${spinnaker.delivery.enabled:false}\")\n18: public class DeliveryController {\n19: \n20:   private final DeliveryRepository deliveryRepository;\n21: \n22:   @Autowired\n23:   public DeliveryController(DeliveryRepository deliveryRepository) {\n24:     this.deliveryRepository = deliveryRepository;\n25:   }\n26: \n27:   @PostFilter(\"hasPermission(filterObject.application, 'APPLICATION', 'READ')\")\n28:   @Operation(summary = \"\", description = \"Get all delivery configs\")\n29:   @RequestMapping(method = RequestMethod.GET, value = \"/deliveries\")\n30:   Collection<Delivery> getAllConfigs() {\n31:     return deliveryRepository.getAllConfigs();\n32:   }\n33: \n34:   @PreAuthorize(\"hasPermission(#application, 'APPLICATION', 'READ')\")\n35:   @Operation(summary = \"\", description = \"Get the delivery configs for an application\")\n36:   @RequestMapping(method = RequestMethod.GET, value = \"/applications/{applicatio"
-      },
-      {
-        "step": 25,
-        "tool": "grep",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers",
-          "pattern": "^@RequestMapping"
-        },
-        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:31: @RequestMapping(\"/admin\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java:22: @RequestMapping(\"notifications\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java:10: @RequestMapping(\"/permissions\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:75: @RequestMapping(\"pipelines\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:48: @RequestMapping(\"pipelineTemplates\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java:29: @RequestMapping(\"/pluginBinaries\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java:37: @RequestMapping(\"/pluginInfo\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersi"
-      },
-      {
-        "step": 26,
-        "tool": "grep",
-        "args": {
-          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)",
-          "path": "/front50-core"
-        },
-        "result_head": "(no matches)"
-      },
-      {
-        "step": 26,
-        "tool": "grep",
-        "args": {
-          "pattern": "@(RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping)",
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50"
-        },
-        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:31: @RequestMapping(\"/admin\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:43: @RequestMapping(value = \"/recover\", method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:29: @RequestMapping(method = RequestMethod.GET, value = \"/deliveries\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:36: @RequestMapping(method = RequestMethod.GET, value = \"/applications/{application}/deliveries\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:43: @RequestMapping(method = RequestMethod.GET, value = \"deliveries/{id}\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:50: @RequestMapping(method = RequestMethod.POST, value = \"/deliveries\")\n/front50-web/src/main/java/com/ne"
-      },
-      {
-        "step": 27,
-        "tool": "read_file",
-        "args": {
-          "path": "/Dockerfile.slim"
-        },
-        "result_head": "1: FROM alpine:3.24\n2: LABEL maintainer=\"sig-platform@spinnaker.io\"\n3: RUN apk --no-cache add --update bash curl openjdk25-jre\n4: # Pick up the latest CA bundle and fail the build if the JVM still trusts emSign ECC Root CA - G3.\n5: RUN apk --no-cache upgrade && ! keytool -list -cacerts -storepass changeit | grep -qiE 'emsign.*ecc.*g3'\n6: RUN addgroup -S -g 10111 spinnaker\n7: RUN adduser -S -G spinnaker -u 10111 spinnaker\n8: COPY front50-web/build/install/front50 /opt/front50\n9: RUN mkdir -p /opt/front50/plugins && chown -R spinnaker:nogroup /opt/front50/plugins\n10: USER spinnaker\n11: HEALTHCHECK CMD curl http://localhost:8080/health | grep UP || exit 1\n12: CMD [\"/opt/front50/bin/front50\"]"
-      },
-      {
-        "step": 27,
-        "tool": "read_file",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/Main.java",
-          "start": "30"
-        },
-        "result_head": "30: @EnableAutoConfiguration(\n31:     exclude = {\n32:       DataSourceAutoConfiguration.class,\n33:     },\n34:     // Excluded by name (not class) so contexts without spring-data-redis on the\n35:     // classpath (e.g. front50-api-tck) don't fail annotation introspection with\n36:     // TypeNotPresentException, which discards the whole @EnableAutoConfiguration.\n37:     excludeName = {\n38:       \"org.springframework.boot.data.redis.autoconfigure.DataRedisAutoConfiguration\",\n39:       \"org.springframework.boot.data.redis.autoconfigure.DataRedisRepositoriesAutoConfiguration\",\n40:     })\n41: @ComponentScan({\"com.netflix.spinnaker.front50\", \"com.netflix.spinnaker.config\"})\n42: public class Main extends SpringBootServletInitializer {\n43: \n44:   private static final Map<String, Object> DEFAULT_PROPS =\n45:       new DefaultPropertiesBuilder().property(\"spring.application.name\", \"front50\").build();\n46: \n47:   public static void main(String... args) {\n48:     System.setProperty(\"spring.main.allow"
-      },
-      {
-        "step": 28,
-        "tool": "record",
-        "args": {
-          "json": "{\"services\":[{\"name\":\"front50\",\"dirs\":[\"/front50-web\",\"/front50-api\",\"/front50-api-tck\",\"/front50-core\",\"/front50-gcs\",\"/front50-integration\",\"/front50-redis\",\"/front50-s3\",\"/front50-sql\",\"/front50-sq"
-        },
-        "result_head": "Recorded 1 new: service front50\nTotal: 1 services, 91 endpoints in 17 files."
-      },
-      {
-        "step": 29,
-        "tool": "grep",
-        "args": {
-          "pattern": "RouterFunction|@Path\\(|@GET|@POST|http.HandleFunc|app\\.(get|post)\\("
-        },
-        "result_head": "/front50-core/src/main/java/com/netflix/spinnaker/front50/echo/EchoService.java:27: @POST(\".\")\n/front50-core/src/main/java/com/netflix/spinnaker/front50/echo/EchoService.java:31: @POST(\"notifications\")"
-      },
-      {
-        "step": 30,
-        "tool": "grep",
-        "args": {
-          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java",
-          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping"
-        },
-        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:75: @RequestMapping(\"pipelines\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:109: @RequestMapping(value = \"\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:164: @RequestMapping(\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:203: @RequestMapping(value = \"{application:.+}\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:275: @RequestMapping(value = \"{id:.+}/history\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:283: @RequestMapping(value = \"{id:.+}/get\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:290: @Re"
-      },
-      {
-        "step": 31,
         "tool": "read_file",
         "args": {
           "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java",
@@ -1508,7 +1205,225 @@
         "result_head": "160:    * @param status the execution status of the pipeline (canceled/suspended/succeeded)\n161:    */\n162:   @PreAuthorize(\"#restricted ? @fiatPermissionEvaluator.storeWholePermission() : true\")\n163:   @PostFilter(\"#restricted ? hasPermission(filterObject.application, 'APPLICATION', 'READ') : true\")\n164:   @RequestMapping(\n165:       value = {\"triggeredBy/{id:.+}/{status}\", \"triggeredBy/{id:.+}/{status}/\"},\n166:       method = RequestMethod.GET)\n167:   public Collection<Pipeline> getTriggeredPipelines(\n168:       @PathVariable String id,\n169:       @PathVariable String status,\n170:       @RequestParam(required = false, value = \"restricted\", defaultValue = \"true\")\n171:           boolean restricted,\n172:       @RequestParam(required = false, value = \"refresh\", defaultValue = \"true\") boolean refresh) {\n173: \n174:     Collection<Pipeline> pipelines = pipelineDAO.all(refresh);\n175: \n176:     Predicate<Trigger> triggerPredicate =\n177:         trigger -> {\n178:           boolean retval =\n179"
       },
       {
-        "step": 32,
+        "step": 11,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java",
+          "start": "288"
+        },
+        "result_head": "288:   @PreAuthorize(\"@fiatPermissionEvaluator.storeWholePermission()\")\n289:   @PostAuthorize(\"hasPermission(returnObject.application, 'APPLICATION', 'READ')\")\n290:   @RequestMapping(\n291:       value = {\"{application:.+}/name/{name:.+}\", \"{application:.+}/name/{name:.+}/\"},\n292:       method = RequestMethod.GET)\n293:   public Pipeline getByApplicationAndName(\n294:       @PathVariable String application,\n295:       @PathVariable String name,\n296:       @RequestParam(required = false, value = \"refresh\", defaultValue = \"true\") boolean refresh) {\n297:     return pipelineDAO.getPipelineByName(application, name, refresh);\n298:   }\n299: \n300:   @PreAuthorize(\n301:       \"@fiatPermissionEvaluator.storeWholePermission() \"\n302:           + \"and hasPermission(#pipeline.application, 'APPLICATION', 'WRITE') \"\n303:           + \"and @authorizationSupport.hasRunAsUserPermission(#pipeline)\")\n304:   @RequestMapping(value = \"\", method = RequestMethod.POST)\n305:   public synchronized Pipeline save(\n306: "
+      },
+      {
+        "step": 12,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java",
+          "start": "410"
+        },
+        "result_head": "410:     serviceAccountsService.ifPresent(\n411:         accountsService ->\n412:             accountsService.deleteManagedServiceAccounts(Collections.singletonList(pipelineId)));\n413:   }\n414: \n415:   public void delete(@PathVariable String id) {\n416:     pipelineDAO.delete(id);\n417:     serviceAccountsService.ifPresent(\n418:         accountsService ->\n419:             accountsService.deleteManagedServiceAccounts(Collections.singletonList(id)));\n420:   }\n421: \n422:   @PreAuthorize(\"hasPermission(#pipeline.application, 'APPLICATION', 'WRITE')\")\n423:   @RequestMapping(value = \"/{id}\", method = RequestMethod.PUT)\n424:   public Pipeline update(\n425:       @PathVariable final String id,\n426:       @RequestParam(value = \"staleCheck\", required = false, defaultValue = \"false\")\n427:           Boolean staleCheck,\n428:       @RequestBody Pipeline pipeline) {\n429:     Pipeline existingPipeline = pipelineDAO.findById(id);\n430: \n431:     if (!pipeline.getId().equals(existingPipeline.getId())) {\n432: "
+      },
+      {
+        "step": 13,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[{\"path\":\"/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java\",\"service\":\"front50\",\"endpoints\":[\n{\"className\":\"PipelineController\",\"methodName\":\"list\""
+        },
+        "result_head": "Recorded 10 new: GET /pipelines, GET /pipelines/triggeredBy/{id:.+}/{status}, GET /pipelines/{application:.+}, GET /pipelines/{id:.+}/history, GET /pipelines/{id:.+}/get, GET /pipelines/{application:.+}/name/{name:.+}, POST /pipelines, POST /pipelines/batchUpdate, DELETE /pipelines/{application}/{pipeline:.+}, PUT /pipelines/{id}\nTotal: 1 services, 29 endpoints in 5 files."
+      },
+      {
+        "step": 14,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2017 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import static com.netflix.spinnaker.front50.api.model.pipeline.Pipeline.TYPE_TEMPLATED;\n19: import static com.netflix.spinnaker.front50.model.pipeline.TemplateConfiguration.TemplateSource.SPINNAKER_PREFIX;\n20: \n21: import com.fasterxml.jackson.databind.ObjectMapper;\n22: import com.google."
+      },
+      {
+        "step": 14,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2020 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import com.google.common.hash.Hashing;\n19: import com.netflix.spinnaker.front50.plugins.PluginBinaryStorageService;\n20: import com.netflix.spinnaker.kork.exceptions.SystemException;\n21: import java.util.Optional;\n22: import lombok.SneakyThrows;\n23: import org.springframework.http.HttpStatu"
+      },
+      {
+        "step": 15,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2019 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import com.netflix.spinnaker.front50.config.annotations.ConditionalOnAnyProviderExceptRedisIsEnabled;\n19: import com.netflix.spinnaker.front50.model.plugins.PluginInfo;\n20: import com.netflix.spinnaker.front50.model.plugins.PluginInfoService;\n21: import jakarta.validation.Valid;\n22: import"
+      },
+      {
+        "step": 15,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2020 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import com.netflix.spinnaker.front50.config.annotations.ConditionalOnAnyProviderExceptRedisIsEnabled;\n19: import com.netflix.spinnaker.front50.model.plugins.PluginInfo;\n20: import com.netflix.spinnaker.front50.model.plugins.PluginVersionPinningService;\n21: import java.util.Map;\n22: import "
+      },
+      {
+        "step": 15,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2019 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import com.netflix.spinnaker.fiat.shared.FiatPermissionEvaluator;\n19: import com.netflix.spinnaker.front50.api.model.pipeline.Pipeline;\n20: import com.netflix.spinnaker.front50.exceptions.InvalidRequestException;\n21: import com.netflix.spinnaker.front50.model.ItemDAO;\n22: import com.netfl"
+      },
+      {
+        "step": 15,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2016 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import com.netflix.spinnaker.front50.ServiceAccountsService;\n19: import com.netflix.spinnaker.front50.config.ServiceAccountsProperties;\n20: import com.netflix.spinnaker.front50.config.annotations.ConditionalOnAnyProviderExceptRedisIsEnabled;\n21: import com.netflix.spinnaker.front50.model.ser"
+      },
+      {
+        "step": 16,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/SnapshotsController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2016 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import com.google.common.base.Strings;\n19: import com.netflix.spinnaker.front50.config.annotations.ConditionalOnAnyProviderExceptRedisIsEnabled;\n20: import com.netflix.spinnaker.front50.exceptions.InvalidEntityException;\n21: import com.netflix.spinnaker.front50.model.snapshot.Snapshot;\n22: i"
+      },
+      {
+        "step": 16,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/StrategyController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2014 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.front50.controllers;\n17: \n18: import static java.lang.String.format;\n19: \n20: import com.google.common.base.Strings;\n21: import com.netflix.spinnaker.front50.api.model.pipeline.Pipeline;\n22: import com.netflix.spinnaker.front50.exceptions.DuplicateEntityException;\n23: import com.netflix.spinnaker.front50.exceptions.I"
+      },
+      {
+        "step": 16,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2018 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  *\n16:  */\n17: \n18: package com.netflix.spinnaker.front50.controllers;\n19: \n20: import static com.netflix.spinnaker.front50.api.model.pipeline.Pipeline.TYPE_TEMPLATED;\n21: import static com.netflix.spinnaker.front50.model.pipeline.TemplateConfiguration.TemplateSource.SPINNAKER_PREFIX;\n22: \n23: import com.fasterxml.jackson.core.JsonProcessingException;\n24: "
+      },
+      {
+        "step": 17,
+        "tool": "grep",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java",
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:57: @RequestMapping(\"/v2/pipelineTemplates\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:73: @RequestMapping(value = \"\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:80: @RequestMapping(value = \"versions\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:88: @RequestMapping(value = \"\", method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:121: @RequestMapping(value = \"{id}\", method = RequestMethod.PUT)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java:148: @RequestMapping(value = \"{id}\", method = RequestMethod.GET)\n/front50-web/src/m"
+      },
+      {
+        "step": 17,
+        "tool": "grep",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2",
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping|class "
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:33: @RequestMapping(\"/v2/applications\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:35: public class ApplicationsController {\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:70: @RequestMapping(method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:118: @RequestMapping(method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:140: @RequestMapping(method = RequestMethod.DELETE, value = \"/{applicationName:.+}\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java:148: @RequestMapping(method = RequestMethod.PATCH, value = \"/{applicationName:.+}\")\n/front50-web/src/main/java/com/netflix/spinnaker/fr"
+      },
+      {
+        "step": 18,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:30: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:16: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java:21: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java:9: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java:74: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:47: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java:28: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java:36: @RestController\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVers"
+      },
+      {
+        "step": 18,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/V2PipelineTemplateController.java",
+          "start": "140"
+        },
+        "result_head": "140:     // TODO(jacobkiefer): setLastModifiedBy() user here for Fiat?\n141: \n142:     getPipelineTemplateDAO().update(templateId, pipelineTemplate);\n143:     saveLatest(pipelineTemplate, tag);\n144:     saveDigest(pipelineTemplate);\n145:     return pipelineTemplate;\n146:   }\n147: \n148:   @RequestMapping(value = \"{id}\", method = RequestMethod.GET)\n149:   PipelineTemplate get(\n150:       @PathVariable String id,\n151:       @RequestParam(value = \"tag\", required = false) String tag,\n152:       @RequestParam(value = \"digest\", required = false) String digest) {\n153:     String templateId = formatId(id, tag, digest);\n154:     // We don't need to surface our internal accounting information to the user.\n155:     // This would muddle the API and probably be bug-friendly.\n156:     PipelineTemplate foundTemplate = getPipelineTemplateDAO().findById(templateId);\n157:     foundTemplate.remove(\"digest\");\n158:     foundTemplate.remove(\"tag\");\n159: \n160:     return foundTemplate;\n161:   }\n162: \n163:   @R"
+      },
+      {
+        "step": 19,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java\",\"service\":\"front50\",\"endpoints\":[\n{\"className\":\"PipelineTemplateController\",\"m"
+        },
+        "result_head": "Recorded 41 new: GET /pipelineTemplates, POST /pipelineTemplates, GET /pipelineTemplates/{id}, PUT /pipelineTemplates/{id}, DELETE /pipelineTemplates/{id}, GET /pipelineTemplates/{id}/dependentPipelines, POST /pluginBinaries/{id}/{version}, GET /pluginBinaries/{id}/{version}, GET /pluginInfo, GET /pluginInfo/{id}, POST /pluginInfo, DELETE /pluginInfo/{id}, POST /pluginInfo/{id}/releases, PUT /pluginInfo/{id}/releases, PUT /pluginInfo/{id}/releases/{releaseVersion}, DELETE /pluginInfo/{id}/releases/{releaseVersion}, PUT /pluginVersions/{serverGroupName}, POST /actions/pipelines/reorder, POST /actions/strategies/reorder, GET /serviceAccounts, GET /serviceAccounts/tokenEligible, POST /serviceAccounts, DELETE /serviceAccounts/{serviceAccountId:.+}, GET /snapshots/{id:.+}/history, GET /snapshots/{id:.+}, GET /snapshots/{id:.+}/{timestamp:.+}, POST /snapshots, GET /strategies, GET /strategies/{application:.+}, GET /strategies/{id:.+}/history, POST /strategies, POST /strategies/batchUpdate, D"
+      },
+      {
+        "step": 20,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java",
+          "start": "30"
+        },
+        "result_head": "30: import org.springframework.web.bind.annotation.*;\n31: \n32: @RestController\n33: @RequestMapping(\"/v2/applications\")\n34: @Tag(name = \"application\", description = \"Application API\")\n35: public class ApplicationsController {\n36: \n37:   private static final Logger log = LoggerFactory.getLogger(ApplicationsController.class);\n38: \n39:   private final MessageSource messageSource;\n40:   private final ApplicationDAO applicationDAO;\n41:   private final Optional<ApplicationPermissionDAO> applicationPermissionDAO;\n42:   private final Optional<FiatService> fiatService;\n43:   private final FiatConfigurationProperties fiatConfigurationProperties;\n44:   private final FiatStatus fiatStatus;\n45:   private final ApplicationService applicationService;\n46: \n47:   public ApplicationsController(\n48:       MessageSource messageSource,\n49:       ApplicationDAO applicationDAO,\n50:       Optional<ApplicationPermissionDAO> applicationPermissionDAO,\n51:       Optional<FiatService> fiatService,\n52:       FiatCon"
+      },
+      {
+        "step": 20,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/EntityTagsController.java"
+        },
+        "result_head": "1: package com.netflix.spinnaker.front50.controllers.v2;\n2: \n3: import static java.lang.String.format;\n4: \n5: import com.google.common.base.Strings;\n6: import com.netflix.spinnaker.front50.exception.BadRequestException;\n7: import com.netflix.spinnaker.front50.model.tag.EntityTags;\n8: import com.netflix.spinnaker.front50.model.tag.EntityTagsDAO;\n9: import com.netflix.spinnaker.kork.web.exceptions.NotFoundException;\n10: import jakarta.servlet.http.HttpServletRequest;\n11: import jakarta.servlet.http.HttpServletResponse;\n12: import java.util.*;\n13: import java.util.stream.Collectors;\n14: import org.slf4j.Logger;\n15: import org.slf4j.LoggerFactory;\n16: import org.springframework.http.HttpStatus;\n17: import org.springframework.http.MediaType;\n18: import org.springframework.util.AntPathMatcher;\n19: import org.springframework.web.bind.annotation.*;\n20: import org.springframework.web.servlet.HandlerMapping;\n21: \n22: @RestController\n23: @RequestMapping(value = \"/v2/tags\", produces = MediaType.AP"
+      },
+      {
+        "step": 21,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java",
+          "start": "160"
+        },
+        "result_head": "160: \n161:   @PreAuthorize(\"hasPermission(#app.name, 'APPLICATION', 'WRITE')\")\n162:   @Operation(\n163:       summary = \"\",\n164:       description = \"Update an existing application by replacing all attributes\")\n165:   @RequestMapping(method = RequestMethod.PUT, value = \"/{applicationName:.+}\")\n166:   public Application replace(\n167:       @PathVariable final String applicationName, @RequestBody final Application app) {\n168:     if (!applicationName.trim().equalsIgnoreCase(app.getName())) {\n169:       throw new InvalidApplicationRequestException(\n170:           format(\n171:               \"Application name '%s' does not match path parameter '%s'\",\n172:               app.getName(), applicationName));\n173:     }\n174: \n175:     return applicationService.replace(app);\n176:   }\n177: \n178:   @PostAuthorize(\"hasPermission(#applicationName, 'APPLICATION', 'READ')\")\n179:   @Operation(summary = \"\", description = \"Fetch a single application by name\")\n180:   @RequestMapping(method = RequestMethod.GET"
+      },
+      {
+        "step": 21,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ProjectsController.java",
+          "start": "40"
+        },
+        "result_head": "40: @RequestMapping(value = \"/v2/projects\", produces = MediaType.APPLICATION_JSON_VALUE)\n41: @Tag(name = \"projects\", description = \"Project API\")\n42: public class ProjectsController {\n43: \n44:   private static final Splitter COMMA_SPLITTER = Splitter.on(',');\n45: \n46:   private final ProjectDAO projectDAO;\n47: \n48:   public ProjectsController(ProjectDAO projectDAO) {\n49:     this.projectDAO = projectDAO;\n50:   }\n51: \n52:   @RequestMapping(value = \"/search\", method = RequestMethod.GET)\n53:   @Operation(\n54:       summary = \"\",\n55:       description =\n56:           \"Search for projects given one or more attributes.\\n\\n- /search?q=ProjectName\\n- /search?q=ApplicationName\\n\")\n57:   public Set<Project> search(@RequestParam(\"q\") final String query) {\n58:     return projectDAO.all().stream()\n59:         .filter(\n60:             p ->\n61:                 p.getName().toLowerCase().contains(query.toLowerCase())\n62:                     || p.getConfig().getApplications().stream()\n63:               "
+      },
+      {
+        "step": 22,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/v2/ApplicationsController.java\",\"service\":\"front50\",\"endpoints\":[\n{\"className\":\"ApplicationsController\",\"method"
+        },
+        "result_head": "Recorded 21 new: GET /v2/applications, POST /v2/applications, DELETE /v2/applications/{applicationName:.+}, PATCH /v2/applications/{applicationName:.+}, PUT /v2/applications/{applicationName:.+}, GET /v2/applications/{applicationName:.+}, GET /v2/applications/{applicationName:.+}/history, POST /v2/applications/batch/applications, GET /v2/tags, GET /v2/tags/**, POST /v2/tags, POST /v2/tags/batchUpdate, POST /v2/tags/batchDelete, DELETE /v2/tags/**, GET /v2/projects/search, GET /v2/projects, GET /v2/projects/{projectId}, PUT /v2/projects/{projectId}, POST /v2/projects, DELETE /v2/projects/{projectId}, POST /v2/projects/batchUpdate\nTotal: 1 services, 91 endpoints in 17 files."
+      },
+      {
+        "step": 23,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@Path\\(",
+          "path": "/front50-core"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 23,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@Path\\(",
+          "path": "/front50-api"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 23,
+        "tool": "find",
+        "args": {
+          "pattern": "Dockerfile*"
+        },
+        "result_head": "/Dockerfile.compile\n/Dockerfile.slim\n/Dockerfile.ubuntu"
+      },
+      {
+        "step": 23,
+        "tool": "find",
+        "args": {
+          "pattern": "*.gradle"
+        },
+        "result_head": "/build.gradle\n/front50-api-tck/front50-api-tck.gradle\n/front50-api/front50-api.gradle\n/front50-azure/front50-azure.gradle\n/front50-bom/front50-bom.gradle\n/front50-core/front50-core.gradle\n/front50-gcs/front50-gcs.gradle\n/front50-integration/front50-integration.gradle\n/front50-migrations/front50-migrations.gradle\n/front50-oracle/front50-oracle.gradle\n/front50-redis/front50-redis.gradle\n/front50-s3/front50-s3.gradle\n/front50-sql-mysql/front50-sql-mysql.gradle\n/front50-sql-postgres/front50-sql-postgres.gradle\n/front50-sql/front50-sql.gradle\n/front50-swift/front50-swift.gradle\n/front50-test/front50-test.gradle\n/front50-web/front50-web.gradle\n/settings.gradle"
+      },
+      {
+        "step": 24,
         "tool": "read_file",
         "args": {
           "path": "/settings.gradle"
@@ -1516,25 +1431,157 @@
         "result_head": "1: /*\n2:  * Copyright 2014 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: apply from: \"../versions.gradle\"\n18: \n19: rootProject.name = \"front50\"\n20: \n21: include 'front50-web',\n22:     'front50-api',\n23:     'front50-api-tck',\n24:     'front50-core',\n25:     'front50-gcs',\n26:     'front50-integration',\n27:     'front50-redis',\n28:     'front50-s3',\n29:     'front50-sql',\n30:     'front50-sql-mysql',\n31:     'front"
       },
       {
-        "step": 32,
+        "step": 24,
         "tool": "grep",
         "args": {
-          "pattern": "application|mainClass",
-          "path": "/build.gradle"
+          "pattern": "@RestController|@Controller|@RequestMapping",
+          "path": "/front50-web/src/main/groovy"
         },
         "result_head": "(no matches)"
       },
       {
-        "step": 33,
+        "step": 25,
         "tool": "grep",
         "args": {
-          "path": "/front50-web/front50-web.gradle",
-          "pattern": "mainClass|application"
+          "pattern": "@RestController|@Controller",
+          "path": "/front50-core"
         },
-        "result_head": "/front50-web/front50-web.gradle:19: application.mainClass = 'com.netflix.spinnaker.front50.Main'"
+        "result_head": "(no matches)"
       },
       {
-        "step": 34,
+        "step": 25,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller",
+          "path": "/front50-sql"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 25,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller",
+          "path": "/front50-integration"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 25,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller",
+          "path": "/front50-migrations"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 26,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
+          "path": "/front50-web/src/main"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:31: @RequestMapping(\"/admin\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java:43: @RequestMapping(value = \"/recover\", method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:29: @RequestMapping(method = RequestMethod.GET, value = \"/deliveries\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:36: @RequestMapping(method = RequestMethod.GET, value = \"/applications/{application}/deliveries\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:43: @RequestMapping(method = RequestMethod.GET, value = \"deliveries/{id}\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java:50: @RequestMapping(method = RequestMethod.POST, value = \"/deliveries\")\n/front50-web/src/main/java/com/ne"
+      },
+      {
+        "step": 27,
+        "tool": "grep",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java",
+          "pattern": "Mapping|RequestMapping"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java:29: @RequestMapping(\"/pluginBinaries\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java:39: @PostMapping(\"/{id}/{version}\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java:51: @GetMapping(\"/{id}/{version}\")"
+      },
+      {
+        "step": 27,
+        "tool": "grep",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java",
+          "pattern": "Mapping"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java:30: import org.springframework.web.bind.annotation.RequestMapping;\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java:37: @RequestMapping(\"/pluginInfo\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java:48: @RequestMapping(value = \"\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java:55: @RequestMapping(value = \"/{id}\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java:60: @RequestMapping(value = \"\", method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java:66: @RequestMapping(value = \"/{id}\", method = RequestMethod.DELETE)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/Plugi"
+      },
+      {
+        "step": 27,
+        "tool": "grep",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java",
+          "pattern": "Mapping"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java:23: import org.springframework.web.bind.annotation.PutMapping;\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java:25: import org.springframework.web.bind.annotation.RequestMapping;\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java:30: @RequestMapping(\"/pluginVersions\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginVersionController.java:40: @PutMapping(\"/{serverGroupName}\")"
+      },
+      {
+        "step": 27,
+        "tool": "grep",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java",
+          "pattern": "Mapping"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java:31: @RequestMapping(\"actions\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java:39: @RequestMapping(value = \"/pipelines/reorder\", method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/ReorderPipelinesController.java:44: @RequestMapping(value = \"/strategies/reorder\", method = RequestMethod.POST)"
+      },
+      {
+        "step": 27,
+        "tool": "grep",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java",
+          "pattern": "Mapping"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:42: import org.springframework.web.bind.annotation.RequestMapping;\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:48: @RequestMapping(\"pipelineTemplates\")\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:60: @RequestMapping(value = \"\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:66: @RequestMapping(value = \"\", method = RequestMethod.POST)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:72: @RequestMapping(value = \"{id}\", method = RequestMethod.GET)\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java:77: @RequestMapping(value = \"{id}\", method = RequestMethod.PUT)\n/front50-web/src/main/java/com/netfli"
+      },
+      {
+        "step": 28,
+        "tool": "grep",
+        "args": {
+          "pattern": "public static void main|SpringApplication.run|@SpringBootApplication"
+        },
+        "result_head": "/front50-sql/src/test/kotlin/com/netflix/spinnaker/config/CompositeStorageServiceConfigurationTests.kt:67: @SpringBootApplication\n/front50-web/src/main/java/com/netflix/spinnaker/front50/Main.java:47: public static void main(String... args) {"
+      },
+      {
+        "step": 28,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile.slim"
+        },
+        "result_head": "1: FROM alpine:3.24\n2: LABEL maintainer=\"sig-platform@spinnaker.io\"\n3: RUN apk --no-cache add --update bash curl openjdk25-jre\n4: # Pick up the latest CA bundle and fail the build if the JVM still trusts emSign ECC Root CA - G3.\n5: RUN apk --no-cache upgrade && ! keytool -list -cacerts -storepass changeit | grep -qiE 'emsign.*ecc.*g3'\n6: RUN addgroup -S -g 10111 spinnaker\n7: RUN adduser -S -G spinnaker -u 10111 spinnaker\n8: COPY front50-web/build/install/front50 /opt/front50\n9: RUN mkdir -p /opt/front50/plugins && chown -R spinnaker:nogroup /opt/front50/plugins\n10: USER spinnaker\n11: HEALTHCHECK CMD curl http://localhost:8080/health | grep UP || exit 1\n12: CMD [\"/opt/front50/bin/front50\"]"
+      },
+      {
+        "step": 29,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping",
+          "path": "/front50-web/src/main/kotlin"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 29,
+        "tool": "find",
+        "args": {
+          "pattern": "*Controller*"
+        },
+        "result_head": "/front50-web/src/main/java/com/netflix/spinnaker/front50/config/controllers/PipelineControllerConfig.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AdminController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/AuthorizationSupport.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/NotificationController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PermissionsController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PipelineTemplateController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginBinaryController.java\n/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/PluginInfoController.java\n/front50-web/src/main/java/com/netfli"
+      },
+      {
+        "step": 30,
+        "tool": "grep",
+        "args": {
+          "pattern": "context-path|contextPath|server.port",
+          "path": "/front50-web/src/main"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 30,
+        "tool": "read_file",
+        "args": {
+          "path": "/front50-web/src/main/java/com/netflix/spinnaker/front50/controllers/DeliveryController.java",
+          "start": "60"
+        },
+        "result_head": "60:       throw new InvalidRequestException(\n61:           \"URL id (\" + id + \") does not match submitted id (\" + config.getId() + \")\");\n62:     }\n63:     try {\n64:       Delivery existing = deliveryRepository.findById(id);\n65:       config.setCreateTs(existing.getCreateTs());\n66:     } catch (NotFoundException e) {\n67:       // ignore because we will create config\n68:     }\n69: \n70:     return deliveryRepository.upsertConfig(config);\n71:   }\n72: \n73:   @PreAuthorize(\"hasPermission(#application, 'APPLICATION', 'WRITE')\")\n74:   @Operation(summary = \"\", description = \"Delete a delivery config\")\n75:   @RequestMapping(\n76:       method = RequestMethod.DELETE,\n77:       value = \"/applications/{application}/deliveries/{id}\")\n78:   void deleteConfig(@PathVariable String application, @PathVariable String id) {\n79:     Delivery config = deliveryRepository.findById(id);\n80:     if (!config.getApplication().equals(application)) {\n81:       throw new InvalidRequestException(\n82:           \"No confi"
+      },
+      {
+        "step": 31,
         "tool": "submit",
         "args": {
           "json": "{\"services\":[{\"name\":\"front50\",\"dirs\":[\"/front50-web\",\"/front50-api\",\"/front50-api-tck\",\"/front50-core\",\"/front50-gcs\",\"/front50-integration\",\"/front50-redis\",\"/front50-s3\",\"/front50-sql\",\"/front50-sq"

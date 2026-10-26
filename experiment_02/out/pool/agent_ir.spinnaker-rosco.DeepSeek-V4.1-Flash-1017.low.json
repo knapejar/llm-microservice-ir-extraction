@@ -2,18 +2,19 @@
   "system": "spinnaker-rosco",
   "services": [
     {
-      "name": "rosco",
+      "name": "rosco-web",
       "dirs": [
         "/rosco-web",
         "/rosco-core",
-        "/rosco-manifests"
+        "/rosco-manifests",
+        "/halconfig"
       ]
     }
   ],
   "files": [
     {
       "path": "/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/BakeryController.groovy",
-      "service": "rosco",
+      "service": "rosco-web",
       "endpoints": [
         {
           "className": "BakeryController",
@@ -129,7 +130,7 @@
     },
     {
       "path": "/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/StatusController.groovy",
-      "service": "rosco",
+      "service": "rosco-web",
       "endpoints": [
         {
           "className": "StatusController",
@@ -155,7 +156,7 @@
     },
     {
       "path": "/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/V2BakeryController.java",
-      "service": "rosco",
+      "service": "rosco-web",
       "endpoints": [
         {
           "className": "V2BakeryController",
@@ -186,16 +187,17 @@
     "stopped": null,
     "loop_warnings": 0,
     "blocked_calls": 0,
+    "record_nudges": 0,
     "elided_results": 0,
-    "steps": 13,
+    "steps": 12,
     "tool_calls": 25,
     "rejected_entries": 0,
     "no_call_replies": 0,
-    "input_tokens": 123315,
-    "cached_input_tokens": 106112,
-    "output_tokens": 2772,
-    "list_price_usd": 0.0046,
-    "wall_seconds": 18.2,
+    "input_tokens": 99184,
+    "cached_input_tokens": 83328,
+    "output_tokens": 2680,
+    "list_price_usd": 0.0042,
+    "wall_seconds": 20.1,
     "trace": [
       {
         "step": 1,
@@ -225,26 +227,10 @@
         "step": 2,
         "tool": "find",
         "args": {
-          "pattern": "*Controller*.java"
-        },
-        "result_head": "/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/V2BakeryController.java\n/rosco-web/src/test/java/com/netflix/spinnaker/rosco/controllers/V2BakeryControllerArtifactStoreTest.java\n/rosco-web/src/test/java/com/netflix/spinnaker/rosco/controllers/V2BakeryControllerTest.java\n/rosco-web/src/test/java/com/netflix/spinnaker/rosco/controllers/V2BakeryControllerWithClouddriverServiceTest.java"
-      },
-      {
-        "step": 2,
-        "tool": "find",
-        "args": {
           "pattern": "*.java",
           "path": "/rosco-web"
         },
         "result_head": "/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/V2BakeryController.java\n/rosco-web/src/test/java/com/netflix/spinnaker/rosco/controllers/V2BakeryControllerArtifactStoreTest.java\n/rosco-web/src/test/java/com/netflix/spinnaker/rosco/controllers/V2BakeryControllerTest.java\n/rosco-web/src/test/java/com/netflix/spinnaker/rosco/controllers/V2BakeryControllerWithClouddriverServiceTest.java"
-      },
-      {
-        "step": 3,
-        "tool": "read_file",
-        "args": {
-          "path": "/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/V2BakeryController.java"
-        },
-        "result_head": "1: package com.netflix.spinnaker.rosco.controllers;\n2: \n3: import com.fasterxml.jackson.databind.ObjectMapper;\n4: import com.netflix.spinnaker.kork.artifacts.model.Artifact;\n5: import com.netflix.spinnaker.rosco.manifests.BakeManifestRequest;\n6: import com.netflix.spinnaker.rosco.manifests.BakeManifestService;\n7: import groovy.util.logging.Slf4j;\n8: import java.io.IOException;\n9: import java.util.List;\n10: import java.util.Map;\n11: import org.springframework.web.bind.annotation.PathVariable;\n12: import org.springframework.web.bind.annotation.RequestBody;\n13: import org.springframework.web.bind.annotation.RequestMapping;\n14: import org.springframework.web.bind.annotation.RequestMethod;\n15: import org.springframework.web.bind.annotation.RestController;\n16: \n17: @RestController\n18: @Slf4j\n19: public class V2BakeryController {\n20:   private final List<BakeManifestService> bakeManifestServices;\n21:   private final ObjectMapper objectMapper;\n22: \n23:   public V2BakeryController(\n24:       Li"
       },
       {
         "step": 3,
@@ -254,6 +240,15 @@
           "pattern": "*.groovy"
         },
         "result_head": "/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/Main.groovy\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/WebConfig.groovy\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/BakeryController.groovy\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/StatusController.groovy\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/filters/SimpleCORSFilter.groovy\n/rosco-web/src/test/groovy/com/netflix/spinnaker/rosco/controllers/AllStatusEndpointSpec.groovy\n/rosco-web/src/test/groovy/com/netflix/spinnaker/rosco/controllers/BakeryControllerSpec.groovy\n/rosco-web/src/test/groovy/com/netflix/spinnaker/rosco/controllers/InstanceStatusEndpointSpec.groovy"
+      },
+      {
+        "step": 3,
+        "tool": "find",
+        "args": {
+          "path": "/rosco-web",
+          "pattern": "*.kt"
+        },
+        "result_head": "(no files)"
       },
       {
         "step": 4,
@@ -275,9 +270,9 @@
         "step": 4,
         "tool": "read_file",
         "args": {
-          "path": "/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/Main.groovy"
+          "path": "/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/V2BakeryController.java"
         },
-        "result_head": "1: /*\n2:  * Copyright 2015 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.rosco\n18: \n19: import com.fasterxml.jackson.databind.ObjectMapper\n20: import com.netflix.spinnaker.kork.artifacts.artifactstore.ArtifactStore\n21: import com.netflix.spinnaker.kork.artifacts.artifactstore.ArtifactStoreConfiguration\n22: import com.netflix.spinnaker.kork.artifacts.artifactstore.EmbeddedArtifactSerial"
+        "result_head": "1: package com.netflix.spinnaker.rosco.controllers;\n2: \n3: import com.fasterxml.jackson.databind.ObjectMapper;\n4: import com.netflix.spinnaker.kork.artifacts.model.Artifact;\n5: import com.netflix.spinnaker.rosco.manifests.BakeManifestRequest;\n6: import com.netflix.spinnaker.rosco.manifests.BakeManifestService;\n7: import groovy.util.logging.Slf4j;\n8: import java.io.IOException;\n9: import java.util.List;\n10: import java.util.Map;\n11: import org.springframework.web.bind.annotation.PathVariable;\n12: import org.springframework.web.bind.annotation.RequestBody;\n13: import org.springframework.web.bind.annotation.RequestMapping;\n14: import org.springframework.web.bind.annotation.RequestMethod;\n15: import org.springframework.web.bind.annotation.RestController;\n16: \n17: @RestController\n18: @Slf4j\n19: public class V2BakeryController {\n20:   private final List<BakeManifestService> bakeManifestServices;\n21:   private final ObjectMapper objectMapper;\n22: \n23:   public V2BakeryController(\n24:       Li"
       },
       {
         "step": 5,
@@ -289,6 +284,14 @@
         "result_head": "130:       // If we don't have logs content to return here, just let the poller try again on the next iteration.\n131:     }\n132: \n133:     // Ok, it didn't fail right away; the bake is underway.\n134:     BakeStatus returnedBakeStatus = bakeStore.storeNewBakeStatus(bakeKey,\n135:                                                                  region,\n136:                                                                  bakeRecipe,\n137:                                                                  bakeRequest,\n138:                                                                  newBakeStatus,\n139:                                                                  jobRequest.tokenizedCommand.join(\" \"))\n140: \n141:     // Check if the script returned a bake status set by the winner of a race.\n142:     if (returnedBakeStatus.id != newBakeStatus.id) {\n143:       // Kill the new sub-process.\n144:       jobExecutor.cancelJob(newBakeStatus.id)\n145:     }\n146: \n147:     return returnedBakeStatu"
       },
       {
+        "step": 5,
+        "tool": "read_file",
+        "args": {
+          "path": "/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/Main.groovy"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2015 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.rosco\n18: \n19: import com.fasterxml.jackson.databind.ObjectMapper\n20: import com.netflix.spinnaker.kork.artifacts.artifactstore.ArtifactStore\n21: import com.netflix.spinnaker.kork.artifacts.artifactstore.ArtifactStoreConfiguration\n22: import com.netflix.spinnaker.kork.artifacts.artifactstore.EmbeddedArtifactSerial"
+      },
+      {
         "step": 6,
         "tool": "read_file",
         "args": {
@@ -298,38 +301,47 @@
         "result_head": "248:         bake.ami = bake.artifact.reference\n249:         bake.artifacts = null\n250: \n251:       }\n252:       return bake\n253:     }\n254: \n255:     throw new IllegalArgumentException(\"Unable to retrieve bake details for '$bakeId'.\")\n256:   }\n257: \n258:   @RequestMapping(value = \"/api/v1/{region}/logs/{statusId}\", produces = [\"application/json\"], method = RequestMethod.GET)\n259:   Map lookupLogs(@PathVariable(\"region\") String region, @PathVariable(\"statusId\") String statusId) {\n260:     Map logsContentMap = bakeStore.retrieveBakeLogsById(statusId)\n261: \n262:     if (logsContentMap?.logsContent) {\n263:       return logsContentMap\n264:     } else {\n265:       throw new LogsNotFoundException(\"Unable to retrieve logs for '$statusId'.\")\n266:     }\n267:   }\n268: \n269:   @RequestMapping(value = \"/api/v1/{region}/logs/image/{imageId}\", produces = [\"application/json\"], method = RequestMethod.GET)\n270:   Map lookupLogsByImageId(@PathVariable(\"region\") String region, @PathVariable(\"imageId\") St"
       },
       {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "pattern": "RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping",
+          "path": "/rosco-core"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "pattern": "RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping",
+          "path": "/rosco-manifests"
+        },
+        "result_head": "(no matches)"
+      },
+      {
+        "step": 6,
+        "tool": "grep",
+        "args": {
+          "pattern": "RequestMapping|GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping",
+          "path": "/rosco-integration"
+        },
+        "result_head": "(no matches)"
+      },
+      {
         "step": 7,
         "tool": "grep",
         "args": {
-          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
-          "path": "/"
+          "pattern": "RestController|@Controller|ServerEndpoint|RouterFunction|@Path\\("
         },
-        "result_head": "/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/BakeryController.groovy:44: @RestController\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/BakeryController.groovy:69: @RequestMapping(value = '/bakeOptions', method = RequestMethod.GET)\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/BakeryController.groovy:74: @RequestMapping(value = '/bakeOptions/{cloudProvider}', method = RequestMethod.GET)\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/BakeryController.groovy:83: @RequestMapping(value = '/bakeOptions/{cloudProvider}/baseImages/{imageId}', method = RequestMethod.GET)\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/BakeryController.groovy:150: @RequestMapping(value = '/api/v1/{region}/bake', method = RequestMethod.POST)\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/BakeryController.groovy:226: @RequestMapping(value = \"/api/v1/{region}/status/{statusId}\", method = Reques"
+        "result_head": "/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/BakeryController.groovy:44: @RestController\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/StatusController.groovy:24: import org.springframework.web.bind.annotation.RestController\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/StatusController.groovy:27: @RestController\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/V2BakeryController.java:15: import org.springframework.web.bind.annotation.RestController;\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/V2BakeryController.java:17: @RestController"
       },
       {
         "step": 7,
-        "tool": "find",
-        "args": {
-          "pattern": "*.gradle"
-        },
-        "result_head": "/build.gradle\n/rosco-bom/rosco-bom.gradle\n/rosco-core/rosco-core.gradle\n/rosco-integration/rosco-integration.gradle\n/rosco-manifests/rosco-manifests.gradle\n/rosco-web/rosco-web.gradle\n/settings.gradle"
-      },
-      {
-        "step": 8,
         "tool": "read_file",
         "args": {
-          "path": "/rosco-web/rosco-web.gradle"
+          "path": "/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/WebConfig.groovy"
         },
-        "result_head": "1: apply plugin: 'io.spinnaker.package'\n2: \n3: application.mainClass = 'com.netflix.spinnaker.rosco.Main'\n4: \n5: configurations.all {\n6:   exclude group: 'javax.servlet', module: 'servlet-api'\n7:   exclude group: \"org.slf4j\", module: \"slf4j-log4j12\"\n8: }\n9: \n10: dependencies {\n11:   implementation project(\":rosco-core\")\n12:   implementation project(\":rosco-manifests\")\n13:   implementation \"io.spinnaker.kork:kork-web\"\n14:   implementation \"io.swagger.core.v3:swagger-annotations\"\n15: \n16:   implementation \"org.apache.groovy:groovy\"\n17:   implementation \"io.spinnaker.kork:kork-artifacts\"\n18:   implementation \"io.spinnaker.kork:kork-config\"\n19:   implementation \"org.springframework.boot:spring-boot-starter-web\"\n20:   implementation \"net.logstash.logback:logstash-logback-encoder\"\n21: \n22:   runtimeOnly \"io.spinnaker.kork:kork-runtime\"\n23: \n24:   testImplementation \"io.spinnaker.kork:kork-retrofit\"\n25:   testImplementation \"org.spockframework:spock-core\"\n26:   testImplementation \"org.springf"
-      },
-      {
-        "step": 8,
-        "tool": "grep",
-        "args": {
-          "pattern": "static void main|fun main|func main|public static void main",
-          "path": "/"
-        },
-        "result_head": "/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/Main.groovy:89: static void main(String... args) {"
+        "result_head": "1:   /*\n2:  * Copyright 2016 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.rosco\n18: \n19: import com.netflix.spectator.api.Registry\n20: import com.netflix.spinnaker.filters.AuthenticatedRequestFilter\n21: import com.netflix.spinnaker.kork.web.interceptors.MetricsInterceptor\n22: import groovy.transform.CompileStatic\n23: import org.springframework.beans.factory.annotation.Autowired\n24: impo"
       },
       {
         "step": 8,
@@ -340,33 +352,15 @@
         "result_head": "1: FROM alpine:3.24\n2: LABEL maintainer=\"sig-platform@spinnaker.io\"\n3: \n4: # DEPRECATED: kustomize v3 is end-of-life upstream; removal planned for the 2026.4.x releases\n5: ENV KUSTOMIZE_VERSION=3.9.4\n6: ENV KUSTOMIZE4_VERSION=4.5.7\n7: ENV KUSTOMIZE5_VERSION=5.8.1\n8: ENV PACKER_VERSION=1.15.4\n9: ENV HELMFILE_VERSION=1.7.0\n10: \n11: \n12: ARG TARGETARCH\n13: ARG PACKER_PLUGINS=\"amazon azure googlecompute\"\n14: \n15: WORKDIR /packer\n16: \n17: RUN apk --no-cache add --update bash wget curl openssl openjdk25-jre git openssh-client && \\\n18:   wget https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_${TARGETARCH}.zip && \\\n19:   unzip packer_${PACKER_VERSION}_linux_${TARGETARCH}.zip && \\\n20:   rm packer_${PACKER_VERSION}_linux_${TARGETARCH}.zip\n21: # Pick up the latest CA bundle and fail the build if the JVM still trusts emSign ECC Root CA - G3.\n22: RUN apk --no-cache upgrade && ! keytool -list -cacerts -storepass changeit | grep -qiE 'emsign.*ecc.*g3'\n23: \n24: ENV"
       },
       {
-        "step": 9,
+        "step": 8,
         "tool": "read_file",
         "args": {
-          "path": "/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/WebConfig.groovy"
+          "path": "/rosco-web/rosco-web.gradle"
         },
-        "result_head": "1:   /*\n2:  * Copyright 2016 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.rosco\n18: \n19: import com.netflix.spectator.api.Registry\n20: import com.netflix.spinnaker.filters.AuthenticatedRequestFilter\n21: import com.netflix.spinnaker.kork.web.interceptors.MetricsInterceptor\n22: import groovy.transform.CompileStatic\n23: import org.springframework.beans.factory.annotation.Autowired\n24: impo"
+        "result_head": "1: apply plugin: 'io.spinnaker.package'\n2: \n3: application.mainClass = 'com.netflix.spinnaker.rosco.Main'\n4: \n5: configurations.all {\n6:   exclude group: 'javax.servlet', module: 'servlet-api'\n7:   exclude group: \"org.slf4j\", module: \"slf4j-log4j12\"\n8: }\n9: \n10: dependencies {\n11:   implementation project(\":rosco-core\")\n12:   implementation project(\":rosco-manifests\")\n13:   implementation \"io.spinnaker.kork:kork-web\"\n14:   implementation \"io.swagger.core.v3:swagger-annotations\"\n15: \n16:   implementation \"org.apache.groovy:groovy\"\n17:   implementation \"io.spinnaker.kork:kork-artifacts\"\n18:   implementation \"io.spinnaker.kork:kork-config\"\n19:   implementation \"org.springframework.boot:spring-boot-starter-web\"\n20:   implementation \"net.logstash.logback:logstash-logback-encoder\"\n21: \n22:   runtimeOnly \"io.spinnaker.kork:kork-runtime\"\n23: \n24:   testImplementation \"io.spinnaker.kork:kork-retrofit\"\n25:   testImplementation \"org.spockframework:spock-core\"\n26:   testImplementation \"org.springf"
       },
       {
         "step": 9,
-        "tool": "find",
-        "args": {
-          "path": "/rosco-integration",
-          "pattern": "*.java"
-        },
-        "result_head": "/rosco-integration/src/test/java/com/netflix/spinnaker/rosco/StandaloneContainerTest.java"
-      },
-      {
-        "step": 9,
-        "tool": "find",
-        "args": {
-          "path": "/rosco-manifests",
-          "pattern": "*.java"
-        },
-        "result_head": "/rosco-manifests/src/main/java/com/netflix/spinnaker/rosco/manifests/ArtifactDownloader.java\n/rosco-manifests/src/main/java/com/netflix/spinnaker/rosco/manifests/ArtifactDownloaderImpl.java\n/rosco-manifests/src/main/java/com/netflix/spinnaker/rosco/manifests/BakeManifestEnvironment.java\n/rosco-manifests/src/main/java/com/netflix/spinnaker/rosco/manifests/BakeManifestRequest.java\n/rosco-manifests/src/main/java/com/netflix/spinnaker/rosco/manifests/BakeManifestService.java\n/rosco-manifests/src/main/java/com/netflix/spinnaker/rosco/manifests/HelmBakeTemplateUtils.java\n/rosco-manifests/src/main/java/com/netflix/spinnaker/rosco/manifests/cloudfoundry/CloudFoundryBakeManifestRequest.java\n/rosco-manifests/src/main/java/com/netflix/spinnaker/rosco/manifests/cloudfoundry/CloudFoundryBakeManifestService.java\n/rosco-manifests/src/main/java/com/netflix/spinnaker/rosco/manifests/config/RoscoHelmConfigurationProperties.java\n/rosco-manifests/src/main/java/com/netflix/spinnaker/rosco/manifests/config/"
-      },
-      {
-        "step": 10,
         "tool": "read_file",
         "args": {
           "path": "/rosco-integration/rosco-integration.gradle"
@@ -374,32 +368,41 @@
         "result_head": "1: dependencies {\n2:   testImplementation project(\":rosco-manifests\")\n3:   testImplementation \"com.fasterxml.jackson.core:jackson-databind\"\n4:   testImplementation \"org.wiremock:wiremock\"\n5:   testImplementation \"commons-io:commons-io\"\n6:   testImplementation \"io.spinnaker.kork:kork-artifacts\"\n7:   testImplementation \"org.assertj:assertj-core\"\n8:   testImplementation \"org.junit.jupiter:junit-jupiter-api\"\n9:   testImplementation \"org.junit.jupiter:junit-jupiter-params\"\n10:   testImplementation \"org.slf4j:slf4j-api\"\n11:   testImplementation \"org.testcontainers:testcontainers\"\n12:   testImplementation \"org.testcontainers:testcontainers-junit-jupiter\"\n13:   testRuntimeOnly \"ch.qos.logback:logback-classic\"\n14:   testRuntimeOnly \"org.junit.jupiter:junit-jupiter-engine\"\n15: }\n16: \n17: test.configure {\n18:   def fullDockerImageName = System.getenv('FULL_DOCKER_IMAGE_NAME')\n19:   onlyIf(\"there is a docker image to test\") {\n20:     fullDockerImageName != null && fullDockerImageName.trim() != ''\n"
       },
       {
-        "step": 10,
-        "tool": "read_file",
+        "step": 9,
+        "tool": "find",
         "args": {
-          "path": "/rosco-core/rosco-core.gradle"
+          "path": "/rosco-integration",
+          "pattern": "*"
         },
-        "result_head": "1: dependencies {\n2:   api \"io.spinnaker.kork:kork-artifacts\"\n3:   api \"io.spinnaker.kork:kork-plugins\"\n4:   api \"org.apache.groovy:groovy\"\n5: \n6:   implementation \"com.netflix.frigga:frigga\"\n7:   implementation \"io.spinnaker.kork:kork-jedis\"\n8:   implementation \"io.spinnaker.kork:kork-retrofit\"\n9:   implementation \"io.swagger.core.v3:swagger-annotations\"\n10:   implementation \"io.spinnaker.kork:kork-swagger\"\n11:   implementation \"io.spinnaker.kork:kork-web\"\n12:   implementation \"com.squareup.retrofit2:converter-jackson\"\n13:   implementation \"com.squareup.retrofit2:retrofit\"\n14:   implementation \"io.reactivex.rxjava3:rxjava\"\n15:   implementation \"org.apache.commons:commons-exec\"\n16:   implementation \"org.apache.groovy:groovy\"\n17:   implementation \"org.springframework.boot:spring-boot-starter-web\"\n18:   implementation \"redis.clients:jedis\"\n19:   implementation \"com.google.code.gson:gson\"\n20:   testImplementation \"org.spockframework:spock-core\"\n21:   testImplementation \"org.objenesis:obje"
+        "result_head": "/rosco-integration/rosco-integration.gradle\n/rosco-integration/src/test/java/com/netflix/spinnaker/rosco/StandaloneContainerTest.java\n/rosco-integration/src/test/resources/Chart.yaml\n/rosco-integration/src/test/resources/expected_template.yaml\n/rosco-integration/src/test/resources/foo.yaml\n/rosco-integration/src/test/resources/logback.xml\n/rosco-integration/src/test/resources/values.yaml\n/rosco-integration/src/test/resources/values_external.yaml"
+      },
+      {
+        "step": 10,
+        "tool": "record",
+        "args": {
+          "json": "{\"services\":[{\"name\":\"rosco-web\",\"dirs\":[\"/rosco-web\",\"/rosco-core\",\"/rosco-manifests\",\"/halconfig\"]}],\"files\":[{\"path\":\"/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/BakeryContro"
+        },
+        "result_head": "Recorded 15 new: service rosco-web, GET /bakeOptions, GET /bakeOptions/{cloudProvider}, GET /bakeOptions/{cloudProvider}/baseImages/{imageId}, POST /api/v1/{region}/bake, GET /api/v1/{region}/status/{statusId}, GET /api/v1/{region}/bake/{bakeId}, GET /api/v1/{region}/logs/{statusId}, GET /api/v1/{region}/logs/image/{imageId}, DELETE /api/v1/{region}/bake, POST /api/v1/bakes/delete-requests, GET /api/v1/{region}/cancel/{statusId}, ANY /status/instance, ANY /status/all, POST /api/v2/manifest/bake/{type}\nTotal: 1 services, 14 endpoints in 3 files."
       },
       {
         "step": 11,
-        "tool": "record",
-        "args": {
-          "json": "{\"services\":[{\"name\":\"rosco\",\"dirs\":[\"/rosco-web\",\"/rosco-core\",\"/rosco-manifests\"]}],\"files\":[{\"path\":\"/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/controllers/BakeryController.groovy\",\"ser"
-        },
-        "result_head": "Recorded 15 new: service rosco, GET /bakeOptions, GET /bakeOptions/{cloudProvider}, GET /bakeOptions/{cloudProvider}/baseImages/{imageId}, POST /api/v1/{region}/bake, GET /api/v1/{region}/status/{statusId}, GET /api/v1/{region}/bake/{bakeId}, GET /api/v1/{region}/logs/{statusId}, GET /api/v1/{region}/logs/image/{imageId}, DELETE /api/v1/{region}/bake, POST /api/v1/bakes/delete-requests, GET /api/v1/{region}/cancel/{statusId}, ANY /status/instance, ANY /status/all, POST /api/v2/manifest/bake/{type}\nTotal: 1 services, 14 endpoints in 3 files."
-      },
-      {
-        "step": 12,
         "tool": "grep",
         "args": {
-          "path": "/",
-          "pattern": "RouterFunction|ServerRequest|HttpHandler|@Path\\(|@GET|@POST"
+          "pattern": "static void main|SpringApplication|@SpringBootApplication"
+        },
+        "result_head": "/rosco-integration/src/test/java/com/netflix/spinnaker/rosco/StandaloneContainerTest.java:133: getSpringApplicationJson(\n/rosco-integration/src/test/java/com/netflix/spinnaker/rosco/StandaloneContainerTest.java:148: getSpringApplicationJson(1)); /* 1 means always use --values files for overrides */\n/rosco-integration/src/test/java/com/netflix/spinnaker/rosco/StandaloneContainerTest.java:154: private static String getSpringApplicationJson(int overridesFileThreshold)\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/Main.groovy:40: import org.springframework.boot.builder.SpringApplicationBuilder\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/Main.groovy:89: static void main(String... args) {\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/Main.groovy:90: new SpringApplicationBuilder().properties(DEFAULT_PROPS).sources(Main).run(args)\n/rosco-web/src/main/groovy/com/netflix/spinnaker/rosco/Main.groovy:94: SpringApplicationBuilder configure(SpringApplicationBuilder build"
+      },
+      {
+        "step": 11,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@Path\\(|@GET|@POST",
+          "path": "/rosco-core"
         },
         "result_head": "/rosco-core/src/main/groovy/com/netflix/spinnaker/rosco/services/ClouddriverService.java:33: @GET(\"aws/images/find\")"
       },
       {
-        "step": 13,
+        "step": 12,
         "tool": "submit",
         "args": {},
         "result_head": "[ACCEPTED] 1 services, 14 endpoints."

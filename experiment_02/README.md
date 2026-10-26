@@ -83,33 +83,46 @@ ground truth; the others were checked against a grep of route declarations
 (outbound Retrofit and Feign clients and tests excluded) and the differences
 read by hand.
 
-| system | units | endpoints | list price | check |
+| system | units | endpoints (verb + route) | list price | check |
 |---|---:|---:|---:|---|
 | spring-cloud-movie-recommendation | 1 | 14 | $0.003 | ground truth F1 1.000 |
-| xs2a | 1 | 159 | $0.082 | ground truth F1 0.980 (labelled module) |
+| xs2a | 1 | 157 | $0.082 | ground truth F1 0.980 (labelled module) |
 | geoserver-cloud | 1 | 18 | $0.057 | ground truth F1 0.320: prefixed routes with each app's `${geoserver.base-path}` |
-| six small repositories | 6 | 38 | $0.012 | complete |
+| six small repositories | 6 | 38 | $0.013 | complete |
 | pitstop | 1 | 32 | $0.005 | complete, including MVC actions |
 | robot-shop | 1 | 46 | $0.008 | complete, plus nginx proxy routes |
 | sock-shop | 1 (8 repos) | 65 | $0.011 | complete |
-| eShop | 1 | 82 | $0.094 | gateway routes and gRPC methods also counted |
+| eShop | 1 | 81 | $0.094 | gateway routes and gRPC methods also counted |
 | ccpay-payment-app | 1 | 74 | $0.013 | 74 / 74 |
 | pravega | 1 | 27 | $0.021 | complete, generated health API skipped |
 | train-ticket | 1 | 272 | $0.067 | 272 / 272 |
 | apollo | 1 | 204 | $0.081 | about 91 % |
-| kapua | 1 | 299 | $0.165 | 297 / 297 |
-| openlmis | 10 | 376 | $0.200 | complete; one run on all ten repositories found 218 |
+| kapua | 1 | 297 | $0.165 | 297 / 297 |
+| openlmis | 10 | 369 | $0.272 | complete; one run on all ten repositories found 218 |
 | inlong | 2 | 357 | $0.183 | manager 322 / 322; tubemq names some pages two ways |
-| camunda | 3 + 1 rerun | 473 | $0.442 | optimize 145 / 145; gateway-rest 259, complete only in the union of two runs |
-| spinnaker | 10 | 727 | $0.338 | complete except gate (about 87 %) |
-| **total** | 44 | | **$1.78** | |
+| camunda | 3 | 475 | $0.296 | optimize 145 / 145, gateway-rest 259 (complete) |
+| spinnaker | 10 | 756 | $0.577 | 1 route missed, see below |
+| **total** | 43 | 3282 | **$1.95** | |
 
-Until the fix of context trimming, record calls of a few hundred endpoints
-filled the context, so every new tool result was dropped as it arrived and the
-agent re-read the same file until it gave up. kapua, inlong-manager,
-openlmis-referencedata and camunda gateway-rest were rerun after the fix (the
-first gateway-rest run is kept as `camunda-gateway-rest-run1`); apollo, gate,
-clouddriver, train-ticket and camunda-other still ran with it.
+Until the fix of context trimming, record calls of a few hundred endpoints and
+then hundreds of short calls filled the context, so every new tool result was
+dropped as it arrived and the agent re-read the same file until it gave up.
+camunda gateway-rest, openlmis-referencedata and all of Spinnaker ran with the
+fixed agent (tag `agent-2026-10-26`); kapua and inlong with a partial fix; the
+rest still with the bug, which matters for apollo, train-ticket and
+camunda-other.
+
+**Spinnaker with the fixed agent.** A grep of route declarations finds 759
+lines in the ten services; the agent records 756 endpoints. Read by hand, the
+difference is one missed route (`POST /pipelines/{id}/evaluateExpression` in
+gate) and five declarations that repeat an already recorded verb and route with
+other `consumes` or `params`. The agent also resolves a route inherited from
+`AbstractCommitController` in igor into its four concrete controllers and finds
+a `@WebServlet` in keel, which the grep misses. It records none of the 464
+route declarations in Retrofit and Feign clients. The only debatable entry is
+`POST /graphql` in keel, served by the DGS framework. Before the fix the same
+services gave 720 endpoints (gate 248 instead of 283). clouddriver used all 300
+steps re-checking files it had recorded and cost $0.29 of the $0.58.
 
 The six small repositories are golang-crud-rest-api-gin, crud-tutorial-csharp,
 node-js-restful-api-example, E-commerce-Microservice, rasa-sdk and

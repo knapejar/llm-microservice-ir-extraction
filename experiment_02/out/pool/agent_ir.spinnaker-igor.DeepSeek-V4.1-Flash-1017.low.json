@@ -2,28 +2,300 @@
   "system": "spinnaker-igor",
   "services": [
     {
-      "name": "igor-web",
+      "name": "igor",
       "dirs": [
         "/igor-web",
         "/igor-core",
+        "/igor-integration",
         "/igor-monitor-artifactory",
         "/igor-monitor-plugins",
-        "/igor-monitor-travis"
+        "/igor-monitor-travis",
+        "/igor-bom"
       ]
     }
   ],
   "files": [
     {
-      "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java",
-      "service": "igor-web",
+      "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/ci/CiController.java",
+      "service": "igor",
       "endpoints": [
         {
-          "className": "AdminController",
-          "methodName": "fastForward",
+          "className": "CiController",
+          "methodName": "getBuilds",
+          "httpMethod": "GET",
+          "path": "/ci/builds",
+          "line": 43,
+          "evidence": "@GetMapping(\"/builds\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "CiController",
+          "methodName": "getBuildOutput",
+          "httpMethod": "GET",
+          "path": "/ci/builds/{buildId}/output",
+          "line": 53,
+          "evidence": "@GetMapping(\"/builds/{buildId}/output\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/artifacts/ArtifactController.java",
+      "service": "igor",
+      "endpoints": [
+        {
+          "className": "ArtifactController",
+          "methodName": "getVersions",
+          "httpMethod": "GET",
+          "path": "/artifacts/{provider}/{name}",
+          "line": 45,
+          "evidence": "@GetMapping(\"/{provider}/{name}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ArtifactController",
+          "methodName": "getArtifact",
+          "httpMethod": "GET",
+          "path": "/artifacts/{provider}/{name}/{version:.+}",
+          "line": 55,
+          "evidence": "@GetMapping(\"/{provider}/{name}/{version:.+}\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/codebuild/AwsCodeBuildController.java",
+      "service": "igor",
+      "endpoints": [
+        {
+          "className": "AwsCodeBuildController",
+          "methodName": "getAccounts",
+          "httpMethod": "GET",
+          "path": "/codebuild/accounts",
+          "line": 38,
+          "evidence": "@RequestMapping(value = \"/accounts\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AwsCodeBuildController",
+          "methodName": "getProjects",
+          "httpMethod": "GET",
+          "path": "/codebuild/projects/{account}",
+          "line": 43,
+          "evidence": "@RequestMapping(value = \"/projects/{account}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AwsCodeBuildController",
+          "methodName": "startBuild",
           "httpMethod": "POST",
-          "path": "/admin/pollers/fastforward/{monitorName}",
+          "path": "/codebuild/builds/start/{account}",
+          "line": 48,
+          "evidence": "@RequestMapping(\n      value = \"/builds/start/{account}\",\n      method = RequestMethod.POST,",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AwsCodeBuildController",
+          "methodName": "getBuild",
+          "httpMethod": "GET",
+          "path": "/codebuild/builds/{account}/{buildId}",
+          "line": 58,
+          "evidence": "@RequestMapping(value = \"/builds/{account}/{buildId}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AwsCodeBuildController",
+          "methodName": "getArtifacts",
+          "httpMethod": "GET",
+          "path": "/codebuild/builds/artifacts/{account}/{buildId}",
+          "line": 63,
+          "evidence": "@RequestMapping(value = \"/builds/artifacts/{account}/{buildId}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "AwsCodeBuildController",
+          "methodName": "stopBuild",
+          "httpMethod": "POST",
+          "path": "/codebuild/builds/stop/{account}/{buildId}",
+          "line": 68,
+          "evidence": "@RequestMapping(value = \"/builds/stop/{account}/{buildId}\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/concourse/ConcourseController.java",
+      "service": "igor",
+      "endpoints": [
+        {
+          "className": "ConcourseController",
+          "methodName": "getTeams",
+          "httpMethod": "GET",
+          "path": "/concourse/{buildMaster}/teams",
+          "line": 45,
+          "evidence": "@GetMapping(\"/{buildMaster}/teams\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ConcourseController",
+          "methodName": "getPipelines",
+          "httpMethod": "GET",
+          "path": "/concourse/{buildMaster}/teams/{team}/pipelines",
+          "line": 54,
+          "evidence": "@GetMapping(\"/{buildMaster}/teams/{team}/pipelines\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ConcourseController",
+          "methodName": "getJobs",
+          "httpMethod": "GET",
+          "path": "/concourse/{buildMaster}/teams/{team}/pipelines/{pipeline}/jobs",
+          "line": 68,
+          "evidence": "@GetMapping(\"/{buildMaster}/teams/{team}/pipelines/{pipeline}/jobs\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ConcourseController",
+          "methodName": "getResourceNames",
+          "httpMethod": "GET",
+          "path": "/concourse/{buildMaster}/teams/{team}/pipelines/{pipeline}/resources",
+          "line": 85,
+          "evidence": "@GetMapping(\"/{buildMaster}/teams/{team}/pipelines/{pipeline}/resources\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/gcb/GoogleCloudBuildController.java",
+      "service": "igor",
+      "endpoints": [
+        {
+          "className": "GoogleCloudBuildController",
+          "methodName": "getAccounts",
+          "httpMethod": "GET",
+          "path": "/gcb/accounts",
+          "line": 41,
+          "evidence": "@RequestMapping(value = \"/accounts\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "GoogleCloudBuildController",
+          "methodName": "createBuild",
+          "httpMethod": "POST",
+          "path": "/gcb/builds/create/{account}",
+          "line": 47,
+          "evidence": "@RequestMapping(\n      value = \"/builds/create/{account}\",\n      method = RequestMethod.POST,",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "GoogleCloudBuildController",
+          "methodName": "updateBuild",
+          "httpMethod": "PUT",
+          "path": "/gcb/builds/{account}/{buildId}",
+          "line": 57,
+          "evidence": "@RequestMapping(\n      value = \"/builds/{account}/{buildId}\",\n      method = RequestMethod.PUT,",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "GoogleCloudBuildController",
+          "methodName": "getBuild",
+          "httpMethod": "GET",
+          "path": "/gcb/builds/{account}/{buildId}",
+          "line": 71,
+          "evidence": "@RequestMapping(value = \"/builds/{account}/{buildId}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "GoogleCloudBuildController",
+          "methodName": "getArtifacts",
+          "httpMethod": "GET",
+          "path": "/gcb/builds/{account}/{buildId}/artifacts",
+          "line": 77,
+          "evidence": "@RequestMapping(value = \"/builds/{account}/{buildId}/artifacts\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "GoogleCloudBuildController",
+          "methodName": "extractArtifacts",
+          "httpMethod": "PUT",
+          "path": "/gcb/artifacts/extract/{account}",
+          "line": 84,
+          "evidence": "@RequestMapping(\n      value = \"/artifacts/extract/{account}\",\n      method = RequestMethod.PUT,",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "GoogleCloudBuildController",
+          "methodName": "listTriggers",
+          "httpMethod": "GET",
+          "path": "/gcb/triggers/{account}",
+          "line": 95,
+          "evidence": "@RequestMapping(value = \"/triggers/{account}\", method = RequestMethod.GET)",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "GoogleCloudBuildController",
+          "methodName": "runTrigger",
+          "httpMethod": "POST",
+          "path": "/gcb/triggers/{account}/{triggerId}/run",
+          "line": 102,
+          "evidence": "@RequestMapping(\n      value = \"/triggers/{account}/{triggerId}/run\",\n      method = RequestMethod.POST,",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "GoogleCloudBuildController",
+          "methodName": "stopBuild",
+          "httpMethod": "POST",
+          "path": "/gcb/builds/stop/{account}/{buildId}",
+          "line": 117,
+          "evidence": "@RequestMapping(value = \"/builds/stop/{account}/{buildId}\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/nexus/NexusController.java",
+      "service": "igor",
+      "endpoints": [
+        {
+          "className": "NexusController",
+          "methodName": "getNexusNames",
+          "httpMethod": "GET",
+          "path": "/nexus/names",
           "line": 56,
-          "evidence": "@RequestMapping(value = \"/pollers/fastforward/{monitorName}\", method = RequestMethod.POST)",
+          "evidence": "@GetMapping(\"/names\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "NexusController",
+          "methodName": "webhook",
+          "httpMethod": "POST",
+          "path": "/nexus/webhook",
+          "line": 63,
+          "evidence": "@PostMapping(path = \"/webhook\", consumes = \"application/json\")",
           "framework": "Spring",
           "confidence": "high"
         }
@@ -31,7 +303,7 @@
     },
     {
       "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy",
-      "service": "igor-web",
+      "service": "igor",
       "endpoints": [
         {
           "className": "BuildController",
@@ -166,24 +438,88 @@
       ]
     },
     {
+      "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java",
+      "service": "igor",
+      "endpoints": [
+        {
+          "className": "AdminController",
+          "methodName": "fastForward",
+          "httpMethod": "POST",
+          "path": "/admin/pollers/fastforward/{monitorName}",
+          "line": 56,
+          "evidence": "@RequestMapping(value = \"/pollers/fastforward/{monitorName}\", method = RequestMethod.POST)",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/igor-monitor-artifactory/src/main/java/com/netflix/spinnaker/igor/artifactory/ArtifactoryController.java",
+      "service": "igor",
+      "endpoints": [
+        {
+          "className": "ArtifactoryController",
+          "methodName": "getArtifactoryNames",
+          "httpMethod": "GET",
+          "path": "/artifactory/names",
+          "line": 39,
+          "evidence": "@GetMapping(\"/names\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/scm/ManagedDeliveryScmController.java",
+      "service": "igor",
+      "endpoints": [
+        {
+          "className": "ManagedDeliveryScmController",
+          "methodName": "listDeliveryConfigManifests",
+          "httpMethod": "GET",
+          "path": "/delivery-config/manifests",
+          "line": 50,
+          "evidence": "@GetMapping(\"/delivery-config/manifests\")",
+          "framework": "Spring",
+          "confidence": "high"
+        },
+        {
+          "className": "ManagedDeliveryScmController",
+          "methodName": "getDeliveryConfigManifest",
+          "httpMethod": "GET",
+          "path": "/delivery-config/manifest",
+          "line": 71,
+          "evidence": "@GetMapping(path = \"/delivery-config/manifest\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/gitlab/CommitController.java",
+      "service": "igor",
+      "endpoints": [
+        {
+          "className": "CommitController",
+          "methodName": "compareCommits",
+          "httpMethod": "GET",
+          "path": "/gitlab/{projectKey}/{repositorySlug}/compareCommits",
+          "line": 52,
+          "evidence": "@RequestMapping(\n      method = RequestMethod.GET,\n      value = \"/{projectKey}/{repositorySlug}/compareCommits\")",
+          "framework": "Spring",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
       "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/InfoController.groovy",
-      "service": "igor-web",
+      "service": "igor",
       "endpoints": [
         {
           "className": "InfoController",
           "methodName": "listMasters",
           "httpMethod": "GET",
           "path": "/masters",
-          "line": 55,
-          "evidence": "@RequestMapping(value = ['/masters', '/masters/'], method = RequestMethod.GET)",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "InfoController",
-          "methodName": "listMasters",
-          "httpMethod": "GET",
-          "path": "/masters/",
           "line": 55,
           "evidence": "@RequestMapping(value = ['/masters', '/masters/'], method = RequestMethod.GET)",
           "framework": "Spring",
@@ -211,16 +547,6 @@
         },
         {
           "className": "InfoController",
-          "methodName": "getJobs",
-          "httpMethod": "GET",
-          "path": "/jobs/{master:.+}/",
-          "line": 79,
-          "evidence": "@RequestMapping(value = ['/jobs/{master:.+}', '/jobs/{master:.+}/'], method = RequestMethod.GET)",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "InfoController",
           "methodName": "getJobConfig",
           "httpMethod": "ANY",
           "path": "/jobs/{master}/**",
@@ -228,22 +554,12 @@
           "evidence": "@RequestMapping(value = ['/jobs/{master}/**'])",
           "framework": "Spring",
           "confidence": "high"
-        },
-        {
-          "className": "InfoController",
-          "methodName": "getAllBuildServices",
-          "httpMethod": "GET",
-          "path": "/buildServices/",
-          "line": 68,
-          "evidence": "@RequestMapping(value = ['/buildServices', 'buildServices/'], method = RequestMethod.GET)",
-          "framework": "Spring",
-          "confidence": "high"
         }
       ]
     },
     {
       "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/ScmInfoController.groovy",
-      "service": "igor-web",
+      "service": "igor",
       "endpoints": [
         {
           "className": "ScmInfoController",
@@ -258,41 +574,8 @@
       ]
     },
     {
-      "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/AbstractCommitController.java",
-      "service": "igor-web",
-      "endpoints": [
-        {
-          "className": "AbstractCommitController",
-          "methodName": "compareCommits",
-          "httpMethod": "GET",
-          "path": "/{projectKey}/{repositorySlug}/compareCommits",
-          "line": 43,
-          "evidence": "@RequestMapping(\n      method = RequestMethod.GET,\n      value = \"/{projectKey}/{repositorySlug}/compareCommits\")",
-          "framework": "Spring",
-          "confidence": "high",
-          "implementedBy": "com.netflix.spinnaker.igor.scm.gitlab.CommitController"
-        }
-      ]
-    },
-    {
-      "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/gitlab/CommitController.java",
-      "service": "igor-web",
-      "endpoints": [
-        {
-          "className": "CommitController",
-          "methodName": "compareCommits",
-          "httpMethod": "GET",
-          "path": "/gitlab/{projectKey}/{repositorySlug}/compareCommits",
-          "line": 52,
-          "evidence": "@RequestMapping(\n      method = RequestMethod.GET,\n      value = \"/{projectKey}/{repositorySlug}/compareCommits\")",
-          "framework": "Spring",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
       "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/bitbucket/CommitController.groovy",
-      "service": "igor-web",
+      "service": "igor",
       "endpoints": [
         {
           "className": "CommitController",
@@ -308,7 +591,7 @@
     },
     {
       "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/github/CommitController.groovy",
-      "service": "igor-web",
+      "service": "igor",
       "endpoints": [
         {
           "className": "CommitController",
@@ -324,7 +607,7 @@
     },
     {
       "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/stash/CommitController.groovy",
-      "service": "igor-web",
+      "service": "igor",
       "endpoints": [
         {
           "className": "CommitController",
@@ -333,334 +616,6 @@
           "path": "/stash/{projectKey}/{repositorySlug}/compareCommits",
           "line": 44,
           "evidence": "@RequestMapping(method = RequestMethod.GET, value = '/{projectKey}/{repositorySlug}/compareCommits')",
-          "framework": "Spring",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/artifacts/ArtifactController.java",
-      "service": "igor-web",
-      "endpoints": [
-        {
-          "className": "ArtifactController",
-          "methodName": "getVersions",
-          "httpMethod": "GET",
-          "path": "/artifacts/{provider}/{name}",
-          "line": 45,
-          "evidence": "@GetMapping(\"/{provider}/{name}\")",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "ArtifactController",
-          "methodName": "getArtifact",
-          "httpMethod": "GET",
-          "path": "/artifacts/{provider}/{name}/{version:.+}",
-          "line": 55,
-          "evidence": "@GetMapping(\"/{provider}/{name}/{version:.+}\")",
-          "framework": "Spring",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/ci/CiController.java",
-      "service": "igor-web",
-      "endpoints": [
-        {
-          "className": "CiController",
-          "methodName": "getBuilds",
-          "httpMethod": "GET",
-          "path": "/ci/builds",
-          "line": 43,
-          "evidence": "@GetMapping(\"/builds\")",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "CiController",
-          "methodName": "getBuildOutput",
-          "httpMethod": "GET",
-          "path": "/ci/builds/{buildId}/output",
-          "line": 53,
-          "evidence": "@GetMapping(\"/builds/{buildId}/output\")",
-          "framework": "Spring",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/codebuild/AwsCodeBuildController.java",
-      "service": "igor-web",
-      "endpoints": [
-        {
-          "className": "AwsCodeBuildController",
-          "methodName": "getAccounts",
-          "httpMethod": "GET",
-          "path": "/codebuild/accounts",
-          "line": 38,
-          "evidence": "@RequestMapping(value = \"/accounts\", method = RequestMethod.GET)",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "AwsCodeBuildController",
-          "methodName": "getProjects",
-          "httpMethod": "GET",
-          "path": "/codebuild/projects/{account}",
-          "line": 43,
-          "evidence": "@RequestMapping(value = \"/projects/{account}\", method = RequestMethod.GET)",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "AwsCodeBuildController",
-          "methodName": "startBuild",
-          "httpMethod": "POST",
-          "path": "/codebuild/builds/start/{account}",
-          "line": 48,
-          "evidence": "@RequestMapping(\n      value = \"/builds/start/{account}\",\n      method = RequestMethod.POST,",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "AwsCodeBuildController",
-          "methodName": "getBuild",
-          "httpMethod": "GET",
-          "path": "/codebuild/builds/{account}/{buildId}",
-          "line": 58,
-          "evidence": "@RequestMapping(value = \"/builds/{account}/{buildId}\", method = RequestMethod.GET)",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "AwsCodeBuildController",
-          "methodName": "getArtifacts",
-          "httpMethod": "GET",
-          "path": "/codebuild/builds/artifacts/{account}/{buildId}",
-          "line": 63,
-          "evidence": "@RequestMapping(value = \"/builds/artifacts/{account}/{buildId}\", method = RequestMethod.GET)",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "AwsCodeBuildController",
-          "methodName": "stopBuild",
-          "httpMethod": "POST",
-          "path": "/codebuild/builds/stop/{account}/{buildId}",
-          "line": 68,
-          "evidence": "@RequestMapping(value = \"/builds/stop/{account}/{buildId}\", method = RequestMethod.POST)",
-          "framework": "Spring",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/concourse/ConcourseController.java",
-      "service": "igor-web",
-      "endpoints": [
-        {
-          "className": "ConcourseController",
-          "methodName": "getTeams",
-          "httpMethod": "GET",
-          "path": "/concourse/{buildMaster}/teams",
-          "line": 45,
-          "evidence": "@GetMapping(\"/{buildMaster}/teams\")",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "ConcourseController",
-          "methodName": "getPipelines",
-          "httpMethod": "GET",
-          "path": "/concourse/{buildMaster}/teams/{team}/pipelines",
-          "line": 54,
-          "evidence": "@GetMapping(\"/{buildMaster}/teams/{team}/pipelines\")",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "ConcourseController",
-          "methodName": "getJobs",
-          "httpMethod": "GET",
-          "path": "/concourse/{buildMaster}/teams/{team}/pipelines/{pipeline}/jobs",
-          "line": 68,
-          "evidence": "@GetMapping(\"/{buildMaster}/teams/{team}/pipelines/{pipeline}/jobs\")",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "ConcourseController",
-          "methodName": "getResourceNames",
-          "httpMethod": "GET",
-          "path": "/concourse/{buildMaster}/teams/{team}/pipelines/{pipeline}/resources",
-          "line": 85,
-          "evidence": "@GetMapping(\"/{buildMaster}/teams/{team}/pipelines/{pipeline}/resources\")",
-          "framework": "Spring",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/gcb/GoogleCloudBuildController.java",
-      "service": "igor-web",
-      "endpoints": [
-        {
-          "className": "GoogleCloudBuildController",
-          "methodName": "getAccounts",
-          "httpMethod": "GET",
-          "path": "/gcb/accounts",
-          "line": 41,
-          "evidence": "@RequestMapping(value = \"/accounts\", method = RequestMethod.GET)",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "GoogleCloudBuildController",
-          "methodName": "createBuild",
-          "httpMethod": "POST",
-          "path": "/gcb/builds/create/{account}",
-          "line": 47,
-          "evidence": "@RequestMapping(\n      value = \"/builds/create/{account}\",\n      method = RequestMethod.POST,",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "GoogleCloudBuildController",
-          "methodName": "updateBuild",
-          "httpMethod": "PUT",
-          "path": "/gcb/builds/{account}/{buildId}",
-          "line": 57,
-          "evidence": "@RequestMapping(\n      value = \"/builds/{account}/{buildId}\",\n      method = RequestMethod.PUT,",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "GoogleCloudBuildController",
-          "methodName": "getBuild",
-          "httpMethod": "GET",
-          "path": "/gcb/builds/{account}/{buildId}",
-          "line": 71,
-          "evidence": "@RequestMapping(value = \"/builds/{account}/{buildId}\", method = RequestMethod.GET)",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "GoogleCloudBuildController",
-          "methodName": "getArtifacts",
-          "httpMethod": "GET",
-          "path": "/gcb/builds/{account}/{buildId}/artifacts",
-          "line": 77,
-          "evidence": "@RequestMapping(value = \"/builds/{account}/{buildId}/artifacts\", method = RequestMethod.GET)",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "GoogleCloudBuildController",
-          "methodName": "extractArtifacts",
-          "httpMethod": "PUT",
-          "path": "/gcb/artifacts/extract/{account}",
-          "line": 84,
-          "evidence": "@RequestMapping(\n      value = \"/artifacts/extract/{account}\",\n      method = RequestMethod.PUT,",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "GoogleCloudBuildController",
-          "methodName": "listTriggers",
-          "httpMethod": "GET",
-          "path": "/gcb/triggers/{account}",
-          "line": 95,
-          "evidence": "@RequestMapping(value = \"/triggers/{account}\", method = RequestMethod.GET)",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "GoogleCloudBuildController",
-          "methodName": "runTrigger",
-          "httpMethod": "POST",
-          "path": "/gcb/triggers/{account}/{triggerId}/run",
-          "line": 102,
-          "evidence": "@RequestMapping(\n      value = \"/triggers/{account}/{triggerId}/run\",\n      method = RequestMethod.POST,",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "GoogleCloudBuildController",
-          "methodName": "stopBuild",
-          "httpMethod": "POST",
-          "path": "/gcb/builds/stop/{account}/{buildId}",
-          "line": 117,
-          "evidence": "@RequestMapping(value = \"/builds/stop/{account}/{buildId}\", method = RequestMethod.POST)",
-          "framework": "Spring",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/nexus/NexusController.java",
-      "service": "igor-web",
-      "endpoints": [
-        {
-          "className": "NexusController",
-          "methodName": "getNexusNames",
-          "httpMethod": "GET",
-          "path": "/nexus/names",
-          "line": 56,
-          "evidence": "@GetMapping(\"/names\")",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "NexusController",
-          "methodName": "webhook",
-          "httpMethod": "POST",
-          "path": "/nexus/webhook",
-          "line": 63,
-          "evidence": "@PostMapping(path = \"/webhook\", consumes = \"application/json\")",
-          "framework": "Spring",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/scm/ManagedDeliveryScmController.java",
-      "service": "igor-web",
-      "endpoints": [
-        {
-          "className": "ManagedDeliveryScmController",
-          "methodName": "listDeliveryConfigManifests",
-          "httpMethod": "GET",
-          "path": "/delivery-config/manifests",
-          "line": 50,
-          "evidence": "@GetMapping(\"/delivery-config/manifests\")",
-          "framework": "Spring",
-          "confidence": "high"
-        },
-        {
-          "className": "ManagedDeliveryScmController",
-          "methodName": "getDeliveryConfigManifest",
-          "httpMethod": "GET",
-          "path": "/delivery-config/manifest",
-          "line": 71,
-          "evidence": "@GetMapping(path = \"/delivery-config/manifest\")",
-          "framework": "Spring",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "path": "/igor-monitor-artifactory/src/main/java/com/netflix/spinnaker/igor/artifactory/ArtifactoryController.java",
-      "service": "igor-web",
-      "endpoints": [
-        {
-          "className": "ArtifactoryController",
-          "methodName": "getArtifactoryNames",
-          "httpMethod": "GET",
-          "path": "/artifactory/names",
-          "line": 39,
-          "evidence": "@GetMapping(\"/names\")",
           "framework": "Spring",
           "confidence": "high"
         }
@@ -683,16 +638,17 @@
     "stopped": null,
     "loop_warnings": 0,
     "blocked_calls": 0,
+    "record_nudges": 0,
     "elided_results": 0,
-    "steps": 21,
-    "tool_calls": 47,
-    "rejected_entries": 1,
+    "steps": 18,
+    "tool_calls": 40,
+    "rejected_entries": 0,
     "no_call_replies": 0,
-    "input_tokens": 374410,
-    "cached_input_tokens": 320256,
-    "output_tokens": 8461,
-    "list_price_usd": 0.0142,
-    "wall_seconds": 84.8,
+    "input_tokens": 289127,
+    "cached_input_tokens": 235392,
+    "output_tokens": 6888,
+    "list_price_usd": 0.0129,
+    "wall_seconds": 43.3,
     "trace": [
       {
         "step": 1,
@@ -706,9 +662,9 @@
         "step": 1,
         "tool": "find",
         "args": {
-          "pattern": "Dockerfile"
+          "pattern": "Dockerfile*"
         },
-        "result_head": "(no files)"
+        "result_head": "/Dockerfile.compile\n/Dockerfile.slim\n/Dockerfile.ubuntu"
       },
       {
         "step": 2,
@@ -720,22 +676,6 @@
       },
       {
         "step": 2,
-        "tool": "read_file",
-        "args": {
-          "path": "/Dockerfile.slim"
-        },
-        "result_head": "1: FROM alpine:3.24\n2: LABEL maintainer=\"sig-platform@spinnaker.io\"\n3: RUN apk --no-cache add --update bash curl openjdk25-jre\n4: # Pick up the latest CA bundle and fail the build if the JVM still trusts emSign ECC Root CA - G3.\n5: RUN apk --no-cache upgrade && ! keytool -list -cacerts -storepass changeit | grep -qiE 'emsign.*ecc.*g3'\n6: RUN addgroup -S -g 10111 spinnaker\n7: RUN adduser -S -G spinnaker -u 10111 spinnaker\n8: COPY igor-web/build/install/igor /opt/igor\n9: RUN mkdir -p /opt/igor/plugins && chown -R spinnaker:nogroup /opt/igor/plugins\n10: USER spinnaker\n11: HEALTHCHECK CMD curl http://localhost:8088/health | grep UP || exit 1\n12: CMD [\"/opt/igor/bin/igor\"]"
-      },
-      {
-        "step": 2,
-        "tool": "list_dir",
-        "args": {
-          "path": "/igor-web"
-        },
-        "result_head": "config/\netc/\nigor-web.gradle\nlib/\npkg_scripts/\nsrc/"
-      },
-      {
-        "step": 3,
         "tool": "find",
         "args": {
           "pattern": "*Controller.java"
@@ -743,105 +683,108 @@
         "result_head": "/igor-monitor-artifactory/src/main/java/com/netflix/spinnaker/igor/artifactory/ArtifactoryController.java\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/AbstractCommitController.java\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/gitlab/CommitController.java\n/igor-web/src/main/java/com/netflix/spinnaker/igor/artifacts/ArtifactController.java\n/igor-web/src/main/java/com/netflix/spinnaker/igor/ci/CiController.java\n/igor-web/src/main/java/com/netflix/spinnaker/igor/codebuild/AwsCodeBuildController.java\n/igor-web/src/main/java/com/netflix/spinnaker/igor/concourse/ConcourseController.java\n/igor-web/src/main/java/com/netflix/spinnaker/igor/gcb/GoogleCloudBuildController.java\n/igor-web/src/main/java/com/netflix/spinnaker/igor/nexus/NexusController.java\n/igor-web/src/main/java/com/netflix/spinnaker/igor/scm/ManagedDeliveryScmController.java"
       },
       {
-        "step": 3,
+        "step": 2,
         "tool": "find",
         "args": {
-          "pattern": "*.java",
-          "path": "/igor-web/src/main"
-        },
-        "result_head": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/artifacts/ArtifactExtractor.java\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/config/DockerRegistryProperties.java\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/config/GitLabConfig.java\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/config/GitLabProperties.java\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/config/GitlabCiConfig.java\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/config/GitlabCiProperties.java\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/config/LockManagerConfig.java\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/config/LockManagerConfigProperties.java\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/config/PluginMonitorConfig.java\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/config/client/DefaultJenkinsRetrofitRequestInterceptorProvider.java\n/igor-web/src/main/groovy/com/netflix/"
-      },
-      {
-        "step": 4,
-        "tool": "find",
-        "args": {
-          "pattern": "*Application*.java"
+          "pattern": "*Application.java"
         },
         "result_head": "(no files)"
       },
       {
+        "step": 3,
+        "tool": "grep",
+        "args": {
+          "pattern": "SpringBootApplication|public static void main"
+        },
+        "result_head": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/Main.groovy:21: import org.springframework.boot.autoconfigure.SpringBootApplication\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/Main.groovy:33: @SpringBootApplication("
+      },
+      {
+        "step": 3,
+        "tool": "read_file",
+        "args": {
+          "path": "/Dockerfile.slim"
+        },
+        "result_head": "1: FROM alpine:3.24\n2: LABEL maintainer=\"sig-platform@spinnaker.io\"\n3: RUN apk --no-cache add --update bash curl openjdk25-jre\n4: # Pick up the latest CA bundle and fail the build if the JVM still trusts emSign ECC Root CA - G3.\n5: RUN apk --no-cache upgrade && ! keytool -list -cacerts -storepass changeit | grep -qiE 'emsign.*ecc.*g3'\n6: RUN addgroup -S -g 10111 spinnaker\n7: RUN adduser -S -G spinnaker -u 10111 spinnaker\n8: COPY igor-web/build/install/igor /opt/igor\n9: RUN mkdir -p /opt/igor/plugins && chown -R spinnaker:nogroup /opt/igor/plugins\n10: USER spinnaker\n11: HEALTHCHECK CMD curl http://localhost:8088/health | grep UP || exit 1\n12: CMD [\"/opt/igor/bin/igor\"]"
+      },
+      {
         "step": 4,
         "tool": "read_file",
         "args": {
-          "path": "/igor-web/igor-web.gradle"
+          "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/ci/CiController.java"
         },
-        "result_head": "1: apply plugin: 'io.spinnaker.package'\n2: \n3: application.mainClass = 'com.netflix.spinnaker.igor.Main'\n4: \n5: test {\n6:   useJUnitPlatform()\n7: }\n8: \n9: \n10: dependencies {\n11:     implementation project(\":igor-core\")\n12:     implementation project(\":igor-monitor-artifactory\")\n13:     implementation project(\":igor-monitor-plugins\")\n14:     implementation project(\":igor-monitor-travis\")\n15: \n16:     implementation \"org.springframework.boot:spring-boot-starter-actuator\"\n17:     implementation \"org.springframework.boot:spring-boot-starter-webmvc\"\n18:     implementation \"org.springframework.boot:spring-boot-starter-groovy-templates\"\n19: \n20:     implementation \"javax.xml.bind:jaxb-api\"\n21:     implementation \"com.sun.xml.bind:jaxb-core:2.3.0.1\"\n22:     implementation \"com.sun.xml.bind:jaxb-impl:2.3.2\"\n23: \n24:     implementation \"com.vdurmont:semver4j\"\n25:     implementation \"commons-io:commons-io\"\n26: \n27:     testImplementation \"org.springframework.boot:spring-boot-starter-test\"\n28:   "
+        "result_head": "1: /*\n2:  * Copyright 2020 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.igor.ci;\n18: \n19: import com.netflix.spinnaker.igor.build.model.GenericBuild;\n20: import java.util.List;\n21: import java.util.Map;\n22: import java.util.Optional;\n23: import org.springframework.beans.factory.annotation.Autowired;\n24: import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;\n25:"
       },
       {
         "step": 4,
         "tool": "read_file",
         "args": {
-          "path": "/igor-monitor-artifactory/src/main/java/com/netflix/spinnaker/igor/artifactory/ArtifactoryController.java"
+          "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/artifacts/ArtifactController.java"
         },
-        "result_head": "1: /*\n2:  * Copyright 2019 Pivotal, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.igor.artifactory;\n18: \n19: import com.netflix.spinnaker.igor.artifactory.model.ArtifactorySearch;\n20: import com.netflix.spinnaker.igor.config.ArtifactoryProperties;\n21: import java.util.List;\n22: import java.util.stream.Collectors;\n23: import org.springframework.boot.autoconfigure.condition.ConditionalOnPropert"
+        "result_head": "1: /*\n2:  *\n3:  * Copyright 2019 Netflix, Inc.\n4:  *\n5:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n6:  * you may not use this file except in compliance with the License.\n7:  * You may obtain a copy of the License at\n8:  *\n9:  *   http://www.apache.org/licenses/LICENSE-2.0\n10:  *\n11:  * Unless required by applicable law or agreed to in writing, software\n12:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n13:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n14:  * See the License for the specific language governing permissions and\n15:  * limitations under the License.\n16:  *\n17:  */\n18: package com.netflix.spinnaker.igor.artifacts;\n19: \n20: import com.netflix.spinnaker.kork.artifacts.model.Artifact;\n21: import com.netflix.spinnaker.kork.web.exceptions.NotFoundException;\n22: import java.util.List;\n23: import org.springframework.beans.factory.annotation.Autowired;\n24: import org.springframework.web.bind.annotation.GetMa"
       },
       {
         "step": 5,
-        "tool": "find",
+        "tool": "record",
         "args": {
-          "pattern": "Main.*"
+          "json": "{\"services\":[{\"name\":\"igor\",\"dirs\":[\"/igor-web\",\"/igor-core\",\"/igor-integration\",\"/igor-monitor-artifactory\",\"/igor-monitor-plugins\",\"/igor-monitor-travis\",\"/igor-bom\"]}]}"
         },
-        "result_head": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/Main.groovy"
+        "result_head": "Recorded 1 new: service igor\nTotal: 1 services, 0 endpoints in 0 files.\nServices with no endpoints recorded yet: igor."
       },
       {
         "step": 5,
-        "tool": "grep",
+        "tool": "read_file",
         "args": {
-          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
-          "path": "/igor-integration"
+          "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/codebuild/AwsCodeBuildController.java"
         },
-        "result_head": "(no matches)"
+        "result_head": "1: /*\n2:  * Copyright 2020 Amazon.com, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.igor.codebuild;\n18: \n19: import com.fasterxml.jackson.databind.ObjectMapper;\n20: import com.netflix.spinnaker.kork.artifacts.model.Artifact;\n21: import java.util.List;\n22: import java.util.Map;\n23: import lombok.RequiredArgsConstructor;\n24: import org.springframework.boot.autoconfigure.condition.ConditionalOnPro"
       },
       {
         "step": 5,
-        "tool": "grep",
+        "tool": "read_file",
         "args": {
-          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
-          "path": "/igor-monitor-plugins"
+          "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/concourse/ConcourseController.java"
         },
-        "result_head": "(no matches)"
-      },
-      {
-        "step": 5,
-        "tool": "grep",
-        "args": {
-          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
-          "path": "/igor-monitor-travis"
-        },
-        "result_head": "(no matches)"
-      },
-      {
-        "step": 5,
-        "tool": "grep",
-        "args": {
-          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
-          "path": "/igor-core"
-        },
-        "result_head": "(no matches)"
+        "result_head": "1: /*\n2:  * Copyright 2019 Pivotal, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.igor.concourse;\n18: \n19: import static java.util.Collections.emptyList;\n20: \n21: import com.netflix.spinnaker.igor.concourse.client.model.Job;\n22: import com.netflix.spinnaker.igor.concourse.client.model.Pipeline;\n23: import com.netflix.spinnaker.igor.concourse.client.model.Team;\n24: import com.netflix.spinnaker"
       },
       {
         "step": 6,
-        "tool": "list_dir",
+        "tool": "record",
         "args": {
-          "path": "/igor-integration"
+          "json": "{\"files\":[\n{\"path\":\"/igor-web/src/main/java/com/netflix/spinnaker/igor/ci/CiController.java\",\"service\":\"igor\",\"endpoints\":[\n{\"className\":\"CiController\",\"methodName\":\"getBuilds\",\"httpMethod\":\"GET\",\"pat"
         },
-        "result_head": "igor-integration.gradle\nsrc/"
+        "result_head": "Recorded 14 new: GET /ci/builds, GET /ci/builds/{buildId}/output, GET /artifacts/{provider}/{name}, GET /artifacts/{provider}/{name}/{version:.+}, GET /codebuild/accounts, GET /codebuild/projects/{account}, POST /codebuild/builds/start/{account}, GET /codebuild/builds/{account}/{buildId}, GET /codebuild/builds/artifacts/{account}/{buildId}, POST /codebuild/builds/stop/{account}/{buildId}, GET /concourse/{buildMaster}/teams, GET /concourse/{buildMaster}/teams/{team}/pipelines, GET /concourse/{buildMaster}/teams/{team}/pipelines/{pipeline}/jobs, GET /concourse/{buildMaster}/teams/{team}/pipelines/{pipeline}/resources\nTotal: 1 services, 14 endpoints in 4 files."
       },
       {
         "step": 6,
         "tool": "read_file",
         "args": {
-          "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/Main.groovy"
+          "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/gcb/GoogleCloudBuildController.java"
         },
-        "result_head": "1: /*\n2:  * Copyright 2014 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.igor\n18: \n19: import com.netflix.spinnaker.kork.boot.DefaultPropertiesBuilder\n20: import com.netflix.spinnaker.kork.configserver.ConfigServerBootstrap\n21: import org.springframework.boot.autoconfigure.SpringBootApplication\n22: import org.springframework.boot.groovy.template.autoconfigure.GroovyTemplateAutoConfig"
+        "result_head": "1: /*\n2:  * Copyright 2019 Google, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.igor.gcb;\n18: \n19: import com.google.api.services.cloudbuild.v1.model.Build;\n20: import com.google.api.services.cloudbuild.v1.model.BuildTrigger;\n21: import com.google.api.services.cloudbuild.v1.model.RepoSource;\n22: import com.google.common.collect.Lists;\n23: import com.netflix.spinnaker.kork.artifacts.model.Artifa"
+      },
+      {
+        "step": 6,
+        "tool": "read_file",
+        "args": {
+          "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/nexus/NexusController.java"
+        },
+        "result_head": "1: /*\n2:  * Copyright 2019 Pivotal, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.igor.nexus;\n18: \n19: import com.netflix.spectator.api.Id;\n20: import com.netflix.spectator.api.Registry;\n21: import com.netflix.spinnaker.igor.config.NexusProperties;\n22: import com.netflix.spinnaker.igor.history.EchoService;\n23: import com.netflix.spinnaker.igor.nexus.model.NexusAssetWebhookPayload;\n24: import "
+      },
+      {
+        "step": 7,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/igor-web/src/main/java/com/netflix/spinnaker/igor/gcb/GoogleCloudBuildController.java\",\"service\":\"igor\",\"endpoints\":[\n{\"className\":\"GoogleCloudBuildController\",\"methodName\":\"getAc"
+        },
+        "result_head": "Recorded 11 new: GET /gcb/accounts, POST /gcb/builds/create/{account}, PUT /gcb/builds/{account}/{buildId}, GET /gcb/builds/{account}/{buildId}, GET /gcb/builds/{account}/{buildId}/artifacts, PUT /gcb/artifacts/extract/{account}, GET /gcb/triggers/{account}, POST /gcb/triggers/{account}/{triggerId}/run, POST /gcb/builds/stop/{account}/{buildId}, GET /nexus/names, POST /nexus/webhook\nTotal: 1 services, 25 endpoints in 6 files."
       },
       {
         "step": 7,
         "tool": "read_file",
         "args": {
-          "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java"
+          "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/scm/ManagedDeliveryScmController.java"
         },
-        "result_head": "1: /*\n2:  * Copyright 2018 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.igor.admin;\n17: \n18: import static java.lang.String.format;\n19: \n20: import com.netflix.spinnaker.igor.polling.CommonPollingMonitor;\n21: import com.netflix.spinnaker.igor.polling.PollingMonitor;\n22: import com.netflix.spinnaker.kork.web.exceptions.NotFoundException;\n23: import java.util.ArrayList;\n24: import java.util.L"
+        "result_head": "1: /*\n2:  * Copyright 2019 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.igor.scm;\n18: \n19: import com.netflix.spinnaker.kork.retrofit.exceptions.SpinnakerHttpException;\n20: import com.netflix.spinnaker.kork.retrofit.exceptions.SpinnakerServerException;\n21: import java.util.Collections;\n22: import java.util.List;\n23: import java.util.Map;\n24: import org.slf4j.Logger;\n25: import org.slf"
       },
       {
         "step": 7,
@@ -852,7 +795,7 @@
         "result_head": "1: /*\n2:  * Copyright 2015 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.igor.scm;\n18: \n19: import com.fasterxml.jackson.databind.ObjectMapper;\n20: import java.time.Instant;\n21: import java.util.Collections;\n22: import java.util.HashMap;\n23: import java.util.List;\n24: import java.util.Map;\n25: import java.util.concurrent.ExecutorService;\n26: import org.slf4j.Logger;\n27: import org.slf"
       },
       {
-        "step": 7,
+        "step": 8,
         "tool": "read_file",
         "args": {
           "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/gitlab/CommitController.java"
@@ -860,39 +803,38 @@
         "result_head": "1: /*\n2:  * Copyright 2017 bol.com\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.igor.scm.gitlab;\n18: \n19: import com.netflix.spinnaker.igor.config.GitLabProperties;\n20: import com.netflix.spinnaker.igor.scm.AbstractCommitController;\n21: import com.netflix.spinnaker.igor.scm.gitlab.client.GitLabMaster;\n22: import com.netflix.spinnaker.igor.scm.gitlab.client.model.CompareCommitsResponse;\n23: import "
       },
       {
-        "step": 7,
+        "step": 8,
         "tool": "read_file",
         "args": {
-          "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/artifacts/ArtifactController.java"
+          "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java"
         },
-        "result_head": "1: /*\n2:  *\n3:  * Copyright 2019 Netflix, Inc.\n4:  *\n5:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n6:  * you may not use this file except in compliance with the License.\n7:  * You may obtain a copy of the License at\n8:  *\n9:  *   http://www.apache.org/licenses/LICENSE-2.0\n10:  *\n11:  * Unless required by applicable law or agreed to in writing, software\n12:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n13:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n14:  * See the License for the specific language governing permissions and\n15:  * limitations under the License.\n16:  *\n17:  */\n18: package com.netflix.spinnaker.igor.artifacts;\n19: \n20: import com.netflix.spinnaker.kork.artifacts.model.Artifact;\n21: import com.netflix.spinnaker.kork.web.exceptions.NotFoundException;\n22: import java.util.List;\n23: import org.springframework.beans.factory.annotation.Autowired;\n24: import org.springframework.web.bind.annotation.GetMa"
+        "result_head": "1: /*\n2:  * Copyright 2018 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\")\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *   http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: package com.netflix.spinnaker.igor.admin;\n17: \n18: import static java.lang.String.format;\n19: \n20: import com.netflix.spinnaker.igor.polling.CommonPollingMonitor;\n21: import com.netflix.spinnaker.igor.polling.PollingMonitor;\n22: import com.netflix.spinnaker.kork.web.exceptions.NotFoundException;\n23: import java.util.ArrayList;\n24: import java.util.L"
       },
       {
         "step": 8,
-        "tool": "grep",
+        "tool": "read_file",
         "args": {
-          "path": "/igor-web/src/main",
-          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping"
+          "path": "/igor-monitor-artifactory/src/main/java/com/netflix/spinnaker/igor/artifactory/ArtifactoryController.java"
         },
-        "result_head": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java:33: @RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java:34: @RequestMapping(\"/admin\")\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java:56: @RequestMapping(value = \"/pollers/fastforward/{monitorName}\", method = RequestMethod.POST)\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:60: @RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:102: @RequestMapping(value = '/builds/status/{buildNumber}/{master:.+}/**')\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:112: @RequestMapping(value = '/builds/status/{buildNumber}/{master}')\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:122: @RequestMapping(value = '/builds/artifacts/{buildNumber}/{master:.+}/**')\n/igor-web/src/main/groovy/com/netflix/spin"
+        "result_head": "1: /*\n2:  * Copyright 2019 Pivotal, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *     http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: package com.netflix.spinnaker.igor.artifactory;\n18: \n19: import com.netflix.spinnaker.igor.artifactory.model.ArtifactorySearch;\n20: import com.netflix.spinnaker.igor.config.ArtifactoryProperties;\n21: import java.util.List;\n22: import java.util.stream.Collectors;\n23: import org.springframework.boot.autoconfigure.condition.ConditionalOnPropert"
       },
       {
         "step": 9,
         "tool": "grep",
         "args": {
-          "path": "/igor-web/src/main/java",
-          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping"
+          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
+          "path": "/"
         },
-        "result_head": "/igor-web/src/main/java/com/netflix/spinnaker/igor/artifacts/ArtifactController.java:34: @RestController\n/igor-web/src/main/java/com/netflix/spinnaker/igor/artifacts/ArtifactController.java:35: @RequestMapping(\"/artifacts\")\n/igor-web/src/main/java/com/netflix/spinnaker/igor/artifacts/ArtifactController.java:45: @GetMapping(\"/{provider}/{name}\")\n/igor-web/src/main/java/com/netflix/spinnaker/igor/artifacts/ArtifactController.java:55: @GetMapping(\"/{provider}/{name}/{version:.+}\")\n/igor-web/src/main/java/com/netflix/spinnaker/igor/ci/CiController.java:31: @RestController\n/igor-web/src/main/java/com/netflix/spinnaker/igor/ci/CiController.java:33: @RequestMapping(\"/ci\")\n/igor-web/src/main/java/com/netflix/spinnaker/igor/ci/CiController.java:43: @GetMapping(\"/builds\")\n/igor-web/src/main/java/com/netflix/spinnaker/igor/ci/CiController.java:53: @GetMapping(\"/builds/{buildId}/output\")\n/igor-web/src/main/java/com/netflix/spinnaker/igor/codebuild/AwsCodeBuildController.java:31: @RestController\n/i"
+        "result_head": "/igor-monitor-artifactory/src/main/java/com/netflix/spinnaker/igor/artifactory/ArtifactoryController.java:28: @RestController\n/igor-monitor-artifactory/src/main/java/com/netflix/spinnaker/igor/artifactory/ArtifactoryController.java:30: @RequestMapping(\"/artifactory\")\n/igor-monitor-artifactory/src/main/java/com/netflix/spinnaker/igor/artifactory/ArtifactoryController.java:39: @GetMapping(\"/names\")\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java:33: @RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java:34: @RequestMapping(\"/admin\")\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java:56: @RequestMapping(value = \"/pollers/fastforward/{monitorName}\", method = RequestMethod.POST)\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:60: @RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:102: @RequestMapping(value = '/"
       },
       {
-        "step": 9,
+        "step": 10,
         "tool": "grep",
         "args": {
-          "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm",
-          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping"
+          "pattern": "RestController|@Controller",
+          "path": "/"
         },
-        "result_head": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/AbstractCommitController.java:32: @RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/AbstractCommitController.java:43: @RequestMapping(\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/ScmInfoController.groovy:32: @RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/ScmInfoController.groovy:34: @RequestMapping(\"/scm\")\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/ScmInfoController.groovy:48: @RequestMapping(value = '/masters', method = RequestMethod.GET)\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/bitbucket/CommitController.groovy:37: @RestController(value = \"BitBucketCommitController\")\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/bitbucket/CommitController.groovy:39: @RequestMapping(\"/bitbucket\")\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/bitbucket/CommitController.groovy:47: @RequestMapping(method = RequestMethod.GET, value = '/{"
+        "result_head": "/igor-monitor-artifactory/src/main/java/com/netflix/spinnaker/igor/artifactory/ArtifactoryController.java:26: import org.springframework.web.bind.annotation.RestController;\n/igor-monitor-artifactory/src/main/java/com/netflix/spinnaker/igor/artifactory/ArtifactoryController.java:28: @RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java:33: @RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:48: import org.springframework.web.bind.annotation.RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:60: @RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/InfoController.groovy:34: import org.springframework.web.bind.annotation.RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/InfoController.groovy:42: @RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/AbstractCommitController.java:32: @RestControl"
       },
       {
         "step": 10,
@@ -902,15 +844,6 @@
           "start": "55"
         },
         "result_head": "55: \n56: import static net.logstash.logback.argument.StructuredArguments.kv\n57: import static org.springframework.http.HttpStatus.NOT_FOUND\n58: \n59: @Slf4j\n60: @RestController\n61: class BuildController {\n62:   private BuildServices buildServices\n63:   private BuildArtifactFilter buildArtifactFilter\n64:   private ArtifactDecorator artifactDecorator\n65:   private ArtifactExtractor artifactExtractor\n66:   private PendingOperationsCache pendingOperationsCache\n67: \n68:   BuildController(BuildServices buildServices,\n69:                   PendingOperationsCache pendingOperationsCache,\n70:                   Optional<BuildArtifactFilter> buildArtifactFilter,\n71:                   Optional<ArtifactDecorator> artifactDecorator,\n72:                   Optional<ArtifactExtractor> artifactExtractor) {\n73:     this.buildServices = buildServices\n74:     this.pendingOperationsCache = pendingOperationsCache\n75:     this.buildArtifactFilter = buildArtifactFilter.orElse(null)\n76:     this.artifactDecorator"
-      },
-      {
-        "step": 10,
-        "tool": "read_file",
-        "args": {
-          "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/InfoController.groovy",
-          "start": "40"
-        },
-        "result_head": "40:  * A controller that provides jenkins information\n41:  */\n42: @RestController\n43: @Slf4j\n44: class InfoController {\n45: \n46:     @Autowired\n47:     BuildCache buildCache\n48: \n49:     @Autowired\n50:     BuildServices buildServices\n51: \n52:     @Autowired(required = false)\n53:     GoogleCloudBuildProperties gcbProperties\n54: \n55:     @RequestMapping(value = ['/masters', '/masters/'], method = RequestMethod.GET)\n56:     @PostFilter(\"hasPermission(filterObject, 'BUILD_SERVICE', 'READ')\")\n57:     List<String> listMasters(@RequestParam(value = \"type\", defaultValue = \"\") String type) {\n58: \n59:         BuildServiceProvider providerType = (type == \"\") ? null : BuildServiceProvider.valueOf(type.toUpperCase())\n60:         //Filter by provider type if it is specified\n61:         if (providerType) {\n62:             return buildServices.getServiceNames(providerType)\n63:         } else {\n64:             return buildServices.getServiceNames()\n65:         }\n66:     }\n67: \n68:     @RequestMapping(v"
       },
       {
         "step": 11,
@@ -926,72 +859,35 @@
         "tool": "read_file",
         "args": {
           "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy",
-          "start": "320"
+          "start": "300"
         },
-        "result_head": "320:       key = key + \":\" + parameterDefinition.key + \"=\" + parameterDefinition.value\n321:     }\n322: \n323:     return key\n324:   }\n325: \n326:   @RequestMapping(value = '/builds/properties/{buildNumber}/{fileName}/{master:.+}/**')\n327:   @PreAuthorize(\"hasPermission(#master, 'BUILD_SERVICE', 'READ')\")\n328:   Map<String, Object> getProperties(\n329:     @PathVariable String master,\n330:     @PathVariable Long buildNumber, @PathVariable\n331:       String fileName, HttpServletRequest request) {\n332:     def job = ((String) request.getAttribute(\n333:       HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE)).split('/').drop(6).join('/')\n334:     def buildService = getBuildService(master)\n335:     if (buildService instanceof BuildProperties) {\n336:       BuildProperties buildProperties = (BuildProperties) buildService\n337:       def genericBuild = buildService.getGenericBuild(job, buildNumber)\n338:       return buildProperties.getBuildProperties(job, genericBuild, fileName)\n339:     }\n340"
+        "result_head": "300:     jobConfig.parameterDefinitionList.each { parameterDefinition ->\n301:       String matchingParam = requestParams[parameterDefinition.name]\n302:       if (matchingParam != null &&\n303:         parameterDefinition.type == 'ChoiceParameterDefinition' &&\n304:         parameterDefinition.choices != null &&\n305:         !parameterDefinition.choices.contains(matchingParam)) {\n306:         throw new InvalidJobParameterException(\"`${matchingParam}` is not a valid choice \" +\n307:           \"for `${parameterDefinition.name}`. Valid choices are: ${parameterDefinition.choices.join(', ')}\")\n308:       }\n309:     }\n310:   }\n311: \n312:   static String computePendingBuildKey(String master, String job, Map<String, String> requestParams, String startTime) {\n313:     String key = master + \":\" + job + \":\" + AuthenticatedRequest.getSpinnakerExecutionId().orElse(\"NO_EXECUTION_ID\")\n314: \n315:     if (startTime != null && !startTime.isEmpty()) {\n316:       key = key + \":startTime=\" + startTime\n317:    "
       },
       {
-        "step": 12,
+        "step": 13,
+        "tool": "record",
+        "args": {
+          "json": "{\"files\":[\n{\"path\":\"/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy\",\"service\":\"igor\",\"endpoints\":[\n{\"className\":\"BuildController\",\"methodName\":\"getJobStatus\",\"httpMe"
+        },
+        "result_head": "Recorded 18 new: ANY /builds/status/{buildNumber}/{master:.+}/**, ANY /builds/status/{buildNumber}/{master}, ANY /builds/artifacts/{buildNumber}/{master:.+}/**, ANY /builds/artifacts/{buildNumber}/{master}, ANY /builds/queue/{master}/{item}, ANY /builds/all/{master:.+}/**, ANY /builds/all/{master:.+}, PUT /masters/{name}/jobs/{jobName}/stop/{queuedBuild}/{buildNumber}, PUT /masters/{master:.+}/jobs/stop/{queuedBuild}/{buildNumber}, PATCH /masters/{name}/jobs/**/update/{buildNumber}, PUT /masters/{name}/jobs/**, ANY /builds/properties/{buildNumber}/{fileName}/{master:.+}/**, ANY /builds/properties/{buildNumber}/{fileName}/{master}, POST /admin/pollers/fastforward/{monitorName}, GET /artifactory/names, GET /delivery-config/manifests, GET /delivery-config/manifest, GET /gitlab/{projectKey}/{repositorySlug}/compareCommits\nTotal: 1 services, 43 endpoints in 11 files."
+      },
+      {
+        "step": 13,
+        "tool": "read_file",
+        "args": {
+          "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/InfoController.groovy",
+          "start": "40"
+        },
+        "result_head": "40:  * A controller that provides jenkins information\n41:  */\n42: @RestController\n43: @Slf4j\n44: class InfoController {\n45: \n46:     @Autowired\n47:     BuildCache buildCache\n48: \n49:     @Autowired\n50:     BuildServices buildServices\n51: \n52:     @Autowired(required = false)\n53:     GoogleCloudBuildProperties gcbProperties\n54: \n55:     @RequestMapping(value = ['/masters', '/masters/'], method = RequestMethod.GET)\n56:     @PostFilter(\"hasPermission(filterObject, 'BUILD_SERVICE', 'READ')\")\n57:     List<String> listMasters(@RequestParam(value = \"type\", defaultValue = \"\") String type) {\n58: \n59:         BuildServiceProvider providerType = (type == \"\") ? null : BuildServiceProvider.valueOf(type.toUpperCase())\n60:         //Filter by provider type if it is specified\n61:         if (providerType) {\n62:             return buildServices.getServiceNames(providerType)\n63:         } else {\n64:             return buildServices.getServiceNames()\n65:         }\n66:     }\n67: \n68:     @RequestMapping(v"
+      },
+      {
+        "step": 13,
         "tool": "read_file",
         "args": {
           "path": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/ScmInfoController.groovy",
           "start": "30"
         },
         "result_head": "30:  * A controller that provides Source Control information\n31:  */\n32: @RestController\n33: @Slf4j\n34: @RequestMapping(\"/scm\")\n35: class ScmInfoController {\n36:     @Autowired(required = false)\n37:     StashMaster stashMaster\n38: \n39:     @Autowired(required = false)\n40:     GitHubMaster gitHubMaster\n41: \n42:     @Autowired(required = false)\n43:     GitLabMaster gitLabMaster\n44: \n45:     @Autowired(required = false)\n46:     BitBucketMaster bitBucketMaster\n47: \n48:     @RequestMapping(value = '/masters', method = RequestMethod.GET)\n49:     Map listMasters() {\n50:         def result = [:]\n51:         if(stashMaster)\n52:             result << [stash : stashMaster.baseUrl]\n53: \n54:         if(gitHubMaster)\n55:             result << [gitHub : gitHubMaster.baseUrl]\n56: \n57:         if(gitLabMaster)\n58:             result << [gitLab : gitLabMaster.baseUrl]\n59: \n60:         if(bitBucketMaster)\n61:             result << [bitBucket : bitBucketMaster.baseUrl]\n62:         result\n63:     }\n64: }"
-      },
-      {
-        "step": 13,
-        "tool": "read_file",
-        "args": {
-          "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/ci/CiController.java",
-          "start": "28"
-        },
-        "result_head": "28: import org.springframework.web.bind.annotation.RequestParam;\n29: import org.springframework.web.bind.annotation.RestController;\n30: \n31: @RestController\n32: @ConditionalOnProperty(\"services.ci.enabled\")\n33: @RequestMapping(\"/ci\")\n34: public class CiController {\n35: \n36:   private Optional<CiBuildService> ciBuildService;\n37: \n38:   @Autowired\n39:   public CiController(Optional<CiBuildService> ciBuildService) {\n40:     this.ciBuildService = ciBuildService;\n41:   }\n42: \n43:   @GetMapping(\"/builds\")\n44:   public List<GenericBuild> getBuilds(\n45:       @RequestParam(value = \"projectKey\", required = false) String projectKey,\n46:       @RequestParam(value = \"repoSlug\", required = false) String repoSlug,\n47:       @RequestParam(value = \"buildNumber\", required = false) String buildNumber,\n48:       @RequestParam(value = \"commitId\", required = false) String commitId,\n49:       @RequestParam(value = \"completionStatus\", required = false) String completionStatus) {\n50:     return getCiService()"
-      },
-      {
-        "step": 13,
-        "tool": "read_file",
-        "args": {
-          "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/codebuild/AwsCodeBuildController.java",
-          "start": "28"
-        },
-        "result_head": "28: import software.amazon.awssdk.services.codebuild.model.StartBuildRequest;\n29: \n30: @ConditionalOnProperty(\"codebuild.enabled\")\n31: @RestController\n32: @RequiredArgsConstructor\n33: @RequestMapping(value = \"/codebuild\")\n34: public class AwsCodeBuildController {\n35:   private final AwsCodeBuildAccountRepository awsCodeBuildAccountRepository;\n36:   private final ObjectMapper objectMapper = new ObjectMapper();\n37: \n38:   @RequestMapping(value = \"/accounts\", method = RequestMethod.GET)\n39:   List<String> getAccounts() {\n40:     return awsCodeBuildAccountRepository.getAccountNames();\n41:   }\n42: \n43:   @RequestMapping(value = \"/projects/{account}\", method = RequestMethod.GET)\n44:   List<String> getProjects(@PathVariable String account) {\n45:     return awsCodeBuildAccountRepository.getAccount(account).getProjects();\n46:   }\n47: \n48:   @RequestMapping(\n49:       value = \"/builds/start/{account}\",\n50:       method = RequestMethod.POST,\n51:       consumes = MediaType.APPLICATION_JSON_VALUE)\n"
-      },
-      {
-        "step": 13,
-        "tool": "read_file",
-        "args": {
-          "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/concourse/ConcourseController.java",
-          "start": "33"
-        },
-        "result_head": "33: import org.springframework.web.bind.annotation.RestController;\n34: \n35: @RestController\n36: @ConditionalOnProperty(\"concourse.enabled\")\n37: @RequestMapping(\"/concourse\")\n38: public class ConcourseController {\n39:   private final BuildServices buildServices;\n40: \n41:   public ConcourseController(BuildServices buildServices) {\n42:     this.buildServices = buildServices;\n43:   }\n44: \n45:   @GetMapping(\"/{buildMaster}/teams\")\n46:   public List<String> getTeams(@PathVariable(\"buildMaster\") String buildMaster) {\n47:     return getService(buildMaster)\n48:         .map(\n49:             service ->\n50:                 service.teams().stream().map(Team::getName).sorted().collect(Collectors.toList()))\n51:         .orElse(emptyList());\n52:   }\n53: \n54:   @GetMapping(\"/{buildMaster}/teams/{team}/pipelines\")\n55:   public List<String> getPipelines(\n56:       @PathVariable(\"buildMaster\") String buildMaster, @PathVariable(\"team\") String team) {\n57:     return getService(buildMaster)\n58:         .map"
-      },
-      {
-        "step": 13,
-        "tool": "read_file",
-        "args": {
-          "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/gcb/GoogleCloudBuildController.java",
-          "start": "30"
-        },
-        "result_head": "30: import org.springframework.web.bind.annotation.*;\n31: import retrofit2.http.Query;\n32: \n33: @ConditionalOnProperty(\"gcb.enabled\")\n34: @RestController\n35: @RequiredArgsConstructor\n36: @RequestMapping(value = \"/gcb\")\n37: public class GoogleCloudBuildController {\n38:   private final GoogleCloudBuildAccountRepository googleCloudBuildAccountRepository;\n39:   private final GoogleCloudBuildParser googleCloudBuildParser;\n40: \n41:   @RequestMapping(value = \"/accounts\", method = RequestMethod.GET)\n42:   @PostFilter(\"hasPermission(filterObject, 'BUILD_SERVICE', 'READ')\")\n43:   public List<String> getAccounts() {\n44:     return Lists.newArrayList(googleCloudBuildAccountRepository.getAccounts());\n45:   }\n46: \n47:   @RequestMapping(\n48:       value = \"/builds/create/{account}\",\n49:       method = RequestMethod.POST,\n50:       consumes = MediaType.APPLICATION_JSON_VALUE)\n51:   @PreAuthorize(\"hasPermission(#account, 'BUILD_SERVICE', 'WRITE')\")\n52:   public Build createBuild(@PathVariable String ac"
-      },
-      {
-        "step": 14,
-        "tool": "read_file",
-        "args": {
-          "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/nexus/NexusController.java",
-          "start": "30"
-        },
-        "result_head": "30: import org.springframework.web.bind.annotation.GetMapping;\n31: import org.springframework.web.bind.annotation.PostMapping;\n32: import org.springframework.web.bind.annotation.RequestBody;\n33: import org.springframework.web.bind.annotation.RequestMapping;\n34: import org.springframework.web.bind.annotation.RestController;\n35: \n36: @RestController\n37: @ConditionalOnProperty(\"nexus.enabled\")\n38: @RequestMapping(\"/nexus\")\n39: @Slf4j\n40: public class NexusController {\n41: \n42:   private final NexusProperties nexusProperties;\n43:   private final Optional<EchoService> echoService;\n44:   private final Registry registry;\n45:   private final Id missedNotificationId;\n46: \n47:   public NexusController(\n48:       NexusProperties nexusProperties, Optional<EchoService> echoService, Registry registry) {\n49:     this.nexusProperties = nexusProperties;\n50:     this.echoService = echoService;\n51:     this.registry = registry;\n52: \n53:     missedNotificationId = registry.createId(\"webhook.missedEchoNoti"
-      },
-      {
-        "step": 14,
-        "tool": "read_file",
-        "args": {
-          "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/scm/ManagedDeliveryScmController.java",
-          "start": "28"
-        },
-        "result_head": "28: import org.springframework.web.bind.annotation.GetMapping;\n29: import org.springframework.web.bind.annotation.RequestParam;\n30: import org.springframework.web.bind.annotation.RestController;\n31: \n32: /** Exposes APIs to retrieve Managed Delivery declarative manifests from source control repos. */\n33: @RestController\n34: public class ManagedDeliveryScmController {\n35:   private static final Logger log = LoggerFactory.getLogger(AbstractCommitController.class);\n36: \n37:   private final ManagedDeliveryScmService mdScmService;\n38: \n39:   public ManagedDeliveryScmController(ManagedDeliveryScmService mdScmService) {\n40:     this.mdScmService = mdScmService;\n41:   }\n42: \n43:   /**\n44:    * Given details about a supported git source control repository, and optional filters for a\n45:    * sub-directory within the repo, the file extensions to look for, and the specific git reference\n46:    * to use, returns a list of (potential) Managed Delivery config manifests found at that location.\n47:   "
       },
       {
         "step": 14,
@@ -1022,76 +918,71 @@
       },
       {
         "step": 15,
-        "tool": "grep",
+        "tool": "record",
         "args": {
-          "pattern": "@Path\\(|RouterFunction|@ServerEndpoint|@WebServlet|@WebFilter",
-          "path": "/"
+          "json": "{\"files\":[\n{\"path\":\"/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/InfoController.groovy\",\"service\":\"igor\",\"endpoints\":[\n{\"className\":\"InfoController\",\"methodName\":\"listMasters\",\"httpMetho"
         },
-        "result_head": "/igor-monitor-travis/src/main/java/com/netflix/spinnaker/igor/travis/client/TravisClient.java:67: @Path(\"repoSlug\") String repoSlug,\n/igor-monitor-travis/src/main/java/com/netflix/spinnaker/igor/travis/client/TravisClient.java:77: @Header(\"Authorization\") String accessToken, @Path(\"jobId\") int jobId);\n/igor-monitor-travis/src/main/java/com/netflix/spinnaker/igor/travis/client/TravisClient.java:83: @Path(\"build_id\") long buildId,\n/igor-monitor-travis/src/main/java/com/netflix/spinnaker/igor/travis/client/TravisClient.java:90: @Path(\"repository_id\") long repositoryId,\n/igor-monitor-travis/src/main/java/com/netflix/spinnaker/igor/travis/client/TravisClient.java:98: @Path(\"repository_slug\") String repositorySlug,\n/igor-monitor-travis/src/main/java/com/netflix/spinnaker/igor/travis/client/TravisClient.java:106: @Path(\"repository_slug\") String repositorySlug,\n/igor-monitor-travis/src/main/java/com/netflix/spinnaker/igor/travis/client/TravisClient.java:115: @Path(\"repository_slug\") String rep"
+        "result_head": "Recorded 8 new: GET /masters, GET /buildServices, GET /jobs/{master:.+}, ANY /jobs/{master}/**, GET /scm/masters, GET /bitbucket/{projectKey}/{repositorySlug}/compareCommits, GET /github/{projectKey}/{repositorySlug}/compareCommits, GET /stash/{projectKey}/{repositorySlug}/compareCommits\nTotal: 1 services, 51 endpoints in 16 files."
       },
       {
         "step": 15,
         "tool": "grep",
         "args": {
-          "pattern": "@RestController|@Controller|@RequestMapping|@GetMapping|@PostMapping",
-          "path": "/igor-monitor-artifactory"
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping|@Path\\(|@GET|@POST",
+          "path": "/igor-monitor-plugins"
         },
-        "result_head": "/igor-monitor-artifactory/src/main/java/com/netflix/spinnaker/igor/artifactory/ArtifactoryController.java:28: @RestController\n/igor-monitor-artifactory/src/main/java/com/netflix/spinnaker/igor/artifactory/ArtifactoryController.java:30: @RequestMapping(\"/artifactory\")\n/igor-monitor-artifactory/src/main/java/com/netflix/spinnaker/igor/artifactory/ArtifactoryController.java:39: @GetMapping(\"/names\")"
+        "result_head": "/igor-monitor-plugins/src/main/java/com/netflix/spinnaker/igor/plugins/front50/Front50Service.java:25: @GET(\"pluginInfo\")"
+      },
+      {
+        "step": 15,
+        "tool": "grep",
+        "args": {
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping|@PutMapping|@DeleteMapping|@PatchMapping",
+          "path": "/igor-monitor-travis"
+        },
+        "result_head": "(no matches)"
       },
       {
         "step": 16,
-        "tool": "read_file",
+        "tool": "grep",
         "args": {
-          "path": "/igor-integration/igor-integration.gradle"
+          "pattern": "HttpServlet|RouterFunction|@ServerEndpoint|WebMvcConfigurer|addViewController"
         },
-        "result_head": "1: dependencies {\n2:   testImplementation \"com.fasterxml.jackson.core:jackson-databind\"\n3:   testImplementation \"org.assertj:assertj-core\"\n4:   testImplementation \"org.junit.jupiter:junit-jupiter-api\"\n5:   testImplementation \"org.slf4j:slf4j-api\"\n6:   testImplementation \"org.testcontainers:testcontainers\"\n7:   testImplementation \"org.testcontainers:testcontainers-junit-jupiter\"\n8:   testRuntimeOnly \"ch.qos.logback:logback-classic\"\n9: }\n10: \n11: test.configure {\n12:   def fullDockerImageName = System.getenv('FULL_DOCKER_IMAGE_NAME')\n13:   onlyIf(\"there is a docker image to test\") {\n14:     fullDockerImageName != null && fullDockerImageName.trim() != ''\n15:   }\n16: }\n17: \n18: test {\n19:   // So stdout and stderr from the just-built container are available in CI\n20:   testLogging.showStandardStreams = true\n21: \n22:   // Run the tests when the docker image changes\n23:   inputs.property 'fullDockerImageName', System.getenv('FULL_DOCKER_IMAGE_NAME')\n24: }"
+        "result_head": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:54: import jakarta.servlet.http.HttpServletRequest\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:105: Long buildNumber, HttpServletRequest request) {\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:125: Long buildNumber, @Query(\"propertyFile\") String propertyFile, HttpServletRequest request) {\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:160: List<Object> getBuilds(@PathVariable String master, HttpServletRequest request) {\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:223: HttpServletRequest request\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:241: HttpServletRequest request) {\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:331: String fileName, HttpServletRequest request) {\n/igor-web/src/main/"
       },
       {
         "step": 16,
-        "tool": "read_file",
+        "tool": "grep",
         "args": {
-          "path": "/igor-bom/igor-bom.gradle"
+          "pattern": "@RequestMapping|@GetMapping|@PostMapping",
+          "path": "/igor-core"
         },
-        "result_head": "1: /*\n2:  * Copyright 2019 Netflix, Inc.\n3:  *\n4:  * Licensed under the Apache License, Version 2.0 (the \"License\");\n5:  * you may not use this file except in compliance with the License.\n6:  * You may obtain a copy of the License at\n7:  *\n8:  *    http://www.apache.org/licenses/LICENSE-2.0\n9:  *\n10:  * Unless required by applicable law or agreed to in writing, software\n11:  * distributed under the License is distributed on an \"AS IS\" BASIS,\n12:  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n13:  * See the License for the specific language governing permissions and\n14:  * limitations under the License.\n15:  */\n16: \n17: apply plugin: \"java-platform\"\n18: \n19: javaPlatform {\n20:   allowDependencies()\n21: }\n22: \n23: \n24: dependencies {\n25:   api(enforcedPlatform(\"io.spinnaker.kork:kork-bom\"))\n26: \n27:   constraints {\n28:     api(\"io.spinnaker.fiat:fiat-api\")\n29:     api(\"io.spinnaker.fiat:fiat-core\")\n30: \n31:     rootProject\n32:       .subprojects\n33:       .fi"
+        "result_head": "(no matches)"
       },
       {
         "step": 17,
-        "tool": "record",
+        "tool": "read_file",
         "args": {
-          "json": "{\"services\":[{\"name\":\"igor-web\",\"dirs\":[\"/igor-web\",\"/igor-core\",\"/igor-monitor-artifactory\",\"/igor-monitor-plugins\",\"/igor-monitor-travis\"]}]}"
+          "path": "/igor-web/src/main/java/com/netflix/spinnaker/igor/config/IgorConfig.java",
+          "start": "50"
         },
-        "result_head": "Recorded 1 new: service igor-web\nTotal: 1 services, 0 endpoints in 0 files.\nServices with no endpoints recorded yet: igor-web."
+        "result_head": "50: @EnableFiatAutoConfig\n51: @EnableScheduling\n52: @Import(PluginsAutoConfiguration.class)\n53: public class IgorConfig implements WebMvcConfigurer {\n54: \n55:   @Override\n56:   public void configurePathMatch(PathMatchConfigurer configurer) {\n57:     configurer.setPatternParser(null); // Disable PathPatternParser to use AntPathMatcher\n58:   }\n59: \n60:   private final Registry registry;\n61: \n62:   public IgorConfig(Registry registry) {\n63:     this.registry = registry;\n64:   }\n65: \n66:   @Override\n67:   public void addInterceptors(InterceptorRegistry registry) {\n68:     registry.addInterceptor(\n69:         new MetricsInterceptor(\n70:             this.registry,\n71:             \"controller.invocations\",\n72:             Collections.singletonList(\"master\"),\n73:             null,\n74:             Collections.singletonList(\"BasicErrorController\")));\n75:   }\n76: \n77:   @Bean\n78:   public FilterRegistrationBean<AuthenticatedRequestFilter> authenticatedRequestFilter() {\n79:     FilterRegistrationB"
+      },
+      {
+        "step": 17,
+        "tool": "grep",
+        "args": {
+          "pattern": "context-path|contextPath|server.port"
+        },
+        "result_head": "/igor-web/config/igor.yml:21: server.port: 8088"
       },
       {
         "step": 18,
-        "tool": "record",
-        "args": {
-          "json": "{\"files\":[\n{\"path\":\"/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java\",\"service\":\"igor-web\",\"endpoints\":[{\"className\":\"AdminController\",\"methodName\":\"fastForward\",\"httpMe"
-        },
-        "result_head": "Recorded 54 new: POST /admin/pollers/fastforward/{monitorName}, ANY /builds/status/{buildNumber}/{master:.+}/**, ANY /builds/status/{buildNumber}/{master}, ANY /builds/artifacts/{buildNumber}/{master:.+}/**, ANY /builds/artifacts/{buildNumber}/{master}, ANY /builds/queue/{master}/{item}, ANY /builds/all/{master:.+}/**, ANY /builds/all/{master:.+}, PUT /masters/{name}/jobs/{jobName}/stop/{queuedBuild}/{buildNumber}, PUT /masters/{master:.+}/jobs/stop/{queuedBuild}/{buildNumber}, PATCH /masters/{name}/jobs/**/update/{buildNumber}, PUT /masters/{name}/jobs/**, ANY /builds/properties/{buildNumber}/{fileName}/{master:.+}/**, ANY /builds/properties/{buildNumber}/{fileName}/{master}, GET /masters, GET /masters/, GET /buildServices, GET /jobs/{master:.+}, GET /jobs/{master:.+}/, ANY /jobs/{master}/**, GET /scm/masters, GET /{projectKey}/{repositorySlug}/compareCommits, GET /gitlab/{projectKey}/{repositorySlug}/compareCommits, GET /bitbucket/{projectKey}/{repositorySlug}/compareCommits, GET /gi"
-      },
-      {
-        "step": 19,
-        "tool": "record",
-        "args": {
-          "json": "{\"files\":[{\"path\":\"/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/InfoController.groovy\",\"service\":\"igor-web\",\"endpoints\":[{\"className\":\"InfoController\",\"methodName\":\"getAllBuildServices\","
-        },
-        "result_head": "Recorded 1 new: GET /buildServices/\nTotal: 1 services, 55 endpoints in 17 files."
-      },
-      {
-        "step": 20,
-        "tool": "grep",
-        "args": {
-          "path": "/igor-web/src/main/groovy",
-          "pattern": "@RestController|@Controller"
-        },
-        "result_head": "/igor-web/src/main/groovy/com/netflix/spinnaker/igor/admin/AdminController.java:33: @RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/BuildController.groovy:60: @RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/build/InfoController.groovy:42: @RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/AbstractCommitController.java:32: @RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/ScmInfoController.groovy:32: @RestController\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/bitbucket/CommitController.groovy:37: @RestController(value = \"BitBucketCommitController\")\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/github/CommitController.groovy:38: @RestController(value = \"GitHubCommitController\")\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/gitlab/CommitController.java:38: @RestController(value = \"GitLabCommitController\")\n/igor-web/src/main/groovy/com/netflix/spinnaker/igor/scm/s"
-      },
-      {
-        "step": 21,
         "tool": "submit",
-        "args": {},
-        "result_head": "[ACCEPTED] 1 services, 55 endpoints."
+        "args": {
+          "json": "{\"services\":[{\"name\":\"igor\",\"dirs\":[\"/igor-web\",\"/igor-core\",\"/igor-integration\",\"/igor-monitor-artifactory\",\"/igor-monitor-plugins\",\"/igor-monitor-travis\",\"/igor-bom\"]}]}"
+        },
+        "result_head": "Recorded 1 new: service igor\nTotal: 1 services, 51 endpoints in 16 files.\n[ACCEPTED] 1 services, 51 endpoints."
       }
     ]
   }
